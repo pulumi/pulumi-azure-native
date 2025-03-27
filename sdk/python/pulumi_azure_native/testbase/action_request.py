@@ -104,7 +104,7 @@ class ActionRequest(pulumi.CustomResource):
                  test_base_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-11-01-preview.
+        Uses Azure REST API version 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +118,7 @@ class ActionRequest(pulumi.CustomResource):
                  args: ActionRequestArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-11-01-preview.
+        Uses Azure REST API version 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ActionRequestArgs args: The arguments to use to populate this resource's properties.

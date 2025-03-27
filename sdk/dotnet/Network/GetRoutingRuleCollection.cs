@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a network manager routing configuration rule collection.
-        /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Uses Azure REST API version 2024-03-01.
         /// 
         /// Other available API versions: 2024-05-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// Gets a network manager routing configuration rule collection.
-        /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Uses Azure REST API version 2024-03-01.
         /// 
         /// Other available API versions: 2024-05-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// Gets a network manager routing configuration rule collection.
-        /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Uses Azure REST API version 2024-03-01.
         /// 
         /// Other available API versions: 2024-05-01.
         /// </summary>

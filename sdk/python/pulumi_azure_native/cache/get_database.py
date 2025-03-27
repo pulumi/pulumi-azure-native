@@ -200,7 +200,8 @@ def get_database(cluster_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Gets information about a database in a RedisEnterprise cluster.
-    Azure REST API version: 2023-03-01-preview.
+
+    Uses Azure REST API version 2023-03-01-preview.
 
     Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01.
 
@@ -236,7 +237,8 @@ def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Gets information about a database in a RedisEnterprise cluster.
-    Azure REST API version: 2023-03-01-preview.
+
+    Uses Azure REST API version 2023-03-01-preview.
 
     Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01.
 

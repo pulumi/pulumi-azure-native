@@ -225,7 +225,8 @@ def get_azure_large_instance(azure_large_instance_name: Optional[str] = None,
     """
     Gets an Azure Large Instance for the specified subscription, resource group,
     and instance name.
-    Azure REST API version: 2024-08-01-preview.
+
+    Uses Azure REST API version 2024-08-01-preview.
 
 
     :param str azure_large_instance_name: Name of the AzureLargeInstance.
@@ -259,7 +260,8 @@ def get_azure_large_instance_output(azure_large_instance_name: Optional[pulumi.I
     """
     Gets an Azure Large Instance for the specified subscription, resource group,
     and instance name.
-    Azure REST API version: 2024-08-01-preview.
+
+    Uses Azure REST API version 2024-08-01-preview.
 
 
     :param str azure_large_instance_name: Name of the AzureLargeInstance.

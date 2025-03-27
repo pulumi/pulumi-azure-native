@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.EdgeOrder
     {
         /// <summary>
         /// Get an order item.
-        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-05-01-preview.
         /// 
         /// Other available API versions: 2024-02-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.EdgeOrder
 
         /// <summary>
         /// Get an order item.
-        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-05-01-preview.
         /// 
         /// Other available API versions: 2024-02-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.EdgeOrder
 
         /// <summary>
         /// Get an order item.
-        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-05-01-preview.
         /// 
         /// Other available API versions: 2024-02-01.
         /// </summary>

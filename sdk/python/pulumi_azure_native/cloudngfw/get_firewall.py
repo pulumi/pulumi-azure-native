@@ -247,7 +247,8 @@ def get_firewall(firewall_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallResult:
     """
     Get a FirewallResource
-    Azure REST API version: 2023-09-01.
+
+    Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
@@ -284,7 +285,8 @@ def get_firewall_output(firewall_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallResult]:
     """
     Get a FirewallResource
-    Azure REST API version: 2023-09-01.
+
+    Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 

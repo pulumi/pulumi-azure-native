@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Automanage
     {
         /// <summary>
         /// Get information about a configuration profile assignment
-        /// Azure REST API version: 2022-05-04.
+        /// 
+        /// Uses Azure REST API version 2022-05-04.
         /// </summary>
         public static Task<GetConfigurationProfileAssignmentResult> InvokeAsync(GetConfigurationProfileAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileAssignmentResult>("azure-native:automanage:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a configuration profile assignment
-        /// Azure REST API version: 2022-05-04.
+        /// 
+        /// Uses Azure REST API version 2022-05-04.
         /// </summary>
         public static Output<GetConfigurationProfileAssignmentResult> Invoke(GetConfigurationProfileAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileAssignmentResult>("azure-native:automanage:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a configuration profile assignment
-        /// Azure REST API version: 2022-05-04.
+        /// 
+        /// Uses Azure REST API version 2022-05-04.
         /// </summary>
         public static Output<GetConfigurationProfileAssignmentResult> Invoke(GetConfigurationProfileAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileAssignmentResult>("azure-native:automanage:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentInvokeArgs(), options.WithDefaults());

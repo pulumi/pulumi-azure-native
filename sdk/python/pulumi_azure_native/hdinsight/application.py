@@ -118,7 +118,8 @@ class Application(pulumi.CustomResource):
                  __props__=None):
         """
         The HDInsight cluster application
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2018-06-01-preview.
+
+        Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01-preview.
 
         Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
 
@@ -138,7 +139,8 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The HDInsight cluster application
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2018-06-01-preview.
+
+        Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01-preview.
 
         Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
 

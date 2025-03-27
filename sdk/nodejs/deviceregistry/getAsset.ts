@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Asset
- * Azure REST API version: 2023-11-01-preview.
+ *
+ * Uses Azure REST API version 2023-11-01-preview.
  *
  * Other available API versions: 2024-09-01-preview, 2024-11-01.
  */
@@ -159,7 +160,8 @@ export interface GetAssetResult {
 }
 /**
  * Get a Asset
- * Azure REST API version: 2023-11-01-preview.
+ *
+ * Uses Azure REST API version 2023-11-01-preview.
  *
  * Other available API versions: 2024-09-01-preview, 2024-11-01.
  */

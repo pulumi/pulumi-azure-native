@@ -308,7 +308,8 @@ def get_topic(namespace_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
     Returns a description for the specified topic.
-    Azure REST API version: 2022-01-01-preview.
+
+    Uses Azure REST API version 2022-01-01-preview.
 
     Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
 
@@ -353,7 +354,8 @@ def get_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     Returns a description for the specified topic.
-    Azure REST API version: 2022-01-01-preview.
+
+    Uses Azure REST API version 2022-01-01-preview.
 
     Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
 

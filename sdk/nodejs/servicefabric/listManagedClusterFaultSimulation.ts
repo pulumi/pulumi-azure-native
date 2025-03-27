@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the list of recent fault simulations for the cluster.
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  */
 export function listManagedClusterFaultSimulation(args: ListManagedClusterFaultSimulationArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterFaultSimulationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,7 +46,8 @@ export interface ListManagedClusterFaultSimulationResult {
 }
 /**
  * Gets the list of recent fault simulations for the cluster.
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  */
 export function listManagedClusterFaultSimulationOutput(args: ListManagedClusterFaultSimulationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListManagedClusterFaultSimulationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

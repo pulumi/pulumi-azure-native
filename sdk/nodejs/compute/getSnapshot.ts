@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a snapshot.
- * Azure REST API version: 2022-07-02.
+ *
+ * Uses Azure REST API version 2022-07-02.
  *
  * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
  */
@@ -163,7 +164,8 @@ export interface GetSnapshotResult {
 }
 /**
  * Gets information about a snapshot.
- * Azure REST API version: 2022-07-02.
+ *
+ * Uses Azure REST API version 2022-07-02.
  *
  * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
  */

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  *
  * Other available API versions: 2021-06-01.
  */
@@ -93,7 +94,8 @@ export interface GetApplicationResult {
 }
 /**
  * Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  *
  * Other available API versions: 2021-06-01.
  */

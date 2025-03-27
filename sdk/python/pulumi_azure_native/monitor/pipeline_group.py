@@ -217,7 +217,8 @@ class PipelineGroup(pulumi.CustomResource):
                  __props__=None):
         """
         A pipeline group definition.
-        Azure REST API version: 2023-10-01-preview.
+
+        Uses Azure REST API version 2023-10-01-preview.
 
         Other available API versions: 2024-10-01-preview.
 
@@ -243,7 +244,8 @@ class PipelineGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A pipeline group definition.
-        Azure REST API version: 2023-10-01-preview.
+
+        Uses Azure REST API version 2023-10-01-preview.
 
         Other available API versions: 2024-10-01-preview.
 

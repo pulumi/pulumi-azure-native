@@ -58,7 +58,8 @@ def get_sap_availability_zone_details(app_location: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPAvailabilityZoneDetailsResult:
     """
     Get the recommended SAP Availability Zone Pair Details for your region.
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
 
@@ -85,7 +86,8 @@ def get_sap_availability_zone_details_output(app_location: Optional[pulumi.Input
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPAvailabilityZoneDetailsResult]:
     """
     Get the recommended SAP Availability Zone Pair Details for your region.
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
 

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Class representing the config for the solution in the migrate project.
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// </summary>
         public static Task<GetSolutionsControllerConfigResult> InvokeAsync(GetSolutionsControllerConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSolutionsControllerConfigResult>("azure-native:migrate:getSolutionsControllerConfig", args ?? new GetSolutionsControllerConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing the config for the solution in the migrate project.
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// </summary>
         public static Output<GetSolutionsControllerConfigResult> Invoke(GetSolutionsControllerConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionsControllerConfigResult>("azure-native:migrate:getSolutionsControllerConfig", args ?? new GetSolutionsControllerConfigInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing the config for the solution in the migrate project.
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// </summary>
         public static Output<GetSolutionsControllerConfigResult> Invoke(GetSolutionsControllerConfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionsControllerConfigResult>("azure-native:migrate:getSolutionsControllerConfig", args ?? new GetSolutionsControllerConfigInvokeArgs(), options.WithDefaults());

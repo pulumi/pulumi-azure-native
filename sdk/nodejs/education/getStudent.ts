@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details for a specific student in the specified lab by student alias
- * Azure REST API version: 2021-12-01-preview.
+ *
+ * Uses Azure REST API version 2021-12-01-preview.
  */
 export function getStudent(args: GetStudentArgs, opts?: pulumi.InvokeOptions): Promise<GetStudentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,7 +108,8 @@ export interface GetStudentResult {
 }
 /**
  * Get the details for a specific student in the specified lab by student alias
- * Azure REST API version: 2021-12-01-preview.
+ *
+ * Uses Azure REST API version 2021-12-01-preview.
  */
 export function getStudentOutput(args: GetStudentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStudentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

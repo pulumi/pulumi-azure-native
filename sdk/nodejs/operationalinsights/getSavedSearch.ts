@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified saved search for a given workspace.
- * Azure REST API version: 2020-08-01.
+ *
+ * Uses Azure REST API version 2020-08-01.
  *
  * Other available API versions: 2023-09-01, 2025-02-01.
  */
@@ -88,7 +89,8 @@ export interface GetSavedSearchResult {
 }
 /**
  * Gets the specified saved search for a given workspace.
- * Azure REST API version: 2020-08-01.
+ *
+ * Uses Azure REST API version 2020-08-01.
  *
  * Other available API versions: 2023-09-01, 2025-02-01.
  */

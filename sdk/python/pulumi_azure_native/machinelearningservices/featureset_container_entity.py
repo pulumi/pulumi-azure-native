@@ -99,7 +99,8 @@ class FeaturesetContainerEntity(pulumi.CustomResource):
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
-        Azure REST API version: 2023-04-01-preview.
+
+        Uses Azure REST API version 2023-04-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
 
@@ -118,7 +119,8 @@ class FeaturesetContainerEntity(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
-        Azure REST API version: 2023-04-01-preview.
+
+        Uses Azure REST API version 2023-04-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
 

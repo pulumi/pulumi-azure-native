@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     {
         /// <summary>
         /// Get a ApplicationResource
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Task<GetApplicationResourceResult> InvokeAsync(GetApplicationResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResourceResult>("azure-native:integrationspaces:getApplicationResource", args ?? new GetApplicationResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ApplicationResource
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Output<GetApplicationResourceResult> Invoke(GetApplicationResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResourceResult>("azure-native:integrationspaces:getApplicationResource", args ?? new GetApplicationResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ApplicationResource
-        /// Azure REST API version: 2023-11-14-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-14-preview.
         /// </summary>
         public static Output<GetApplicationResourceResult> Invoke(GetApplicationResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResourceResult>("azure-native:integrationspaces:getApplicationResource", args ?? new GetApplicationResourceInvokeArgs(), options.WithDefaults());

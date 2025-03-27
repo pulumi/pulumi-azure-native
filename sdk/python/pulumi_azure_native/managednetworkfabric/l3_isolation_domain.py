@@ -224,7 +224,8 @@ class L3IsolationDomain(pulumi.CustomResource):
                  __props__=None):
         """
         The L3IsolationDomain resource definition.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+
+        Uses Azure REST API version 2023-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-06-15.
 
@@ -250,7 +251,8 @@ class L3IsolationDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The L3IsolationDomain resource definition.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+
+        Uses Azure REST API version 2023-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-06-15.
 

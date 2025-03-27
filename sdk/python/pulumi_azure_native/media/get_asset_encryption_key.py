@@ -68,7 +68,8 @@ def get_asset_encryption_key(account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetEncryptionKeyResult:
     """
     Gets the Asset storage encryption keys used to decrypt content created by version 2 of the Media Services API
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -91,7 +92,8 @@ def get_asset_encryption_key_output(account_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetEncryptionKeyResult]:
     """
     Gets the Asset storage encryption keys used to decrypt content created by version 2 of the Media Services API
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

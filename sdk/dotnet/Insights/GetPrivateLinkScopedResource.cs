@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Gets a scoped resource in a private link scope.
-        /// Azure REST API version: 2021-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-07-01-preview.
         /// 
         /// Other available API versions: 2021-09-01, 2023-06-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Insights
 
         /// <summary>
         /// Gets a scoped resource in a private link scope.
-        /// Azure REST API version: 2021-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-07-01-preview.
         /// 
         /// Other available API versions: 2021-09-01, 2023-06-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Insights
 
         /// <summary>
         /// Gets a scoped resource in a private link scope.
-        /// Azure REST API version: 2021-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-07-01-preview.
         /// 
         /// Other available API versions: 2021-09-01, 2023-06-01-preview.
         /// </summary>

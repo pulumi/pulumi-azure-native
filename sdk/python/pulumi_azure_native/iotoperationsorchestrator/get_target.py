@@ -199,7 +199,8 @@ def get_target(name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetResult:
     """
     Get a Target
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str name: Name of target.
@@ -230,7 +231,8 @@ def get_target_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetResult]:
     """
     Get a Target
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str name: Name of target.

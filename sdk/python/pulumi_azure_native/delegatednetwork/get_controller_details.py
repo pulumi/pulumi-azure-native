@@ -162,7 +162,8 @@ def get_controller_details(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControllerDetailsResult:
     """
     Gets details about the specified dnc controller.
-    Azure REST API version: 2021-03-15.
+
+    Uses Azure REST API version 2021-03-15.
 
     Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
 
@@ -192,7 +193,8 @@ def get_controller_details_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControllerDetailsResult]:
     """
     Gets details about the specified dnc controller.
-    Azure REST API version: 2021-03-15.
+
+    Uses Azure REST API version 2021-03-15.
 
     Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
 

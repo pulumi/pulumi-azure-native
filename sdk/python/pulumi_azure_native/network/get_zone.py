@@ -199,7 +199,8 @@ def get_zone(resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetZoneResult:
     """
     Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
-    Azure REST API version: 2018-05-01.
+
+    Uses Azure REST API version 2018-05-01.
 
     Other available API versions: 2023-07-01-preview.
 
@@ -232,7 +233,8 @@ def get_zone_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZoneResult]:
     """
     Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
-    Azure REST API version: 2018-05-01.
+
+    Uses Azure REST API version 2018-05-01.
 
     Other available API versions: 2023-07-01-preview.
 

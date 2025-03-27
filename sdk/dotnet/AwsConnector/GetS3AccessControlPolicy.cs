@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a S3AccessControlPolicy
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetS3AccessControlPolicyResult> InvokeAsync(GetS3AccessControlPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetS3AccessControlPolicyResult>("azure-native:awsconnector:getS3AccessControlPolicy", args ?? new GetS3AccessControlPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a S3AccessControlPolicy
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetS3AccessControlPolicyResult> Invoke(GetS3AccessControlPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetS3AccessControlPolicyResult>("azure-native:awsconnector:getS3AccessControlPolicy", args ?? new GetS3AccessControlPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a S3AccessControlPolicy
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetS3AccessControlPolicyResult> Invoke(GetS3AccessControlPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetS3AccessControlPolicyResult>("azure-native:awsconnector:getS3AccessControlPolicy", args ?? new GetS3AccessControlPolicyInvokeArgs(), options.WithDefaults());

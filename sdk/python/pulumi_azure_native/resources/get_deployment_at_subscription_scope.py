@@ -114,7 +114,8 @@ def get_deployment_at_subscription_scope(deployment_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtSubscriptionScopeResult:
     """
     Gets a deployment.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
@@ -137,7 +138,8 @@ def get_deployment_at_subscription_scope_output(deployment_name: Optional[pulumi
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentAtSubscriptionScopeResult]:
     """
     Gets a deployment.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
 

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     {
         /// <summary>
         /// Get the Azure AD for customers tenant resource.
-        /// Azure REST API version: 2023-05-17-preview.
+        /// 
+        /// Uses Azure REST API version 2023-05-17-preview.
         /// </summary>
         public static Task<GetCIAMTenantResult> InvokeAsync(GetCIAMTenantArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCIAMTenantResult>("azure-native:azureactivedirectory:getCIAMTenant", args ?? new GetCIAMTenantArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Azure AD for customers tenant resource.
-        /// Azure REST API version: 2023-05-17-preview.
+        /// 
+        /// Uses Azure REST API version 2023-05-17-preview.
         /// </summary>
         public static Output<GetCIAMTenantResult> Invoke(GetCIAMTenantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCIAMTenantResult>("azure-native:azureactivedirectory:getCIAMTenant", args ?? new GetCIAMTenantInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Azure AD for customers tenant resource.
-        /// Azure REST API version: 2023-05-17-preview.
+        /// 
+        /// Uses Azure REST API version 2023-05-17-preview.
         /// </summary>
         public static Output<GetCIAMTenantResult> Invoke(GetCIAMTenantInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCIAMTenantResult>("azure-native:azureactivedirectory:getCIAMTenant", args ?? new GetCIAMTenantInvokeArgs(), options.WithDefaults());

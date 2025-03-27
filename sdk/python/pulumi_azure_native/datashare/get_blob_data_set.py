@@ -178,7 +178,8 @@ def get_blob_data_set(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobDataSetResult:
     """
     Get a DataSet in a share
-    Azure REST API version: 2021-08-01.
+
+    Uses Azure REST API version 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -213,7 +214,8 @@ def get_blob_data_set_output(account_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobDataSetResult]:
     """
     Get a DataSet in a share
-    Azure REST API version: 2021-08-01.
+
+    Uses Azure REST API version 2021-08-01.
 
 
     :param str account_name: The name of the share account.

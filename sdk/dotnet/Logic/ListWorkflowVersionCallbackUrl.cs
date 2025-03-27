@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Logic
     {
         /// <summary>
         /// Get the callback url for a trigger of a workflow version.
-        /// Azure REST API version: 2016-06-01.
+        /// 
+        /// Uses Azure REST API version 2016-06-01.
         /// </summary>
         public static Task<ListWorkflowVersionCallbackUrlResult> InvokeAsync(ListWorkflowVersionCallbackUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowVersionCallbackUrlResult>("azure-native:logic:listWorkflowVersionCallbackUrl", args ?? new ListWorkflowVersionCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the callback url for a trigger of a workflow version.
-        /// Azure REST API version: 2016-06-01.
+        /// 
+        /// Uses Azure REST API version 2016-06-01.
         /// </summary>
         public static Output<ListWorkflowVersionCallbackUrlResult> Invoke(ListWorkflowVersionCallbackUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowVersionCallbackUrlResult>("azure-native:logic:listWorkflowVersionCallbackUrl", args ?? new ListWorkflowVersionCallbackUrlInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the callback url for a trigger of a workflow version.
-        /// Azure REST API version: 2016-06-01.
+        /// 
+        /// Uses Azure REST API version 2016-06-01.
         /// </summary>
         public static Output<ListWorkflowVersionCallbackUrlResult> Invoke(ListWorkflowVersionCallbackUrlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowVersionCallbackUrlResult>("azure-native:logic:listWorkflowVersionCallbackUrl", args ?? new ListWorkflowVersionCallbackUrlInvokeArgs(), options.WithDefaults());

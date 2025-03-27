@@ -97,7 +97,8 @@ def get_resource_management_private_link(resource_group_name: Optional[str] = No
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceManagementPrivateLinkResult:
     """
     Get a resource management private link(resource-level).
-    Azure REST API version: 2020-05-01.
+
+    Uses Azure REST API version 2020-05-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -120,7 +121,8 @@ def get_resource_management_private_link_output(resource_group_name: Optional[pu
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceManagementPrivateLinkResult]:
     """
     Get a resource management private link(resource-level).
-    Azure REST API version: 2020-05-01.
+
+    Uses Azure REST API version 2020-05-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

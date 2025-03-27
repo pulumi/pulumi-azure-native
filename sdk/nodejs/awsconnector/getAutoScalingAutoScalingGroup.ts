@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a AutoScalingAutoScalingGroup
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getAutoScalingAutoScalingGroup(args: GetAutoScalingAutoScalingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoScalingAutoScalingGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetAutoScalingAutoScalingGroupResult {
 }
 /**
  * Get a AutoScalingAutoScalingGroup
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getAutoScalingAutoScalingGroupOutput(args: GetAutoScalingAutoScalingGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutoScalingAutoScalingGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

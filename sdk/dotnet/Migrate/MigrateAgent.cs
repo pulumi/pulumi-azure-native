@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// MigrateAgent model.
-    /// Azure REST API version: 2022-05-01-preview.
+    /// 
+    /// Uses Azure REST API version 2022-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MigrateAgent")]
     public partial class MigrateAgent : global::Pulumi.CustomResource

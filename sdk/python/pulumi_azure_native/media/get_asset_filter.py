@@ -129,7 +129,8 @@ def get_asset_filter(account_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetFilterResult:
     """
     Get the details of an Asset Filter associated with the specified Asset.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -160,7 +161,8 @@ def get_asset_filter_output(account_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetFilterResult]:
     """
     Get the details of an Asset Filter associated with the specified Asset.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

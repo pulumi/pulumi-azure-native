@@ -163,7 +163,8 @@ def get_dns_resolver_domain_list(dns_resolver_domain_list_name: Optional[str] = 
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsResolverDomainListResult:
     """
     Gets properties of a DNS resolver domain list.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str dns_resolver_domain_list_name: The name of the DNS resolver domain list.
@@ -191,7 +192,8 @@ def get_dns_resolver_domain_list_output(dns_resolver_domain_list_name: Optional[
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsResolverDomainListResult]:
     """
     Gets properties of a DNS resolver domain list.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str dns_resolver_domain_list_name: The name of the DNS resolver domain list.

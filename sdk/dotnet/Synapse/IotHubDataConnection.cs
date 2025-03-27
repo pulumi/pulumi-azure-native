@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing an iot hub data connection.
-    /// Azure REST API version: 2021-06-01-preview.
+    /// 
+    /// Uses Azure REST API version 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:IotHubDataConnection")]
     public partial class IotHubDataConnection : global::Pulumi.CustomResource

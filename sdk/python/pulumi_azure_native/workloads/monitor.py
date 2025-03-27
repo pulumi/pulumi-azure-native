@@ -221,7 +221,8 @@ class Monitor(pulumi.CustomResource):
                  __props__=None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
+
+        Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-12-01-preview.
 
         Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
 
@@ -247,7 +248,8 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
+
+        Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-12-01-preview.
 
         Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
 

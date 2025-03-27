@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Logic
     {
         /// <summary>
         /// Get the content callback url.
-        /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Uses Azure REST API version 2019-05-01.
         /// </summary>
         public static Task<ListIntegrationAccountMapContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountMapContentCallbackUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountMapContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountMapContentCallbackUrl", args ?? new ListIntegrationAccountMapContentCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the content callback url.
-        /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Uses Azure REST API version 2019-05-01.
         /// </summary>
         public static Output<ListIntegrationAccountMapContentCallbackUrlResult> Invoke(ListIntegrationAccountMapContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountMapContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountMapContentCallbackUrl", args ?? new ListIntegrationAccountMapContentCallbackUrlInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the content callback url.
-        /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Uses Azure REST API version 2019-05-01.
         /// </summary>
         public static Output<ListIntegrationAccountMapContentCallbackUrlResult> Invoke(ListIntegrationAccountMapContentCallbackUrlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountMapContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountMapContentCallbackUrl", args ?? new ListIntegrationAccountMapContentCallbackUrlInvokeArgs(), options.WithDefaults());

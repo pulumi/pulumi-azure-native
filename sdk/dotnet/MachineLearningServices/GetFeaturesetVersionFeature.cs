@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Dto object representing feature
-        /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-02-01-preview.
         /// </summary>
         public static Task<GetFeaturesetVersionFeatureResult> InvokeAsync(GetFeaturesetVersionFeatureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFeaturesetVersionFeatureResult>("azure-native:machinelearningservices:getFeaturesetVersionFeature", args ?? new GetFeaturesetVersionFeatureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dto object representing feature
-        /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-02-01-preview.
         /// </summary>
         public static Output<GetFeaturesetVersionFeatureResult> Invoke(GetFeaturesetVersionFeatureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFeaturesetVersionFeatureResult>("azure-native:machinelearningservices:getFeaturesetVersionFeature", args ?? new GetFeaturesetVersionFeatureInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dto object representing feature
-        /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-02-01-preview.
         /// </summary>
         public static Output<GetFeaturesetVersionFeatureResult> Invoke(GetFeaturesetVersionFeatureInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFeaturesetVersionFeatureResult>("azure-native:machinelearningservices:getFeaturesetVersionFeature", args ?? new GetFeaturesetVersionFeatureInvokeArgs(), options.WithDefaults());

@@ -129,7 +129,8 @@ def get_network_service_design_version(network_service_design_group_name: Option
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkServiceDesignVersionResult:
     """
     Gets information about a network service design version.
-    Azure REST API version: 2023-09-01.
+
+    Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2024-04-15.
 
@@ -162,7 +163,8 @@ def get_network_service_design_version_output(network_service_design_group_name:
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkServiceDesignVersionResult]:
     """
     Gets information about a network service design version.
-    Azure REST API version: 2023-09-01.
+
+    Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2024-04-15.
 

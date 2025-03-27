@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a CloudWatchAlarm
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetCloudWatchAlarmResult> InvokeAsync(GetCloudWatchAlarmArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudWatchAlarmResult>("azure-native:awsconnector:getCloudWatchAlarm", args ?? new GetCloudWatchAlarmArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a CloudWatchAlarm
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetCloudWatchAlarmResult> Invoke(GetCloudWatchAlarmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudWatchAlarmResult>("azure-native:awsconnector:getCloudWatchAlarm", args ?? new GetCloudWatchAlarmInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a CloudWatchAlarm
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetCloudWatchAlarmResult> Invoke(GetCloudWatchAlarmInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudWatchAlarmResult>("azure-native:awsconnector:getCloudWatchAlarm", args ?? new GetCloudWatchAlarmInvokeArgs(), options.WithDefaults());

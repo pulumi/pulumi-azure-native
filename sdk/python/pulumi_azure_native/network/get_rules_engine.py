@@ -104,7 +104,8 @@ def get_rules_engine(front_door_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRulesEngineResult:
     """
     Gets a Rules Engine Configuration with the specified name within the specified Front Door.
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
 
     :param str front_door_name: Name of the Front Door which is globally unique.
@@ -130,7 +131,8 @@ def get_rules_engine_output(front_door_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRulesEngineResult]:
     """
     Gets a Rules Engine Configuration with the specified name within the specified Front Door.
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
 
     :param str front_door_name: Name of the Front Door which is globally unique.

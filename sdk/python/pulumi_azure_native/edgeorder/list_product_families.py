@@ -71,7 +71,8 @@ def list_product_families(customer_subscription_details: Optional[Union['Custome
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductFamiliesResult:
     """
     This method provides the list of product families for the given subscription.
-    Azure REST API version: 2021-12-01.
+
+    Uses Azure REST API version 2021-12-01.
 
 
     :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
@@ -97,7 +98,8 @@ def list_product_families_output(customer_subscription_details: Optional[pulumi.
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProductFamiliesResult]:
     """
     This method provides the list of product families for the given subscription.
-    Azure REST API version: 2021-12-01.
+
+    Uses Azure REST API version 2021-12-01.
 
 
     :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details

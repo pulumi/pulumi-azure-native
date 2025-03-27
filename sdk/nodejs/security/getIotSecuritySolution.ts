@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * User this method to get details of a specific IoT Security solution based on solution name
- * Azure REST API version: 2019-08-01.
+ *
+ * Uses Azure REST API version 2019-08-01.
  *
  * Other available API versions: 2017-08-01-preview.
  */
@@ -107,7 +108,8 @@ export interface GetIotSecuritySolutionResult {
 }
 /**
  * User this method to get details of a specific IoT Security solution based on solution name
- * Azure REST API version: 2019-08-01.
+ *
+ * Uses Azure REST API version 2019-08-01.
  *
  * Other available API versions: 2017-08-01-preview.
  */

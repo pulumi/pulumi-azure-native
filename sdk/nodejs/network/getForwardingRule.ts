@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of a forwarding rule in a DNS forwarding ruleset.
- * Azure REST API version: 2022-07-01.
+ *
+ * Uses Azure REST API version 2022-07-01.
  *
  * Other available API versions: 2023-07-01-preview.
  */
@@ -84,7 +85,8 @@ export interface GetForwardingRuleResult {
 }
 /**
  * Gets properties of a forwarding rule in a DNS forwarding ruleset.
- * Azure REST API version: 2022-07-01.
+ *
+ * Uses Azure REST API version 2022-07-01.
  *
  * Other available API versions: 2023-07-01-preview.
  */

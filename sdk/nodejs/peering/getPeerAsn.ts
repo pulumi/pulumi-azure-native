@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the peer ASN with the specified name under the given subscription.
- * Azure REST API version: 2022-10-01.
+ *
+ * Uses Azure REST API version 2022-10-01.
  *
  * Other available API versions: 2021-01-01.
  */
@@ -66,7 +67,8 @@ export interface GetPeerAsnResult {
 }
 /**
  * Gets the peer ASN with the specified name under the given subscription.
- * Azure REST API version: 2022-10-01.
+ *
+ * Uses Azure REST API version 2022-10-01.
  *
  * Other available API versions: 2021-01-01.
  */

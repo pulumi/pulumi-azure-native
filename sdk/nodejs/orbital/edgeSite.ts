@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A customer's reference to a global communications site site.
- * Azure REST API version: 2024-03-01-preview.
+ *
+ * Uses Azure REST API version 2024-03-01-preview.
  *
  * Other available API versions: 2024-03-01.
  */

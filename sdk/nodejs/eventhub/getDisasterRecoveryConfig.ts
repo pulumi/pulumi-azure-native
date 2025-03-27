@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
- * Azure REST API version: 2022-10-01-preview.
+ *
+ * Uses Azure REST API version 2022-10-01-preview.
  *
  * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
@@ -84,7 +85,8 @@ export interface GetDisasterRecoveryConfigResult {
 }
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
- * Azure REST API version: 2022-10-01-preview.
+ *
+ * Uses Azure REST API version 2022-10-01-preview.
  *
  * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */

@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets draft package path and temp working path with SAS.
- * Azure REST API version: 2023-11-01-preview.
+ *
+ * Uses Azure REST API version 2023-11-01-preview.
  */
 export function getDraftPackagePath(args: GetDraftPackagePathArgs, opts?: pulumi.InvokeOptions): Promise<GetDraftPackagePathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,7 +60,8 @@ export interface GetDraftPackagePathResult {
 }
 /**
  * Gets draft package path and temp working path with SAS.
- * Azure REST API version: 2023-11-01-preview.
+ *
+ * Uses Azure REST API version 2023-11-01-preview.
  */
 export function getDraftPackagePathOutput(args: GetDraftPackagePathOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDraftPackagePathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

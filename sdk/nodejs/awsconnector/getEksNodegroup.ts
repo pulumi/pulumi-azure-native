@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a EksNodegroup
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEksNodegroup(args: GetEksNodegroupArgs, opts?: pulumi.InvokeOptions): Promise<GetEksNodegroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEksNodegroupResult {
 }
 /**
  * Get a EksNodegroup
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEksNodegroupOutput(args: GetEksNodegroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEksNodegroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

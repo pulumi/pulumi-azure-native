@@ -189,7 +189,8 @@ def get_kusto_pool_principal_assignment(kusto_pool_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKustoPoolPrincipalAssignmentResult:
     """
     Gets a Kusto pool principalAssignment.
-    Azure REST API version: 2021-06-01-preview.
+
+    Uses Azure REST API version 2021-06-01-preview.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.
@@ -225,7 +226,8 @@ def get_kusto_pool_principal_assignment_output(kusto_pool_name: Optional[pulumi.
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKustoPoolPrincipalAssignmentResult]:
     """
     Gets a Kusto pool principalAssignment.
-    Azure REST API version: 2021-06-01-preview.
+
+    Uses Azure REST API version 2021-06-01-preview.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Custom Recommendation
-    /// Azure REST API version: 2024-08-01.
+    /// 
+    /// Uses Azure REST API version 2024-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:CustomRecommendation")]
     public partial class CustomRecommendation : global::Pulumi.CustomResource

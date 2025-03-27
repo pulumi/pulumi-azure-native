@@ -139,7 +139,8 @@ def get_publisher(publisher_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublisherResult:
     """
     Gets information about the specified publisher.
-    Azure REST API version: 2023-09-01.
+
+    Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2024-04-15.
 
@@ -167,7 +168,8 @@ def get_publisher_output(publisher_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublisherResult]:
     """
     Gets information about the specified publisher.
-    Azure REST API version: 2023-09-01.
+
+    Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2024-04-15.
 

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.WindowsESU
     {
         /// <summary>
         /// Get a MAK key.
-        /// Azure REST API version: 2019-09-16-preview.
+        /// 
+        /// Uses Azure REST API version 2019-09-16-preview.
         /// </summary>
         public static Task<GetMultipleActivationKeyResult> InvokeAsync(GetMultipleActivationKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMultipleActivationKeyResult>("azure-native:windowsesu:getMultipleActivationKey", args ?? new GetMultipleActivationKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a MAK key.
-        /// Azure REST API version: 2019-09-16-preview.
+        /// 
+        /// Uses Azure REST API version 2019-09-16-preview.
         /// </summary>
         public static Output<GetMultipleActivationKeyResult> Invoke(GetMultipleActivationKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMultipleActivationKeyResult>("azure-native:windowsesu:getMultipleActivationKey", args ?? new GetMultipleActivationKeyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a MAK key.
-        /// Azure REST API version: 2019-09-16-preview.
+        /// 
+        /// Uses Azure REST API version 2019-09-16-preview.
         /// </summary>
         public static Output<GetMultipleActivationKeyResult> Invoke(GetMultipleActivationKeyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMultipleActivationKeyResult>("azure-native:windowsesu:getMultipleActivationKey", args ?? new GetMultipleActivationKeyInvokeArgs(), options.WithDefaults());

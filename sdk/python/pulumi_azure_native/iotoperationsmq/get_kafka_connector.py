@@ -224,7 +224,8 @@ def get_kafka_connector(kafka_connector_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaConnectorResult:
     """
     Get a KafkaConnectorResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str kafka_connector_name: Name of MQ kafkaConnector resource
@@ -260,7 +261,8 @@ def get_kafka_connector_output(kafka_connector_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaConnectorResult]:
     """
     Get a KafkaConnectorResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str kafka_connector_name: Name of MQ kafkaConnector resource

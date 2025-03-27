@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a storage insight instance.
- * Azure REST API version: 2020-08-01.
+ *
+ * Uses Azure REST API version 2020-08-01.
  *
  * Other available API versions: 2023-09-01, 2025-02-01.
  */
@@ -80,7 +81,8 @@ export interface GetStorageInsightConfigResult {
 }
 /**
  * Gets a storage insight instance.
- * Azure REST API version: 2020-08-01.
+ *
+ * Uses Azure REST API version 2020-08-01.
  *
  * Other available API versions: 2023-09-01, 2025-02-01.
  */

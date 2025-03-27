@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Marketplace
     {
         /// <summary>
         /// List stop sell notifications for both stop sell offers and stop sell plans
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// 
         /// Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Marketplace
 
         /// <summary>
         /// List stop sell notifications for both stop sell offers and stop sell plans
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// 
         /// Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Marketplace
 
         /// <summary>
         /// List stop sell notifications for both stop sell offers and stop sell plans
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// 
         /// Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
         /// </summary>

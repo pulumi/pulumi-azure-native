@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * NSX DHCP
- * Azure REST API version: 2022-05-01.
+ *
+ * Uses Azure REST API version 2022-05-01.
  *
  * Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
  */
@@ -60,7 +61,8 @@ export interface GetWorkloadNetworkDhcpResult {
 }
 /**
  * NSX DHCP
- * Azure REST API version: 2022-05-01.
+ *
+ * Uses Azure REST API version 2022-05-01.
  *
  * Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
  */

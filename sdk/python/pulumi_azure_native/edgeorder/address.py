@@ -135,7 +135,8 @@ class Address(pulumi.CustomResource):
                  __props__=None):
         """
         Address Resource.
-        Azure REST API version: 2022-05-01-preview.
+
+        Uses Azure REST API version 2022-05-01-preview.
 
         Other available API versions: 2024-02-01.
 
@@ -156,7 +157,8 @@ class Address(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Address Resource.
-        Azure REST API version: 2022-05-01-preview.
+
+        Uses Azure REST API version 2022-05-01-preview.
 
         Other available API versions: 2024-02-01.
 

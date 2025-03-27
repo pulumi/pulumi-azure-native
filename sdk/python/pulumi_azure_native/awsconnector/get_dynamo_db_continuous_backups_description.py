@@ -127,7 +127,8 @@ def get_dynamo_db_continuous_backups_description(name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDynamoDbContinuousBackupsDescriptionResult:
     """
     Get a DynamoDBContinuousBackupsDescription
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of DynamoDBContinuousBackupsDescription
@@ -152,7 +153,8 @@ def get_dynamo_db_continuous_backups_description_output(name: Optional[pulumi.In
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDynamoDbContinuousBackupsDescriptionResult]:
     """
     Get a DynamoDBContinuousBackupsDescription
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of DynamoDBContinuousBackupsDescription

@@ -127,7 +127,8 @@ def get_authorization(authorization_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationResult:
     """
     ExpressRoute Circuit Authorization
-    Azure REST API version: 2022-05-01.
+
+    Uses Azure REST API version 2022-05-01.
 
     Other available API versions: 2023-03-01, 2023-09-01.
 
@@ -157,7 +158,8 @@ def get_authorization_output(authorization_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationResult]:
     """
     ExpressRoute Circuit Authorization
-    Azure REST API version: 2022-05-01.
+
+    Uses Azure REST API version 2022-05-01.
 
     Other available API versions: 2023-03-01, 2023-09-01.
 

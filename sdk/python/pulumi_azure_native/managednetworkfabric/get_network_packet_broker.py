@@ -187,7 +187,8 @@ def get_network_packet_broker(network_packet_broker_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkPacketBrokerResult:
     """
     Retrieves details of this Network Packet Broker.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str network_packet_broker_name: Name of the Network Packet Broker.
@@ -217,7 +218,8 @@ def get_network_packet_broker_output(network_packet_broker_name: Optional[pulumi
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkPacketBrokerResult]:
     """
     Retrieves details of this Network Packet Broker.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str network_packet_broker_name: Name of the Network Packet Broker.

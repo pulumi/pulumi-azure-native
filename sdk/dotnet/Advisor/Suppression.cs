@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Advisor
 {
     /// <summary>
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-    /// Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
+    /// 
+    /// Uses Azure REST API version 2023-01-01. In version 1.x of the Azure Native provider, it used API version 2020-01-01.
     /// 
     /// Other available API versions: 2023-09-01-preview, 2025-01-01.
     /// </summary>

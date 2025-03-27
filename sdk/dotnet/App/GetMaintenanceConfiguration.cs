@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Gets the maintenance configuration of a ManagedEnvironment .
-        /// Azure REST API version: 2024-10-02-preview.
+        /// 
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// </summary>
         public static Task<GetMaintenanceConfigurationResult> InvokeAsync(GetMaintenanceConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-native:app:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the maintenance configuration of a ManagedEnvironment .
-        /// Azure REST API version: 2024-10-02-preview.
+        /// 
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// </summary>
         public static Output<GetMaintenanceConfigurationResult> Invoke(GetMaintenanceConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceConfigurationResult>("azure-native:app:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the maintenance configuration of a ManagedEnvironment .
-        /// Azure REST API version: 2024-10-02-preview.
+        /// 
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// </summary>
         public static Output<GetMaintenanceConfigurationResult> Invoke(GetMaintenanceConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceConfigurationResult>("azure-native:app:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationInvokeArgs(), options.WithDefaults());

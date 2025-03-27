@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DataCatalog
     {
         /// <summary>
         /// The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
-        /// Azure REST API version: 2016-03-30.
+        /// 
+        /// Uses Azure REST API version 2016-03-30.
         /// </summary>
         public static Task<GetADCCatalogResult> InvokeAsync(GetADCCatalogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetADCCatalogResult>("azure-native:datacatalog:getADCCatalog", args ?? new GetADCCatalogArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
-        /// Azure REST API version: 2016-03-30.
+        /// 
+        /// Uses Azure REST API version 2016-03-30.
         /// </summary>
         public static Output<GetADCCatalogResult> Invoke(GetADCCatalogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetADCCatalogResult>("azure-native:datacatalog:getADCCatalog", args ?? new GetADCCatalogInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
-        /// Azure REST API version: 2016-03-30.
+        /// 
+        /// Uses Azure REST API version 2016-03-30.
         /// </summary>
         public static Output<GetADCCatalogResult> Invoke(GetADCCatalogInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetADCCatalogResult>("azure-native:datacatalog:getADCCatalog", args ?? new GetADCCatalogInvokeArgs(), options.WithDefaults());

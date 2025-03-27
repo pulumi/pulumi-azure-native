@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a P2SVpnServerConfiguration.
-        /// Azure REST API version: 2019-07-01.
+        /// 
+        /// Uses Azure REST API version 2019-07-01.
         /// </summary>
         public static Task<GetP2sVpnServerConfigurationResult> InvokeAsync(GetP2sVpnServerConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnServerConfigurationResult>("azure-native:network:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a P2SVpnServerConfiguration.
-        /// Azure REST API version: 2019-07-01.
+        /// 
+        /// Uses Azure REST API version 2019-07-01.
         /// </summary>
         public static Output<GetP2sVpnServerConfigurationResult> Invoke(GetP2sVpnServerConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetP2sVpnServerConfigurationResult>("azure-native:network:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a P2SVpnServerConfiguration.
-        /// Azure REST API version: 2019-07-01.
+        /// 
+        /// Uses Azure REST API version 2019-07-01.
         /// </summary>
         public static Output<GetP2sVpnServerConfigurationResult> Invoke(GetP2sVpnServerConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetP2sVpnServerConfigurationResult>("azure-native:network:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationInvokeArgs(), options.WithDefaults());

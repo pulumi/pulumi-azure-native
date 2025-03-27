@@ -65,7 +65,8 @@ class AwaitableListPolicySetDefinitionVersionAllResult(ListPolicySetDefinitionVe
 def list_policy_set_definition_version_all(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPolicySetDefinitionVersionAllResult:
     """
     This operation lists all the policy set definition versions for all policy set definitions within a subscription.
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
     """
@@ -79,7 +80,8 @@ def list_policy_set_definition_version_all(opts: Optional[pulumi.InvokeOptions] 
 def list_policy_set_definition_version_all_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPolicySetDefinitionVersionAllResult]:
     """
     This operation lists all the policy set definition versions for all policy set definitions within a subscription.
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
     """

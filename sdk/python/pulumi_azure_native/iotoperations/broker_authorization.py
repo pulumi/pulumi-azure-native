@@ -133,7 +133,8 @@ class BrokerAuthorization(pulumi.CustomResource):
                  __props__=None):
         """
         Instance broker authorizations resource
-        Azure REST API version: 2024-07-01-preview.
+
+        Uses Azure REST API version 2024-07-01-preview.
 
         Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
 
@@ -154,7 +155,8 @@ class BrokerAuthorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Instance broker authorizations resource
-        Azure REST API version: 2024-07-01-preview.
+
+        Uses Azure REST API version 2024-07-01-preview.
 
         Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
 

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Billing
     {
         /// <summary>
         /// Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
-        /// Azure REST API version: 2024-04-01.
+        /// 
+        /// Uses Azure REST API version 2024-04-01.
         /// </summary>
         public static Task<GetBillingProfileResult> InvokeAsync(GetBillingProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingProfileResult>("azure-native:billing:getBillingProfile", args ?? new GetBillingProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
-        /// Azure REST API version: 2024-04-01.
+        /// 
+        /// Uses Azure REST API version 2024-04-01.
         /// </summary>
         public static Output<GetBillingProfileResult> Invoke(GetBillingProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingProfileResult>("azure-native:billing:getBillingProfile", args ?? new GetBillingProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
-        /// Azure REST API version: 2024-04-01.
+        /// 
+        /// Uses Azure REST API version 2024-04-01.
         /// </summary>
         public static Output<GetBillingProfileResult> Invoke(GetBillingProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingProfileResult>("azure-native:billing:getBillingProfile", args ?? new GetBillingProfileInvokeArgs(), options.WithDefaults());

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Get a specific trigger by name.
-        /// Azure REST API version: 2022-03-01.
+        /// 
+        /// Uses Azure REST API version 2022-03-01.
         /// </summary>
         public static Task<GetFileEventTriggerResult> InvokeAsync(GetFileEventTriggerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileEventTriggerResult>("azure-native:databoxedge:getFileEventTrigger", args ?? new GetFileEventTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific trigger by name.
-        /// Azure REST API version: 2022-03-01.
+        /// 
+        /// Uses Azure REST API version 2022-03-01.
         /// </summary>
         public static Output<GetFileEventTriggerResult> Invoke(GetFileEventTriggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileEventTriggerResult>("azure-native:databoxedge:getFileEventTrigger", args ?? new GetFileEventTriggerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific trigger by name.
-        /// Azure REST API version: 2022-03-01.
+        /// 
+        /// Uses Azure REST API version 2022-03-01.
         /// </summary>
         public static Output<GetFileEventTriggerResult> Invoke(GetFileEventTriggerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileEventTriggerResult>("azure-native:databoxedge:getFileEventTrigger", args ?? new GetFileEventTriggerInvokeArgs(), options.WithDefaults());

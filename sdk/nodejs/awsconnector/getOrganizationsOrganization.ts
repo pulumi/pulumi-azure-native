@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a OrganizationsOrganization
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getOrganizationsOrganization(args: GetOrganizationsOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationsOrganizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetOrganizationsOrganizationResult {
 }
 /**
  * Get a OrganizationsOrganization
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getOrganizationsOrganizationOutput(args: GetOrganizationsOrganizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationsOrganizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

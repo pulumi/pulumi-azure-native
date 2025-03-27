@@ -135,7 +135,8 @@ class WorkloadInstance(pulumi.CustomResource):
                  __props__=None):
         """
         Workload instance model.
-        Azure REST API version: 2022-05-01-preview.
+
+        Uses Azure REST API version 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +155,8 @@ class WorkloadInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workload instance model.
-        Azure REST API version: 2022-05-01-preview.
+
+        Uses Azure REST API version 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkloadInstanceArgs args: The arguments to use to populate this resource's properties.

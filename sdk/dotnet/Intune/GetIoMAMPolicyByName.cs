@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Intune
     {
         /// <summary>
         /// Returns Intune iOS policies.
-        /// Azure REST API version: 2015-01-14-preview.
+        /// 
+        /// Uses Azure REST API version 2015-01-14-preview.
         /// 
         /// Other available API versions: 2015-01-14-privatepreview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Intune
 
         /// <summary>
         /// Returns Intune iOS policies.
-        /// Azure REST API version: 2015-01-14-preview.
+        /// 
+        /// Uses Azure REST API version 2015-01-14-preview.
         /// 
         /// Other available API versions: 2015-01-14-privatepreview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Intune
 
         /// <summary>
         /// Returns Intune iOS policies.
-        /// Azure REST API version: 2015-01-14-preview.
+        /// 
+        /// Uses Azure REST API version 2015-01-14-preview.
         /// 
         /// Other available API versions: 2015-01-14-privatepreview.
         /// </summary>

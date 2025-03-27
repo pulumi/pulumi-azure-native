@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The copilot settings tenant resource definition.
- * Azure REST API version: 2024-04-01-preview.
+ *
+ * Uses Azure REST API version 2024-04-01-preview.
  *
  * Other available API versions: 2024-04-01.
  */

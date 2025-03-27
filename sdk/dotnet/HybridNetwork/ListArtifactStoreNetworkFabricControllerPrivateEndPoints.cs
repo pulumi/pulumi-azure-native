@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// List network fabric controllers to artifact stores
-        /// Azure REST API version: 2024-04-15.
+        /// 
+        /// Uses Azure REST API version 2024-04-15.
         /// </summary>
         public static Task<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> InvokeAsync(ListArtifactStoreNetworkFabricControllerPrivateEndPointsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult>("azure-native:hybridnetwork:listArtifactStoreNetworkFabricControllerPrivateEndPoints", args ?? new ListArtifactStoreNetworkFabricControllerPrivateEndPointsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List network fabric controllers to artifact stores
-        /// Azure REST API version: 2024-04-15.
+        /// 
+        /// Uses Azure REST API version 2024-04-15.
         /// </summary>
         public static Output<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> Invoke(ListArtifactStoreNetworkFabricControllerPrivateEndPointsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult>("azure-native:hybridnetwork:listArtifactStoreNetworkFabricControllerPrivateEndPoints", args ?? new ListArtifactStoreNetworkFabricControllerPrivateEndPointsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List network fabric controllers to artifact stores
-        /// Azure REST API version: 2024-04-15.
+        /// 
+        /// Uses Azure REST API version 2024-04-15.
         /// </summary>
         public static Output<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> Invoke(ListArtifactStoreNetworkFabricControllerPrivateEndPointsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult>("azure-native:hybridnetwork:listArtifactStoreNetworkFabricControllerPrivateEndPoints", args ?? new ListArtifactStoreNetworkFabricControllerPrivateEndPointsInvokeArgs(), options.WithDefaults());

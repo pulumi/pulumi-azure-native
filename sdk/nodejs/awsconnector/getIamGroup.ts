@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a IamGroup
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getIamGroup(args: GetIamGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIamGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetIamGroupResult {
 }
 /**
  * Get a IamGroup
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getIamGroupOutput(args: GetIamGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

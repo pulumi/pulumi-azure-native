@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A Migration Service.
- * Azure REST API version: 2023-07-15-preview.
+ *
+ * Uses Azure REST API version 2023-07-15-preview.
  */
 export class MigrationService extends pulumi.CustomResource {
     /**

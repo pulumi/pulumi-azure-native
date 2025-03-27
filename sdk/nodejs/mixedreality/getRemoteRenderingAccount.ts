@@ -15,7 +15,8 @@ import * as utilities from "../utilities";
  * > The Mixed Reality service is now deprecated and will be retired.
  *
  *  Retrieve a Remote Rendering Account.
- * Azure REST API version: 2021-01-01.
+ *
+ * Uses Azure REST API version 2021-01-01.
  *
  * Other available API versions: 2021-03-01-preview, 2025-01-01.
  */
@@ -103,7 +104,8 @@ export interface GetRemoteRenderingAccountResult {
  * > The Mixed Reality service is now deprecated and will be retired.
  *
  *  Retrieve a Remote Rendering Account.
- * Azure REST API version: 2021-01-01.
+ *
+ * Uses Azure REST API version 2021-01-01.
  *
  * Other available API versions: 2021-03-01-preview, 2025-01-01.
  */

@@ -167,7 +167,8 @@ class IpCommunity(pulumi.CustomResource):
                  __props__=None):
         """
         The IpCommunity resource definition.
-        Azure REST API version: 2023-02-01-preview.
+
+        Uses Azure REST API version 2023-02-01-preview.
 
         Other available API versions: 2023-06-15.
 
@@ -190,7 +191,8 @@ class IpCommunity(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The IpCommunity resource definition.
-        Azure REST API version: 2023-02-01-preview.
+
+        Uses Azure REST API version 2023-02-01-preview.
 
         Other available API versions: 2023-06-15.
 

@@ -320,7 +320,8 @@ def get_azure_cli_script(resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureCliScriptResult:
     """
     Gets a deployment script with a given name.
-    Azure REST API version: 2020-10-01.
+
+    Uses Azure REST API version 2020-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -361,7 +362,8 @@ def get_azure_cli_script_output(resource_group_name: Optional[pulumi.Input[str]]
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureCliScriptResult]:
     """
     Gets a deployment script with a given name.
-    Azure REST API version: 2020-10-01.
+
+    Uses Azure REST API version 2020-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

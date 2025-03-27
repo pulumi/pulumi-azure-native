@@ -176,7 +176,8 @@ def get_managed_network_group(managed_network_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedNetworkGroupResult:
     """
     The Get ManagedNetworkGroups operation gets a Managed Network Group specified by the resource group, Managed Network name, and group name
-    Azure REST API version: 2019-06-01-preview.
+
+    Uses Azure REST API version 2019-06-01-preview.
 
 
     :param str managed_network_group_name: The name of the Managed Network Group.
@@ -208,7 +209,8 @@ def get_managed_network_group_output(managed_network_group_name: Optional[pulumi
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedNetworkGroupResult]:
     """
     The Get ManagedNetworkGroups operation gets a Managed Network Group specified by the resource group, Managed Network name, and group name
-    Azure REST API version: 2019-06-01-preview.
+
+    Uses Azure REST API version 2019-06-01-preview.
 
 
     :param str managed_network_group_name: The name of the Managed Network Group.

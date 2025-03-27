@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the list of available versions
- * Azure REST API version: 2025-03-01.
+ *
+ * Uses Azure REST API version 2025-03-01.
  */
 export function listManufacturingDataServiceAvailableVersions(args: ListManufacturingDataServiceAvailableVersionsArgs, opts?: pulumi.InvokeOptions): Promise<ListManufacturingDataServiceAvailableVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,7 +42,8 @@ export interface ListManufacturingDataServiceAvailableVersionsResult {
 }
 /**
  * Returns the list of available versions
- * Azure REST API version: 2025-03-01.
+ *
+ * Uses Azure REST API version 2025-03-01.
  */
 export function listManufacturingDataServiceAvailableVersionsOutput(args: ListManufacturingDataServiceAvailableVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListManufacturingDataServiceAvailableVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

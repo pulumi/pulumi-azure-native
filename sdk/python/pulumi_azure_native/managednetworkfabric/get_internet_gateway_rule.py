@@ -163,7 +163,8 @@ def get_internet_gateway_rule(internet_gateway_rule_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInternetGatewayRuleResult:
     """
     Gets an Internet Gateway Rule resource.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str internet_gateway_rule_name: Name of the Internet Gateway rule.
@@ -191,7 +192,8 @@ def get_internet_gateway_rule_output(internet_gateway_rule_name: Optional[pulumi
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInternetGatewayRuleResult]:
     """
     Gets an Internet Gateway Rule resource.
-    Azure REST API version: 2023-06-15.
+
+    Uses Azure REST API version 2023-06-15.
 
 
     :param str internet_gateway_rule_name: Name of the Internet Gateway rule.

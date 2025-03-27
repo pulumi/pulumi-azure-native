@@ -152,7 +152,8 @@ def get_acss_backup_connection(backup_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetACSSBackupConnectionResult:
     """
     Gets the backup connection resource of virtual instance for SAP.
-    Azure REST API version: 2023-10-01-preview.
+
+    Uses Azure REST API version 2023-10-01-preview.
 
 
     :param str backup_name: The name of the backup connection resource of virtual instance for SAP.
@@ -182,7 +183,8 @@ def get_acss_backup_connection_output(backup_name: Optional[pulumi.Input[str]] =
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetACSSBackupConnectionResult]:
     """
     Gets the backup connection resource of virtual instance for SAP.
-    Azure REST API version: 2023-10-01-preview.
+
+    Uses Azure REST API version 2023-10-01-preview.
 
 
     :param str backup_name: The name of the backup connection resource of virtual instance for SAP.

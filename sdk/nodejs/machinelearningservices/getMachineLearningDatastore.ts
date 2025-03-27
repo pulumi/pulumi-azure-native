@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Datastore by name.
- * Azure REST API version: 2020-05-01-preview.
+ *
+ * Uses Azure REST API version 2020-05-01-preview.
  */
 export function getMachineLearningDatastore(args: GetMachineLearningDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningDatastoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,7 +75,8 @@ export interface GetMachineLearningDatastoreResult {
 }
 /**
  * Get a Datastore by name.
- * Azure REST API version: 2020-05-01-preview.
+ *
+ * Uses Azure REST API version 2020-05-01-preview.
  */
 export function getMachineLearningDatastoreOutput(args: GetMachineLearningDatastoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineLearningDatastoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

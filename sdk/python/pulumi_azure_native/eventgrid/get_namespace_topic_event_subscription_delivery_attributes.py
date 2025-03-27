@@ -57,7 +57,8 @@ def get_namespace_topic_event_subscription_delivery_attributes(event_subscriptio
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceTopicEventSubscriptionDeliveryAttributesResult:
     """
     Get all delivery attributes for an event subscription of a namespace topic.
-    Azure REST API version: 2023-12-15-preview.
+
+    Uses Azure REST API version 2023-12-15-preview.
 
     Other available API versions: 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 
@@ -84,7 +85,8 @@ def get_namespace_topic_event_subscription_delivery_attributes_output(event_subs
                                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceTopicEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription of a namespace topic.
-    Azure REST API version: 2023-12-15-preview.
+
+    Uses Azure REST API version 2023-12-15-preview.
 
     Other available API versions: 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 

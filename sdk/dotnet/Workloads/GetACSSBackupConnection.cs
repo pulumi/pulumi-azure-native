@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets the backup connection resource of virtual instance for SAP.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// </summary>
         public static Task<GetACSSBackupConnectionResult> InvokeAsync(GetACSSBackupConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetACSSBackupConnectionResult>("azure-native:workloads:getACSSBackupConnection", args ?? new GetACSSBackupConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the backup connection resource of virtual instance for SAP.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// </summary>
         public static Output<GetACSSBackupConnectionResult> Invoke(GetACSSBackupConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetACSSBackupConnectionResult>("azure-native:workloads:getACSSBackupConnection", args ?? new GetACSSBackupConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the backup connection resource of virtual instance for SAP.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// </summary>
         public static Output<GetACSSBackupConnectionResult> Invoke(GetACSSBackupConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetACSSBackupConnectionResult>("azure-native:workloads:getACSSBackupConnection", args ?? new GetACSSBackupConnectionInvokeArgs(), options.WithDefaults());

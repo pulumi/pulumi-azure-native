@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a CodeBuildSourceCredentialsInfo
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getCodeBuildSourceCredentialsInfo(args: GetCodeBuildSourceCredentialsInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeBuildSourceCredentialsInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetCodeBuildSourceCredentialsInfoResult {
 }
 /**
  * Get a CodeBuildSourceCredentialsInfo
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getCodeBuildSourceCredentialsInfoOutput(args: GetCodeBuildSourceCredentialsInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeBuildSourceCredentialsInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

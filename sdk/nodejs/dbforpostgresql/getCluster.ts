@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a cluster such as compute and storage configuration and cluster lifecycle metadata such as cluster creation date and time.
- * Azure REST API version: 2022-11-08.
+ *
+ * Uses Azure REST API version 2022-11-08.
  *
  * Other available API versions: 2023-03-02-preview.
  */
@@ -163,7 +164,8 @@ export interface GetClusterResult {
 }
 /**
  * Gets information about a cluster such as compute and storage configuration and cluster lifecycle metadata such as cluster creation date and time.
- * Azure REST API version: 2022-11-08.
+ *
+ * Uses Azure REST API version 2022-11-08.
  *
  * Other available API versions: 2023-03-02-preview.
  */

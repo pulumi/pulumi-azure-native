@@ -165,7 +165,8 @@ def get_data_lake_connector_topic_map(data_lake_connector_name: Optional[str] = 
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataLakeConnectorTopicMapResult:
     """
     Get a DataLakeTopicMapResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str data_lake_connector_name: Name of MQ dataLakeConnector resource
@@ -199,7 +200,8 @@ def get_data_lake_connector_topic_map_output(data_lake_connector_name: Optional[
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataLakeConnectorTopicMapResult]:
     """
     Get a DataLakeTopicMapResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str data_lake_connector_name: Name of MQ dataLakeConnector resource

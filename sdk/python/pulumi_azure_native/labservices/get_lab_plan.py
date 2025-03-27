@@ -223,7 +223,8 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabPlanResult:
     """
     Retrieves the properties of a Lab Plan.
-    Azure REST API version: 2022-08-01.
+
+    Uses Azure REST API version 2022-08-01.
 
     Other available API versions: 2023-06-07.
 
@@ -258,7 +259,8 @@ def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabPlanResult]:
     """
     Retrieves the properties of a Lab Plan.
-    Azure REST API version: 2022-08-01.
+
+    Uses Azure REST API version 2022-08-01.
 
     Other available API versions: 2023-06-07.
 

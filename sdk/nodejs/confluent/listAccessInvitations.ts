@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * List invitations success response
- * Azure REST API version: 2023-08-22.
+ *
+ * Uses Azure REST API version 2023-08-22.
  *
  * Other available API versions: 2024-02-13, 2024-07-01.
  */
@@ -56,7 +57,8 @@ export interface ListAccessInvitationsResult {
 }
 /**
  * List invitations success response
- * Azure REST API version: 2023-08-22.
+ *
+ * Uses Azure REST API version 2023-08-22.
  *
  * Other available API versions: 2024-02-13, 2024-07-01.
  */

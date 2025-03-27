@@ -163,7 +163,8 @@ def get_solution_configuration(resource_uri: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionConfigurationResult:
     """
     Get a SolutionConfiguration
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -191,7 +192,8 @@ def get_solution_configuration_output(resource_uri: Optional[pulumi.Input[str]] 
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionConfigurationResult]:
     """
     Get a SolutionConfiguration
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DevTestLab
     {
         /// <summary>
         /// Get schedule.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Task<GetVirtualMachineScheduleResult> InvokeAsync(GetVirtualMachineScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScheduleResult>("azure-native:devtestlab:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get schedule.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Output<GetVirtualMachineScheduleResult> Invoke(GetVirtualMachineScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScheduleResult>("azure-native:devtestlab:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get schedule.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Output<GetVirtualMachineScheduleResult> Invoke(GetVirtualMachineScheduleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScheduleResult>("azure-native:devtestlab:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleInvokeArgs(), options.WithDefaults());

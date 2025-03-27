@@ -57,7 +57,8 @@ def list_job_execution_env_secrets(job_execution_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListJobExecutionEnvSecretsResult:
     """
     List sensitive environment variables of Job execution.
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
 
     :param str job_execution_name: The name of the Job execution.
@@ -82,7 +83,8 @@ def list_job_execution_env_secrets_output(job_execution_name: Optional[pulumi.In
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListJobExecutionEnvSecretsResult]:
     """
     List sensitive environment variables of Job execution.
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
 
     :param str job_execution_name: The name of the Job execution.

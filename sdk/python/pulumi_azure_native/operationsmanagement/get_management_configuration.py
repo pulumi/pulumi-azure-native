@@ -103,7 +103,8 @@ def get_management_configuration(management_configuration_name: Optional[str] = 
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementConfigurationResult:
     """
     Retrieves the user ManagementConfiguration.
-    Azure REST API version: 2015-11-01-preview.
+
+    Uses Azure REST API version 2015-11-01-preview.
 
 
     :param str management_configuration_name: User Management Configuration Name.
@@ -126,7 +127,8 @@ def get_management_configuration_output(management_configuration_name: Optional[
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementConfigurationResult]:
     """
     Retrieves the user ManagementConfiguration.
-    Azure REST API version: 2015-11-01-preview.
+
+    Uses Azure REST API version 2015-11-01-preview.
 
 
     :param str management_configuration_name: User Management Configuration Name.

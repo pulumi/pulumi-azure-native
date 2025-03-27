@@ -130,7 +130,8 @@ def get_notification_hub_pns_credentials(namespace_name: Optional[str] = None,
     """
     Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
     PNS credentials.
-    Azure REST API version: 2023-01-01-preview.
+
+    Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
 
@@ -161,7 +162,8 @@ def get_notification_hub_pns_credentials_output(namespace_name: Optional[pulumi.
     """
     Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
     PNS credentials.
-    Azure REST API version: 2023-01-01-preview.
+
+    Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
 

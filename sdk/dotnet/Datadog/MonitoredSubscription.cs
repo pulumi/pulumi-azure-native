@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Datadog
 {
     /// <summary>
     /// The request to update subscriptions needed to be monitored by the Datadog monitor resource.
-    /// Azure REST API version: 2023-01-01.
+    /// 
+    /// Uses Azure REST API version 2023-01-01.
     /// 
     /// Other available API versions: 2023-07-07, 2023-10-20.
     /// </summary>

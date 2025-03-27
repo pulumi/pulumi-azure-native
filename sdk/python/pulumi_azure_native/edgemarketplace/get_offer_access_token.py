@@ -79,7 +79,8 @@ def get_offer_access_token(offer_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOfferAccessTokenResult:
     """
     get access token.
-    Azure REST API version: 2023-08-01-preview.
+
+    Uses Azure REST API version 2023-08-01-preview.
 
     Other available API versions: 2023-08-01.
 
@@ -105,7 +106,8 @@ def get_offer_access_token_output(offer_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOfferAccessTokenResult]:
     """
     get access token.
-    Azure REST API version: 2023-08-01-preview.
+
+    Uses Azure REST API version 2023-08-01-preview.
 
     Other available API versions: 2023-08-01.
 

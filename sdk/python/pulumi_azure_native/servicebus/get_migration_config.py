@@ -164,7 +164,8 @@ def get_migration_config(config_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrationConfigResult:
     """
     Retrieves Migration Config
-    Azure REST API version: 2022-01-01-preview.
+
+    Uses Azure REST API version 2022-01-01-preview.
 
     Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
 
@@ -197,7 +198,8 @@ def get_migration_config_output(config_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrationConfigResult]:
     """
     Retrieves Migration Config
-    Azure REST API version: 2022-01-01-preview.
+
+    Uses Azure REST API version 2022-01-01-preview.
 
     Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
 

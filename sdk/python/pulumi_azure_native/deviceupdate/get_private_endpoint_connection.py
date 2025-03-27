@@ -140,7 +140,8 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Get the specified private endpoint connection associated with the device update account.
-    Azure REST API version: 2023-07-01.
+
+    Uses Azure REST API version 2023-07-01.
 
 
     :param str account_name: Account name.
@@ -169,7 +170,8 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get the specified private endpoint connection associated with the device update account.
-    Azure REST API version: 2023-07-01.
+
+    Uses Azure REST API version 2023-07-01.
 
 
     :param str account_name: Account name.

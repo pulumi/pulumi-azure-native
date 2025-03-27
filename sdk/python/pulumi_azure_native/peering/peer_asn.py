@@ -103,7 +103,8 @@ class PeerAsn(pulumi.CustomResource):
                  __props__=None):
         """
         The essential information related to the peer's ASN.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01.
+
+        Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
 
         Other available API versions: 2021-01-01.
 
@@ -122,7 +123,8 @@ class PeerAsn(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The essential information related to the peer's ASN.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01.
+
+        Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
 
         Other available API versions: 2021-01-01.
 

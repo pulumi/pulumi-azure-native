@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Security operator under a given subscription and pricing
-    /// Azure REST API version: 2023-01-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityOperator")]
     public partial class SecurityOperator : global::Pulumi.CustomResource

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
     {
         /// <summary>
         /// Get a Gateway resource by name.
-        /// Azure REST API version: 2024-01-15-preview.
+        /// 
+        /// Uses Azure REST API version 2024-01-15-preview.
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:programmableconnectivity:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Gateway resource by name.
-        /// Azure REST API version: 2024-01-15-preview.
+        /// 
+        /// Uses Azure REST API version 2024-01-15-preview.
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:programmableconnectivity:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Gateway resource by name.
-        /// Azure REST API version: 2024-01-15-preview.
+        /// 
+        /// Uses Azure REST API version 2024-01-15-preview.
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:programmableconnectivity:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());

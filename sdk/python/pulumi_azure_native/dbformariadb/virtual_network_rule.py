@@ -114,7 +114,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
                  __props__=None):
         """
         A virtual network rule.
-        Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
+
+        Uses Azure REST API version 2018-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01.
 
         Other available API versions: 2018-06-01-preview.
 
@@ -134,7 +135,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A virtual network rule.
-        Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
+
+        Uses Azure REST API version 2018-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01.
 
         Other available API versions: 2018-06-01-preview.
 

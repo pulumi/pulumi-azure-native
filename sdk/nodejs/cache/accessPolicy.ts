@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Response to get/put access policy.
- * Azure REST API version: 2023-05-01-preview.
+ *
+ * Uses Azure REST API version 2023-05-01-preview.
  *
  * Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
  */

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Parameters to create and update an Azure Cosmos DB Table Role Definition.
- * Azure REST API version: 2024-12-01-preview.
+ *
+ * Uses Azure REST API version 2024-12-01-preview.
  */
 export class TableResourceTableRoleDefinition extends pulumi.CustomResource {
     /**

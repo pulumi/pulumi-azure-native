@@ -116,7 +116,8 @@ def get_guest_configuration_connected_v_mwarev_sphere_assignment(guest_configura
                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestConfigurationConnectedVMwarevSphereAssignmentResult:
     """
     Get information about a guest configuration assignment
-    Azure REST API version: 2022-01-25.
+
+    Uses Azure REST API version 2022-01-25.
 
     Other available API versions: 2024-04-05.
 
@@ -145,7 +146,8 @@ def get_guest_configuration_connected_v_mwarev_sphere_assignment_output(guest_co
                                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestConfigurationConnectedVMwarevSphereAssignmentResult]:
     """
     Get information about a guest configuration assignment
-    Azure REST API version: 2022-01-25.
+
+    Uses Azure REST API version 2022-01-25.
 
     Other available API versions: 2024-04-05.
 

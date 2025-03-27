@@ -68,7 +68,8 @@ def list_artifact_store_private_end_points(artifact_store_name: Optional[str] = 
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListArtifactStorePrivateEndPointsResult:
     """
     List manual private endpoints on artifact stores
-    Azure REST API version: 2024-04-15.
+
+    Uses Azure REST API version 2024-04-15.
 
 
     :param str artifact_store_name: The name of the artifact store.
@@ -91,7 +92,8 @@ def list_artifact_store_private_end_points_output(artifact_store_name: Optional[
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListArtifactStorePrivateEndPointsResult]:
     """
     List manual private endpoints on artifact stores
-    Azure REST API version: 2024-04-15.
+
+    Uses Azure REST API version 2024-04-15.
 
 
     :param str artifact_store_name: The name of the artifact store.

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the backup connection resource of virtual instance for SAP.
- * Azure REST API version: 2023-10-01-preview.
+ *
+ * Uses Azure REST API version 2023-10-01-preview.
  */
 export function getACSSBackupConnection(args: GetACSSBackupConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetACSSBackupConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +79,8 @@ export interface GetACSSBackupConnectionResult {
 }
 /**
  * Gets the backup connection resource of virtual instance for SAP.
- * Azure REST API version: 2023-10-01-preview.
+ *
+ * Uses Azure REST API version 2023-10-01-preview.
  */
 export function getACSSBackupConnectionOutput(args: GetACSSBackupConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetACSSBackupConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -102,7 +102,8 @@ def get_eks_cluster(resource_uri: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEksClusterResult:
     """
     Get a EksCluster
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -122,7 +123,8 @@ def get_eks_cluster_output(resource_uri: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEksClusterResult]:
     """
     Get a EksCluster
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.

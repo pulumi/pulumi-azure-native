@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Schema version's definition.
- * Azure REST API version: 2024-09-01-preview.
+ *
+ * Uses Azure REST API version 2024-09-01-preview.
  */
 export class SchemaVersion extends pulumi.CustomResource {
     /**

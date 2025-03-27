@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an integration account session.
- * Azure REST API version: 2019-05-01.
+ *
+ * Uses Azure REST API version 2019-05-01.
  */
 export function getIntegrationAccountSession(args: GetIntegrationAccountSessionArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountSessionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,7 +72,8 @@ export interface GetIntegrationAccountSessionResult {
 }
 /**
  * Gets an integration account session.
- * Azure REST API version: 2019-05-01.
+ *
+ * Uses Azure REST API version 2019-05-01.
  */
 export function getIntegrationAccountSessionOutput(args: GetIntegrationAccountSessionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAccountSessionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

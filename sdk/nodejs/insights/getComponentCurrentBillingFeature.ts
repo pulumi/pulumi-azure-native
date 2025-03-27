@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns current billing features for an Application Insights component.
- * Azure REST API version: 2015-05-01.
+ *
+ * Uses Azure REST API version 2015-05-01.
  */
 export function getComponentCurrentBillingFeature(args: GetComponentCurrentBillingFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentCurrentBillingFeatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,7 +46,8 @@ export interface GetComponentCurrentBillingFeatureResult {
 }
 /**
  * Returns current billing features for an Application Insights component.
- * Azure REST API version: 2015-05-01.
+ *
+ * Uses Azure REST API version 2015-05-01.
  */
 export function getComponentCurrentBillingFeatureOutput(args: GetComponentCurrentBillingFeatureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComponentCurrentBillingFeatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

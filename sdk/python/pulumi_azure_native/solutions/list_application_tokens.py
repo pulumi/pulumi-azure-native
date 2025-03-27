@@ -57,7 +57,8 @@ def list_application_tokens(application_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListApplicationTokensResult:
     """
     List tokens for application.
-    Azure REST API version: 2021-07-01.
+
+    Uses Azure REST API version 2021-07-01.
 
     Other available API versions: 2023-12-01-preview.
 
@@ -84,7 +85,8 @@ def list_application_tokens_output(application_name: Optional[pulumi.Input[str]]
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplicationTokensResult]:
     """
     List tokens for application.
-    Azure REST API version: 2021-07-01.
+
+    Uses Azure REST API version 2021-07-01.
 
     Other available API versions: 2023-12-01-preview.
 

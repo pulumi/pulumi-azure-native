@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * List all secrets of a HealthBot.
- * Azure REST API version: 2023-05-01.
+ *
+ * Uses Azure REST API version 2023-05-01.
  *
  * Other available API versions: 2024-02-01.
  */
@@ -43,7 +44,8 @@ export interface ListBotSecretsResult {
 }
 /**
  * List all secrets of a HealthBot.
- * Azure REST API version: 2023-05-01.
+ *
+ * Uses Azure REST API version 2023-05-01.
  *
  * Other available API versions: 2024-02-01.
  */

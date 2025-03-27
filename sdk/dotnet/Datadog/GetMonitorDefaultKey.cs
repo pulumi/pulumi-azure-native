@@ -12,8 +12,7 @@ namespace Pulumi.AzureNative.Datadog
     public static class GetMonitorDefaultKey
     {
         /// <summary>
-        /// 
-        /// Azure REST API version: 2022-06-01.
+        /// Uses Azure REST API version 2022-06-01.
         /// 
         /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
         /// </summary>
@@ -21,8 +20,7 @@ namespace Pulumi.AzureNative.Datadog
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2022-06-01.
+        /// Uses Azure REST API version 2022-06-01.
         /// 
         /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
         /// </summary>
@@ -30,8 +28,7 @@ namespace Pulumi.AzureNative.Datadog
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2022-06-01.
+        /// Uses Azure REST API version 2022-06-01.
         /// 
         /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
         /// </summary>

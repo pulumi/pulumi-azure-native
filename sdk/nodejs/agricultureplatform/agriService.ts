@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Schema of the AgriService resource from Microsoft.AgriculturePlatform resource provider.
- * Azure REST API version: 2024-06-01-preview.
+ *
+ * Uses Azure REST API version 2024-06-01-preview.
  */
 export class AgriService extends pulumi.CustomResource {
     /**

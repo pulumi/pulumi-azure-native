@@ -127,7 +127,8 @@ def get_elastic_load_balancingv2_target_health_description(name: Optional[str] =
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticLoadBalancingv2TargetHealthDescriptionResult:
     """
     Get a ElasticLoadBalancingv2TargetHealthDescription
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ElasticLoadBalancingv2TargetHealthDescription
@@ -152,7 +153,8 @@ def get_elastic_load_balancingv2_target_health_description_output(name: Optional
                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticLoadBalancingv2TargetHealthDescriptionResult]:
     """
     Get a ElasticLoadBalancingv2TargetHealthDescription
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of ElasticLoadBalancingv2TargetHealthDescription

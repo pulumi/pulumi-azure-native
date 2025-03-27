@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a fault simulation by the simulationId.
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  */
 export function getNodeTypeFaultSimulation(args: GetNodeTypeFaultSimulationArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeTypeFaultSimulationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,7 +68,8 @@ export interface GetNodeTypeFaultSimulationResult {
 }
 /**
  * Gets a fault simulation by the simulationId.
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  */
 export function getNodeTypeFaultSimulationOutput(args: GetNodeTypeFaultSimulationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNodeTypeFaultSimulationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

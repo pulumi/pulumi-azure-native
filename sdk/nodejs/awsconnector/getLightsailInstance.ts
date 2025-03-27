@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a LightsailInstance
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getLightsailInstance(args: GetLightsailInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetLightsailInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetLightsailInstanceResult {
 }
 /**
  * Get a LightsailInstance
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getLightsailInstanceOutput(args: GetLightsailInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLightsailInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

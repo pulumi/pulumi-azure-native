@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Gets the Defender for Storage settings for the specified storage account.
-        /// Azure REST API version: 2022-12-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-12-01-preview.
         /// 
         /// Other available API versions: 2024-10-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Security
 
         /// <summary>
         /// Gets the Defender for Storage settings for the specified storage account.
-        /// Azure REST API version: 2022-12-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-12-01-preview.
         /// 
         /// Other available API versions: 2024-10-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Security
 
         /// <summary>
         /// Gets the Defender for Storage settings for the specified storage account.
-        /// Azure REST API version: 2022-12-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-12-01-preview.
         /// 
         /// Other available API versions: 2024-10-01-preview.
         /// </summary>

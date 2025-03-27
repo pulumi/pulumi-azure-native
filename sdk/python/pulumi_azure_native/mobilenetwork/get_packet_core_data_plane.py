@@ -140,7 +140,8 @@ def get_packet_core_data_plane(packet_core_control_plane_name: Optional[str] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCoreDataPlaneResult:
     """
     Gets information about the specified packet core data plane.
-    Azure REST API version: 2023-06-01.
+
+    Uses Azure REST API version 2023-06-01.
 
     Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
 
@@ -171,7 +172,8 @@ def get_packet_core_data_plane_output(packet_core_control_plane_name: Optional[p
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPacketCoreDataPlaneResult]:
     """
     Gets information about the specified packet core data plane.
-    Azure REST API version: 2023-06-01.
+
+    Uses Azure REST API version 2023-06-01.
 
     Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
 

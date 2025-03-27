@@ -163,7 +163,8 @@ def get_test_base_account(resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestBaseAccountResult:
     """
     Gets a Test Base Account.
-    Azure REST API version: 2022-04-01-preview.
+
+    Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2023-11-01-preview.
 
@@ -193,7 +194,8 @@ def get_test_base_account_output(resource_group_name: Optional[pulumi.Input[str]
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestBaseAccountResult]:
     """
     Gets a Test Base Account.
-    Azure REST API version: 2022-04-01-preview.
+
+    Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2023-11-01-preview.
 

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     {
         /// <summary>
         /// Get a BrokerResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Task<GetBrokerResult> InvokeAsync(GetBrokerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerResult>("azure-native:iotoperationsmq:getBroker", args ?? new GetBrokerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a BrokerResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetBrokerResult> Invoke(GetBrokerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerResult>("azure-native:iotoperationsmq:getBroker", args ?? new GetBrokerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a BrokerResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetBrokerResult> Invoke(GetBrokerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerResult>("azure-native:iotoperationsmq:getBroker", args ?? new GetBrokerInvokeArgs(), options.WithDefaults());

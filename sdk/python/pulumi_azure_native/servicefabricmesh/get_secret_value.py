@@ -127,7 +127,8 @@ def get_secret_value(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretValueResult:
     """
     Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
-    Azure REST API version: 2018-09-01-preview.
+
+    Uses Azure REST API version 2018-09-01-preview.
 
 
     :param str resource_group_name: Azure resource group name
@@ -155,7 +156,8 @@ def get_secret_value_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretValueResult]:
     """
     Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
-    Azure REST API version: 2018-09-01-preview.
+
+    Uses Azure REST API version 2018-09-01-preview.
 
 
     :param str resource_group_name: Azure resource group name

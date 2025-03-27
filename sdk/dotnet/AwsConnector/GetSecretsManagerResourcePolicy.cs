@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a SecretsManagerResourcePolicy
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetSecretsManagerResourcePolicyResult> InvokeAsync(GetSecretsManagerResourcePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretsManagerResourcePolicyResult>("azure-native:awsconnector:getSecretsManagerResourcePolicy", args ?? new GetSecretsManagerResourcePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SecretsManagerResourcePolicy
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetSecretsManagerResourcePolicyResult> Invoke(GetSecretsManagerResourcePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretsManagerResourcePolicyResult>("azure-native:awsconnector:getSecretsManagerResourcePolicy", args ?? new GetSecretsManagerResourcePolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SecretsManagerResourcePolicy
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetSecretsManagerResourcePolicyResult> Invoke(GetSecretsManagerResourcePolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretsManagerResourcePolicyResult>("azure-native:awsconnector:getSecretsManagerResourcePolicy", args ?? new GetSecretsManagerResourcePolicyInvokeArgs(), options.WithDefaults());

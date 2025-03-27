@@ -51,7 +51,8 @@ def list_private_store_new_plans_notifications(private_store_id: Optional[str] =
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPrivateStoreNewPlansNotificationsResult:
     """
     List new plans notifications
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
     Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
 
@@ -69,7 +70,8 @@ def list_private_store_new_plans_notifications_output(private_store_id: Optional
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPrivateStoreNewPlansNotificationsResult]:
     """
     List new plans notifications
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
     Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
 

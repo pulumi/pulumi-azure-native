@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-01-15.
+ * Uses Azure REST API version 2023-01-15.
  *
  * Other available API versions: 2018-12-20, 2021-11-15.
  */
@@ -102,7 +102,7 @@ export interface GetRecoveryPointAccessTokenResult {
     readonly type: string;
 }
 /**
- * Azure REST API version: 2023-01-15.
+ * Uses Azure REST API version 2023-01-15.
  *
  * Other available API versions: 2018-12-20, 2021-11-15.
  */

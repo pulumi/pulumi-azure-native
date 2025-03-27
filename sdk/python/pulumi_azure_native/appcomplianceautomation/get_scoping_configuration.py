@@ -115,7 +115,8 @@ def get_scoping_configuration(report_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScopingConfigurationResult:
     """
     Get the AppComplianceAutomation scoping configuration of the specific report.
-    Azure REST API version: 2024-06-27.
+
+    Uses Azure REST API version 2024-06-27.
 
 
     :param str report_name: Report Name.
@@ -139,7 +140,8 @@ def get_scoping_configuration_output(report_name: Optional[pulumi.Input[str]] = 
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopingConfigurationResult]:
     """
     Get the AppComplianceAutomation scoping configuration of the specific report.
-    Azure REST API version: 2024-06-27.
+
+    Uses Azure REST API version 2024-06-27.
 
 
     :param str report_name: Report Name.

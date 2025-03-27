@@ -70,7 +70,8 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[s
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountKeyVaultKeysResult:
     """
     Gets the integration account's Key Vault keys.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
 
     :param str integration_account_name: The integration account name.
@@ -96,7 +97,8 @@ def list_integration_account_key_vault_keys_output(integration_account_name: Opt
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountKeyVaultKeysResult]:
     """
     Gets the integration account's Key Vault keys.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
 
     :param str integration_account_name: The integration account name.

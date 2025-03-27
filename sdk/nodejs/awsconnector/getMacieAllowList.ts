@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a MacieAllowList
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getMacieAllowList(args: GetMacieAllowListArgs, opts?: pulumi.InvokeOptions): Promise<GetMacieAllowListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetMacieAllowListResult {
 }
 /**
  * Get a MacieAllowList
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getMacieAllowListOutput(args: GetMacieAllowListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMacieAllowListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -151,7 +151,8 @@ class CIAMTenant(pulumi.CustomResource):
                  __props__=None):
         """
         The Azure AD for customers resource.
-        Azure REST API version: 2023-05-17-preview.
+
+        Uses Azure REST API version 2023-05-17-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +172,8 @@ class CIAMTenant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Azure AD for customers resource.
-        Azure REST API version: 2023-05-17-preview.
+
+        Uses Azure REST API version 2023-05-17-preview.
 
         :param str resource_name: The name of the resource.
         :param CIAMTenantArgs args: The arguments to use to populate this resource's properties.

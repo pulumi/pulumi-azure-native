@@ -67,7 +67,8 @@ def list_job_credentials(job_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListJobCredentialsResult:
     """
     This method gets the unencrypted secrets related to the job.
-    Azure REST API version: 2022-12-01.
+
+    Uses Azure REST API version 2022-12-01.
 
     Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
 
@@ -89,7 +90,8 @@ def list_job_credentials_output(job_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListJobCredentialsResult]:
     """
     This method gets the unencrypted secrets related to the job.
-    Azure REST API version: 2022-12-01.
+
+    Uses Azure REST API version 2022-12-01.
 
     Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
 

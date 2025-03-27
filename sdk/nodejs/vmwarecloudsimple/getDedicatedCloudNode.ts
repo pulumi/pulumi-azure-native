@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns dedicated cloud node
- * Azure REST API version: 2019-04-01.
+ *
+ * Uses Azure REST API version 2019-04-01.
  */
 export function getDedicatedCloudNode(args: GetDedicatedCloudNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedCloudNodeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -113,7 +114,8 @@ export interface GetDedicatedCloudNodeResult {
 }
 /**
  * Returns dedicated cloud node
- * Azure REST API version: 2019-04-01.
+ *
+ * Uses Azure REST API version 2019-04-01.
  */
 export function getDedicatedCloudNodeOutput(args: GetDedicatedCloudNodeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDedicatedCloudNodeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

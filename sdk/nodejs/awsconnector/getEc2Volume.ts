@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Ec2Volume
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2Volume(args: GetEc2VolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2VolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEc2VolumeResult {
 }
 /**
  * Get a Ec2Volume
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2VolumeOutput(args: GetEc2VolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2VolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

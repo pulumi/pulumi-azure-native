@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.ResourceHealth
     {
         /// <summary>
         /// Lists impacted resources in the tenant by an event (Security Advisory).
-        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Uses Azure REST API version 2022-10-01.
         /// 
         /// Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview, 2024-02-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ResourceHealth
 
         /// <summary>
         /// Lists impacted resources in the tenant by an event (Security Advisory).
-        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Uses Azure REST API version 2022-10-01.
         /// 
         /// Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview, 2024-02-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.ResourceHealth
 
         /// <summary>
         /// Lists impacted resources in the tenant by an event (Security Advisory).
-        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Uses Azure REST API version 2022-10-01.
         /// 
         /// Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview, 2024-02-01.
         /// </summary>

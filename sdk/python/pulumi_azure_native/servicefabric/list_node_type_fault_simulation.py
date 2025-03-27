@@ -68,7 +68,8 @@ def list_node_type_fault_simulation(cluster_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNodeTypeFaultSimulationResult:
     """
     Gets the list of recent fault simulations for the node type.
-    Azure REST API version: 2024-11-01-preview.
+
+    Uses Azure REST API version 2024-11-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -91,7 +92,8 @@ def list_node_type_fault_simulation_output(cluster_name: Optional[pulumi.Input[s
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNodeTypeFaultSimulationResult]:
     """
     Gets the list of recent fault simulations for the node type.
-    Azure REST API version: 2024-11-01-preview.
+
+    Uses Azure REST API version 2024-11-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.

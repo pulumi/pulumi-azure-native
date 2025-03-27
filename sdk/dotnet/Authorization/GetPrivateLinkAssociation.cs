@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Get a single private link association
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// </summary>
         public static Task<GetPrivateLinkAssociationResult> InvokeAsync(GetPrivateLinkAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkAssociationResult>("azure-native:authorization:getPrivateLinkAssociation", args ?? new GetPrivateLinkAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single private link association
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// </summary>
         public static Output<GetPrivateLinkAssociationResult> Invoke(GetPrivateLinkAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkAssociationResult>("azure-native:authorization:getPrivateLinkAssociation", args ?? new GetPrivateLinkAssociationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single private link association
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// </summary>
         public static Output<GetPrivateLinkAssociationResult> Invoke(GetPrivateLinkAssociationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkAssociationResult>("azure-native:authorization:getPrivateLinkAssociation", args ?? new GetPrivateLinkAssociationInvokeArgs(), options.WithDefaults());

@@ -125,7 +125,8 @@ def get_private_endpoint_connection(azure_resource_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Get a specific private endpoint connection for Power BI by private endpoint name.
-    Azure REST API version: 2020-06-01.
+
+    Uses Azure REST API version 2020-06-01.
 
 
     :param str azure_resource_name: The name of the Azure resource.
@@ -153,7 +154,8 @@ def get_private_endpoint_connection_output(azure_resource_name: Optional[pulumi.
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get a specific private endpoint connection for Power BI by private endpoint name.
-    Azure REST API version: 2020-06-01.
+
+    Uses Azure REST API version 2020-06-01.
 
 
     :param str azure_resource_name: The name of the Azure resource.

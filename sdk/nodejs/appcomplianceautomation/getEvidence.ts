@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the evidence metadata
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export function getEvidence(args: GetEvidenceArgs, opts?: pulumi.InvokeOptions): Promise<GetEvidenceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +78,8 @@ export interface GetEvidenceResult {
 }
 /**
  * Get the evidence metadata
- * Azure REST API version: 2024-06-27.
+ *
+ * Uses Azure REST API version 2024-06-27.
  */
 export function getEvidenceOutput(args: GetEvidenceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEvidenceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

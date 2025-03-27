@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Lists a workflow run expression trace.
- * Azure REST API version: 2019-05-01.
+ *
+ * Uses Azure REST API version 2019-05-01.
  *
  * Other available API versions: 2016-06-01, 2018-07-01-preview.
  */
@@ -55,7 +56,8 @@ export interface ListWorkflowRunActionRepetitionExpressionTracesResult {
 }
 /**
  * Lists a workflow run expression trace.
- * Azure REST API version: 2019-05-01.
+ *
+ * Uses Azure REST API version 2019-05-01.
  *
  * Other available API versions: 2016-06-01, 2018-07-01-preview.
  */

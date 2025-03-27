@@ -72,7 +72,8 @@ def list_object_anchors_account_keys(account_name: Optional[str] = None,
     > The Mixed Reality service is now deprecated and will be retired.
 
      List Both of the 2 Keys of an object anchors Account
-    Azure REST API version: 2021-03-01-preview.
+
+    Uses Azure REST API version 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -98,7 +99,8 @@ def list_object_anchors_account_keys_output(account_name: Optional[pulumi.Input[
     > The Mixed Reality service is now deprecated and will be retired.
 
      List Both of the 2 Keys of an object anchors Account
-    Azure REST API version: 2021-03-01-preview.
+
+    Uses Azure REST API version 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.

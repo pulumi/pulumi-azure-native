@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Workload deployment model.
-    /// Azure REST API version: 2022-05-01-preview.
+    /// 
+    /// Uses Azure REST API version 2022-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:WorkloadDeployment")]
     public partial class WorkloadDeployment : global::Pulumi.CustomResource

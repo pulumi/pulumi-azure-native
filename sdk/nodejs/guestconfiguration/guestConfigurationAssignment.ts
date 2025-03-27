@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
- * Azure REST API version: 2022-01-25. Prior API version in Azure Native 1.x: 2020-06-25.
+ *
+ * Uses Azure REST API version 2022-01-25. In version 1.x of the Azure Native provider, it used API version 2020-06-25.
  *
  * Other available API versions: 2024-04-05.
  */

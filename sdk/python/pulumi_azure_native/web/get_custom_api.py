@@ -128,7 +128,8 @@ def get_custom_api(api_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomApiResult:
     """
     Gets a custom API by name for a specific subscription and resource group
-    Azure REST API version: 2016-06-01.
+
+    Uses Azure REST API version 2016-06-01.
 
 
     :param str api_name: API name
@@ -156,7 +157,8 @@ def get_custom_api_output(api_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomApiResult]:
     """
     Gets a custom API by name for a specific subscription and resource group
-    Azure REST API version: 2016-06-01.
+
+    Uses Azure REST API version 2016-06-01.
 
 
     :param str api_name: API name

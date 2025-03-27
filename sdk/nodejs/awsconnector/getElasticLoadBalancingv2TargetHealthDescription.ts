@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a ElasticLoadBalancingv2TargetHealthDescription
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getElasticLoadBalancingv2TargetHealthDescription(args: GetElasticLoadBalancingv2TargetHealthDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticLoadBalancingv2TargetHealthDescriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetElasticLoadBalancingv2TargetHealthDescriptionResult {
 }
 /**
  * Get a ElasticLoadBalancingv2TargetHealthDescription
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getElasticLoadBalancingv2TargetHealthDescriptionOutput(args: GetElasticLoadBalancingv2TargetHealthDescriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticLoadBalancingv2TargetHealthDescriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

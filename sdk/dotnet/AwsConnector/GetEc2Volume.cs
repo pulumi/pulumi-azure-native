@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a Ec2Volume
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEc2VolumeResult> InvokeAsync(GetEc2VolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEc2VolumeResult>("azure-native:awsconnector:getEc2Volume", args ?? new GetEc2VolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2Volume
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2VolumeResult> Invoke(GetEc2VolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2VolumeResult>("azure-native:awsconnector:getEc2Volume", args ?? new GetEc2VolumeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2Volume
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2VolumeResult> Invoke(GetEc2VolumeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2VolumeResult>("azure-native:awsconnector:getEc2Volume", args ?? new GetEc2VolumeInvokeArgs(), options.WithDefaults());

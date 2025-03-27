@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a private endpoint connection.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2021-06-01-preview.
  */
@@ -68,7 +69,8 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * Gets a private endpoint connection.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2021-06-01-preview.
  */

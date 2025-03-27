@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Gets an autoscale setting
-        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Uses Azure REST API version 2022-10-01.
         /// </summary>
         public static Task<GetAutoscaleSettingResult> InvokeAsync(GetAutoscaleSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutoscaleSettingResult>("azure-native:insights:getAutoscaleSetting", args ?? new GetAutoscaleSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an autoscale setting
-        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Uses Azure REST API version 2022-10-01.
         /// </summary>
         public static Output<GetAutoscaleSettingResult> Invoke(GetAutoscaleSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoscaleSettingResult>("azure-native:insights:getAutoscaleSetting", args ?? new GetAutoscaleSettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an autoscale setting
-        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Uses Azure REST API version 2022-10-01.
         /// </summary>
         public static Output<GetAutoscaleSettingResult> Invoke(GetAutoscaleSettingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoscaleSettingResult>("azure-native:insights:getAutoscaleSetting", args ?? new GetAutoscaleSettingInvokeArgs(), options.WithDefaults());

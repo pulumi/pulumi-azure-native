@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DataLakeStore
     {
         /// <summary>
         /// Gets the specified Data Lake Store virtual network rule.
-        /// Azure REST API version: 2016-11-01.
+        /// 
+        /// Uses Azure REST API version 2016-11-01.
         /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:datalakestore:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Data Lake Store virtual network rule.
-        /// Azure REST API version: 2016-11-01.
+        /// 
+        /// Uses Azure REST API version 2016-11-01.
         /// </summary>
         public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:datalakestore:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Data Lake Store virtual network rule.
-        /// Azure REST API version: 2016-11-01.
+        /// 
+        /// Uses Azure REST API version 2016-11-01.
         /// </summary>
         public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:datalakestore:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithDefaults());

@@ -139,7 +139,8 @@ def get_mq(mq_name: Optional[str] = None,
            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMqResult:
     """
     Get a MqResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str mq_name: Name of MQ resource
@@ -165,7 +166,8 @@ def get_mq_output(mq_name: Optional[pulumi.Input[str]] = None,
                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMqResult]:
     """
     Get a MqResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str mq_name: Name of MQ resource

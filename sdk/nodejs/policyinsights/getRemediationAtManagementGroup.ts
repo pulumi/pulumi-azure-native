@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing remediation at management group scope.
- * Azure REST API version: 2021-10-01.
+ *
+ * Uses Azure REST API version 2021-10-01.
  *
  * Other available API versions: 2024-10-01.
  */
@@ -112,7 +113,8 @@ export interface GetRemediationAtManagementGroupResult {
 }
 /**
  * Gets an existing remediation at management group scope.
- * Azure REST API version: 2021-10-01.
+ *
+ * Uses Azure REST API version 2021-10-01.
  *
  * Other available API versions: 2024-10-01.
  */

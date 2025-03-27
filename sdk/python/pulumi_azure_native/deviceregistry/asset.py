@@ -440,7 +440,8 @@ class Asset(pulumi.CustomResource):
                  __props__=None):
         """
         Asset definition.
-        Azure REST API version: 2023-11-01-preview.
+
+        Uses Azure REST API version 2023-11-01-preview.
 
         Other available API versions: 2024-09-01-preview, 2024-11-01.
 
@@ -479,7 +480,8 @@ class Asset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Asset definition.
-        Azure REST API version: 2023-11-01-preview.
+
+        Uses Azure REST API version 2023-11-01-preview.
 
         Other available API versions: 2024-09-01-preview, 2024-11-01.
 

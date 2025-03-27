@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Gets information about the specified sku.
-        /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-01-01-preview.
         /// </summary>
         public static Task<GetVendorSkusResult> InvokeAsync(GetVendorSkusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkusResult>("azure-native:hybridnetwork:getVendorSkus", args ?? new GetVendorSkusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified sku.
-        /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-01-01-preview.
         /// </summary>
         public static Output<GetVendorSkusResult> Invoke(GetVendorSkusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVendorSkusResult>("azure-native:hybridnetwork:getVendorSkus", args ?? new GetVendorSkusInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified sku.
-        /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-01-01-preview.
         /// </summary>
         public static Output<GetVendorSkusResult> Invoke(GetVendorSkusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVendorSkusResult>("azure-native:hybridnetwork:getVendorSkus", args ?? new GetVendorSkusInvokeArgs(), options.WithDefaults());

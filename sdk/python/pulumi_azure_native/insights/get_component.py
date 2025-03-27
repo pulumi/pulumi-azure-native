@@ -415,7 +415,8 @@ def get_component(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentResult:
     """
     Returns an Application Insights component.
-    Azure REST API version: 2020-02-02.
+
+    Uses Azure REST API version 2020-02-02.
 
     Other available API versions: 2020-02-02-preview.
 
@@ -466,7 +467,8 @@ def get_component_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentResult]:
     """
     Returns an Application Insights component.
-    Azure REST API version: 2020-02-02.
+
+    Uses Azure REST API version 2020-02-02.
 
     Other available API versions: 2020-02-02-preview.
 

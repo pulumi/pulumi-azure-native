@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
     /// <summary>
     /// Describes a Machine Extension.
-    /// Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
+    /// 
+    /// Uses Azure REST API version 2022-07-15-preview. In version 1.x of the Azure Native provider, it used API version 2020-10-01-preview.
     /// 
     /// Other available API versions: 2022-01-10-preview, 2023-03-01-preview.
     /// </summary>

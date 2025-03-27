@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A fleetspace.
- * Azure REST API version: 2025-02-01-preview.
+ *
+ * Uses Azure REST API version 2025-02-01-preview.
  */
 export class Fleetspace extends pulumi.CustomResource {
     /**

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 {
     /// <summary>
     /// DataConnector Model.
-    /// Azure REST API version: 2023-06-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:DataConnector")]
     public partial class DataConnector : global::Pulumi.CustomResource

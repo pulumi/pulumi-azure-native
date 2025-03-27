@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Security assessment metadata
- * Azure REST API version: 2019-01-01-preview.
+ *
+ * Uses Azure REST API version 2019-01-01-preview.
  */
 export class AssessmentsMetadataSubscription extends pulumi.CustomResource {
     /**

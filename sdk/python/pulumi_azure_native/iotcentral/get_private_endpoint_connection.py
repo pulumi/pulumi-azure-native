@@ -140,7 +140,8 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Get the metadata of a private endpoint connection for the IoT Central Application.
-    Azure REST API version: 2021-11-01-preview.
+
+    Uses Azure REST API version 2021-11-01-preview.
 
 
     :param str private_endpoint_connection_name: The private endpoint connection name.
@@ -169,7 +170,8 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get the metadata of a private endpoint connection for the IoT Central Application.
-    Azure REST API version: 2021-11-01-preview.
+
+    Uses Azure REST API version 2021-11-01-preview.
 
 
     :param str private_endpoint_connection_name: The private endpoint connection name.

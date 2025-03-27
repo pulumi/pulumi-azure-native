@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the routing configuration
- * Azure REST API version: 2024-03-01.
+ *
+ * Uses Azure REST API version 2024-03-01.
  *
  * Other available API versions: 2024-05-01.
  */

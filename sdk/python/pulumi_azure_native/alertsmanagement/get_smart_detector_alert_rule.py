@@ -200,7 +200,8 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSmartDetectorAlertRuleResult:
     """
     Get a specific Smart Detector alert rule.
-    Azure REST API version: 2021-04-01.
+
+    Uses Azure REST API version 2021-04-01.
 
 
     :param str alert_rule_name: The name of the alert rule.
@@ -234,7 +235,8 @@ def get_smart_detector_alert_rule_output(alert_rule_name: Optional[pulumi.Input[
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSmartDetectorAlertRuleResult]:
     """
     Get a specific Smart Detector alert rule.
-    Azure REST API version: 2021-04-01.
+
+    Uses Azure REST API version 2021-04-01.
 
 
     :param str alert_rule_name: The name of the alert rule.

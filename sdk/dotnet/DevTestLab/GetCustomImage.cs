@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DevTestLab
     {
         /// <summary>
         /// Get custom image.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Task<GetCustomImageResult> InvokeAsync(GetCustomImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomImageResult>("azure-native:devtestlab:getCustomImage", args ?? new GetCustomImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get custom image.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Output<GetCustomImageResult> Invoke(GetCustomImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomImageResult>("azure-native:devtestlab:getCustomImage", args ?? new GetCustomImageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get custom image.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Output<GetCustomImageResult> Invoke(GetCustomImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomImageResult>("azure-native:devtestlab:getCustomImage", args ?? new GetCustomImageInvokeArgs(), options.WithDefaults());

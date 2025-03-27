@@ -107,7 +107,7 @@ def get_connection_deployment(connection_name: Optional[str] = None,
                               workspace_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionDeploymentResult:
     """
-    Azure REST API version: 2024-04-01-preview.
+    Uses Azure REST API version 2024-04-01-preview.
 
     Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
 
@@ -138,7 +138,7 @@ def get_connection_deployment_output(connection_name: Optional[pulumi.Input[str]
                                      workspace_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionDeploymentResult]:
     """
-    Azure REST API version: 2024-04-01-preview.
+    Uses Azure REST API version 2024-04-01-preview.
 
     Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
 

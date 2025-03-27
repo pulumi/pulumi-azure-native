@@ -55,7 +55,8 @@ def list_agri_service_available_solutions(agri_service_resource_name: Optional[s
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAgriServiceAvailableSolutionsResult:
     """
     Returns the list of available agri solutions.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str agri_service_resource_name: The name of the AgriService resource.
@@ -74,7 +75,8 @@ def list_agri_service_available_solutions_output(agri_service_resource_name: Opt
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAgriServiceAvailableSolutionsResult]:
     """
     Returns the list of available agri solutions.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str agri_service_resource_name: The name of the AgriService resource.

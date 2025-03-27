@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets properties of a DNS resolver policy virtual network link.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-01-preview.
         /// </summary>
         public static Task<GetDnsResolverPolicyVirtualNetworkLinkResult> InvokeAsync(GetDnsResolverPolicyVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnsResolverPolicyVirtualNetworkLinkResult>("azure-native:network:getDnsResolverPolicyVirtualNetworkLink", args ?? new GetDnsResolverPolicyVirtualNetworkLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a DNS resolver policy virtual network link.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-01-preview.
         /// </summary>
         public static Output<GetDnsResolverPolicyVirtualNetworkLinkResult> Invoke(GetDnsResolverPolicyVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverPolicyVirtualNetworkLinkResult>("azure-native:network:getDnsResolverPolicyVirtualNetworkLink", args ?? new GetDnsResolverPolicyVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a DNS resolver policy virtual network link.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-01-preview.
         /// </summary>
         public static Output<GetDnsResolverPolicyVirtualNetworkLinkResult> Invoke(GetDnsResolverPolicyVirtualNetworkLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverPolicyVirtualNetworkLinkResult>("azure-native:network:getDnsResolverPolicyVirtualNetworkLink", args ?? new GetDnsResolverPolicyVirtualNetworkLinkInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific gateway under a subscription and in a specific resource group
- * Azure REST API version: 2016-06-01.
+ *
+ * Uses Azure REST API version 2016-06-01.
  */
 export function getConnectionGateway(args: GetConnectionGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,7 +68,8 @@ export interface GetConnectionGatewayResult {
 }
 /**
  * Gets a specific gateway under a subscription and in a specific resource group
- * Azure REST API version: 2016-06-01.
+ *
+ * Uses Azure REST API version 2016-06-01.
  */
 export function getConnectionGatewayOutput(args: GetConnectionGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

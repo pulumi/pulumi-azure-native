@@ -127,7 +127,8 @@ def get_wafv2_logging_configuration(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWafv2LoggingConfigurationResult:
     """
     Get a Wafv2LoggingConfiguration
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Wafv2LoggingConfiguration
@@ -152,7 +153,8 @@ def get_wafv2_logging_configuration_output(name: Optional[pulumi.Input[str]] = N
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWafv2LoggingConfigurationResult]:
     """
     Get a Wafv2LoggingConfiguration
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Wafv2LoggingConfiguration

@@ -58,7 +58,8 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionConsentLinksResult:
     """
     Lists the consent links of a connection
-    Azure REST API version: 2016-06-01.
+
+    Uses Azure REST API version 2016-06-01.
 
     Other available API versions: 2015-08-01-preview.
 
@@ -85,7 +86,8 @@ def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectionConsentLinksResult]:
     """
     Lists the consent links of a connection
-    Azure REST API version: 2016-06-01.
+
+    Uses Azure REST API version 2016-06-01.
 
     Other available API versions: 2015-08-01-preview.
 

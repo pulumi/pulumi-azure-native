@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a azureADMetrics instance with a given name.
- * Azure REST API version: 2020-07-01-preview.
+ *
+ * Uses Azure REST API version 2020-07-01-preview.
  */
 export function getAzureADMetric(args: GetAzureADMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureADMetricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,7 +59,8 @@ export interface GetAzureADMetricResult {
 }
 /**
  * Gets a azureADMetrics instance with a given name.
- * Azure REST API version: 2020-07-01-preview.
+ *
+ * Uses Azure REST API version 2020-07-01-preview.
  */
 export function getAzureADMetricOutput(args: GetAzureADMetricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureADMetricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

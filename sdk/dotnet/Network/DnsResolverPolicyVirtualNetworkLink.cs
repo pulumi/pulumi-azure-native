@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Describes a DNS resolver policy virtual network link.
-    /// Azure REST API version: 2023-07-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DnsResolverPolicyVirtualNetworkLink")]
     public partial class DnsResolverPolicyVirtualNetworkLink : global::Pulumi.CustomResource

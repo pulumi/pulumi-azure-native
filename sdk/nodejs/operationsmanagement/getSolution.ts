@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the user solution.
- * Azure REST API version: 2015-11-01-preview.
+ *
+ * Uses Azure REST API version 2015-11-01-preview.
  */
 export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetSolutionResult {
 }
 /**
  * Retrieves the user solution.
- * Azure REST API version: 2015-11-01-preview.
+ *
+ * Uses Azure REST API version 2015-11-01-preview.
  */
 export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

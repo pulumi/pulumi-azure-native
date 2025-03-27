@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a EcsService
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEcsServiceResult> InvokeAsync(GetEcsServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEcsServiceResult>("azure-native:awsconnector:getEcsService", args ?? new GetEcsServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a EcsService
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEcsServiceResult> Invoke(GetEcsServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEcsServiceResult>("azure-native:awsconnector:getEcsService", args ?? new GetEcsServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a EcsService
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEcsServiceResult> Invoke(GetEcsServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEcsServiceResult>("azure-native:awsconnector:getEcsService", args ?? new GetEcsServiceInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A ManufacturingPlatformProviderHub resource
- * Azure REST API version: 2025-03-01.
+ *
+ * Uses Azure REST API version 2025-03-01.
  */
 export class ManufacturingDataService extends pulumi.CustomResource {
     /**

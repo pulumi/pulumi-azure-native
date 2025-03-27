@@ -116,7 +116,8 @@ def get_integration_account_assembly(assembly_artifact_name: Optional[str] = Non
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountAssemblyResult:
     """
     Get an assembly for an integration account.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
 
     :param str assembly_artifact_name: The assembly artifact name.
@@ -143,7 +144,8 @@ def get_integration_account_assembly_output(assembly_artifact_name: Optional[pul
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountAssemblyResult]:
     """
     Get an assembly for an integration account.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
 
     :param str assembly_artifact_name: The assembly artifact name.

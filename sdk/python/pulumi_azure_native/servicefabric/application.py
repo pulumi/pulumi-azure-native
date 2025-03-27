@@ -205,7 +205,8 @@ class Application(pulumi.CustomResource):
                  __props__=None):
         """
         The application resource.
-        Azure REST API version: 2024-11-01-preview. Prior API version in Azure Native 1.x: 2020-03-01.
+
+        Uses Azure REST API version 2024-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
 
         Other available API versions: 2021-06-01.
 
@@ -231,7 +232,8 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The application resource.
-        Azure REST API version: 2024-11-01-preview. Prior API version in Azure Native 1.x: 2020-03-01.
+
+        Uses Azure REST API version 2024-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
 
         Other available API versions: 2021-06-01.
 

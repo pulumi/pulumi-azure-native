@@ -67,7 +67,8 @@ def list_video_content_token(account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVideoContentTokenResult:
     """
     Generates a streaming token which can be used for accessing content from video content URLs, for a video resource with the given name.
-    Azure REST API version: 2021-11-01-preview.
+
+    Uses Azure REST API version 2021-11-01-preview.
 
 
     :param str account_name: The Azure Video Analyzer account name.
@@ -90,7 +91,8 @@ def list_video_content_token_output(account_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVideoContentTokenResult]:
     """
     Generates a streaming token which can be used for accessing content from video content URLs, for a video resource with the given name.
-    Azure REST API version: 2021-11-01-preview.
+
+    Uses Azure REST API version 2021-11-01-preview.
 
 
     :param str account_name: The Azure Video Analyzer account name.

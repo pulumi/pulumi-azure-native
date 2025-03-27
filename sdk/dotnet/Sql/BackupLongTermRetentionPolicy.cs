@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A long term retention policy.
-    /// Azure REST API version: 2017-03-01-preview.
+    /// 
+    /// Uses Azure REST API version 2017-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:BackupLongTermRetentionPolicy")]
     public partial class BackupLongTermRetentionPolicy : global::Pulumi.CustomResource

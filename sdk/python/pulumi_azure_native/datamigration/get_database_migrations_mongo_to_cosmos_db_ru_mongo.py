@@ -249,7 +249,8 @@ def get_database_migrations_mongo_to_cosmos_db_ru_mongo(migration_name: Optional
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseMigrationsMongoToCosmosDbRUMongoResult:
     """
     Get Database Migration resource.
-    Azure REST API version: 2023-07-15-preview.
+
+    Uses Azure REST API version 2023-07-15-preview.
 
 
     :param str migration_name: Name of the migration.
@@ -287,7 +288,8 @@ def get_database_migrations_mongo_to_cosmos_db_ru_mongo_output(migration_name: O
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseMigrationsMongoToCosmosDbRUMongoResult]:
     """
     Get Database Migration resource.
-    Azure REST API version: 2023-07-15-preview.
+
+    Uses Azure REST API version 2023-07-15-preview.
 
 
     :param str migration_name: Name of the migration.

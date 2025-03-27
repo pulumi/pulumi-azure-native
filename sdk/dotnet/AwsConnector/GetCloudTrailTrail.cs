@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a CloudTrailTrail
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetCloudTrailTrailResult> InvokeAsync(GetCloudTrailTrailArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudTrailTrailResult>("azure-native:awsconnector:getCloudTrailTrail", args ?? new GetCloudTrailTrailArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a CloudTrailTrail
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetCloudTrailTrailResult> Invoke(GetCloudTrailTrailInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudTrailTrailResult>("azure-native:awsconnector:getCloudTrailTrail", args ?? new GetCloudTrailTrailInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a CloudTrailTrail
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetCloudTrailTrailResult> Invoke(GetCloudTrailTrailInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudTrailTrailResult>("azure-native:awsconnector:getCloudTrailTrail", args ?? new GetCloudTrailTrailInvokeArgs(), options.WithDefaults());

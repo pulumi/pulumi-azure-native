@@ -104,7 +104,8 @@ def get_group(group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
-    Azure REST API version: 2019-10-01.
+
+    Uses Azure REST API version 2019-10-01.
 
     Other available API versions: 2018-02-02.
 
@@ -132,7 +133,8 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
-    Azure REST API version: 2019-10-01.
+
+    Uses Azure REST API version 2019-10-01.
 
     Other available API versions: 2018-02-02.
 

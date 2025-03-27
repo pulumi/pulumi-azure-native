@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Ec2Ipam
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2Ipam(args: GetEc2IpamArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2IpamResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEc2IpamResult {
 }
 /**
  * Get a Ec2Ipam
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2IpamOutput(args: GetEc2IpamOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2IpamResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

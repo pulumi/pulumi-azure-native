@@ -169,7 +169,8 @@ class CommitmentPlan(pulumi.CustomResource):
                  __props__=None):
         """
         Cognitive Services account commitment plan.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01.
+
+        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-10-01.
 
         Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
 
@@ -192,7 +193,8 @@ class CommitmentPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cognitive Services account commitment plan.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01.
+
+        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-10-01.
 
         Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
 

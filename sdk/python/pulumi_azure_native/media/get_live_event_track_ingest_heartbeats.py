@@ -56,7 +56,8 @@ def get_live_event_track_ingest_heartbeats(account_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveEventTrackIngestHeartbeatsResult:
     """
     Get track ingest heartbeat events telemetry of a live event.
-    Azure REST API version: 2022-11-01.
+
+    Uses Azure REST API version 2022-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -78,7 +79,8 @@ def get_live_event_track_ingest_heartbeats_output(account_name: Optional[pulumi.
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLiveEventTrackIngestHeartbeatsResult]:
     """
     Get track ingest heartbeat events telemetry of a live event.
-    Azure REST API version: 2022-11-01.
+
+    Uses Azure REST API version 2022-11-01.
 
 
     :param str account_name: The Media Services account name.

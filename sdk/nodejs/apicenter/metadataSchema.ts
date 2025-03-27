@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Metadata schema entity. Used to define metadata for the entities in API catalog.
- * Azure REST API version: 2024-03-01.
+ *
+ * Uses Azure REST API version 2024-03-01.
  *
  * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
  */

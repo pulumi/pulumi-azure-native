@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the consent links of a connection
- * Azure REST API version: 2016-06-01.
+ *
+ * Uses Azure REST API version 2016-06-01.
  *
  * Other available API versions: 2015-08-01-preview.
  */
@@ -53,7 +54,8 @@ export interface ListConnectionConsentLinksResult {
 }
 /**
  * Lists the consent links of a connection
- * Azure REST API version: 2016-06-01.
+ *
+ * Uses Azure REST API version 2016-06-01.
  *
  * Other available API versions: 2015-08-01-preview.
  */

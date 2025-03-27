@@ -115,7 +115,8 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         Workspace entity.
-        Azure REST API version: 2024-03-01.
+
+        Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
 
@@ -135,7 +136,8 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace entity.
-        Azure REST API version: 2024-03-01.
+
+        Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
 

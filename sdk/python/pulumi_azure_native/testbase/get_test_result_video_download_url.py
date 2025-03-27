@@ -68,7 +68,8 @@ def get_test_result_video_download_url(package_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestResultVideoDownloadURLResult:
     """
     Gets the download URL of the test execution screen recording.
-    Azure REST API version: 2022-04-01-preview.
+
+    Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2023-11-01-preview.
 
@@ -96,7 +97,8 @@ def get_test_result_video_download_url_output(package_name: Optional[pulumi.Inpu
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestResultVideoDownloadURLResult]:
     """
     Gets the download URL of the test execution screen recording.
-    Azure REST API version: 2022-04-01-preview.
+
+    Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2023-11-01-preview.
 

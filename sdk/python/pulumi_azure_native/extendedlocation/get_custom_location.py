@@ -211,7 +211,8 @@ def get_custom_location(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomLocationResult:
     """
     Gets the details of the customLocation with a specified resource group and name.
-    Azure REST API version: 2021-08-15.
+
+    Uses Azure REST API version 2021-08-15.
 
     Other available API versions: 2021-08-31-preview.
 
@@ -245,7 +246,8 @@ def get_custom_location_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomLocationResult]:
     """
     Gets the details of the customLocation with a specified resource group and name.
-    Azure REST API version: 2021-08-15.
+
+    Uses Azure REST API version 2021-08-15.
 
     Other available API versions: 2021-08-31-preview.
 

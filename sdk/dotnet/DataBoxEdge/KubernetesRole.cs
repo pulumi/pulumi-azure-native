@@ -18,7 +18,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
     ///     For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
     ///     Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
     ///     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
-    ///    Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+    /// 
+    /// Uses Azure REST API version 2022-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:KubernetesRole")]
     public partial class KubernetesRole : global::Pulumi.CustomResource

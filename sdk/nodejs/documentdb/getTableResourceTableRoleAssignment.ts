@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Table Role Assignment with the given Id.
- * Azure REST API version: 2024-12-01-preview.
+ *
+ * Uses Azure REST API version 2024-12-01-preview.
  */
 export function getTableResourceTableRoleAssignment(args: GetTableResourceTableRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResourceTableRoleAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,7 +75,8 @@ export interface GetTableResourceTableRoleAssignmentResult {
 }
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Table Role Assignment with the given Id.
- * Azure REST API version: 2024-12-01-preview.
+ *
+ * Uses Azure REST API version 2024-12-01-preview.
  */
 export function getTableResourceTableRoleAssignmentOutput(args: GetTableResourceTableRoleAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableResourceTableRoleAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -151,7 +151,8 @@ def get_agri_service(agri_service_resource_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgriServiceResult:
     """
     Get a AgriServiceResource
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str agri_service_resource_name: The name of the AgriService resource.
@@ -178,7 +179,8 @@ def get_agri_service_output(agri_service_resource_name: Optional[pulumi.Input[st
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgriServiceResult]:
     """
     Get a AgriServiceResource
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str agri_service_resource_name: The name of the AgriService resource.

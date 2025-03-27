@@ -115,7 +115,8 @@ def get_integration_runtime_connection_info(factory_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeConnectionInfoResult:
     """
     Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str factory_name: The factory name.
@@ -142,7 +143,8 @@ def get_integration_runtime_connection_info_output(factory_name: Optional[pulumi
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationRuntimeConnectionInfoResult]:
     """
     Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str factory_name: The factory name.

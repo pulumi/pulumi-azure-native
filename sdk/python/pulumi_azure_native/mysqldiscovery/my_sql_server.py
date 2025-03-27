@@ -303,7 +303,8 @@ class MySQLServer(pulumi.CustomResource):
                  __props__=None):
         """
         The MySQLServer resource definition.
-        Azure REST API version: 2024-09-30-preview.
+
+        Uses Azure REST API version 2024-09-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -332,7 +333,8 @@ class MySQLServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The MySQLServer resource definition.
-        Azure REST API version: 2024-09-30-preview.
+
+        Uses Azure REST API version 2024-09-30-preview.
 
         :param str resource_name: The name of the resource.
         :param MySQLServerArgs args: The arguments to use to populate this resource's properties.

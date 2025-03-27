@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a EcrImageDetail
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEcrImageDetailResult> InvokeAsync(GetEcrImageDetailArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEcrImageDetailResult>("azure-native:awsconnector:getEcrImageDetail", args ?? new GetEcrImageDetailArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a EcrImageDetail
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEcrImageDetailResult> Invoke(GetEcrImageDetailInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEcrImageDetailResult>("azure-native:awsconnector:getEcrImageDetail", args ?? new GetEcrImageDetailInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a EcrImageDetail
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEcrImageDetailResult> Invoke(GetEcrImageDetailInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEcrImageDetailResult>("azure-native:awsconnector:getEcrImageDetail", args ?? new GetEcrImageDetailInvokeArgs(), options.WithDefaults());

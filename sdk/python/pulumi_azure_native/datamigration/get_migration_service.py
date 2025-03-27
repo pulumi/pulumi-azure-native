@@ -139,7 +139,8 @@ def get_migration_service(migration_service_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrationServiceResult:
     """
     Retrieve the Database Migration Service
-    Azure REST API version: 2023-07-15-preview.
+
+    Uses Azure REST API version 2023-07-15-preview.
 
 
     :param str migration_service_name: Name of the Migration Service.
@@ -165,7 +166,8 @@ def get_migration_service_output(migration_service_name: Optional[pulumi.Input[s
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrationServiceResult]:
     """
     Retrieve the Database Migration Service
-    Azure REST API version: 2023-07-15-preview.
+
+    Uses Azure REST API version 2023-07-15-preview.
 
 
     :param str migration_service_name: Name of the Migration Service.

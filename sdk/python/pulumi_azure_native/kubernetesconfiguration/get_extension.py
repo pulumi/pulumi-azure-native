@@ -298,7 +298,8 @@ def get_extension(cluster_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
     Gets Kubernetes Cluster Extension.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01, 2024-11-01.
 
@@ -348,7 +349,8 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Gets Kubernetes Cluster Extension.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01, 2024-11-01.
 

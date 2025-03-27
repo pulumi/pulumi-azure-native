@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a AppSyncGraphqlApi
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetAppSyncGraphqlApiResult> InvokeAsync(GetAppSyncGraphqlApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppSyncGraphqlApiResult>("azure-native:awsconnector:getAppSyncGraphqlApi", args ?? new GetAppSyncGraphqlApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AppSyncGraphqlApi
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetAppSyncGraphqlApiResult> Invoke(GetAppSyncGraphqlApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppSyncGraphqlApiResult>("azure-native:awsconnector:getAppSyncGraphqlApi", args ?? new GetAppSyncGraphqlApiInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AppSyncGraphqlApi
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetAppSyncGraphqlApiResult> Invoke(GetAppSyncGraphqlApiInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppSyncGraphqlApiResult>("azure-native:awsconnector:getAppSyncGraphqlApi", args ?? new GetAppSyncGraphqlApiInvokeArgs(), options.WithDefaults());

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.CustomerInsights
     {
         /// <summary>
         /// Gets training results.
-        /// Azure REST API version: 2017-04-26.
+        /// 
+        /// Uses Azure REST API version 2017-04-26.
         /// </summary>
         public static Task<GetPredictionTrainingResultsResult> InvokeAsync(GetPredictionTrainingResultsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPredictionTrainingResultsResult>("azure-native:customerinsights:getPredictionTrainingResults", args ?? new GetPredictionTrainingResultsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets training results.
-        /// Azure REST API version: 2017-04-26.
+        /// 
+        /// Uses Azure REST API version 2017-04-26.
         /// </summary>
         public static Output<GetPredictionTrainingResultsResult> Invoke(GetPredictionTrainingResultsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPredictionTrainingResultsResult>("azure-native:customerinsights:getPredictionTrainingResults", args ?? new GetPredictionTrainingResultsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets training results.
-        /// Azure REST API version: 2017-04-26.
+        /// 
+        /// Uses Azure REST API version 2017-04-26.
         /// </summary>
         public static Output<GetPredictionTrainingResultsResult> Invoke(GetPredictionTrainingResultsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPredictionTrainingResultsResult>("azure-native:customerinsights:getPredictionTrainingResults", args ?? new GetPredictionTrainingResultsInvokeArgs(), options.WithDefaults());

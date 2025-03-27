@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A Discovery Source resource
- * Azure REST API version: 2025-01-31-preview.
+ *
+ * Uses Azure REST API version 2025-01-31-preview.
  */
 export class DiscoverySource extends pulumi.CustomResource {
     /**

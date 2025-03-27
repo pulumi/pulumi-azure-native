@@ -117,7 +117,8 @@ def get_hci_edge_device_job(edge_device_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHciEdgeDeviceJobResult:
     """
     Get a EdgeDeviceJob
-    Azure REST API version: 2024-09-01-preview.
+
+    Uses Azure REST API version 2024-09-01-preview.
 
 
     :param str edge_device_name: The name of the EdgeDevice
@@ -144,7 +145,8 @@ def get_hci_edge_device_job_output(edge_device_name: Optional[pulumi.Input[str]]
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHciEdgeDeviceJobResult]:
     """
     Get a EdgeDeviceJob
-    Azure REST API version: 2024-09-01-preview.
+
+    Uses Azure REST API version 2024-09-01-preview.
 
 
     :param str edge_device_name: The name of the EdgeDevice

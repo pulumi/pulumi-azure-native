@@ -127,7 +127,8 @@ def get_s3_control_multi_region_access_point_policy_document(name: Optional[str]
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetS3ControlMultiRegionAccessPointPolicyDocumentResult:
     """
     Get a S3ControlMultiRegionAccessPointPolicyDocument
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of S3ControlMultiRegionAccessPointPolicyDocument
@@ -152,7 +153,8 @@ def get_s3_control_multi_region_access_point_policy_document_output(name: Option
                                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetS3ControlMultiRegionAccessPointPolicyDocumentResult]:
     """
     Get a S3ControlMultiRegionAccessPointPolicyDocument
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of S3ControlMultiRegionAccessPointPolicyDocument

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a EcsCluster
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEcsCluster(args: GetEcsClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetEcsClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEcsClusterResult {
 }
 /**
  * Get a EcsCluster
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEcsClusterOutput(args: GetEcsClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEcsClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

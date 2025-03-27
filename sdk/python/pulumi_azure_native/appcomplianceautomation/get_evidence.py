@@ -163,7 +163,8 @@ def get_evidence(evidence_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEvidenceResult:
     """
     Get the evidence metadata
-    Azure REST API version: 2024-06-27.
+
+    Uses Azure REST API version 2024-06-27.
 
 
     :param str evidence_name: The evidence name.
@@ -191,7 +192,8 @@ def get_evidence_output(evidence_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEvidenceResult]:
     """
     Get the evidence metadata
-    Azure REST API version: 2024-06-27.
+
+    Uses Azure REST API version 2024-06-27.
 
 
     :param str evidence_name: The evidence name.

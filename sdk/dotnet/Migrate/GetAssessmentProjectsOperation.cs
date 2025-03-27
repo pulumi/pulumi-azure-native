@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a AssessmentProject
-        /// Azure REST API version: 2023-03-15.
+        /// 
+        /// Uses Azure REST API version 2023-03-15.
         /// 
         /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Migrate
 
         /// <summary>
         /// Get a AssessmentProject
-        /// Azure REST API version: 2023-03-15.
+        /// 
+        /// Uses Azure REST API version 2023-03-15.
         /// 
         /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Migrate
 
         /// <summary>
         /// Get a AssessmentProject
-        /// Azure REST API version: 2023-03-15.
+        /// 
+        /// Uses Azure REST API version 2023-03-15.
         /// 
         /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>

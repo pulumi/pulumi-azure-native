@@ -133,7 +133,8 @@ class DataFlow(pulumi.CustomResource):
                  __props__=None):
         """
         Instance dataflowProfile dataflow resource
-        Azure REST API version: 2024-07-01-preview.
+
+        Uses Azure REST API version 2024-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +153,8 @@ class DataFlow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Instance dataflowProfile dataflow resource
-        Azure REST API version: 2024-07-01-preview.
+
+        Uses Azure REST API version 2024-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DataFlowArgs args: The arguments to use to populate this resource's properties.

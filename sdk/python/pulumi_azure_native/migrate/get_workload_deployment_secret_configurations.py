@@ -114,7 +114,8 @@ def get_workload_deployment_secret_configurations(modernize_project_name: Option
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadDeploymentSecretConfigurationsResult:
     """
     Gets the secrets of the workload deployment.
-    Azure REST API version: 2022-05-01-preview.
+
+    Uses Azure REST API version 2022-05-01-preview.
 
 
     :param str modernize_project_name: ModernizeProject name.
@@ -144,7 +145,8 @@ def get_workload_deployment_secret_configurations_output(modernize_project_name:
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadDeploymentSecretConfigurationsResult]:
     """
     Gets the secrets of the workload deployment.
-    Azure REST API version: 2022-05-01-preview.
+
+    Uses Azure REST API version 2022-05-01-preview.
 
 
     :param str modernize_project_name: ModernizeProject name.

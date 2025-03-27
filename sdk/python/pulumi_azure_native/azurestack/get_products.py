@@ -68,7 +68,8 @@ def get_products(product_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductsResult:
     """
     Returns a list of products.
-    Azure REST API version: 2022-06-01.
+
+    Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2020-06-01-preview.
 
@@ -93,7 +94,8 @@ def get_products_output(product_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductsResult]:
     """
     Returns a list of products.
-    Azure REST API version: 2022-06-01.
+
+    Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2020-06-01-preview.
 

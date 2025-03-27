@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Flux Configuration object returned in Get & Put response.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-11-01-preview.
+ *
+ * Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-11-01-preview.
  *
  * Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview, 2024-11-01.
  */

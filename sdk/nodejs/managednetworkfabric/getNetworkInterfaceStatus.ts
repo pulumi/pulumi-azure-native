@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the running status of the Network Interface.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  */
 export function getNetworkInterfaceStatus(args: GetNetworkInterfaceStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,7 +60,8 @@ export interface GetNetworkInterfaceStatusResult {
 }
 /**
  * Get the running status of the Network Interface.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  */
 export function getNetworkInterfaceStatusOutput(args: GetNetworkInterfaceStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInterfaceStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

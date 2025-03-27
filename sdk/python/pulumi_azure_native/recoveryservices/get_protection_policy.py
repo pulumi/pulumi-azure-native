@@ -129,7 +129,8 @@ def get_protection_policy(policy_name: Optional[str] = None,
     """
     Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
     operation. Status of the operation can be fetched using GetPolicyOperationResult API.
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
 
@@ -160,7 +161,8 @@ def get_protection_policy_output(policy_name: Optional[pulumi.Input[str]] = None
     """
     Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
     operation. Status of the operation can be fetched using GetPolicyOperationResult API.
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
 

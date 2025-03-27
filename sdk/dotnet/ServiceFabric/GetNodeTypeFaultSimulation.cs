@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Gets a fault simulation by the simulationId.
-        /// Azure REST API version: 2024-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// </summary>
         public static Task<GetNodeTypeFaultSimulationResult> InvokeAsync(GetNodeTypeFaultSimulationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeTypeFaultSimulationResult>("azure-native:servicefabric:getNodeTypeFaultSimulation", args ?? new GetNodeTypeFaultSimulationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a fault simulation by the simulationId.
-        /// Azure REST API version: 2024-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// </summary>
         public static Output<GetNodeTypeFaultSimulationResult> Invoke(GetNodeTypeFaultSimulationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeTypeFaultSimulationResult>("azure-native:servicefabric:getNodeTypeFaultSimulation", args ?? new GetNodeTypeFaultSimulationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a fault simulation by the simulationId.
-        /// Azure REST API version: 2024-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// </summary>
         public static Output<GetNodeTypeFaultSimulationResult> Invoke(GetNodeTypeFaultSimulationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeTypeFaultSimulationResult>("azure-native:servicefabric:getNodeTypeFaultSimulation", args ?? new GetNodeTypeFaultSimulationInvokeArgs(), options.WithDefaults());

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get a Job and its properties.
-        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:appplatform:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Job and its properties.
-        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:appplatform:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Job and its properties.
-        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:appplatform:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());

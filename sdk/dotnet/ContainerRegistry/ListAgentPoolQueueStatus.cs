@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the count of queued runs for a given agent pool.
-        /// Azure REST API version: 2019-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-06-01-preview.
         /// </summary>
         public static Task<ListAgentPoolQueueStatusResult> InvokeAsync(ListAgentPoolQueueStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAgentPoolQueueStatusResult>("azure-native:containerregistry:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the count of queued runs for a given agent pool.
-        /// Azure REST API version: 2019-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-06-01-preview.
         /// </summary>
         public static Output<ListAgentPoolQueueStatusResult> Invoke(ListAgentPoolQueueStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAgentPoolQueueStatusResult>("azure-native:containerregistry:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the count of queued runs for a given agent pool.
-        /// Azure REST API version: 2019-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-06-01-preview.
         /// </summary>
         public static Output<ListAgentPoolQueueStatusResult> Invoke(ListAgentPoolQueueStatusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAgentPoolQueueStatusResult>("azure-native:containerregistry:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusInvokeArgs(), options.WithDefaults());

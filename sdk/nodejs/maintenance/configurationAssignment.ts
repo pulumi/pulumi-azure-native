@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration Assignment
- * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+ *
+ * Uses Azure REST API version 2022-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
  *
  * Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
  */

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
 {
     /// <summary>
     /// A Dataset resource belonging to an Instance resource.
-    /// Azure REST API version: 2023-10-04-preview.
+    /// 
+    /// Uses Azure REST API version 2023-10-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsdataprocessor:Dataset")]
     public partial class Dataset : global::Pulumi.CustomResource

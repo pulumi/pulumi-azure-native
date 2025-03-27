@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     {
         /// <summary>
         /// Get a MqttBridgeConnectorResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Task<GetMqttBridgeConnectorResult> InvokeAsync(GetMqttBridgeConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMqttBridgeConnectorResult>("azure-native:iotoperationsmq:getMqttBridgeConnector", args ?? new GetMqttBridgeConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a MqttBridgeConnectorResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetMqttBridgeConnectorResult> Invoke(GetMqttBridgeConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMqttBridgeConnectorResult>("azure-native:iotoperationsmq:getMqttBridgeConnector", args ?? new GetMqttBridgeConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a MqttBridgeConnectorResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetMqttBridgeConnectorResult> Invoke(GetMqttBridgeConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMqttBridgeConnectorResult>("azure-native:iotoperationsmq:getMqttBridgeConnector", args ?? new GetMqttBridgeConnectorInvokeArgs(), options.WithDefaults());

@@ -88,7 +88,8 @@ def get_private_link_association(group_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkAssociationResult:
     """
     Get a single private link association
-    Azure REST API version: 2020-05-01.
+
+    Uses Azure REST API version 2020-05-01.
 
 
     :param str group_id: The management group ID.
@@ -110,7 +111,8 @@ def get_private_link_association_output(group_id: Optional[pulumi.Input[str]] = 
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkAssociationResult]:
     """
     Get a single private link association
-    Azure REST API version: 2020-05-01.
+
+    Uses Azure REST API version 2020-05-01.
 
 
     :param str group_id: The management group ID.

@@ -55,7 +55,8 @@ def get_flow_stream_connection_string(connection_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlowStreamConnectionStringResult:
     """
     Get the connection string for the specified flow.
-    Azure REST API version: 2024-09-27.
+
+    Uses Azure REST API version 2024-09-27.
 
     Other available API versions: 2025-03-01-preview.
 
@@ -79,7 +80,8 @@ def get_flow_stream_connection_string_output(connection_name: Optional[pulumi.In
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowStreamConnectionStringResult]:
     """
     Get the connection string for the specified flow.
-    Azure REST API version: 2024-09-27.
+
+    Uses Azure REST API version 2024-09-27.
 
     Other available API versions: 2025-03-01-preview.
 

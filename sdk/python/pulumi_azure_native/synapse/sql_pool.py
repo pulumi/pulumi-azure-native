@@ -308,7 +308,8 @@ class SqlPool(pulumi.CustomResource):
                  __props__=None):
         """
         A SQL Analytics pool
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
 
         Other available API versions: 2021-05-01, 2021-06-01-preview.
 
@@ -346,7 +347,8 @@ class SqlPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL Analytics pool
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
 
         Other available API versions: 2021-05-01, 2021-06-01-preview.
 

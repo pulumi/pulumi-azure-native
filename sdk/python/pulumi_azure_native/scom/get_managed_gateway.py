@@ -104,7 +104,8 @@ def get_managed_gateway(instance_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedGatewayResult:
     """
     Retrieve the details of the gateway resource.
-    Azure REST API version: 2023-07-07-preview.
+
+    Uses Azure REST API version 2023-07-07-preview.
 
 
     :param str instance_name: Name of the SCOM managed instance.
@@ -130,7 +131,8 @@ def get_managed_gateway_output(instance_name: Optional[pulumi.Input[str]] = None
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedGatewayResult]:
     """
     Retrieve the details of the gateway resource.
-    Azure REST API version: 2023-07-07-preview.
+
+    Uses Azure REST API version 2023-07-07-preview.
 
 
     :param str instance_name: Name of the SCOM managed instance.

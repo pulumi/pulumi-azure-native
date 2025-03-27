@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Ec2AccountAttribute
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2AccountAttribute(args: GetEc2AccountAttributeArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2AccountAttributeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEc2AccountAttributeResult {
 }
 /**
  * Get a Ec2AccountAttribute
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2AccountAttributeOutput(args: GetEc2AccountAttributeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2AccountAttributeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

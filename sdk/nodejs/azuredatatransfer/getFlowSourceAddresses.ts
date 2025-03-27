@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the source addresses for the specified flow.
- * Azure REST API version: 2024-09-27.
+ *
+ * Uses Azure REST API version 2024-09-27.
  *
  * Other available API versions: 2025-03-01-preview.
  */
@@ -45,7 +46,8 @@ export interface GetFlowSourceAddressesResult {
 }
 /**
  * Get the source addresses for the specified flow.
- * Azure REST API version: 2024-09-27.
+ *
+ * Uses Azure REST API version 2024-09-27.
  *
  * Other available API versions: 2025-03-01-preview.
  */

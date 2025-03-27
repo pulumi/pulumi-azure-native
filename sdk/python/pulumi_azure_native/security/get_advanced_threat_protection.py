@@ -90,7 +90,8 @@ def get_advanced_threat_protection(resource_id: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdvancedThreatProtectionResult:
     """
     Gets the Advanced Threat Protection settings for the specified resource.
-    Azure REST API version: 2019-01-01.
+
+    Uses Azure REST API version 2019-01-01.
 
 
     :param str resource_id: The identifier of the resource.
@@ -112,7 +113,8 @@ def get_advanced_threat_protection_output(resource_id: Optional[pulumi.Input[str
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdvancedThreatProtectionResult]:
     """
     Gets the Advanced Threat Protection settings for the specified resource.
-    Azure REST API version: 2019-01-01.
+
+    Uses Azure REST API version 2019-01-01.
 
 
     :param str resource_id: The identifier of the resource.

@@ -118,7 +118,8 @@ def get_target(parent_provider_namespace: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetResult:
     """
     Get a Target resource that extends a tracked regional resource.
-    Azure REST API version: 2023-04-15-preview.
+
+    Uses Azure REST API version 2023-04-15-preview.
 
     Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
 
@@ -153,7 +154,8 @@ def get_target_output(parent_provider_namespace: Optional[pulumi.Input[str]] = N
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetResult]:
     """
     Get a Target resource that extends a tracked regional resource.
-    Azure REST API version: 2023-04-15-preview.
+
+    Uses Azure REST API version 2023-04-15-preview.
 
     Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
 

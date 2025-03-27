@@ -198,7 +198,8 @@ def get_assessment(assessment_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
     Get a existing Azure Advisor assessment.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
 
     :param str assessment_name: Advisor assessment name.
@@ -226,7 +227,8 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentResult]:
     """
     Get a existing Azure Advisor assessment.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
 
     :param str assessment_name: Advisor assessment name.

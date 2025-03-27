@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Template Spec version from a specific Template Spec.
- * Azure REST API version: 2022-02-01.
+ *
+ * Uses Azure REST API version 2022-02-01.
  *
  * Other available API versions: 2019-06-01-preview.
  */
@@ -88,7 +89,8 @@ export interface GetTemplateSpecVersionResult {
 }
 /**
  * Gets a Template Spec version from a specific Template Spec.
- * Azure REST API version: 2022-02-01.
+ *
+ * Uses Azure REST API version 2022-02-01.
  *
  * Other available API versions: 2019-06-01-preview.
  */

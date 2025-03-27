@@ -132,7 +132,8 @@ class Package(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the Package type.
-        Azure REST API version: 2023-05-15-preview.
+
+        Uses Azure REST API version 2023-05-15-preview.
 
         Other available API versions: 2024-10-23.
 
@@ -153,7 +154,8 @@ class Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the Package type.
-        Azure REST API version: 2023-05-15-preview.
+
+        Uses Azure REST API version 2023-05-15-preview.
 
         Other available API versions: 2024-10-23.
 

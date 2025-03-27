@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A paginated list of Feature entities.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  */
 export function listFeaturesetVersionFeatures(args: ListFeaturesetVersionFeaturesArgs, opts?: pulumi.InvokeOptions): Promise<ListFeaturesetVersionFeaturesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface ListFeaturesetVersionFeaturesResult {
 }
 /**
  * A paginated list of Feature entities.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  */
 export function listFeaturesetVersionFeaturesOutput(args: ListFeaturesetVersionFeaturesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFeaturesetVersionFeaturesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

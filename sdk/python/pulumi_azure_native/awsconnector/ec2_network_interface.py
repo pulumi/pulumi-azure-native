@@ -118,7 +118,8 @@ class Ec2NetworkInterface(pulumi.CustomResource):
                  __props__=None):
         """
         A Microsoft.AwsConnector resource
-        Azure REST API version: 2024-12-01.
+
+        Uses Azure REST API version 2024-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,7 +137,8 @@ class Ec2NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Microsoft.AwsConnector resource
-        Azure REST API version: 2024-12-01.
+
+        Uses Azure REST API version 2024-12-01.
 
         :param str resource_name: The name of the resource.
         :param Ec2NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.

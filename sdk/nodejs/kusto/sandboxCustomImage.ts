@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Kusto sandbox custom image.
- * Azure REST API version: 2023-08-15.
+ *
+ * Uses Azure REST API version 2023-08-15.
  *
  * Other available API versions: 2024-04-13.
  */

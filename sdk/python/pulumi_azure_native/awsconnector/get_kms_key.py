@@ -127,7 +127,8 @@ def get_kms_key(name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKmsKeyResult:
     """
     Get a KmsKey
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of KmsKey
@@ -152,7 +153,8 @@ def get_kms_key_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKmsKeyResult]:
     """
     Get a KmsKey
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of KmsKey

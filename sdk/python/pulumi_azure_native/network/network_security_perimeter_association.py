@@ -186,7 +186,8 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
                  __props__=None):
         """
         The NSP resource association resource
-        Azure REST API version: 2024-06-01-preview.
+
+        Uses Azure REST API version 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,7 +209,8 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The NSP resource association resource
-        Azure REST API version: 2024-06-01-preview.
+
+        Uses Azure REST API version 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterAssociationArgs args: The arguments to use to populate this resource's properties.

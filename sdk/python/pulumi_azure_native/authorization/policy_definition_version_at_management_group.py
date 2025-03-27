@@ -222,7 +222,8 @@ class PolicyDefinitionVersionAtManagementGroup(pulumi.CustomResource):
                  __props__=None):
         """
         The ID of the policy definition version.
-        Azure REST API version: 2023-04-01.
+
+        Uses Azure REST API version 2023-04-01.
 
         Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
 
@@ -248,7 +249,8 @@ class PolicyDefinitionVersionAtManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ID of the policy definition version.
-        Azure REST API version: 2023-04-01.
+
+        Uses Azure REST API version 2023-04-01.
 
         Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
 

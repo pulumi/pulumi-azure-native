@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Get a security assessment on your scanned resource
-        /// Azure REST API version: 2021-06-01.
+        /// 
+        /// Uses Azure REST API version 2021-06-01.
         /// 
         /// Other available API versions: 2020-01-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Security
 
         /// <summary>
         /// Get a security assessment on your scanned resource
-        /// Azure REST API version: 2021-06-01.
+        /// 
+        /// Uses Azure REST API version 2021-06-01.
         /// 
         /// Other available API versions: 2020-01-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Security
 
         /// <summary>
         /// Get a security assessment on your scanned resource
-        /// Azure REST API version: 2021-06-01.
+        /// 
+        /// Uses Azure REST API version 2021-06-01.
         /// 
         /// Other available API versions: 2020-01-01.
         /// </summary>

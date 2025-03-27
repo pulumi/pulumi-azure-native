@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AwsConnector
 {
     /// <summary>
     /// A Microsoft.AwsConnector resource
-    /// Azure REST API version: 2024-12-01.
+    /// 
+    /// Uses Azure REST API version 2024-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2VpcEndpoint")]
     public partial class Ec2VpcEndpoint : global::Pulumi.CustomResource

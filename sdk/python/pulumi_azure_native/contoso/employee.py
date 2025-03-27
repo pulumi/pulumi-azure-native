@@ -118,7 +118,8 @@ class Employee(pulumi.CustomResource):
                  __props__=None):
         """
         Employee resource
-        Azure REST API version: 2021-10-01-preview.
+
+        Uses Azure REST API version 2021-10-01-preview.
 
         Other available API versions: 2021-11-01.
 
@@ -138,7 +139,8 @@ class Employee(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Employee resource
-        Azure REST API version: 2021-10-01-preview.
+
+        Uses Azure REST API version 2021-10-01-preview.
 
         Other available API versions: 2021-11-01.
 

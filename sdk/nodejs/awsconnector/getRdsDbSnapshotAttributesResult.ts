@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a RdsDBSnapshotAttributesResult
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getRdsDbSnapshotAttributesResult(args: GetRdsDbSnapshotAttributesResultArgs, opts?: pulumi.InvokeOptions): Promise<GetRdsDbSnapshotAttributesResultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetRdsDbSnapshotAttributesResultResult {
 }
 /**
  * Get a RdsDBSnapshotAttributesResult
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getRdsDbSnapshotAttributesResultOutput(args: GetRdsDbSnapshotAttributesResultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRdsDbSnapshotAttributesResultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

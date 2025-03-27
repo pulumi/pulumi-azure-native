@@ -132,7 +132,8 @@ def get_topic_space(namespace_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicSpaceResult:
     """
     Get properties of a topic space.
-    Azure REST API version: 2023-06-01-preview.
+
+    Uses Azure REST API version 2023-06-01-preview.
 
     Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 
@@ -162,7 +163,8 @@ def get_topic_space_output(namespace_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicSpaceResult]:
     """
     Get properties of a topic space.
-    Azure REST API version: 2023-06-01-preview.
+
+    Uses Azure REST API version 2023-06-01-preview.
 
     Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 

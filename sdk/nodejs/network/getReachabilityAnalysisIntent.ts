@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration information or intent on which to do the analysis on.
- * Azure REST API version: 2024-01-01-preview.
+ *
+ * Uses Azure REST API version 2024-01-01-preview.
  *
  * Other available API versions: 2024-05-01.
  */
@@ -69,7 +70,8 @@ export interface GetReachabilityAnalysisIntentResult {
 }
 /**
  * Configuration information or intent on which to do the analysis on.
- * Azure REST API version: 2024-01-01-preview.
+ *
+ * Uses Azure REST API version 2024-01-01-preview.
  *
  * Other available API versions: 2024-05-01.
  */

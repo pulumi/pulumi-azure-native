@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Ec2KeyPair
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2KeyPair(args: GetEc2KeyPairArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2KeyPairResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEc2KeyPairResult {
 }
 /**
  * Get a Ec2KeyPair
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2KeyPairOutput(args: GetEc2KeyPairOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2KeyPairResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

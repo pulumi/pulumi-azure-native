@@ -163,7 +163,8 @@ def get_private_link_services_for_o365_management_activity_api(resource_group_na
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServicesForO365ManagementActivityAPIResult:
     """
     Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
-    Azure REST API version: 2021-03-08.
+
+    Uses Azure REST API version 2021-03-08.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -191,7 +192,8 @@ def get_private_link_services_for_o365_management_activity_api_output(resource_g
                                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServicesForO365ManagementActivityAPIResult]:
     """
     Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
-    Azure REST API version: 2021-03-08.
+
+    Uses Azure REST API version 2021-03-08.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

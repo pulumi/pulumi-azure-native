@@ -80,7 +80,8 @@ def list_appliance_keys(artifact_type: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListApplianceKeysResult:
     """
     Returns the cluster customer credentials for the dedicated appliance.
-    Azure REST API version: 2022-10-27.
+
+    Uses Azure REST API version 2022-10-27.
 
 
     :param str artifact_type: This sets the type of artifact being returned, when empty no artifact endpoint is returned.
@@ -104,7 +105,8 @@ def list_appliance_keys_output(artifact_type: Optional[pulumi.Input[Optional[str
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplianceKeysResult]:
     """
     Returns the cluster customer credentials for the dedicated appliance.
-    Azure REST API version: 2022-10-27.
+
+    Uses Azure REST API version 2022-10-27.
 
 
     :param str artifact_type: This sets the type of artifact being returned, when empty no artifact endpoint is returned.

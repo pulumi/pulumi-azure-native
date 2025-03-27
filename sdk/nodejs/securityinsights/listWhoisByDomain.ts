@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get whois information for a single domain name
- * Azure REST API version: 2024-01-01-preview.
+ *
+ * Uses Azure REST API version 2024-01-01-preview.
  *
  * Other available API versions: 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
  */
@@ -73,7 +74,8 @@ export interface ListWhoisByDomainResult {
 }
 /**
  * Get whois information for a single domain name
- * Azure REST API version: 2024-01-01-preview.
+ *
+ * Uses Azure REST API version 2024-01-01-preview.
  *
  * Other available API versions: 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
  */

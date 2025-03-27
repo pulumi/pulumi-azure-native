@@ -127,7 +127,8 @@ def get_private_access(private_access_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateAccessResult:
     """
     Get a private access resource
-    Azure REST API version: 2023-10-27-preview.
+
+    Uses Azure REST API version 2023-10-27-preview.
 
     Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
 
@@ -154,7 +155,8 @@ def get_private_access_output(private_access_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateAccessResult]:
     """
     Get a private access resource
-    Azure REST API version: 2023-10-27-preview.
+
+    Uses Azure REST API version 2023-10-27-preview.
 
     Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
 

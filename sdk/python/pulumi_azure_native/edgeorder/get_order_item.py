@@ -164,7 +164,8 @@ def get_order_item(expand: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderItemResult:
     """
     Get an order item.
-    Azure REST API version: 2022-05-01-preview.
+
+    Uses Azure REST API version 2022-05-01-preview.
 
     Other available API versions: 2024-02-01.
 
@@ -197,7 +198,8 @@ def get_order_item_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderItemResult]:
     """
     Get an order item.
-    Azure REST API version: 2022-05-01-preview.
+
+    Uses Azure REST API version 2022-05-01-preview.
 
     Other available API versions: 2024-02-01.
 

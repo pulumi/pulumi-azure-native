@@ -125,7 +125,8 @@ def get_connection_gateway(connection_gateway_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionGatewayResult:
     """
     Gets a specific gateway under a subscription and in a specific resource group
-    Azure REST API version: 2016-06-01.
+
+    Uses Azure REST API version 2016-06-01.
 
 
     :param str connection_gateway_name: The connection gateway name
@@ -153,7 +154,8 @@ def get_connection_gateway_output(connection_gateway_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionGatewayResult]:
     """
     Gets a specific gateway under a subscription and in a specific resource group
-    Azure REST API version: 2016-06-01.
+
+    Uses Azure REST API version 2016-06-01.
 
 
     :param str connection_gateway_name: The connection gateway name

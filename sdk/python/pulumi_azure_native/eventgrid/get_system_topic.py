@@ -175,7 +175,8 @@ def get_system_topic(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicResult:
     """
     Get properties of a system topic.
-    Azure REST API version: 2022-06-15.
+
+    Uses Azure REST API version 2022-06-15.
 
     Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 
@@ -206,7 +207,8 @@ def get_system_topic_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemTopicResult]:
     """
     Get properties of a system topic.
-    Azure REST API version: 2022-06-15.
+
+    Uses Azure REST API version 2022-06-15.
 
     Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 

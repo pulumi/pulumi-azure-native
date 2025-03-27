@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ContainerStorage
     {
         /// <summary>
         /// Get a Snapshot
-        /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-01-preview.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:containerstorage:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Snapshot
-        /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-01-preview.
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:containerstorage:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Snapshot
-        /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-01-preview.
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:containerstorage:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an integration account map.
- * Azure REST API version: 2019-05-01.
+ *
+ * Uses Azure REST API version 2019-05-01.
  *
  * Other available API versions: 2015-08-01-preview.
  */
@@ -96,7 +97,8 @@ export interface GetIntegrationAccountMapResult {
 }
 /**
  * Gets an integration account map.
- * Azure REST API version: 2019-05-01.
+ *
+ * Uses Azure REST API version 2019-05-01.
  *
  * Other available API versions: 2015-08-01-preview.
  */

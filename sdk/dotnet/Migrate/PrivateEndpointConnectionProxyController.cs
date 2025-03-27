@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Defines Private endpoint proxy resource.
-    /// Azure REST API version: 2023-01-01.
+    /// 
+    /// Uses Azure REST API version 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:PrivateEndpointConnectionProxyController")]
     public partial class PrivateEndpointConnectionProxyController : global::Pulumi.CustomResource

@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a datasource instance.
- * Azure REST API version: 2020-08-01.
+ *
+ * Uses Azure REST API version 2020-08-01.
  *
  * Other available API versions: 2015-11-01-preview, 2023-09-01, 2025-02-01.
  */
@@ -69,7 +70,8 @@ export interface GetDataSourceResult {
 }
 /**
  * Gets a datasource instance.
- * Azure REST API version: 2020-08-01.
+ *
+ * Uses Azure REST API version 2020-08-01.
  *
  * Other available API versions: 2015-11-01-preview, 2023-09-01, 2025-02-01.
  */

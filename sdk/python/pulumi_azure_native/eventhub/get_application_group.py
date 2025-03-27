@@ -140,7 +140,8 @@ def get_application_group(application_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGroupResult:
     """
     Gets an ApplicationGroup for a Namespace.
-    Azure REST API version: 2022-10-01-preview.
+
+    Uses Azure REST API version 2022-10-01-preview.
 
     Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
 
@@ -171,7 +172,8 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationGroupResult]:
     """
     Gets an ApplicationGroup for a Namespace.
-    Azure REST API version: 2022-10-01-preview.
+
+    Uses Azure REST API version 2022-10-01-preview.
 
     Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
 

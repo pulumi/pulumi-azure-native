@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a WorkloadImpact
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  */
 export function getWorkloadImpact(args: GetWorkloadImpactArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadImpactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,7 +53,8 @@ export interface GetWorkloadImpactResult {
 }
 /**
  * Get a WorkloadImpact
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  */
 export function getWorkloadImpactOutput(args: GetWorkloadImpactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadImpactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

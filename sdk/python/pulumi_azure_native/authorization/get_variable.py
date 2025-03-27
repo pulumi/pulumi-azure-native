@@ -102,7 +102,8 @@ def get_variable(variable_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVariableResult:
     """
     This operation retrieves a single variable, given its name and the subscription it was created at.
-    Azure REST API version: 2022-08-01-preview.
+
+    Uses Azure REST API version 2022-08-01-preview.
 
     Other available API versions: 2024-12-01-preview.
 
@@ -124,7 +125,8 @@ def get_variable_output(variable_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariableResult]:
     """
     This operation retrieves a single variable, given its name and the subscription it was created at.
-    Azure REST API version: 2022-08-01-preview.
+
+    Uses Azure REST API version 2022-08-01-preview.
 
     Other available API versions: 2024-12-01-preview.
 

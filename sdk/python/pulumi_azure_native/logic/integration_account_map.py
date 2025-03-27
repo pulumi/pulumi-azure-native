@@ -202,7 +202,8 @@ class IntegrationAccountMap(pulumi.CustomResource):
                  __props__=None):
         """
         The integration account map.
-        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+
+        Uses Azure REST API version 2019-05-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
 
         Other available API versions: 2015-08-01-preview.
 
@@ -227,7 +228,8 @@ class IntegrationAccountMap(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration account map.
-        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+
+        Uses Azure REST API version 2019-05-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
 
         Other available API versions: 2015-08-01-preview.
 

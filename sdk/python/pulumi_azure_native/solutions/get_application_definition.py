@@ -319,7 +319,8 @@ def get_application_definition(application_definition_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationDefinitionResult:
     """
     Gets the managed application definition.
-    Azure REST API version: 2021-07-01.
+
+    Uses Azure REST API version 2021-07-01.
 
     Other available API versions: 2023-12-01-preview.
 
@@ -362,7 +363,8 @@ def get_application_definition_output(application_definition_name: Optional[pulu
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationDefinitionResult]:
     """
     Gets the managed application definition.
-    Azure REST API version: 2021-07-01.
+
+    Uses Azure REST API version 2021-07-01.
 
     Other available API versions: 2023-12-01-preview.
 

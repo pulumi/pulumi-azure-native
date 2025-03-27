@@ -21,7 +21,8 @@ namespace Pulumi.AzureNative.MixedReality
         /// &gt; The Mixed Reality service is now deprecated and will be retired. 
         /// 
         ///  List Both of the 2 Keys of an object anchors Account
-        /// Azure REST API version: 2021-03-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// </summary>
         public static Task<ListObjectAnchorsAccountKeysResult> InvokeAsync(ListObjectAnchorsAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListObjectAnchorsAccountKeysResult>("azure-native:mixedreality:listObjectAnchorsAccountKeys", args ?? new ListObjectAnchorsAccountKeysArgs(), options.WithDefaults());
@@ -36,7 +37,8 @@ namespace Pulumi.AzureNative.MixedReality
         /// &gt; The Mixed Reality service is now deprecated and will be retired. 
         /// 
         ///  List Both of the 2 Keys of an object anchors Account
-        /// Azure REST API version: 2021-03-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// </summary>
         public static Output<ListObjectAnchorsAccountKeysResult> Invoke(ListObjectAnchorsAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListObjectAnchorsAccountKeysResult>("azure-native:mixedreality:listObjectAnchorsAccountKeys", args ?? new ListObjectAnchorsAccountKeysInvokeArgs(), options.WithDefaults());
@@ -51,7 +53,8 @@ namespace Pulumi.AzureNative.MixedReality
         /// &gt; The Mixed Reality service is now deprecated and will be retired. 
         /// 
         ///  List Both of the 2 Keys of an object anchors Account
-        /// Azure REST API version: 2021-03-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// </summary>
         public static Output<ListObjectAnchorsAccountKeysResult> Invoke(ListObjectAnchorsAccountKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListObjectAnchorsAccountKeysResult>("azure-native:mixedreality:listObjectAnchorsAccountKeys", args ?? new ListObjectAnchorsAccountKeysInvokeArgs(), options.WithDefaults());

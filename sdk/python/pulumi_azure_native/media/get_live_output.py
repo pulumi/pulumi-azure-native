@@ -225,7 +225,8 @@ def get_live_output(account_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveOutputResult:
     """
     Gets a live output.
-    Azure REST API version: 2022-11-01.
+
+    Uses Azure REST API version 2022-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -264,7 +265,8 @@ def get_live_output_output(account_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLiveOutputResult]:
     """
     Gets a live output.
-    Azure REST API version: 2022-11-01.
+
+    Uses Azure REST API version 2022-11-01.
 
 
     :param str account_name: The Media Services account name.

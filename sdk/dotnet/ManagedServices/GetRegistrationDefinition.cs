@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ManagedServices
     {
         /// <summary>
         /// Gets the registration definition details.
-        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Uses Azure REST API version 2022-10-01.
         /// </summary>
         public static Task<GetRegistrationDefinitionResult> InvokeAsync(GetRegistrationDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationDefinitionResult>("azure-native:managedservices:getRegistrationDefinition", args ?? new GetRegistrationDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the registration definition details.
-        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Uses Azure REST API version 2022-10-01.
         /// </summary>
         public static Output<GetRegistrationDefinitionResult> Invoke(GetRegistrationDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationDefinitionResult>("azure-native:managedservices:getRegistrationDefinition", args ?? new GetRegistrationDefinitionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the registration definition details.
-        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Uses Azure REST API version 2022-10-01.
         /// </summary>
         public static Output<GetRegistrationDefinitionResult> Invoke(GetRegistrationDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationDefinitionResult>("azure-native:managedservices:getRegistrationDefinition", args ?? new GetRegistrationDefinitionInvokeArgs(), options.WithDefaults());

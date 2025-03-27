@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.CustomerInsights
     {
         /// <summary>
         /// Gets a KPI in the hub.
-        /// Azure REST API version: 2017-04-26.
+        /// 
+        /// Uses Azure REST API version 2017-04-26.
         /// </summary>
         public static Task<GetKpiResult> InvokeAsync(GetKpiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKpiResult>("azure-native:customerinsights:getKpi", args ?? new GetKpiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a KPI in the hub.
-        /// Azure REST API version: 2017-04-26.
+        /// 
+        /// Uses Azure REST API version 2017-04-26.
         /// </summary>
         public static Output<GetKpiResult> Invoke(GetKpiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKpiResult>("azure-native:customerinsights:getKpi", args ?? new GetKpiInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a KPI in the hub.
-        /// Azure REST API version: 2017-04-26.
+        /// 
+        /// Uses Azure REST API version 2017-04-26.
         /// </summary>
         public static Output<GetKpiResult> Invoke(GetKpiInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKpiResult>("azure-native:customerinsights:getKpi", args ?? new GetKpiInvokeArgs(), options.WithDefaults());

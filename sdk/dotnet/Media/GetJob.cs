@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Gets a Job.
-        /// Azure REST API version: 2022-07-01.
+        /// 
+        /// Uses Azure REST API version 2022-07-01.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:media:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Job.
-        /// Azure REST API version: 2022-07-01.
+        /// 
+        /// Uses Azure REST API version 2022-07-01.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:media:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Job.
-        /// Azure REST API version: 2022-07-01.
+        /// 
+        /// Uses Azure REST API version 2022-07-01.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:media:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());

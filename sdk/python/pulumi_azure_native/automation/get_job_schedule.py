@@ -140,7 +140,8 @@ def get_job_schedule(automation_account_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobScheduleResult:
     """
     Retrieve the job schedule identified by job schedule name.
-    Azure REST API version: 2022-08-08.
+
+    Uses Azure REST API version 2022-08-08.
 
     Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
 
@@ -171,7 +172,8 @@ def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[str]]
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobScheduleResult]:
     """
     Retrieve the job schedule identified by job schedule name.
-    Azure REST API version: 2022-08-08.
+
+    Uses Azure REST API version 2022-08-08.
 
     Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
 

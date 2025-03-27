@@ -115,7 +115,8 @@ class ApiGatewayConfigConnection(pulumi.CustomResource):
                  __props__=None):
         """
         A single API Management gateway resource in List or Get response.
-        Azure REST API version: 2023-09-01-preview.
+
+        Uses Azure REST API version 2023-09-01-preview.
 
         Other available API versions: 2024-05-01, 2024-06-01-preview.
 
@@ -135,7 +136,8 @@ class ApiGatewayConfigConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A single API Management gateway resource in List or Get response.
-        Azure REST API version: 2023-09-01-preview.
+
+        Uses Azure REST API version 2023-09-01-preview.
 
         Other available API versions: 2024-05-01, 2024-06-01-preview.
 

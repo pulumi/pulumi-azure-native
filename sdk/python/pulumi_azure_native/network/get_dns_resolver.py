@@ -175,7 +175,8 @@ def get_dns_resolver(dns_resolver_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsResolverResult:
     """
     Gets properties of a DNS resolver.
-    Azure REST API version: 2022-07-01.
+
+    Uses Azure REST API version 2022-07-01.
 
     Other available API versions: 2023-07-01-preview.
 
@@ -206,7 +207,8 @@ def get_dns_resolver_output(dns_resolver_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsResolverResult]:
     """
     Gets properties of a DNS resolver.
-    Azure REST API version: 2022-07-01.
+
+    Uses Azure REST API version 2022-07-01.
 
     Other available API versions: 2023-07-01-preview.
 

@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified NSP link resource.
- * Azure REST API version: 2024-06-01-preview.
+ *
+ * Uses Azure REST API version 2024-06-01-preview.
  */
 export function getNetworkSecurityPerimeterLink(args: GetNetworkSecurityPerimeterLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityPerimeterLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,7 +96,8 @@ export interface GetNetworkSecurityPerimeterLinkResult {
 }
 /**
  * Gets the specified NSP link resource.
- * Azure REST API version: 2024-06-01-preview.
+ *
+ * Uses Azure REST API version 2024-06-01-preview.
  */
 export function getNetworkSecurityPerimeterLinkOutput(args: GetNetworkSecurityPerimeterLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSecurityPerimeterLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

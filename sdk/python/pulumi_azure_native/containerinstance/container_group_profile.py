@@ -344,7 +344,8 @@ class ContainerGroupProfile(pulumi.CustomResource):
                  __props__=None):
         """
         A container group profile.
-        Azure REST API version: 2024-05-01-preview.
+
+        Uses Azure REST API version 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -378,7 +379,8 @@ class ContainerGroupProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A container group profile.
-        Azure REST API version: 2024-05-01-preview.
+
+        Uses Azure REST API version 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ContainerGroupProfileArgs args: The arguments to use to populate this resource's properties.

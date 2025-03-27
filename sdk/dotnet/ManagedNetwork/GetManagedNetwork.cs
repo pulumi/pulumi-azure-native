@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ManagedNetwork
     {
         /// <summary>
         /// The Get ManagedNetworks operation gets a Managed Network Resource, specified by the resource group and Managed Network name
-        /// Azure REST API version: 2019-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-06-01-preview.
         /// </summary>
         public static Task<GetManagedNetworkResult> InvokeAsync(GetManagedNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkResult>("azure-native:managednetwork:getManagedNetwork", args ?? new GetManagedNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Get ManagedNetworks operation gets a Managed Network Resource, specified by the resource group and Managed Network name
-        /// Azure REST API version: 2019-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-06-01-preview.
         /// </summary>
         public static Output<GetManagedNetworkResult> Invoke(GetManagedNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedNetworkResult>("azure-native:managednetwork:getManagedNetwork", args ?? new GetManagedNetworkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Get ManagedNetworks operation gets a Managed Network Resource, specified by the resource group and Managed Network name
-        /// Azure REST API version: 2019-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-06-01-preview.
         /// </summary>
         public static Output<GetManagedNetworkResult> Invoke(GetManagedNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedNetworkResult>("azure-native:managednetwork:getManagedNetwork", args ?? new GetManagedNetworkInvokeArgs(), options.WithDefaults());

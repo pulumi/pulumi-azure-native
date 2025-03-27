@@ -115,7 +115,8 @@ def get_associated_tenant(associated_tenant_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssociatedTenantResult:
     """
     Gets an associated tenant by ID.
-    Azure REST API version: 2024-04-01.
+
+    Uses Azure REST API version 2024-04-01.
 
 
     :param str associated_tenant_name: The ID that uniquely identifies a tenant.
@@ -139,7 +140,8 @@ def get_associated_tenant_output(associated_tenant_name: Optional[pulumi.Input[s
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssociatedTenantResult]:
     """
     Gets an associated tenant by ID.
-    Azure REST API version: 2024-04-01.
+
+    Uses Azure REST API version 2024-04-01.
 
 
     :param str associated_tenant_name: The ID that uniquely identifies a tenant.

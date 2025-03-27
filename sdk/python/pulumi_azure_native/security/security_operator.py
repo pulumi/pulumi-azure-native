@@ -66,7 +66,8 @@ class SecurityOperator(pulumi.CustomResource):
                  __props__=None):
         """
         Security operator under a given subscription and pricing
-        Azure REST API version: 2023-01-01-preview.
+
+        Uses Azure REST API version 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,7 +82,8 @@ class SecurityOperator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Security operator under a given subscription and pricing
-        Azure REST API version: 2023-01-01-preview.
+
+        Uses Azure REST API version 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SecurityOperatorArgs args: The arguments to use to populate this resource's properties.

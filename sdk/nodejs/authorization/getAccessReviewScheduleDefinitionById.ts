@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get single access review definition
- * Azure REST API version: 2021-12-01-preview.
+ *
+ * Uses Azure REST API version 2021-12-01-preview.
  */
 export function getAccessReviewScheduleDefinitionById(args: GetAccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewScheduleDefinitionByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -180,7 +181,8 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
 }
 /**
  * Get single access review definition
- * Azure REST API version: 2021-12-01-preview.
+ *
+ * Uses Azure REST API version 2021-12-01-preview.
  */
 export function getAccessReviewScheduleDefinitionByIdOutput(args: GetAccessReviewScheduleDefinitionByIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessReviewScheduleDefinitionByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

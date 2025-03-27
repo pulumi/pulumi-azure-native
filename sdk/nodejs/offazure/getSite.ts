@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Site REST Resource.
- * Azure REST API version: 2020-07-07.
+ *
+ * Uses Azure REST API version 2020-07-07.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,7 +67,8 @@ export interface GetSiteResult {
 }
 /**
  * Site REST Resource.
- * Azure REST API version: 2020-07-07.
+ *
+ * Uses Azure REST API version 2020-07-07.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

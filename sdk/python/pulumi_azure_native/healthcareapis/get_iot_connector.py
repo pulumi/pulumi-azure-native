@@ -176,7 +176,8 @@ def get_iot_connector(iot_connector_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotConnectorResult:
     """
     Gets the properties of the specified IoT Connector.
-    Azure REST API version: 2023-02-28.
+
+    Uses Azure REST API version 2023-02-28.
 
     Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
 
@@ -210,7 +211,8 @@ def get_iot_connector_output(iot_connector_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotConnectorResult]:
     """
     Gets the properties of the specified IoT Connector.
-    Azure REST API version: 2023-02-28.
+
+    Uses Azure REST API version 2023-02-28.
 
     Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
 

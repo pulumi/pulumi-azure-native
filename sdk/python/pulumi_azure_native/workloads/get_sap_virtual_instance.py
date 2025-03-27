@@ -235,7 +235,8 @@ def get_sap_virtual_instance(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPVirtualInstanceResult:
     """
     Gets a Virtual Instance for SAP solutions resource
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-10-01-preview.
 
@@ -271,7 +272,8 @@ def get_sap_virtual_instance_output(resource_group_name: Optional[pulumi.Input[s
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPVirtualInstanceResult]:
     """
     Gets a Virtual Instance for SAP solutions resource
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-10-01-preview.
 

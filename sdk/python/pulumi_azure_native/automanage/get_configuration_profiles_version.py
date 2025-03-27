@@ -128,7 +128,8 @@ def get_configuration_profiles_version(configuration_profile_name: Optional[str]
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfilesVersionResult:
     """
     Get information about a configuration profile version
-    Azure REST API version: 2022-05-04.
+
+    Uses Azure REST API version 2022-05-04.
 
 
     :param str configuration_profile_name: The configuration profile name.
@@ -156,7 +157,8 @@ def get_configuration_profiles_version_output(configuration_profile_name: Option
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfilesVersionResult]:
     """
     Get information about a configuration profile version
-    Azure REST API version: 2022-05-04.
+
+    Uses Azure REST API version 2022-05-04.
 
 
     :param str configuration_profile_name: The configuration profile name.

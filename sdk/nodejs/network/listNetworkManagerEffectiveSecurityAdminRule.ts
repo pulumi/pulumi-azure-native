@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * List all effective security admin rules applied on a virtual network.
- * Azure REST API version: 2021-02-01-preview.
+ *
+ * Uses Azure REST API version 2021-02-01-preview.
  */
 export function listNetworkManagerEffectiveSecurityAdminRule(args: ListNetworkManagerEffectiveSecurityAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<ListNetworkManagerEffectiveSecurityAdminRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,7 +51,8 @@ export interface ListNetworkManagerEffectiveSecurityAdminRuleResult {
 }
 /**
  * List all effective security admin rules applied on a virtual network.
- * Azure REST API version: 2021-02-01-preview.
+ *
+ * Uses Azure REST API version 2021-02-01-preview.
  */
 export function listNetworkManagerEffectiveSecurityAdminRuleOutput(args: ListNetworkManagerEffectiveSecurityAdminRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNetworkManagerEffectiveSecurityAdminRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

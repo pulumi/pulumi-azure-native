@@ -175,7 +175,8 @@ def get_cluster_principal_assignment(cluster_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterPrincipalAssignmentResult:
     """
     Gets a Kusto cluster principalAssignment.
-    Azure REST API version: 2022-12-29.
+
+    Uses Azure REST API version 2022-12-29.
 
     Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
 
@@ -209,7 +210,8 @@ def get_cluster_principal_assignment_output(cluster_name: Optional[pulumi.Input[
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterPrincipalAssignmentResult]:
     """
     Gets a Kusto cluster principalAssignment.
-    Azure REST API version: 2022-12-29.
+
+    Uses Azure REST API version 2022-12-29.
 
     Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
 

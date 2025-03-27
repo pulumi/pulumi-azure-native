@@ -127,7 +127,8 @@ def get_rds_export_task(name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRdsExportTaskResult:
     """
     Get a RdsExportTask
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of RdsExportTask
@@ -152,7 +153,8 @@ def get_rds_export_task_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRdsExportTaskResult]:
     """
     Get a RdsExportTask
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of RdsExportTask

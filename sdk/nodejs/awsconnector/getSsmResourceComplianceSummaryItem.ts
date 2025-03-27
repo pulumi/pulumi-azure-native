@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SsmResourceComplianceSummaryItem
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSsmResourceComplianceSummaryItem(args: GetSsmResourceComplianceSummaryItemArgs, opts?: pulumi.InvokeOptions): Promise<GetSsmResourceComplianceSummaryItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetSsmResourceComplianceSummaryItemResult {
 }
 /**
  * Get a SsmResourceComplianceSummaryItem
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSsmResourceComplianceSummaryItemOutput(args: GetSsmResourceComplianceSummaryItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSsmResourceComplianceSummaryItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

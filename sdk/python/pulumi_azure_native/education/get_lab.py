@@ -213,7 +213,8 @@ def get_lab(billing_account_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
     """
     Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
-    Azure REST API version: 2021-12-01-preview.
+
+    Uses Azure REST API version 2021-12-01-preview.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
@@ -251,7 +252,8 @@ def get_lab_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabResult]:
     """
     Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
-    Azure REST API version: 2021-12-01-preview.
+
+    Uses Azure REST API version 2021-12-01-preview.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.

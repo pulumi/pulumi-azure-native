@@ -104,7 +104,8 @@ def get_vendor_sku_preview(preview_subscription: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorSkuPreviewResult:
     """
     Gets the preview information of a vendor sku.
-    Azure REST API version: 2022-01-01-preview.
+
+    Uses Azure REST API version 2022-01-01-preview.
 
 
     :param str preview_subscription: Preview subscription ID.
@@ -130,7 +131,8 @@ def get_vendor_sku_preview_output(preview_subscription: Optional[pulumi.Input[st
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVendorSkuPreviewResult]:
     """
     Gets the preview information of a vendor sku.
-    Azure REST API version: 2022-01-01-preview.
+
+    Uses Azure REST API version 2022-01-01-preview.
 
 
     :param str preview_subscription: Preview subscription ID.

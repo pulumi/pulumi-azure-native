@@ -91,7 +91,8 @@ def get_account_key_vault_status(account_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountKeyVaultStatusResult:
     """
     Contains data from encryption.keyVaultProperties as well as information about which private endpoint is used by each encryption sibling set. Response from this endpoint can be modified and used as request body for POST request.
-    Azure REST API version: 2024-09-01-preview.
+
+    Uses Azure REST API version 2024-09-01-preview.
 
 
     :param str account_name: The name of the NetApp account
@@ -113,7 +114,8 @@ def get_account_key_vault_status_output(account_name: Optional[pulumi.Input[str]
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountKeyVaultStatusResult]:
     """
     Contains data from encryption.keyVaultProperties as well as information about which private endpoint is used by each encryption sibling set. Response from this endpoint can be modified and used as request body for POST request.
-    Azure REST API version: 2024-09-01-preview.
+
+    Uses Azure REST API version 2024-09-01-preview.
 
 
     :param str account_name: The name of the NetApp account

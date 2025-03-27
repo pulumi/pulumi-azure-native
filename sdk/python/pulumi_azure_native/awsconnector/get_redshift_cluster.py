@@ -127,7 +127,8 @@ def get_redshift_cluster(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRedshiftClusterResult:
     """
     Get a RedshiftCluster
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of RedshiftCluster
@@ -152,7 +153,8 @@ def get_redshift_cluster_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRedshiftClusterResult]:
     """
     Get a RedshiftCluster
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of RedshiftCluster

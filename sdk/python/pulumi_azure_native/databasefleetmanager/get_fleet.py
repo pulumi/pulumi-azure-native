@@ -127,7 +127,8 @@ def get_fleet(fleet_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetResult:
     """
     Gets a fleet resource.
-    Azure REST API version: 2025-02-01-preview.
+
+    Uses Azure REST API version 2025-02-01-preview.
 
 
     :param str fleet_name: Name of the database fleet.
@@ -152,7 +153,8 @@ def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
     Gets a fleet resource.
-    Azure REST API version: 2025-02-01-preview.
+
+    Uses Azure REST API version 2025-02-01-preview.
 
 
     :param str fleet_name: Name of the database fleet.

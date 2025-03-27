@@ -67,7 +67,8 @@ def list_dns_resolver_policy_by_virtual_network(resource_group_name: Optional[st
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDnsResolverPolicyByVirtualNetworkResult:
     """
     Lists DNS resolver policy resource IDs linked to a virtual network.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -87,7 +88,8 @@ def list_dns_resolver_policy_by_virtual_network_output(resource_group_name: Opti
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDnsResolverPolicyByVirtualNetworkResult]:
     """
     Lists DNS resolver policy resource IDs linked to a virtual network.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
-        /// Azure REST API version: 2019-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-01-01-preview.
         /// </summary>
         public static Task<GetAlertsSuppressionRuleResult> InvokeAsync(GetAlertsSuppressionRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertsSuppressionRuleResult>("azure-native:security:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
-        /// Azure REST API version: 2019-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-01-01-preview.
         /// </summary>
         public static Output<GetAlertsSuppressionRuleResult> Invoke(GetAlertsSuppressionRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertsSuppressionRuleResult>("azure-native:security:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
-        /// Azure REST API version: 2019-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-01-01-preview.
         /// </summary>
         public static Output<GetAlertsSuppressionRuleResult> Invoke(GetAlertsSuppressionRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertsSuppressionRuleResult>("azure-native:security:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleInvokeArgs(), options.WithDefaults());

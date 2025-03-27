@@ -151,7 +151,8 @@ class Application(pulumi.CustomResource):
                  __props__=None):
         """
         An integration application under space.
-        Azure REST API version: 2023-11-14-preview.
+
+        Uses Azure REST API version 2023-11-14-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +172,8 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An integration application under space.
-        Azure REST API version: 2023-11-14-preview.
+
+        Uses Azure REST API version 2023-11-14-preview.
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

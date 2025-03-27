@@ -151,7 +151,8 @@ def get_standby_container_group_pool(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStandbyContainerGroupPoolResult:
     """
     Get a StandbyContainerGroupPoolResource
-    Azure REST API version: 2023-12-01-preview.
+
+    Uses Azure REST API version 2023-12-01-preview.
 
     Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
 
@@ -180,7 +181,8 @@ def get_standby_container_group_pool_output(resource_group_name: Optional[pulumi
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandbyContainerGroupPoolResult]:
     """
     Get a StandbyContainerGroupPoolResource
-    Azure REST API version: 2023-12-01-preview.
+
+    Uses Azure REST API version 2023-12-01-preview.
 
     Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
 

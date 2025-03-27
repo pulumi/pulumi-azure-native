@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Container of a site
- * Azure REST API version: 2023-12-01.
+ *
+ * Uses Azure REST API version 2023-12-01.
  *
  * Other available API versions: 2024-04-01.
  */
@@ -108,7 +109,8 @@ export interface GetWebAppSiteContainerResult {
 }
 /**
  * Container of a site
- * Azure REST API version: 2023-12-01.
+ *
+ * Uses Azure REST API version 2023-12-01.
  *
  * Other available API versions: 2024-04-01.
  */

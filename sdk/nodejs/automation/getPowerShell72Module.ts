@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the module identified by module name.
- * Azure REST API version: 2023-11-01.
+ *
+ * Uses Azure REST API version 2023-11-01.
  */
 export function getPowerShell72Module(args: GetPowerShell72ModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetPowerShell72ModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,7 +107,8 @@ export interface GetPowerShell72ModuleResult {
 }
 /**
  * Retrieve the module identified by module name.
- * Azure REST API version: 2023-11-01.
+ *
+ * Uses Azure REST API version 2023-11-01.
  */
 export function getPowerShell72ModuleOutput(args: GetPowerShell72ModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPowerShell72ModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

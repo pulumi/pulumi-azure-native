@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the extension.
- * Azure REST API version: 2022-07-15-preview.
+ *
+ * Uses Azure REST API version 2022-07-15-preview.
  *
  * Other available API versions: 2022-01-10-preview, 2023-03-01-preview.
  */
@@ -104,7 +105,8 @@ export interface GetMachineExtensionResult {
 }
 /**
  * The operation to get the extension.
- * Azure REST API version: 2022-07-15-preview.
+ *
+ * Uses Azure REST API version 2022-07-15-preview.
  *
  * Other available API versions: 2022-01-10-preview, 2023-03-01-preview.
  */

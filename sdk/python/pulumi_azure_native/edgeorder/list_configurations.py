@@ -70,7 +70,8 @@ def list_configurations(configuration_filters: Optional[Sequence[Union['Configur
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConfigurationsResult:
     """
     This method provides the list of configurations for the given product family, product line and product under subscription.
-    Azure REST API version: 2021-12-01.
+
+    Uses Azure REST API version 2021-12-01.
 
 
     :param Sequence[Union['ConfigurationFilters', 'ConfigurationFiltersDict']] configuration_filters: Holds details about product hierarchy information and filterable property.
@@ -93,7 +94,8 @@ def list_configurations_output(configuration_filters: Optional[pulumi.Input[Sequ
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConfigurationsResult]:
     """
     This method provides the list of configurations for the given product family, product line and product under subscription.
-    Azure REST API version: 2021-12-01.
+
+    Uses Azure REST API version 2021-12-01.
 
 
     :param Sequence[Union['ConfigurationFilters', 'ConfigurationFiltersDict']] configuration_filters: Holds details about product hierarchy information and filterable property.

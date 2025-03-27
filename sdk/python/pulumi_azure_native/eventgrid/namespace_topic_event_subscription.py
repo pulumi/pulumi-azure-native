@@ -151,7 +151,8 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         Event Subscription.
-        Azure REST API version: 2023-06-01-preview.
+
+        Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 
@@ -173,7 +174,8 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Subscription.
-        Azure REST API version: 2023-06-01-preview.
+
+        Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 

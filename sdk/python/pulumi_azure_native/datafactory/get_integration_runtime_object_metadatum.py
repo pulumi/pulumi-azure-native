@@ -69,7 +69,8 @@ def get_integration_runtime_object_metadatum(factory_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeObjectMetadatumResult:
     """
     Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str factory_name: The factory name.
@@ -95,7 +96,8 @@ def get_integration_runtime_object_metadatum_output(factory_name: Optional[pulum
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationRuntimeObjectMetadatumResult]:
     """
     Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str factory_name: The factory name.

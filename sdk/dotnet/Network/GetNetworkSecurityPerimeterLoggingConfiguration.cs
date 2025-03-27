@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the NSP logging configuration.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Task<GetNetworkSecurityPerimeterLoggingConfigurationResult> InvokeAsync(GetNetworkSecurityPerimeterLoggingConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityPerimeterLoggingConfigurationResult>("azure-native:network:getNetworkSecurityPerimeterLoggingConfiguration", args ?? new GetNetworkSecurityPerimeterLoggingConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the NSP logging configuration.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterLoggingConfigurationResult> Invoke(GetNetworkSecurityPerimeterLoggingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterLoggingConfigurationResult>("azure-native:network:getNetworkSecurityPerimeterLoggingConfiguration", args ?? new GetNetworkSecurityPerimeterLoggingConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the NSP logging configuration.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterLoggingConfigurationResult> Invoke(GetNetworkSecurityPerimeterLoggingConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterLoggingConfigurationResult>("azure-native:network:getNetworkSecurityPerimeterLoggingConfiguration", args ?? new GetNetworkSecurityPerimeterLoggingConfigurationInvokeArgs(), options.WithDefaults());

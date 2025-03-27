@@ -199,7 +199,8 @@ def get_enterprise_policy(enterprise_policy_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnterprisePolicyResult:
     """
     Get information about an EnterprisePolicy
-    Azure REST API version: 2020-10-30-preview.
+
+    Uses Azure REST API version 2020-10-30-preview.
 
 
     :param str enterprise_policy_name: The EnterprisePolicy name.
@@ -230,7 +231,8 @@ def get_enterprise_policy_output(enterprise_policy_name: Optional[pulumi.Input[s
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterprisePolicyResult]:
     """
     Get information about an EnterprisePolicy
-    Azure REST API version: 2020-10-30-preview.
+
+    Uses Azure REST API version 2020-10-30-preview.
 
 
     :param str enterprise_policy_name: The EnterprisePolicy name.

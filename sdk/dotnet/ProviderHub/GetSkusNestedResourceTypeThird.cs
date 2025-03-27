@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ProviderHub
     {
         /// <summary>
         /// Gets the sku details for the given resource type and sku name.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-09-01-preview.
         /// </summary>
         public static Task<GetSkusNestedResourceTypeThirdResult> InvokeAsync(GetSkusNestedResourceTypeThirdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeThirdResult>("azure-native:providerhub:getSkusNestedResourceTypeThird", args ?? new GetSkusNestedResourceTypeThirdArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the sku details for the given resource type and sku name.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-09-01-preview.
         /// </summary>
         public static Output<GetSkusNestedResourceTypeThirdResult> Invoke(GetSkusNestedResourceTypeThirdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSkusNestedResourceTypeThirdResult>("azure-native:providerhub:getSkusNestedResourceTypeThird", args ?? new GetSkusNestedResourceTypeThirdInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the sku details for the given resource type and sku name.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-09-01-preview.
         /// </summary>
         public static Output<GetSkusNestedResourceTypeThirdResult> Invoke(GetSkusNestedResourceTypeThirdInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSkusNestedResourceTypeThirdResult>("azure-native:providerhub:getSkusNestedResourceTypeThird", args ?? new GetSkusNestedResourceTypeThirdInvokeArgs(), options.WithDefaults());

@@ -163,7 +163,8 @@ def get_import_sites_controller(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImportSitesControllerResult:
     """
     Get a ImportSite
-    Azure REST API version: 2023-06-06.
+
+    Uses Azure REST API version 2023-06-06.
 
     Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 
@@ -193,7 +194,8 @@ def get_import_sites_controller_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImportSitesControllerResult]:
     """
     Get a ImportSite
-    Azure REST API version: 2023-06-06.
+
+    Uses Azure REST API version 2023-06-06.
 
     Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 

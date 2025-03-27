@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an Azure Large Storage instance for the specified subscription, resource
  * group, and instance name.
- * Azure REST API version: 2024-08-01-preview.
+ *
+ * Uses Azure REST API version 2024-08-01-preview.
  */
 export function getAzureLargeStorageInstance(args: GetAzureLargeStorageInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureLargeStorageInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,7 +77,8 @@ export interface GetAzureLargeStorageInstanceResult {
 /**
  * Gets an Azure Large Storage instance for the specified subscription, resource
  * group, and instance name.
- * Azure REST API version: 2024-08-01-preview.
+ *
+ * Uses Azure REST API version 2024-08-01-preview.
  */
 export function getAzureLargeStorageInstanceOutput(args: GetAzureLargeStorageInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureLargeStorageInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

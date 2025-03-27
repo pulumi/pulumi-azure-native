@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a Ec2Image
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEc2ImageResult> InvokeAsync(GetEc2ImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEc2ImageResult>("azure-native:awsconnector:getEc2Image", args ?? new GetEc2ImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2Image
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2ImageResult> Invoke(GetEc2ImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2ImageResult>("azure-native:awsconnector:getEc2Image", args ?? new GetEc2ImageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2Image
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2ImageResult> Invoke(GetEc2ImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2ImageResult>("azure-native:awsconnector:getEc2Image", args ?? new GetEc2ImageInvokeArgs(), options.WithDefaults());

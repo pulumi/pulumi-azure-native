@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.ElasticSan
     {
         /// <summary>
         /// Get an VolumeGroups.
-        /// Azure REST API version: 2021-11-20-preview.
+        /// 
+        /// Uses Azure REST API version 2021-11-20-preview.
         /// 
         /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ElasticSan
 
         /// <summary>
         /// Get an VolumeGroups.
-        /// Azure REST API version: 2021-11-20-preview.
+        /// 
+        /// Uses Azure REST API version 2021-11-20-preview.
         /// 
         /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.ElasticSan
 
         /// <summary>
         /// Get an VolumeGroups.
-        /// Azure REST API version: 2021-11-20-preview.
+        /// 
+        /// Uses Azure REST API version 2021-11-20-preview.
         /// 
         /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
         /// </summary>

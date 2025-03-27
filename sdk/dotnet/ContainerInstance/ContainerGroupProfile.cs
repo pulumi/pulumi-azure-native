@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ContainerInstance
 {
     /// <summary>
     /// A container group profile.
-    /// Azure REST API version: 2024-05-01-preview.
+    /// 
+    /// Uses Azure REST API version 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:ContainerGroupProfile")]
     public partial class ContainerGroupProfile : global::Pulumi.CustomResource

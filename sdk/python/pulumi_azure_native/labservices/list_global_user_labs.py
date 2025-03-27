@@ -54,7 +54,8 @@ def list_global_user_labs(user_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGlobalUserLabsResult:
     """
     List labs for the user.
-    Azure REST API version: 2018-10-15.
+
+    Uses Azure REST API version 2018-10-15.
 
 
     :param str user_name: The name of the user.
@@ -70,7 +71,8 @@ def list_global_user_labs_output(user_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGlobalUserLabsResult]:
     """
     List labs for the user.
-    Azure REST API version: 2018-10-15.
+
+    Uses Azure REST API version 2018-10-15.
 
 
     :param str user_name: The name of the user.

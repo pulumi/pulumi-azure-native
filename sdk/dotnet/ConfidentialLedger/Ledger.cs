@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ConfidentialLedger
 {
     /// <summary>
     /// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
-    /// Azure REST API version: 2022-05-13. Prior API version in Azure Native 1.x: 2020-12-01-preview.
+    /// 
+    /// Uses Azure REST API version 2022-05-13. In version 1.x of the Azure Native provider, it used API version 2020-12-01-preview.
     /// 
     /// Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
     /// </summary>

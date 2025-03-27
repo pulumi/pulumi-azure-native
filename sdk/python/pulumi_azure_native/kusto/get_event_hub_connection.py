@@ -152,7 +152,8 @@ def get_event_hub_connection(cluster_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubConnectionResult:
     """
     Returns an Event Hub connection.
-    Azure REST API version: 2018-09-07-preview.
+
+    Uses Azure REST API version 2018-09-07-preview.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -185,7 +186,8 @@ def get_event_hub_connection_output(cluster_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventHubConnectionResult]:
     """
     Returns an Event Hub connection.
-    Azure REST API version: 2018-09-07-preview.
+
+    Uses Azure REST API version 2018-09-07-preview.
 
 
     :param str cluster_name: The name of the Kusto cluster.

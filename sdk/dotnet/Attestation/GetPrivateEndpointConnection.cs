@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Attestation
     {
         /// <summary>
         /// Gets the specified private endpoint connection associated with the attestation provider.
-        /// Azure REST API version: 2021-06-01.
+        /// 
+        /// Uses Azure REST API version 2021-06-01.
         /// 
         /// Other available API versions: 2021-06-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Attestation
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the attestation provider.
-        /// Azure REST API version: 2021-06-01.
+        /// 
+        /// Uses Azure REST API version 2021-06-01.
         /// 
         /// Other available API versions: 2021-06-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Attestation
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the attestation provider.
-        /// Azure REST API version: 2021-06-01.
+        /// 
+        /// Uses Azure REST API version 2021-06-01.
         /// 
         /// Other available API versions: 2021-06-01-preview.
         /// </summary>

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets guest diagnostics settings.
- * Azure REST API version: 2018-06-01-preview.
+ *
+ * Uses Azure REST API version 2018-06-01-preview.
  */
 export function getGuestDiagnosticsSetting(args: GetGuestDiagnosticsSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestDiagnosticsSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,7 +67,8 @@ export interface GetGuestDiagnosticsSettingResult {
 }
 /**
  * Gets guest diagnostics settings.
- * Azure REST API version: 2018-06-01-preview.
+ *
+ * Uses Azure REST API version 2018-06-01-preview.
  */
 export function getGuestDiagnosticsSettingOutput(args: GetGuestDiagnosticsSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestDiagnosticsSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

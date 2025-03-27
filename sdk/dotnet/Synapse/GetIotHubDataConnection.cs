@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Returns a data connection.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Task<GetIotHubDataConnectionResult> InvokeAsync(GetIotHubDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotHubDataConnectionResult>("azure-native:synapse:getIotHubDataConnection", args ?? new GetIotHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a data connection.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Output<GetIotHubDataConnectionResult> Invoke(GetIotHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotHubDataConnectionResult>("azure-native:synapse:getIotHubDataConnection", args ?? new GetIotHubDataConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a data connection.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Output<GetIotHubDataConnectionResult> Invoke(GetIotHubDataConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotHubDataConnectionResult>("azure-native:synapse:getIotHubDataConnection", args ?? new GetIotHubDataConnectionInvokeArgs(), options.WithDefaults());

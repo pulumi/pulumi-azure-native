@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a custom API by name for a specific subscription and resource group
- * Azure REST API version: 2016-06-01.
+ *
+ * Uses Azure REST API version 2016-06-01.
  */
 export function getCustomApi(args: GetCustomApiArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,7 +71,8 @@ export interface GetCustomApiResult {
 }
 /**
  * Gets a custom API by name for a specific subscription and resource group
- * Azure REST API version: 2016-06-01.
+ *
+ * Uses Azure REST API version 2016-06-01.
  */
 export function getCustomApiOutput(args: GetCustomApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

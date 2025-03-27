@@ -164,7 +164,8 @@ def list_bot_connection_with_secrets(connection_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBotConnectionWithSecretsResult:
     """
     Get a Connection Setting registration for a Bot Service
-    Azure REST API version: 2022-09-15.
+
+    Uses Azure REST API version 2022-09-15.
 
     Other available API versions: 2023-09-15-preview.
 
@@ -197,7 +198,8 @@ def list_bot_connection_with_secrets_output(connection_name: Optional[pulumi.Inp
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBotConnectionWithSecretsResult]:
     """
     Get a Connection Setting registration for a Bot Service
-    Azure REST API version: 2022-09-15.
+
+    Uses Azure REST API version 2022-09-15.
 
     Other available API versions: 2023-09-15-preview.
 

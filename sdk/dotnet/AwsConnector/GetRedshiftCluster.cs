@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a RedshiftCluster
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetRedshiftClusterResult> InvokeAsync(GetRedshiftClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRedshiftClusterResult>("azure-native:awsconnector:getRedshiftCluster", args ?? new GetRedshiftClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a RedshiftCluster
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetRedshiftClusterResult> Invoke(GetRedshiftClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRedshiftClusterResult>("azure-native:awsconnector:getRedshiftCluster", args ?? new GetRedshiftClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a RedshiftCluster
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetRedshiftClusterResult> Invoke(GetRedshiftClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRedshiftClusterResult>("azure-native:awsconnector:getRedshiftCluster", args ?? new GetRedshiftClusterInvokeArgs(), options.WithDefaults());

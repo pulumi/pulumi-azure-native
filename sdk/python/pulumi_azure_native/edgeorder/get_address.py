@@ -151,7 +151,8 @@ def get_address(address_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddressResult:
     """
     Get information about the specified address.
-    Azure REST API version: 2022-05-01-preview.
+
+    Uses Azure REST API version 2022-05-01-preview.
 
     Other available API versions: 2024-02-01.
 
@@ -180,7 +181,8 @@ def get_address_output(address_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddressResult]:
     """
     Get information about the specified address.
-    Azure REST API version: 2022-05-01-preview.
+
+    Uses Azure REST API version 2022-05-01-preview.
 
     Other available API versions: 2024-02-01.
 

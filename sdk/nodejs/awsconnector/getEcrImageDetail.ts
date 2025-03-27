@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a EcrImageDetail
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEcrImageDetail(args: GetEcrImageDetailArgs, opts?: pulumi.InvokeOptions): Promise<GetEcrImageDetailResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEcrImageDetailResult {
 }
 /**
  * Get a EcrImageDetail
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEcrImageDetailOutput(args: GetEcrImageDetailOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEcrImageDetailResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

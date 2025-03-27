@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2024-10-01-preview.
+ * Uses Azure REST API version 2024-10-01-preview.
  *
  * Other available API versions: 2025-01-01-preview.
  */
@@ -42,7 +42,7 @@ export interface ListConnectionAllModelsResult {
     readonly value?: outputs.machinelearningservices.EndpointModelPropertiesResponse[];
 }
 /**
- * Azure REST API version: 2024-10-01-preview.
+ * Uses Azure REST API version 2024-10-01-preview.
  *
  * Other available API versions: 2025-01-01-preview.
  */

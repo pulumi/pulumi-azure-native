@@ -103,7 +103,8 @@ def list_namespace_keys(authorization_rule_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNamespaceKeysResult:
     """
     Primary and secondary connection strings to the namespace.
-    Azure REST API version: 2021-11-01.
+
+    Uses Azure REST API version 2021-11-01.
 
     Other available API versions: 2024-01-01.
 
@@ -131,7 +132,8 @@ def list_namespace_keys_output(authorization_rule_name: Optional[pulumi.Input[st
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNamespaceKeysResult]:
     """
     Primary and secondary connection strings to the namespace.
-    Azure REST API version: 2021-11-01.
+
+    Uses Azure REST API version 2021-11-01.
 
     Other available API versions: 2024-01-01.
 

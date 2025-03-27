@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a Cognitive Services commitment plan specified by the parameters.
- * Azure REST API version: 2023-05-01.
+ *
+ * Uses Azure REST API version 2023-05-01.
  *
  * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
  */
@@ -79,7 +80,8 @@ export interface GetSharedCommitmentPlanResult {
 }
 /**
  * Returns a Cognitive Services commitment plan specified by the parameters.
- * Azure REST API version: 2023-05-01.
+ *
+ * Uses Azure REST API version 2023-05-01.
  *
  * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
  */

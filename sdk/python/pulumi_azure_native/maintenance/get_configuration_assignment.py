@@ -130,7 +130,8 @@ def get_configuration_assignment(configuration_assignment_name: Optional[str] = 
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationAssignmentResult:
     """
     Get configuration for resource.
-    Azure REST API version: 2022-11-01-preview.
+
+    Uses Azure REST API version 2022-11-01-preview.
 
     Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
 
@@ -166,7 +167,8 @@ def get_configuration_assignment_output(configuration_assignment_name: Optional[
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAssignmentResult]:
     """
     Get configuration for resource.
-    Azure REST API version: 2022-11-01-preview.
+
+    Uses Azure REST API version 2022-11-01-preview.
 
     Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
 

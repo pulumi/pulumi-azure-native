@@ -248,7 +248,8 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         The integration account RosettaNet process configuration.
-        Azure REST API version: 2016-06-01. Prior API version in Azure Native 1.x: 2016-06-01.
+
+        Uses Azure REST API version 2016-06-01. In version 1.x of the Azure Native provider, it used API version 2016-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,7 +275,8 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration account RosettaNet process configuration.
-        Azure REST API version: 2016-06-01. Prior API version in Azure Native 1.x: 2016-06-01.
+
+        Uses Azure REST API version 2016-06-01. In version 1.x of the Azure Native provider, it used API version 2016-06-01.
 
         :param str resource_name: The name of the resource.
         :param RosettaNetProcessConfigurationArgs args: The arguments to use to populate this resource's properties.

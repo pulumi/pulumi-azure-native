@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Confluent
     {
         /// <summary>
         /// Result of POST request to list regions supported by confluent
-        /// Azure REST API version: 2024-02-13.
+        /// 
+        /// Uses Azure REST API version 2024-02-13.
         /// 
         /// Other available API versions: 2024-07-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Confluent
 
         /// <summary>
         /// Result of POST request to list regions supported by confluent
-        /// Azure REST API version: 2024-02-13.
+        /// 
+        /// Uses Azure REST API version 2024-02-13.
         /// 
         /// Other available API versions: 2024-07-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Confluent
 
         /// <summary>
         /// Result of POST request to list regions supported by confluent
-        /// Azure REST API version: 2024-02-13.
+        /// 
+        /// Uses Azure REST API version 2024-02-13.
         /// 
         /// Other available API versions: 2024-07-01.
         /// </summary>

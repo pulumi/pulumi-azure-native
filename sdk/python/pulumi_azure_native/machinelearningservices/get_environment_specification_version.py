@@ -105,7 +105,8 @@ def get_environment_specification_version(name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentSpecificationVersionResult:
     """
     Azure Resource Manager resource envelope.
-    Azure REST API version: 2021-03-01-preview.
+
+    Uses Azure REST API version 2021-03-01-preview.
 
 
     :param str name: Container name.
@@ -134,7 +135,8 @@ def get_environment_specification_version_output(name: Optional[pulumi.Input[str
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentSpecificationVersionResult]:
     """
     Azure Resource Manager resource envelope.
-    Azure REST API version: 2021-03-01-preview.
+
+    Uses Azure REST API version 2021-03-01-preview.
 
 
     :param str name: Container name.

@@ -116,7 +116,8 @@ def get_bandwidth_setting(bandwidth_setting_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBandwidthSettingResult:
     """
     Returns the properties of the specified bandwidth setting name.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str bandwidth_setting_name: The name of bandwidth setting to be fetched.
@@ -143,7 +144,8 @@ def get_bandwidth_setting_output(bandwidth_setting_name: Optional[pulumi.Input[s
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBandwidthSettingResult]:
     """
     Returns the properties of the specified bandwidth setting name.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str bandwidth_setting_name: The name of bandwidth setting to be fetched.

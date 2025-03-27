@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the active management group diagnostic settings for the specified resource.
- * Azure REST API version: 2021-05-01-preview.
+ *
+ * Uses Azure REST API version 2021-05-01-preview.
  *
  * Other available API versions: 2020-01-01-preview.
  */
@@ -83,7 +84,8 @@ export interface GetManagementGroupDiagnosticSettingResult {
 }
 /**
  * Gets the active management group diagnostic settings for the specified resource.
- * Azure REST API version: 2021-05-01-preview.
+ *
+ * Uses Azure REST API version 2021-05-01-preview.
  *
  * Other available API versions: 2020-01-01-preview.
  */

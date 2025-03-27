@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.EngagementFabric
 {
     /// <summary>
     /// The EngagementFabric account
-    /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+    /// 
+    /// Uses Azure REST API version 2018-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:engagementfabric:Account")]
     public partial class Account : global::Pulumi.CustomResource

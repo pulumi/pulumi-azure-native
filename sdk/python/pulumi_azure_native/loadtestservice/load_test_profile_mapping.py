@@ -117,7 +117,8 @@ class LoadTestProfileMapping(pulumi.CustomResource):
                  __props__=None):
         """
         LoadTest profile mapping resource details
-        Azure REST API version: 2023-12-01-preview.
+
+        Uses Azure REST API version 2023-12-01-preview.
 
         Other available API versions: 2024-12-01-preview.
 
@@ -137,7 +138,8 @@ class LoadTestProfileMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         LoadTest profile mapping resource details
-        Azure REST API version: 2023-12-01-preview.
+
+        Uses Azure REST API version 2023-12-01-preview.
 
         Other available API versions: 2024-12-01-preview.
 

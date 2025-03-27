@@ -247,7 +247,8 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Gets a Log Analytics cluster instance.
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01, 2025-02-01.
 
@@ -284,7 +285,8 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Gets a Log Analytics cluster instance.
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01, 2025-02-01.
 

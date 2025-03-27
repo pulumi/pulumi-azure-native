@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Get the detail of a linked workspace.
-        /// Azure REST API version: 2020-05-15-preview.
+        /// 
+        /// Uses Azure REST API version 2020-05-15-preview.
         /// </summary>
         public static Task<GetLinkedWorkspaceResult> InvokeAsync(GetLinkedWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedWorkspaceResult>("azure-native:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the detail of a linked workspace.
-        /// Azure REST API version: 2020-05-15-preview.
+        /// 
+        /// Uses Azure REST API version 2020-05-15-preview.
         /// </summary>
         public static Output<GetLinkedWorkspaceResult> Invoke(GetLinkedWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedWorkspaceResult>("azure-native:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the detail of a linked workspace.
-        /// Azure REST API version: 2020-05-15-preview.
+        /// 
+        /// Uses Azure REST API version 2020-05-15-preview.
         /// </summary>
         public static Output<GetLinkedWorkspaceResult> Invoke(GetLinkedWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedWorkspaceResult>("azure-native:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceInvokeArgs(), options.WithDefaults());

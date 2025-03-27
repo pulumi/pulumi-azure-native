@@ -139,7 +139,8 @@ def get_instance(instancename: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
     Get a InstanceResource
-    Azure REST API version: 2024-09-18-preview.
+
+    Uses Azure REST API version 2024-09-18-preview.
 
 
     :param str instancename: Name of the Instance resource
@@ -165,7 +166,8 @@ def get_instance_output(instancename: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Get a InstanceResource
-    Azure REST API version: 2024-09-18-preview.
+
+    Uses Azure REST API version 2024-09-18-preview.
 
 
     :param str instancename: Name of the Instance resource

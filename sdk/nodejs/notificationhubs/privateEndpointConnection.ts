@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
- * Azure REST API version: 2023-01-01-preview.
+ *
+ * Uses Azure REST API version 2023-01-01-preview.
  *
  * Other available API versions: 2023-09-01, 2023-10-01-preview.
  */

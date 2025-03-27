@@ -134,7 +134,8 @@ class FabricCapacity(pulumi.CustomResource):
                  __props__=None):
         """
         Fabric Capacity resource
-        Azure REST API version: 2023-11-01.
+
+        Uses Azure REST API version 2023-11-01.
 
         Other available API versions: 2025-01-15-preview.
 
@@ -155,7 +156,8 @@ class FabricCapacity(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Fabric Capacity resource
-        Azure REST API version: 2023-11-01.
+
+        Uses Azure REST API version 2023-11-01.
 
         Other available API versions: 2025-01-15-preview.
 

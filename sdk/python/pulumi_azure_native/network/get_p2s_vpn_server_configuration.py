@@ -200,7 +200,8 @@ def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optiona
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnServerConfigurationResult:
     """
     Retrieves the details of a P2SVpnServerConfiguration.
-    Azure REST API version: 2019-07-01.
+
+    Uses Azure REST API version 2019-07-01.
 
 
     :param str p2_s_vpn_server_configuration_name: The name of the P2SVpnServerConfiguration.
@@ -234,7 +235,8 @@ def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: 
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetP2sVpnServerConfigurationResult]:
     """
     Retrieves the details of a P2SVpnServerConfiguration.
-    Azure REST API version: 2019-07-01.
+
+    Uses Azure REST API version 2019-07-01.
 
 
     :param str p2_s_vpn_server_configuration_name: The name of the P2SVpnServerConfiguration.

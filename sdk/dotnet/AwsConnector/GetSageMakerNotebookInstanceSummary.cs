@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a SageMakerNotebookInstanceSummary
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetSageMakerNotebookInstanceSummaryResult> InvokeAsync(GetSageMakerNotebookInstanceSummaryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSageMakerNotebookInstanceSummaryResult>("azure-native:awsconnector:getSageMakerNotebookInstanceSummary", args ?? new GetSageMakerNotebookInstanceSummaryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SageMakerNotebookInstanceSummary
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetSageMakerNotebookInstanceSummaryResult> Invoke(GetSageMakerNotebookInstanceSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSageMakerNotebookInstanceSummaryResult>("azure-native:awsconnector:getSageMakerNotebookInstanceSummary", args ?? new GetSageMakerNotebookInstanceSummaryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SageMakerNotebookInstanceSummary
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetSageMakerNotebookInstanceSummaryResult> Invoke(GetSageMakerNotebookInstanceSummaryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSageMakerNotebookInstanceSummaryResult>("azure-native:awsconnector:getSageMakerNotebookInstanceSummary", args ?? new GetSageMakerNotebookInstanceSummaryInvokeArgs(), options.WithDefaults());

@@ -403,7 +403,8 @@ def get_asset(asset_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetResult:
     """
     Get a Asset
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
     Other available API versions: 2024-09-01-preview, 2024-11-01.
 
@@ -453,7 +454,8 @@ def get_asset_output(asset_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetResult]:
     """
     Get a Asset
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
     Other available API versions: 2024-09-01-preview, 2024-11-01.
 

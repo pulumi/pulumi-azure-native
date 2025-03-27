@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets the SAP Instance resource.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// </summary>
         public static Task<GetSapInstanceResult> InvokeAsync(GetSapInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSapInstanceResult>("azure-native:workloads:getSapInstance", args ?? new GetSapInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the SAP Instance resource.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// </summary>
         public static Output<GetSapInstanceResult> Invoke(GetSapInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapInstanceResult>("azure-native:workloads:getSapInstance", args ?? new GetSapInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the SAP Instance resource.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// </summary>
         public static Output<GetSapInstanceResult> Invoke(GetSapInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapInstanceResult>("azure-native:workloads:getSapInstance", args ?? new GetSapInstanceInvokeArgs(), options.WithDefaults());

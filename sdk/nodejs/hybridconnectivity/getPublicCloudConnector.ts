@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a PublicCloudConnector
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getPublicCloudConnector(args: GetPublicCloudConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicCloudConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +78,8 @@ export interface GetPublicCloudConnectorResult {
 }
 /**
  * Get a PublicCloudConnector
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getPublicCloudConnectorOutput(args: GetPublicCloudConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicCloudConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.ManagedIdentity
     {
         /// <summary>
         /// Gets the identity.
-        /// Azure REST API version: 2023-01-31.
+        /// 
+        /// Uses Azure REST API version 2023-01-31.
         /// 
         /// Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ManagedIdentity
 
         /// <summary>
         /// Gets the identity.
-        /// Azure REST API version: 2023-01-31.
+        /// 
+        /// Uses Azure REST API version 2023-01-31.
         /// 
         /// Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.ManagedIdentity
 
         /// <summary>
         /// Gets the identity.
-        /// Azure REST API version: 2023-01-31.
+        /// 
+        /// Uses Azure REST API version 2023-01-31.
         /// 
         /// Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
         /// </summary>

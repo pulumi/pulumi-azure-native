@@ -127,7 +127,8 @@ def get_load_test_mapping(load_test_mapping_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadTestMappingResult:
     """
     Get a LoadTestMappingResource
-    Azure REST API version: 2023-12-01-preview.
+
+    Uses Azure REST API version 2023-12-01-preview.
 
     Other available API versions: 2024-12-01-preview.
 
@@ -154,7 +155,8 @@ def get_load_test_mapping_output(load_test_mapping_name: Optional[pulumi.Input[s
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadTestMappingResult]:
     """
     Get a LoadTestMappingResource
-    Azure REST API version: 2023-12-01-preview.
+
+    Uses Azure REST API version 2023-12-01-preview.
 
     Other available API versions: 2024-12-01-preview.
 

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     {
         /// <summary>
         /// Get the metadata of a privateLinkServicesForEDMUpload resource.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Task<GetPrivateLinkServicesForEDMUploadResult> InvokeAsync(GetPrivateLinkServicesForEDMUploadArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance:getPrivateLinkServicesForEDMUpload", args ?? new GetPrivateLinkServicesForEDMUploadArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a privateLinkServicesForEDMUpload resource.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Output<GetPrivateLinkServicesForEDMUploadResult> Invoke(GetPrivateLinkServicesForEDMUploadInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance:getPrivateLinkServicesForEDMUpload", args ?? new GetPrivateLinkServicesForEDMUploadInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a privateLinkServicesForEDMUpload resource.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Output<GetPrivateLinkServicesForEDMUploadResult> Invoke(GetPrivateLinkServicesForEDMUploadInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance:getPrivateLinkServicesForEDMUpload", args ?? new GetPrivateLinkServicesForEDMUploadInvokeArgs(), options.WithDefaults());

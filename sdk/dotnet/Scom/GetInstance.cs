@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Scom
     {
         /// <summary>
         /// Get SCOM managed instance details
-        /// Azure REST API version: 2023-07-07-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-07-preview.
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("azure-native:scom:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get SCOM managed instance details
-        /// Azure REST API version: 2023-07-07-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-07-preview.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:scom:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get SCOM managed instance details
-        /// Azure REST API version: 2023-07-07-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-07-preview.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:scom:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());

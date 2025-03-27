@@ -164,7 +164,8 @@ def get_collector_policy(azure_traffic_collector_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCollectorPolicyResult:
     """
     Gets the collector policy in a specified Traffic Collector
-    Azure REST API version: 2022-11-01.
+
+    Uses Azure REST API version 2022-11-01.
 
     Other available API versions: 2022-05-01.
 
@@ -197,7 +198,8 @@ def get_collector_policy_output(azure_traffic_collector_name: Optional[pulumi.In
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollectorPolicyResult]:
     """
     Gets the collector policy in a specified Traffic Collector
-    Azure REST API version: 2022-11-01.
+
+    Uses Azure REST API version 2022-11-01.
 
     Other available API versions: 2022-05-01.
 

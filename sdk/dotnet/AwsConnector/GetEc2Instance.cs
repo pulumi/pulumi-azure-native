@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a Ec2Instance
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEc2InstanceResult> InvokeAsync(GetEc2InstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEc2InstanceResult>("azure-native:awsconnector:getEc2Instance", args ?? new GetEc2InstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2Instance
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2InstanceResult> Invoke(GetEc2InstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2InstanceResult>("azure-native:awsconnector:getEc2Instance", args ?? new GetEc2InstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2Instance
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2InstanceResult> Invoke(GetEc2InstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2InstanceResult>("azure-native:awsconnector:getEc2Instance", args ?? new GetEc2InstanceInvokeArgs(), options.WithDefaults());

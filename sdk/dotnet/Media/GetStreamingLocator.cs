@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Get the details of a Streaming Locator in the Media Services account
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// 
         /// Other available API versions: 2018-03-30-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Media
 
         /// <summary>
         /// Get the details of a Streaming Locator in the Media Services account
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// 
         /// Other available API versions: 2018-03-30-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Media
 
         /// <summary>
         /// Get the details of a Streaming Locator in the Media Services account
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// 
         /// Other available API versions: 2018-03-30-preview.
         /// </summary>

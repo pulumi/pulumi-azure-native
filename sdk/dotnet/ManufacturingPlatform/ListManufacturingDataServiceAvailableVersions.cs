@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ManufacturingPlatform
     {
         /// <summary>
         /// Returns the list of available versions
-        /// Azure REST API version: 2025-03-01.
+        /// 
+        /// Uses Azure REST API version 2025-03-01.
         /// </summary>
         public static Task<ListManufacturingDataServiceAvailableVersionsResult> InvokeAsync(ListManufacturingDataServiceAvailableVersionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListManufacturingDataServiceAvailableVersionsResult>("azure-native:manufacturingplatform:listManufacturingDataServiceAvailableVersions", args ?? new ListManufacturingDataServiceAvailableVersionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the list of available versions
-        /// Azure REST API version: 2025-03-01.
+        /// 
+        /// Uses Azure REST API version 2025-03-01.
         /// </summary>
         public static Output<ListManufacturingDataServiceAvailableVersionsResult> Invoke(ListManufacturingDataServiceAvailableVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListManufacturingDataServiceAvailableVersionsResult>("azure-native:manufacturingplatform:listManufacturingDataServiceAvailableVersions", args ?? new ListManufacturingDataServiceAvailableVersionsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the list of available versions
-        /// Azure REST API version: 2025-03-01.
+        /// 
+        /// Uses Azure REST API version 2025-03-01.
         /// </summary>
         public static Output<ListManufacturingDataServiceAvailableVersionsResult> Invoke(ListManufacturingDataServiceAvailableVersionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListManufacturingDataServiceAvailableVersionsResult>("azure-native:manufacturingplatform:listManufacturingDataServiceAvailableVersions", args ?? new ListManufacturingDataServiceAvailableVersionsInvokeArgs(), options.WithDefaults());

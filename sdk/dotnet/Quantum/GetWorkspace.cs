@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Quantum
     {
         /// <summary>
         /// Returns the Workspace resource associated with the given name.
-        /// Azure REST API version: 2022-01-10-preview.
+        /// 
+        /// Uses Azure REST API version 2022-01-10-preview.
         /// 
         /// Other available API versions: 2023-11-13-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Quantum
 
         /// <summary>
         /// Returns the Workspace resource associated with the given name.
-        /// Azure REST API version: 2022-01-10-preview.
+        /// 
+        /// Uses Azure REST API version 2022-01-10-preview.
         /// 
         /// Other available API versions: 2023-11-13-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Quantum
 
         /// <summary>
         /// Returns the Workspace resource associated with the given name.
-        /// Azure REST API version: 2022-01-10-preview.
+        /// 
+        /// Uses Azure REST API version 2022-01-10-preview.
         /// 
         /// Other available API versions: 2023-11-13-preview.
         /// </summary>

@@ -217,7 +217,8 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the gallery inVMAccessControlProfile version that you want to create or update.
-        Azure REST API version: 2024-03-03.
+
+        Uses Azure REST API version 2024-03-03.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -241,7 +242,8 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the gallery inVMAccessControlProfile version that you want to create or update.
-        Azure REST API version: 2024-03-03.
+
+        Uses Azure REST API version 2024-03-03.
 
         :param str resource_name: The name of the resource.
         :param GalleryInVMAccessControlProfileVersionArgs args: The arguments to use to populate this resource's properties.

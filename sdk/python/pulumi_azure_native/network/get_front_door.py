@@ -271,7 +271,8 @@ def get_front_door(front_door_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontDoorResult:
     """
     Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
 
     :param str front_door_name: Name of the Front Door which is globally unique.
@@ -308,7 +309,8 @@ def get_front_door_output(front_door_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrontDoorResult]:
     """
     Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
 
     :param str front_door_name: Name of the Front Door which is globally unique.

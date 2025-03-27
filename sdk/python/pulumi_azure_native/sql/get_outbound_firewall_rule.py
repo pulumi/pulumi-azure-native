@@ -91,7 +91,8 @@ def get_outbound_firewall_rule(outbound_rule_fqdn: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutboundFirewallRuleResult:
     """
     Gets an outbound firewall rule.
-    Azure REST API version: 2021-11-01.
+
+    Uses Azure REST API version 2021-11-01.
 
     Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
 
@@ -117,7 +118,8 @@ def get_outbound_firewall_rule_output(outbound_rule_fqdn: Optional[pulumi.Input[
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutboundFirewallRuleResult]:
     """
     Gets an outbound firewall rule.
-    Azure REST API version: 2021-11-01.
+
+    Uses Azure REST API version 2021-11-01.
 
     Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
 

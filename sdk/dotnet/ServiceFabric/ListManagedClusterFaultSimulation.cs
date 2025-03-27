@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Gets the list of recent fault simulations for the cluster.
-        /// Azure REST API version: 2024-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// </summary>
         public static Task<ListManagedClusterFaultSimulationResult> InvokeAsync(ListManagedClusterFaultSimulationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterFaultSimulationResult>("azure-native:servicefabric:listManagedClusterFaultSimulation", args ?? new ListManagedClusterFaultSimulationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the list of recent fault simulations for the cluster.
-        /// Azure REST API version: 2024-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// </summary>
         public static Output<ListManagedClusterFaultSimulationResult> Invoke(ListManagedClusterFaultSimulationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagedClusterFaultSimulationResult>("azure-native:servicefabric:listManagedClusterFaultSimulation", args ?? new ListManagedClusterFaultSimulationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the list of recent fault simulations for the cluster.
-        /// Azure REST API version: 2024-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// </summary>
         public static Output<ListManagedClusterFaultSimulationResult> Invoke(ListManagedClusterFaultSimulationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagedClusterFaultSimulationResult>("azure-native:servicefabric:listManagedClusterFaultSimulation", args ?? new ListManagedClusterFaultSimulationInvokeArgs(), options.WithDefaults());

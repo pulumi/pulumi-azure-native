@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     {
         /// <summary>
         /// Get the AppComplianceAutomation webhook and its properties.
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:appcomplianceautomation:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the AppComplianceAutomation webhook and its properties.
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:appcomplianceautomation:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the AppComplianceAutomation webhook and its properties.
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:appcomplianceautomation:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());

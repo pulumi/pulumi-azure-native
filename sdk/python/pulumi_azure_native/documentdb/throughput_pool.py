@@ -117,7 +117,8 @@ class ThroughputPool(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Cosmos DB Throughputpool.
-        Azure REST API version: 2023-11-15-preview.
+
+        Uses Azure REST API version 2023-11-15-preview.
 
         Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
 
@@ -137,7 +138,8 @@ class ThroughputPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB Throughputpool.
-        Azure REST API version: 2023-11-15-preview.
+
+        Uses Azure REST API version 2023-11-15-preview.
 
         Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
 

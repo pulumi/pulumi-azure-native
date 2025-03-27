@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Get role definition by ID (GUID).
-        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-05-01-preview.
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get role definition by ID (GUID).
-        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-05-01-preview.
         /// </summary>
         public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get role definition by ID (GUID).
-        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-05-01-preview.
         /// </summary>
         public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());

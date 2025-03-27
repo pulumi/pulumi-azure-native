@@ -195,7 +195,8 @@ def get_multiple_activation_key(multiple_activation_key_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMultipleActivationKeyResult:
     """
     Get a MAK key.
-    Azure REST API version: 2019-09-16-preview.
+
+    Uses Azure REST API version 2019-09-16-preview.
 
 
     :param str multiple_activation_key_name: The name of the MAK key.
@@ -226,7 +227,8 @@ def get_multiple_activation_key_output(multiple_activation_key_name: Optional[pu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultipleActivationKeyResult]:
     """
     Get a MAK key.
-    Azure REST API version: 2019-09-16-preview.
+
+    Uses Azure REST API version 2019-09-16-preview.
 
 
     :param str multiple_activation_key_name: The name of the MAK key.

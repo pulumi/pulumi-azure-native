@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     {
         /// <summary>
         /// Get a DataLakeConnectorResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Task<GetDataLakeConnectorResult> InvokeAsync(GetDataLakeConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataLakeConnectorResult>("azure-native:iotoperationsmq:getDataLakeConnector", args ?? new GetDataLakeConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataLakeConnectorResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetDataLakeConnectorResult> Invoke(GetDataLakeConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataLakeConnectorResult>("azure-native:iotoperationsmq:getDataLakeConnector", args ?? new GetDataLakeConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataLakeConnectorResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetDataLakeConnectorResult> Invoke(GetDataLakeConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataLakeConnectorResult>("azure-native:iotoperationsmq:getDataLakeConnector", args ?? new GetDataLakeConnectorInvokeArgs(), options.WithDefaults());

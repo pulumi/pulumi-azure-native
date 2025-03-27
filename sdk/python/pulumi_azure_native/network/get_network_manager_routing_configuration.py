@@ -140,7 +140,8 @@ def get_network_manager_routing_configuration(configuration_name: Optional[str] 
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkManagerRoutingConfigurationResult:
     """
     Retrieves a network manager routing configuration.
-    Azure REST API version: 2024-03-01.
+
+    Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2024-05-01.
 
@@ -171,7 +172,8 @@ def get_network_manager_routing_configuration_output(configuration_name: Optiona
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkManagerRoutingConfigurationResult]:
     """
     Retrieves a network manager routing configuration.
-    Azure REST API version: 2024-03-01.
+
+    Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2024-05-01.
 

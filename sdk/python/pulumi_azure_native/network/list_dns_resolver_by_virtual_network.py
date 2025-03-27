@@ -68,7 +68,8 @@ def list_dns_resolver_by_virtual_network(resource_group_name: Optional[str] = No
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDnsResolverByVirtualNetworkResult:
     """
     Lists DNS resolver resource IDs linked to a virtual network.
-    Azure REST API version: 2022-07-01.
+
+    Uses Azure REST API version 2022-07-01.
 
     Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
 
@@ -93,7 +94,8 @@ def list_dns_resolver_by_virtual_network_output(resource_group_name: Optional[pu
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDnsResolverByVirtualNetworkResult]:
     """
     Lists DNS resolver resource IDs linked to a virtual network.
-    Azure REST API version: 2022-07-01.
+
+    Uses Azure REST API version 2022-07-01.
 
     Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
 

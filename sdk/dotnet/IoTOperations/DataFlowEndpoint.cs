@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.IoTOperations
 {
     /// <summary>
     /// Instance dataflowEndpoint resource
-    /// Azure REST API version: 2024-07-01-preview.
+    /// 
+    /// Uses Azure REST API version 2024-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperations:DataFlowEndpoint")]
     public partial class DataFlowEndpoint : global::Pulumi.CustomResource

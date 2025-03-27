@@ -199,7 +199,8 @@ def get_asset_endpoint_profile(asset_endpoint_profile_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetEndpointProfileResult:
     """
     Get a AssetEndpointProfile
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
     Other available API versions: 2024-09-01-preview, 2024-11-01.
 
@@ -232,7 +233,8 @@ def get_asset_endpoint_profile_output(asset_endpoint_profile_name: Optional[pulu
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetEndpointProfileResult]:
     """
     Get a AssetEndpointProfile
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
     Other available API versions: 2024-09-01-preview, 2024-11-01.
 

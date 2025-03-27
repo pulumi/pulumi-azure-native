@@ -127,7 +127,8 @@ def get_sap_landscape_monitor(monitor_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapLandscapeMonitorResult:
     """
     Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
 
@@ -154,7 +155,8 @@ def get_sap_landscape_monitor_output(monitor_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapLandscapeMonitorResult]:
     """
     Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
 

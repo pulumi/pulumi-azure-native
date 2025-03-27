@@ -127,7 +127,8 @@ def get_secrets_manager_resource_policy(name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretsManagerResourcePolicyResult:
     """
     Get a SecretsManagerResourcePolicy
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SecretsManagerResourcePolicy
@@ -152,7 +153,8 @@ def get_secrets_manager_resource_policy_output(name: Optional[pulumi.Input[str]]
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretsManagerResourcePolicyResult]:
     """
     Get a SecretsManagerResourcePolicy
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SecretsManagerResourcePolicy

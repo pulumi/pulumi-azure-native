@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a database's threat detection policy.
- * Azure REST API version: 2014-04-01.
+ *
+ * Uses Azure REST API version 2014-04-01.
  */
 export function getDatabaseThreatDetectionPolicy(args: GetDatabaseThreatDetectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseThreatDetectionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,7 +93,8 @@ export interface GetDatabaseThreatDetectionPolicyResult {
 }
 /**
  * Gets a database's threat detection policy.
- * Azure REST API version: 2014-04-01.
+ *
+ * Uses Azure REST API version 2014-04-01.
  */
 export function getDatabaseThreatDetectionPolicyOutput(args: GetDatabaseThreatDetectionPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseThreatDetectionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

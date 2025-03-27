@@ -117,7 +117,8 @@ def list_web_app_hybrid_connection_keys_slot(name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppHybridConnectionKeysSlotResult:
     """
     Gets the send key name and value for a Hybrid Connection.
-    Azure REST API version: 2018-11-01.
+
+    Uses Azure REST API version 2018-11-01.
 
 
     :param str name: The name of the web app.
@@ -150,7 +151,8 @@ def list_web_app_hybrid_connection_keys_slot_output(name: Optional[pulumi.Input[
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppHybridConnectionKeysSlotResult]:
     """
     Gets the send key name and value for a Hybrid Connection.
-    Azure REST API version: 2018-11-01.
+
+    Uses Azure REST API version 2018-11-01.
 
 
     :param str name: The name of the web app.

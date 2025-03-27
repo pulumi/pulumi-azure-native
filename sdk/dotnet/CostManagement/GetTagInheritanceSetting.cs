@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// Get the setting from the given scope by name.
-        /// Azure REST API version: 2022-10-05-preview.
+        /// 
+        /// Uses Azure REST API version 2022-10-05-preview.
         /// </summary>
         public static Task<GetTagInheritanceSettingResult> InvokeAsync(GetTagInheritanceSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagInheritanceSettingResult>("azure-native:costmanagement:getTagInheritanceSetting", args ?? new GetTagInheritanceSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the setting from the given scope by name.
-        /// Azure REST API version: 2022-10-05-preview.
+        /// 
+        /// Uses Azure REST API version 2022-10-05-preview.
         /// </summary>
         public static Output<GetTagInheritanceSettingResult> Invoke(GetTagInheritanceSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagInheritanceSettingResult>("azure-native:costmanagement:getTagInheritanceSetting", args ?? new GetTagInheritanceSettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the setting from the given scope by name.
-        /// Azure REST API version: 2022-10-05-preview.
+        /// 
+        /// Uses Azure REST API version 2022-10-05-preview.
         /// </summary>
         public static Output<GetTagInheritanceSettingResult> Invoke(GetTagInheritanceSettingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagInheritanceSettingResult>("azure-native:costmanagement:getTagInheritanceSetting", args ?? new GetTagInheritanceSettingInvokeArgs(), options.WithDefaults());

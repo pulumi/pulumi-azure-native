@@ -151,7 +151,8 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkScopeResult:
     """
     Returns a Azure Monitor PrivateLinkScope.
-    Azure REST API version: 2021-07-01-preview.
+
+    Uses Azure REST API version 2021-07-01-preview.
 
     Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
 
@@ -180,7 +181,8 @@ def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkScopeResult]:
     """
     Returns a Azure Monitor PrivateLinkScope.
-    Azure REST API version: 2021-07-01-preview.
+
+    Uses Azure REST API version 2021-07-01-preview.
 
     Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
 

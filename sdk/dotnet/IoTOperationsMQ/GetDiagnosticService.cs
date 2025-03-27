@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     {
         /// <summary>
         /// Get a DiagnosticServiceResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Task<GetDiagnosticServiceResult> InvokeAsync(GetDiagnosticServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticServiceResult>("azure-native:iotoperationsmq:getDiagnosticService", args ?? new GetDiagnosticServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DiagnosticServiceResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetDiagnosticServiceResult> Invoke(GetDiagnosticServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceResult>("azure-native:iotoperationsmq:getDiagnosticService", args ?? new GetDiagnosticServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DiagnosticServiceResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetDiagnosticServiceResult> Invoke(GetDiagnosticServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceResult>("azure-native:iotoperationsmq:getDiagnosticService", args ?? new GetDiagnosticServiceInvokeArgs(), options.WithDefaults());

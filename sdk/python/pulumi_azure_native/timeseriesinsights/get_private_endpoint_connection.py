@@ -128,7 +128,8 @@ def get_private_endpoint_connection(environment_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the details of the private endpoint connection of the environment in the given resource group.
-    Azure REST API version: 2021-03-31-preview.
+
+    Uses Azure REST API version 2021-03-31-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
@@ -156,7 +157,8 @@ def get_private_endpoint_connection_output(environment_name: Optional[pulumi.Inp
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the details of the private endpoint connection of the environment in the given resource group.
-    Azure REST API version: 2021-03-31-preview.
+
+    Uses Azure REST API version 2021-03-31-preview.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.

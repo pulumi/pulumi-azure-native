@@ -127,7 +127,8 @@ def get_ec2_flow_log(name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEc2FlowLogResult:
     """
     Get a Ec2FlowLog
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Ec2FlowLog
@@ -152,7 +153,8 @@ def get_ec2_flow_log_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEc2FlowLogResult]:
     """
     Get a Ec2FlowLog
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Ec2FlowLog

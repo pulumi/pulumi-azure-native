@@ -98,7 +98,8 @@ def get_skus(provider_namespace: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSkusResult:
     """
     Gets the sku details for the given resource type and sku name.
-    Azure REST API version: 2021-09-01-preview.
+
+    Uses Azure REST API version 2021-09-01-preview.
 
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -124,7 +125,8 @@ def get_skus_output(provider_namespace: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSkusResult]:
     """
     Gets the sku details for the given resource type and sku name.
-    Azure REST API version: 2021-09-01-preview.
+
+    Uses Azure REST API version 2021-09-01-preview.
 
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.

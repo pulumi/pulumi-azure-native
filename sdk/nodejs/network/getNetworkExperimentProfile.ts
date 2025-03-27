@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Defines an Network Experiment Profile and lists of Experiments
- * Azure REST API version: 2019-11-01.
+ *
+ * Uses Azure REST API version 2019-11-01.
  */
 export function getNetworkExperimentProfile(args: GetNetworkExperimentProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkExperimentProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,7 +67,8 @@ export interface GetNetworkExperimentProfileResult {
 }
 /**
  * Defines an Network Experiment Profile and lists of Experiments
- * Azure REST API version: 2019-11-01.
+ *
+ * Uses Azure REST API version 2019-11-01.
  */
 export function getNetworkExperimentProfileOutput(args: GetNetworkExperimentProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkExperimentProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

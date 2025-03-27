@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * AzureBareMetal instance info on Azure (ARM properties and AzureBareMetal properties)
- * Azure REST API version: 2024-08-01-preview.
+ *
+ * Uses Azure REST API version 2024-08-01-preview.
  */
 export class AzureBareMetalInstance extends pulumi.CustomResource {
     /**

@@ -322,7 +322,8 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFluxConfigurationResult:
     """
     Gets details of the Flux Configuration.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview, 2024-11-01.
 
@@ -374,7 +375,8 @@ def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFluxConfigurationResult]:
     """
     Gets details of the Flux Configuration.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview, 2024-11-01.
 

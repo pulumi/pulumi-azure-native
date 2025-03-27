@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Edge
     {
         /// <summary>
         /// Get a Site
-        /// Azure REST API version: 2024-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-02-01-preview.
         /// </summary>
         public static Task<GetSitesBySubscriptionResult> InvokeAsync(GetSitesBySubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSitesBySubscriptionResult>("azure-native:edge:getSitesBySubscription", args ?? new GetSitesBySubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Site
-        /// Azure REST API version: 2024-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-02-01-preview.
         /// </summary>
         public static Output<GetSitesBySubscriptionResult> Invoke(GetSitesBySubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesBySubscriptionResult>("azure-native:edge:getSitesBySubscription", args ?? new GetSitesBySubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Site
-        /// Azure REST API version: 2024-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-02-01-preview.
         /// </summary>
         public static Output<GetSitesBySubscriptionResult> Invoke(GetSitesBySubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesBySubscriptionResult>("azure-native:edge:getSitesBySubscription", args ?? new GetSitesBySubscriptionInvokeArgs(), options.WithDefaults());

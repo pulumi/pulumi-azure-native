@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Lists SKUs available to the project
- * Azure REST API version: 2024-06-01-preview.
+ *
+ * Uses Azure REST API version 2024-06-01-preview.
  *
  * Other available API versions: 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
  */
@@ -47,7 +48,8 @@ export interface ListSkusByProjectResult {
 }
 /**
  * Lists SKUs available to the project
- * Azure REST API version: 2024-06-01-preview.
+ *
+ * Uses Azure REST API version 2024-06-01-preview.
  *
  * Other available API versions: 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
  */

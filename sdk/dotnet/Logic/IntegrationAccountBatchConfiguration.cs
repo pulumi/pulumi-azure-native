@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Logic
 {
     /// <summary>
     /// The batch configuration resource definition.
-    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+    /// 
+    /// Uses Azure REST API version 2019-05-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountBatchConfiguration")]
     public partial class IntegrationAccountBatchConfiguration : global::Pulumi.CustomResource

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Workload Impact properties
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  */
 export class WorkloadImpact extends pulumi.CustomResource {
     /**

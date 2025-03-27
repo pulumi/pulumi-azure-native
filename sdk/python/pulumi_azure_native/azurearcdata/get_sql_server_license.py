@@ -127,7 +127,8 @@ def get_sql_server_license(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerLicenseResult:
     """
     Retrieves a SQL Server license resource
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
     Other available API versions: 2025-03-01-preview.
 
@@ -154,7 +155,8 @@ def get_sql_server_license_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerLicenseResult]:
     """
     Retrieves a SQL Server license resource
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
     Other available API versions: 2025-03-01-preview.
 

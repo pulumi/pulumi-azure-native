@@ -150,7 +150,8 @@ def get_query_pack(query_pack_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueryPackResult:
     """
     Returns a Log Analytics QueryPack.
-    Azure REST API version: 2019-09-01.
+
+    Uses Azure REST API version 2019-09-01.
 
     Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
 
@@ -179,7 +180,8 @@ def get_query_pack_output(query_pack_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryPackResult]:
     """
     Returns a Log Analytics QueryPack.
-    Azure REST API version: 2019-09-01.
+
+    Uses Azure REST API version 2019-09-01.
 
     Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
 

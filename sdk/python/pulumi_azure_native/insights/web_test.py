@@ -311,7 +311,8 @@ class WebTest(pulumi.CustomResource):
                  __props__=None):
         """
         An Application Insights WebTest definition.
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2015-05-01.
+
+        Uses Azure REST API version 2022-06-15. In version 1.x of the Azure Native provider, it used API version 2015-05-01.
 
         Other available API versions: 2020-10-05-preview.
 
@@ -342,7 +343,8 @@ class WebTest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Application Insights WebTest definition.
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2015-05-01.
+
+        Uses Azure REST API version 2022-06-15. In version 1.x of the Azure Native provider, it used API version 2015-05-01.
 
         Other available API versions: 2020-10-05-preview.
 

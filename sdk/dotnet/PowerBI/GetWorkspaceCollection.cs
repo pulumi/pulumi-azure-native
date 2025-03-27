@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.PowerBI
     {
         /// <summary>
         /// Retrieves an existing Power BI Workspace Collection.
-        /// Azure REST API version: 2016-01-29.
+        /// 
+        /// Uses Azure REST API version 2016-01-29.
         /// </summary>
         public static Task<GetWorkspaceCollectionResult> InvokeAsync(GetWorkspaceCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceCollectionResult>("azure-native:powerbi:getWorkspaceCollection", args ?? new GetWorkspaceCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves an existing Power BI Workspace Collection.
-        /// Azure REST API version: 2016-01-29.
+        /// 
+        /// Uses Azure REST API version 2016-01-29.
         /// </summary>
         public static Output<GetWorkspaceCollectionResult> Invoke(GetWorkspaceCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceCollectionResult>("azure-native:powerbi:getWorkspaceCollection", args ?? new GetWorkspaceCollectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves an existing Power BI Workspace Collection.
-        /// Azure REST API version: 2016-01-29.
+        /// 
+        /// Uses Azure REST API version 2016-01-29.
         /// </summary>
         public static Output<GetWorkspaceCollectionResult> Invoke(GetWorkspaceCollectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceCollectionResult>("azure-native:powerbi:getWorkspaceCollection", args ?? new GetWorkspaceCollectionInvokeArgs(), options.WithDefaults());

@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an read-only access token for application insights diagnostic service data.
- * Azure REST API version: 2021-03-03-preview.
+ *
+ * Uses Azure REST API version 2021-03-03-preview.
  */
 export function getDiagnosticServiceTokenReadOnly(args: GetDiagnosticServiceTokenReadOnlyArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticServiceTokenReadOnlyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,7 +34,8 @@ export interface GetDiagnosticServiceTokenReadOnlyResult {
 }
 /**
  * Gets an read-only access token for application insights diagnostic service data.
- * Azure REST API version: 2021-03-03-preview.
+ *
+ * Uses Azure REST API version 2021-03-03-preview.
  */
 export function getDiagnosticServiceTokenReadOnlyOutput(args: GetDiagnosticServiceTokenReadOnlyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticServiceTokenReadOnlyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

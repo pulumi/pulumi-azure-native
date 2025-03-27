@@ -90,7 +90,8 @@ def get_support_plan_type(plan_type_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSupportPlanTypeResult:
     """
     Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
-    Azure REST API version: 2018-03-01.
+
+    Uses Azure REST API version 2018-03-01.
 
 
     :param str plan_type_name: The Canonical support plan type.
@@ -112,7 +113,8 @@ def get_support_plan_type_output(plan_type_name: Optional[pulumi.Input[str]] = N
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSupportPlanTypeResult]:
     """
     Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
-    Azure REST API version: 2018-03-01.
+
+    Uses Azure REST API version 2018-03-01.
 
 
     :param str plan_type_name: The Canonical support plan type.

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a StandbyContainerGroupPoolResource
- * Azure REST API version: 2023-12-01-preview.
+ *
+ * Uses Azure REST API version 2023-12-01-preview.
  *
  * Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
  */
@@ -75,7 +76,8 @@ export interface GetStandbyContainerGroupPoolResult {
 }
 /**
  * Get a StandbyContainerGroupPoolResource
- * Azure REST API version: 2023-12-01-preview.
+ *
+ * Uses Azure REST API version 2023-12-01-preview.
  *
  * Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
  */

@@ -129,7 +129,8 @@ def get_managed_cluster_service(application_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterServiceResult:
     """
     Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
-    Azure REST API version: 2023-03-01-preview.
+
+    Uses Azure REST API version 2023-03-01-preview.
 
     Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
 
@@ -162,7 +163,8 @@ def get_managed_cluster_service_output(application_name: Optional[pulumi.Input[s
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterServiceResult]:
     """
     Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
-    Azure REST API version: 2023-03-01-preview.
+
+    Uses Azure REST API version 2023-03-01-preview.
 
     Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
 

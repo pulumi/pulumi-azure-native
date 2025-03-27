@@ -236,7 +236,8 @@ def get_mqtt_bridge_connector(mq_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMqttBridgeConnectorResult:
     """
     Get a MqttBridgeConnectorResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str mq_name: Name of MQ resource
@@ -273,7 +274,8 @@ def get_mqtt_bridge_connector_output(mq_name: Optional[pulumi.Input[str]] = None
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMqttBridgeConnectorResult]:
     """
     Get a MqttBridgeConnectorResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str mq_name: Name of MQ resource

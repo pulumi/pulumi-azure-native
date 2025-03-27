@@ -116,7 +116,8 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a virtual network link.
-        Azure REST API version: 2022-07-01.
+
+        Uses Azure REST API version 2022-07-01.
 
         Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
 
@@ -136,7 +137,8 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a virtual network link.
-        Azure REST API version: 2022-07-01.
+
+        Uses Azure REST API version 2022-07-01.
 
         Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
 

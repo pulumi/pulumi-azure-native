@@ -273,7 +273,8 @@ def get_record_set(record_type: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRecordSetResult:
     """
     Gets a record set.
-    Azure REST API version: 2018-05-01.
+
+    Uses Azure REST API version 2018-05-01.
 
     Other available API versions: 2023-07-01-preview.
 
@@ -318,7 +319,8 @@ def get_record_set_output(record_type: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecordSetResult]:
     """
     Gets a record set.
-    Azure REST API version: 2018-05-01.
+
+    Uses Azure REST API version 2018-05-01.
 
     Other available API versions: 2023-07-01-preview.
 

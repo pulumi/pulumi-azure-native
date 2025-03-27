@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a MqResource
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export function getMq(args: GetMqArgs, opts?: pulumi.InvokeOptions): Promise<GetMqResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,7 +70,8 @@ export interface GetMqResult {
 }
 /**
  * Get a MqResource
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export function getMqOutput(args: GetMqOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMqResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

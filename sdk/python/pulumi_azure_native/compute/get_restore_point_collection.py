@@ -152,7 +152,8 @@ def get_restore_point_collection(expand: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestorePointCollectionResult:
     """
     The operation to get the restore point collection.
-    Azure REST API version: 2023-03-01.
+
+    Uses Azure REST API version 2023-03-01.
 
     Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
@@ -184,7 +185,8 @@ def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[s
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestorePointCollectionResult]:
     """
     The operation to get the restore point collection.
-    Azure REST API version: 2023-03-01.
+
+    Uses Azure REST API version 2023-03-01.
 
     Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
 

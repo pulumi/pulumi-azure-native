@@ -88,7 +88,8 @@ class AwaitableGetTrafficManagerUserMetricsKeyResult(GetTrafficManagerUserMetric
 def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficManagerUserMetricsKeyResult:
     """
     Get the subscription-level key used for Real User Metrics collection.
-    Azure REST API version: 2022-04-01.
+
+    Uses Azure REST API version 2022-04-01.
 
     Other available API versions: 2022-04-01-preview.
     """
@@ -104,7 +105,8 @@ def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = 
 def get_traffic_manager_user_metrics_key_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficManagerUserMetricsKeyResult]:
     """
     Get the subscription-level key used for Real User Metrics collection.
-    Azure REST API version: 2022-04-01.
+
+    Uses Azure REST API version 2022-04-01.
 
     Other available API versions: 2022-04-01-preview.
     """

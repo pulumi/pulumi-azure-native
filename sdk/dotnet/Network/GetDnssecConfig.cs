@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the DNSSEC configuration.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-01-preview.
         /// </summary>
         public static Task<GetDnssecConfigResult> InvokeAsync(GetDnssecConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnssecConfigResult>("azure-native:network:getDnssecConfig", args ?? new GetDnssecConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the DNSSEC configuration.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-01-preview.
         /// </summary>
         public static Output<GetDnssecConfigResult> Invoke(GetDnssecConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnssecConfigResult>("azure-native:network:getDnssecConfig", args ?? new GetDnssecConfigInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the DNSSEC configuration.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-07-01-preview.
         /// </summary>
         public static Output<GetDnssecConfigResult> Invoke(GetDnssecConfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnssecConfigResult>("azure-native:network:getDnssecConfig", args ?? new GetDnssecConfigInvokeArgs(), options.WithDefaults());

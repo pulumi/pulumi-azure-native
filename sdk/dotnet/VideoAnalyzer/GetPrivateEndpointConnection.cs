@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     {
         /// <summary>
         /// Get private endpoint connection under video analyzer account.
-        /// Azure REST API version: 2021-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-11-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:videoanalyzer:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get private endpoint connection under video analyzer account.
-        /// Azure REST API version: 2021-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-11-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:videoanalyzer:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get private endpoint connection under video analyzer account.
-        /// Azure REST API version: 2021-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-11-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:videoanalyzer:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

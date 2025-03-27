@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.BotService
     {
         /// <summary>
         /// Get a Connection Setting registration for a Bot Service
-        /// Azure REST API version: 2022-09-15.
+        /// 
+        /// Uses Azure REST API version 2022-09-15.
         /// 
         /// Other available API versions: 2023-09-15-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.BotService
 
         /// <summary>
         /// Get a Connection Setting registration for a Bot Service
-        /// Azure REST API version: 2022-09-15.
+        /// 
+        /// Uses Azure REST API version 2022-09-15.
         /// 
         /// Other available API versions: 2023-09-15-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.BotService
 
         /// <summary>
         /// Get a Connection Setting registration for a Bot Service
-        /// Azure REST API version: 2022-09-15.
+        /// 
+        /// Uses Azure REST API version 2022-09-15.
         /// 
         /// Other available API versions: 2023-09-15-preview.
         /// </summary>

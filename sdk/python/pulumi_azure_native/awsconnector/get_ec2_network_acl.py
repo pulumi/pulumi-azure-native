@@ -127,7 +127,8 @@ def get_ec2_network_acl(name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEc2NetworkAclResult:
     """
     Get a Ec2NetworkAcl
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Ec2NetworkAcl
@@ -152,7 +153,8 @@ def get_ec2_network_acl_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEc2NetworkAclResult]:
     """
     Get a Ec2NetworkAcl
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Ec2NetworkAcl

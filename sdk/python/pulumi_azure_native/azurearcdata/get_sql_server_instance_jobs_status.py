@@ -57,7 +57,8 @@ def get_sql_server_instance_jobs_status(feature_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerInstanceJobsStatusResult:
     """
     Gets jobs status details for sql arc resource
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
     Other available API versions: 2025-03-01-preview.
 
@@ -84,7 +85,8 @@ def get_sql_server_instance_jobs_status_output(feature_name: Optional[pulumi.Inp
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerInstanceJobsStatusResult]:
     """
     Gets jobs status details for sql arc resource
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
     Other available API versions: 2025-03-01-preview.
 

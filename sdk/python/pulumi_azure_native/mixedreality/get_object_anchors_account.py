@@ -202,7 +202,8 @@ def get_object_anchors_account(account_name: Optional[str] = None,
     > The Mixed Reality service is now deprecated and will be retired.
 
      Retrieve an Object Anchors Account.
-    Azure REST API version: 2021-03-01-preview.
+
+    Uses Azure REST API version 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -239,7 +240,8 @@ def get_object_anchors_account_output(account_name: Optional[pulumi.Input[str]] 
     > The Mixed Reality service is now deprecated and will be retired.
 
      Retrieve an Object Anchors Account.
-    Azure REST API version: 2021-03-01-preview.
+
+    Uses Azure REST API version 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.

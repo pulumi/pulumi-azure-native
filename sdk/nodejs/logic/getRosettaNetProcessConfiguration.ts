@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an integration account RosettaNetProcessConfiguration.
- * Azure REST API version: 2016-06-01.
+ *
+ * Uses Azure REST API version 2016-06-01.
  */
 export function getRosettaNetProcessConfiguration(args: GetRosettaNetProcessConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRosettaNetProcessConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -102,7 +103,8 @@ export interface GetRosettaNetProcessConfigurationResult {
 }
 /**
  * Gets an integration account RosettaNetProcessConfiguration.
- * Azure REST API version: 2016-06-01.
+ *
+ * Uses Azure REST API version 2016-06-01.
  */
 export function getRosettaNetProcessConfigurationOutput(args: GetRosettaNetProcessConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRosettaNetProcessConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

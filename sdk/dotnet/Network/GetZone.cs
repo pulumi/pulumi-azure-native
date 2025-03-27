@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
-        /// Azure REST API version: 2018-05-01.
+        /// 
+        /// Uses Azure REST API version 2018-05-01.
         /// 
         /// Other available API versions: 2023-07-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
-        /// Azure REST API version: 2018-05-01.
+        /// 
+        /// Uses Azure REST API version 2018-05-01.
         /// 
         /// Other available API versions: 2023-07-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
-        /// Azure REST API version: 2018-05-01.
+        /// 
+        /// Uses Azure REST API version 2018-05-01.
         /// 
         /// Other available API versions: 2023-07-01-preview.
         /// </summary>

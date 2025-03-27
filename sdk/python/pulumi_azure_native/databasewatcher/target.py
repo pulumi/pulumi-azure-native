@@ -149,7 +149,8 @@ class Target(pulumi.CustomResource):
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2023-09-01-preview.
+
+        Uses Azure REST API version 2023-09-01-preview.
 
         Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
 
@@ -171,7 +172,8 @@ class Target(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2023-09-01-preview.
+
+        Uses Azure REST API version 2023-09-01-preview.
 
         Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
 

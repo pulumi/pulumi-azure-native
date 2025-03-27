@@ -236,7 +236,8 @@ def get_diagnostic_service(diagnostic_service_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticServiceResult:
     """
     Get a DiagnosticServiceResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str diagnostic_service_name: Name of MQ diagnostic resource
@@ -273,7 +274,8 @@ def get_diagnostic_service_output(diagnostic_service_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiagnosticServiceResult]:
     """
     Get a DiagnosticServiceResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str diagnostic_service_name: Name of MQ diagnostic resource

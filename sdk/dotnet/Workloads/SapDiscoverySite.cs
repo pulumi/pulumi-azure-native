@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// Define the SAP Migration discovery site resource.
-    /// Azure REST API version: 2023-10-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SapDiscoverySite")]
     public partial class SapDiscoverySite : global::Pulumi.CustomResource

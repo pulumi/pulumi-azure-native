@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a ScalingPlanPersonalSchedule definition.
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  *
  * Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
  */

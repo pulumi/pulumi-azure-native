@@ -67,7 +67,8 @@ def list_list_pending_flow(connection_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListListPendingFlowResult:
     """
     Lists all pending flows for a connection.
-    Azure REST API version: 2023-10-11-preview.
+
+    Uses Azure REST API version 2023-10-11-preview.
 
     Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
 
@@ -89,7 +90,8 @@ def list_list_pending_flow_output(connection_name: Optional[pulumi.Input[str]] =
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListPendingFlowResult]:
     """
     Lists all pending flows for a connection.
-    Azure REST API version: 2023-10-11-preview.
+
+    Uses Azure REST API version 2023-10-11-preview.
 
     Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
 

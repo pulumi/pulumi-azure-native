@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Automanage
 {
     /// <summary>
     /// Definition of the configuration profile.
-    /// Azure REST API version: 2022-05-04.
+    /// 
+    /// Uses Azure REST API version 2022-05-04.
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage:ConfigurationProfilesVersion")]
     public partial class ConfigurationProfilesVersion : global::Pulumi.CustomResource

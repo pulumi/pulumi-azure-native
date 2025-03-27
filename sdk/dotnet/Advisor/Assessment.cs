@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Advisor
 {
     /// <summary>
     /// The Advisor assessment result data structure.
-    /// Azure REST API version: 2023-09-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:advisor:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource

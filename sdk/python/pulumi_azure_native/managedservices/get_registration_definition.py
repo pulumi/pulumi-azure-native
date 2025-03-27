@@ -115,7 +115,8 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationDefinitionResult:
     """
     Gets the registration definition details.
-    Azure REST API version: 2022-10-01.
+
+    Uses Azure REST API version 2022-10-01.
 
 
     :param str registration_definition_id: The GUID of the registration definition.
@@ -139,7 +140,8 @@ def get_registration_definition_output(registration_definition_id: Optional[pulu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationDefinitionResult]:
     """
     Gets the registration definition details.
-    Azure REST API version: 2022-10-01.
+
+    Uses Azure REST API version 2022-10-01.
 
 
     :param str registration_definition_id: The GUID of the registration definition.

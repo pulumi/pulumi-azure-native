@@ -116,7 +116,8 @@ def get_authorization_provider(authorization_provider_id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationProviderResult:
     """
     Gets the details of the authorization provider specified by its identifier.
-    Azure REST API version: 2022-08-01.
+
+    Uses Azure REST API version 2022-08-01.
 
     Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
@@ -145,7 +146,8 @@ def get_authorization_provider_output(authorization_provider_id: Optional[pulumi
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationProviderResult]:
     """
     Gets the details of the authorization provider specified by its identifier.
-    Azure REST API version: 2022-08-01.
+
+    Uses Azure REST API version 2022-08-01.
 
     Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 

@@ -81,7 +81,8 @@ def get_image_upload_url_for_data(entity_type: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageUploadUrlForDataResult:
     """
     Gets data image upload URL.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str entity_type: Type of entity. Can be Profile or Interaction.
@@ -111,7 +112,8 @@ def get_image_upload_url_for_data_output(entity_type: Optional[pulumi.Input[Opti
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageUploadUrlForDataResult]:
     """
     Gets data image upload URL.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str entity_type: Type of entity. Can be Profile or Interaction.

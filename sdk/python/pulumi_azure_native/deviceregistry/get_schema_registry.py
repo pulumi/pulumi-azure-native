@@ -199,7 +199,8 @@ def get_schema_registry(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryResult:
     """
     Get a SchemaRegistry
-    Azure REST API version: 2024-09-01-preview.
+
+    Uses Azure REST API version 2024-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -230,7 +231,8 @@ def get_schema_registry_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaRegistryResult]:
     """
     Get a SchemaRegistry
-    Azure REST API version: 2024-09-01-preview.
+
+    Uses Azure REST API version 2024-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

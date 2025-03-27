@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The springbootapps envelope resource definition.
- * Azure REST API version: 2024-04-01-preview.
+ *
+ * Uses Azure REST API version 2024-04-01-preview.
  */
 export class Springbootapp extends pulumi.CustomResource {
     /**

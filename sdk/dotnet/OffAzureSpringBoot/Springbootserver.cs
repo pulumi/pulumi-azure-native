@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
 {
     /// <summary>
     /// The springbootservers envelope resource definition.
-    /// Azure REST API version: 2023-01-01-preview.
+    /// 
+    /// Uses Azure REST API version 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazurespringboot:Springbootserver")]
     public partial class Springbootserver : global::Pulumi.CustomResource

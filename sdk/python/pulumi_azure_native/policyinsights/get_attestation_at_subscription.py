@@ -222,7 +222,8 @@ def get_attestation_at_subscription(attestation_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttestationAtSubscriptionResult:
     """
     Gets an existing attestation at subscription scope.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2024-10-01.
 
@@ -254,7 +255,8 @@ def get_attestation_at_subscription_output(attestation_name: Optional[pulumi.Inp
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttestationAtSubscriptionResult]:
     """
     Gets an existing attestation at subscription scope.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2024-10-01.
 

@@ -116,7 +116,8 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDpsCertificateResult:
     """
     Get the certificate from the provisioning service.
-    Azure REST API version: 2022-12-12.
+
+    Uses Azure REST API version 2022-12-12.
 
     Other available API versions: 2021-10-15, 2023-03-01-preview, 2025-02-01-preview.
 
@@ -145,7 +146,8 @@ def get_dps_certificate_output(certificate_name: Optional[pulumi.Input[str]] = N
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDpsCertificateResult]:
     """
     Get the certificate from the provisioning service.
-    Azure REST API version: 2022-12-12.
+
+    Uses Azure REST API version 2022-12-12.
 
     Other available API versions: 2021-10-15, 2023-03-01-preview, 2025-02-01-preview.
 

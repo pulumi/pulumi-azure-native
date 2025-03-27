@@ -223,7 +223,8 @@ def get_attestation_at_resource_group(attestation_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttestationAtResourceGroupResult:
     """
     Gets an existing attestation at resource group scope.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2024-10-01.
 
@@ -258,7 +259,8 @@ def get_attestation_at_resource_group_output(attestation_name: Optional[pulumi.I
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttestationAtResourceGroupResult]:
     """
     Gets an existing attestation at resource group scope.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2024-10-01.
 

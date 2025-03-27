@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// Gets the specified private endpoint connection associated with the storage sync service.
-        /// Azure REST API version: 2022-06-01.
+        /// 
+        /// Uses Azure REST API version 2022-06-01.
         /// 
         /// Other available API versions: 2022-09-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.StorageSync
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the storage sync service.
-        /// Azure REST API version: 2022-06-01.
+        /// 
+        /// Uses Azure REST API version 2022-06-01.
         /// 
         /// Other available API versions: 2022-09-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.StorageSync
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the storage sync service.
-        /// Azure REST API version: 2022-06-01.
+        /// 
+        /// Uses Azure REST API version 2022-06-01.
         /// 
         /// Other available API versions: 2022-09-01.
         /// </summary>

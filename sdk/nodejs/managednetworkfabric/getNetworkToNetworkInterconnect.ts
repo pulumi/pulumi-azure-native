@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Implements NetworkToNetworkInterconnects GET method.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-06-15.
  */
@@ -88,7 +89,8 @@ export interface GetNetworkToNetworkInterconnectResult {
 }
 /**
  * Implements NetworkToNetworkInterconnects GET method.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-06-15.
  */

@@ -115,7 +115,8 @@ class SuppressionList(pulumi.CustomResource):
                  __props__=None):
         """
         A class representing a SuppressionList resource.
-        Azure REST API version: 2023-06-01-preview.
+
+        Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2024-09-01-preview.
 
@@ -135,7 +136,8 @@ class SuppressionList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class representing a SuppressionList resource.
-        Azure REST API version: 2023-06-01-preview.
+
+        Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2024-09-01-preview.
 

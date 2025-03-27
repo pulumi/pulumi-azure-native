@@ -140,7 +140,8 @@ def get_security_user_configuration(configuration_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityUserConfigurationResult:
     """
     Retrieves a network manager security user configuration.
-    Azure REST API version: 2022-04-01-preview.
+
+    Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
 
@@ -171,7 +172,8 @@ def get_security_user_configuration_output(configuration_name: Optional[pulumi.I
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityUserConfigurationResult]:
     """
     Retrieves a network manager security user configuration.
-    Azure REST API version: 2022-04-01-preview.
+
+    Uses Azure REST API version 2022-04-01-preview.
 
     Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
 

@@ -116,7 +116,8 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
     Gets information about a server firewall rule.
-    Azure REST API version: 2022-01-01.
+
+    Uses Azure REST API version 2022-01-01.
 
     Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
 
@@ -145,7 +146,8 @@ def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Gets information about a server firewall rule.
-    Azure REST API version: 2022-01-01.
+
+    Uses Azure REST API version 2022-01-01.
 
     Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
 

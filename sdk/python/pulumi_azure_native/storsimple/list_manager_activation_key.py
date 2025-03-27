@@ -54,7 +54,8 @@ def list_manager_activation_key(manager_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagerActivationKeyResult:
     """
     Returns the activation key of the manager.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str manager_name: The manager name
@@ -73,7 +74,8 @@ def list_manager_activation_key_output(manager_name: Optional[pulumi.Input[str]]
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListManagerActivationKeyResult]:
     """
     Returns the activation key of the manager.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str manager_name: The manager name

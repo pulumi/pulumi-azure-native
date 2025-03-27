@@ -164,7 +164,8 @@ def get_storage_account(device_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountResult:
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
-    Azure REST API version: 2022-03-01.
+
+    Uses Azure REST API version 2022-03-01.
 
     Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
@@ -197,7 +198,8 @@ def get_storage_account_output(device_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageAccountResult]:
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
-    Azure REST API version: 2022-03-01.
+
+    Uses Azure REST API version 2022-03-01.
 
     Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
 

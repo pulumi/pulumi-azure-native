@@ -169,7 +169,8 @@ class CloudConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
-        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2023-01-01-preview.
+
+        Uses Azure REST API version 2023-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,7 +191,8 @@ class CloudConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
-        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2023-01-01-preview.
+
+        Uses Azure REST API version 2023-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CloudConnectionArgs args: The arguments to use to populate this resource's properties.

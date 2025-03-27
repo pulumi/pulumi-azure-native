@@ -86,7 +86,8 @@ def get_import_collector(import_collector_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImportCollectorResult:
     """
     Get a Import collector.
-    Azure REST API version: 2019-10-01.
+
+    Uses Azure REST API version 2019-10-01.
 
 
     :param str import_collector_name: Unique name of a Import collector within a project.
@@ -112,7 +113,8 @@ def get_import_collector_output(import_collector_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImportCollectorResult]:
     """
     Get a Import collector.
-    Azure REST API version: 2019-10-01.
+
+    Uses Azure REST API version 2019-10-01.
 
 
     :param str import_collector_name: Unique name of a Import collector within a project.

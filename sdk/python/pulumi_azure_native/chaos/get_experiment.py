@@ -139,7 +139,8 @@ def get_experiment(experiment_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentResult:
     """
     Get a Experiment resource.
-    Azure REST API version: 2023-04-15-preview.
+
+    Uses Azure REST API version 2023-04-15-preview.
 
     Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
 
@@ -167,7 +168,8 @@ def get_experiment_output(experiment_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentResult]:
     """
     Get a Experiment resource.
-    Azure REST API version: 2023-04-15-preview.
+
+    Uses Azure REST API version 2023-04-15-preview.
 
     Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
 

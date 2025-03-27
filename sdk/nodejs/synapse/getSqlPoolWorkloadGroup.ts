@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Sql pool's workload group.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2021-06-01-preview.
  */
@@ -82,7 +83,8 @@ export interface GetSqlPoolWorkloadGroupResult {
 }
 /**
  * Get a Sql pool's workload group.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2021-06-01-preview.
  */

@@ -290,7 +290,8 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolResult:
     """
     Gets the agent pool in the Hybrid AKS provisioned cluster
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
 
     :param str agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster
@@ -332,7 +333,8 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentPoolResult]:
     """
     Gets the agent pool in the Hybrid AKS provisioned cluster
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
 
     :param str agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster

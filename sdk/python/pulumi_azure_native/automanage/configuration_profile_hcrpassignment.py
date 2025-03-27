@@ -100,7 +100,8 @@ class ConfigurationProfileHCRPAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Configuration profile assignment is an association between a VM and automanage profile configuration.
-        Azure REST API version: 2022-05-04.
+
+        Uses Azure REST API version 2022-05-04.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +118,8 @@ class ConfigurationProfileHCRPAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration profile assignment is an association between a VM and automanage profile configuration.
-        Azure REST API version: 2022-05-04.
+
+        Uses Azure REST API version 2022-05-04.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileHCRPAssignmentArgs args: The arguments to use to populate this resource's properties.

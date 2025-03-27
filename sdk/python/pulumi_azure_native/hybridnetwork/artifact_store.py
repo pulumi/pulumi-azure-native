@@ -135,7 +135,8 @@ class ArtifactStore(pulumi.CustomResource):
                  __props__=None):
         """
         Artifact store properties.
-        Azure REST API version: 2023-09-01.
+
+        Uses Azure REST API version 2023-09-01.
 
         Other available API versions: 2024-04-15.
 
@@ -156,7 +157,8 @@ class ArtifactStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Artifact store properties.
-        Azure REST API version: 2023-09-01.
+
+        Uses Azure REST API version 2023-09-01.
 
         Other available API versions: 2024-04-15.
 

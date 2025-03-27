@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Billing
 {
     /// <summary>
     /// An invoice section.
-    /// Azure REST API version: 2024-04-01.
+    /// 
+    /// Uses Azure REST API version 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:billing:InvoiceSection")]
     public partial class InvoiceSection : global::Pulumi.CustomResource

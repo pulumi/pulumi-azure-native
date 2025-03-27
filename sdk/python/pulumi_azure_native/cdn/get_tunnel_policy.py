@@ -149,7 +149,8 @@ def get_tunnel_policy(profile_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTunnelPolicyResult:
     """
     Gets an existing tunnel policy within a profile.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
@@ -179,7 +180,8 @@ def get_tunnel_policy_output(profile_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTunnelPolicyResult]:
     """
     Gets an existing tunnel policy within a profile.
-    Azure REST API version: 2024-06-01-preview.
+
+    Uses Azure REST API version 2024-06-01-preview.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.

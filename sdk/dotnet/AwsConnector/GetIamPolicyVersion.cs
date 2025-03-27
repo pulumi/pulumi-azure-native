@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a IamPolicyVersion
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetIamPolicyVersionResult> InvokeAsync(GetIamPolicyVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIamPolicyVersionResult>("azure-native:awsconnector:getIamPolicyVersion", args ?? new GetIamPolicyVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a IamPolicyVersion
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetIamPolicyVersionResult> Invoke(GetIamPolicyVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamPolicyVersionResult>("azure-native:awsconnector:getIamPolicyVersion", args ?? new GetIamPolicyVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a IamPolicyVersion
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetIamPolicyVersionResult> Invoke(GetIamPolicyVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamPolicyVersionResult>("azure-native:awsconnector:getIamPolicyVersion", args ?? new GetIamPolicyVersionInvokeArgs(), options.WithDefaults());

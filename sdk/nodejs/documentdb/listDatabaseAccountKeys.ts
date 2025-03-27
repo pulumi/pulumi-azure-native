@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the access keys for the specified Azure Cosmos DB database account.
- * Azure REST API version: 2023-04-15.
+ *
+ * Uses Azure REST API version 2023-04-15.
  *
  * Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
  */
@@ -52,7 +53,8 @@ export interface ListDatabaseAccountKeysResult {
 }
 /**
  * Lists the access keys for the specified Azure Cosmos DB database account.
- * Azure REST API version: 2023-04-15.
+ *
+ * Uses Azure REST API version 2023-04-15.
  *
  * Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
  */

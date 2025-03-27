@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     {
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsAdtAPIResult> InvokeAsync(GetPrivateEndpointConnectionsAdtAPIArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsAdtAPIResult>("azure-native:securityandcompliance:getPrivateEndpointConnectionsAdtAPI", args ?? new GetPrivateEndpointConnectionsAdtAPIArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsAdtAPIResult> Invoke(GetPrivateEndpointConnectionsAdtAPIInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsAdtAPIResult>("azure-native:securityandcompliance:getPrivateEndpointConnectionsAdtAPI", args ?? new GetPrivateEndpointConnectionsAdtAPIInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
-        /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Uses Azure REST API version 2021-03-08.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsAdtAPIResult> Invoke(GetPrivateEndpointConnectionsAdtAPIInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsAdtAPIResult>("azure-native:securityandcompliance:getPrivateEndpointConnectionsAdtAPI", args ?? new GetPrivateEndpointConnectionsAdtAPIInvokeArgs(), options.WithDefaults());

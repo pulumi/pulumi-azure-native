@@ -261,7 +261,8 @@ def get_connector_mapping(connector_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorMappingResult:
     """
     Gets a connector mapping in the connector.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str connector_name: The name of the connector.
@@ -303,7 +304,8 @@ def get_connector_mapping_output(connector_name: Optional[pulumi.Input[str]] = N
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorMappingResult]:
     """
     Gets a connector mapping in the connector.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str connector_name: The name of the connector.

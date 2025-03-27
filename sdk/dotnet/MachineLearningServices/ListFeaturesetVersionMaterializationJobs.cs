@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// A paginated list of FeaturesetJob entities.
-        /// Azure REST API version: 2023-04-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-04-01-preview.
         /// 
         /// Other available API versions: 2023-06-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         /// <summary>
         /// A paginated list of FeaturesetJob entities.
-        /// Azure REST API version: 2023-04-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-04-01-preview.
         /// 
         /// Other available API versions: 2023-06-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         /// <summary>
         /// A paginated list of FeaturesetJob entities.
-        /// Azure REST API version: 2023-04-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-04-01-preview.
         /// 
         /// Other available API versions: 2023-06-01-preview.
         /// </summary>

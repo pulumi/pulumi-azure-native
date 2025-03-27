@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get the project with the specified name.
-        /// Azure REST API version: 2019-10-01.
+        /// 
+        /// Uses Azure REST API version 2019-10-01.
         /// 
         /// Other available API versions: 2018-02-02.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Migrate
 
         /// <summary>
         /// Get the project with the specified name.
-        /// Azure REST API version: 2019-10-01.
+        /// 
+        /// Uses Azure REST API version 2019-10-01.
         /// 
         /// Other available API versions: 2018-02-02.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Migrate
 
         /// <summary>
         /// Get the project with the specified name.
-        /// Azure REST API version: 2019-10-01.
+        /// 
+        /// Uses Azure REST API version 2019-10-01.
         /// 
         /// Other available API versions: 2018-02-02.
         /// </summary>

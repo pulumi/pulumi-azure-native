@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a CloudFormationStack
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetCloudFormationStackResult> InvokeAsync(GetCloudFormationStackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationStackResult>("azure-native:awsconnector:getCloudFormationStack", args ?? new GetCloudFormationStackArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a CloudFormationStack
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetCloudFormationStackResult> Invoke(GetCloudFormationStackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationStackResult>("azure-native:awsconnector:getCloudFormationStack", args ?? new GetCloudFormationStackInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a CloudFormationStack
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetCloudFormationStackResult> Invoke(GetCloudFormationStackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationStackResult>("azure-native:awsconnector:getCloudFormationStack", args ?? new GetCloudFormationStackInvokeArgs(), options.WithDefaults());

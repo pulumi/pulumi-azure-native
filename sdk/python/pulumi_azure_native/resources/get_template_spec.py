@@ -164,7 +164,8 @@ def get_template_spec(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateSpecResult:
     """
     Gets a Template Spec with a given name.
-    Azure REST API version: 2022-02-01.
+
+    Uses Azure REST API version 2022-02-01.
 
 
     :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.
@@ -195,7 +196,8 @@ def get_template_spec_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateSpecResult]:
     """
     Gets a Template Spec with a given name.
-    Azure REST API version: 2022-02-01.
+
+    Uses Azure REST API version 2022-02-01.
 
 
     :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Retrieves details of this Network Tap.
-        /// Azure REST API version: 2023-06-15.
+        /// 
+        /// Uses Azure REST API version 2023-06-15.
         /// </summary>
         public static Task<GetNetworkTapResult> InvokeAsync(GetNetworkTapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkTapResult>("azure-native:managednetworkfabric:getNetworkTap", args ?? new GetNetworkTapArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves details of this Network Tap.
-        /// Azure REST API version: 2023-06-15.
+        /// 
+        /// Uses Azure REST API version 2023-06-15.
         /// </summary>
         public static Output<GetNetworkTapResult> Invoke(GetNetworkTapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkTapResult>("azure-native:managednetworkfabric:getNetworkTap", args ?? new GetNetworkTapInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves details of this Network Tap.
-        /// Azure REST API version: 2023-06-15.
+        /// 
+        /// Uses Azure REST API version 2023-06-15.
         /// </summary>
         public static Output<GetNetworkTapResult> Invoke(GetNetworkTapInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkTapResult>("azure-native:managednetworkfabric:getNetworkTap", args ?? new GetNetworkTapInvokeArgs(), options.WithDefaults());

@@ -136,7 +136,8 @@ class Instance(pulumi.CustomResource):
                  __props__=None):
         """
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2024-09-18-preview.
+
+        Uses Azure REST API version 2024-09-18-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +156,8 @@ class Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2024-09-18-preview.
+
+        Uses Azure REST API version 2024-09-18-preview.
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SsmParameter
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSsmParameter(args: GetSsmParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetSsmParameterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetSsmParameterResult {
 }
 /**
  * Get a SsmParameter
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSsmParameterOutput(args: GetSsmParameterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSsmParameterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

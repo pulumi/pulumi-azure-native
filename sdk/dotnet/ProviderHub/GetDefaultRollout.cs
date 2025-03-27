@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ProviderHub
     {
         /// <summary>
         /// Gets the default rollout details.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-09-01-preview.
         /// </summary>
         public static Task<GetDefaultRolloutResult> InvokeAsync(GetDefaultRolloutArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultRolloutResult>("azure-native:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the default rollout details.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-09-01-preview.
         /// </summary>
         public static Output<GetDefaultRolloutResult> Invoke(GetDefaultRolloutInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultRolloutResult>("azure-native:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the default rollout details.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-09-01-preview.
         /// </summary>
         public static Output<GetDefaultRolloutResult> Invoke(GetDefaultRolloutInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultRolloutResult>("azure-native:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * API source entity.
- * Azure REST API version: 2024-06-01-preview.
+ *
+ * Uses Azure REST API version 2024-06-01-preview.
  */
 export class ApiSource extends pulumi.CustomResource {
     /**

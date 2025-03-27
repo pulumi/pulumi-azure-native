@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
- * Azure REST API version: 2021-12-01-preview.
+ *
+ * Uses Azure REST API version 2021-12-01-preview.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -103,7 +104,8 @@ export interface GetLabResult {
 }
 /**
  * Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
- * Azure REST API version: 2021-12-01-preview.
+ *
+ * Uses Azure REST API version 2021-12-01-preview.
  */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Returns a list of language extensions that can run within KQL queries.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Task<ListKustoPoolLanguageExtensionsResult> InvokeAsync(ListKustoPoolLanguageExtensionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListKustoPoolLanguageExtensionsResult>("azure-native:synapse:listKustoPoolLanguageExtensions", args ?? new ListKustoPoolLanguageExtensionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a list of language extensions that can run within KQL queries.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Output<ListKustoPoolLanguageExtensionsResult> Invoke(ListKustoPoolLanguageExtensionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListKustoPoolLanguageExtensionsResult>("azure-native:synapse:listKustoPoolLanguageExtensions", args ?? new ListKustoPoolLanguageExtensionsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a list of language extensions that can run within KQL queries.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Output<ListKustoPoolLanguageExtensionsResult> Invoke(ListKustoPoolLanguageExtensionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListKustoPoolLanguageExtensionsResult>("azure-native:synapse:listKustoPoolLanguageExtensions", args ?? new ListKustoPoolLanguageExtensionsInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Ec2Address
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2Address(args: GetEc2AddressArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2AddressResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEc2AddressResult {
 }
 /**
  * Get a Ec2Address
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2AddressOutput(args: GetEc2AddressOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2AddressResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

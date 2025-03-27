@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the Schema specified by its identifier.
- * Azure REST API version: 2021-04-01-preview.
+ *
+ * Uses Azure REST API version 2021-04-01-preview.
  */
 export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,7 +64,8 @@ export interface GetSchemaResult {
 }
 /**
  * Gets the details of the Schema specified by its identifier.
- * Azure REST API version: 2021-04-01-preview.
+ *
+ * Uses Azure REST API version 2021-04-01-preview.
  */
 export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

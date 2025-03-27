@@ -416,7 +416,8 @@ def get_draft_package(draft_package_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDraftPackageResult:
     """
     Gets a Test Base Draft Package.
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
 
     :param str draft_package_name: The resource name of the Test Base Draft Package.
@@ -468,7 +469,8 @@ def get_draft_package_output(draft_package_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDraftPackageResult]:
     """
     Gets a Test Base Draft Package.
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
 
     :param str draft_package_name: The resource name of the Test Base Draft Package.

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Volume Snapshot.
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  *
  * Other available API versions: 2024-05-01, 2024-06-01-preview.
  */
@@ -81,7 +82,8 @@ export interface GetVolumeSnapshotResult {
 }
 /**
  * Get a Volume Snapshot.
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  *
  * Other available API versions: 2024-05-01, 2024-06-01-preview.
  */

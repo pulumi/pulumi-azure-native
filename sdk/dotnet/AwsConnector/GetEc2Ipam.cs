@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a Ec2Ipam
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEc2IpamResult> InvokeAsync(GetEc2IpamArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEc2IpamResult>("azure-native:awsconnector:getEc2Ipam", args ?? new GetEc2IpamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2Ipam
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2IpamResult> Invoke(GetEc2IpamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2IpamResult>("azure-native:awsconnector:getEc2Ipam", args ?? new GetEc2IpamInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2Ipam
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2IpamResult> Invoke(GetEc2IpamInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2IpamResult>("azure-native:awsconnector:getEc2Ipam", args ?? new GetEc2IpamInvokeArgs(), options.WithDefaults());

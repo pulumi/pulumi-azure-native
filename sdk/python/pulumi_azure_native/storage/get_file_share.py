@@ -309,7 +309,8 @@ def get_file_share(account_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileShareResult:
     """
     Gets properties of a specified share.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
 
@@ -357,7 +358,8 @@ def get_file_share_output(account_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileShareResult]:
     """
     Gets properties of a specified share.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
 

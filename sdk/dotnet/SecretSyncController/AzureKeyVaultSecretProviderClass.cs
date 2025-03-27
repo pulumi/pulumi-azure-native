@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.SecretSyncController
 {
     /// <summary>
     /// The AzureKeyVaultSecretProviderClass resource.
-    /// Azure REST API version: 2024-08-21-preview.
+    /// 
+    /// Uses Azure REST API version 2024-08-21-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:secretsynccontroller:AzureKeyVaultSecretProviderClass")]
     public partial class AzureKeyVaultSecretProviderClass : global::Pulumi.CustomResource

@@ -119,7 +119,8 @@ class Service(pulumi.CustomResource):
                  __props__=None):
         """
         The service entity.
-        Azure REST API version: 2023-07-01-preview.
+
+        Uses Azure REST API version 2023-07-01-preview.
 
         Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
 
@@ -139,7 +140,8 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The service entity.
-        Azure REST API version: 2023-07-01-preview.
+
+        Uses Azure REST API version 2023-07-01-preview.
 
         Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
 

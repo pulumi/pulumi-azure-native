@@ -485,7 +485,8 @@ class Workflow(pulumi.CustomResource):
                  __props__=None):
         """
         Resource representation of a workflow
-        Azure REST API version: 2022-10-11-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+
+        Uses Azure REST API version 2022-10-11-preview. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
 
         Other available API versions: 2023-08-01, 2024-05-01-preview, 2024-08-01-preview, 2025-03-01-preview.
 
@@ -525,7 +526,8 @@ class Workflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource representation of a workflow
-        Azure REST API version: 2022-10-11-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+
+        Uses Azure REST API version 2022-10-11-preview. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
 
         Other available API versions: 2023-08-01, 2024-05-01-preview, 2024-08-01-preview, 2025-03-01-preview.
 

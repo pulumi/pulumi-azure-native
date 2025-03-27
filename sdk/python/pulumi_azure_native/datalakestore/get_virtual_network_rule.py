@@ -91,7 +91,8 @@ def get_virtual_network_rule(account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkRuleResult:
     """
     Gets the specified Data Lake Store virtual network rule.
-    Azure REST API version: 2016-11-01.
+
+    Uses Azure REST API version 2016-11-01.
 
 
     :param str account_name: The name of the Data Lake Store account.
@@ -116,7 +117,8 @@ def get_virtual_network_rule_output(account_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkRuleResult]:
     """
     Gets the specified Data Lake Store virtual network rule.
-    Azure REST API version: 2016-11-01.
+
+    Uses Azure REST API version 2016-11-01.
 
 
     :param str account_name: The name of the Data Lake Store account.

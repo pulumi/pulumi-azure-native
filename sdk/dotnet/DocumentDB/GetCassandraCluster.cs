@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Get the properties of a managed Cassandra cluster.
-        /// Azure REST API version: 2023-04-15.
+        /// 
+        /// Uses Azure REST API version 2023-04-15.
         /// 
         /// Other available API versions: 2021-07-01-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DocumentDB
 
         /// <summary>
         /// Get the properties of a managed Cassandra cluster.
-        /// Azure REST API version: 2023-04-15.
+        /// 
+        /// Uses Azure REST API version 2023-04-15.
         /// 
         /// Other available API versions: 2021-07-01-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.DocumentDB
 
         /// <summary>
         /// Get the properties of a managed Cassandra cluster.
-        /// Azure REST API version: 2023-04-15.
+        /// 
+        /// Uses Azure REST API version 2023-04-15.
         /// 
         /// Other available API versions: 2021-07-01-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
         /// </summary>

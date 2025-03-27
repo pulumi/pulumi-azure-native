@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Get the recommended SAP Availability Zone Pair Details for your region.
-        /// Azure REST API version: 2024-09-01.
+        /// 
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Task<GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult> InvokeAsync(GetSapVirtualInstanceInvokeAvailabilityZoneDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult>("azure-native:workloads:getSapVirtualInstanceInvokeAvailabilityZoneDetails", args ?? new GetSapVirtualInstanceInvokeAvailabilityZoneDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the recommended SAP Availability Zone Pair Details for your region.
-        /// Azure REST API version: 2024-09-01.
+        /// 
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult> Invoke(GetSapVirtualInstanceInvokeAvailabilityZoneDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult>("azure-native:workloads:getSapVirtualInstanceInvokeAvailabilityZoneDetails", args ?? new GetSapVirtualInstanceInvokeAvailabilityZoneDetailsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the recommended SAP Availability Zone Pair Details for your region.
-        /// Azure REST API version: 2024-09-01.
+        /// 
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult> Invoke(GetSapVirtualInstanceInvokeAvailabilityZoneDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult>("azure-native:workloads:getSapVirtualInstanceInvokeAvailabilityZoneDetails", args ?? new GetSapVirtualInstanceInvokeAvailabilityZoneDetailsInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Neighbor Group.
- * Azure REST API version: 2023-06-15.
+ *
+ * Uses Azure REST API version 2023-06-15.
  */
 export function getNeighborGroup(args: GetNeighborGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNeighborGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,7 +82,8 @@ export interface GetNeighborGroupResult {
 }
 /**
  * Gets the Neighbor Group.
- * Azure REST API version: 2023-06-15.
+ *
+ * Uses Azure REST API version 2023-06-15.
  */
 export function getNeighborGroupOutput(args: GetNeighborGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNeighborGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

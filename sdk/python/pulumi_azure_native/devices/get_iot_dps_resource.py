@@ -175,7 +175,8 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotDpsResourceResult:
     """
     Get the metadata of the provisioning service without SAS keys.
-    Azure REST API version: 2022-12-12.
+
+    Uses Azure REST API version 2022-12-12.
 
     Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
 
@@ -206,7 +207,8 @@ def get_iot_dps_resource_output(provisioning_service_name: Optional[pulumi.Input
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotDpsResourceResult]:
     """
     Get the metadata of the provisioning service without SAS keys.
-    Azure REST API version: 2022-12-12.
+
+    Uses Azure REST API version 2022-12-12.
 
     Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
 

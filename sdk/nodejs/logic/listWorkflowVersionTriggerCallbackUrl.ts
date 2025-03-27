@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the callback url for a trigger of a workflow version.
- * Azure REST API version: 2019-05-01.
+ *
+ * Uses Azure REST API version 2019-05-01.
  *
  * Other available API versions: 2018-07-01-preview.
  */
@@ -83,7 +84,8 @@ export interface ListWorkflowVersionTriggerCallbackUrlResult {
 }
 /**
  * Get the callback url for a trigger of a workflow version.
- * Azure REST API version: 2019-05-01.
+ *
+ * Uses Azure REST API version 2019-05-01.
  *
  * Other available API versions: 2018-07-01-preview.
  */

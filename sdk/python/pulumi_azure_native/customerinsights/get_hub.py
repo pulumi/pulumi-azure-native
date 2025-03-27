@@ -163,7 +163,8 @@ def get_hub(hub_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHubResult:
     """
     Gets information about the specified hub.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str hub_name: The name of the hub.
@@ -191,7 +192,8 @@ def get_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHubResult]:
     """
     Gets information about the specified hub.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str hub_name: The name of the hub.

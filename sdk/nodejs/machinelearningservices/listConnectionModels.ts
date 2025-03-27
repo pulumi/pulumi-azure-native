@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2024-07-01-preview.
+ * Uses Azure REST API version 2024-07-01-preview.
  */
 export function listConnectionModels(args: ListConnectionModelsArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionModelsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,7 +40,7 @@ export interface ListConnectionModelsResult {
     readonly value?: outputs.machinelearningservices.EndpointModelPropertiesResponse[];
 }
 /**
- * Azure REST API version: 2024-07-01-preview.
+ * Uses Azure REST API version 2024-07-01-preview.
  */
 export function listConnectionModelsOutput(args: ListConnectionModelsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConnectionModelsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

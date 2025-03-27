@@ -102,7 +102,8 @@ def get_association(association_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssociationResult:
     """
     Get an association.
-    Azure REST API version: 2018-09-01-preview.
+
+    Uses Azure REST API version 2018-09-01-preview.
 
 
     :param str association_name: The name of the association.
@@ -125,7 +126,8 @@ def get_association_output(association_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssociationResult]:
     """
     Get an association.
-    Azure REST API version: 2018-09-01-preview.
+
+    Uses Azure REST API version 2018-09-01-preview.
 
 
     :param str association_name: The name of the association.

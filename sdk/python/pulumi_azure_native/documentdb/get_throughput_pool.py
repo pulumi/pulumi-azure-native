@@ -139,7 +139,8 @@ def get_throughput_pool(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThroughputPoolResult:
     """
     Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
-    Azure REST API version: 2023-11-15-preview.
+
+    Uses Azure REST API version 2023-11-15-preview.
 
     Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
 
@@ -167,7 +168,8 @@ def get_throughput_pool_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThroughputPoolResult]:
     """
     Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
-    Azure REST API version: 2023-11-15-preview.
+
+    Uses Azure REST API version 2023-11-15-preview.
 
     Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
 

@@ -68,7 +68,8 @@ def list_schedule_applicable(lab_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListScheduleApplicableResult:
     """
     Lists all applicable schedules
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str lab_name: The name of the lab.
@@ -91,7 +92,8 @@ def list_schedule_applicable_output(lab_name: Optional[pulumi.Input[str]] = None
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListScheduleApplicableResult]:
     """
     Lists all applicable schedules
-    Azure REST API version: 2018-09-15.
+
+    Uses Azure REST API version 2018-09-15.
 
 
     :param str lab_name: The name of the lab.

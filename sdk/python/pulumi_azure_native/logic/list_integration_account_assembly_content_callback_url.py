@@ -116,7 +116,8 @@ def list_integration_account_assembly_content_callback_url(assembly_artifact_nam
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountAssemblyContentCallbackUrlResult:
     """
     Get the content callback url for an integration account assembly.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
 
     :param str assembly_artifact_name: The assembly artifact name.
@@ -143,7 +144,8 @@ def list_integration_account_assembly_content_callback_url_output(assembly_artif
                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountAssemblyContentCallbackUrlResult]:
     """
     Get the content callback url for an integration account assembly.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
 
     :param str assembly_artifact_name: The assembly artifact name.

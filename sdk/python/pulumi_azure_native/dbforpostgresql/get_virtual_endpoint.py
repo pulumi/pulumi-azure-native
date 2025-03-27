@@ -128,7 +128,8 @@ def get_virtual_endpoint(resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualEndpointResult:
     """
     Gets information about a virtual endpoint.
-    Azure REST API version: 2023-06-01-preview.
+
+    Uses Azure REST API version 2023-06-01-preview.
 
     Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
@@ -158,7 +159,8 @@ def get_virtual_endpoint_output(resource_group_name: Optional[pulumi.Input[str]]
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualEndpointResult]:
     """
     Gets information about a virtual endpoint.
-    Azure REST API version: 2023-06-01-preview.
+
+    Uses Azure REST API version 2023-06-01-preview.
 
     Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 

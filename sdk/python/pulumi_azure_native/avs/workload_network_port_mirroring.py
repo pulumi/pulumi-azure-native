@@ -167,7 +167,8 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
                  __props__=None):
         """
         NSX Port Mirroring
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
+
+        Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2020-07-17-preview.
 
         Other available API versions: 2023-03-01, 2023-09-01.
 
@@ -190,7 +191,8 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NSX Port Mirroring
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
+
+        Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2020-07-17-preview.
 
         Other available API versions: 2023-03-01, 2023-09-01.
 

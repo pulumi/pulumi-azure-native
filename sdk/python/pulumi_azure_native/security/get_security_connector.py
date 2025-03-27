@@ -199,7 +199,8 @@ def get_security_connector(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityConnectorResult:
     """
     Retrieves details of a specific security connector
-    Azure REST API version: 2023-03-01-preview.
+
+    Uses Azure REST API version 2023-03-01-preview.
 
     Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview, 2024-08-01-preview.
 
@@ -232,7 +233,8 @@ def get_security_connector_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityConnectorResult]:
     """
     Retrieves details of a specific security connector
-    Azure REST API version: 2023-03-01-preview.
+
+    Uses Azure REST API version 2023-03-01-preview.
 
     Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview, 2024-08-01-preview.
 

@@ -224,7 +224,8 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolResult:
     """
     Get SQL pool properties
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-05-01, 2021-06-01-preview.
 
@@ -262,7 +263,8 @@ def get_sql_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolResult]:
     """
     Get SQL pool properties
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-05-01, 2021-06-01-preview.
 

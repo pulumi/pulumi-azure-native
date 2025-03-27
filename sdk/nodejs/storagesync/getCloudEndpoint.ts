@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a given CloudEndpoint.
- * Azure REST API version: 2022-06-01.
+ *
+ * Uses Azure REST API version 2022-06-01.
  *
  * Other available API versions: 2022-09-01.
  */
@@ -105,7 +106,8 @@ export interface GetCloudEndpointResult {
 }
 /**
  * Get a given CloudEndpoint.
- * Azure REST API version: 2022-06-01.
+ *
+ * Uses Azure REST API version 2022-06-01.
  *
  * Other available API versions: 2022-09-01.
  */

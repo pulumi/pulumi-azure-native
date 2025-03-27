@@ -63,7 +63,8 @@ def get_sap_virtual_instance_invoke_sizing_recommendations(app_location: Optiona
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapVirtualInstanceInvokeSizingRecommendationsResult:
     """
     Gets the sizing recommendations.
-    Azure REST API version: 2024-09-01.
+
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str app_location: The geo-location where the resource is to be created.
@@ -106,7 +107,8 @@ def get_sap_virtual_instance_invoke_sizing_recommendations_output(app_location: 
                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapVirtualInstanceInvokeSizingRecommendationsResult]:
     """
     Gets the sizing recommendations.
-    Azure REST API version: 2024-09-01.
+
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str app_location: The geo-location where the resource is to be created.

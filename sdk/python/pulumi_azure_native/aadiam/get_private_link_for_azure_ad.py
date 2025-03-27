@@ -162,7 +162,8 @@ def get_private_link_for_azure_ad(policy_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkForAzureAdResult:
     """
     Gets a private link policy with a given name.
-    Azure REST API version: 2020-03-01.
+
+    Uses Azure REST API version 2020-03-01.
 
 
     :param str policy_name: The name of the private link policy in Azure AD.
@@ -190,7 +191,8 @@ def get_private_link_for_azure_ad_output(policy_name: Optional[pulumi.Input[str]
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkForAzureAdResult]:
     """
     Gets a private link policy with a given name.
-    Azure REST API version: 2020-03-01.
+
+    Uses Azure REST API version 2020-03-01.
 
 
     :param str policy_name: The name of the private link policy in Azure AD.

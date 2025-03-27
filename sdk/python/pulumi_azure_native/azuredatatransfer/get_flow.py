@@ -152,7 +152,8 @@ def get_flow(connection_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlowResult:
     """
     Gets flow resource.
-    Azure REST API version: 2023-10-11-preview.
+
+    Uses Azure REST API version 2023-10-11-preview.
 
     Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
 
@@ -184,7 +185,8 @@ def get_flow_output(connection_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowResult]:
     """
     Gets flow resource.
-    Azure REST API version: 2023-10-11-preview.
+
+    Uses Azure REST API version 2023-10-11-preview.
 
     Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
 

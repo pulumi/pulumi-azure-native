@@ -189,7 +189,8 @@ class Appliance(pulumi.CustomResource):
                  __props__=None):
         """
         Appliances definition.
-        Azure REST API version: 2022-10-27. Prior API version in Azure Native 1.x: 2021-10-31-preview.
+
+        Uses Azure REST API version 2022-10-27. In version 1.x of the Azure Native provider, it used API version 2021-10-31-preview.
 
         Other available API versions: 2021-10-31-preview.
 
@@ -213,7 +214,8 @@ class Appliance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Appliances definition.
-        Azure REST API version: 2022-10-27. Prior API version in Azure Native 1.x: 2021-10-31-preview.
+
+        Uses Azure REST API version 2022-10-27. In version 1.x of the Azure Native provider, it used API version 2021-10-31-preview.
 
         Other available API versions: 2021-10-31-preview.
 

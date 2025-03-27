@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// Gets a Test Base Draft Package.
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Task<GetDraftPackageResult> InvokeAsync(GetDraftPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDraftPackageResult>("azure-native:testbase:getDraftPackage", args ?? new GetDraftPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Test Base Draft Package.
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Output<GetDraftPackageResult> Invoke(GetDraftPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDraftPackageResult>("azure-native:testbase:getDraftPackage", args ?? new GetDraftPackageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Test Base Draft Package.
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Output<GetDraftPackageResult> Invoke(GetDraftPackageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDraftPackageResult>("azure-native:testbase:getDraftPackage", args ?? new GetDraftPackageInvokeArgs(), options.WithDefaults());

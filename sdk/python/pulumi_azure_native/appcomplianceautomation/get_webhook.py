@@ -247,7 +247,8 @@ def get_webhook(report_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebhookResult:
     """
     Get the AppComplianceAutomation webhook and its properties.
-    Azure REST API version: 2024-06-27.
+
+    Uses Azure REST API version 2024-06-27.
 
 
     :param str report_name: Report Name.
@@ -282,7 +283,8 @@ def get_webhook_output(report_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebhookResult]:
     """
     Get the AppComplianceAutomation webhook and its properties.
-    Azure REST API version: 2024-06-27.
+
+    Uses Azure REST API version 2024-06-27.
 
 
     :param str report_name: Report Name.

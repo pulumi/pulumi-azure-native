@@ -12,8 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class ListConnectionAllModels
     {
         /// <summary>
-        /// 
-        /// Azure REST API version: 2024-10-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
         /// Other available API versions: 2025-01-01-preview.
         /// </summary>
@@ -21,8 +20,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListConnectionAllModelsResult>("azure-native:machinelearningservices:listConnectionAllModels", args ?? new ListConnectionAllModelsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2024-10-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
         /// Other available API versions: 2025-01-01-preview.
         /// </summary>
@@ -30,8 +28,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectionAllModelsResult>("azure-native:machinelearningservices:listConnectionAllModels", args ?? new ListConnectionAllModelsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2024-10-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
         /// Other available API versions: 2025-01-01-preview.
         /// </summary>

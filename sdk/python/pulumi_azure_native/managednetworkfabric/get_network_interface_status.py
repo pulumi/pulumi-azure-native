@@ -103,7 +103,8 @@ def get_network_interface_status(network_device_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceStatusResult:
     """
     Get the running status of the Network Interface.
-    Azure REST API version: 2023-02-01-preview.
+
+    Uses Azure REST API version 2023-02-01-preview.
 
 
     :param str network_device_name: Name of the NetworkDevice.
@@ -129,7 +130,8 @@ def get_network_interface_status_output(network_device_name: Optional[pulumi.Inp
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceStatusResult]:
     """
     Get the running status of the Network Interface.
-    Azure REST API version: 2023-02-01-preview.
+
+    Uses Azure REST API version 2023-02-01-preview.
 
 
     :param str network_device_name: Name of the NetworkDevice.

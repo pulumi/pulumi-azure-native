@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a gallery inVMAccessControlProfile version.
- * Azure REST API version: 2024-03-03.
+ *
+ * Uses Azure REST API version 2024-03-03.
  */
 export function getGalleryInVMAccessControlProfileVersion(args: GetGalleryInVMAccessControlProfileVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryInVMAccessControlProfileVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -99,7 +100,8 @@ export interface GetGalleryInVMAccessControlProfileVersionResult {
 }
 /**
  * Retrieves information about a gallery inVMAccessControlProfile version.
- * Azure REST API version: 2024-03-03.
+ *
+ * Uses Azure REST API version 2024-03-03.
  */
 export function getGalleryInVMAccessControlProfileVersionOutput(args: GetGalleryInVMAccessControlProfileVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryInVMAccessControlProfileVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

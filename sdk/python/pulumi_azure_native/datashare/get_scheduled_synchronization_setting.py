@@ -166,7 +166,8 @@ def get_scheduled_synchronization_setting(account_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledSynchronizationSettingResult:
     """
     Get a synchronizationSetting in a share
-    Azure REST API version: 2021-08-01.
+
+    Uses Azure REST API version 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -200,7 +201,8 @@ def get_scheduled_synchronization_setting_output(account_name: Optional[pulumi.I
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledSynchronizationSettingResult]:
     """
     Get a synchronizationSetting in a share
-    Azure REST API version: 2021-08-01.
+
+    Uses Azure REST API version 2021-08-01.
 
 
     :param str account_name: The name of the share account.

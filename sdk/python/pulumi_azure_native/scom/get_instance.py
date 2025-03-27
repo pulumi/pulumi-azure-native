@@ -139,7 +139,8 @@ def get_instance(instance_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
     Get SCOM managed instance details
-    Azure REST API version: 2023-07-07-preview.
+
+    Uses Azure REST API version 2023-07-07-preview.
 
 
     :param str instance_name: Name of the Azure Monitor Operations Manager Managed Instance (SCOM MI)
@@ -165,7 +166,8 @@ def get_instance_output(instance_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Get SCOM managed instance details
-    Azure REST API version: 2023-07-07-preview.
+
+    Uses Azure REST API version 2023-07-07-preview.
 
 
     :param str instance_name: Name of the Azure Monitor Operations Manager Managed Instance (SCOM MI)

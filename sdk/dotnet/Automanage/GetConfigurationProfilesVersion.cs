@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Automanage
     {
         /// <summary>
         /// Get information about a configuration profile version
-        /// Azure REST API version: 2022-05-04.
+        /// 
+        /// Uses Azure REST API version 2022-05-04.
         /// </summary>
         public static Task<GetConfigurationProfilesVersionResult> InvokeAsync(GetConfigurationProfilesVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilesVersionResult>("azure-native:automanage:getConfigurationProfilesVersion", args ?? new GetConfigurationProfilesVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a configuration profile version
-        /// Azure REST API version: 2022-05-04.
+        /// 
+        /// Uses Azure REST API version 2022-05-04.
         /// </summary>
         public static Output<GetConfigurationProfilesVersionResult> Invoke(GetConfigurationProfilesVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilesVersionResult>("azure-native:automanage:getConfigurationProfilesVersion", args ?? new GetConfigurationProfilesVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a configuration profile version
-        /// Azure REST API version: 2022-05-04.
+        /// 
+        /// Uses Azure REST API version 2022-05-04.
         /// </summary>
         public static Output<GetConfigurationProfilesVersionResult> Invoke(GetConfigurationProfilesVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilesVersionResult>("azure-native:automanage:getConfigurationProfilesVersion", args ?? new GetConfigurationProfilesVersionInvokeArgs(), options.WithDefaults());

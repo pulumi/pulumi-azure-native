@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AzureData
     {
         /// <summary>
         /// Gets a SQL Server.
-        /// Azure REST API version: 2019-07-24-preview.
+        /// 
+        /// Uses Azure REST API version 2019-07-24-preview.
         /// </summary>
         public static Task<GetSqlServerResult> InvokeAsync(GetSqlServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerResult>("azure-native:azuredata:getSqlServer", args ?? new GetSqlServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a SQL Server.
-        /// Azure REST API version: 2019-07-24-preview.
+        /// 
+        /// Uses Azure REST API version 2019-07-24-preview.
         /// </summary>
         public static Output<GetSqlServerResult> Invoke(GetSqlServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerResult>("azure-native:azuredata:getSqlServer", args ?? new GetSqlServerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a SQL Server.
-        /// Azure REST API version: 2019-07-24-preview.
+        /// 
+        /// Uses Azure REST API version 2019-07-24-preview.
         /// </summary>
         public static Output<GetSqlServerResult> Invoke(GetSqlServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerResult>("azure-native:azuredata:getSqlServer", args ?? new GetSqlServerInvokeArgs(), options.WithDefaults());

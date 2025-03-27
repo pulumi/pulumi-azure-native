@@ -67,7 +67,8 @@ class Report(pulumi.CustomResource):
                  __props__=None):
         """
         A class represent an AppComplianceAutomation report resource.
-        Azure REST API version: 2022-11-16-preview. Prior API version in Azure Native 1.x: 2022-11-16-preview.
+
+        Uses Azure REST API version 2022-11-16-preview. In version 1.x of the Azure Native provider, it used API version 2022-11-16-preview.
 
         Other available API versions: 2024-06-27.
 
@@ -84,7 +85,8 @@ class Report(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent an AppComplianceAutomation report resource.
-        Azure REST API version: 2022-11-16-preview. Prior API version in Azure Native 1.x: 2022-11-16-preview.
+
+        Uses Azure REST API version 2022-11-16-preview. In version 1.x of the Azure Native provider, it used API version 2022-11-16-preview.
 
         Other available API versions: 2024-06-27.
 

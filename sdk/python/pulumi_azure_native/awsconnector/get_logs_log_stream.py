@@ -127,7 +127,8 @@ def get_logs_log_stream(name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogsLogStreamResult:
     """
     Get a LogsLogStream
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of LogsLogStream
@@ -152,7 +153,8 @@ def get_logs_log_stream_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogsLogStreamResult]:
     """
     Get a LogsLogStream
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of LogsLogStream

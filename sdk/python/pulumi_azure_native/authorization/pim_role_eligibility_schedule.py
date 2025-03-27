@@ -215,8 +215,6 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
         [Role Eligibility Schedule Requests](https://learn.microsoft.com/en-us/rest/api/authorization/role-eligibility-schedule-requests?view=rest-authorization-2020-10-01)
         API to create and delete the schedules.
 
-        Azure REST API version: 2020-10-01.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
@@ -250,8 +248,6 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
         Internally, this resource uses the
         [Role Eligibility Schedule Requests](https://learn.microsoft.com/en-us/rest/api/authorization/role-eligibility-schedule-requests?view=rest-authorization-2020-10-01)
         API to create and delete the schedules.
-
-        Azure REST API version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param PimRoleEligibilityScheduleArgs args: The arguments to use to populate this resource's properties.

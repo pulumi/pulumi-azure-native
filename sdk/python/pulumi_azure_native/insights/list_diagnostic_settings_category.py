@@ -54,7 +54,8 @@ def list_diagnostic_settings_category(resource_uri: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDiagnosticSettingsCategoryResult:
     """
     Lists the diagnostic settings categories for the specified resource.
-    Azure REST API version: 2021-05-01-preview.
+
+    Uses Azure REST API version 2021-05-01-preview.
 
     Other available API versions: 2017-05-01-preview.
 
@@ -72,7 +73,8 @@ def list_diagnostic_settings_category_output(resource_uri: Optional[pulumi.Input
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDiagnosticSettingsCategoryResult]:
     """
     Lists the diagnostic settings categories for the specified resource.
-    Azure REST API version: 2021-05-01-preview.
+
+    Uses Azure REST API version 2021-05-01-preview.
 
     Other available API versions: 2017-05-01-preview.
 

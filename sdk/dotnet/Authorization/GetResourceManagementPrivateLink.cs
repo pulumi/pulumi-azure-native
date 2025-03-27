@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Get a resource management private link(resource-level).
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// </summary>
         public static Task<GetResourceManagementPrivateLinkResult> InvokeAsync(GetResourceManagementPrivateLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceManagementPrivateLinkResult>("azure-native:authorization:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a resource management private link(resource-level).
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// </summary>
         public static Output<GetResourceManagementPrivateLinkResult> Invoke(GetResourceManagementPrivateLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceManagementPrivateLinkResult>("azure-native:authorization:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a resource management private link(resource-level).
-        /// Azure REST API version: 2020-05-01.
+        /// 
+        /// Uses Azure REST API version 2020-05-01.
         /// </summary>
         public static Output<GetResourceManagementPrivateLinkResult> Invoke(GetResourceManagementPrivateLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceManagementPrivateLinkResult>("azure-native:authorization:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkInvokeArgs(), options.WithDefaults());

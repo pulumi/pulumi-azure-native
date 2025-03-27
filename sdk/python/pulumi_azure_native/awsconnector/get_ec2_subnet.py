@@ -127,7 +127,8 @@ def get_ec2_subnet(name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEc2SubnetResult:
     """
     Get a Ec2Subnet
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Ec2Subnet
@@ -152,7 +153,8 @@ def get_ec2_subnet_output(name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEc2SubnetResult]:
     """
     Get a Ec2Subnet
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of Ec2Subnet

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Get gallery image
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:labservices:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get gallery image
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:labservices:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get gallery image
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:labservices:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());

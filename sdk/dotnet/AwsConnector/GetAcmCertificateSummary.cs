@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a AcmCertificateSummary
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetAcmCertificateSummaryResult> InvokeAsync(GetAcmCertificateSummaryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAcmCertificateSummaryResult>("azure-native:awsconnector:getAcmCertificateSummary", args ?? new GetAcmCertificateSummaryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AcmCertificateSummary
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetAcmCertificateSummaryResult> Invoke(GetAcmCertificateSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAcmCertificateSummaryResult>("azure-native:awsconnector:getAcmCertificateSummary", args ?? new GetAcmCertificateSummaryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AcmCertificateSummary
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetAcmCertificateSummaryResult> Invoke(GetAcmCertificateSummaryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAcmCertificateSummaryResult>("azure-native:awsconnector:getAcmCertificateSummary", args ?? new GetAcmCertificateSummaryInvokeArgs(), options.WithDefaults());

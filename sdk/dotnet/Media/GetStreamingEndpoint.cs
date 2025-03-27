@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Gets a streaming endpoint.
-        /// Azure REST API version: 2022-11-01.
+        /// 
+        /// Uses Azure REST API version 2022-11-01.
         /// 
         /// Other available API versions: 2018-06-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Media
 
         /// <summary>
         /// Gets a streaming endpoint.
-        /// Azure REST API version: 2022-11-01.
+        /// 
+        /// Uses Azure REST API version 2022-11-01.
         /// 
         /// Other available API versions: 2018-06-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Media
 
         /// <summary>
         /// Gets a streaming endpoint.
-        /// Azure REST API version: 2022-11-01.
+        /// 
+        /// Uses Azure REST API version 2022-11-01.
         /// 
         /// Other available API versions: 2018-06-01-preview.
         /// </summary>

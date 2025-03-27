@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a fault simulation by the simulationId.
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  */
 export function getManagedClusterFaultSimulation(args: GetManagedClusterFaultSimulationArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterFaultSimulationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,7 +63,8 @@ export interface GetManagedClusterFaultSimulationResult {
 }
 /**
  * Gets a fault simulation by the simulationId.
- * Azure REST API version: 2024-11-01-preview.
+ *
+ * Uses Azure REST API version 2024-11-01-preview.
  */
 export function getManagedClusterFaultSimulationOutput(args: GetManagedClusterFaultSimulationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterFaultSimulationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

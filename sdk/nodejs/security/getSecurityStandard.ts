@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific security standard for the requested scope by standardId
- * Azure REST API version: 2024-08-01.
+ *
+ * Uses Azure REST API version 2024-08-01.
  */
 export function getSecurityStandard(args: GetSecurityStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityStandardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +78,8 @@ export interface GetSecurityStandardResult {
 }
 /**
  * Get a specific security standard for the requested scope by standardId
- * Azure REST API version: 2024-08-01.
+ *
+ * Uses Azure REST API version 2024-08-01.
  */
 export function getSecurityStandardOutput(args: GetSecurityStandardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityStandardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -163,7 +163,8 @@ def get_shared_commitment_plan(commitment_plan_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedCommitmentPlanResult:
     """
     Returns a Cognitive Services commitment plan specified by the parameters.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
 
@@ -193,7 +194,8 @@ def get_shared_commitment_plan_output(commitment_plan_name: Optional[pulumi.Inpu
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharedCommitmentPlanResult]:
     """
     Returns a Cognitive Services commitment plan specified by the parameters.
-    Azure REST API version: 2023-05-01.
+
+    Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
 

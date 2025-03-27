@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// List Environments for the user
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Task<ListGlobalUserEnvironmentsResult> InvokeAsync(ListGlobalUserEnvironmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserEnvironmentsResult>("azure-native:labservices:listGlobalUserEnvironments", args ?? new ListGlobalUserEnvironmentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List Environments for the user
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Output<ListGlobalUserEnvironmentsResult> Invoke(ListGlobalUserEnvironmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGlobalUserEnvironmentsResult>("azure-native:labservices:listGlobalUserEnvironments", args ?? new ListGlobalUserEnvironmentsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List Environments for the user
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Output<ListGlobalUserEnvironmentsResult> Invoke(ListGlobalUserEnvironmentsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListGlobalUserEnvironmentsResult>("azure-native:labservices:listGlobalUserEnvironments", args ?? new ListGlobalUserEnvironmentsInvokeArgs(), options.WithDefaults());

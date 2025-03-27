@@ -115,7 +115,8 @@ class User(pulumi.CustomResource):
                  __props__=None):
         """
         User of a lab that can register for and use virtual machines within the lab.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
+
+        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2018-10-15.
 
         Other available API versions: 2018-10-15, 2023-06-07.
 
@@ -135,7 +136,8 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         User of a lab that can register for and use virtual machines within the lab.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
+
+        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2018-10-15.
 
         Other available API versions: 2018-10-15, 2023-06-07.
 

@@ -187,7 +187,8 @@ def get_fluid_relay_server(fluid_relay_server_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFluidRelayServerResult:
     """
     A FluidRelay Server.
-    Azure REST API version: 2022-06-01.
+
+    Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2021-06-15-preview.
 
@@ -219,7 +220,8 @@ def get_fluid_relay_server_output(fluid_relay_server_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFluidRelayServerResult]:
     """
     A FluidRelay Server.
-    Azure REST API version: 2022-06-01.
+
+    Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2021-06-15-preview.
 

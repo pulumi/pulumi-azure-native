@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Gets a custom API by name for a specific subscription and resource group
-        /// Azure REST API version: 2016-06-01.
+        /// 
+        /// Uses Azure REST API version 2016-06-01.
         /// </summary>
         public static Task<GetCustomApiResult> InvokeAsync(GetCustomApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-native:web:getCustomApi", args ?? new GetCustomApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a custom API by name for a specific subscription and resource group
-        /// Azure REST API version: 2016-06-01.
+        /// 
+        /// Uses Azure REST API version 2016-06-01.
         /// </summary>
         public static Output<GetCustomApiResult> Invoke(GetCustomApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomApiResult>("azure-native:web:getCustomApi", args ?? new GetCustomApiInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a custom API by name for a specific subscription and resource group
-        /// Azure REST API version: 2016-06-01.
+        /// 
+        /// Uses Azure REST API version 2016-06-01.
         /// </summary>
         public static Output<GetCustomApiResult> Invoke(GetCustomApiInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomApiResult>("azure-native:web:getCustomApi", args ?? new GetCustomApiInvokeArgs(), options.WithDefaults());

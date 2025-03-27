@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a DatabaseMigrationServiceReplicationInstance
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetDatabaseMigrationServiceReplicationInstanceResult> InvokeAsync(GetDatabaseMigrationServiceReplicationInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseMigrationServiceReplicationInstanceResult>("azure-native:awsconnector:getDatabaseMigrationServiceReplicationInstance", args ?? new GetDatabaseMigrationServiceReplicationInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DatabaseMigrationServiceReplicationInstance
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetDatabaseMigrationServiceReplicationInstanceResult> Invoke(GetDatabaseMigrationServiceReplicationInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationServiceReplicationInstanceResult>("azure-native:awsconnector:getDatabaseMigrationServiceReplicationInstance", args ?? new GetDatabaseMigrationServiceReplicationInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DatabaseMigrationServiceReplicationInstance
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetDatabaseMigrationServiceReplicationInstanceResult> Invoke(GetDatabaseMigrationServiceReplicationInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationServiceReplicationInstanceResult>("azure-native:awsconnector:getDatabaseMigrationServiceReplicationInstance", args ?? new GetDatabaseMigrationServiceReplicationInstanceInvokeArgs(), options.WithDefaults());

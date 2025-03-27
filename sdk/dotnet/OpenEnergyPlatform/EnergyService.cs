@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OpenEnergyPlatform
 {
     /// <summary>
-    /// Azure REST API version: 2022-04-04-preview. Prior API version in Azure Native 1.x: 2022-04-04-preview.
+    /// Uses Azure REST API version 2022-04-04-preview. In version 1.x of the Azure Native provider, it used API version 2022-04-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:openenergyplatform:EnergyService")]
     public partial class EnergyService : global::Pulumi.CustomResource

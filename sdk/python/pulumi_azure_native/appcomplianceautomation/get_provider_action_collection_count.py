@@ -53,7 +53,8 @@ def get_provider_action_collection_count(type: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderActionCollectionCountResult:
     """
     Get the count of reports.
-    Azure REST API version: 2024-06-27.
+
+    Uses Azure REST API version 2024-06-27.
 
 
     :param str type: The resource type.
@@ -69,7 +70,8 @@ def get_provider_action_collection_count_output(type: Optional[pulumi.Input[Opti
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderActionCollectionCountResult]:
     """
     Get the count of reports.
-    Azure REST API version: 2024-06-27.
+
+    Uses Azure REST API version 2024-06-27.
 
 
     :param str type: The resource type.

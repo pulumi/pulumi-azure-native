@@ -104,7 +104,8 @@ def get_content_key_policy_properties_with_secrets(account_name: Optional[str] =
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentKeyPolicyPropertiesWithSecretsResult:
     """
     Get a Content Key Policy including secret values
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -130,7 +131,8 @@ def get_content_key_policy_properties_with_secrets_output(account_name: Optional
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContentKeyPolicyPropertiesWithSecretsResult]:
     """
     Get a Content Key Policy including secret values
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

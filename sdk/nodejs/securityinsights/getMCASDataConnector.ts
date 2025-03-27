@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a data connector.
- * Azure REST API version: 2023-02-01.
+ *
+ * Uses Azure REST API version 2023-02-01.
  */
 export function getMCASDataConnector(args: GetMCASDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMCASDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -75,7 +76,8 @@ export interface GetMCASDataConnectorResult {
 }
 /**
  * Gets a data connector.
- * Azure REST API version: 2023-02-01.
+ *
+ * Uses Azure REST API version 2023-02-01.
  */
 export function getMCASDataConnectorOutput(args: GetMCASDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMCASDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -116,7 +116,8 @@ def get_data_connector(data_connector_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataConnectorResult:
     """
     Get specific Data Connector resource by DataConnectorName.
-    Azure REST API version: 2023-06-01-preview.
+
+    Uses Azure REST API version 2023-06-01-preview.
 
 
     :param str data_connector_name: Connector name.
@@ -143,7 +144,8 @@ def get_data_connector_output(data_connector_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataConnectorResult]:
     """
     Get specific Data Connector resource by DataConnectorName.
-    Azure REST API version: 2023-06-01-preview.
+
+    Uses Azure REST API version 2023-06-01-preview.
 
 
     :param str data_connector_name: Connector name.

@@ -128,7 +128,8 @@ def get_enterprise_mcc_cache_nodes_operation(cache_node_resource_name: Optional[
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnterpriseMccCacheNodesOperationResult:
     """
     This api gets ispCacheNode resource information
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
 
     :param str cache_node_resource_name: Name of the ConnectedCache resource
@@ -156,7 +157,8 @@ def get_enterprise_mcc_cache_nodes_operation_output(cache_node_resource_name: Op
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterpriseMccCacheNodesOperationResult]:
     """
     This api gets ispCacheNode resource information
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
 
     :param str cache_node_resource_name: Name of the ConnectedCache resource

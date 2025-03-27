@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Gets information about the specified network function resource.
-        /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-01-01-preview.
         /// 
         /// Other available API versions: 2023-09-01, 2024-04-15.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 
         /// <summary>
         /// Gets information about the specified network function resource.
-        /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-01-01-preview.
         /// 
         /// Other available API versions: 2023-09-01, 2024-04-15.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 
         /// <summary>
         /// Gets information about the specified network function resource.
-        /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2022-01-01-preview.
         /// 
         /// Other available API versions: 2023-09-01, 2024-04-15.
         /// </summary>

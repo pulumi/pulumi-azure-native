@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Ec2InstanceStatus
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2InstanceStatus(args: GetEc2InstanceStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2InstanceStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetEc2InstanceStatusResult {
 }
 /**
  * Get a Ec2InstanceStatus
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getEc2InstanceStatusOutput(args: GetEc2InstanceStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2InstanceStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

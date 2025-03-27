@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a LightsailInstance
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetLightsailInstanceResult> InvokeAsync(GetLightsailInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLightsailInstanceResult>("azure-native:awsconnector:getLightsailInstance", args ?? new GetLightsailInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a LightsailInstance
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetLightsailInstanceResult> Invoke(GetLightsailInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLightsailInstanceResult>("azure-native:awsconnector:getLightsailInstance", args ?? new GetLightsailInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a LightsailInstance
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetLightsailInstanceResult> Invoke(GetLightsailInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLightsailInstanceResult>("azure-native:awsconnector:getLightsailInstance", args ?? new GetLightsailInstanceInvokeArgs(), options.WithDefaults());

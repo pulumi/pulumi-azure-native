@@ -104,7 +104,8 @@ def get_job_private_endpoint(job_agent_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobPrivateEndpointResult:
     """
     Gets a private endpoint.
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
     Other available API versions: 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
 
@@ -135,7 +136,8 @@ def get_job_private_endpoint_output(job_agent_name: Optional[pulumi.Input[str]] 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobPrivateEndpointResult]:
     """
     Gets a private endpoint.
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
     Other available API versions: 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
 

@@ -237,7 +237,8 @@ def get_broker_listener(broker_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerListenerResult:
     """
     Get a BrokerListenerResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str broker_name: Name of MQ broker resource
@@ -277,7 +278,8 @@ def get_broker_listener_output(broker_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerListenerResult]:
     """
     Get a BrokerListenerResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str broker_name: Name of MQ broker resource

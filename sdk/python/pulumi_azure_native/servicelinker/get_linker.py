@@ -199,7 +199,8 @@ def get_linker(linker_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkerResult:
     """
     Returns Linker resource for a given name.
-    Azure REST API version: 2022-11-01-preview.
+
+    Uses Azure REST API version 2022-11-01-preview.
 
     Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
 
@@ -232,7 +233,8 @@ def get_linker_output(linker_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkerResult]:
     """
     Returns Linker resource for a given name.
-    Azure REST API version: 2022-11-01-preview.
+
+    Uses Azure REST API version 2022-11-01-preview.
 
     Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
 

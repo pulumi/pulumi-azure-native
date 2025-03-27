@@ -321,7 +321,8 @@ class UpdateRun(pulumi.CustomResource):
                  __props__=None):
         """
         Details of an Update run
-        Azure REST API version: 2023-03-01.
+
+        Uses Azure REST API version 2023-03-01.
 
         Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
 
@@ -353,7 +354,8 @@ class UpdateRun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Details of an Update run
-        Azure REST API version: 2023-03-01.
+
+        Uses Azure REST API version 2023-03-01.
 
         Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
 

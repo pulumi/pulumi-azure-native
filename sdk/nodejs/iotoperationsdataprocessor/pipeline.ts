@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A Pipeline resource belonging to an Instance resource.
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export class Pipeline extends pulumi.CustomResource {
     /**

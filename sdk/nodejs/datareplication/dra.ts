@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Dra model.
- * Azure REST API version: 2021-02-16-preview.
+ *
+ * Uses Azure REST API version 2021-02-16-preview.
  */
 export class Dra extends pulumi.CustomResource {
     /**

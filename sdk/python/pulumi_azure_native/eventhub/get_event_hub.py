@@ -200,7 +200,8 @@ def get_event_hub(event_hub_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubResult:
     """
     Gets an Event Hubs description for the specified Event Hub.
-    Azure REST API version: 2022-10-01-preview.
+
+    Uses Azure REST API version 2022-10-01-preview.
 
     Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
 
@@ -236,7 +237,8 @@ def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventHubResult]:
     """
     Gets an Event Hubs description for the specified Event Hub.
-    Azure REST API version: 2022-10-01-preview.
+
+    Uses Azure REST API version 2022-10-01-preview.
 
     Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
 

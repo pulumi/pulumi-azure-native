@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Generates a streaming token which can be used for accessing content from video content URLs, for a video resource with the given name.
- * Azure REST API version: 2021-11-01-preview.
+ *
+ * Uses Azure REST API version 2021-11-01-preview.
  */
 export function listVideoContentToken(args: ListVideoContentTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListVideoContentTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,7 +48,8 @@ export interface ListVideoContentTokenResult {
 }
 /**
  * Generates a streaming token which can be used for accessing content from video content URLs, for a video resource with the given name.
- * Azure REST API version: 2021-11-01-preview.
+ *
+ * Uses Azure REST API version 2021-11-01-preview.
  */
 export function listVideoContentTokenOutput(args: ListVideoContentTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVideoContentTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

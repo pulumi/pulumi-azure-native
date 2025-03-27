@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The resource proxy definition object for quantum workspace.
- * Azure REST API version: 2022-01-10-preview. Prior API version in Azure Native 1.x: 2019-11-04-preview.
+ *
+ * Uses Azure REST API version 2022-01-10-preview. In version 1.x of the Azure Native provider, it used API version 2019-11-04-preview.
  *
  * Other available API versions: 2023-11-13-preview.
  */

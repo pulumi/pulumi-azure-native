@@ -67,7 +67,8 @@ def list_list_pending_connection(connection_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListListPendingConnectionResult:
     """
     Lists all pending connections for a connection.
-    Azure REST API version: 2023-10-11-preview.
+
+    Uses Azure REST API version 2023-10-11-preview.
 
     Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
 
@@ -89,7 +90,8 @@ def list_list_pending_connection_output(connection_name: Optional[pulumi.Input[s
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListPendingConnectionResult]:
     """
     Lists all pending connections for a connection.
-    Azure REST API version: 2023-10-11-preview.
+
+    Uses Azure REST API version 2023-10-11-preview.
 
     Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
 

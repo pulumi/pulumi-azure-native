@@ -70,7 +70,8 @@ def list_products_and_configurations(configuration_filter: Optional[Union['Confi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductsAndConfigurationsResult:
     """
     List configurations for the given product family, product line and product for the given subscription.
-    Azure REST API version: 2022-05-01-preview.
+
+    Uses Azure REST API version 2022-05-01-preview.
 
     Other available API versions: 2024-02-01.
 
@@ -95,7 +96,8 @@ def list_products_and_configurations_output(configuration_filter: Optional[pulum
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProductsAndConfigurationsResult]:
     """
     List configurations for the given product family, product line and product for the given subscription.
-    Azure REST API version: 2022-05-01-preview.
+
+    Uses Azure REST API version 2022-05-01-preview.
 
     Other available API versions: 2024-02-01.
 

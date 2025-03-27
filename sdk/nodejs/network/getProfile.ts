@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Traffic Manager profile.
- * Azure REST API version: 2022-04-01.
+ *
+ * Uses Azure REST API version 2022-04-01.
  *
  * Other available API versions: 2022-04-01-preview.
  */
@@ -91,7 +92,8 @@ export interface GetProfileResult {
 }
 /**
  * Gets a Traffic Manager profile.
- * Azure REST API version: 2022-04-01.
+ *
+ * Uses Azure REST API version 2022-04-01.
  *
  * Other available API versions: 2022-04-01-preview.
  */

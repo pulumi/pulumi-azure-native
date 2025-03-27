@@ -99,7 +99,8 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
                  __props__=None):
         """
         The commitment plan association.
-        Azure REST API version: 2023-05-01.
+
+        Uses Azure REST API version 2023-05-01.
 
         Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
 
@@ -118,7 +119,8 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The commitment plan association.
-        Azure REST API version: 2023-05-01.
+
+        Uses Azure REST API version 2023-05-01.
 
         Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
 

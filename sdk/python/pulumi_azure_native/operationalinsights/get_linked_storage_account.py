@@ -103,7 +103,8 @@ def get_linked_storage_account(data_source_type: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedStorageAccountResult:
     """
     Gets all linked storage account of a specific data source type associated with the specified workspace.
-    Azure REST API version: 2020-08-01.
+
+    Uses Azure REST API version 2020-08-01.
 
     Other available API versions: 2023-09-01, 2025-02-01.
 
@@ -131,7 +132,8 @@ def get_linked_storage_account_output(data_source_type: Optional[pulumi.Input[st
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedStorageAccountResult]:
     """
     Gets all linked storage account of a specific data source type associated with the specified workspace.
-    Azure REST API version: 2020-08-01.
+
+    Uses Azure REST API version 2020-08-01.
 
     Other available API versions: 2023-09-01, 2025-02-01.
 

@@ -177,7 +177,8 @@ def get_gallery(expand: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryResult:
     """
     Retrieves information about a Shared Image Gallery.
-    Azure REST API version: 2022-03-03.
+
+    Uses Azure REST API version 2022-03-03.
 
     Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
 
@@ -214,7 +215,8 @@ def get_gallery_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryResult]:
     """
     Retrieves information about a Shared Image Gallery.
-    Azure REST API version: 2022-03-03.
+
+    Uses Azure REST API version 2022-03-03.
 
     Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
 

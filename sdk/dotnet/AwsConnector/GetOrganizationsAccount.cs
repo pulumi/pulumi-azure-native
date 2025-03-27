@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a OrganizationsAccount
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetOrganizationsAccountResult> InvokeAsync(GetOrganizationsAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationsAccountResult>("azure-native:awsconnector:getOrganizationsAccount", args ?? new GetOrganizationsAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a OrganizationsAccount
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetOrganizationsAccountResult> Invoke(GetOrganizationsAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationsAccountResult>("azure-native:awsconnector:getOrganizationsAccount", args ?? new GetOrganizationsAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a OrganizationsAccount
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetOrganizationsAccountResult> Invoke(GetOrganizationsAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationsAccountResult>("azure-native:awsconnector:getOrganizationsAccount", args ?? new GetOrganizationsAccountInvokeArgs(), options.WithDefaults());

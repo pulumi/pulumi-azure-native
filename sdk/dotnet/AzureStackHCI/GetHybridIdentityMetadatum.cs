@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Implements HybridIdentityMetadata GET method.
-        /// Azure REST API version: 2022-12-15-preview.
+        /// 
+        /// Uses Azure REST API version 2022-12-15-preview.
         /// </summary>
         public static Task<GetHybridIdentityMetadatumResult> InvokeAsync(GetHybridIdentityMetadatumArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridIdentityMetadatumResult>("azure-native:azurestackhci:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements HybridIdentityMetadata GET method.
-        /// Azure REST API version: 2022-12-15-preview.
+        /// 
+        /// Uses Azure REST API version 2022-12-15-preview.
         /// </summary>
         public static Output<GetHybridIdentityMetadatumResult> Invoke(GetHybridIdentityMetadatumInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridIdentityMetadatumResult>("azure-native:azurestackhci:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements HybridIdentityMetadata GET method.
-        /// Azure REST API version: 2022-12-15-preview.
+        /// 
+        /// Uses Azure REST API version 2022-12-15-preview.
         /// </summary>
         public static Output<GetHybridIdentityMetadatumResult> Invoke(GetHybridIdentityMetadatumInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridIdentityMetadatumResult>("azure-native:azurestackhci:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumInvokeArgs(), options.WithDefaults());

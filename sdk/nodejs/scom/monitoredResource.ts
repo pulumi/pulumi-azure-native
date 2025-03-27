@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A monitored resource.
- * Azure REST API version: 2023-07-07-preview.
+ *
+ * Uses Azure REST API version 2023-07-07-preview.
  */
 export class MonitoredResource extends pulumi.CustomResource {
     /**

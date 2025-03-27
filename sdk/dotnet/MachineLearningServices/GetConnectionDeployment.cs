@@ -12,8 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetConnectionDeployment
     {
         /// <summary>
-        /// 
-        /// Azure REST API version: 2024-04-01-preview.
+        /// Uses Azure REST API version 2024-04-01-preview.
         /// 
         /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
@@ -21,8 +20,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionDeploymentResult>("azure-native:machinelearningservices:getConnectionDeployment", args ?? new GetConnectionDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2024-04-01-preview.
+        /// Uses Azure REST API version 2024-04-01-preview.
         /// 
         /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
@@ -30,8 +28,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionDeploymentResult>("azure-native:machinelearningservices:getConnectionDeployment", args ?? new GetConnectionDeploymentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
-        /// Azure REST API version: 2024-04-01-preview.
+        /// Uses Azure REST API version 2024-04-01-preview.
         /// 
         /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>

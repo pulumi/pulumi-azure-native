@@ -135,7 +135,8 @@ class Gateway(pulumi.CustomResource):
                  __props__=None):
         """
         Describes an Arc Gateway.
-        Azure REST API version: 2024-03-31-preview.
+
+        Uses Azure REST API version 2024-03-31-preview.
 
         Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
 
@@ -156,7 +157,8 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes an Arc Gateway.
-        Azure REST API version: 2024-03-31-preview.
+
+        Uses Azure REST API version 2024-03-31-preview.
 
         Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
 

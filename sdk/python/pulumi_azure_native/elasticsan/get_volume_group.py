@@ -152,7 +152,8 @@ def get_volume_group(elastic_san_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeGroupResult:
     """
     Get an VolumeGroups.
-    Azure REST API version: 2021-11-20-preview.
+
+    Uses Azure REST API version 2021-11-20-preview.
 
     Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
 
@@ -184,7 +185,8 @@ def get_volume_group_output(elastic_san_name: Optional[pulumi.Input[str]] = None
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeGroupResult]:
     """
     Get an VolumeGroups.
-    Azure REST API version: 2021-11-20-preview.
+
+    Uses Azure REST API version 2021-11-20-preview.
 
     Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
 

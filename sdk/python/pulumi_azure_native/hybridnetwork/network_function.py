@@ -204,7 +204,8 @@ class NetworkFunction(pulumi.CustomResource):
                  __props__=None):
         """
         Network function resource response.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+
+        Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-01-01-preview.
 
         Other available API versions: 2023-09-01, 2024-04-15.
 
@@ -229,7 +230,8 @@ class NetworkFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network function resource response.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+
+        Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-01-01-preview.
 
         Other available API versions: 2023-09-01, 2024-04-15.
 

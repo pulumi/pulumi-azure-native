@@ -320,7 +320,8 @@ def get_job(expand: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Gets information about the specified job.
-    Azure REST API version: 2022-12-01.
+
+    Uses Azure REST API version 2022-12-01.
 
     Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
 
@@ -366,7 +367,8 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobResult]:
     """
     Gets information about the specified job.
-    Azure REST API version: 2022-12-01.
+
+    Uses Azure REST API version 2022-12-01.
 
     Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
 

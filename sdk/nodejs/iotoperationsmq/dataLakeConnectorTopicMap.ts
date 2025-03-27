@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * MQ dataLakeConnector/topicMap resource
- * Azure REST API version: 2023-10-04-preview.
+ *
+ * Uses Azure REST API version 2023-10-04-preview.
  */
 export class DataLakeConnectorTopicMap extends pulumi.CustomResource {
     /**

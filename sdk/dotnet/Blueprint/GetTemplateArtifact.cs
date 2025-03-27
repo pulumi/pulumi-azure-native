@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Blueprint
     {
         /// <summary>
         /// Get a blueprint artifact.
-        /// Azure REST API version: 2018-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-11-01-preview.
         /// </summary>
         public static Task<GetTemplateArtifactResult> InvokeAsync(GetTemplateArtifactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplateArtifactResult>("azure-native:blueprint:getTemplateArtifact", args ?? new GetTemplateArtifactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a blueprint artifact.
-        /// Azure REST API version: 2018-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-11-01-preview.
         /// </summary>
         public static Output<GetTemplateArtifactResult> Invoke(GetTemplateArtifactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateArtifactResult>("azure-native:blueprint:getTemplateArtifact", args ?? new GetTemplateArtifactInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a blueprint artifact.
-        /// Azure REST API version: 2018-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-11-01-preview.
         /// </summary>
         public static Output<GetTemplateArtifactResult> Invoke(GetTemplateArtifactInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateArtifactResult>("azure-native:blueprint:getTemplateArtifact", args ?? new GetTemplateArtifactInvokeArgs(), options.WithDefaults());

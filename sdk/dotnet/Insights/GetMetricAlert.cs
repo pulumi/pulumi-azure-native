@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Retrieve an alert rule definition.
-        /// Azure REST API version: 2018-03-01.
+        /// 
+        /// Uses Azure REST API version 2018-03-01.
         /// </summary>
         public static Task<GetMetricAlertResult> InvokeAsync(GetMetricAlertArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetricAlertResult>("azure-native:insights:getMetricAlert", args ?? new GetMetricAlertArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve an alert rule definition.
-        /// Azure REST API version: 2018-03-01.
+        /// 
+        /// Uses Azure REST API version 2018-03-01.
         /// </summary>
         public static Output<GetMetricAlertResult> Invoke(GetMetricAlertInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetricAlertResult>("azure-native:insights:getMetricAlert", args ?? new GetMetricAlertInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve an alert rule definition.
-        /// Azure REST API version: 2018-03-01.
+        /// 
+        /// Uses Azure REST API version 2018-03-01.
         /// </summary>
         public static Output<GetMetricAlertResult> Invoke(GetMetricAlertInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetricAlertResult>("azure-native:insights:getMetricAlert", args ?? new GetMetricAlertInvokeArgs(), options.WithDefaults());

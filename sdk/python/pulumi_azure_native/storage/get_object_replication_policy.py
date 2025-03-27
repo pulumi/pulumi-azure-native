@@ -140,7 +140,8 @@ def get_object_replication_policy(account_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObjectReplicationPolicyResult:
     """
     Get the object replication policy of the storage account by policy ID.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
 
@@ -171,7 +172,8 @@ def get_object_replication_policy_output(account_name: Optional[pulumi.Input[str
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectReplicationPolicyResult]:
     """
     Get the object replication policy of the storage account by policy ID.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
 

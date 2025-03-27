@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The request to update subscriptions needed to be monitored by the Elastic monitor resource.
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  *
  * Other available API versions: 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
  */

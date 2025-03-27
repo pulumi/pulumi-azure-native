@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Arc Sql Server database
- * Azure REST API version: 2023-01-15-preview.
+ *
+ * Uses Azure REST API version 2023-01-15-preview.
  *
  * Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
  */

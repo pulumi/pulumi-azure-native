@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified NSP link resource.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Task<GetNetworkSecurityPerimeterLinkResult> InvokeAsync(GetNetworkSecurityPerimeterLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityPerimeterLinkResult>("azure-native:network:getNetworkSecurityPerimeterLink", args ?? new GetNetworkSecurityPerimeterLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified NSP link resource.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterLinkResult> Invoke(GetNetworkSecurityPerimeterLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterLinkResult>("azure-native:network:getNetworkSecurityPerimeterLink", args ?? new GetNetworkSecurityPerimeterLinkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified NSP link resource.
-        /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterLinkResult> Invoke(GetNetworkSecurityPerimeterLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterLinkResult>("azure-native:network:getNetworkSecurityPerimeterLink", args ?? new GetNetworkSecurityPerimeterLinkInvokeArgs(), options.WithDefaults());

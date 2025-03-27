@@ -127,7 +127,8 @@ def get_enterprise_mcc_customer(customer_resource_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnterpriseMccCustomerResult:
     """
     Gets the enterprise mcc customer resource information using this get call
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
 
     :param str customer_resource_name: Name of the Customer resource
@@ -152,7 +153,8 @@ def get_enterprise_mcc_customer_output(customer_resource_name: Optional[pulumi.I
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterpriseMccCustomerResult]:
     """
     Gets the enterprise mcc customer resource information using this get call
-    Azure REST API version: 2023-05-01-preview.
+
+    Uses Azure REST API version 2023-05-01-preview.
 
 
     :param str customer_resource_name: Name of the Customer resource

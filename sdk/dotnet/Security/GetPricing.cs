@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
-        /// Azure REST API version: 2024-01-01.
+        /// 
+        /// Uses Azure REST API version 2024-01-01.
         /// </summary>
         public static Task<GetPricingResult> InvokeAsync(GetPricingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPricingResult>("azure-native:security:getPricing", args ?? new GetPricingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
-        /// Azure REST API version: 2024-01-01.
+        /// 
+        /// Uses Azure REST API version 2024-01-01.
         /// </summary>
         public static Output<GetPricingResult> Invoke(GetPricingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPricingResult>("azure-native:security:getPricing", args ?? new GetPricingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
-        /// Azure REST API version: 2024-01-01.
+        /// 
+        /// Uses Azure REST API version 2024-01-01.
         /// </summary>
         public static Output<GetPricingResult> Invoke(GetPricingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPricingResult>("azure-native:security:getPricing", args ?? new GetPricingInvokeArgs(), options.WithDefaults());

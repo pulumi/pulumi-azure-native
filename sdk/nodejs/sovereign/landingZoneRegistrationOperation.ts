@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Landing zone registration resource type.
- * Azure REST API version: 2025-02-27-preview.
+ *
+ * Uses Azure REST API version 2025-02-27-preview.
  */
 export class LandingZoneRegistrationOperation extends pulumi.CustomResource {
     /**

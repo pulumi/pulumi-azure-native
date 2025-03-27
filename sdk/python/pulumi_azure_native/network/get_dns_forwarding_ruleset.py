@@ -163,7 +163,8 @@ def get_dns_forwarding_ruleset(dns_forwarding_ruleset_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsForwardingRulesetResult:
     """
     Gets a DNS forwarding ruleset properties.
-    Azure REST API version: 2022-07-01.
+
+    Uses Azure REST API version 2022-07-01.
 
     Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
 
@@ -193,7 +194,8 @@ def get_dns_forwarding_ruleset_output(dns_forwarding_ruleset_name: Optional[pulu
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsForwardingRulesetResult]:
     """
     Gets a DNS forwarding ruleset properties.
-    Azure REST API version: 2022-07-01.
+
+    Uses Azure REST API version 2022-07-01.
 
     Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
 

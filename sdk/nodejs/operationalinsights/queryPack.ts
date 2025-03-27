@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * An Log Analytics QueryPack definition.
- * Azure REST API version: 2019-09-01. Prior API version in Azure Native 1.x: 2019-09-01.
+ *
+ * Uses Azure REST API version 2019-09-01. In version 1.x of the Azure Native provider, it used API version 2019-09-01.
  *
  * Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
  */

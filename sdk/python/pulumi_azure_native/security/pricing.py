@@ -135,7 +135,8 @@ class Pricing(pulumi.CustomResource):
                  __props__=None):
         """
         Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
-        Azure REST API version: 2024-01-01.
+
+        Uses Azure REST API version 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +155,8 @@ class Pricing(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
-        Azure REST API version: 2024-01-01.
+
+        Uses Azure REST API version 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param PricingArgs args: The arguments to use to populate this resource's properties.

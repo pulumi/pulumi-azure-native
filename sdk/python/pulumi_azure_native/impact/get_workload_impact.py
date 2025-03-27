@@ -102,7 +102,8 @@ def get_workload_impact(workload_impact_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadImpactResult:
     """
     Get a WorkloadImpact
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
 
     :param str workload_impact_name: workloadImpact resource 
@@ -122,7 +123,8 @@ def get_workload_impact_output(workload_impact_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadImpactResult]:
     """
     Get a WorkloadImpact
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
 
     :param str workload_impact_name: workloadImpact resource 

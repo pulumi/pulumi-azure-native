@@ -140,7 +140,8 @@ def get_signal_r_replica(replica_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRReplicaResult:
     """
     Get the replica and its properties.
-    Azure REST API version: 2023-03-01-preview.
+
+    Uses Azure REST API version 2023-03-01-preview.
 
     Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
@@ -171,7 +172,8 @@ def get_signal_r_replica_output(replica_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalRReplicaResult]:
     """
     Get the replica and its properties.
-    Azure REST API version: 2023-03-01-preview.
+
+    Uses Azure REST API version 2023-03-01-preview.
 
     Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 

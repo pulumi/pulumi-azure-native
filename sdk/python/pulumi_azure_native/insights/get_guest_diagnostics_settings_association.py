@@ -114,7 +114,8 @@ def get_guest_diagnostics_settings_association(association_name: Optional[str] =
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestDiagnosticsSettingsAssociationResult:
     """
     Gets guest diagnostics association settings.
-    Azure REST API version: 2018-06-01-preview.
+
+    Uses Azure REST API version 2018-06-01-preview.
 
 
     :param str association_name: The name of the diagnostic settings association.
@@ -138,7 +139,8 @@ def get_guest_diagnostics_settings_association_output(association_name: Optional
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestDiagnosticsSettingsAssociationResult]:
     """
     Gets guest diagnostics association settings.
-    Azure REST API version: 2018-06-01-preview.
+
+    Uses Azure REST API version 2018-06-01-preview.
 
 
     :param str association_name: The name of the diagnostic settings association.

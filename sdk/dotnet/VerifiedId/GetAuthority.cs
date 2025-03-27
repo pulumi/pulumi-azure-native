@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.VerifiedId
     {
         /// <summary>
         /// Get a Authority
-        /// Azure REST API version: 2024-01-26-preview.
+        /// 
+        /// Uses Azure REST API version 2024-01-26-preview.
         /// </summary>
         public static Task<GetAuthorityResult> InvokeAsync(GetAuthorityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorityResult>("azure-native:verifiedid:getAuthority", args ?? new GetAuthorityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Authority
-        /// Azure REST API version: 2024-01-26-preview.
+        /// 
+        /// Uses Azure REST API version 2024-01-26-preview.
         /// </summary>
         public static Output<GetAuthorityResult> Invoke(GetAuthorityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorityResult>("azure-native:verifiedid:getAuthority", args ?? new GetAuthorityInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Authority
-        /// Azure REST API version: 2024-01-26-preview.
+        /// 
+        /// Uses Azure REST API version 2024-01-26-preview.
         /// </summary>
         public static Output<GetAuthorityResult> Invoke(GetAuthorityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorityResult>("azure-native:verifiedid:getAuthority", args ?? new GetAuthorityInvokeArgs(), options.WithDefaults());

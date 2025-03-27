@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// AFDTargetGroup comprises a list of Endpoints that is used for tunnelling protocols to allow certain traffic.
-    /// Azure REST API version: 2024-06-01-preview.
+    /// 
+    /// Uses Azure REST API version 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDTargetGroup")]
     public partial class AFDTargetGroup : global::Pulumi.CustomResource

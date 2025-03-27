@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the gallery Application Definition that you want to create or update.
- * Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
+ *
+ * Uses Azure REST API version 2022-03-03. In version 1.x of the Azure Native provider, it used API version 2020-09-30.
  *
  * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
  */

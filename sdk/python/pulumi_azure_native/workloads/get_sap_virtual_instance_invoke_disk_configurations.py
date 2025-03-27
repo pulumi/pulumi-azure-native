@@ -61,7 +61,8 @@ def get_sap_virtual_instance_invoke_disk_configurations(app_location: Optional[s
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapVirtualInstanceInvokeDiskConfigurationsResult:
     """
     Get the SAP Disk Configuration Layout prod/non-prod SAP System.
-    Azure REST API version: 2024-09-01.
+
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str app_location: The geo-location where the SAP resources will be created.
@@ -95,7 +96,8 @@ def get_sap_virtual_instance_invoke_disk_configurations_output(app_location: Opt
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapVirtualInstanceInvokeDiskConfigurationsResult]:
     """
     Get the SAP Disk Configuration Layout prod/non-prod SAP System.
-    Azure REST API version: 2024-09-01.
+
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str app_location: The geo-location where the SAP resources will be created.

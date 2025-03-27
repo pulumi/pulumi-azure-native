@@ -127,7 +127,8 @@ def get_s3_access_point(name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetS3AccessPointResult:
     """
     Get a S3AccessPoint
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of S3AccessPoint
@@ -152,7 +153,8 @@ def get_s3_access_point_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetS3AccessPointResult]:
     """
     Get a S3AccessPoint
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of S3AccessPoint

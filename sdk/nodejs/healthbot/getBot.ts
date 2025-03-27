@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a HealthBot.
- * Azure REST API version: 2023-05-01.
+ *
+ * Uses Azure REST API version 2023-05-01.
  *
  * Other available API versions: 2020-12-08-preview, 2024-02-01.
  */
@@ -75,7 +76,8 @@ export interface GetBotResult {
 }
 /**
  * Get a HealthBot.
- * Azure REST API version: 2023-05-01.
+ *
+ * Uses Azure REST API version 2023-05-01.
  *
  * Other available API versions: 2020-12-08-preview, 2024-02-01.
  */

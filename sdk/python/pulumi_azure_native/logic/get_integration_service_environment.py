@@ -139,7 +139,8 @@ def get_integration_service_environment(integration_service_environment_name: Op
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationServiceEnvironmentResult:
     """
     Gets an integration service environment.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
 
     :param str integration_service_environment_name: The integration service environment name.
@@ -165,7 +166,8 @@ def get_integration_service_environment_output(integration_service_environment_n
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentResult]:
     """
     Gets an integration service environment.
-    Azure REST API version: 2019-05-01.
+
+    Uses Azure REST API version 2019-05-01.
 
 
     :param str integration_service_environment_name: The integration service environment name.

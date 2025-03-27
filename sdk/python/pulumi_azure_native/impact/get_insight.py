@@ -103,7 +103,8 @@ def get_insight(insight_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInsightResult:
     """
     Get Insight resources by workloadImpactName and insightName
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
 
     :param str insight_name: Name of the insight
@@ -126,7 +127,8 @@ def get_insight_output(insight_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInsightResult]:
     """
     Get Insight resources by workloadImpactName and insightName
-    Azure REST API version: 2024-05-01-preview.
+
+    Uses Azure REST API version 2024-05-01-preview.
 
 
     :param str insight_name: Name of the insight

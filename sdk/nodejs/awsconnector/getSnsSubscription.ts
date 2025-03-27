@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SnsSubscription
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSnsSubscription(args: GetSnsSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSnsSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetSnsSubscriptionResult {
 }
 /**
  * Get a SnsSubscription
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getSnsSubscriptionOutput(args: GetSnsSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnsSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -211,7 +211,8 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskEncryptionSetResult:
     """
     Gets information about a disk encryption set.
-    Azure REST API version: 2022-07-02.
+
+    Uses Azure REST API version 2022-07-02.
 
     Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
 
@@ -245,7 +246,8 @@ def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Inp
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskEncryptionSetResult]:
     """
     Gets information about a disk encryption set.
-    Azure REST API version: 2022-07-02.
+
+    Uses Azure REST API version 2022-07-02.
 
     Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
 

@@ -131,7 +131,8 @@ class ImageDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         The test base image definition resource.
-        Azure REST API version: 2023-11-01-preview.
+
+        Uses Azure REST API version 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,7 +151,8 @@ class ImageDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The test base image definition resource.
-        Azure REST API version: 2023-11-01-preview.
+
+        Uses Azure REST API version 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ImageDefinitionArgs args: The arguments to use to populate this resource's properties.

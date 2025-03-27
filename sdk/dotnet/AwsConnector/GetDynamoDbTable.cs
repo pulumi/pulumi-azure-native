@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a DynamoDBTable
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetDynamoDbTableResult> InvokeAsync(GetDynamoDbTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDynamoDbTableResult>("azure-native:awsconnector:getDynamoDbTable", args ?? new GetDynamoDbTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DynamoDBTable
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetDynamoDbTableResult> Invoke(GetDynamoDbTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDynamoDbTableResult>("azure-native:awsconnector:getDynamoDbTable", args ?? new GetDynamoDbTableInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DynamoDBTable
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetDynamoDbTableResult> Invoke(GetDynamoDbTableInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDynamoDbTableResult>("azure-native:awsconnector:getDynamoDbTable", args ?? new GetDynamoDbTableInvokeArgs(), options.WithDefaults());

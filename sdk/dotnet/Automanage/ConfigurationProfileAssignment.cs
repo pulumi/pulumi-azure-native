@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Automanage
 {
     /// <summary>
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
-    /// Azure REST API version: 2022-05-04. Prior API version in Azure Native 1.x: 2020-06-30-preview.
+    /// 
+    /// Uses Azure REST API version 2022-05-04. In version 1.x of the Azure Native provider, it used API version 2020-06-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage:ConfigurationProfileAssignment")]
     public partial class ConfigurationProfileAssignment : global::Pulumi.CustomResource

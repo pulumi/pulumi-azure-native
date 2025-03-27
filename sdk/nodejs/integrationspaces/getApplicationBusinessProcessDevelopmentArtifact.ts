@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The get business process development artifact action.
- * Azure REST API version: 2023-11-14-preview.
+ *
+ * Uses Azure REST API version 2023-11-14-preview.
  */
 export function getApplicationBusinessProcessDevelopmentArtifact(args: GetApplicationBusinessProcessDevelopmentArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationBusinessProcessDevelopmentArtifactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,7 +60,8 @@ export interface GetApplicationBusinessProcessDevelopmentArtifactResult {
 }
 /**
  * The get business process development artifact action.
- * Azure REST API version: 2023-11-14-preview.
+ *
+ * Uses Azure REST API version 2023-11-14-preview.
  */
 export function getApplicationBusinessProcessDevelopmentArtifactOutput(args: GetApplicationBusinessProcessDevelopmentArtifactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationBusinessProcessDevelopmentArtifactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

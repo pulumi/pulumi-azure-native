@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
 {
     /// <summary>
     /// The Managed Network Peering Policy resource
-    /// Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 1.x: 2019-06-01-preview.
+    /// 
+    /// Uses Azure REST API version 2019-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetwork:ManagedNetworkPeeringPolicy")]
     public partial class ManagedNetworkPeeringPolicy : global::Pulumi.CustomResource

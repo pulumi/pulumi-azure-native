@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
- * Azure REST API version: 2020-06-01. Prior API version in Azure Native 1.x: 2020-06-01.
+ *
+ * Uses Azure REST API version 2020-06-01. In version 1.x of the Azure Native provider, it used API version 2020-06-01.
  *
  * Other available API versions: 2024-06-01.
  */

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.HybridData
     {
         /// <summary>
         /// This method gets job definition object by name.
-        /// Azure REST API version: 2019-06-01.
+        /// 
+        /// Uses Azure REST API version 2019-06-01.
         /// </summary>
         public static Task<GetJobDefinitionResult> InvokeAsync(GetJobDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("azure-native:hybriddata:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// This method gets job definition object by name.
-        /// Azure REST API version: 2019-06-01.
+        /// 
+        /// Uses Azure REST API version 2019-06-01.
         /// </summary>
         public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("azure-native:hybriddata:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// This method gets job definition object by name.
-        /// Azure REST API version: 2019-06-01.
+        /// 
+        /// Uses Azure REST API version 2019-06-01.
         /// </summary>
         public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("azure-native:hybriddata:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());

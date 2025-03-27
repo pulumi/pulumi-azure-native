@@ -127,7 +127,8 @@ def get_load_test_profile_mapping(load_test_profile_mapping_name: Optional[str] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadTestProfileMappingResult:
     """
     Get a LoadTestProfileMappingResource
-    Azure REST API version: 2023-12-01-preview.
+
+    Uses Azure REST API version 2023-12-01-preview.
 
     Other available API versions: 2024-12-01-preview.
 
@@ -154,7 +155,8 @@ def get_load_test_profile_mapping_output(load_test_profile_mapping_name: Optiona
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadTestProfileMappingResult]:
     """
     Get a LoadTestProfileMappingResource
-    Azure REST API version: 2023-12-01-preview.
+
+    Uses Azure REST API version 2023-12-01-preview.
 
     Other available API versions: 2024-12-01-preview.
 

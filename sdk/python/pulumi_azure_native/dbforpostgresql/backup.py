@@ -82,7 +82,8 @@ class Backup(pulumi.CustomResource):
                  __props__=None):
         """
         Server backup properties
-        Azure REST API version: 2024-03-01-preview.
+
+        Uses Azure REST API version 2024-03-01-preview.
 
         Other available API versions: 2024-08-01, 2024-11-01-preview.
 
@@ -100,7 +101,8 @@ class Backup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Server backup properties
-        Azure REST API version: 2024-03-01-preview.
+
+        Uses Azure REST API version 2024-03-01-preview.
 
         Other available API versions: 2024-08-01, 2024-11-01-preview.
 

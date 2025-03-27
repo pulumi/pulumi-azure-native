@@ -61,7 +61,8 @@ def get_sap_virtual_instance_invoke_sap_supported_sku(app_location: Optional[str
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapVirtualInstanceInvokeSapSupportedSkuResult:
     """
     Get a list of SAP supported SKUs for ASCS, Application and Database tier.
-    Azure REST API version: 2024-09-01.
+
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str app_location: The geo-location where the resource is to be created.
@@ -95,7 +96,8 @@ def get_sap_virtual_instance_invoke_sap_supported_sku_output(app_location: Optio
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapVirtualInstanceInvokeSapSupportedSkuResult]:
     """
     Get a list of SAP supported SKUs for ASCS, Application and Database tier.
-    Azure REST API version: 2024-09-01.
+
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str app_location: The geo-location where the resource is to be created.

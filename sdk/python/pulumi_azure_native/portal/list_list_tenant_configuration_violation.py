@@ -65,7 +65,8 @@ class AwaitableListListTenantConfigurationViolationResult(ListListTenantConfigur
 def list_list_tenant_configuration_violation(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListListTenantConfigurationViolationResult:
     """
     Gets list of items that violate tenant's configuration.
-    Azure REST API version: 2020-09-01-preview.
+
+    Uses Azure REST API version 2020-09-01-preview.
 
     Other available API versions: 2022-12-01-preview, 2025-04-01-preview.
     """
@@ -79,7 +80,8 @@ def list_list_tenant_configuration_violation(opts: Optional[pulumi.InvokeOptions
 def list_list_tenant_configuration_violation_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListTenantConfigurationViolationResult]:
     """
     Gets list of items that violate tenant's configuration.
-    Azure REST API version: 2020-09-01-preview.
+
+    Uses Azure REST API version 2020-09-01-preview.
 
     Other available API versions: 2022-12-01-preview, 2025-04-01-preview.
     """

@@ -211,7 +211,8 @@ def get_ground_station(ground_station_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroundStationResult:
     """
     Gets the specified ground station in a specified resource group.
-    Azure REST API version: 2024-03-01-preview.
+
+    Uses Azure REST API version 2024-03-01-preview.
 
     Other available API versions: 2024-03-01.
 
@@ -245,7 +246,8 @@ def get_ground_station_output(ground_station_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroundStationResult]:
     """
     Gets the specified ground station in a specified resource group.
-    Azure REST API version: 2024-03-01-preview.
+
+    Uses Azure REST API version 2024-03-01-preview.
 
     Other available API versions: 2024-03-01.
 

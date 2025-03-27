@@ -116,7 +116,8 @@ def get_web_service(region: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebServiceResult:
     """
     Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
-    Azure REST API version: 2017-01-01.
+
+    Uses Azure REST API version 2017-01-01.
 
     Other available API versions: 2016-05-01-preview.
 
@@ -145,7 +146,8 @@ def get_web_service_output(region: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebServiceResult]:
     """
     Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
-    Azure REST API version: 2017-01-01.
+
+    Uses Azure REST API version 2017-01-01.
 
     Other available API versions: 2016-05-01-preview.
 

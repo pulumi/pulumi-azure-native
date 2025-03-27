@@ -122,7 +122,8 @@ class WebAppSitesController(pulumi.CustomResource):
                  __props__=None):
         """
         WebApp site web model.
-        Azure REST API version: 2023-06-06.
+
+        Uses Azure REST API version 2023-06-06.
 
         Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 
@@ -144,7 +145,8 @@ class WebAppSitesController(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         WebApp site web model.
-        Azure REST API version: 2023-06-06.
+
+        Uses Azure REST API version 2023-06-06.
 
         Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 

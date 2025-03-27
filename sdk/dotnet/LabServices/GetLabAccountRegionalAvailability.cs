@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Get regional availability information for each size category configured under a lab account
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Task<GetLabAccountRegionalAvailabilityResult> InvokeAsync(GetLabAccountRegionalAvailabilityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get regional availability information for each size category configured under a lab account
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Output<GetLabAccountRegionalAvailabilityResult> Invoke(GetLabAccountRegionalAvailabilityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get regional availability information for each size category configured under a lab account
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Output<GetLabAccountRegionalAvailabilityResult> Invoke(GetLabAccountRegionalAvailabilityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityInvokeArgs(), options.WithDefaults());

@@ -154,7 +154,8 @@ def get_synapse_workspace_sql_pool_table_data_set_mapping(account_name: Optional
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSynapseWorkspaceSqlPoolTableDataSetMappingResult:
     """
     Get a DataSetMapping in a shareSubscription
-    Azure REST API version: 2021-08-01.
+
+    Uses Azure REST API version 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -187,7 +188,8 @@ def get_synapse_workspace_sql_pool_table_data_set_mapping_output(account_name: O
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSynapseWorkspaceSqlPoolTableDataSetMappingResult]:
     """
     Get a DataSetMapping in a shareSubscription
-    Azure REST API version: 2021-08-01.
+
+    Uses Azure REST API version 2021-08-01.
 
 
     :param str account_name: The name of the share account.

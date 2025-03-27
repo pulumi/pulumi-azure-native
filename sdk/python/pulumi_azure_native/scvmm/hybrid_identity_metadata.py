@@ -116,7 +116,8 @@ class HybridIdentityMetadata(pulumi.CustomResource):
                  __props__=None):
         """
         Defines the HybridIdentityMetadata.
-        Azure REST API version: 2022-05-21-preview.
+
+        Uses Azure REST API version 2022-05-21-preview.
 
         Other available API versions: 2023-04-01-preview.
 
@@ -136,7 +137,8 @@ class HybridIdentityMetadata(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the HybridIdentityMetadata.
-        Azure REST API version: 2022-05-21-preview.
+
+        Uses Azure REST API version 2022-05-21-preview.
 
         Other available API versions: 2023-04-01-preview.
 

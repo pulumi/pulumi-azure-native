@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DataFactory
     {
         /// <summary>
         /// Gets a change data capture.
-        /// Azure REST API version: 2018-06-01.
+        /// 
+        /// Uses Azure REST API version 2018-06-01.
         /// </summary>
         public static Task<GetChangeDataCaptureResult> InvokeAsync(GetChangeDataCaptureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetChangeDataCaptureResult>("azure-native:datafactory:getChangeDataCapture", args ?? new GetChangeDataCaptureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a change data capture.
-        /// Azure REST API version: 2018-06-01.
+        /// 
+        /// Uses Azure REST API version 2018-06-01.
         /// </summary>
         public static Output<GetChangeDataCaptureResult> Invoke(GetChangeDataCaptureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChangeDataCaptureResult>("azure-native:datafactory:getChangeDataCapture", args ?? new GetChangeDataCaptureInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a change data capture.
-        /// Azure REST API version: 2018-06-01.
+        /// 
+        /// Uses Azure REST API version 2018-06-01.
         /// </summary>
         public static Output<GetChangeDataCaptureResult> Invoke(GetChangeDataCaptureInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetChangeDataCaptureResult>("azure-native:datafactory:getChangeDataCapture", args ?? new GetChangeDataCaptureInvokeArgs(), options.WithDefaults());

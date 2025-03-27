@@ -126,7 +126,8 @@ def get_configuration_profile(profile_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileResult:
     """
     A profile object that contains change analysis configuration, such as notification settings, for this subscription
-    Azure REST API version: 2020-04-01-preview.
+
+    Uses Azure REST API version 2020-04-01-preview.
 
 
     :param str profile_name: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
@@ -148,7 +149,8 @@ def get_configuration_profile_output(profile_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileResult]:
     """
     A profile object that contains change analysis configuration, such as notification settings, for this subscription
-    Azure REST API version: 2020-04-01-preview.
+
+    Uses Azure REST API version 2020-04-01-preview.
 
 
     :param str profile_name: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.

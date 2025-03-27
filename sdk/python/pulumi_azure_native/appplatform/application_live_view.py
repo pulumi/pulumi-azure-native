@@ -82,7 +82,8 @@ class ApplicationLiveView(pulumi.CustomResource):
                  __props__=None):
         """
         Application Live View resource
-        Azure REST API version: 2023-05-01-preview.
+
+        Uses Azure REST API version 2023-05-01-preview.
 
         Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
 
@@ -100,7 +101,8 @@ class ApplicationLiveView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Application Live View resource
-        Azure REST API version: 2023-05-01-preview.
+
+        Uses Azure REST API version 2023-05-01-preview.
 
         Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
 

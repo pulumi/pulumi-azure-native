@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Contract returning to user the delta models.
- * Azure REST API version: 2024-10-01-preview.
+ *
+ * Uses Azure REST API version 2024-10-01-preview.
  *
  * Other available API versions: 2025-01-01-preview.
  */
@@ -79,7 +80,8 @@ export interface GetInferenceGroupDeltaModelsStatusAsyncResult {
 }
 /**
  * Contract returning to user the delta models.
- * Azure REST API version: 2024-10-01-preview.
+ *
+ * Uses Azure REST API version 2024-10-01-preview.
  *
  * Other available API versions: 2025-01-01-preview.
  */

@@ -162,7 +162,8 @@ def get_log_profile(log_profile_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogProfileResult:
     """
     Gets the log profile.
-    Azure REST API version: 2016-03-01.
+
+    Uses Azure REST API version 2016-03-01.
 
 
     :param str log_profile_name: The name of the log profile.
@@ -187,7 +188,8 @@ def get_log_profile_output(log_profile_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogProfileResult]:
     """
     Gets the log profile.
-    Azure REST API version: 2016-03-01.
+
+    Uses Azure REST API version 2016-03-01.
 
 
     :param str log_profile_name: The name of the log profile.

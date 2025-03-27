@@ -133,7 +133,7 @@ class KubernetesClusterFeature(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2024-06-01-preview.
+        Uses Azure REST API version 2024-06-01-preview.
 
         Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-02-01.
 
@@ -153,7 +153,7 @@ class KubernetesClusterFeature(pulumi.CustomResource):
                  args: KubernetesClusterFeatureArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2024-06-01-preview.
+        Uses Azure REST API version 2024-06-01-preview.
 
         Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-02-01.
 

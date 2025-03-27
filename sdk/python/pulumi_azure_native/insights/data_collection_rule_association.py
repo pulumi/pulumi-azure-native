@@ -117,7 +117,8 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of generic ARM proxy resource.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview.
+
+        Uses Azure REST API version 2022-06-01. In version 1.x of the Azure Native provider, it used API version 2019-11-01-preview.
 
         Other available API versions: 2023-03-11.
 
@@ -137,7 +138,8 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of generic ARM proxy resource.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview.
+
+        Uses Azure REST API version 2022-06-01. In version 1.x of the Azure Native provider, it used API version 2019-11-01-preview.
 
         Other available API versions: 2023-03-11.
 

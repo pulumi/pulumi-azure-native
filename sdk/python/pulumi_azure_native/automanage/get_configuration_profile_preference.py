@@ -115,7 +115,8 @@ def get_configuration_profile_preference(configuration_profile_preference_name: 
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfilePreferenceResult:
     """
     Get information about a configuration profile preference
-    Azure REST API version: 2020-06-30-preview.
+
+    Uses Azure REST API version 2020-06-30-preview.
 
 
     :param str configuration_profile_preference_name: The configuration profile preference name.
@@ -139,7 +140,8 @@ def get_configuration_profile_preference_output(configuration_profile_preference
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfilePreferenceResult]:
     """
     Get information about a configuration profile preference
-    Azure REST API version: 2020-06-30-preview.
+
+    Uses Azure REST API version 2020-06-30-preview.
 
 
     :param str configuration_profile_preference_name: The configuration profile preference name.

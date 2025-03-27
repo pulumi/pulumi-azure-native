@@ -331,7 +331,8 @@ def get_discount(discount_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiscountResult:
     """
     Get discount at resource group level
-    Azure REST API version: 2024-11-01-preview.
+
+    Uses Azure REST API version 2024-11-01-preview.
 
 
     :param str discount_name: Name of the discount
@@ -373,7 +374,8 @@ def get_discount_output(discount_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiscountResult]:
     """
     Get discount at resource group level
-    Azure REST API version: 2024-11-01-preview.
+
+    Uses Azure REST API version 2024-11-01-preview.
 
 
     :param str discount_name: Name of the discount

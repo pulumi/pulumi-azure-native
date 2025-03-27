@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
 {
     /// <summary>
     /// A firewall rule.
-    /// Azure REST API version: 2025-02-01-preview.
+    /// 
+    /// Uses Azure REST API version 2025-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databasefleetmanager:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource

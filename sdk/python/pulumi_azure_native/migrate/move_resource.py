@@ -101,7 +101,8 @@ class MoveResource(pulumi.CustomResource):
                  __props__=None):
         """
         Defines the move resource.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-01-01.
+
+        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
 
         Other available API versions: 2023-08-01.
 
@@ -120,7 +121,8 @@ class MoveResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the move resource.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-01-01.
+
+        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
 
         Other available API versions: 2023-08-01.
 

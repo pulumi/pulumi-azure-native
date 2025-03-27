@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.StorSimple
     {
         /// <summary>
         /// Returns the properties of the specified volume name.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:storsimple:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of the specified volume name.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:storsimple:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of the specified volume name.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:storsimple:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());

@@ -148,7 +148,8 @@ class StaticSiteLinkedBackendForBuild(pulumi.CustomResource):
                  __props__=None):
         """
         Static Site Linked Backend ARM resource.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2022-03-01.
+
+        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2022-03-01.
 
         Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 
@@ -170,7 +171,8 @@ class StaticSiteLinkedBackendForBuild(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Static Site Linked Backend ARM resource.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2022-03-01.
+
+        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2022-03-01.
 
         Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 

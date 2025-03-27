@@ -152,7 +152,8 @@ def get_export_pipeline(export_pipeline_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportPipelineResult:
     """
     Gets the properties of the export pipeline.
-    Azure REST API version: 2023-01-01-preview.
+
+    Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
 
@@ -184,7 +185,8 @@ def get_export_pipeline_output(export_pipeline_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportPipelineResult]:
     """
     Gets the properties of the export pipeline.
-    Azure REST API version: 2023-01-01-preview.
+
+    Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
 

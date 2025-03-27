@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DependencyMap
 {
     /// <summary>
     /// A Discovery Source resource
-    /// Azure REST API version: 2025-01-31-preview.
+    /// 
+    /// Uses Azure REST API version 2025-01-31-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dependencymap:DiscoverySource")]
     public partial class DiscoverySource : global::Pulumi.CustomResource

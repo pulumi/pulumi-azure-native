@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the MySQLSites resource.
- * Azure REST API version: 2024-09-30-preview.
+ *
+ * Uses Azure REST API version 2024-09-30-preview.
  */
 export function getMySQLSite(args: GetMySQLSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetMySQLSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +78,8 @@ export interface GetMySQLSiteResult {
 }
 /**
  * Gets the MySQLSites resource.
- * Azure REST API version: 2024-09-30-preview.
+ *
+ * Uses Azure REST API version 2024-09-30-preview.
  */
 export function getMySQLSiteOutput(args: GetMySQLSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMySQLSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -140,7 +140,8 @@ def get_machine_learning_datastore(datastore_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningDatastoreResult:
     """
     Get a Datastore by name.
-    Azure REST API version: 2020-05-01-preview.
+
+    Uses Azure REST API version 2020-05-01-preview.
 
 
     :param str datastore_name: The Datastore name.
@@ -169,7 +170,8 @@ def get_machine_learning_datastore_output(datastore_name: Optional[pulumi.Input[
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineLearningDatastoreResult]:
     """
     Get a Datastore by name.
-    Azure REST API version: 2020-05-01-preview.
+
+    Uses Azure REST API version 2020-05-01-preview.
 
 
     :param str datastore_name: The Datastore name.

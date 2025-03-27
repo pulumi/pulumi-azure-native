@@ -104,7 +104,8 @@ def get_professional_service_subscription_level(resource_group_name: Optional[st
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfessionalServiceSubscriptionLevelResult:
     """
     Gets information about the specified Subscription Level ProfessionalService.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -130,7 +131,8 @@ def get_professional_service_subscription_level_output(resource_group_name: Opti
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfessionalServiceSubscriptionLevelResult]:
     """
     Gets information about the specified Subscription Level ProfessionalService.
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.

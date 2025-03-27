@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Storage Mover resource.
- * Azure REST API version: 2023-03-01.
+ *
+ * Uses Azure REST API version 2023-03-01.
  *
  * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
  */
@@ -71,7 +72,8 @@ export interface GetStorageMoverResult {
 }
 /**
  * Gets a Storage Mover resource.
- * Azure REST API version: 2023-03-01.
+ *
+ * Uses Azure REST API version 2023-03-01.
  *
  * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
  */

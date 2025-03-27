@@ -67,7 +67,8 @@ def get_billing_info(monitor_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingInfoResult:
     """
     Marketplace Subscription and Organization details to which resource gets billed into.
-    Azure REST API version: 2023-10-20.
+
+    Uses Azure REST API version 2023-10-20.
 
 
     :param str monitor_name: Monitor resource name
@@ -87,7 +88,8 @@ def get_billing_info_output(monitor_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingInfoResult]:
     """
     Marketplace Subscription and Organization details to which resource gets billed into.
-    Azure REST API version: 2023-10-20.
+
+    Uses Azure REST API version 2023-10-20.
 
 
     :param str monitor_name: Monitor resource name

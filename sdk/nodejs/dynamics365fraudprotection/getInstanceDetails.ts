@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified instances.
- * Azure REST API version: 2021-02-01-preview.
+ *
+ * Uses Azure REST API version 2021-02-01-preview.
  */
 export function getInstanceDetails(args: GetInstanceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,7 +70,8 @@ export interface GetInstanceDetailsResult {
 }
 /**
  * Gets details about the specified instances.
- * Azure REST API version: 2021-02-01-preview.
+ *
+ * Uses Azure REST API version 2021-02-01-preview.
  */
 export function getInstanceDetailsOutput(args: GetInstanceDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

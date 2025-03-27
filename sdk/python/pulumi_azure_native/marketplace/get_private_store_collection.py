@@ -211,7 +211,8 @@ def get_private_store_collection(collection_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateStoreCollectionResult:
     """
     Gets private store collection
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str collection_id: The collection ID
@@ -243,7 +244,8 @@ def get_private_store_collection_output(collection_id: Optional[pulumi.Input[str
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateStoreCollectionResult]:
     """
     Gets private store collection
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str collection_id: The collection ID

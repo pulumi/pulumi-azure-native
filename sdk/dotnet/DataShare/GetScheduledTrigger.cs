@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// Get a Trigger in a shareSubscription
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Task<GetScheduledTriggerResult> InvokeAsync(GetScheduledTriggerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledTriggerResult>("azure-native:datashare:getScheduledTrigger", args ?? new GetScheduledTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Trigger in a shareSubscription
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Output<GetScheduledTriggerResult> Invoke(GetScheduledTriggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledTriggerResult>("azure-native:datashare:getScheduledTrigger", args ?? new GetScheduledTriggerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Trigger in a shareSubscription
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Output<GetScheduledTriggerResult> Invoke(GetScheduledTriggerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledTriggerResult>("azure-native:datashare:getScheduledTrigger", args ?? new GetScheduledTriggerInvokeArgs(), options.WithDefaults());

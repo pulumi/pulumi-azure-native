@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the reference data set with the specified name in the specified environment.
- * Azure REST API version: 2020-05-15.
+ *
+ * Uses Azure REST API version 2020-05-15.
  *
  * Other available API versions: 2021-06-30-preview.
  */
@@ -80,7 +81,8 @@ export interface GetReferenceDataSetResult {
 }
 /**
  * Gets the reference data set with the specified name in the specified environment.
- * Azure REST API version: 2020-05-15.
+ *
+ * Uses Azure REST API version 2020-05-15.
  *
  * Other available API versions: 2021-06-30-preview.
  */

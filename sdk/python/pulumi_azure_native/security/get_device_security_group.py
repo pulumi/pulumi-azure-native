@@ -127,7 +127,8 @@ def get_device_security_group(device_security_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceSecurityGroupResult:
     """
     Use this method to get the device security group for the specified IoT Hub resource.
-    Azure REST API version: 2019-08-01.
+
+    Uses Azure REST API version 2019-08-01.
 
 
     :param str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
@@ -152,7 +153,8 @@ def get_device_security_group_output(device_security_group_name: Optional[pulumi
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceSecurityGroupResult]:
     """
     Use this method to get the device security group for the specified IoT Hub resource.
-    Azure REST API version: 2019-08-01.
+
+    Uses Azure REST API version 2019-08-01.
 
 
     :param str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.

@@ -99,7 +99,8 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
                  __props__=None):
         """
         The variable value.
-        Azure REST API version: 2022-08-01-preview.
+
+        Uses Azure REST API version 2022-08-01-preview.
 
         Other available API versions: 2024-12-01-preview.
 
@@ -118,7 +119,8 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The variable value.
-        Azure REST API version: 2022-08-01-preview.
+
+        Uses Azure REST API version 2022-08-01-preview.
 
         Other available API versions: 2024-12-01-preview.
 

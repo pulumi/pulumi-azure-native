@@ -68,7 +68,8 @@ def list_products(product_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductsResult:
     """
     Returns a list of products.
-    Azure REST API version: 2022-06-01.
+
+    Uses Azure REST API version 2022-06-01.
 
 
     :param str product_name: Name of the product.
@@ -91,7 +92,8 @@ def list_products_output(product_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProductsResult]:
     """
     Returns a list of products.
-    Azure REST API version: 2022-06-01.
+
+    Uses Azure REST API version 2022-06-01.
 
 
     :param str product_name: Name of the product.

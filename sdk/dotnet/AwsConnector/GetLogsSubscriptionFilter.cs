@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a LogsSubscriptionFilter
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetLogsSubscriptionFilterResult> InvokeAsync(GetLogsSubscriptionFilterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogsSubscriptionFilterResult>("azure-native:awsconnector:getLogsSubscriptionFilter", args ?? new GetLogsSubscriptionFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a LogsSubscriptionFilter
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetLogsSubscriptionFilterResult> Invoke(GetLogsSubscriptionFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsSubscriptionFilterResult>("azure-native:awsconnector:getLogsSubscriptionFilter", args ?? new GetLogsSubscriptionFilterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a LogsSubscriptionFilter
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetLogsSubscriptionFilterResult> Invoke(GetLogsSubscriptionFilterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsSubscriptionFilterResult>("azure-native:awsconnector:getLogsSubscriptionFilter", args ?? new GetLogsSubscriptionFilterInvokeArgs(), options.WithDefaults());

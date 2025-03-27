@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
- * Azure REST API version: 2023-04-01.
+ *
+ * Uses Azure REST API version 2023-04-01.
  *
  * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
  */
@@ -89,7 +90,8 @@ export interface GetProtectedItemResult {
 /**
  * Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
- * Azure REST API version: 2023-04-01.
+ *
+ * Uses Azure REST API version 2023-04-01.
  *
  * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
  */

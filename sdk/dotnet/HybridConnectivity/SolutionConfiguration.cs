@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
 {
     /// <summary>
     /// Solution Configuration
-    /// Azure REST API version: 2024-12-01.
+    /// 
+    /// Uses Azure REST API version 2024-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity:SolutionConfiguration")]
     public partial class SolutionConfiguration : global::Pulumi.CustomResource

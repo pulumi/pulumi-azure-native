@@ -56,7 +56,8 @@ def list_organization_regions(organization_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOrganizationRegionsResult:
     """
     Result of POST request to list regions supported by confluent
-    Azure REST API version: 2024-02-13.
+
+    Uses Azure REST API version 2024-02-13.
 
     Other available API versions: 2024-07-01.
 
@@ -80,7 +81,8 @@ def list_organization_regions_output(organization_name: Optional[pulumi.Input[st
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListOrganizationRegionsResult]:
     """
     Result of POST request to list regions supported by confluent
-    Azure REST API version: 2024-02-13.
+
+    Uses Azure REST API version 2024-02-13.
 
     Other available API versions: 2024-07-01.
 

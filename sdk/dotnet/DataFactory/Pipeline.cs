@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataFactory
 {
     /// <summary>
     /// Pipeline resource type.
-    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
+    /// 
+    /// Uses Azure REST API version 2018-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource

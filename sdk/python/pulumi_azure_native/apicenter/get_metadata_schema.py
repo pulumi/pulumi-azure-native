@@ -116,7 +116,8 @@ def get_metadata_schema(metadata_schema_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetadataSchemaResult:
     """
     Returns details of the metadata schema.
-    Azure REST API version: 2024-03-01.
+
+    Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
 
@@ -145,7 +146,8 @@ def get_metadata_schema_output(metadata_schema_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetadataSchemaResult]:
     """
     Returns details of the metadata schema.
-    Azure REST API version: 2024-03-01.
+
+    Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
 

@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the upload location for the user to be able to upload the source.
- * Azure REST API version: 2019-06-01-preview.
+ *
+ * Uses Azure REST API version 2019-06-01-preview.
  *
  * Other available API versions: 2018-09-01, 2019-04-01.
  */
@@ -44,7 +45,8 @@ export interface ListRegistryBuildSourceUploadUrlResult {
 }
 /**
  * Get the upload location for the user to be able to upload the source.
- * Azure REST API version: 2019-06-01-preview.
+ *
+ * Uses Azure REST API version 2019-06-01-preview.
  *
  * Other available API versions: 2018-09-01, 2019-04-01.
  */

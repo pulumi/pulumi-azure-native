@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves details of this L3 Isolation Domain.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-06-15.
  */
@@ -107,7 +108,8 @@ export interface GetL3IsolationDomainResult {
 }
 /**
  * Retrieves details of this L3 Isolation Domain.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-06-15.
  */

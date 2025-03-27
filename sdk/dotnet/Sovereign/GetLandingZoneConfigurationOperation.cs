@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Sovereign
     {
         /// <summary>
         /// Get a landing zone configuration.
-        /// Azure REST API version: 2025-02-27-preview.
+        /// 
+        /// Uses Azure REST API version 2025-02-27-preview.
         /// </summary>
         public static Task<GetLandingZoneConfigurationOperationResult> InvokeAsync(GetLandingZoneConfigurationOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLandingZoneConfigurationOperationResult>("azure-native:sovereign:getLandingZoneConfigurationOperation", args ?? new GetLandingZoneConfigurationOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a landing zone configuration.
-        /// Azure REST API version: 2025-02-27-preview.
+        /// 
+        /// Uses Azure REST API version 2025-02-27-preview.
         /// </summary>
         public static Output<GetLandingZoneConfigurationOperationResult> Invoke(GetLandingZoneConfigurationOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLandingZoneConfigurationOperationResult>("azure-native:sovereign:getLandingZoneConfigurationOperation", args ?? new GetLandingZoneConfigurationOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a landing zone configuration.
-        /// Azure REST API version: 2025-02-27-preview.
+        /// 
+        /// Uses Azure REST API version 2025-02-27-preview.
         /// </summary>
         public static Output<GetLandingZoneConfigurationOperationResult> Invoke(GetLandingZoneConfigurationOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLandingZoneConfigurationOperationResult>("azure-native:sovereign:getLandingZoneConfigurationOperation", args ?? new GetLandingZoneConfigurationOperationInvokeArgs(), options.WithDefaults());

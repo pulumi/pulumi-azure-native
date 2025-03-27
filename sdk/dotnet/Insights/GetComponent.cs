@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Returns an Application Insights component.
-        /// Azure REST API version: 2020-02-02.
+        /// 
+        /// Uses Azure REST API version 2020-02-02.
         /// 
         /// Other available API versions: 2020-02-02-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Insights
 
         /// <summary>
         /// Returns an Application Insights component.
-        /// Azure REST API version: 2020-02-02.
+        /// 
+        /// Uses Azure REST API version 2020-02-02.
         /// 
         /// Other available API versions: 2020-02-02-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Insights
 
         /// <summary>
         /// Returns an Application Insights component.
-        /// Azure REST API version: 2020-02-02.
+        /// 
+        /// Uses Azure REST API version 2020-02-02.
         /// 
         /// Other available API versions: 2020-02-02-preview.
         /// </summary>

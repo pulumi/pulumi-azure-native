@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a KmsAlias
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getKmsAlias(args: GetKmsAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetKmsAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetKmsAliasResult {
 }
 /**
  * Get a KmsAlias
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getKmsAliasOutput(args: GetKmsAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKmsAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

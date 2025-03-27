@@ -127,7 +127,8 @@ def get_code_build_source_credentials_info(name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCodeBuildSourceCredentialsInfoResult:
     """
     Get a CodeBuildSourceCredentialsInfo
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of CodeBuildSourceCredentialsInfo
@@ -152,7 +153,8 @@ def get_code_build_source_credentials_info_output(name: Optional[pulumi.Input[st
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeBuildSourceCredentialsInfoResult]:
     """
     Get a CodeBuildSourceCredentialsInfo
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of CodeBuildSourceCredentialsInfo

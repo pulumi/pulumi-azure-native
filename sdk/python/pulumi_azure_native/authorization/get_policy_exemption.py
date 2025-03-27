@@ -199,7 +199,8 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyExemptionResult:
     """
     This operation retrieves a single policy exemption, given its name and the scope it was created at.
-    Azure REST API version: 2022-07-01-preview.
+
+    Uses Azure REST API version 2022-07-01-preview.
 
     Other available API versions: 2024-12-01-preview.
 
@@ -232,7 +233,8 @@ def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyExemptionResult]:
     """
     This operation retrieves a single policy exemption, given its name and the scope it was created at.
-    Azure REST API version: 2022-07-01-preview.
+
+    Uses Azure REST API version 2022-07-01-preview.
 
     Other available API versions: 2024-12-01-preview.
 

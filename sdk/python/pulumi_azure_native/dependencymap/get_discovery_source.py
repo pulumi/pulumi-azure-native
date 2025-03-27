@@ -152,7 +152,8 @@ def get_discovery_source(map_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiscoverySourceResult:
     """
     Get a DiscoverySourceResource
-    Azure REST API version: 2025-01-31-preview.
+
+    Uses Azure REST API version 2025-01-31-preview.
 
 
     :param str map_name: Maps resource name
@@ -182,7 +183,8 @@ def get_discovery_source_output(map_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiscoverySourceResult]:
     """
     Get a DiscoverySourceResource
-    Azure REST API version: 2025-01-31-preview.
+
+    Uses Azure REST API version 2025-01-31-preview.
 
 
     :param str map_name: Maps resource name

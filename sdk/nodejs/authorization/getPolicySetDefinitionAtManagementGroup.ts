@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves the policy set definition in the given management group with the given name.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01, 2025-03-01.
  */
@@ -83,7 +84,8 @@ export interface GetPolicySetDefinitionAtManagementGroupResult {
 }
 /**
  * This operation retrieves the policy set definition in the given management group with the given name.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01, 2025-03-01.
  */

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 {
     /// <summary>
     /// MQ broker/authorization resource
-    /// Azure REST API version: 2023-10-04-preview.
+    /// 
+    /// Uses Azure REST API version 2023-10-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:BrokerAuthorization")]
     public partial class BrokerAuthorization : global::Pulumi.CustomResource

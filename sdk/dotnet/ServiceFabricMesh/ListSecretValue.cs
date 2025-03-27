@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     {
         /// <summary>
         /// Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
-        /// Azure REST API version: 2018-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-09-01-preview.
         /// </summary>
         public static Task<ListSecretValueResult> InvokeAsync(ListSecretValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSecretValueResult>("azure-native:servicefabricmesh:listSecretValue", args ?? new ListSecretValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
-        /// Azure REST API version: 2018-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-09-01-preview.
         /// </summary>
         public static Output<ListSecretValueResult> Invoke(ListSecretValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSecretValueResult>("azure-native:servicefabricmesh:listSecretValue", args ?? new ListSecretValueInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
-        /// Azure REST API version: 2018-09-01-preview.
+        /// 
+        /// Uses Azure REST API version 2018-09-01-preview.
         /// </summary>
         public static Output<ListSecretValueResult> Invoke(ListSecretValueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListSecretValueResult>("azure-native:servicefabricmesh:listSecretValue", args ?? new ListSecretValueInvokeArgs(), options.WithDefaults());

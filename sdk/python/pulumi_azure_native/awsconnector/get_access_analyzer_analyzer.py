@@ -127,7 +127,8 @@ def get_access_analyzer_analyzer(name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessAnalyzerAnalyzerResult:
     """
     Get a AccessAnalyzerAnalyzer
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of AccessAnalyzerAnalyzer
@@ -152,7 +153,8 @@ def get_access_analyzer_analyzer_output(name: Optional[pulumi.Input[str]] = None
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessAnalyzerAnalyzerResult]:
     """
     Get a AccessAnalyzerAnalyzer
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of AccessAnalyzerAnalyzer

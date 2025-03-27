@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * List Paths supported by this Streaming Locator
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  */
 export function listStreamingLocatorPaths(args: ListStreamingLocatorPathsArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorPathsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,7 +51,8 @@ export interface ListStreamingLocatorPathsResult {
 }
 /**
  * List Paths supported by this Streaming Locator
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  */
 export function listStreamingLocatorPathsOutput(args: ListStreamingLocatorPathsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStreamingLocatorPathsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

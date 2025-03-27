@@ -128,7 +128,8 @@ def get_infrastructure_resource(infrastructure_resource_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInfrastructureResourceResult:
     """
     Get a InfrastructureResource
-    Azure REST API version: 2023-11-14-preview.
+
+    Uses Azure REST API version 2023-11-14-preview.
 
 
     :param str infrastructure_resource_name: The name of the infrastructure resource in the space.
@@ -156,7 +157,8 @@ def get_infrastructure_resource_output(infrastructure_resource_name: Optional[pu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInfrastructureResourceResult]:
     """
     Get a InfrastructureResource
-    Azure REST API version: 2023-11-14-preview.
+
+    Uses Azure REST API version 2023-11-14-preview.
 
 
     :param str infrastructure_resource_name: The name of the infrastructure resource in the space.

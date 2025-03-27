@@ -251,7 +251,8 @@ class Lab(pulumi.CustomResource):
                  __props__=None):
         """
         The lab resource.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
+
+        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2018-10-15.
 
         Other available API versions: 2018-10-15, 2023-06-07.
 
@@ -279,7 +280,8 @@ class Lab(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The lab resource.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
+
+        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2018-10-15.
 
         Other available API versions: 2018-10-15, 2023-06-07.
 

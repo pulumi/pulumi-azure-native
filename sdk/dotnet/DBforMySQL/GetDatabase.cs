@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Gets information about a database.
-        /// Azure REST API version: 2022-01-01.
+        /// 
+        /// Uses Azure REST API version 2022-01-01.
         /// 
         /// Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.DBforMySQL
 
         /// <summary>
         /// Gets information about a database.
-        /// Azure REST API version: 2022-01-01.
+        /// 
+        /// Uses Azure REST API version 2022-01-01.
         /// 
         /// Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.DBforMySQL
 
         /// <summary>
         /// Gets information about a database.
-        /// Azure REST API version: 2022-01-01.
+        /// 
+        /// Uses Azure REST API version 2022-01-01.
         /// 
         /// Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
         /// </summary>

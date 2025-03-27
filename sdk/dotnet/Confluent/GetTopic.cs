@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Confluent
     {
         /// <summary>
         /// Details of topic record
-        /// Azure REST API version: 2024-07-01.
+        /// 
+        /// Uses Azure REST API version 2024-07-01.
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:confluent:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Details of topic record
-        /// Azure REST API version: 2024-07-01.
+        /// 
+        /// Uses Azure REST API version 2024-07-01.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:confluent:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Details of topic record
-        /// Azure REST API version: 2024-07-01.
+        /// 
+        /// Uses Azure REST API version 2024-07-01.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:confluent:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());

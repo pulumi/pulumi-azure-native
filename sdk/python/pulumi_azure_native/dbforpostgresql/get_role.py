@@ -104,7 +104,8 @@ def get_role(cluster_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleResult:
     """
     Gets information about a cluster role.
-    Azure REST API version: 2022-11-08.
+
+    Uses Azure REST API version 2022-11-08.
 
     Other available API versions: 2023-03-02-preview.
 
@@ -132,7 +133,8 @@ def get_role_output(cluster_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleResult]:
     """
     Gets information about a cluster role.
-    Azure REST API version: 2022-11-08.
+
+    Uses Azure REST API version 2022-11-08.
 
     Other available API versions: 2023-03-02-preview.
 

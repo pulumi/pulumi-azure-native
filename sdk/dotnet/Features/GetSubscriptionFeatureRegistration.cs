@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Features
     {
         /// <summary>
         /// Returns a feature registration
-        /// Azure REST API version: 2021-07-01.
+        /// 
+        /// Uses Azure REST API version 2021-07-01.
         /// </summary>
         public static Task<GetSubscriptionFeatureRegistrationResult> InvokeAsync(GetSubscriptionFeatureRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionFeatureRegistrationResult>("azure-native:features:getSubscriptionFeatureRegistration", args ?? new GetSubscriptionFeatureRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a feature registration
-        /// Azure REST API version: 2021-07-01.
+        /// 
+        /// Uses Azure REST API version 2021-07-01.
         /// </summary>
         public static Output<GetSubscriptionFeatureRegistrationResult> Invoke(GetSubscriptionFeatureRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionFeatureRegistrationResult>("azure-native:features:getSubscriptionFeatureRegistration", args ?? new GetSubscriptionFeatureRegistrationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a feature registration
-        /// Azure REST API version: 2021-07-01.
+        /// 
+        /// Uses Azure REST API version 2021-07-01.
         /// </summary>
         public static Output<GetSubscriptionFeatureRegistrationResult> Invoke(GetSubscriptionFeatureRegistrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionFeatureRegistrationResult>("azure-native:features:getSubscriptionFeatureRegistration", args ?? new GetSubscriptionFeatureRegistrationInvokeArgs(), options.WithDefaults());

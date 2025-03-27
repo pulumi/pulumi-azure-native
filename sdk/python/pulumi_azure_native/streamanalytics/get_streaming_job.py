@@ -392,7 +392,8 @@ def get_streaming_job(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingJobResult:
     """
     Gets details about the specified streaming job.
-    Azure REST API version: 2020-03-01.
+
+    Uses Azure REST API version 2020-03-01.
 
     Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
 
@@ -444,7 +445,8 @@ def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamingJobResult]:
     """
     Gets details about the specified streaming job.
-    Azure REST API version: 2020-03-01.
+
+    Uses Azure REST API version 2020-03-01.
 
     Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
 

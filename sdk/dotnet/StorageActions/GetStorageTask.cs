@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.StorageActions
     {
         /// <summary>
         /// Get the storage task properties
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// </summary>
         public static Task<GetStorageTaskResult> InvokeAsync(GetStorageTaskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageTaskResult>("azure-native:storageactions:getStorageTask", args ?? new GetStorageTaskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the storage task properties
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// </summary>
         public static Output<GetStorageTaskResult> Invoke(GetStorageTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageTaskResult>("azure-native:storageactions:getStorageTask", args ?? new GetStorageTaskInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the storage task properties
-        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Uses Azure REST API version 2023-01-01.
         /// </summary>
         public static Output<GetStorageTaskResult> Invoke(GetStorageTaskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageTaskResult>("azure-native:storageactions:getStorageTask", args ?? new GetStorageTaskInvokeArgs(), options.WithDefaults());

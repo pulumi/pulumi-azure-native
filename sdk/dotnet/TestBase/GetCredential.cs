@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// Gets a test base credential Resource
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Task<GetCredentialResult> InvokeAsync(GetCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-native:testbase:getCredential", args ?? new GetCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a test base credential Resource
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:testbase:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a test base credential Resource
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:testbase:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());

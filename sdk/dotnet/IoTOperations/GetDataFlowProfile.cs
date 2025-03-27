@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IoTOperations
     {
         /// <summary>
         /// Get a DataFlowProfileResource
-        /// Azure REST API version: 2024-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-07-01-preview.
         /// </summary>
         public static Task<GetDataFlowProfileResult> InvokeAsync(GetDataFlowProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataFlowProfileResult>("azure-native:iotoperations:getDataFlowProfile", args ?? new GetDataFlowProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataFlowProfileResource
-        /// Azure REST API version: 2024-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-07-01-preview.
         /// </summary>
         public static Output<GetDataFlowProfileResult> Invoke(GetDataFlowProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowProfileResult>("azure-native:iotoperations:getDataFlowProfile", args ?? new GetDataFlowProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataFlowProfileResource
-        /// Azure REST API version: 2024-07-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-07-01-preview.
         /// </summary>
         public static Output<GetDataFlowProfileResult> Invoke(GetDataFlowProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowProfileResult>("azure-native:iotoperations:getDataFlowProfile", args ?? new GetDataFlowProfileInvokeArgs(), options.WithDefaults());

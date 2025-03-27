@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Orbital
     {
         /// <summary>
         /// Gets the specified contact Profile in a specified resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// 
+        /// Uses Azure REST API version 2022-11-01.
         /// 
         /// Other available API versions: 2022-03-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Orbital
 
         /// <summary>
         /// Gets the specified contact Profile in a specified resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// 
+        /// Uses Azure REST API version 2022-11-01.
         /// 
         /// Other available API versions: 2022-03-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Orbital
 
         /// <summary>
         /// Gets the specified contact Profile in a specified resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// 
+        /// Uses Azure REST API version 2022-11-01.
         /// 
         /// Other available API versions: 2022-03-01.
         /// </summary>

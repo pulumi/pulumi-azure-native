@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Gets the status of long running operation
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Task<GetGlobalUserOperationStatusResult> InvokeAsync(GetGlobalUserOperationStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationStatusResult>("azure-native:labservices:getGlobalUserOperationStatus", args ?? new GetGlobalUserOperationStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the status of long running operation
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Output<GetGlobalUserOperationStatusResult> Invoke(GetGlobalUserOperationStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalUserOperationStatusResult>("azure-native:labservices:getGlobalUserOperationStatus", args ?? new GetGlobalUserOperationStatusInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the status of long running operation
-        /// Azure REST API version: 2018-10-15.
+        /// 
+        /// Uses Azure REST API version 2018-10-15.
         /// </summary>
         public static Output<GetGlobalUserOperationStatusResult> Invoke(GetGlobalUserOperationStatusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalUserOperationStatusResult>("azure-native:labservices:getGlobalUserOperationStatus", args ?? new GetGlobalUserOperationStatusInvokeArgs(), options.WithDefaults());

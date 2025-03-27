@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified NSP profile.
- * Azure REST API version: 2024-06-01-preview.
+ *
+ * Uses Azure REST API version 2024-06-01-preview.
  */
 export function getNetworkSecurityPerimeterProfile(args: GetNetworkSecurityPerimeterProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityPerimeterProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,7 +68,8 @@ export interface GetNetworkSecurityPerimeterProfileResult {
 }
 /**
  * Gets the specified NSP profile.
- * Azure REST API version: 2024-06-01-preview.
+ *
+ * Uses Azure REST API version 2024-06-01-preview.
  */
 export function getNetworkSecurityPerimeterProfileOutput(args: GetNetworkSecurityPerimeterProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSecurityPerimeterProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

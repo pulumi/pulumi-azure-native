@@ -284,7 +284,8 @@ def get_sap_central_instance(central_instance_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPCentralInstanceResult:
     """
     Gets the SAP Central Services Instance resource.
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-10-01-preview.
 
@@ -327,7 +328,8 @@ def get_sap_central_instance_output(central_instance_name: Optional[pulumi.Input
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPCentralInstanceResult]:
     """
     Gets the SAP Central Services Instance resource.
-    Azure REST API version: 2023-04-01.
+
+    Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2023-10-01-preview.
 

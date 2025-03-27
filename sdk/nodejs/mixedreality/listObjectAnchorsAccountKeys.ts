@@ -12,7 +12,8 @@ import * as utilities from "../utilities";
  * > The Mixed Reality service is now deprecated and will be retired.
  *
  *  List Both of the 2 Keys of an object anchors Account
- * Azure REST API version: 2021-03-01-preview.
+ *
+ * Uses Azure REST API version 2021-03-01-preview.
  */
 export function listObjectAnchorsAccountKeys(args: ListObjectAnchorsAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListObjectAnchorsAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,7 +55,8 @@ export interface ListObjectAnchorsAccountKeysResult {
  * > The Mixed Reality service is now deprecated and will be retired.
  *
  *  List Both of the 2 Keys of an object anchors Account
- * Azure REST API version: 2021-03-01-preview.
+ *
+ * Uses Azure REST API version 2021-03-01-preview.
  */
 export function listObjectAnchorsAccountKeysOutput(args: ListObjectAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListObjectAnchorsAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

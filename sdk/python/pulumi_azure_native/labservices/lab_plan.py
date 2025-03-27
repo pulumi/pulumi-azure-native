@@ -238,7 +238,8 @@ class LabPlan(pulumi.CustomResource):
                  __props__=None):
         """
         Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-01-preview.
+
+        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2021-10-01-preview.
 
         Other available API versions: 2023-06-07.
 
@@ -265,7 +266,8 @@ class LabPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-01-preview.
+
+        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2021-10-01-preview.
 
         Other available API versions: 2023-06-07.
 

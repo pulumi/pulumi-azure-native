@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// Get a DataSet in a share
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Task<GetADLSGen2FolderDataSetResult> InvokeAsync(GetADLSGen2FolderDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2FolderDataSetResult>("azure-native:datashare:getADLSGen2FolderDataSet", args ?? new GetADLSGen2FolderDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataSet in a share
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Output<GetADLSGen2FolderDataSetResult> Invoke(GetADLSGen2FolderDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2FolderDataSetResult>("azure-native:datashare:getADLSGen2FolderDataSet", args ?? new GetADLSGen2FolderDataSetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataSet in a share
-        /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Uses Azure REST API version 2021-08-01.
         /// </summary>
         public static Output<GetADLSGen2FolderDataSetResult> Invoke(GetADLSGen2FolderDataSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2FolderDataSetResult>("azure-native:datashare:getADLSGen2FolderDataSet", args ?? new GetADLSGen2FolderDataSetInvokeArgs(), options.WithDefaults());

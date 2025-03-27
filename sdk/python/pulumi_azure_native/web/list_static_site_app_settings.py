@@ -102,7 +102,8 @@ def list_static_site_app_settings(name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteAppSettingsResult:
     """
     Description for Gets the application settings of a static site.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
@@ -127,7 +128,8 @@ def list_static_site_app_settings_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStaticSiteAppSettingsResult]:
     """
     Description for Gets the application settings of a static site.
-    Azure REST API version: 2022-09-01.
+
+    Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
 

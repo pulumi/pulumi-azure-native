@@ -198,7 +198,8 @@ def get_billing_role_assignment_by_billing_account(billing_account_name: Optiona
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingRoleAssignmentByBillingAccountResult:
     """
     Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
-    Azure REST API version: 2019-10-01-preview.
+
+    Uses Azure REST API version 2019-10-01-preview.
 
     Other available API versions: 2024-04-01.
 
@@ -231,7 +232,8 @@ def get_billing_role_assignment_by_billing_account_output(billing_account_name: 
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingRoleAssignmentByBillingAccountResult]:
     """
     Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
-    Azure REST API version: 2019-10-01-preview.
+
+    Uses Azure REST API version 2019-10-01-preview.
 
     Other available API versions: 2024-04-01.
 

@@ -201,7 +201,8 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
                  __props__=None):
         """
         PrivateLink Policy configuration object.
-        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2020-03-01.
+
+        Uses Azure REST API version 2020-03-01. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,7 +225,8 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         PrivateLink Policy configuration object.
-        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2020-03-01.
+
+        Uses Azure REST API version 2020-03-01. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkForAzureAdArgs args: The arguments to use to populate this resource's properties.

@@ -102,7 +102,8 @@ def get_sites_by_subscription(site_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesBySubscriptionResult:
     """
     Get a Site
-    Azure REST API version: 2024-02-01-preview.
+
+    Uses Azure REST API version 2024-02-01-preview.
 
 
     :param str site_name: Name of Site resource
@@ -122,7 +123,8 @@ def get_sites_by_subscription_output(site_name: Optional[pulumi.Input[str]] = No
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSitesBySubscriptionResult]:
     """
     Get a Site
-    Azure REST API version: 2024-02-01-preview.
+
+    Uses Azure REST API version 2024-02-01-preview.
 
 
     :param str site_name: Name of Site resource

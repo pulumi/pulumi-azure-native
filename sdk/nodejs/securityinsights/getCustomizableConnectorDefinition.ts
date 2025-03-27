@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a data connector definition.
- * Azure REST API version: 2023-07-01-preview.
+ *
+ * Uses Azure REST API version 2023-07-01-preview.
  */
 export function getCustomizableConnectorDefinition(args: GetCustomizableConnectorDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomizableConnectorDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,7 +84,8 @@ export interface GetCustomizableConnectorDefinitionResult {
 }
 /**
  * Gets a data connector definition.
- * Azure REST API version: 2023-07-01-preview.
+ *
+ * Uses Azure REST API version 2023-07-01-preview.
  */
 export function getCustomizableConnectorDefinitionOutput(args: GetCustomizableConnectorDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomizableConnectorDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

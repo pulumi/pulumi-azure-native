@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a DNS resolver policy.
- * Azure REST API version: 2023-07-01-preview.
+ *
+ * Uses Azure REST API version 2023-07-01-preview.
  */
 export class DnsResolverPolicy extends pulumi.CustomResource {
     /**

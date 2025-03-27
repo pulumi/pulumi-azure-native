@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a workflow.
- * Azure REST API version: 2019-05-01.
+ *
+ * Uses Azure REST API version 2019-05-01.
  *
  * Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
  */
@@ -115,7 +116,8 @@ export interface GetWorkflowResult {
 }
 /**
  * Gets a workflow.
- * Azure REST API version: 2019-05-01.
+ *
+ * Uses Azure REST API version 2019-05-01.
  *
  * Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
  */

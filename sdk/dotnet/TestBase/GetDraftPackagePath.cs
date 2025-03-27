@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// Gets draft package path and temp working path with SAS.
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Task<GetDraftPackagePathResult> InvokeAsync(GetDraftPackagePathArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDraftPackagePathResult>("azure-native:testbase:getDraftPackagePath", args ?? new GetDraftPackagePathArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets draft package path and temp working path with SAS.
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Output<GetDraftPackagePathResult> Invoke(GetDraftPackagePathInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDraftPackagePathResult>("azure-native:testbase:getDraftPackagePath", args ?? new GetDraftPackagePathInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets draft package path and temp working path with SAS.
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Output<GetDraftPackagePathResult> Invoke(GetDraftPackagePathInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDraftPackagePathResult>("azure-native:testbase:getDraftPackagePath", args ?? new GetDraftPackagePathInvokeArgs(), options.WithDefaults());

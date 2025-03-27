@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.AnalysisServices
     {
         /// <summary>
         /// Gets details about the specified Analysis Services server.
-        /// Azure REST API version: 2017-08-01.
+        /// 
+        /// Uses Azure REST API version 2017-08-01.
         /// 
         /// Other available API versions: 2017-08-01-beta.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.AnalysisServices
 
         /// <summary>
         /// Gets details about the specified Analysis Services server.
-        /// Azure REST API version: 2017-08-01.
+        /// 
+        /// Uses Azure REST API version 2017-08-01.
         /// 
         /// Other available API versions: 2017-08-01-beta.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.AnalysisServices
 
         /// <summary>
         /// Gets details about the specified Analysis Services server.
-        /// Azure REST API version: 2017-08-01.
+        /// 
+        /// Uses Azure REST API version 2017-08-01.
         /// 
         /// Other available API versions: 2017-08-01-beta.
         /// </summary>

@@ -151,7 +151,8 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalReachConnectionResult:
     """
     A global reach connection resource
-    Azure REST API version: 2022-05-01.
+
+    Uses Azure REST API version 2022-05-01.
 
     Other available API versions: 2023-03-01, 2023-09-01.
 
@@ -183,7 +184,8 @@ def get_global_reach_connection_output(global_reach_connection_name: Optional[pu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalReachConnectionResult]:
     """
     A global reach connection resource
-    Azure REST API version: 2022-05-01.
+
+    Uses Azure REST API version 2022-05-01.
 
     Other available API versions: 2023-03-01, 2023-09-01.
 

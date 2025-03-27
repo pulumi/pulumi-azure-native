@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get configuration assignment for resource.
- * Azure REST API version: 2023-04-01.
+ *
+ * Uses Azure REST API version 2023-04-01.
  *
  * Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
  */
@@ -66,7 +67,8 @@ export interface GetConfigurationAssignmentsForSubscriptionResult {
 }
 /**
  * Get configuration assignment for resource.
- * Azure REST API version: 2023-04-01.
+ *
+ * Uses Azure REST API version 2023-04-01.
  *
  * Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
  */

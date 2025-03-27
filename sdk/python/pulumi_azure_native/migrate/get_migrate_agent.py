@@ -114,7 +114,8 @@ def get_migrate_agent(agent_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrateAgentResult:
     """
     Gets the details of the modernizeProject agent.
-    Azure REST API version: 2022-05-01-preview.
+
+    Uses Azure REST API version 2022-05-01-preview.
 
 
     :param str agent_name: MigrateAgent name.
@@ -144,7 +145,8 @@ def get_migrate_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrateAgentResult]:
     """
     Gets the details of the modernizeProject agent.
-    Azure REST API version: 2022-05-01-preview.
+
+    Uses Azure REST API version 2022-05-01-preview.
 
 
     :param str agent_name: MigrateAgent name.

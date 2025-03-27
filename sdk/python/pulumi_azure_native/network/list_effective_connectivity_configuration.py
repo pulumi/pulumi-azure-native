@@ -68,7 +68,8 @@ def list_effective_connectivity_configuration(resource_group_name: Optional[str]
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEffectiveConnectivityConfigurationResult:
     """
     List all effective connectivity configurations applied on a virtual network.
-    Azure REST API version: 2021-02-01-preview.
+
+    Uses Azure REST API version 2021-02-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -91,7 +92,8 @@ def list_effective_connectivity_configuration_output(resource_group_name: Option
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEffectiveConnectivityConfigurationResult]:
     """
     List all effective connectivity configurations applied on a virtual network.
-    Azure REST API version: 2021-02-01-preview.
+
+    Uses Azure REST API version 2021-02-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.

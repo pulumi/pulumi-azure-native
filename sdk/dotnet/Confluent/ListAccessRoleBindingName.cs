@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Confluent
     {
         /// <summary>
         /// Details of the role binding names returned on successful response
-        /// Azure REST API version: 2024-02-13.
+        /// 
+        /// Uses Azure REST API version 2024-02-13.
         /// 
         /// Other available API versions: 2024-07-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Confluent
 
         /// <summary>
         /// Details of the role binding names returned on successful response
-        /// Azure REST API version: 2024-02-13.
+        /// 
+        /// Uses Azure REST API version 2024-02-13.
         /// 
         /// Other available API versions: 2024-07-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Confluent
 
         /// <summary>
         /// Details of the role binding names returned on successful response
-        /// Azure REST API version: 2024-02-13.
+        /// 
+        /// Uses Azure REST API version 2024-02-13.
         /// 
         /// Other available API versions: 2024-07-01.
         /// </summary>

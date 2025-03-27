@@ -187,7 +187,8 @@ def get_standard_assignment(resource_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStandardAssignmentResult:
     """
     This operation retrieves a single standard assignment, given its name and the scope it was created at.
-    Azure REST API version: 2024-08-01.
+
+    Uses Azure REST API version 2024-08-01.
 
 
     :param str resource_id: The identifier of the resource.
@@ -217,7 +218,8 @@ def get_standard_assignment_output(resource_id: Optional[pulumi.Input[str]] = No
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardAssignmentResult]:
     """
     This operation retrieves a single standard assignment, given its name and the scope it was created at.
-    Azure REST API version: 2024-08-01.
+
+    Uses Azure REST API version 2024-08-01.
 
 
     :param str resource_id: The identifier of the resource.

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Route53ResourceRecordSet
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getRoute53ResourceRecordSet(args: GetRoute53ResourceRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRoute53ResourceRecordSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetRoute53ResourceRecordSetResult {
 }
 /**
  * Get a Route53ResourceRecordSet
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getRoute53ResourceRecordSetOutput(args: GetRoute53ResourceRecordSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoute53ResourceRecordSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Role management policy
- * Azure REST API version: 2024-09-01-preview.
+ *
+ * Uses Azure REST API version 2024-09-01-preview.
  *
  * Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
  */

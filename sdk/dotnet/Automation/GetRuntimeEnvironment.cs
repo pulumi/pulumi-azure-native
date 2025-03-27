@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Get information about the Runtime Environment
-        /// Azure REST API version: 2023-05-15-preview.
+        /// 
+        /// Uses Azure REST API version 2023-05-15-preview.
         /// 
         /// Other available API versions: 2024-10-23.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Automation
 
         /// <summary>
         /// Get information about the Runtime Environment
-        /// Azure REST API version: 2023-05-15-preview.
+        /// 
+        /// Uses Azure REST API version 2023-05-15-preview.
         /// 
         /// Other available API versions: 2024-10-23.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Automation
 
         /// <summary>
         /// Get information about the Runtime Environment
-        /// Azure REST API version: 2023-05-15-preview.
+        /// 
+        /// Uses Azure REST API version 2023-05-15-preview.
         /// 
         /// Other available API versions: 2024-10-23.
         /// </summary>

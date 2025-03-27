@@ -139,7 +139,8 @@ def get_service(resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Get service
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
     Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
 
@@ -167,7 +168,8 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Get service
-    Azure REST API version: 2023-07-01-preview.
+
+    Uses Azure REST API version 2023-07-01-preview.
 
     Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the Database Migration Service
- * Azure REST API version: 2022-03-30-preview.
+ *
+ * Uses Azure REST API version 2022-03-30-preview.
  *
  * Other available API versions: 2023-07-15-preview.
  */
@@ -53,7 +54,8 @@ export interface GetSqlMigrationServiceResult {
 }
 /**
  * Retrieve the Database Migration Service
- * Azure REST API version: 2022-03-30-preview.
+ *
+ * Uses Azure REST API version 2022-03-30-preview.
  *
  * Other available API versions: 2023-07-15-preview.
  */

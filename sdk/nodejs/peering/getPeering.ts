@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing peering with the specified name under the given subscription and resource group.
- * Azure REST API version: 2022-10-01.
+ *
+ * Uses Azure REST API version 2022-10-01.
  */
 export function getPeering(args: GetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,7 +82,8 @@ export interface GetPeeringResult {
 }
 /**
  * Gets an existing peering with the specified name under the given subscription and resource group.
- * Azure REST API version: 2022-10-01.
+ *
+ * Uses Azure REST API version 2022-10-01.
  */
 export function getPeeringOutput(args: GetPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

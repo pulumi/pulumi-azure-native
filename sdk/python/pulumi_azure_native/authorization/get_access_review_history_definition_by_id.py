@@ -270,7 +270,8 @@ def get_access_review_history_definition_by_id(history_definition_id: Optional[s
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessReviewHistoryDefinitionByIdResult:
     """
     Get access review history definition by definition Id
-    Azure REST API version: 2021-12-01-preview.
+
+    Uses Azure REST API version 2021-12-01-preview.
 
 
     :param str history_definition_id: The id of the access review history definition.
@@ -304,7 +305,8 @@ def get_access_review_history_definition_by_id_output(history_definition_id: Opt
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessReviewHistoryDefinitionByIdResult]:
     """
     Get access review history definition by definition Id
-    Azure REST API version: 2021-12-01-preview.
+
+    Uses Azure REST API version 2021-12-01-preview.
 
 
     :param str history_definition_id: The id of the access review history definition.

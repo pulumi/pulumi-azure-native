@@ -175,7 +175,8 @@ def get_prediction_model_status(hub_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPredictionModelStatusResult:
     """
     Gets model status of the prediction.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str hub_name: The name of the hub.
@@ -207,7 +208,8 @@ def get_prediction_model_status_output(hub_name: Optional[pulumi.Input[str]] = N
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPredictionModelStatusResult]:
     """
     Gets model status of the prediction.
-    Azure REST API version: 2017-04-26.
+
+    Uses Azure REST API version 2017-04-26.
 
 
     :param str hub_name: The name of the hub.

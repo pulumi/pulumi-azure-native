@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a MAK key.
- * Azure REST API version: 2019-09-16-preview.
+ *
+ * Uses Azure REST API version 2019-09-16-preview.
  */
 export function getMultipleActivationKey(args: GetMultipleActivationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetMultipleActivationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,7 +84,8 @@ export interface GetMultipleActivationKeyResult {
 }
 /**
  * Get a MAK key.
- * Azure REST API version: 2019-09-16-preview.
+ *
+ * Uses Azure REST API version 2019-09-16-preview.
  */
 export function getMultipleActivationKeyOutput(args: GetMultipleActivationKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMultipleActivationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

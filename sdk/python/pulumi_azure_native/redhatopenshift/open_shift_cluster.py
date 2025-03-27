@@ -255,7 +255,8 @@ class OpenShiftCluster(pulumi.CustomResource):
                  __props__=None):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-        Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2020-04-30.
+
+        Uses Azure REST API version 2022-09-04. In version 1.x of the Azure Native provider, it used API version 2020-04-30.
 
         Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
 
@@ -283,7 +284,8 @@ class OpenShiftCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-        Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2020-04-30.
+
+        Uses Azure REST API version 2022-09-04. In version 1.x of the Azure Native provider, it used API version 2020-04-30.
 
         Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
 

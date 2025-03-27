@@ -137,7 +137,8 @@ def get_image_definition(image_definition_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageDefinitionResult:
     """
     Get image properties under the image definition name created by test base custom image which derived from 'VHD' source.
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
 
     :param str image_definition_name: The resource name of the test base image definition.
@@ -166,7 +167,8 @@ def get_image_definition_output(image_definition_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageDefinitionResult]:
     """
     Get image properties under the image definition name created by test base custom image which derived from 'VHD' source.
-    Azure REST API version: 2023-11-01-preview.
+
+    Uses Azure REST API version 2023-11-01-preview.
 
 
     :param str image_definition_name: The resource name of the test base image definition.

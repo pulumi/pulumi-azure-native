@@ -127,7 +127,8 @@ def get_authority(authority_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorityResult:
     """
     Get a Authority
-    Azure REST API version: 2024-01-26-preview.
+
+    Uses Azure REST API version 2024-01-26-preview.
 
 
     :param str authority_name: The ID of the authority
@@ -152,7 +153,8 @@ def get_authority_output(authority_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorityResult]:
     """
     Get a Authority
-    Azure REST API version: 2024-01-26-preview.
+
+    Uses Azure REST API version 2024-01-26-preview.
 
 
     :param str authority_name: The ID of the authority

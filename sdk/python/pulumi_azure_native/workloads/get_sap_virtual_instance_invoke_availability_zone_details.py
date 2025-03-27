@@ -58,7 +58,8 @@ def get_sap_virtual_instance_invoke_availability_zone_details(app_location: Opti
                                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult:
     """
     Get the recommended SAP Availability Zone Pair Details for your region.
-    Azure REST API version: 2024-09-01.
+
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str app_location: The geo-location where the SAP resources will be created.
@@ -83,7 +84,8 @@ def get_sap_virtual_instance_invoke_availability_zone_details_output(app_locatio
                                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult]:
     """
     Get the recommended SAP Availability Zone Pair Details for your region.
-    Azure REST API version: 2024-09-01.
+
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str app_location: The geo-location where the SAP resources will be created.

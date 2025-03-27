@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Get metadata information on an assessment type in a specific subscription
-        /// Azure REST API version: 2019-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-01-01-preview.
         /// </summary>
         public static Task<GetAssessmentsMetadataSubscriptionResult> InvokeAsync(GetAssessmentsMetadataSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentsMetadataSubscriptionResult>("azure-native:security:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get metadata information on an assessment type in a specific subscription
-        /// Azure REST API version: 2019-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-01-01-preview.
         /// </summary>
         public static Output<GetAssessmentsMetadataSubscriptionResult> Invoke(GetAssessmentsMetadataSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentsMetadataSubscriptionResult>("azure-native:security:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get metadata information on an assessment type in a specific subscription
-        /// Azure REST API version: 2019-01-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-01-01-preview.
         /// </summary>
         public static Output<GetAssessmentsMetadataSubscriptionResult> Invoke(GetAssessmentsMetadataSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentsMetadataSubscriptionResult>("azure-native:security:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionInvokeArgs(), options.WithDefaults());

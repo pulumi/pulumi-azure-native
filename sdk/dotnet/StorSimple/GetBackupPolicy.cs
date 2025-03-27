@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.StorSimple
     {
         /// <summary>
         /// Gets the properties of the specified backup policy name.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:storsimple:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified backup policy name.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:storsimple:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified backup policy name.
-        /// Azure REST API version: 2017-06-01.
+        /// 
+        /// Uses Azure REST API version 2017-06-01.
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:storsimple:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());

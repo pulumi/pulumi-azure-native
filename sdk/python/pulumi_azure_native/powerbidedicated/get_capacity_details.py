@@ -199,7 +199,8 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityDetailsResult:
     """
     Gets details about the specified dedicated capacity.
-    Azure REST API version: 2021-01-01.
+
+    Uses Azure REST API version 2021-01-01.
 
 
     :param str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
@@ -230,7 +231,8 @@ def get_capacity_details_output(dedicated_capacity_name: Optional[pulumi.Input[s
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityDetailsResult]:
     """
     Gets details about the specified dedicated capacity.
-    Azure REST API version: 2021-01-01.
+
+    Uses Azure REST API version 2021-01-01.
 
 
     :param str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.

@@ -85,7 +85,8 @@ class LinkerDryrun(pulumi.CustomResource):
                  __props__=None):
         """
         a dryrun job resource
-        Azure REST API version: 2022-11-01-preview.
+
+        Uses Azure REST API version 2022-11-01-preview.
 
         Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
 
@@ -103,7 +104,8 @@ class LinkerDryrun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         a dryrun job resource
-        Azure REST API version: 2022-11-01-preview.
+
+        Uses Azure REST API version 2022-11-01-preview.
 
         Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
 

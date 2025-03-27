@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get Alias Subscription.
- * Azure REST API version: 2021-10-01.
+ *
+ * Uses Azure REST API version 2021-10-01.
  *
  * Other available API versions: 2020-09-01, 2024-08-01-preview.
  */
@@ -54,7 +55,8 @@ export interface GetAliasResult {
 }
 /**
  * Get Alias Subscription.
- * Azure REST API version: 2021-10-01.
+ *
+ * Uses Azure REST API version 2021-10-01.
  *
  * Other available API versions: 2020-09-01, 2024-08-01-preview.
  */

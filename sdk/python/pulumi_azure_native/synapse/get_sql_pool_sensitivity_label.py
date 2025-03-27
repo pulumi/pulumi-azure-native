@@ -200,7 +200,8 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolSensitivityLabelResult:
     """
     Gets the sensitivity label of a given column
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 
@@ -248,7 +249,8 @@ def get_sql_pool_sensitivity_label_output(column_name: Optional[pulumi.Input[str
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolSensitivityLabelResult]:
     """
     Gets the sensitivity label of a given column
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2021-06-01-preview.
 

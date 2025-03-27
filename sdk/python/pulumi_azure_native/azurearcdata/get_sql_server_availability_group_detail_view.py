@@ -128,7 +128,8 @@ def get_sql_server_availability_group_detail_view(availability_group_name: Optio
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerAvailabilityGroupDetailViewResult:
     """
     Retrieves detailed properties of the Availability Group.
-    Azure REST API version: 2024-01-01.
+
+    Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
 
@@ -158,7 +159,8 @@ def get_sql_server_availability_group_detail_view_output(availability_group_name
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerAvailabilityGroupDetailViewResult]:
     """
     Retrieves detailed properties of the Availability Group.
-    Azure REST API version: 2024-01-01.
+
+    Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
 

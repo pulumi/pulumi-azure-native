@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ContainerInstance
     {
         /// <summary>
         /// Gets the properties of the specified container group profile in the specified subscription and resource group. The operation returns the properties of container group profile including containers, image registry credentials, restart policy, IP address type, OS type, volumes, current revision number, etc.
-        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
         public static Task<GetContainerGroupProfileResult> InvokeAsync(GetContainerGroupProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupProfileResult>("azure-native:containerinstance:getContainerGroupProfile", args ?? new GetContainerGroupProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified container group profile in the specified subscription and resource group. The operation returns the properties of container group profile including containers, image registry credentials, restart policy, IP address type, OS type, volumes, current revision number, etc.
-        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
         public static Output<GetContainerGroupProfileResult> Invoke(GetContainerGroupProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupProfileResult>("azure-native:containerinstance:getContainerGroupProfile", args ?? new GetContainerGroupProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified container group profile in the specified subscription and resource group. The operation returns the properties of container group profile including containers, image registry credentials, restart policy, IP address type, OS type, volumes, current revision number, etc.
-        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// </summary>
         public static Output<GetContainerGroupProfileResult> Invoke(GetContainerGroupProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupProfileResult>("azure-native:containerinstance:getContainerGroupProfile", args ?? new GetContainerGroupProfileInvokeArgs(), options.WithDefaults());

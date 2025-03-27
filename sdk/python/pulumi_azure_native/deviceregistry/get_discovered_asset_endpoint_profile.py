@@ -211,7 +211,8 @@ def get_discovered_asset_endpoint_profile(discovered_asset_endpoint_profile_name
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiscoveredAssetEndpointProfileResult:
     """
     Get a DiscoveredAssetEndpointProfile
-    Azure REST API version: 2024-09-01-preview.
+
+    Uses Azure REST API version 2024-09-01-preview.
 
 
     :param str discovered_asset_endpoint_profile_name: Discovered Asset Endpoint Profile name parameter.
@@ -243,7 +244,8 @@ def get_discovered_asset_endpoint_profile_output(discovered_asset_endpoint_profi
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiscoveredAssetEndpointProfileResult]:
     """
     Get a DiscoveredAssetEndpointProfile
-    Azure REST API version: 2024-09-01-preview.
+
+    Uses Azure REST API version 2024-09-01-preview.
 
 
     :param str discovered_asset_endpoint_profile_name: Discovered Asset Endpoint Profile name parameter.

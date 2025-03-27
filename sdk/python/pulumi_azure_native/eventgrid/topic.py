@@ -229,7 +229,8 @@ class Topic(pulumi.CustomResource):
                  __props__=None):
         """
         EventGrid Topic
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
+
+        Uses Azure REST API version 2022-06-15. In version 1.x of the Azure Native provider, it used API version 2020-06-01.
 
         Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 
@@ -256,7 +257,8 @@ class Topic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid Topic
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
+
+        Uses Azure REST API version 2022-06-15. In version 1.x of the Azure Native provider, it used API version 2020-06-01.
 
         Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 

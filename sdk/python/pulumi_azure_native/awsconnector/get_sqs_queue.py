@@ -127,7 +127,8 @@ def get_sqs_queue(name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqsQueueResult:
     """
     Get a SqsQueue
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SqsQueue
@@ -152,7 +153,8 @@ def get_sqs_queue_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqsQueueResult]:
     """
     Get a SqsQueue
-    Azure REST API version: 2024-12-01.
+
+    Uses Azure REST API version 2024-12-01.
 
 
     :param str name: Name of SqsQueue

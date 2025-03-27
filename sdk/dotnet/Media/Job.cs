@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-    /// Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-05-01.
+    /// 
+    /// Uses Azure REST API version 2022-07-01. In version 1.x of the Azure Native provider, it used API version 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:Job")]
     public partial class Job : global::Pulumi.CustomResource

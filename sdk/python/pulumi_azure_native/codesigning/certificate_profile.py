@@ -211,7 +211,8 @@ class CertificateProfile(pulumi.CustomResource):
                  __props__=None):
         """
         Certificate profile resource.
-        Azure REST API version: 2024-02-05-preview.
+
+        Uses Azure REST API version 2024-02-05-preview.
 
         Other available API versions: 2024-09-30-preview.
 
@@ -236,7 +237,8 @@ class CertificateProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Certificate profile resource.
-        Azure REST API version: 2024-02-05-preview.
+
+        Uses Azure REST API version 2024-02-05-preview.
 
         Other available API versions: 2024-09-30-preview.
 

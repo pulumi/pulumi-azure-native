@@ -140,7 +140,8 @@ def get_pipeline_run(pipeline_run_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineRunResult:
     """
     Gets the detailed information for a given pipeline run.
-    Azure REST API version: 2023-01-01-preview.
+
+    Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
 
@@ -171,7 +172,8 @@ def get_pipeline_run_output(pipeline_run_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineRunResult]:
     """
     Gets the detailed information for a given pipeline run.
-    Azure REST API version: 2023-01-01-preview.
+
+    Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
 

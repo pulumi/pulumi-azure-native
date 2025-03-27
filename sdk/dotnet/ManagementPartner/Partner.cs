@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ManagementPartner
 {
     /// <summary>
     /// this is the management partner operations response
-    /// Azure REST API version: 2018-02-01. Prior API version in Azure Native 1.x: 2018-02-01.
+    /// 
+    /// Uses Azure REST API version 2018-02-01. In version 1.x of the Azure Native provider, it used API version 2018-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:managementpartner:Partner")]
     public partial class Partner : global::Pulumi.CustomResource

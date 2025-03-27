@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Edge device job for Azure Stack HCI solution.
-    /// Azure REST API version: 2024-09-01-preview.
+    /// 
+    /// Uses Azure REST API version 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:HciEdgeDeviceJob")]
     public partial class HciEdgeDeviceJob : global::Pulumi.CustomResource

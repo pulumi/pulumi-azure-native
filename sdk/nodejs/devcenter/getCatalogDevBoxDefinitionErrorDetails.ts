@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets Catalog Devbox Definition error details
- * Azure REST API version: 2023-08-01-preview.
+ *
+ * Uses Azure REST API version 2023-08-01-preview.
  *
  * Other available API versions: 2023-10-01-preview.
  */
@@ -53,7 +54,8 @@ export interface GetCatalogDevBoxDefinitionErrorDetailsResult {
 }
 /**
  * Gets Catalog Devbox Definition error details
- * Azure REST API version: 2023-08-01-preview.
+ *
+ * Uses Azure REST API version 2023-08-01-preview.
  *
  * Other available API versions: 2023-10-01-preview.
  */

@@ -139,7 +139,8 @@ def get_job(job_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Gets information about an existing job.
-    Azure REST API version: 2021-01-01.
+
+    Uses Azure REST API version 2021-01-01.
 
 
     :param str job_name: The name of the import/export job.
@@ -165,7 +166,8 @@ def get_job_output(job_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobResult]:
     """
     Gets information about an existing job.
-    Azure REST API version: 2021-01-01.
+
+    Uses Azure REST API version 2021-01-01.
 
 
     :param str job_name: The name of the import/export job.

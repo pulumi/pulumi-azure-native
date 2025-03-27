@@ -140,7 +140,8 @@ def get_hybrid_identity_metadatum(hybrid_identity_metadata_resource_name: Option
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridIdentityMetadatumResult:
     """
     Get the hybrid identity metadata proxy resource.
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2022-05-01-preview, 2023-11-15-preview, 2024-01-01.
 
@@ -171,7 +172,8 @@ def get_hybrid_identity_metadatum_output(hybrid_identity_metadata_resource_name:
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridIdentityMetadatumResult]:
     """
     Get the hybrid identity metadata proxy resource.
-    Azure REST API version: 2022-09-01-preview.
+
+    Uses Azure REST API version 2022-09-01-preview.
 
     Other available API versions: 2022-05-01-preview, 2023-11-15-preview, 2024-01-01.
 

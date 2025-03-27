@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ConnectedCache
     {
         /// <summary>
         /// This api gets secrets of the ispCacheNode resource install details
-        /// Azure REST API version: 2023-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-05-01-preview.
         /// </summary>
         public static Task<GetIspCacheNodesOperationCacheNodeInstallDetailsResult> InvokeAsync(GetIspCacheNodesOperationCacheNodeInstallDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIspCacheNodesOperationCacheNodeInstallDetailsResult>("azure-native:connectedcache:getIspCacheNodesOperationCacheNodeInstallDetails", args ?? new GetIspCacheNodesOperationCacheNodeInstallDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// This api gets secrets of the ispCacheNode resource install details
-        /// Azure REST API version: 2023-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-05-01-preview.
         /// </summary>
         public static Output<GetIspCacheNodesOperationCacheNodeInstallDetailsResult> Invoke(GetIspCacheNodesOperationCacheNodeInstallDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIspCacheNodesOperationCacheNodeInstallDetailsResult>("azure-native:connectedcache:getIspCacheNodesOperationCacheNodeInstallDetails", args ?? new GetIspCacheNodesOperationCacheNodeInstallDetailsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// This api gets secrets of the ispCacheNode resource install details
-        /// Azure REST API version: 2023-05-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-05-01-preview.
         /// </summary>
         public static Output<GetIspCacheNodesOperationCacheNodeInstallDetailsResult> Invoke(GetIspCacheNodesOperationCacheNodeInstallDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIspCacheNodesOperationCacheNodeInstallDetailsResult>("azure-native:connectedcache:getIspCacheNodesOperationCacheNodeInstallDetails", args ?? new GetIspCacheNodesOperationCacheNodeInstallDetailsInvokeArgs(), options.WithDefaults());

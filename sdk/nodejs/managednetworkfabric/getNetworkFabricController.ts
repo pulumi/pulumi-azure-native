@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Shows the provisioning status of Network Fabric Controller.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-06-15.
  */
@@ -111,7 +112,8 @@ export interface GetNetworkFabricControllerResult {
 }
 /**
  * Shows the provisioning status of Network Fabric Controller.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-06-15.
  */

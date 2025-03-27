@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DevTestLab
     {
         /// <summary>
         /// List disk images available for custom image creation.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Task<ListLabVhdsResult> InvokeAsync(ListLabVhdsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListLabVhdsResult>("azure-native:devtestlab:listLabVhds", args ?? new ListLabVhdsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List disk images available for custom image creation.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Output<ListLabVhdsResult> Invoke(ListLabVhdsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLabVhdsResult>("azure-native:devtestlab:listLabVhds", args ?? new ListLabVhdsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List disk images available for custom image creation.
-        /// Azure REST API version: 2018-09-15.
+        /// 
+        /// Uses Azure REST API version 2018-09-15.
         /// </summary>
         public static Output<ListLabVhdsResult> Invoke(ListLabVhdsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListLabVhdsResult>("azure-native:devtestlab:listLabVhds", args ?? new ListLabVhdsInvokeArgs(), options.WithDefaults());

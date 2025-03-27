@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets fleetspace resource.
- * Azure REST API version: 2025-02-01-preview.
+ *
+ * Uses Azure REST API version 2025-02-01-preview.
  */
 export function getFleetspace(args: GetFleetspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,7 +63,8 @@ export interface GetFleetspaceResult {
 }
 /**
  * Gets fleetspace resource.
- * Azure REST API version: 2025-02-01-preview.
+ *
+ * Uses Azure REST API version 2025-02-01-preview.
  */
 export function getFleetspaceOutput(args: GetFleetspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

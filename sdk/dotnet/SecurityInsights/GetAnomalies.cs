@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a setting.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// </summary>
         public static Task<GetAnomaliesResult> InvokeAsync(GetAnomaliesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAnomaliesResult>("azure-native:securityinsights:getAnomalies", args ?? new GetAnomaliesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a setting.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// </summary>
         public static Output<GetAnomaliesResult> Invoke(GetAnomaliesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnomaliesResult>("azure-native:securityinsights:getAnomalies", args ?? new GetAnomaliesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a setting.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// </summary>
         public static Output<GetAnomaliesResult> Invoke(GetAnomaliesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnomaliesResult>("azure-native:securityinsights:getAnomalies", args ?? new GetAnomaliesInvokeArgs(), options.WithDefaults());

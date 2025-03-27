@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a LogsLogGroup
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getLogsLogGroup(args: GetLogsLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogsLogGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetLogsLogGroupResult {
 }
 /**
  * Get a LogsLogGroup
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getLogsLogGroupOutput(args: GetLogsLogGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogsLogGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

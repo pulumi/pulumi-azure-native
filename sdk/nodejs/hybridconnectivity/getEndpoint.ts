@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the endpoint to the resource.
- * Azure REST API version: 2023-03-15.
+ *
+ * Uses Azure REST API version 2023-03-15.
  *
  * Other available API versions: 2022-05-01-preview, 2024-12-01.
  */
@@ -83,7 +84,8 @@ export interface GetEndpointResult {
 }
 /**
  * Gets the endpoint to the resource.
- * Azure REST API version: 2023-03-15.
+ *
+ * Uses Azure REST API version 2023-03-15.
  *
  * Other available API versions: 2022-05-01-preview, 2024-12-01.
  */

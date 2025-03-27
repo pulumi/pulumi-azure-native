@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a LambdaFunction
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetLambdaFunctionResult> InvokeAsync(GetLambdaFunctionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLambdaFunctionResult>("azure-native:awsconnector:getLambdaFunction", args ?? new GetLambdaFunctionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a LambdaFunction
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetLambdaFunctionResult> Invoke(GetLambdaFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLambdaFunctionResult>("azure-native:awsconnector:getLambdaFunction", args ?? new GetLambdaFunctionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a LambdaFunction
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetLambdaFunctionResult> Invoke(GetLambdaFunctionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLambdaFunctionResult>("azure-native:awsconnector:getLambdaFunction", args ?? new GetLambdaFunctionInvokeArgs(), options.WithDefaults());

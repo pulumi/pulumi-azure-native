@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a private link policy with a given name.
- * Azure REST API version: 2020-03-01.
+ *
+ * Uses Azure REST API version 2020-03-01.
  */
 export function getPrivateLinkForAzureAd(args: GetPrivateLinkForAzureAdArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkForAzureAdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,7 +75,8 @@ export interface GetPrivateLinkForAzureAdResult {
 }
 /**
  * Gets a private link policy with a given name.
- * Azure REST API version: 2020-03-01.
+ *
+ * Uses Azure REST API version 2020-03-01.
  */
 export function getPrivateLinkForAzureAdOutput(args: GetPrivateLinkForAzureAdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkForAzureAdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

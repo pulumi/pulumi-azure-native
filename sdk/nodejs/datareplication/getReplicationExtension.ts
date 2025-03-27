@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the replication extension.
- * Azure REST API version: 2021-02-16-preview.
+ *
+ * Uses Azure REST API version 2021-02-16-preview.
  *
  * Other available API versions: 2024-09-01.
  */
@@ -61,7 +62,8 @@ export interface GetReplicationExtensionResult {
 }
 /**
  * Gets the details of the replication extension.
- * Azure REST API version: 2021-02-16-preview.
+ *
+ * Uses Azure REST API version 2021-02-16-preview.
  *
  * Other available API versions: 2024-09-01.
  */

@@ -140,7 +140,8 @@ def get_java_component(environment_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJavaComponentResult:
     """
     Java Component.
-    Azure REST API version: 2023-11-02-preview.
+
+    Uses Azure REST API version 2023-11-02-preview.
 
     Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
 
@@ -171,7 +172,8 @@ def get_java_component_output(environment_name: Optional[pulumi.Input[str]] = No
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJavaComponentResult]:
     """
     Java Component.
-    Azure REST API version: 2023-11-02-preview.
+
+    Uses Azure REST API version 2023-11-02-preview.
 
     Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
 

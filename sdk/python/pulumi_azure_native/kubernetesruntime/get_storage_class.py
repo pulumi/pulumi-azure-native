@@ -235,7 +235,8 @@ def get_storage_class(resource_uri: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageClassResult:
     """
     Get a StorageClassResource
-    Azure REST API version: 2024-03-01.
+
+    Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2023-10-01-preview.
 
@@ -271,7 +272,8 @@ def get_storage_class_output(resource_uri: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageClassResult]:
     """
     Get a StorageClassResource
-    Azure REST API version: 2024-03-01.
+
+    Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2023-10-01-preview.
 

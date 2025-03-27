@@ -154,7 +154,8 @@ def get_kusto_database_data_set(account_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKustoDatabaseDataSetResult:
     """
     Get a DataSet in a share
-    Azure REST API version: 2021-08-01.
+
+    Uses Azure REST API version 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -187,7 +188,8 @@ def get_kusto_database_data_set_output(account_name: Optional[pulumi.Input[str]]
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKustoDatabaseDataSetResult]:
     """
     Get a DataSet in a share
-    Azure REST API version: 2021-08-01.
+
+    Uses Azure REST API version 2021-08-01.
 
 
     :param str account_name: The name of the share account.

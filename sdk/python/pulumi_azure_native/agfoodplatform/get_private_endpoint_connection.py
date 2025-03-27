@@ -140,7 +140,8 @@ def get_private_endpoint_connection(data_manager_for_agriculture_resource_name: 
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Get Private endpoint connection object.
-    Azure REST API version: 2023-06-01-preview.
+
+    Uses Azure REST API version 2023-06-01-preview.
 
     Other available API versions: 2021-09-01-preview.
 
@@ -171,7 +172,8 @@ def get_private_endpoint_connection_output(data_manager_for_agriculture_resource
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get Private endpoint connection object.
-    Azure REST API version: 2023-06-01-preview.
+
+    Uses Azure REST API version 2023-06-01-preview.
 
     Other available API versions: 2021-09-01-preview.
 

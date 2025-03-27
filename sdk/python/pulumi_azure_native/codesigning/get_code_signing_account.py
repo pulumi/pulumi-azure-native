@@ -151,7 +151,8 @@ def get_code_signing_account(account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCodeSigningAccountResult:
     """
     Get a trusted Signing Account.
-    Azure REST API version: 2024-02-05-preview.
+
+    Uses Azure REST API version 2024-02-05-preview.
 
     Other available API versions: 2024-09-30-preview.
 
@@ -180,7 +181,8 @@ def get_code_signing_account_output(account_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeSigningAccountResult]:
     """
     Get a trusted Signing Account.
-    Azure REST API version: 2024-02-05-preview.
+
+    Uses Azure REST API version 2024-02-05-preview.
 
     Other available API versions: 2024-09-30-preview.
 

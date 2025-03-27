@@ -130,7 +130,8 @@ def get_connector(cluster_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
     Details of connector record
-    Azure REST API version: 2024-07-01.
+
+    Uses Azure REST API version 2024-07-01.
 
 
     :param str cluster_id: Confluent kafka or schema registry cluster id
@@ -164,7 +165,8 @@ def get_connector_output(cluster_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Details of connector record
-    Azure REST API version: 2024-07-01.
+
+    Uses Azure REST API version 2024-07-01.
 
 
     :param str cluster_id: Confluent kafka or schema registry cluster id

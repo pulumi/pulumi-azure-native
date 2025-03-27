@@ -55,7 +55,8 @@ def get_solution_config(migrate_project_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionConfigResult:
     """
     Class representing the config for the solution in the migrate project.
-    Azure REST API version: 2018-09-01-preview.
+
+    Uses Azure REST API version 2018-09-01-preview.
 
 
     :param str migrate_project_name: Name of the Azure Migrate project.
@@ -77,7 +78,8 @@ def get_solution_config_output(migrate_project_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionConfigResult]:
     """
     Class representing the config for the solution in the migrate project.
-    Azure REST API version: 2018-09-01-preview.
+
+    Uses Azure REST API version 2018-09-01-preview.
 
 
     :param str migrate_project_name: Name of the Azure Migrate project.

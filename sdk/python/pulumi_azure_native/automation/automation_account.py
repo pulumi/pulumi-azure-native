@@ -204,7 +204,8 @@ class AutomationAccount(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the automation account type.
-        Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22.
+
+        Uses Azure REST API version 2022-08-08. In version 1.x of the Azure Native provider, it used API version 2021-06-22.
 
         Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
 
@@ -229,7 +230,8 @@ class AutomationAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the automation account type.
-        Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22.
+
+        Uses Azure REST API version 2022-08-08. In version 1.x of the Azure Native provider, it used API version 2021-06-22.
 
         Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
 

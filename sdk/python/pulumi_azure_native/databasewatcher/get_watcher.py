@@ -163,7 +163,8 @@ def get_watcher(resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatcherResult:
     """
     Get a Watcher
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
 
@@ -193,7 +194,8 @@ def get_watcher_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWatcherResult]:
     """
     Get a Watcher
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
 

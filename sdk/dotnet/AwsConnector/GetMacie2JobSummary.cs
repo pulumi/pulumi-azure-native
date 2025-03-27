@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a Macie2JobSummary
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetMacie2JobSummaryResult> InvokeAsync(GetMacie2JobSummaryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMacie2JobSummaryResult>("azure-native:awsconnector:getMacie2JobSummary", args ?? new GetMacie2JobSummaryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Macie2JobSummary
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetMacie2JobSummaryResult> Invoke(GetMacie2JobSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMacie2JobSummaryResult>("azure-native:awsconnector:getMacie2JobSummary", args ?? new GetMacie2JobSummaryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Macie2JobSummary
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetMacie2JobSummaryResult> Invoke(GetMacie2JobSummaryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMacie2JobSummaryResult>("azure-native:awsconnector:getMacie2JobSummary", args ?? new GetMacie2JobSummaryInvokeArgs(), options.WithDefaults());

@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Returns report of quotas for the volume
-        /// Azure REST API version: 2024-03-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-03-01-preview.
         /// 
         /// Other available API versions: 2024-05-01-preview, 2024-07-01-preview, 2024-09-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.NetApp
 
         /// <summary>
         /// Returns report of quotas for the volume
-        /// Azure REST API version: 2024-03-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-03-01-preview.
         /// 
         /// Other available API versions: 2024-05-01-preview, 2024-07-01-preview, 2024-09-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.NetApp
 
         /// <summary>
         /// Returns report of quotas for the volume
-        /// Azure REST API version: 2024-03-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-03-01-preview.
         /// 
         /// Other available API versions: 2024-05-01-preview, 2024-07-01-preview, 2024-09-01-preview.
         /// </summary>

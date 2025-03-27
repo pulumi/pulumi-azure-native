@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a S3AccessPoint
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetS3AccessPointResult> InvokeAsync(GetS3AccessPointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetS3AccessPointResult>("azure-native:awsconnector:getS3AccessPoint", args ?? new GetS3AccessPointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a S3AccessPoint
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetS3AccessPointResult> Invoke(GetS3AccessPointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetS3AccessPointResult>("azure-native:awsconnector:getS3AccessPoint", args ?? new GetS3AccessPointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a S3AccessPoint
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetS3AccessPointResult> Invoke(GetS3AccessPointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetS3AccessPointResult>("azure-native:awsconnector:getS3AccessPoint", args ?? new GetS3AccessPointInvokeArgs(), options.WithDefaults());

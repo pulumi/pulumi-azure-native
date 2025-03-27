@@ -225,7 +225,8 @@ def get_gen1_environment(environment_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGen1EnvironmentResult:
     """
     Gets the environment with the specified name in the specified subscription and resource group.
-    Azure REST API version: 2020-05-15.
+
+    Uses Azure REST API version 2020-05-15.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
@@ -261,7 +262,8 @@ def get_gen1_environment_output(environment_name: Optional[pulumi.Input[str]] = 
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGen1EnvironmentResult]:
     """
     Gets the environment with the specified name in the specified subscription and resource group.
-    Azure REST API version: 2020-05-15.
+
+    Uses Azure REST API version 2020-05-15.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.

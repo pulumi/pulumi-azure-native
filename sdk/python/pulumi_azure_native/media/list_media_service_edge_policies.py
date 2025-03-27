@@ -50,7 +50,8 @@ def list_media_service_edge_policies(account_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMediaServiceEdgePoliciesResult:
     """
     List all the media edge policies associated with the Media Services account.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -72,7 +73,8 @@ def list_media_service_edge_policies_output(account_name: Optional[pulumi.Input[
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMediaServiceEdgePoliciesResult]:
     """
     List all the media edge policies associated with the Media Services account.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

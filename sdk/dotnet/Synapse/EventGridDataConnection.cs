@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing an Event Grid data connection.
-    /// Azure REST API version: 2021-06-01-preview.
+    /// 
+    /// Uses Azure REST API version 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:EventGridDataConnection")]
     public partial class EventGridDataConnection : global::Pulumi.CustomResource

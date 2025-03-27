@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Azure dedicated HSM.
- * Azure REST API version: 2021-11-30.
+ *
+ * Uses Azure REST API version 2021-11-30.
  *
  * Other available API versions: 2024-06-30-preview.
  */
@@ -91,7 +92,8 @@ export interface GetDedicatedHsmResult {
 }
 /**
  * Gets the specified Azure dedicated HSM.
- * Azure REST API version: 2021-11-30.
+ *
+ * Uses Azure REST API version 2021-11-30.
  *
  * Other available API versions: 2024-06-30-preview.
  */

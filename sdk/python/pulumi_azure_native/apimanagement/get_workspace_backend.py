@@ -210,7 +210,8 @@ def get_workspace_backend(backend_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceBackendResult:
     """
     Gets the details of the backend specified by its identifier.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-05-01, 2024-06-01-preview.
 
@@ -250,7 +251,8 @@ def get_workspace_backend_output(backend_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceBackendResult]:
     """
     Gets the details of the backend specified by its identifier.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-05-01, 2024-06-01-preview.
 

@@ -127,7 +127,8 @@ def get_map(map_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMapResult:
     """
     Get a MapsResource
-    Azure REST API version: 2025-01-31-preview.
+
+    Uses Azure REST API version 2025-01-31-preview.
 
 
     :param str map_name: Maps resource name
@@ -152,7 +153,8 @@ def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMapResult]:
     """
     Get a MapsResource
-    Azure REST API version: 2025-01-31-preview.
+
+    Uses Azure REST API version 2025-01-31-preview.
 
 
     :param str map_name: Maps resource name

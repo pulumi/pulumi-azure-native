@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Description for This is to allow calling via powershell and ARM template.
- * Azure REST API version: 2022-09-01.
+ *
+ * Uses Azure REST API version 2022-09-01.
  *
  * Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
@@ -49,7 +50,8 @@ export interface ListWebAppSyncFunctionTriggersSlotResult {
 }
 /**
  * Description for This is to allow calling via powershell and ARM template.
- * Azure REST API version: 2022-09-01.
+ *
+ * Uses Azure REST API version 2022-09-01.
  *
  * Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */

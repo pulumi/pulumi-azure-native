@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a configuration of server.
- * Azure REST API version: 2022-01-01.
+ *
+ * Uses Azure REST API version 2022-01-01.
  *
  * Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview, 2023-06-30, 2023-12-30.
  */
@@ -104,7 +105,8 @@ export interface GetConfigurationResult {
 }
 /**
  * Gets information about a configuration of server.
- * Azure REST API version: 2022-01-01.
+ *
+ * Uses Azure REST API version 2022-01-01.
  *
  * Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview, 2023-06-30, 2023-12-30.
  */

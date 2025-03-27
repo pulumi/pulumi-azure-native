@@ -105,7 +105,8 @@ def list_notification_hub_keys(authorization_rule_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNotificationHubKeysResult:
     """
     Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
-    Azure REST API version: 2023-01-01-preview.
+
+    Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
 
@@ -136,7 +137,8 @@ def list_notification_hub_keys_output(authorization_rule_name: Optional[pulumi.I
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNotificationHubKeysResult]:
     """
     Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
-    Azure REST API version: 2023-01-01-preview.
+
+    Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
 

@@ -252,7 +252,8 @@ def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[s
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentMetadataInSubscriptionResult:
     """
     Get metadata information on an assessment type in a specific subscription
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
 
     :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
@@ -286,7 +287,8 @@ def get_assessment_metadata_in_subscription_output(assessment_metadata_name: Opt
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentMetadataInSubscriptionResult]:
     """
     Get metadata information on an assessment type in a specific subscription
-    Azure REST API version: 2021-06-01.
+
+    Uses Azure REST API version 2021-06-01.
 
 
     :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// Get the action request under the specified test base account.
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Task<GetActionRequestResult> InvokeAsync(GetActionRequestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionRequestResult>("azure-native:testbase:getActionRequest", args ?? new GetActionRequestArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the action request under the specified test base account.
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Output<GetActionRequestResult> Invoke(GetActionRequestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionRequestResult>("azure-native:testbase:getActionRequest", args ?? new GetActionRequestInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the action request under the specified test base account.
-        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// </summary>
         public static Output<GetActionRequestResult> Invoke(GetActionRequestInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionRequestResult>("azure-native:testbase:getActionRequest", args ?? new GetActionRequestInvokeArgs(), options.WithDefaults());

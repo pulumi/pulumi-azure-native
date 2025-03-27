@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a Ec2RouteTable
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetEc2RouteTableResult> InvokeAsync(GetEc2RouteTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEc2RouteTableResult>("azure-native:awsconnector:getEc2RouteTable", args ?? new GetEc2RouteTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2RouteTable
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2RouteTableResult> Invoke(GetEc2RouteTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2RouteTableResult>("azure-native:awsconnector:getEc2RouteTable", args ?? new GetEc2RouteTableInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Ec2RouteTable
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetEc2RouteTableResult> Invoke(GetEc2RouteTableInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2RouteTableResult>("azure-native:awsconnector:getEc2RouteTable", args ?? new GetEc2RouteTableInvokeArgs(), options.WithDefaults());

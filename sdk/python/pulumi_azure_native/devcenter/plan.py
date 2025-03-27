@@ -119,7 +119,8 @@ class Plan(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a devcenter plan resource.
-        Azure REST API version: 2024-05-01-preview.
+
+        Uses Azure REST API version 2024-05-01-preview.
 
         Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
@@ -139,7 +140,8 @@ class Plan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a devcenter plan resource.
-        Azure REST API version: 2024-05-01-preview.
+
+        Uses Azure REST API version 2024-05-01-preview.
 
         Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 

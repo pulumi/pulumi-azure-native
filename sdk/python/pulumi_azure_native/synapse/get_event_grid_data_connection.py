@@ -227,7 +227,8 @@ def get_event_grid_data_connection(data_connection_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventGridDataConnectionResult:
     """
     Returns a data connection.
-    Azure REST API version: 2021-06-01-preview.
+
+    Uses Azure REST API version 2021-06-01-preview.
 
 
     :param str data_connection_name: The name of the data connection.
@@ -269,7 +270,8 @@ def get_event_grid_data_connection_output(data_connection_name: Optional[pulumi.
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventGridDataConnectionResult]:
     """
     Returns a data connection.
-    Azure REST API version: 2021-06-01-preview.
+
+    Uses Azure REST API version 2021-06-01-preview.
 
 
     :param str data_connection_name: The name of the data connection.

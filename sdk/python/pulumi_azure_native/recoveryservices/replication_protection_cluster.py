@@ -133,7 +133,8 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
                  __props__=None):
         """
         Replication protection Cluster.
-        Azure REST API version: 2024-02-01.
+
+        Uses Azure REST API version 2024-02-01.
 
         Other available API versions: 2024-04-01, 2024-10-01.
 
@@ -154,7 +155,8 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Replication protection Cluster.
-        Azure REST API version: 2024-02-01.
+
+        Uses Azure REST API version 2024-02-01.
 
         Other available API versions: 2024-04-01, 2024-10-01.
 

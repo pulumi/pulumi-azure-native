@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SqlDiscoverySiteDataSource
- * Azure REST API version: 2023-06-06.
+ *
+ * Uses Azure REST API version 2023-06-06.
  *
  * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
  */
@@ -73,7 +74,8 @@ export interface GetSqlDiscoverySiteDataSourceControllerResult {
 }
 /**
  * Get a SqlDiscoverySiteDataSource
- * Azure REST API version: 2023-06-06.
+ *
+ * Uses Azure REST API version 2023-06-06.
  *
  * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
  */

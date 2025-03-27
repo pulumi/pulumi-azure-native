@@ -175,7 +175,8 @@ def get_spacecraft(resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpacecraftResult:
     """
     Gets the specified spacecraft in a specified resource group.
-    Azure REST API version: 2022-11-01.
+
+    Uses Azure REST API version 2022-11-01.
 
     Other available API versions: 2022-03-01.
 
@@ -206,7 +207,8 @@ def get_spacecraft_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpacecraftResult]:
     """
     Gets the specified spacecraft in a specified resource group.
-    Azure REST API version: 2022-11-01.
+
+    Uses Azure REST API version 2022-11-01.
 
     Other available API versions: 2022-03-01.
 

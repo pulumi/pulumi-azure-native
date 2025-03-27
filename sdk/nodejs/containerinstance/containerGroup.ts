@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A container group.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
+ *
+ * Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
  *
  * Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
  */

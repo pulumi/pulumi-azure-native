@@ -284,7 +284,8 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
     Retrieves information about a gallery image definition.
-    Azure REST API version: 2022-03-03.
+
+    Uses Azure REST API version 2022-03-03.
 
     Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
 
@@ -327,7 +328,8 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryImageResult]:
     """
     Retrieves information about a gallery image definition.
-    Azure REST API version: 2022-03-03.
+
+    Uses Azure REST API version 2022-03-03.
 
     Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
 

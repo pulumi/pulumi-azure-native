@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Interface endpoint resource.
- * Azure REST API version: 2019-02-01.
+ *
+ * Uses Azure REST API version 2019-02-01.
  */
 export class InterfaceEndpoint extends pulumi.CustomResource {
     /**

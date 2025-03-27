@@ -140,7 +140,8 @@ def get_business_case_operation(business_case_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBusinessCaseOperationResult:
     """
     Get a BusinessCase
-    Azure REST API version: 2023-04-01-preview.
+
+    Uses Azure REST API version 2023-04-01-preview.
 
     Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
 
@@ -171,7 +172,8 @@ def get_business_case_operation_output(business_case_name: Optional[pulumi.Input
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessCaseOperationResult]:
     """
     Get a BusinessCase
-    Azure REST API version: 2023-04-01-preview.
+
+    Uses Azure REST API version 2023-04-01-preview.
 
     Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
 

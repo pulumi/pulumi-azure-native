@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Gets a Kusto pool.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Task<GetKustoPoolResult> InvokeAsync(GetKustoPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolResult>("azure-native:synapse:getKustoPool", args ?? new GetKustoPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Kusto pool.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Output<GetKustoPoolResult> Invoke(GetKustoPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolResult>("azure-native:synapse:getKustoPool", args ?? new GetKustoPoolInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Kusto pool.
-        /// Azure REST API version: 2021-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-06-01-preview.
         /// </summary>
         public static Output<GetKustoPoolResult> Invoke(GetKustoPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolResult>("azure-native:synapse:getKustoPool", args ?? new GetKustoPoolInvokeArgs(), options.WithDefaults());

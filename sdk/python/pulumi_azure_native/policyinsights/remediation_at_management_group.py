@@ -203,7 +203,8 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
                  __props__=None):
         """
         The remediation definition.
-        Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2019-07-01.
+
+        Uses Azure REST API version 2021-10-01. In version 1.x of the Azure Native provider, it used API version 2019-07-01.
 
         Other available API versions: 2024-10-01.
 
@@ -228,7 +229,8 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The remediation definition.
-        Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2019-07-01.
+
+        Uses Azure REST API version 2021-10-01. In version 1.x of the Azure Native provider, it used API version 2019-07-01.
 
         Other available API versions: 2024-10-01.
 

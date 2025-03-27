@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Implements IP Extended Community GET method.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-06-15.
  */
@@ -79,7 +80,8 @@ export interface GetIpExtendedCommunityResult {
 }
 /**
  * Implements IP Extended Community GET method.
- * Azure REST API version: 2023-02-01-preview.
+ *
+ * Uses Azure REST API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-06-15.
  */

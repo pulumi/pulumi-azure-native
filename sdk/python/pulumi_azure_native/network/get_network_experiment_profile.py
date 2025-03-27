@@ -138,7 +138,8 @@ def get_network_experiment_profile(profile_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkExperimentProfileResult:
     """
     Defines an Network Experiment Profile and lists of Experiments
-    Azure REST API version: 2019-11-01.
+
+    Uses Azure REST API version 2019-11-01.
 
 
     :param str profile_name: The Profile identifier associated with the Tenant and Partner
@@ -164,7 +165,8 @@ def get_network_experiment_profile_output(profile_name: Optional[pulumi.Input[st
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkExperimentProfileResult]:
     """
     Defines an Network Experiment Profile and lists of Experiments
-    Azure REST API version: 2019-11-01.
+
+    Uses Azure REST API version 2019-11-01.
 
 
     :param str profile_name: The Profile identifier associated with the Tenant and Partner

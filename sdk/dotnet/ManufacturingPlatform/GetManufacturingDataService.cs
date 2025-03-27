@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ManufacturingPlatform
     {
         /// <summary>
         /// Get a MdsResource
-        /// Azure REST API version: 2025-03-01.
+        /// 
+        /// Uses Azure REST API version 2025-03-01.
         /// </summary>
         public static Task<GetManufacturingDataServiceResult> InvokeAsync(GetManufacturingDataServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManufacturingDataServiceResult>("azure-native:manufacturingplatform:getManufacturingDataService", args ?? new GetManufacturingDataServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a MdsResource
-        /// Azure REST API version: 2025-03-01.
+        /// 
+        /// Uses Azure REST API version 2025-03-01.
         /// </summary>
         public static Output<GetManufacturingDataServiceResult> Invoke(GetManufacturingDataServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManufacturingDataServiceResult>("azure-native:manufacturingplatform:getManufacturingDataService", args ?? new GetManufacturingDataServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a MdsResource
-        /// Azure REST API version: 2025-03-01.
+        /// 
+        /// Uses Azure REST API version 2025-03-01.
         /// </summary>
         public static Output<GetManufacturingDataServiceResult> Invoke(GetManufacturingDataServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManufacturingDataServiceResult>("azure-native:manufacturingplatform:getManufacturingDataService", args ?? new GetManufacturingDataServiceInvokeArgs(), options.WithDefaults());

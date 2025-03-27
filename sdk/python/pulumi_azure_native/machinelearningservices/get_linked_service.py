@@ -116,7 +116,8 @@ def get_linked_service(link_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServiceResult:
     """
     Get the detail of a linked service.
-    Azure REST API version: 2020-09-01-preview.
+
+    Uses Azure REST API version 2020-09-01-preview.
 
 
     :param str link_name: Friendly name of the linked workspace
@@ -143,7 +144,8 @@ def get_linked_service_output(link_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedServiceResult]:
     """
     Get the detail of a linked service.
-    Azure REST API version: 2020-09-01-preview.
+
+    Uses Azure REST API version 2020-09-01-preview.
 
 
     :param str link_name: Friendly name of the linked workspace

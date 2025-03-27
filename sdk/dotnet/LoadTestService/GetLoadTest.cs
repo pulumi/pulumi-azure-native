@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.LoadTestService
     {
         /// <summary>
         /// Get a LoadTestResource
-        /// Azure REST API version: 2022-12-01.
+        /// 
+        /// Uses Azure REST API version 2022-12-01.
         /// 
         /// Other available API versions: 2021-12-01-preview, 2023-12-01-preview, 2024-12-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.LoadTestService
 
         /// <summary>
         /// Get a LoadTestResource
-        /// Azure REST API version: 2022-12-01.
+        /// 
+        /// Uses Azure REST API version 2022-12-01.
         /// 
         /// Other available API versions: 2021-12-01-preview, 2023-12-01-preview, 2024-12-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.LoadTestService
 
         /// <summary>
         /// Get a LoadTestResource
-        /// Azure REST API version: 2022-12-01.
+        /// 
+        /// Uses Azure REST API version 2022-12-01.
         /// 
         /// Other available API versions: 2021-12-01-preview, 2023-12-01-preview, 2024-12-01-preview.
         /// </summary>

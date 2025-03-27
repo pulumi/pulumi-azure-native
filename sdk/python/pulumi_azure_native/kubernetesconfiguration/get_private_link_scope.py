@@ -127,7 +127,8 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkScopeResult:
     """
     Returns a Azure Arc PrivateLinkScope.
-    Azure REST API version: 2022-04-02-preview.
+
+    Uses Azure REST API version 2022-04-02-preview.
 
     Other available API versions: 2024-11-01-preview.
 
@@ -154,7 +155,8 @@ def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkScopeResult]:
     """
     Returns a Azure Arc PrivateLinkScope.
-    Azure REST API version: 2022-04-02-preview.
+
+    Uses Azure REST API version 2022-04-02-preview.
 
     Other available API versions: 2024-11-01-preview.
 

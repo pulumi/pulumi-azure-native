@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// Product serial and status for the service
-        /// Azure REST API version: 2024-02-07-preview.
+        /// 
+        /// Uses Azure REST API version 2024-02-07-preview.
         /// 
         /// Other available API versions: 2025-02-06-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Cloudngfw
 
         /// <summary>
         /// Product serial and status for the service
-        /// Azure REST API version: 2024-02-07-preview.
+        /// 
+        /// Uses Azure REST API version 2024-02-07-preview.
         /// 
         /// Other available API versions: 2025-02-06-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Cloudngfw
 
         /// <summary>
         /// Product serial and status for the service
-        /// Azure REST API version: 2024-02-07-preview.
+        /// 
+        /// Uses Azure REST API version 2024-02-07-preview.
         /// 
         /// Other available API versions: 2025-02-06-preview.
         /// </summary>

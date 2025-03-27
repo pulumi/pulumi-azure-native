@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.CustomerInsights
     {
         /// <summary>
         /// Gets a connector mapping in the connector.
-        /// Azure REST API version: 2017-04-26.
+        /// 
+        /// Uses Azure REST API version 2017-04-26.
         /// </summary>
         public static Task<GetConnectorMappingResult> InvokeAsync(GetConnectorMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorMappingResult>("azure-native:customerinsights:getConnectorMapping", args ?? new GetConnectorMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a connector mapping in the connector.
-        /// Azure REST API version: 2017-04-26.
+        /// 
+        /// Uses Azure REST API version 2017-04-26.
         /// </summary>
         public static Output<GetConnectorMappingResult> Invoke(GetConnectorMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorMappingResult>("azure-native:customerinsights:getConnectorMapping", args ?? new GetConnectorMappingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a connector mapping in the connector.
-        /// Azure REST API version: 2017-04-26.
+        /// 
+        /// Uses Azure REST API version 2017-04-26.
         /// </summary>
         public static Output<GetConnectorMappingResult> Invoke(GetConnectorMappingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorMappingResult>("azure-native:customerinsights:getConnectorMapping", args ?? new GetConnectorMappingInvokeArgs(), options.WithDefaults());

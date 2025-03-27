@@ -140,7 +140,8 @@ def get_notification_hub(namespace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationHubResult:
     """
     Notification Hub Resource.
-    Azure REST API version: 2023-01-01-preview.
+
+    Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
 
@@ -171,7 +172,8 @@ def get_notification_hub_output(namespace_name: Optional[pulumi.Input[str]] = No
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationHubResult]:
     """
     Notification Hub Resource.
-    Azure REST API version: 2023-01-01-preview.
+
+    Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
 

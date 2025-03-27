@@ -175,7 +175,8 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     Gets the endpoint to the resource.
-    Azure REST API version: 2023-03-15.
+
+    Uses Azure REST API version 2023-03-15.
 
     Other available API versions: 2022-05-01-preview, 2024-12-01.
 
@@ -206,7 +207,8 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets the endpoint to the resource.
-    Azure REST API version: 2023-03-15.
+
+    Uses Azure REST API version 2023-03-15.
 
     Other available API versions: 2022-05-01-preview, 2024-12-01.
 

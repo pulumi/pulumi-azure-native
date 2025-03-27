@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get the keys to use with the Quantum APIs. A key is used to authenticate and authorize access to the Quantum REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
- * Azure REST API version: 2023-11-13-preview.
+ *
+ * Uses Azure REST API version 2023-11-13-preview.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,7 +58,8 @@ export interface ListWorkspaceKeysResult {
 }
 /**
  * Get the keys to use with the Quantum APIs. A key is used to authenticate and authorize access to the Quantum REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
- * Azure REST API version: 2023-11-13-preview.
+ *
+ * Uses Azure REST API version 2023-11-13-preview.
  */
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Job resource payload
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  */
 export class Job extends pulumi.CustomResource {
     /**

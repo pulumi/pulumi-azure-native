@@ -188,7 +188,8 @@ def get_storage_account_credential(device_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountCredentialResult:
     """
     Gets the properties of the specified storage account credential.
-    Azure REST API version: 2022-03-01.
+
+    Uses Azure REST API version 2022-03-01.
 
     Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
@@ -223,7 +224,8 @@ def get_storage_account_credential_output(device_name: Optional[pulumi.Input[str
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageAccountCredentialResult]:
     """
     Gets the properties of the specified storage account credential.
-    Azure REST API version: 2022-03-01.
+
+    Uses Azure REST API version 2022-03-01.
 
     Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
 

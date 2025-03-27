@@ -67,7 +67,8 @@ def get_trigger_event_subscription_status(factory_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTriggerEventSubscriptionStatusResult:
     """
     Get a trigger's event subscription status.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str factory_name: The factory name.
@@ -90,7 +91,8 @@ def get_trigger_event_subscription_status_output(factory_name: Optional[pulumi.I
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTriggerEventSubscriptionStatusResult]:
     """
     Get a trigger's event subscription status.
-    Azure REST API version: 2018-06-01.
+
+    Uses Azure REST API version 2018-06-01.
 
 
     :param str factory_name: The factory name.

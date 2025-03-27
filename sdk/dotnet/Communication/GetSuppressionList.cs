@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Communication
     {
         /// <summary>
         /// Get a SuppressionList resource.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
         /// Other available API versions: 2024-09-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Communication
 
         /// <summary>
         /// Get a SuppressionList resource.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
         /// Other available API versions: 2024-09-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Communication
 
         /// <summary>
         /// Get a SuppressionList resource.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
         /// Other available API versions: 2024-09-01-preview.
         /// </summary>

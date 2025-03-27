@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
-        /// Azure REST API version: 2024-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// 
         /// Other available API versions: 2021-06-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ServiceFabric
 
         /// <summary>
         /// Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
-        /// Azure REST API version: 2024-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// 
         /// Other available API versions: 2021-06-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.ServiceFabric
 
         /// <summary>
         /// Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
-        /// Azure REST API version: 2024-11-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// 
         /// Other available API versions: 2021-06-01.
         /// </summary>

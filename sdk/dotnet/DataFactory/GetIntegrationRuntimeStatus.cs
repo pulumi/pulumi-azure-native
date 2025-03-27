@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DataFactory
     {
         /// <summary>
         /// Gets detailed status information for an integration runtime.
-        /// Azure REST API version: 2018-06-01.
+        /// 
+        /// Uses Azure REST API version 2018-06-01.
         /// </summary>
         public static Task<GetIntegrationRuntimeStatusResult> InvokeAsync(GetIntegrationRuntimeStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeStatusResult>("azure-native:datafactory:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets detailed status information for an integration runtime.
-        /// Azure REST API version: 2018-06-01.
+        /// 
+        /// Uses Azure REST API version 2018-06-01.
         /// </summary>
         public static Output<GetIntegrationRuntimeStatusResult> Invoke(GetIntegrationRuntimeStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeStatusResult>("azure-native:datafactory:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets detailed status information for an integration runtime.
-        /// Azure REST API version: 2018-06-01.
+        /// 
+        /// Uses Azure REST API version 2018-06-01.
         /// </summary>
         public static Output<GetIntegrationRuntimeStatusResult> Invoke(GetIntegrationRuntimeStatusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeStatusResult>("azure-native:datafactory:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusInvokeArgs(), options.WithDefaults());

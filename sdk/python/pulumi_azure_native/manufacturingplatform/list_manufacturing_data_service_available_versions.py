@@ -55,7 +55,8 @@ def list_manufacturing_data_service_available_versions(mds_resource_name: Option
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManufacturingDataServiceAvailableVersionsResult:
     """
     Returns the list of available versions
-    Azure REST API version: 2025-03-01.
+
+    Uses Azure REST API version 2025-03-01.
 
 
     :param str mds_resource_name: Name.
@@ -74,7 +75,8 @@ def list_manufacturing_data_service_available_versions_output(mds_resource_name:
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListManufacturingDataServiceAvailableVersionsResult]:
     """
     Returns the list of available versions
-    Azure REST API version: 2025-03-01.
+
+    Uses Azure REST API version 2025-03-01.
 
 
     :param str mds_resource_name: Name.

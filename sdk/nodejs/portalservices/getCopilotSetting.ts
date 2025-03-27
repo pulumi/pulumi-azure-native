@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a CopilotSettingsResource
- * Azure REST API version: 2024-04-01-preview.
+ *
+ * Uses Azure REST API version 2024-04-01-preview.
  *
  * Other available API versions: 2024-04-01.
  */
@@ -54,7 +55,8 @@ export interface GetCopilotSettingResult {
 }
 /**
  * Get a CopilotSettingsResource
- * Azure REST API version: 2024-04-01-preview.
+ *
+ * Uses Azure REST API version 2024-04-01-preview.
  *
  * Other available API versions: 2024-04-01.
  */

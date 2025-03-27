@@ -115,7 +115,8 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessControlRecordResult:
     """
     Returns the properties of the specified access control record name.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str access_control_record_name: Name of access control record to be fetched.
@@ -142,7 +143,8 @@ def get_access_control_record_output(access_control_record_name: Optional[pulumi
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessControlRecordResult]:
     """
     Returns the properties of the specified access control record name.
-    Azure REST API version: 2017-06-01.
+
+    Uses Azure REST API version 2017-06-01.
 
 
     :param str access_control_record_name: Name of access control record to be fetched.

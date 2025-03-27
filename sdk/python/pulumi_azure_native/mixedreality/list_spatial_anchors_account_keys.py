@@ -72,7 +72,8 @@ def list_spatial_anchors_account_keys(account_name: Optional[str] = None,
     > The Mixed Reality service is now deprecated and will be retired.
 
      List Both of the 2 Keys of a Spatial Anchors Account
-    Azure REST API version: 2021-01-01.
+
+    Uses Azure REST API version 2021-01-01.
 
     Other available API versions: 2021-03-01-preview.
 
@@ -100,7 +101,8 @@ def list_spatial_anchors_account_keys_output(account_name: Optional[pulumi.Input
     > The Mixed Reality service is now deprecated and will be retired.
 
      List Both of the 2 Keys of a Spatial Anchors Account
-    Azure REST API version: 2021-01-01.
+
+    Uses Azure REST API version 2021-01-01.
 
     Other available API versions: 2021-03-01-preview.
 

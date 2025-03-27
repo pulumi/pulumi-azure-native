@@ -118,7 +118,8 @@ class Mq(pulumi.CustomResource):
                  __props__=None):
         """
         MQ resource
-        Azure REST API version: 2023-10-04-preview.
+
+        Uses Azure REST API version 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,7 +137,8 @@ class Mq(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         MQ resource
-        Azure REST API version: 2023-10-04-preview.
+
+        Uses Azure REST API version 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param MqArgs args: The arguments to use to populate this resource's properties.

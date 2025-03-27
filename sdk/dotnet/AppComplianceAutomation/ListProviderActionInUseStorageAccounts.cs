@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     {
         /// <summary>
         /// List the storage accounts which are in use by related reports
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Task<ListProviderActionInUseStorageAccountsResult> InvokeAsync(ListProviderActionInUseStorageAccountsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListProviderActionInUseStorageAccountsResult>("azure-native:appcomplianceautomation:listProviderActionInUseStorageAccounts", args ?? new ListProviderActionInUseStorageAccountsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List the storage accounts which are in use by related reports
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Output<ListProviderActionInUseStorageAccountsResult> Invoke(ListProviderActionInUseStorageAccountsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProviderActionInUseStorageAccountsResult>("azure-native:appcomplianceautomation:listProviderActionInUseStorageAccounts", args ?? new ListProviderActionInUseStorageAccountsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List the storage accounts which are in use by related reports
-        /// Azure REST API version: 2024-06-27.
+        /// 
+        /// Uses Azure REST API version 2024-06-27.
         /// </summary>
         public static Output<ListProviderActionInUseStorageAccountsResult> Invoke(ListProviderActionInUseStorageAccountsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListProviderActionInUseStorageAccountsResult>("azure-native:appcomplianceautomation:listProviderActionInUseStorageAccounts", args ?? new ListProviderActionInUseStorageAccountsInvokeArgs(), options.WithDefaults());

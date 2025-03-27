@@ -235,7 +235,8 @@ class MachineExtension(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Machine Extension.
-        Azure REST API version: 2022-12-15-preview.
+
+        Uses Azure REST API version 2022-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,7 +261,8 @@ class MachineExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Machine Extension.
-        Azure REST API version: 2022-12-15-preview.
+
+        Uses Azure REST API version 2022-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param MachineExtensionArgs args: The arguments to use to populate this resource's properties.

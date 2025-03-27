@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a AccessAnalyzerAnalyzer
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetAccessAnalyzerAnalyzerResult> InvokeAsync(GetAccessAnalyzerAnalyzerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessAnalyzerAnalyzerResult>("azure-native:awsconnector:getAccessAnalyzerAnalyzer", args ?? new GetAccessAnalyzerAnalyzerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AccessAnalyzerAnalyzer
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetAccessAnalyzerAnalyzerResult> Invoke(GetAccessAnalyzerAnalyzerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessAnalyzerAnalyzerResult>("azure-native:awsconnector:getAccessAnalyzerAnalyzer", args ?? new GetAccessAnalyzerAnalyzerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AccessAnalyzerAnalyzer
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetAccessAnalyzerAnalyzerResult> Invoke(GetAccessAnalyzerAnalyzerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessAnalyzerAnalyzerResult>("azure-native:awsconnector:getAccessAnalyzerAnalyzer", args ?? new GetAccessAnalyzerAnalyzerInvokeArgs(), options.WithDefaults());

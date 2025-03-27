@@ -134,7 +134,8 @@ class VerifierWorkspace(pulumi.CustomResource):
                  __props__=None):
         """
         Instance of Verifier Workspace.
-        Azure REST API version: 2024-01-01-preview.
+
+        Uses Azure REST API version 2024-01-01-preview.
 
         Other available API versions: 2024-05-01.
 
@@ -155,7 +156,8 @@ class VerifierWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Instance of Verifier Workspace.
-        Azure REST API version: 2024-01-01-preview.
+
+        Uses Azure REST API version 2024-01-01-preview.
 
         Other available API versions: 2024-05-01.
 

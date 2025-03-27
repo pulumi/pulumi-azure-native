@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified FirewallPolicyRuleGroup.
- * Azure REST API version: 2020-04-01.
+ *
+ * Uses Azure REST API version 2020-04-01.
  */
 export function getFirewallPolicyRuleGroup(args: GetFirewallPolicyRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,7 +71,8 @@ export interface GetFirewallPolicyRuleGroupResult {
 }
 /**
  * Gets the specified FirewallPolicyRuleGroup.
- * Azure REST API version: 2020-04-01.
+ *
+ * Uses Azure REST API version 2020-04-01.
  */
 export function getFirewallPolicyRuleGroupOutput(args: GetFirewallPolicyRuleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallPolicyRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     {
         /// <summary>
         /// Get a MqttBridgeTopicMapResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Task<GetMqttBridgeTopicMapResult> InvokeAsync(GetMqttBridgeTopicMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMqttBridgeTopicMapResult>("azure-native:iotoperationsmq:getMqttBridgeTopicMap", args ?? new GetMqttBridgeTopicMapArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a MqttBridgeTopicMapResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetMqttBridgeTopicMapResult> Invoke(GetMqttBridgeTopicMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMqttBridgeTopicMapResult>("azure-native:iotoperationsmq:getMqttBridgeTopicMap", args ?? new GetMqttBridgeTopicMapInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a MqttBridgeTopicMapResource
-        /// Azure REST API version: 2023-10-04-preview.
+        /// 
+        /// Uses Azure REST API version 2023-10-04-preview.
         /// </summary>
         public static Output<GetMqttBridgeTopicMapResult> Invoke(GetMqttBridgeTopicMapInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMqttBridgeTopicMapResult>("azure-native:iotoperationsmq:getMqttBridgeTopicMap", args ?? new GetMqttBridgeTopicMapInvokeArgs(), options.WithDefaults());

@@ -152,7 +152,8 @@ def get_storage_insight_config(resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageInsightConfigResult:
     """
     Gets a storage insight instance.
-    Azure REST API version: 2020-08-01.
+
+    Uses Azure REST API version 2020-08-01.
 
     Other available API versions: 2023-09-01, 2025-02-01.
 
@@ -184,7 +185,8 @@ def get_storage_insight_config_output(resource_group_name: Optional[pulumi.Input
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageInsightConfigResult]:
     """
     Gets a storage insight instance.
-    Azure REST API version: 2020-08-01.
+
+    Uses Azure REST API version 2020-08-01.
 
     Other available API versions: 2023-09-01, 2025-02-01.
 

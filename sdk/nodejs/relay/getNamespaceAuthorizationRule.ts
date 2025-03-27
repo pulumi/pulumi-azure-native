@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Authorization rule for a namespace by name.
- * Azure REST API version: 2021-11-01.
+ *
+ * Uses Azure REST API version 2021-11-01.
  *
  * Other available API versions: 2017-04-01, 2024-01-01.
  */
@@ -68,7 +69,8 @@ export interface GetNamespaceAuthorizationRuleResult {
 }
 /**
  * Authorization rule for a namespace by name.
- * Azure REST API version: 2021-11-01.
+ *
+ * Uses Azure REST API version 2021-11-01.
  *
  * Other available API versions: 2017-04-01, 2024-01-01.
  */

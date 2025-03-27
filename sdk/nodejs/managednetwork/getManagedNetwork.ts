@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Get ManagedNetworks operation gets a Managed Network Resource, specified by the resource group and Managed Network name
- * Azure REST API version: 2019-06-01-preview.
+ *
+ * Uses Azure REST API version 2019-06-01-preview.
  */
 export function getManagedNetwork(args: GetManagedNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,7 +74,8 @@ export interface GetManagedNetworkResult {
 }
 /**
  * The Get ManagedNetworks operation gets a Managed Network Resource, specified by the resource group and Managed Network name
- * Azure REST API version: 2019-06-01-preview.
+ *
+ * Uses Azure REST API version 2019-06-01-preview.
  */
 export function getManagedNetworkOutput(args: GetManagedNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

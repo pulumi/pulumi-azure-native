@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * MigrateAgent model.
- * Azure REST API version: 2022-05-01-preview.
+ *
+ * Uses Azure REST API version 2022-05-01-preview.
  */
 export class MigrateAgent extends pulumi.CustomResource {
     /**

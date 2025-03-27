@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Deployment Stack with a given name.
- * Azure REST API version: 2022-08-01-preview.
+ *
+ * Uses Azure REST API version 2022-08-01-preview.
  *
  * Other available API versions: 2024-03-01.
  */
@@ -127,7 +128,8 @@ export interface GetDeploymentStackAtManagementGroupResult {
 }
 /**
  * Gets a Deployment Stack with a given name.
- * Azure REST API version: 2022-08-01-preview.
+ *
+ * Uses Azure REST API version 2022-08-01-preview.
  *
  * Other available API versions: 2024-03-01.
  */

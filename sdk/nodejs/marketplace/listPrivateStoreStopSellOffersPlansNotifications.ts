@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * List stop sell notifications for both stop sell offers and stop sell plans
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  *
  * Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
  */
@@ -37,7 +38,8 @@ export interface ListPrivateStoreStopSellOffersPlansNotificationsResult {
 }
 /**
  * List stop sell notifications for both stop sell offers and stop sell plans
- * Azure REST API version: 2023-01-01.
+ *
+ * Uses Azure REST API version 2023-01-01.
  *
  * Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
  */

@@ -72,7 +72,8 @@ def list_spacecraft_available_contacts(contact_profile: Optional[Union['ContactP
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSpacecraftAvailableContactsResult:
     """
     Returns list of available contacts. A contact is available if the spacecraft is visible from the ground station for more than the minimum viable contact duration provided in the contact profile.
-    Azure REST API version: 2022-11-01.
+
+    Uses Azure REST API version 2022-11-01.
 
     Other available API versions: 2022-03-01.
 
@@ -106,7 +107,8 @@ def list_spacecraft_available_contacts_output(contact_profile: Optional[pulumi.I
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSpacecraftAvailableContactsResult]:
     """
     Returns list of available contacts. A contact is available if the spacecraft is visible from the ground station for more than the minimum viable contact duration provided in the contact profile.
-    Azure REST API version: 2022-11-01.
+
+    Uses Azure REST API version 2022-11-01.
 
     Other available API versions: 2022-03-01.
 

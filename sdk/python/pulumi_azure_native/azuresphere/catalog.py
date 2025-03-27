@@ -100,7 +100,8 @@ class Catalog(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Sphere catalog
-        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+
+        Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
         Other available API versions: 2024-04-01.
 
@@ -119,7 +120,8 @@ class Catalog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Sphere catalog
-        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+
+        Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
         Other available API versions: 2024-04-01.
 

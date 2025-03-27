@@ -272,7 +272,8 @@ def get_workbook(can_fetch_content: Optional[bool] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkbookResult:
     """
     Get a single workbook by its resourceName.
-    Azure REST API version: 2022-04-01.
+
+    Uses Azure REST API version 2022-04-01.
 
     Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
 
@@ -314,7 +315,8 @@ def get_workbook_output(can_fetch_content: Optional[pulumi.Input[Optional[bool]]
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkbookResult]:
     """
     Get a single workbook by its resourceName.
-    Azure REST API version: 2022-04-01.
+
+    Uses Azure REST API version 2022-04-01.
 
     Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
 

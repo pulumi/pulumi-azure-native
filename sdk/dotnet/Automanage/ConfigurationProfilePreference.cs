@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Automanage
 {
     /// <summary>
     /// Definition of the configuration profile preference.
-    /// Azure REST API version: 2020-06-30-preview. Prior API version in Azure Native 1.x: 2020-06-30-preview.
+    /// 
+    /// Uses Azure REST API version 2020-06-30-preview. In version 1.x of the Azure Native provider, it used API version 2020-06-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage:ConfigurationProfilePreference")]
     public partial class ConfigurationProfilePreference : global::Pulumi.CustomResource

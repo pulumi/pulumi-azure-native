@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
     {
         /// <summary>
         /// Gets an Azure Bare Metal Instance for the specified subscription, resource group, and instance name.
-        /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-08-01-preview.
         /// </summary>
         public static Task<GetAzureBareMetalInstanceResult> InvokeAsync(GetAzureBareMetalInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureBareMetalInstanceResult>("azure-native:baremetalinfrastructure:getAzureBareMetalInstance", args ?? new GetAzureBareMetalInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Azure Bare Metal Instance for the specified subscription, resource group, and instance name.
-        /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-08-01-preview.
         /// </summary>
         public static Output<GetAzureBareMetalInstanceResult> Invoke(GetAzureBareMetalInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureBareMetalInstanceResult>("azure-native:baremetalinfrastructure:getAzureBareMetalInstance", args ?? new GetAzureBareMetalInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Azure Bare Metal Instance for the specified subscription, resource group, and instance name.
-        /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-08-01-preview.
         /// </summary>
         public static Output<GetAzureBareMetalInstanceResult> Invoke(GetAzureBareMetalInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureBareMetalInstanceResult>("azure-native:baremetalinfrastructure:getAzureBareMetalInstance", args ?? new GetAzureBareMetalInstanceInvokeArgs(), options.WithDefaults());

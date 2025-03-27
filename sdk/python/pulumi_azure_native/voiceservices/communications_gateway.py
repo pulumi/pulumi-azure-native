@@ -307,7 +307,8 @@ class CommunicationsGateway(pulumi.CustomResource):
                  __props__=None):
         """
         A CommunicationsGateway resource
-        Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2022-12-01-preview.
+
+        Uses Azure REST API version 2023-04-03. In version 1.x of the Azure Native provider, it used API version 2022-12-01-preview.
 
         Other available API versions: 2023-09-01.
 
@@ -338,7 +339,8 @@ class CommunicationsGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A CommunicationsGateway resource
-        Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2022-12-01-preview.
+
+        Uses Azure REST API version 2023-04-03. In version 1.x of the Azure Native provider, it used API version 2022-12-01-preview.
 
         Other available API versions: 2023-09-01.
 

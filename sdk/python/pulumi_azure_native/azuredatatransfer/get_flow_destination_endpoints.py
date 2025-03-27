@@ -55,7 +55,8 @@ def get_flow_destination_endpoints(connection_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlowDestinationEndpointsResult:
     """
     Get the destination endpoints for the specified flow and stream ID.
-    Azure REST API version: 2024-09-27.
+
+    Uses Azure REST API version 2024-09-27.
 
     Other available API versions: 2025-03-01-preview.
 
@@ -79,7 +80,8 @@ def get_flow_destination_endpoints_output(connection_name: Optional[pulumi.Input
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowDestinationEndpointsResult]:
     """
     Get the destination endpoints for the specified flow and stream ID.
-    Azure REST API version: 2024-09-27.
+
+    Uses Azure REST API version 2024-09-27.
 
     Other available API versions: 2025-03-01-preview.
 

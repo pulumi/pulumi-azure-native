@@ -141,7 +141,8 @@ def get_mdatp_data_connector(data_connector_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMDATPDataConnectorResult:
     """
     Gets a data connector.
-    Azure REST API version: 2023-02-01.
+
+    Uses Azure REST API version 2023-02-01.
 
 
     :param str data_connector_id: Connector ID
@@ -170,7 +171,8 @@ def get_mdatp_data_connector_output(data_connector_id: Optional[pulumi.Input[str
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMDATPDataConnectorResult]:
     """
     Gets a data connector.
-    Azure REST API version: 2023-02-01.
+
+    Uses Azure REST API version 2023-02-01.
 
 
     :param str data_connector_id: Connector ID

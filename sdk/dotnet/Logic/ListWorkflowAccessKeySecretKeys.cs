@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Logic
     {
         /// <summary>
         /// Lists secret keys.
-        /// Azure REST API version: 2015-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2015-02-01-preview.
         /// </summary>
         public static Task<ListWorkflowAccessKeySecretKeysResult> InvokeAsync(ListWorkflowAccessKeySecretKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowAccessKeySecretKeysResult>("azure-native:logic:listWorkflowAccessKeySecretKeys", args ?? new ListWorkflowAccessKeySecretKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists secret keys.
-        /// Azure REST API version: 2015-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2015-02-01-preview.
         /// </summary>
         public static Output<ListWorkflowAccessKeySecretKeysResult> Invoke(ListWorkflowAccessKeySecretKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowAccessKeySecretKeysResult>("azure-native:logic:listWorkflowAccessKeySecretKeys", args ?? new ListWorkflowAccessKeySecretKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists secret keys.
-        /// Azure REST API version: 2015-02-01-preview.
+        /// 
+        /// Uses Azure REST API version 2015-02-01-preview.
         /// </summary>
         public static Output<ListWorkflowAccessKeySecretKeysResult> Invoke(ListWorkflowAccessKeySecretKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowAccessKeySecretKeysResult>("azure-native:logic:listWorkflowAccessKeySecretKeys", args ?? new ListWorkflowAccessKeySecretKeysInvokeArgs(), options.WithDefaults());

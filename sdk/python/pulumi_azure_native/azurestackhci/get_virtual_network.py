@@ -199,7 +199,8 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
     The virtual network resource definition.
-    Azure REST API version: 2022-12-15-preview.
+
+    Uses Azure REST API version 2022-12-15-preview.
 
     Other available API versions: 2023-07-01-preview.
 
@@ -232,7 +233,8 @@ def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkResult]:
     """
     The virtual network resource definition.
-    Azure REST API version: 2022-12-15-preview.
+
+    Uses Azure REST API version 2022-12-15-preview.
 
     Other available API versions: 2023-07-01-preview.
 

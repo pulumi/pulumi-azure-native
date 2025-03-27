@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.SoftwarePlan
 {
     /// <summary>
     /// Response on GET of a hybrid use benefit
-    /// Azure REST API version: 2019-12-01. Prior API version in Azure Native 1.x: 2019-06-01-preview.
+    /// 
+    /// Uses Azure REST API version 2019-12-01. In version 1.x of the Azure Native provider, it used API version 2019-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:softwareplan:HybridUseBenefit")]
     public partial class HybridUseBenefit : global::Pulumi.CustomResource

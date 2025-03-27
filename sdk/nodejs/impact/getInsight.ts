@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get Insight resources by workloadImpactName and insightName
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  */
 export function getInsight(args: GetInsightArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,7 +58,8 @@ export interface GetInsightResult {
 }
 /**
  * Get Insight resources by workloadImpactName and insightName
- * Azure REST API version: 2024-05-01-preview.
+ *
+ * Uses Azure REST API version 2024-05-01-preview.
  */
 export function getInsightOutput(args: GetInsightOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInsightResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

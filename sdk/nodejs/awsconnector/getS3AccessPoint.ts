@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a S3AccessPoint
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getS3AccessPoint(args: GetS3AccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetS3AccessPointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +66,8 @@ export interface GetS3AccessPointResult {
 }
 /**
  * Get a S3AccessPoint
- * Azure REST API version: 2024-12-01.
+ *
+ * Uses Azure REST API version 2024-12-01.
  */
 export function getS3AccessPointOutput(args: GetS3AccessPointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetS3AccessPointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

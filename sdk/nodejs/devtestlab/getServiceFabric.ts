@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get service fabric.
- * Azure REST API version: 2018-09-15.
+ *
+ * Uses Azure REST API version 2018-09-15.
  */
 export function getServiceFabric(args: GetServiceFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,7 +93,8 @@ export interface GetServiceFabricResult {
 }
 /**
  * Get service fabric.
- * Azure REST API version: 2018-09-15.
+ *
+ * Uses Azure REST API version 2018-09-15.
  */
 export function getServiceFabricOutput(args: GetServiceFabricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -104,7 +104,8 @@ def get_private_endpoint_connection_proxy_controller(migrate_project_name: Optio
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionProxyControllerResult:
     """
     Get the of private link proxy resources from a migrate project and private link proxy resource.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str migrate_project_name: Name of the Azure Migrate project.
@@ -131,7 +132,8 @@ def get_private_endpoint_connection_proxy_controller_output(migrate_project_name
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionProxyControllerResult]:
     """
     Get the of private link proxy resources from a migrate project and private link proxy resource.
-    Azure REST API version: 2023-01-01.
+
+    Uses Azure REST API version 2023-01-01.
 
 
     :param str migrate_project_name: Name of the Azure Migrate project.

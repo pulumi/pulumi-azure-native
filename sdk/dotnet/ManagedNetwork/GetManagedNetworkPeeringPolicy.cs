@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.ManagedNetwork
     {
         /// <summary>
         /// The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
-        /// Azure REST API version: 2019-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-06-01-preview.
         /// </summary>
         public static Task<GetManagedNetworkPeeringPolicyResult> InvokeAsync(GetManagedNetworkPeeringPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkPeeringPolicyResult>("azure-native:managednetwork:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
-        /// Azure REST API version: 2019-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-06-01-preview.
         /// </summary>
         public static Output<GetManagedNetworkPeeringPolicyResult> Invoke(GetManagedNetworkPeeringPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedNetworkPeeringPolicyResult>("azure-native:managednetwork:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
-        /// Azure REST API version: 2019-06-01-preview.
+        /// 
+        /// Uses Azure REST API version 2019-06-01-preview.
         /// </summary>
         public static Output<GetManagedNetworkPeeringPolicyResult> Invoke(GetManagedNetworkPeeringPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedNetworkPeeringPolicyResult>("azure-native:managednetwork:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyInvokeArgs(), options.WithDefaults());

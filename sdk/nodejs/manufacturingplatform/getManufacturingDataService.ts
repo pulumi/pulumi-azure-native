@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a MdsResource
- * Azure REST API version: 2025-03-01.
+ *
+ * Uses Azure REST API version 2025-03-01.
  */
 export function getManufacturingDataService(args: GetManufacturingDataServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetManufacturingDataServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,7 +74,8 @@ export interface GetManufacturingDataServiceResult {
 }
 /**
  * Get a MdsResource
- * Azure REST API version: 2025-03-01.
+ *
+ * Uses Azure REST API version 2025-03-01.
  */
 export function getManufacturingDataServiceOutput(args: GetManufacturingDataServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManufacturingDataServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

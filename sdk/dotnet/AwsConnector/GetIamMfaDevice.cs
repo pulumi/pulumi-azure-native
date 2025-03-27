@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a IamMFADevice
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetIamMfaDeviceResult> InvokeAsync(GetIamMfaDeviceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIamMfaDeviceResult>("azure-native:awsconnector:getIamMfaDevice", args ?? new GetIamMfaDeviceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a IamMFADevice
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetIamMfaDeviceResult> Invoke(GetIamMfaDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamMfaDeviceResult>("azure-native:awsconnector:getIamMfaDevice", args ?? new GetIamMfaDeviceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a IamMFADevice
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetIamMfaDeviceResult> Invoke(GetIamMfaDeviceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamMfaDeviceResult>("azure-native:awsconnector:getIamMfaDevice", args ?? new GetIamMfaDeviceInvokeArgs(), options.WithDefaults());

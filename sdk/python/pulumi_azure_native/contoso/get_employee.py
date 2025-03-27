@@ -127,7 +127,8 @@ def get_employee(employee_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmployeeResult:
     """
     Get a Employee
-    Azure REST API version: 2021-10-01-preview.
+
+    Uses Azure REST API version 2021-10-01-preview.
 
     Other available API versions: 2021-11-01.
 
@@ -154,7 +155,8 @@ def get_employee_output(employee_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmployeeResult]:
     """
     Get a Employee
-    Azure REST API version: 2021-10-01-preview.
+
+    Uses Azure REST API version 2021-10-01-preview.
 
     Other available API versions: 2021-11-01.
 

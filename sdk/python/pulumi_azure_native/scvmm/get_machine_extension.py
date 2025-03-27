@@ -224,7 +224,8 @@ def get_machine_extension(extension_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineExtensionResult:
     """
     The operation to get the extension.
-    Azure REST API version: 2022-05-21-preview.
+
+    Uses Azure REST API version 2022-05-21-preview.
 
     Other available API versions: 2023-04-01-preview.
 
@@ -262,7 +263,8 @@ def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = N
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineExtensionResult]:
     """
     The operation to get the extension.
-    Azure REST API version: 2022-05-21-preview.
+
+    Uses Azure REST API version 2022-05-21-preview.
 
     Other available API versions: 2023-04-01-preview.
 

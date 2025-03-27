@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
     {
         /// <summary>
         /// Get the destination endpoints for the specified flow and stream ID.
-        /// Azure REST API version: 2024-09-27.
+        /// 
+        /// Uses Azure REST API version 2024-09-27.
         /// 
         /// Other available API versions: 2025-03-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
 
         /// <summary>
         /// Get the destination endpoints for the specified flow and stream ID.
-        /// Azure REST API version: 2024-09-27.
+        /// 
+        /// Uses Azure REST API version 2024-09-27.
         /// 
         /// Other available API versions: 2025-03-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
 
         /// <summary>
         /// Get the destination endpoints for the specified flow and stream ID.
-        /// Azure REST API version: 2024-09-27.
+        /// 
+        /// Uses Azure REST API version 2024-09-27.
         /// 
         /// Other available API versions: 2025-03-01-preview.
         /// </summary>

@@ -128,7 +128,8 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Get private endpoint connection under video analyzer account.
-    Azure REST API version: 2021-11-01-preview.
+
+    Uses Azure REST API version 2021-11-01-preview.
 
 
     :param str account_name: The Video Analyzer account name.
@@ -156,7 +157,8 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get private endpoint connection under video analyzer account.
-    Azure REST API version: 2021-11-01-preview.
+
+    Uses Azure REST API version 2021-11-01-preview.
 
 
     :param str account_name: The Video Analyzer account name.

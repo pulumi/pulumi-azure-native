@@ -99,7 +99,8 @@ class ApiWiki(pulumi.CustomResource):
                  __props__=None):
         """
         Wiki properties
-        Azure REST API version: 2022-08-01.
+
+        Uses Azure REST API version 2022-08-01.
 
         Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
@@ -118,7 +119,8 @@ class ApiWiki(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Wiki properties
-        Azure REST API version: 2022-08-01.
+
+        Uses Azure REST API version 2022-08-01.
 
         Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 

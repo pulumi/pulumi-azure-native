@@ -291,7 +291,8 @@ class DomainService(pulumi.CustomResource):
                  __props__=None):
         """
         Domain service.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Uses Azure REST API version 2022-12-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,7 +320,8 @@ class DomainService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Domain service.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Uses Azure REST API version 2022-12-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param DomainServiceArgs args: The arguments to use to populate this resource's properties.

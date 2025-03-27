@@ -115,7 +115,8 @@ def get_iscsi_path(private_cloud_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIscsiPathResult:
     """
     Get a IscsiPath
-    Azure REST API version: 2023-09-01.
+
+    Uses Azure REST API version 2023-09-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -139,7 +140,8 @@ def get_iscsi_path_output(private_cloud_name: Optional[pulumi.Input[str]] = None
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIscsiPathResult]:
     """
     Get a IscsiPath
-    Azure REST API version: 2023-09-01.
+
+    Uses Azure REST API version 2023-09-01.
 
 
     :param str private_cloud_name: Name of the private cloud

@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a configuration of server.
- * Azure REST API version: 2018-06-01.
+ *
+ * Uses Azure REST API version 2018-06-01.
  *
  * Other available API versions: 2018-06-01-preview.
  */
@@ -77,7 +78,8 @@ export interface GetConfigurationResult {
 }
 /**
  * Gets information about a configuration of server.
- * Azure REST API version: 2018-06-01.
+ *
+ * Uses Azure REST API version 2018-06-01.
  *
  * Other available API versions: 2018-06-01-preview.
  */

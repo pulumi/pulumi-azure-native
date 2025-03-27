@@ -224,7 +224,8 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIscsiTargetResult:
     """
     Get an iSCSI Target.
-    Azure REST API version: 2021-08-01.
+
+    Uses Azure REST API version 2021-08-01.
 
     Other available API versions: 2020-03-15-preview.
 
@@ -262,7 +263,8 @@ def get_iscsi_target_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIscsiTargetResult]:
     """
     Get an iSCSI Target.
-    Azure REST API version: 2021-08-01.
+
+    Uses Azure REST API version 2021-08-01.
 
     Other available API versions: 2020-03-15-preview.
 

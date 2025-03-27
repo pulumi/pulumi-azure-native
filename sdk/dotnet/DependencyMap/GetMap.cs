@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.DependencyMap
     {
         /// <summary>
         /// Get a MapsResource
-        /// Azure REST API version: 2025-01-31-preview.
+        /// 
+        /// Uses Azure REST API version 2025-01-31-preview.
         /// </summary>
         public static Task<GetMapResult> InvokeAsync(GetMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("azure-native:dependencymap:getMap", args ?? new GetMapArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a MapsResource
-        /// Azure REST API version: 2025-01-31-preview.
+        /// 
+        /// Uses Azure REST API version 2025-01-31-preview.
         /// </summary>
         public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMapResult>("azure-native:dependencymap:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a MapsResource
-        /// Azure REST API version: 2025-01-31-preview.
+        /// 
+        /// Uses Azure REST API version 2025-01-31-preview.
         /// </summary>
         public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMapResult>("azure-native:dependencymap:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());

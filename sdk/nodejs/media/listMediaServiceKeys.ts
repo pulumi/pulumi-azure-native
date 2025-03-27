@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the keys for a Media Service.
- * Azure REST API version: 2015-10-01.
+ *
+ * Uses Azure REST API version 2015-10-01.
  */
 export function listMediaServiceKeys(args: ListMediaServiceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaServiceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,7 +55,8 @@ export interface ListMediaServiceKeysResult {
 }
 /**
  * Lists the keys for a Media Service.
- * Azure REST API version: 2015-10-01.
+ *
+ * Uses Azure REST API version 2015-10-01.
  */
 export function listMediaServiceKeysOutput(args: ListMediaServiceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMediaServiceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

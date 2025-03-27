@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     {
         /// <summary>
         /// Gets the event source with the specified name in the specified environment.
-        /// Azure REST API version: 2020-05-15.
+        /// 
+        /// Uses Azure REST API version 2020-05-15.
         /// </summary>
         public static Task<GetEventHubEventSourceResult> InvokeAsync(GetEventHubEventSourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubEventSourceResult>("azure-native:timeseriesinsights:getEventHubEventSource", args ?? new GetEventHubEventSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the event source with the specified name in the specified environment.
-        /// Azure REST API version: 2020-05-15.
+        /// 
+        /// Uses Azure REST API version 2020-05-15.
         /// </summary>
         public static Output<GetEventHubEventSourceResult> Invoke(GetEventHubEventSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubEventSourceResult>("azure-native:timeseriesinsights:getEventHubEventSource", args ?? new GetEventHubEventSourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the event source with the specified name in the specified environment.
-        /// Azure REST API version: 2020-05-15.
+        /// 
+        /// Uses Azure REST API version 2020-05-15.
         /// </summary>
         public static Output<GetEventHubEventSourceResult> Invoke(GetEventHubEventSourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubEventSourceResult>("azure-native:timeseriesinsights:getEventHubEventSource", args ?? new GetEventHubEventSourceInvokeArgs(), options.WithDefaults());

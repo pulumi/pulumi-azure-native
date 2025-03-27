@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Confluent
     {
         /// <summary>
         /// Details of cluster record
-        /// Azure REST API version: 2024-07-01.
+        /// 
+        /// Uses Azure REST API version 2024-07-01.
         /// </summary>
         public static Task<GetOrganizationClusterByIdResult> InvokeAsync(GetOrganizationClusterByIdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationClusterByIdResult>("azure-native:confluent:getOrganizationClusterById", args ?? new GetOrganizationClusterByIdArgs(), options.WithDefaults());
 
         /// <summary>
         /// Details of cluster record
-        /// Azure REST API version: 2024-07-01.
+        /// 
+        /// Uses Azure REST API version 2024-07-01.
         /// </summary>
         public static Output<GetOrganizationClusterByIdResult> Invoke(GetOrganizationClusterByIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationClusterByIdResult>("azure-native:confluent:getOrganizationClusterById", args ?? new GetOrganizationClusterByIdInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Details of cluster record
-        /// Azure REST API version: 2024-07-01.
+        /// 
+        /// Uses Azure REST API version 2024-07-01.
         /// </summary>
         public static Output<GetOrganizationClusterByIdResult> Invoke(GetOrganizationClusterByIdInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationClusterByIdResult>("azure-native:confluent:getOrganizationClusterById", args ?? new GetOrganizationClusterByIdInvokeArgs(), options.WithDefaults());

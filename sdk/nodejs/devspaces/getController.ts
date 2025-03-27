@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties for an Azure Dev Spaces Controller.
- * Azure REST API version: 2019-04-01.
+ *
+ * Uses Azure REST API version 2019-04-01.
  */
 export function getController(args: GetControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +79,8 @@ export interface GetControllerResult {
 }
 /**
  * Gets the properties for an Azure Dev Spaces Controller.
- * Azure REST API version: 2019-04-01.
+ *
+ * Uses Azure REST API version 2019-04-01.
  */
 export function getControllerOutput(args: GetControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

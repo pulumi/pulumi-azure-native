@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The MySQLSite resource definition.
- * Azure REST API version: 2024-09-30-preview.
+ *
+ * Uses Azure REST API version 2024-09-30-preview.
  */
 export class MySQLSite extends pulumi.CustomResource {
     /**

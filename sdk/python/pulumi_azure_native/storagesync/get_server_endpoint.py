@@ -333,7 +333,8 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerEndpointResult:
     """
     Get a ServerEndpoint.
-    Azure REST API version: 2022-06-01.
+
+    Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2022-09-01.
 
@@ -383,7 +384,8 @@ def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerEndpointResult]:
     """
     Get a ServerEndpoint.
-    Azure REST API version: 2022-06-01.
+
+    Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2022-09-01.
 

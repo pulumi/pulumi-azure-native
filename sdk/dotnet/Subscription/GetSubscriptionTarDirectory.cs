@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Subscription
     {
         /// <summary>
         /// The operation to view Initiator Subscription Changed Request
-        /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-08-01-preview.
         /// </summary>
         public static Task<GetSubscriptionTarDirectoryResult> InvokeAsync(GetSubscriptionTarDirectoryArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionTarDirectoryResult>("azure-native:subscription:getSubscriptionTarDirectory", args ?? new GetSubscriptionTarDirectoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to view Initiator Subscription Changed Request
-        /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-08-01-preview.
         /// </summary>
         public static Output<GetSubscriptionTarDirectoryResult> Invoke(GetSubscriptionTarDirectoryInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionTarDirectoryResult>("azure-native:subscription:getSubscriptionTarDirectory", args ?? new GetSubscriptionTarDirectoryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to view Initiator Subscription Changed Request
-        /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Uses Azure REST API version 2024-08-01-preview.
         /// </summary>
         public static Output<GetSubscriptionTarDirectoryResult> Invoke(GetSubscriptionTarDirectoryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionTarDirectoryResult>("azure-native:subscription:getSubscriptionTarDirectory", args ?? new GetSubscriptionTarDirectoryInvokeArgs(), options.WithDefaults());

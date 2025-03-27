@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
- * Azure REST API version: 2024-04-01.
+ *
+ * Uses Azure REST API version 2024-04-01.
  */
 export function getBillingProfile(args: GetBillingProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,7 +62,8 @@ export interface GetBillingProfileResult {
 }
 /**
  * Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
- * Azure REST API version: 2024-04-01.
+ *
+ * Uses Azure REST API version 2024-04-01.
  */
 export function getBillingProfileOutput(args: GetBillingProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

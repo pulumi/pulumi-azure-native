@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// Parameters to create and update an Azure Cosmos DB Table Role Definition.
-    /// Azure REST API version: 2024-12-01-preview.
+    /// 
+    /// Uses Azure REST API version 2024-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:TableResourceTableRoleDefinition")]
     public partial class TableResourceTableRoleDefinition : global::Pulumi.CustomResource

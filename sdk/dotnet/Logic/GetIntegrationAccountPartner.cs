@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.Logic
     {
         /// <summary>
         /// Gets an integration account partner.
-        /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Uses Azure REST API version 2019-05-01.
         /// 
         /// Other available API versions: 2015-08-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.Logic
 
         /// <summary>
         /// Gets an integration account partner.
-        /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Uses Azure REST API version 2019-05-01.
         /// 
         /// Other available API versions: 2015-08-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.Logic
 
         /// <summary>
         /// Gets an integration account partner.
-        /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Uses Azure REST API version 2019-05-01.
         /// 
         /// Other available API versions: 2015-08-01-preview.
         /// </summary>

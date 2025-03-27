@@ -165,7 +165,8 @@ def get_broker_authentication(authentication_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerAuthenticationResult:
     """
     Get a BrokerAuthenticationResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str authentication_name: Name of MQ broker/authentication resource
@@ -199,7 +200,8 @@ def get_broker_authentication_output(authentication_name: Optional[pulumi.Input[
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerAuthenticationResult]:
     """
     Get a BrokerAuthenticationResource
-    Azure REST API version: 2023-10-04-preview.
+
+    Uses Azure REST API version 2023-10-04-preview.
 
 
     :param str authentication_name: Name of MQ broker/authentication resource

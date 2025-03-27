@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Implements host GET method.
-        /// Azure REST API version: 2022-07-15-preview.
+        /// 
+        /// Uses Azure REST API version 2022-07-15-preview.
         /// 
         /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
         /// <summary>
         /// Implements host GET method.
-        /// Azure REST API version: 2022-07-15-preview.
+        /// 
+        /// Uses Azure REST API version 2022-07-15-preview.
         /// 
         /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
         /// <summary>
         /// Implements host GET method.
-        /// Azure REST API version: 2022-07-15-preview.
+        /// 
+        /// Uses Azure REST API version 2022-07-15-preview.
         /// 
         /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
         /// </summary>

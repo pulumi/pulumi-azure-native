@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2021-03-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// </summary>
         public static Task<GetEnvironmentSpecificationVersionResult> InvokeAsync(GetEnvironmentSpecificationVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentSpecificationVersionResult>("azure-native:machinelearningservices:getEnvironmentSpecificationVersion", args ?? new GetEnvironmentSpecificationVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2021-03-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// </summary>
         public static Output<GetEnvironmentSpecificationVersionResult> Invoke(GetEnvironmentSpecificationVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentSpecificationVersionResult>("azure-native:machinelearningservices:getEnvironmentSpecificationVersion", args ?? new GetEnvironmentSpecificationVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2021-03-01-preview.
+        /// 
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// </summary>
         public static Output<GetEnvironmentSpecificationVersionResult> Invoke(GetEnvironmentSpecificationVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentSpecificationVersionResult>("azure-native:machinelearningservices:getEnvironmentSpecificationVersion", args ?? new GetEnvironmentSpecificationVersionInvokeArgs(), options.WithDefaults());

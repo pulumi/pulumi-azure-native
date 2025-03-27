@@ -128,7 +128,8 @@ def get_backup_long_term_retention_policy(database_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupLongTermRetentionPolicyResult:
     """
     Gets a database's long term retention policy.
-    Azure REST API version: 2017-03-01-preview.
+
+    Uses Azure REST API version 2017-03-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -159,7 +160,8 @@ def get_backup_long_term_retention_policy_output(database_name: Optional[pulumi.
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupLongTermRetentionPolicyResult]:
     """
     Gets a database's long term retention policy.
-    Azure REST API version: 2017-03-01-preview.
+
+    Uses Azure REST API version 2017-03-01-preview.
 
 
     :param str database_name: The name of the database.

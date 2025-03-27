@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AlertsManagement
 {
     /// <summary>
     /// Action rule object containing target scope, conditions and suppression logic
-    /// Azure REST API version: 2019-05-05-preview. Prior API version in Azure Native 1.x: 2019-05-05-preview.
+    /// 
+    /// Uses Azure REST API version 2019-05-05-preview. In version 1.x of the Azure Native provider, it used API version 2019-05-05-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement:ActionRuleByName")]
     public partial class ActionRuleByName : global::Pulumi.CustomResource

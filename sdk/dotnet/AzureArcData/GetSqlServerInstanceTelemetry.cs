@@ -13,7 +13,8 @@ namespace Pulumi.AzureNative.AzureArcData
     {
         /// <summary>
         /// Retrieves SQL Server instance telemetry
-        /// Azure REST API version: 2024-01-01.
+        /// 
+        /// Uses Azure REST API version 2024-01-01.
         /// 
         /// Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
         /// </summary>
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.AzureArcData
 
         /// <summary>
         /// Retrieves SQL Server instance telemetry
-        /// Azure REST API version: 2024-01-01.
+        /// 
+        /// Uses Azure REST API version 2024-01-01.
         /// 
         /// Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Pulumi.AzureNative.AzureArcData
 
         /// <summary>
         /// Retrieves SQL Server instance telemetry
-        /// Azure REST API version: 2024-01-01.
+        /// 
+        /// Uses Azure REST API version 2024-01-01.
         /// 
         /// Other available API versions: 2024-05-01-preview, 2025-03-01-preview.
         /// </summary>

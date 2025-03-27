@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Use this method to get the device security group for the specified IoT Hub resource.
-        /// Azure REST API version: 2019-08-01.
+        /// 
+        /// Uses Azure REST API version 2019-08-01.
         /// </summary>
         public static Task<GetDeviceSecurityGroupResult> InvokeAsync(GetDeviceSecurityGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceSecurityGroupResult>("azure-native:security:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this method to get the device security group for the specified IoT Hub resource.
-        /// Azure REST API version: 2019-08-01.
+        /// 
+        /// Uses Azure REST API version 2019-08-01.
         /// </summary>
         public static Output<GetDeviceSecurityGroupResult> Invoke(GetDeviceSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceSecurityGroupResult>("azure-native:security:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this method to get the device security group for the specified IoT Hub resource.
-        /// Azure REST API version: 2019-08-01.
+        /// 
+        /// Uses Azure REST API version 2019-08-01.
         /// </summary>
         public static Output<GetDeviceSecurityGroupResult> Invoke(GetDeviceSecurityGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceSecurityGroupResult>("azure-native:security:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupInvokeArgs(), options.WithDefaults());

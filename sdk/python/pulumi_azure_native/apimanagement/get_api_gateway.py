@@ -223,7 +223,8 @@ def get_api_gateway(gateway_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiGatewayResult:
     """
     Gets an API Management gateway resource description.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-05-01, 2024-06-01-preview.
 
@@ -258,7 +259,8 @@ def get_api_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiGatewayResult]:
     """
     Gets an API Management gateway resource description.
-    Azure REST API version: 2023-09-01-preview.
+
+    Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2024-05-01, 2024-06-01-preview.
 

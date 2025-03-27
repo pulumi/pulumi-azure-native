@@ -1251,28 +1251,34 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 	b.WriteString(desc)
 
 	if g.sdkVersion == "" {
-		fmt.Fprintf(&b, "\nAzure REST API version: %s.", defaultVersion)
+		if desc != "" {
+			fmt.Fprint(&b, "\n\n")
+		}
+		fmt.Fprintf(&b, "Uses Azure REST API version %s.", defaultVersion)
 		if previousDefaultVersion != "" {
-			fmt.Fprintf(&b, " Prior API version in Azure Native %d.x: %s.", g.majorVersion-1, previousDefaultVersion)
+			fmt.Fprintf(&b, " In version %d.x of the Azure Native provider, it used API version %s.", g.majorVersion-1, previousDefaultVersion)
 		}
 
-		if g.majorVersion <= 2 {
-			// List other available API versions, if any.
-			allVersions := g.versioning.GetAllVersions(g.moduleName, typeName)
-			includedVersions := []string{}
-			for _, v := range allVersions {
-				// Don't list the default version twice.
-				if v == defaultVersion {
-					continue
-				}
-				tok := generateTok(g.moduleName, typeName, openapi.ApiToSdkVersion(v))
-				if g.shouldInclude(typeName, tok, &v) {
-					includedVersions = append(includedVersions, string(v))
-				}
+		allVersions := g.versioning.GetAllVersions(g.moduleName, typeName)
+		includedVersions := []string{}
+		for _, v := range allVersions {
+			// Don't list the default version twice.
+			if v == defaultVersion {
+				continue
 			}
+			tok := generateTok(g.moduleName, typeName, openapi.ApiToSdkVersion(v))
+			if g.shouldInclude(typeName, tok, &v) {
+				includedVersions = append(includedVersions, string(v))
+			}
+		}
 
-			if len(includedVersions) > 0 {
-				fmt.Fprintf(&b, "\n\nOther available API versions: %s.", strings.Join(includedVersions, ", "))
+		if len(includedVersions) > 0 {
+			fmt.Fprintf(&b, "\n\nOther available API versions: %s.", strings.Join(includedVersions, ", "))
+			if g.majorVersion >= 3 {
+				fmt.Fprintf(&b, " These can be accessed by generating a local SDK package using the CLI command "+
+					"`pulumi package add azure-native %s [ApiVersion]`. See the [version guide]"+
+					"(../../../version-guide/#accessing-any-api-version-via-local-packages) for details.",
+					strings.ToLower(string(g.moduleName)))
 			}
 		}
 	}

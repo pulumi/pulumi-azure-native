@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.AzureLargeInstance
     /// <summary>
     /// AzureLargeStorageInstance info on Azure (ARM properties and
     /// AzureLargeStorageInstance properties)
-    /// Azure REST API version: 2024-08-01-preview.
+    /// 
+    /// Uses Azure REST API version 2024-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurelargeinstance:AzureLargeStorageInstance")]
     public partial class AzureLargeStorageInstance : global::Pulumi.CustomResource

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the MySQLServers resource.
- * Azure REST API version: 2024-09-30-preview.
+ *
+ * Uses Azure REST API version 2024-09-30-preview.
  */
 export function getMySQLServer(args: GetMySQLServerArgs, opts?: pulumi.InvokeOptions): Promise<GetMySQLServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -110,7 +111,8 @@ export interface GetMySQLServerResult {
 }
 /**
  * Gets the MySQLServers resource.
- * Azure REST API version: 2024-09-30-preview.
+ *
+ * Uses Azure REST API version 2024-09-30-preview.
  */
 export function getMySQLServerOutput(args: GetMySQLServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMySQLServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

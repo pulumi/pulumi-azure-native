@@ -101,7 +101,8 @@ class PrivateEndpointConnectionController(pulumi.CustomResource):
                  __props__=None):
         """
         REST model used to encapsulate Private Link properties for tracked resources.
-        Azure REST API version: 2023-06-06.
+
+        Uses Azure REST API version 2023-06-06.
 
         Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 
@@ -120,7 +121,8 @@ class PrivateEndpointConnectionController(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         REST model used to encapsulate Private Link properties for tracked resources.
-        Azure REST API version: 2023-06-06.
+
+        Uses Azure REST API version 2023-06-06.
 
         Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 

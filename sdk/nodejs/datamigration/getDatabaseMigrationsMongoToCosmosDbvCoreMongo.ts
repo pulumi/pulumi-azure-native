@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get Database Migration resource.
- * Azure REST API version: 2023-07-15-preview.
+ *
+ * Uses Azure REST API version 2023-07-15-preview.
  */
 export function getDatabaseMigrationsMongoToCosmosDbvCoreMongo(args: GetDatabaseMigrationsMongoToCosmosDbvCoreMongoArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -111,7 +112,8 @@ export interface GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult {
 }
 /**
  * Get Database Migration resource.
- * Azure REST API version: 2023-07-15-preview.
+ *
+ * Uses Azure REST API version 2023-07-15-preview.
  */
 export function getDatabaseMigrationsMongoToCosmosDbvCoreMongoOutput(args: GetDatabaseMigrationsMongoToCosmosDbvCoreMongoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

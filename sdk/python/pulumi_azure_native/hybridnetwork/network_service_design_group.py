@@ -134,7 +134,8 @@ class NetworkServiceDesignGroup(pulumi.CustomResource):
                  __props__=None):
         """
         network service design group resource.
-        Azure REST API version: 2023-09-01.
+
+        Uses Azure REST API version 2023-09-01.
 
         Other available API versions: 2024-04-15.
 
@@ -155,7 +156,8 @@ class NetworkServiceDesignGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         network service design group resource.
-        Azure REST API version: 2023-09-01.
+
+        Uses Azure REST API version 2023-09-01.
 
         Other available API versions: 2024-04-15.
 

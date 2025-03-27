@@ -199,7 +199,8 @@ def get_billing_role_assignment_by_department(billing_account_name: Optional[str
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingRoleAssignmentByDepartmentResult:
     """
     Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
-    Azure REST API version: 2019-10-01-preview.
+
+    Uses Azure REST API version 2019-10-01-preview.
 
     Other available API versions: 2024-04-01.
 
@@ -235,7 +236,8 @@ def get_billing_role_assignment_by_department_output(billing_account_name: Optio
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingRoleAssignmentByDepartmentResult]:
     """
     Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
-    Azure REST API version: 2019-10-01-preview.
+
+    Uses Azure REST API version 2019-10-01-preview.
 
     Other available API versions: 2024-04-01.
 

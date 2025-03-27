@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Network Tap resource definition.
- * Azure REST API version: 2023-06-15.
+ *
+ * Uses Azure REST API version 2023-06-15.
  */
 export class NetworkTap extends pulumi.CustomResource {
     /**

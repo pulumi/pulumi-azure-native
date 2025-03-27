@@ -163,7 +163,8 @@ def get_l2_connection(l2_connection_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetL2ConnectionResult:
     """
     Gets the specified L2 connection in a specified resource group.
-    Azure REST API version: 2024-03-01-preview.
+
+    Uses Azure REST API version 2024-03-01-preview.
 
     Other available API versions: 2024-03-01.
 
@@ -193,7 +194,8 @@ def get_l2_connection_output(l2_connection_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetL2ConnectionResult]:
     """
     Gets the specified L2 connection in a specified resource group.
-    Azure REST API version: 2024-03-01-preview.
+
+    Uses Azure REST API version 2024-03-01-preview.
 
     Other available API versions: 2024-03-01.
 

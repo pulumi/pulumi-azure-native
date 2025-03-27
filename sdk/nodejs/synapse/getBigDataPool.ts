@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Big Data pool.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2021-05-01, 2021-06-01-preview.
  */
@@ -140,7 +141,8 @@ export interface GetBigDataPoolResult {
 }
 /**
  * Get a Big Data pool.
- * Azure REST API version: 2021-06-01.
+ *
+ * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2021-05-01, 2021-06-01-preview.
  */

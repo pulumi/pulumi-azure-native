@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a IamServerCertificate
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetIamServerCertificateResult> InvokeAsync(GetIamServerCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIamServerCertificateResult>("azure-native:awsconnector:getIamServerCertificate", args ?? new GetIamServerCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a IamServerCertificate
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetIamServerCertificateResult> Invoke(GetIamServerCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamServerCertificateResult>("azure-native:awsconnector:getIamServerCertificate", args ?? new GetIamServerCertificateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a IamServerCertificate
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetIamServerCertificateResult> Invoke(GetIamServerCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamServerCertificateResult>("azure-native:awsconnector:getIamServerCertificate", args ?? new GetIamServerCertificateInvokeArgs(), options.WithDefaults());

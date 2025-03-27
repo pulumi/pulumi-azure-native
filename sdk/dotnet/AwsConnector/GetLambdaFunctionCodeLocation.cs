@@ -13,21 +13,24 @@ namespace Pulumi.AzureNative.AwsConnector
     {
         /// <summary>
         /// Get a LambdaFunctionCodeLocation
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Task<GetLambdaFunctionCodeLocationResult> InvokeAsync(GetLambdaFunctionCodeLocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLambdaFunctionCodeLocationResult>("azure-native:awsconnector:getLambdaFunctionCodeLocation", args ?? new GetLambdaFunctionCodeLocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a LambdaFunctionCodeLocation
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetLambdaFunctionCodeLocationResult> Invoke(GetLambdaFunctionCodeLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLambdaFunctionCodeLocationResult>("azure-native:awsconnector:getLambdaFunctionCodeLocation", args ?? new GetLambdaFunctionCodeLocationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a LambdaFunctionCodeLocation
-        /// Azure REST API version: 2024-12-01.
+        /// 
+        /// Uses Azure REST API version 2024-12-01.
         /// </summary>
         public static Output<GetLambdaFunctionCodeLocationResult> Invoke(GetLambdaFunctionCodeLocationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLambdaFunctionCodeLocationResult>("azure-native:awsconnector:getLambdaFunctionCodeLocation", args ?? new GetLambdaFunctionCodeLocationInvokeArgs(), options.WithDefaults());
