@@ -240,7 +240,7 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 	}
 
 	makeToken := func(name string) string {
-		return fmt.Sprintf("%s:%s/%s:%s", newPackageName, targetModule, targetApiVersion, name)
+		return fmt.Sprintf("%s:%s:%s", newPackageName, targetModule, name)
 	}
 
 	typeNames, err := filterTokens(schema.Types, targetModule, targetApiVersion)
