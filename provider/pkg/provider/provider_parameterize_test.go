@@ -131,11 +131,11 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	require.NoError(t, err)
 	assert.NotEmpty(t, schema.Types)
 	for typeName := range schema.Types {
-		assert.True(t, strings.HasPrefix(typeName, expectedProviderName+":aad"))
+		assert.True(t, strings.HasPrefix(typeName, expectedProviderName+":"))
 	}
 	assert.NotEmpty(t, schema.Resources)
 	for resourceName := range schema.Resources {
-		assert.True(t, strings.HasPrefix(resourceName, expectedProviderName+":aad"))
+		assert.True(t, strings.HasPrefix(resourceName, expectedProviderName+":"))
 	}
 	assert.NotEmpty(t, schema.Functions)
 
@@ -145,7 +145,7 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	assert.NotNil(t, metadata.Resources)
 	assert.NotNil(t, metadata.Types)
 	assert.NotNil(t, metadata.Invokes)
-	resource, ok, err := metadata.Resources.Get(expectedProviderName + ":aad/v20221201:DomainService")
+	resource, ok, err := metadata.Resources.Get(expectedProviderName + ":DomainService")
 	require.NoError(t, err)
 	assert.True(t, ok)
 	assert.NotNil(t, resource)
@@ -245,7 +245,7 @@ func TestUpdateMetadataRefs(t *testing.T) {
 	t.Run("Empty metadata", func(t *testing.T) {
 		t.Parallel()
 		metadata := &resources.APIMetadata{}
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
 		require.NoError(t, err)
 		require.Empty(t, updated.Resources)
 		require.Empty(t, updated.Types)
@@ -266,13 +266,13 @@ func TestUpdateMetadataRefs(t *testing.T) {
 			},
 		}
 
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
 		require.NoError(t, err)
 
 		prop, ok, err := updated.Types.Get("type1")
 		require.NoError(t, err)
 		require.True(t, ok)
-		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage/v20240101:StorageAccount", prop.Properties["prop1"].Ref)
+		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage:StorageAccount", prop.Properties["prop1"].Ref)
 	})
 
 	t.Run("Updates refs in resources", func(t *testing.T) {
@@ -295,14 +295,14 @@ func TestUpdateMetadataRefs(t *testing.T) {
 			},
 		}
 
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
 		require.NoError(t, err)
 
 		resource, ok, err := updated.Resources.Get("resource1")
 		require.NoError(t, err)
 		require.True(t, ok)
 		require.Len(t, resource.PutParameters, 1)
-		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage/v20240101:StorageAccount", resource.PutParameters[0].Body.Properties["prop1"].Ref)
+		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage:StorageAccount", resource.PutParameters[0].Body.Properties["prop1"].Ref)
 	})
 
 	t.Run("Updates refs in invokes", func(t *testing.T) {
@@ -319,13 +319,13 @@ func TestUpdateMetadataRefs(t *testing.T) {
 			},
 		}
 
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
 		require.NoError(t, err)
 
 		invoke, ok, err := updated.Invokes.Get("invoke1")
 		require.NoError(t, err)
 		require.True(t, ok)
-		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage/v20240101:StorageAccount", invoke.Response["prop1"].Ref)
+		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage:StorageAccount", invoke.Response["prop1"].Ref)
 	})
 }
 
