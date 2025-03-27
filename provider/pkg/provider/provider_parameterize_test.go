@@ -327,6 +327,36 @@ func TestUpdateMetadataRefs(t *testing.T) {
 		require.True(t, ok)
 		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage:StorageAccount", invoke.Response["prop1"].Ref)
 	})
+
+	t.Run("Does not update refs pointing to a different module", func(t *testing.T) {
+		t.Parallel()
+		metadata := &resources.APIMetadata{
+			Resources: resources.GoMap[resources.AzureAPIResource]{
+				"resource1": {
+					PutParameters: []resources.AzureAPIParameter{
+						{
+							Body: &resources.AzureAPIType{
+								Properties: map[string]resources.AzureAPIProperty{
+									"prop1": {
+										Ref: "#/types/azure-native:common:ManagedIdentity",
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		}
+
+		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
+		require.NoError(t, err)
+
+		resource, ok, err := updated.Resources.Get("resource1")
+		require.NoError(t, err)
+		require.True(t, ok)
+		require.Len(t, resource.PutParameters, 1)
+		assert.Equal(t, "#/types/azure-native:common:ManagedIdentity", resource.PutParameters[0].Body.Properties["prop1"].Ref)
+	})
 }
 
 // Ensure that we can run `pulumi package add` with a local provider binary and get a new SDK.
