@@ -25,6 +25,7 @@ from .get_server_group_firewall_rule import *
 from .get_server_group_private_endpoint_connection import *
 from .get_server_group_role import *
 from .get_single_server import *
+from .get_single_server_configuration import *
 from .get_single_server_database import *
 from .get_single_server_firewall_rule import *
 from .get_single_server_server_administrator import *
@@ -39,6 +40,7 @@ from .server_group_firewall_rule import *
 from .server_group_private_endpoint_connection import *
 from .server_group_role import *
 from .single_server import *
+from .single_server_configuration import *
 from .single_server_database import *
 from .single_server_firewall_rule import *
 from .single_server_server_administrator import *
