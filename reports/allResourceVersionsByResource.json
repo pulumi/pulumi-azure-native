@@ -9182,6 +9182,11 @@
       "2017-12-01-preview",
       "2018-06-01-privatepreview"
     ],
+    "SingleServerConfiguration": [
+      "2017-12-01",
+      "2017-12-01-preview",
+      "2018-06-01-privatepreview"
+    ],
     "SingleServerDatabase": [
       "2017-12-01",
       "2017-12-01-preview",
@@ -9342,6 +9347,10 @@
       "2020-02-14-privatepreview"
     ],
     "SingleServer": [
+      "2017-12-01",
+      "2017-12-01-preview"
+    ],
+    "SingleServerConfiguration": [
       "2017-12-01",
       "2017-12-01-preview"
     ],

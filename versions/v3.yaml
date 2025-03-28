@@ -4274,6 +4274,11 @@ DBforMySQL:
         SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}
         RpNamespace: Microsoft.DBforMySQL
+    SingleServerConfiguration:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/configurations/{configurationName}
+        RpNamespace: Microsoft.DBforMySQL
     SingleServerDatabase:
         ApiVersion: "2017-12-01"
         SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
@@ -4364,6 +4369,11 @@ DBforPostgreSQL:
         ApiVersion: "2017-12-01"
         SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/postgresql.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}
+        RpNamespace: Microsoft.DBforPostgreSQL
+    SingleServerConfiguration:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/postgresql.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/configurations/{configurationName}
         RpNamespace: Microsoft.DBforPostgreSQL
     SingleServerDatabase:
         ApiVersion: "2017-12-01"

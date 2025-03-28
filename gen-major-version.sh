@@ -2,7 +2,7 @@
 
 set -e
 
-make schema_squeeze
+# make schema_squeeze
 make generate_schema
 make generate_docs
 git add .
