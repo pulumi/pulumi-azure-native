@@ -86,6 +86,8 @@ export class ProjectConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:ProjectConnection" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

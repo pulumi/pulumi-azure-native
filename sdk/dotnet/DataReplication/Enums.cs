@@ -8,6 +8,51 @@ using Pulumi;
 namespace Pulumi.AzureNative.DataReplication
 {
     /// <summary>
+    /// Gets or sets the status.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointConnectionStatus : IEquatable<PrivateEndpointConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Approved Status.
+        /// </summary>
+        public static PrivateEndpointConnectionStatus Approved { get; } = new PrivateEndpointConnectionStatus("Approved");
+        /// <summary>
+        /// Disconnected Status.
+        /// </summary>
+        public static PrivateEndpointConnectionStatus Disconnected { get; } = new PrivateEndpointConnectionStatus("Disconnected");
+        /// <summary>
+        /// Pending Status.
+        /// </summary>
+        public static PrivateEndpointConnectionStatus Pending { get; } = new PrivateEndpointConnectionStatus("Pending");
+        /// <summary>
+        /// Rejected Status.
+        /// </summary>
+        public static PrivateEndpointConnectionStatus Rejected { get; } = new PrivateEndpointConnectionStatus("Rejected");
+
+        public static bool operator ==(PrivateEndpointConnectionStatus left, PrivateEndpointConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointConnectionStatus left, PrivateEndpointConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointConnectionStatus other && Equals(other);
+        public bool Equals(PrivateEndpointConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Gets or sets the type of vault.
     /// </summary>
     [EnumType]

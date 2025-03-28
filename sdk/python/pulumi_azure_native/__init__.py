@@ -5227,11 +5227,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.cognitiveservices",
   "classes": {
    "azure-native:cognitiveservices:Account": "Account",
+   "azure-native:cognitiveservices:AccountCapabilityHost": "AccountCapabilityHost",
+   "azure-native:cognitiveservices:AccountConnection": "AccountConnection",
    "azure-native:cognitiveservices:CommitmentPlan": "CommitmentPlan",
    "azure-native:cognitiveservices:CommitmentPlanAssociation": "CommitmentPlanAssociation",
    "azure-native:cognitiveservices:Deployment": "Deployment",
    "azure-native:cognitiveservices:EncryptionScope": "EncryptionScope",
    "azure-native:cognitiveservices:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cognitiveservices:Project": "Project",
+   "azure-native:cognitiveservices:ProjectCapabilityHost": "ProjectCapabilityHost",
+   "azure-native:cognitiveservices:ProjectConnection": "ProjectConnection",
    "azure-native:cognitiveservices:RaiBlocklist": "RaiBlocklist",
    "azure-native:cognitiveservices:RaiBlocklistItem": "RaiBlocklistItem",
    "azure-native:cognitiveservices:RaiPolicy": "RaiPolicy",
@@ -5358,6 +5363,7 @@ _utilities.register(
    "azure-native:communication:Domain": "Domain",
    "azure-native:communication:EmailService": "EmailService",
    "azure-native:communication:SenderUsername": "SenderUsername",
+   "azure-native:communication:SmtpUsername": "SmtpUsername",
    "azure-native:communication:SuppressionList": "SuppressionList",
    "azure-native:communication:SuppressionListAddress": "SuppressionListAddress"
   }
@@ -8020,7 +8026,10 @@ _utilities.register(
   "classes": {
    "azure-native:datareplication:Dra": "Dra",
    "azure-native:datareplication:Fabric": "Fabric",
+   "azure-native:datareplication:FabricAgent": "FabricAgent",
    "azure-native:datareplication:Policy": "Policy",
+   "azure-native:datareplication:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:datareplication:PrivateEndpointConnectionProxy": "PrivateEndpointConnectionProxy",
    "azure-native:datareplication:ProtectedItem": "ProtectedItem",
    "azure-native:datareplication:ReplicationExtension": "ReplicationExtension",
    "azure-native:datareplication:Vault": "Vault"

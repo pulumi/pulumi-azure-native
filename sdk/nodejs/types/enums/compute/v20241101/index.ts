@@ -245,6 +245,7 @@ export type Modes = (typeof Modes)[keyof typeof Modes];
 
 export const NetworkApiVersion = {
     NetworkApiVersion_2020_11_01: "2020-11-01",
+    NetworkApiVersion_2022_11_01: "2022-11-01",
 } as const;
 
 /**
