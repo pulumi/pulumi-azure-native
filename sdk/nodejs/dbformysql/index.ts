@@ -65,6 +65,11 @@ export const getSingleServer: typeof import("./getSingleServer").getSingleServer
 export const getSingleServerOutput: typeof import("./getSingleServer").getSingleServerOutput = null as any;
 utilities.lazyLoad(exports, ["getSingleServer","getSingleServerOutput"], () => require("./getSingleServer"));
 
+export { GetSingleServerConfigurationArgs, GetSingleServerConfigurationResult, GetSingleServerConfigurationOutputArgs } from "./getSingleServerConfiguration";
+export const getSingleServerConfiguration: typeof import("./getSingleServerConfiguration").getSingleServerConfiguration = null as any;
+export const getSingleServerConfigurationOutput: typeof import("./getSingleServerConfiguration").getSingleServerConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServerConfiguration","getSingleServerConfigurationOutput"], () => require("./getSingleServerConfiguration"));
+
 export { GetSingleServerDatabaseArgs, GetSingleServerDatabaseResult, GetSingleServerDatabaseOutputArgs } from "./getSingleServerDatabase";
 export const getSingleServerDatabase: typeof import("./getSingleServerDatabase").getSingleServerDatabase = null as any;
 export const getSingleServerDatabaseOutput: typeof import("./getSingleServerDatabase").getSingleServerDatabaseOutput = null as any;
@@ -99,6 +104,11 @@ export { SingleServerArgs } from "./singleServer";
 export type SingleServer = import("./singleServer").SingleServer;
 export const SingleServer: typeof import("./singleServer").SingleServer = null as any;
 utilities.lazyLoad(exports, ["SingleServer"], () => require("./singleServer"));
+
+export { SingleServerConfigurationArgs } from "./singleServerConfiguration";
+export type SingleServerConfiguration = import("./singleServerConfiguration").SingleServerConfiguration;
+export const SingleServerConfiguration: typeof import("./singleServerConfiguration").SingleServerConfiguration = null as any;
+utilities.lazyLoad(exports, ["SingleServerConfiguration"], () => require("./singleServerConfiguration"));
 
 export { SingleServerDatabaseArgs } from "./singleServerDatabase";
 export type SingleServerDatabase = import("./singleServerDatabase").SingleServerDatabase;
@@ -142,6 +152,8 @@ const _module = {
                 return new Server(name, <any>undefined, { urn })
             case "azure-native:dbformysql:SingleServer":
                 return new SingleServer(name, <any>undefined, { urn })
+            case "azure-native:dbformysql:SingleServerConfiguration":
+                return new SingleServerConfiguration(name, <any>undefined, { urn })
             case "azure-native:dbformysql:SingleServerDatabase":
                 return new SingleServerDatabase(name, <any>undefined, { urn })
             case "azure-native:dbformysql:SingleServerFirewallRule":
