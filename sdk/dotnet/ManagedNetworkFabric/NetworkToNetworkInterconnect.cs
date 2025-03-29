@@ -10,38 +10,68 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// The NetworkToNetworkInterconnect resource definition.
+    /// The Network To Network Interconnect resource definition.
     /// 
-    /// Uses Azure REST API version 2023-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-02-01-preview.
+    /// Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
     /// 
-    /// Other available API versions: 2023-06-15.
+    /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkToNetworkInterconnect")]
     public partial class NetworkToNetworkInterconnect : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets the administrativeState of the resource. Example -Enabled/Disabled
+        /// Administrative state of the resource.
         /// </summary>
         [Output("administrativeState")]
         public Output<string> AdministrativeState { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
+
+        /// <summary>
+        /// Egress Acl. ARM resource ID of Access Control Lists.
+        /// </summary>
+        [Output("egressAclId")]
+        public Output<string?> EgressAclId { get; private set; } = null!;
+
+        /// <summary>
+        /// Export Route Policy configuration.
+        /// </summary>
+        [Output("exportRoutePolicy")]
+        public Output<Outputs.ExportRoutePolicyInformationResponse?> ExportRoutePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Import Route Policy configuration.
+        /// </summary>
+        [Output("importRoutePolicy")]
+        public Output<Outputs.ImportRoutePolicyInformationResponse?> ImportRoutePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Ingress Acl. ARM resource ID of Access Control Lists.
+        /// </summary>
+        [Output("ingressAclId")]
+        public Output<string?> IngressAclId { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration to use NNI for Infrastructure Management. Example: True/False.
         /// </summary>
         [Output("isManagementType")]
-        public Output<string> IsManagementType { get; private set; } = null!;
+        public Output<string?> IsManagementType { get; private set; } = null!;
 
         /// <summary>
-        /// Common properties for Layer2Configuration.
+        /// Common properties for Layer2 Configuration.
         /// </summary>
         [Output("layer2Configuration")]
         public Output<Outputs.Layer2ConfigurationResponse?> Layer2Configuration { get; private set; } = null!;
-
-        /// <summary>
-        /// Common properties for Layer3Configuration.
-        /// </summary>
-        [Output("layer3Configuration")]
-        public Output<Outputs.Layer3ConfigurationResponse?> Layer3Configuration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -56,7 +86,19 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string?> NniType { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// NPB Static Route Configuration properties.
+        /// </summary>
+        [Output("npbStaticRouteConfiguration")]
+        public Output<Outputs.NpbStaticRouteConfigurationResponse?> NpbStaticRouteConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Common properties for Layer3Configuration.
+        /// </summary>
+        [Output("optionBLayer3Configuration")]
+        public Output<Outputs.NetworkToNetworkInterconnectPropertiesResponseOptionBLayer3Configuration?> OptionBLayer3Configuration { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -74,7 +116,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Based on this parameter the layer2/layer3 is made as mandatory. Example: True/False
+        /// Based on this option layer3 parameters are mandatory. Example: True/False
         /// </summary>
         [Output("useOptionB")]
         public Output<string> UseOptionB { get; private set; } = null!;
@@ -130,31 +172,49 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class NetworkToNetworkInterconnectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration to use NNI for Infrastructure Management. Example: True/False.
+        /// Egress Acl. ARM resource ID of Access Control Lists.
         /// </summary>
-        [Input("isManagementType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.BooleanEnumProperty> IsManagementType { get; set; } = null!;
+        [Input("egressAclId")]
+        public Input<string>? EgressAclId { get; set; }
 
         /// <summary>
-        /// Common properties for Layer2Configuration.
+        /// Export Route Policy configuration.
+        /// </summary>
+        [Input("exportRoutePolicy")]
+        public Input<Inputs.ExportRoutePolicyInformationArgs>? ExportRoutePolicy { get; set; }
+
+        /// <summary>
+        /// Import Route Policy configuration.
+        /// </summary>
+        [Input("importRoutePolicy")]
+        public Input<Inputs.ImportRoutePolicyInformationArgs>? ImportRoutePolicy { get; set; }
+
+        /// <summary>
+        /// Ingress Acl. ARM resource ID of Access Control Lists.
+        /// </summary>
+        [Input("ingressAclId")]
+        public Input<string>? IngressAclId { get; set; }
+
+        /// <summary>
+        /// Configuration to use NNI for Infrastructure Management. Example: True/False.
+        /// </summary>
+        [Input("isManagementType")]
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.IsManagementType>? IsManagementType { get; set; }
+
+        /// <summary>
+        /// Common properties for Layer2 Configuration.
         /// </summary>
         [Input("layer2Configuration")]
         public Input<Inputs.Layer2ConfigurationArgs>? Layer2Configuration { get; set; }
 
         /// <summary>
-        /// Common properties for Layer3Configuration.
-        /// </summary>
-        [Input("layer3Configuration")]
-        public Input<Inputs.Layer3ConfigurationArgs>? Layer3Configuration { get; set; }
-
-        /// <summary>
-        /// Name of the NetworkFabric.
+        /// Name of the Network Fabric.
         /// </summary>
         [Input("networkFabricName", required: true)]
         public Input<string> NetworkFabricName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the NetworkToNetworkInterconnectName
+        /// Name of the Network to Network Interconnect.
         /// </summary>
         [Input("networkToNetworkInterconnectName")]
         public Input<string>? NetworkToNetworkInterconnectName { get; set; }
@@ -166,19 +226,32 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.NniType>? NniType { get; set; }
 
         /// <summary>
+        /// NPB Static Route Configuration properties.
+        /// </summary>
+        [Input("npbStaticRouteConfiguration")]
+        public Input<Inputs.NpbStaticRouteConfigurationArgs>? NpbStaticRouteConfiguration { get; set; }
+
+        /// <summary>
+        /// Common properties for Layer3Configuration.
+        /// </summary>
+        [Input("optionBLayer3Configuration")]
+        public Input<Inputs.NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs>? OptionBLayer3Configuration { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Based on this parameter the layer2/layer3 is made as mandatory. Example: True/False
+        /// Based on this option layer3 parameters are mandatory. Example: True/False
         /// </summary>
         [Input("useOptionB", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.BooleanEnumProperty> UseOptionB { get; set; } = null!;
 
         public NetworkToNetworkInterconnectArgs()
         {
+            IsManagementType = "True";
             NniType = "CE";
         }
         public static new NetworkToNetworkInterconnectArgs Empty => new NetworkToNetworkInterconnectArgs();

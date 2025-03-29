@@ -210,7 +210,7 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
         """
         Security assessment metadata
 
-        Uses Azure REST API version 2019-01-01-preview.
+        Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,7 +233,7 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
         """
         Security assessment metadata
 
-        Uses Azure REST API version 2019-01-01-preview.
+        Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AssessmentsMetadataSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -287,10 +287,11 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
             __props__.__dict__["severity"] = severity
             __props__.__dict__["threats"] = threats
             __props__.__dict__["user_impact"] = user_impact
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["policy_definition_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20190101preview:AssessmentsMetadataSubscription"), pulumi.Alias(type_="azure-native:security/v20200101:AssessmentsMetadataSubscription"), pulumi.Alias(type_="azure-native:security/v20210601:AssessmentsMetadataSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20190101preview:AssessmentsMetadataSubscription"), pulumi.Alias(type_="azure-native:security/v20200101:AssessmentsMetadataSubscription"), pulumi.Alias(type_="azure-native:security/v20210601:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azure-native:security/v20210601:AssessmentsMetadataSubscription"), pulumi.Alias(type_="azure-native:security:AssessmentMetadataInSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentsMetadataSubscription, __self__).__init__(
             'azure-native:security:AssessmentsMetadataSubscription',
@@ -315,6 +316,7 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
         __props__ = AssessmentsMetadataSubscriptionArgs.__new__(AssessmentsMetadataSubscriptionArgs)
 
         __props__.__dict__["assessment_type"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["categories"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -336,6 +338,14 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
         BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         """
         return pulumi.get(self, "assessment_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.AnalysisServices
         /// Gets details about the specified Analysis Services server.
         /// 
         /// Uses Azure REST API version 2017-08-01.
-        /// 
-        /// Other available API versions: 2017-08-01-beta.
         /// </summary>
         public static Task<GetServerDetailsResult> InvokeAsync(GetServerDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-native:analysisservices:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.AnalysisServices
         /// Gets details about the specified Analysis Services server.
         /// 
         /// Uses Azure REST API version 2017-08-01.
-        /// 
-        /// Other available API versions: 2017-08-01-beta.
         /// </summary>
         public static Output<GetServerDetailsResult> Invoke(GetServerDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerDetailsResult>("azure-native:analysisservices:getServerDetails", args ?? new GetServerDetailsInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.AnalysisServices
         /// Gets details about the specified Analysis Services server.
         /// 
         /// Uses Azure REST API version 2017-08-01.
-        /// 
-        /// Other available API versions: 2017-08-01-beta.
         /// </summary>
         public static Output<GetServerDetailsResult> Invoke(GetServerDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerDetailsResult>("azure-native:analysisservices:getServerDetails", args ?? new GetServerDetailsInvokeArgs(), options.WithDefaults());
@@ -91,6 +85,10 @@ namespace Pulumi.AzureNative.AnalysisServices
         /// A collection of AS server administrators
         /// </summary>
         public readonly Outputs.ServerAdministratorsResponse? AsAdministrators;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The SAS container URI to the backup container.
         /// </summary>
@@ -156,6 +154,8 @@ namespace Pulumi.AzureNative.AnalysisServices
         private GetServerDetailsResult(
             Outputs.ServerAdministratorsResponse? asAdministrators,
 
+            string azureApiVersion,
+
             string? backupBlobContainerUri,
 
             Outputs.GatewayDetailsResponse? gatewayDetails,
@@ -187,6 +187,7 @@ namespace Pulumi.AzureNative.AnalysisServices
             string type)
         {
             AsAdministrators = asAdministrators;
+            AzureApiVersion = azureApiVersion;
             BackupBlobContainerUri = backupBlobContainerUri;
             GatewayDetails = gatewayDetails;
             Id = id;

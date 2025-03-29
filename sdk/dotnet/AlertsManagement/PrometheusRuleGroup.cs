@@ -12,11 +12,19 @@ namespace Pulumi.AzureNative.AlertsManagement
     /// <summary>
     /// The Prometheus rule group resource.
     /// 
-    /// Uses Azure REST API version 2023-03-01.
+    /// Uses Azure REST API version 2023-03-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
+    /// 
+    /// Other available API versions: 2021-07-22-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement:PrometheusRuleGroup")]
     public partial class PrometheusRuleGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Apply rule to data from a specific cluster.
         /// </summary>

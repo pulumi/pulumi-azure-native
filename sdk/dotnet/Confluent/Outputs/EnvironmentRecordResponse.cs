@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Confluent.Outputs
 {
 
     /// <summary>
-    /// Record of the environment
+    /// Details about environment name, metadata and environment id of an environment
     /// </summary>
     [OutputType]
     public sealed class EnvironmentRecordResponse

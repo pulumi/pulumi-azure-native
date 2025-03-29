@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Description for Gets the details of a static site.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStaticSite(args: GetStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +41,10 @@ export interface GetStaticSiteResult {
      * <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
      */
     readonly allowConfigFileUpdates?: boolean;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The target branch in the repository.
      */
@@ -82,7 +86,7 @@ export interface GetStaticSiteResult {
      */
     readonly keyVaultReferenceIdentity: string;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     readonly kind?: string;
     /**
@@ -145,9 +149,9 @@ export interface GetStaticSiteResult {
 /**
  * Description for Gets the details of a static site.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStaticSiteOutput(args: GetStaticSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

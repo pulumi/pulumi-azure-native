@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * EnterpriseKnowledgeGraph resource definition
  *
- * Uses Azure REST API version 2018-12-03. In version 1.x of the Azure Native provider, it used API version 2018-12-03.
+ * Uses Azure REST API version 2018-12-03. In version 2.x of the Azure Native provider, it used API version 2018-12-03.
  */
 export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
         return obj['__pulumiType'] === EnterpriseKnowledgeGraph.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies the location of the resource.
      */
@@ -84,9 +88,11 @@ export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

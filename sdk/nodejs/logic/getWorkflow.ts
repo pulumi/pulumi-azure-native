@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2019-05-01.
  *
- * Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
+ * Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +45,10 @@ export interface GetWorkflowResult {
      * Gets the access endpoint.
      */
     readonly accessEndpoint: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets the changed time.
      */
@@ -119,7 +123,7 @@ export interface GetWorkflowResult {
  *
  * Uses Azure REST API version 2019-05-01.
  *
- * Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
+ * Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkflowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

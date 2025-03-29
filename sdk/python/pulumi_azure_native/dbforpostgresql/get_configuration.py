@@ -27,10 +27,13 @@ class GetConfigurationResult:
     """
     Represents a Configuration.
     """
-    def __init__(__self__, allowed_values=None, data_type=None, default_value=None, description=None, documentation_link=None, id=None, is_config_pending_restart=None, is_dynamic_config=None, is_read_only=None, name=None, source=None, system_data=None, type=None, unit=None, value=None):
+    def __init__(__self__, allowed_values=None, azure_api_version=None, data_type=None, default_value=None, description=None, documentation_link=None, id=None, is_config_pending_restart=None, is_dynamic_config=None, is_read_only=None, name=None, source=None, system_data=None, type=None, unit=None, value=None):
         if allowed_values and not isinstance(allowed_values, str):
             raise TypeError("Expected argument 'allowed_values' to be a str")
         pulumi.set(__self__, "allowed_values", allowed_values)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_type and not isinstance(data_type, str):
             raise TypeError("Expected argument 'data_type' to be a str")
         pulumi.set(__self__, "data_type", data_type)
@@ -83,6 +86,14 @@ class GetConfigurationResult:
         return pulumi.get(self, "allowed_values")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> str:
         """
@@ -118,7 +129,7 @@ class GetConfigurationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -202,6 +213,7 @@ class AwaitableGetConfigurationResult(GetConfigurationResult):
             yield self
         return GetConfigurationResult(
             allowed_values=self.allowed_values,
+            azure_api_version=self.azure_api_version,
             data_type=self.data_type,
             default_value=self.default_value,
             description=self.description,
@@ -225,9 +237,9 @@ def get_configuration(configuration_name: Optional[str] = None,
     """
     Gets information about a configuration of server.
 
-    Uses Azure REST API version 2022-12-01.
+    Uses Azure REST API version 2024-08-01.
 
-    Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str configuration_name: The name of the server configuration.
@@ -243,6 +255,7 @@ def get_configuration(configuration_name: Optional[str] = None,
 
     return AwaitableGetConfigurationResult(
         allowed_values=pulumi.get(__ret__, 'allowed_values'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_type=pulumi.get(__ret__, 'data_type'),
         default_value=pulumi.get(__ret__, 'default_value'),
         description=pulumi.get(__ret__, 'description'),
@@ -264,9 +277,9 @@ def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = N
     """
     Gets information about a configuration of server.
 
-    Uses Azure REST API version 2022-12-01.
+    Uses Azure REST API version 2024-08-01.
 
-    Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str configuration_name: The name of the server configuration.
@@ -281,6 +294,7 @@ def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult)
     return __ret__.apply(lambda __response__: GetConfigurationResult(
         allowed_values=pulumi.get(__response__, 'allowed_values'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_type=pulumi.get(__response__, 'data_type'),
         default_value=pulumi.get(__response__, 'default_value'),
         description=pulumi.get(__response__, 'description'),

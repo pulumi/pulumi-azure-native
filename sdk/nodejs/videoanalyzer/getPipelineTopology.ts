@@ -46,6 +46,10 @@ export interface GetPipelineTopologyArgs {
  */
 export interface GetPipelineTopologyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * An optional description of the pipeline topology. It is recommended that the expected use of the topology to be described here.
      */
     readonly description?: string;

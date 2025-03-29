@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Logic
     public sealed class GetWorkflowAccessKeyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the resource id.
         /// </summary>
         public readonly string? Id;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.Logic
 
         [OutputConstructor]
         private GetWorkflowAccessKeyResult(
+            string azureApiVersion,
+
             string? id,
 
             string name,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.Logic
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             NotAfter = notAfter;

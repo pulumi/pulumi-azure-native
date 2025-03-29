@@ -194,27 +194,6 @@ utilities.lazyLoad(exports, ["TunnelPolicy"], () => require("./tunnelPolicy"));
 // Export enums:
 export * from "../types/enums/cdn";
 
-// Export sub-modules:
-import * as v20200901 from "./v20200901";
-import * as v20230501 from "./v20230501";
-import * as v20230701preview from "./v20230701preview";
-import * as v20240201 from "./v20240201";
-import * as v20240501preview from "./v20240501preview";
-import * as v20240601preview from "./v20240601preview";
-import * as v20240722preview from "./v20240722preview";
-import * as v20240901 from "./v20240901";
-
-export {
-    v20200901,
-    v20230501,
-    v20230701preview,
-    v20240201,
-    v20240501preview,
-    v20240601preview,
-    v20240722preview,
-    v20240901,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

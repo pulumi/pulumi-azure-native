@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['JobAgentArgs', 'JobAgent']
@@ -24,6 +25,7 @@ class JobAgentArgs:
                  database_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['JobAgentIdentityArgs']] = None,
                  job_agent_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
@@ -33,6 +35,7 @@ class JobAgentArgs:
         :param pulumi.Input[str] database_id: Resource ID of the database to store job metadata in.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input['JobAgentIdentityArgs'] identity: The identity of the job agent.
         :param pulumi.Input[str] job_agent_name: The name of the job agent to be created or updated.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['SkuArgs'] sku: The name and tier of the SKU.
@@ -41,6 +44,8 @@ class JobAgentArgs:
         pulumi.set(__self__, "database_id", database_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if job_agent_name is not None:
             pulumi.set(__self__, "job_agent_name", job_agent_name)
         if location is not None:
@@ -85,6 +90,18 @@ class JobAgentArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['JobAgentIdentityArgs']]:
+        """
+        The identity of the job agent.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['JobAgentIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="jobAgentName")
@@ -141,6 +158,7 @@ class JobAgent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']]] = None,
                  job_agent_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,13 +169,14 @@ class JobAgent(pulumi.CustomResource):
         """
         An Azure SQL job agent.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_id: Resource ID of the database to store job metadata in.
+        :param pulumi.Input[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']] identity: The identity of the job agent.
         :param pulumi.Input[str] job_agent_name: The name of the job agent to be created or updated.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -174,9 +193,9 @@ class JobAgent(pulumi.CustomResource):
         """
         An Azure SQL job agent.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param JobAgentArgs args: The arguments to use to populate this resource's properties.
@@ -194,6 +213,7 @@ class JobAgent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']]] = None,
                  job_agent_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -212,6 +232,7 @@ class JobAgent(pulumi.CustomResource):
             if database_id is None and not opts.urn:
                 raise TypeError("Missing required property 'database_id'")
             __props__.__dict__["database_id"] = database_id
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["job_agent_name"] = job_agent_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -222,6 +243,7 @@ class JobAgent(pulumi.CustomResource):
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
@@ -249,7 +271,9 @@ class JobAgent(pulumi.CustomResource):
 
         __props__ = JobAgentArgs.__new__(JobAgentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["database_id"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sku"] = None
@@ -259,12 +283,28 @@ class JobAgent(pulumi.CustomResource):
         return JobAgent(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="databaseId")
     def database_id(self) -> pulumi.Output[str]:
         """
         Resource ID of the database to store job metadata in.
         """
         return pulumi.get(self, "database_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.JobAgentIdentityResponse']]:
+        """
+        The identity of the job agent.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

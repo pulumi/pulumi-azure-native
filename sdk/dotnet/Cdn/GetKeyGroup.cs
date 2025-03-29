@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing KeyGroup within a profile.
         /// 
-        /// Uses Azure REST API version 2023-07-01-preview.
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetKeyGroupResult> InvokeAsync(GetKeyGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyGroupResult>("azure-native:cdn:getKeyGroup", args ?? new GetKeyGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing KeyGroup within a profile.
         /// 
-        /// Uses Azure REST API version 2023-07-01-preview.
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("azure-native:cdn:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing KeyGroup within a profile.
         /// 
-        /// Uses Azure REST API version 2023-07-01-preview.
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("azure-native:cdn:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Cdn
         public string ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.Cdn
     [OutputType]
     public sealed class GetKeyGroupResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         public readonly string DeploymentStatus;
         /// <summary>
         /// Resource ID.
@@ -127,6 +131,8 @@ namespace Pulumi.AzureNative.Cdn
 
         [OutputConstructor]
         private GetKeyGroupResult(
+            string azureApiVersion,
+
             string deploymentStatus,
 
             string id,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNative.Cdn
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DeploymentStatus = deploymentStatus;
             Id = id;
             KeyReferences = keyReferences;

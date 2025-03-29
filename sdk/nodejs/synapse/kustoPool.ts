@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Class representing a Kusto kusto pool.
  *
- * Uses Azure REST API version 2021-06-01-preview.
+ * Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+ *
+ * Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class KustoPool extends pulumi.CustomResource {
     /**
@@ -39,6 +41,10 @@ export class KustoPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === KustoPool.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The Kusto Pool data ingestion URI.
      */
@@ -138,6 +144,7 @@ export class KustoPool extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["workspaceUID"] = args ? args.workspaceUID : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["languageExtensions"] = undefined /*out*/;
@@ -149,6 +156,7 @@ export class KustoPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["enablePurge"] = undefined /*out*/;
             resourceInputs["enableStreamingIngest"] = undefined /*out*/;

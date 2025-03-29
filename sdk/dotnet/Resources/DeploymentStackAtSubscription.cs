@@ -12,18 +12,30 @@ namespace Pulumi.AzureNative.Resources
     /// <summary>
     /// Deployment stack object.
     /// 
-    /// Uses Azure REST API version 2022-08-01-preview.
+    /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01-preview.
     /// 
-    /// Other available API versions: 2024-03-01.
+    /// Other available API versions: 2022-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentStackAtSubscription")]
     public partial class DeploymentStackAtSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Defines the behavior of resources that are not managed immediately after the stack is updated.
+        /// Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         /// </summary>
         [Output("actionOnUnmanage")]
-        public Output<Outputs.DeploymentStackPropertiesResponseActionOnUnmanage> ActionOnUnmanage { get; private set; } = null!;
+        public Output<Outputs.ActionOnUnmanageResponse> ActionOnUnmanage { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+        /// </summary>
+        [Output("correlationId")]
+        public Output<string> CorrelationId { get; private set; } = null!;
 
         /// <summary>
         /// The debug setting of the deployment.
@@ -32,7 +44,7 @@ namespace Pulumi.AzureNative.Resources
         public Output<Outputs.DeploymentStacksDebugSettingResponse?> DebugSetting { get; private set; } = null!;
 
         /// <summary>
-        /// An array of resources that were deleted during the most recent update.
+        /// An array of resources that were deleted during the most recent Deployment stack update. Deleted means that the resource was removed from the template and relevant deletion operations were specified.
         /// </summary>
         [Output("deletedResources")]
         public Output<ImmutableArray<Outputs.ResourceReferenceResponse>> DeletedResources { get; private set; } = null!;
@@ -56,37 +68,37 @@ namespace Pulumi.AzureNative.Resources
         public Output<string?> DeploymentScope { get; private set; } = null!;
 
         /// <summary>
-        /// Deployment stack description.
+        /// Deployment stack description. Max length of 4096 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An array of resources that were detached during the most recent update.
+        /// An array of resources that were detached during the most recent Deployment stack update. Detached means that the resource was removed from the template, but no relevant deletion operations were specified. So, the resource still exists while no longer being associated with the stack.
         /// </summary>
         [Output("detachedResources")]
         public Output<ImmutableArray<Outputs.ResourceReferenceResponse>> DetachedResources { get; private set; } = null!;
 
         /// <summary>
-        /// The duration of the deployment stack update.
+        /// The duration of the last successful Deployment stack update.
         /// </summary>
         [Output("duration")]
         public Output<string> Duration { get; private set; } = null!;
 
         /// <summary>
-        /// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+        /// The error detail.
         /// </summary>
         [Output("error")]
-        public Output<Outputs.ErrorResponseResponse?> Error { get; private set; } = null!;
+        public Output<Outputs.ErrorDetailResponse?> Error { get; private set; } = null!;
 
         /// <summary>
-        /// An array of resources that failed to reach goal state during the most recent update.
+        /// An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
         /// </summary>
         [Output("failedResources")]
         public Output<ImmutableArray<Outputs.ResourceReferenceExtendedResponse>> FailedResources { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        /// The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
@@ -98,16 +110,16 @@ namespace Pulumi.AzureNative.Resources
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The outputs of the underlying deployment.
+        /// The outputs of the deployment resource created by the deployment stack.
         /// </summary>
         [Output("outputs")]
         public Output<object> Outputs { get; private set; } = null!;
 
         /// <summary>
-        /// Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+        /// Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         /// </summary>
         [Output("parameters")]
-        public Output<object?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.DeploymentParameterResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
@@ -196,10 +208,16 @@ namespace Pulumi.AzureNative.Resources
     public sealed class DeploymentStackAtSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines the behavior of resources that are not managed immediately after the stack is updated.
+        /// Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         /// </summary>
         [Input("actionOnUnmanage", required: true)]
-        public Input<Inputs.DeploymentStackPropertiesActionOnUnmanageArgs> ActionOnUnmanage { get; set; } = null!;
+        public Input<Inputs.ActionOnUnmanageArgs> ActionOnUnmanage { get; set; } = null!;
+
+        /// <summary>
+        /// Flag to bypass service errors that indicate the stack resource list is not correctly synchronized.
+        /// </summary>
+        [Input("bypassStackOutOfSyncError")]
+        public Input<bool>? BypassStackOutOfSyncError { get; set; }
 
         /// <summary>
         /// The debug setting of the deployment.
@@ -226,22 +244,28 @@ namespace Pulumi.AzureNative.Resources
         public Input<string>? DeploymentStackName { get; set; }
 
         /// <summary>
-        /// Deployment stack description.
+        /// Deployment stack description. Max length of 4096 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The location of the deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        /// The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
-        /// </summary>
         [Input("parameters")]
-        public Input<object>? Parameters { get; set; }
+        private InputMap<Inputs.DeploymentParameterArgs>? _parameters;
+
+        /// <summary>
+        /// Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+        /// </summary>
+        public InputMap<Inputs.DeploymentParameterArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<Inputs.DeploymentParameterArgs>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.

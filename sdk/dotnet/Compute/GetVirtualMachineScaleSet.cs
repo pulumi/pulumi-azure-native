@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Display information about a virtual machine scale set.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetResult> InvokeAsync(GetVirtualMachineScaleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetResult>("azure-native:compute:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Display information about a virtual machine scale set.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetResult> Invoke(GetVirtualMachineScaleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetResult>("azure-native:compute:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Display information about a virtual machine scale set.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetResult> Invoke(GetVirtualMachineScaleSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetResult>("azure-native:compute:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetInvokeArgs(), options.WithDefaults());
@@ -108,6 +108,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.AutomaticRepairsPolicyResponse? AutomaticRepairsPolicy;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Optional property which must either be set to True or omitted.
         /// </summary>
         public readonly bool? ConstrainedMaximumCapacity;
@@ -115,6 +119,10 @@ namespace Pulumi.AzureNative.Compute
         /// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
         /// </summary>
         public readonly bool? DoNotRunExtensionsOnOverprovisionedVMs;
+        /// <summary>
+        /// Etag is property returned in Create/Update/Get response of the VMSS, so that customer can supply it in the header to ensure optimistic updates
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// The extended location of the Virtual Machine Scale Set.
         /// </summary>
@@ -168,9 +176,17 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.SubResourceResponse? ProximityPlacementGroup;
         /// <summary>
+        /// Policy for Resiliency
+        /// </summary>
+        public readonly Outputs.ResiliencyPolicyResponse? ResiliencyPolicy;
+        /// <summary>
         /// Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
         /// </summary>
         public readonly Outputs.ScaleInPolicyResponse? ScaleInPolicy;
+        /// <summary>
+        /// The ScheduledEventsPolicy.
+        /// </summary>
+        public readonly Outputs.ScheduledEventsPolicyResponse? ScheduledEventsPolicy;
         /// <summary>
         /// When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
         /// </summary>
@@ -179,6 +195,10 @@ namespace Pulumi.AzureNative.Compute
         /// The virtual machine scale set sku.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
+        /// Specifies the sku profile for the virtual machine scale set.
+        /// </summary>
+        public readonly Outputs.SkuProfileResponse? SkuProfile;
         /// <summary>
         /// Specifies the Spot Restore properties for the virtual machine scale set.
         /// </summary>
@@ -208,11 +228,15 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetVMProfileResponse? VirtualMachineProfile;
         /// <summary>
+        /// Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
+        /// </summary>
+        public readonly string? ZonalPlatformFaultDomainAlignMode;
+        /// <summary>
         /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
         /// </summary>
         public readonly bool? ZoneBalance;
         /// <summary>
-        /// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
+        /// The virtual machine scale set zones.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
 
@@ -222,9 +246,13 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.AutomaticRepairsPolicyResponse? automaticRepairsPolicy,
 
+            string azureApiVersion,
+
             bool? constrainedMaximumCapacity,
 
             bool? doNotRunExtensionsOnOverprovisionedVMs,
+
+            string etag,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 
@@ -252,11 +280,17 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.SubResourceResponse? proximityPlacementGroup,
 
+            Outputs.ResiliencyPolicyResponse? resiliencyPolicy,
+
             Outputs.ScaleInPolicyResponse? scaleInPolicy,
+
+            Outputs.ScheduledEventsPolicyResponse? scheduledEventsPolicy,
 
             bool? singlePlacementGroup,
 
             Outputs.SkuResponse? sku,
+
+            Outputs.SkuProfileResponse? skuProfile,
 
             Outputs.SpotRestorePolicyResponse? spotRestorePolicy,
 
@@ -272,14 +306,18 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.VirtualMachineScaleSetVMProfileResponse? virtualMachineProfile,
 
+            string? zonalPlatformFaultDomainAlignMode,
+
             bool? zoneBalance,
 
             ImmutableArray<string> zones)
         {
             AdditionalCapabilities = additionalCapabilities;
             AutomaticRepairsPolicy = automaticRepairsPolicy;
+            AzureApiVersion = azureApiVersion;
             ConstrainedMaximumCapacity = constrainedMaximumCapacity;
             DoNotRunExtensionsOnOverprovisionedVMs = doNotRunExtensionsOnOverprovisionedVMs;
+            Etag = etag;
             ExtendedLocation = extendedLocation;
             HostGroup = hostGroup;
             Id = id;
@@ -293,9 +331,12 @@ namespace Pulumi.AzureNative.Compute
             PriorityMixPolicy = priorityMixPolicy;
             ProvisioningState = provisioningState;
             ProximityPlacementGroup = proximityPlacementGroup;
+            ResiliencyPolicy = resiliencyPolicy;
             ScaleInPolicy = scaleInPolicy;
+            ScheduledEventsPolicy = scheduledEventsPolicy;
             SinglePlacementGroup = singlePlacementGroup;
             Sku = sku;
+            SkuProfile = skuProfile;
             SpotRestorePolicy = spotRestorePolicy;
             Tags = tags;
             TimeCreated = timeCreated;
@@ -303,6 +344,7 @@ namespace Pulumi.AzureNative.Compute
             UniqueId = uniqueId;
             UpgradePolicy = upgradePolicy;
             VirtualMachineProfile = virtualMachineProfile;
+            ZonalPlatformFaultDomainAlignMode = zonalPlatformFaultDomainAlignMode;
             ZoneBalance = zoneBalance;
             Zones = zones;
         }

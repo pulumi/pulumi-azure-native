@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a ServerCollector
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetServerCollectorsOperationResult> InvokeAsync(GetServerCollectorsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerCollectorsOperationResult>("azure-native:migrate:getServerCollectorsOperation", args ?? new GetServerCollectorsOperationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a ServerCollector
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServerCollectorsOperationResult> Invoke(GetServerCollectorsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerCollectorsOperationResult>("azure-native:migrate:getServerCollectorsOperation", args ?? new GetServerCollectorsOperationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a ServerCollector
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServerCollectorsOperationResult> Invoke(GetServerCollectorsOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerCollectorsOperationResult>("azure-native:migrate:getServerCollectorsOperation", args ?? new GetServerCollectorsOperationInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public readonly Outputs.CollectorAgentPropertiesBaseResponse? AgentProperties;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the Timestamp when collector was created.
         /// </summary>
         public readonly string CreatedTimestamp;
@@ -112,7 +116,7 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public readonly string? DiscoverySiteId;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.Migrate
         private GetServerCollectorsOperationResult(
             Outputs.CollectorAgentPropertiesBaseResponse? agentProperties,
 
+            string azureApiVersion,
+
             string createdTimestamp,
 
             string? discoverySiteId,
@@ -157,6 +163,7 @@ namespace Pulumi.AzureNative.Migrate
             string updatedTimestamp)
         {
             AgentProperties = agentProperties;
+            AzureApiVersion = azureApiVersion;
             CreatedTimestamp = createdTimestamp;
             DiscoverySiteId = discoverySiteId;
             Id = id;

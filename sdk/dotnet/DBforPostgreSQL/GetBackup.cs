@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Get specific backup for a given server.
         /// 
-        /// Uses Azure REST API version 2024-03-01-preview.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-native:dbforpostgresql:getBackup", args ?? new GetBackupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Get specific backup for a given server.
         /// 
-        /// Uses Azure REST API version 2024-03-01-preview.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:dbforpostgresql:getBackup", args ?? new GetBackupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Get specific backup for a given server.
         /// 
-        /// Uses Azure REST API version 2024-03-01-preview.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:dbforpostgresql:getBackup", args ?? new GetBackupInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetBackupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Backup type.
         /// </summary>
         public readonly string? BackupType;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
         [OutputConstructor]
         private GetBackupResult(
+            string azureApiVersion,
+
             string? backupType,
 
             string? completedTime,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BackupType = backupType;
             CompletedTime = completedTime;
             Id = id;

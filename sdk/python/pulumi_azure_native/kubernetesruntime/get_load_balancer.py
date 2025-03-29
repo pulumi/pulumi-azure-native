@@ -27,13 +27,16 @@ class GetLoadBalancerResult:
     """
     A LoadBalancer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
     """
-    def __init__(__self__, addresses=None, advertise_mode=None, bgp_peers=None, id=None, name=None, provisioning_state=None, service_selector=None, system_data=None, type=None):
+    def __init__(__self__, addresses=None, advertise_mode=None, azure_api_version=None, bgp_peers=None, id=None, name=None, provisioning_state=None, service_selector=None, system_data=None, type=None):
         if addresses and not isinstance(addresses, list):
             raise TypeError("Expected argument 'addresses' to be a list")
         pulumi.set(__self__, "addresses", addresses)
         if advertise_mode and not isinstance(advertise_mode, str):
             raise TypeError("Expected argument 'advertise_mode' to be a str")
         pulumi.set(__self__, "advertise_mode", advertise_mode)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bgp_peers and not isinstance(bgp_peers, list):
             raise TypeError("Expected argument 'bgp_peers' to be a list")
         pulumi.set(__self__, "bgp_peers", bgp_peers)
@@ -71,6 +74,14 @@ class GetLoadBalancerResult:
         Advertise Mode
         """
         return pulumi.get(self, "advertise_mode")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bgpPeers")
@@ -137,6 +148,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
         return GetLoadBalancerResult(
             addresses=self.addresses,
             advertise_mode=self.advertise_mode,
+            azure_api_version=self.azure_api_version,
             bgp_peers=self.bgp_peers,
             id=self.id,
             name=self.name,
@@ -154,8 +166,6 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
 
     Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-10-01-preview.
-
 
     :param str load_balancer_name: The name of the LoadBalancer
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -169,6 +179,7 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
     return AwaitableGetLoadBalancerResult(
         addresses=pulumi.get(__ret__, 'addresses'),
         advertise_mode=pulumi.get(__ret__, 'advertise_mode'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bgp_peers=pulumi.get(__ret__, 'bgp_peers'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -184,8 +195,6 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
 
     Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-10-01-preview.
-
 
     :param str load_balancer_name: The name of the LoadBalancer
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -198,6 +207,7 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
     return __ret__.apply(lambda __response__: GetLoadBalancerResult(
         addresses=pulumi.get(__response__, 'addresses'),
         advertise_mode=pulumi.get(__response__, 'advertise_mode'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bgp_peers=pulumi.get(__response__, 'bgp_peers'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

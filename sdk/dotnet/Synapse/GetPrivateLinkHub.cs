@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Synapse
         /// 
         /// Uses Azure REST API version 2021-06-01.
         /// 
-        /// Other available API versions: 2021-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPrivateLinkHubResult> InvokeAsync(GetPrivateLinkHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkHubResult>("azure-native:synapse:getPrivateLinkHub", args ?? new GetPrivateLinkHubArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Synapse
         /// 
         /// Uses Azure REST API version 2021-06-01.
         /// 
-        /// Other available API versions: 2021-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateLinkHubResult> Invoke(GetPrivateLinkHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkHubResult>("azure-native:synapse:getPrivateLinkHub", args ?? new GetPrivateLinkHubInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Synapse
         /// 
         /// Uses Azure REST API version 2021-06-01.
         /// 
-        /// Other available API versions: 2021-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateLinkHubResult> Invoke(GetPrivateLinkHubInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkHubResult>("azure-native:synapse:getPrivateLinkHub", args ?? new GetPrivateLinkHubInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetPrivateLinkHubResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetPrivateLinkHubResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

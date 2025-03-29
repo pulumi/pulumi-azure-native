@@ -17,9 +17,9 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
     public sealed class EsuKeyResponse
     {
         /// <summary>
-        /// The current status of the license profile key.
+        /// The current status of the license profile key. Represented by the same integer value that is presented on the machine itself when querying the license key status.
         /// </summary>
-        public readonly string? LicenseStatus;
+        public readonly int? LicenseStatus;
         /// <summary>
         /// SKU number.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
 
         [OutputConstructor]
         private EsuKeyResponse(
-            string? licenseStatus,
+            int? licenseStatus,
 
             string? sku)
         {

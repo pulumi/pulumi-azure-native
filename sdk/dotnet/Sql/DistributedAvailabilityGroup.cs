@@ -12,30 +12,54 @@ namespace Pulumi.AzureNative.Sql
     /// <summary>
     /// Distributed availability group between box and Sql Managed Instance.
     /// 
-    /// Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2021-05-01-preview.
+    /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
-    /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    /// Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DistributedAvailabilityGroup")]
     public partial class DistributedAvailabilityGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The distributed availability group id
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Databases in the distributed availability group
+        /// </summary>
+        [Output("databases")]
+        public Output<ImmutableArray<Outputs.DistributedAvailabilityGroupDatabaseResponse>> Databases { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the distributed availability group
         /// </summary>
         [Output("distributedAvailabilityGroupId")]
         public Output<string> DistributedAvailabilityGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The last hardened lsn
+        /// Name of the distributed availability group
         /// </summary>
-        [Output("lastHardenedLsn")]
-        public Output<string> LastHardenedLsn { get; private set; } = null!;
+        [Output("distributedAvailabilityGroupName")]
+        public Output<string> DistributedAvailabilityGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The link state
+        /// The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
         /// </summary>
-        [Output("linkState")]
-        public Output<string> LinkState { get; private set; } = null!;
+        [Output("failoverMode")]
+        public Output<string?> FailoverMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed instance side availability group name
+        /// </summary>
+        [Output("instanceAvailabilityGroupName")]
+        public Output<string?> InstanceAvailabilityGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed instance side link role
+        /// </summary>
+        [Output("instanceLinkRole")]
+        public Output<string?> InstanceLinkRole { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -44,46 +68,34 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The primary availability group name
+        /// SQL server side availability group name
         /// </summary>
-        [Output("primaryAvailabilityGroupName")]
-        public Output<string?> PrimaryAvailabilityGroupName { get; private set; } = null!;
+        [Output("partnerAvailabilityGroupName")]
+        public Output<string?> PartnerAvailabilityGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The replication mode of a distributed availability group. Parameter will be ignored during link creation.
+        /// SQL server side endpoint - IP or DNS resolvable name
+        /// </summary>
+        [Output("partnerEndpoint")]
+        public Output<string?> PartnerEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// SQL server side link role
+        /// </summary>
+        [Output("partnerLinkRole")]
+        public Output<string> PartnerLinkRole { get; private set; } = null!;
+
+        /// <summary>
+        /// Replication mode of the link
         /// </summary>
         [Output("replicationMode")]
         public Output<string?> ReplicationMode { get; private set; } = null!;
 
         /// <summary>
-        /// The secondary availability group name
+        /// Database seeding mode – can be Automatic (default), or Manual for supported scenarios.
         /// </summary>
-        [Output("secondaryAvailabilityGroupName")]
-        public Output<string?> SecondaryAvailabilityGroupName { get; private set; } = null!;
-
-        /// <summary>
-        /// The source endpoint
-        /// </summary>
-        [Output("sourceEndpoint")]
-        public Output<string?> SourceEndpoint { get; private set; } = null!;
-
-        /// <summary>
-        /// The source replica id
-        /// </summary>
-        [Output("sourceReplicaId")]
-        public Output<string> SourceReplicaId { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the target database
-        /// </summary>
-        [Output("targetDatabase")]
-        public Output<string?> TargetDatabase { get; private set; } = null!;
-
-        /// <summary>
-        /// The target replica id
-        /// </summary>
-        [Output("targetReplicaId")]
-        public Output<string> TargetReplicaId { get; private set; } = null!;
+        [Output("seedingMode")]
+        public Output<string?> SeedingMode { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -152,11 +164,41 @@ namespace Pulumi.AzureNative.Sql
 
     public sealed class DistributedAvailabilityGroupArgs : global::Pulumi.ResourceArgs
     {
+        [Input("databases")]
+        private InputList<Inputs.DistributedAvailabilityGroupDatabaseArgs>? _databases;
+
+        /// <summary>
+        /// Databases in the distributed availability group
+        /// </summary>
+        public InputList<Inputs.DistributedAvailabilityGroupDatabaseArgs> Databases
+        {
+            get => _databases ?? (_databases = new InputList<Inputs.DistributedAvailabilityGroupDatabaseArgs>());
+            set => _databases = value;
+        }
+
         /// <summary>
         /// The distributed availability group name.
         /// </summary>
         [Input("distributedAvailabilityGroupName")]
         public Input<string>? DistributedAvailabilityGroupName { get; set; }
+
+        /// <summary>
+        /// The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
+        /// </summary>
+        [Input("failoverMode")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.FailoverModeType>? FailoverMode { get; set; }
+
+        /// <summary>
+        /// Managed instance side availability group name
+        /// </summary>
+        [Input("instanceAvailabilityGroupName")]
+        public Input<string>? InstanceAvailabilityGroupName { get; set; }
+
+        /// <summary>
+        /// Managed instance side link role
+        /// </summary>
+        [Input("instanceLinkRole")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.LinkRole>? InstanceLinkRole { get; set; }
 
         /// <summary>
         /// The name of the managed instance.
@@ -165,16 +207,22 @@ namespace Pulumi.AzureNative.Sql
         public Input<string> ManagedInstanceName { get; set; } = null!;
 
         /// <summary>
-        /// The primary availability group name
+        /// SQL server side availability group name
         /// </summary>
-        [Input("primaryAvailabilityGroupName")]
-        public Input<string>? PrimaryAvailabilityGroupName { get; set; }
+        [Input("partnerAvailabilityGroupName")]
+        public Input<string>? PartnerAvailabilityGroupName { get; set; }
 
         /// <summary>
-        /// The replication mode of a distributed availability group. Parameter will be ignored during link creation.
+        /// SQL server side endpoint - IP or DNS resolvable name
+        /// </summary>
+        [Input("partnerEndpoint")]
+        public Input<string>? PartnerEndpoint { get; set; }
+
+        /// <summary>
+        /// Replication mode of the link
         /// </summary>
         [Input("replicationMode")]
-        public InputUnion<string, Pulumi.AzureNative.Sql.ReplicationMode>? ReplicationMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.ReplicationModeType>? ReplicationMode { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -183,22 +231,10 @@ namespace Pulumi.AzureNative.Sql
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The secondary availability group name
+        /// Database seeding mode – can be Automatic (default), or Manual for supported scenarios.
         /// </summary>
-        [Input("secondaryAvailabilityGroupName")]
-        public Input<string>? SecondaryAvailabilityGroupName { get; set; }
-
-        /// <summary>
-        /// The source endpoint
-        /// </summary>
-        [Input("sourceEndpoint")]
-        public Input<string>? SourceEndpoint { get; set; }
-
-        /// <summary>
-        /// The name of the target database
-        /// </summary>
-        [Input("targetDatabase")]
-        public Input<string>? TargetDatabase { get; set; }
+        [Input("seedingMode")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.SeedingModeType>? SeedingMode { get; set; }
 
         public DistributedAvailabilityGroupArgs()
         {

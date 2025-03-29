@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Lists active security admin rules in a network manager.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListActiveSecurityAdminRulesResult> InvokeAsync(ListActiveSecurityAdminRulesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListActiveSecurityAdminRulesResult>("azure-native:network:listActiveSecurityAdminRules", args ?? new ListActiveSecurityAdminRulesArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Lists active security admin rules in a network manager.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListActiveSecurityAdminRulesResult> Invoke(ListActiveSecurityAdminRulesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListActiveSecurityAdminRulesResult>("azure-native:network:listActiveSecurityAdminRules", args ?? new ListActiveSecurityAdminRulesInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Lists active security admin rules in a network manager.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListActiveSecurityAdminRulesResult> Invoke(ListActiveSecurityAdminRulesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListActiveSecurityAdminRulesResult>("azure-native:network:listActiveSecurityAdminRules", args ?? new ListActiveSecurityAdminRulesInvokeArgs(), options.WithDefaults());

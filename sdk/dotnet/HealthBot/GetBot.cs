@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.HealthBot
         /// <summary>
         /// Get a HealthBot.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2020-12-08-preview, 2024-02-01.
+        /// Other available API versions: 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-native:healthbot:getBot", args ?? new GetBotArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.HealthBot
         /// <summary>
         /// Get a HealthBot.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2020-12-08-preview, 2024-02-01.
+        /// Other available API versions: 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("azure-native:healthbot:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.HealthBot
         /// <summary>
         /// Get a HealthBot.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2020-12-08-preview, 2024-02-01.
+        /// Other available API versions: 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("azure-native:healthbot:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.HealthBot
     public sealed class GetBotResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource Id for the resource.
         /// </summary>
         public readonly string Id;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.HealthBot
 
         [OutputConstructor]
         private GetBotResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityResponse? identity,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.HealthBot
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

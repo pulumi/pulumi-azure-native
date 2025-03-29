@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Specifies information about the gallery Application Version that you want to create or update.
  *
- * Uses Azure REST API version 2022-03-03. In version 1.x of the Azure Native provider, it used API version 2020-09-30.
+ * Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
  *
- * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+ * Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GalleryApplicationVersion extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === GalleryApplicationVersion.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -105,11 +109,13 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["safetyProfile"] = args ? args.safetyProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["replicationStatus"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

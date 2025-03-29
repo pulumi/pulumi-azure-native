@@ -24,13 +24,6 @@ utilities.lazyLoad(exports, ["listAgriServiceAvailableSolutions","listAgriServic
 // Export enums:
 export * from "../types/enums/agricultureplatform";
 
-// Export sub-modules:
-import * as v20240601preview from "./v20240601preview";
-
-export {
-    v20240601preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

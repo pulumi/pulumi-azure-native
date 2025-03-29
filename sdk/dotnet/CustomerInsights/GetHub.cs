@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public readonly string ApiEndpoint;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Billing settings of the hub.
         /// </summary>
         public readonly Outputs.HubBillingInfoFormatResponse? HubBillingInfo;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         private GetHubResult(
             string apiEndpoint,
 
+            string azureApiVersion,
+
             Outputs.HubBillingInfoFormatResponse? hubBillingInfo,
 
             string id,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.CustomerInsights
             string webEndpoint)
         {
             ApiEndpoint = apiEndpoint;
+            AzureApiVersion = azureApiVersion;
             HubBillingInfo = hubBillingInfo;
             Id = id;
             Location = location;

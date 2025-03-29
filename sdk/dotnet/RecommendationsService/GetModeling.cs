@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// Returns Modeling resources for a given name.
         /// 
-        /// Uses Azure REST API version 2022-02-01.
+        /// Uses Azure REST API version 2022-03-01-preview.
         /// 
-        /// Other available API versions: 2022-03-01-preview.
+        /// Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetModelingResult> InvokeAsync(GetModelingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelingResult>("azure-native:recommendationsservice:getModeling", args ?? new GetModelingArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// Returns Modeling resources for a given name.
         /// 
-        /// Uses Azure REST API version 2022-02-01.
+        /// Uses Azure REST API version 2022-03-01-preview.
         /// 
-        /// Other available API versions: 2022-03-01-preview.
+        /// Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetModelingResult> Invoke(GetModelingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelingResult>("azure-native:recommendationsservice:getModeling", args ?? new GetModelingInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// Returns Modeling resources for a given name.
         /// 
-        /// Uses Azure REST API version 2022-02-01.
+        /// Uses Azure REST API version 2022-03-01-preview.
         /// 
-        /// Other available API versions: 2022-03-01-preview.
+        /// Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetModelingResult> Invoke(GetModelingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelingResult>("azure-native:recommendationsservice:getModeling", args ?? new GetModelingInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.RecommendationsService
     public sealed class GetModelingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.RecommendationsService
 
         [OutputConstructor]
         private GetModelingResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.RecommendationsService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * DC Access code in the case of Self Managed Shipping.
  *
- * Uses Azure REST API version 2022-03-01.
+ * Uses Azure REST API version 2023-07-01.
  *
- * Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listOrderDCAccessCode(args: ListOrderDCAccessCodeArgs, opts?: pulumi.InvokeOptions): Promise<ListOrderDCAccessCodeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,9 +42,9 @@ export interface ListOrderDCAccessCodeResult {
 /**
  * DC Access code in the case of Self Managed Shipping.
  *
- * Uses Azure REST API version 2022-03-01.
+ * Uses Azure REST API version 2023-07-01.
  *
- * Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listOrderDCAccessCodeOutput(args: ListOrderDCAccessCodeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListOrderDCAccessCodeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -27,7 +27,10 @@ class GetReplicaResult:
     """
     The replica resource.
     """
-    def __init__(__self__, endpoint=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, endpoint=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -49,6 +52,14 @@ class GetReplicaResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetReplicaResult(GetReplicaResult):
         if False:
             yield self
         return GetReplicaResult(
+            azure_api_version=self.azure_api_version,
             endpoint=self.endpoint,
             id=self.id,
             location=self.location,
@@ -129,9 +141,9 @@ def get_replica(config_store_name: Optional[str] = None,
     """
     Gets the properties of the specified replica.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+    Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -146,6 +158,7 @@ def get_replica(config_store_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appconfiguration:getReplica', __args__, opts=opts, typ=GetReplicaResult).value
 
     return AwaitableGetReplicaResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -160,9 +173,9 @@ def get_replica_output(config_store_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the properties of the specified replica.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+    Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -176,6 +189,7 @@ def get_replica_output(config_store_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appconfiguration:getReplica', __args__, opts=opts, typ=GetReplicaResult)
     return __ret__.apply(lambda __response__: GetReplicaResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

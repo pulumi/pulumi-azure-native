@@ -44,6 +44,10 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
         /// Describes the license core type (pCore or vCore).
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// A list of volume license details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VolumeLicenseDetailsResponse> VolumeLicenseDetails;
 
         [OutputConstructor]
         private LicenseDetailsResponse(
@@ -59,7 +63,9 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
 
             string? target,
 
-            string? type)
+            string? type,
+
+            ImmutableArray<Outputs.VolumeLicenseDetailsResponse> volumeLicenseDetails)
         {
             AssignedLicenses = assignedLicenses;
             Edition = edition;
@@ -68,6 +74,7 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
             State = state;
             Target = target;
             Type = type;
+            VolumeLicenseDetails = volumeLicenseDetails;
         }
     }
 }

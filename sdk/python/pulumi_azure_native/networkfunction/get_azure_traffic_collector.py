@@ -27,7 +27,10 @@ class GetAzureTrafficCollectorResult:
     """
     Azure Traffic Collector resource.
     """
-    def __init__(__self__, collector_policies=None, etag=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_hub=None):
+    def __init__(__self__, azure_api_version=None, collector_policies=None, etag=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_hub=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if collector_policies and not isinstance(collector_policies, list):
             raise TypeError("Expected argument 'collector_policies' to be a list")
         pulumi.set(__self__, "collector_policies", collector_policies)
@@ -58,6 +61,14 @@ class GetAzureTrafficCollectorResult:
         if virtual_hub and not isinstance(virtual_hub, dict):
             raise TypeError("Expected argument 'virtual_hub' to be a dict")
         pulumi.set(__self__, "virtual_hub", virtual_hub)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="collectorPolicies")
@@ -146,6 +157,7 @@ class AwaitableGetAzureTrafficCollectorResult(GetAzureTrafficCollectorResult):
         if False:
             yield self
         return GetAzureTrafficCollectorResult(
+            azure_api_version=self.azure_api_version,
             collector_policies=self.collector_policies,
             etag=self.etag,
             id=self.id,
@@ -166,8 +178,6 @@ def get_azure_traffic_collector(azure_traffic_collector_name: Optional[str] = No
 
     Uses Azure REST API version 2022-11-01.
 
-    Other available API versions: 2022-08-01.
-
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name
     :param str resource_group_name: The name of the resource group.
@@ -179,6 +189,7 @@ def get_azure_traffic_collector(azure_traffic_collector_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:networkfunction:getAzureTrafficCollector', __args__, opts=opts, typ=GetAzureTrafficCollectorResult).value
 
     return AwaitableGetAzureTrafficCollectorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         collector_policies=pulumi.get(__ret__, 'collector_policies'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -197,8 +208,6 @@ def get_azure_traffic_collector_output(azure_traffic_collector_name: Optional[pu
 
     Uses Azure REST API version 2022-11-01.
 
-    Other available API versions: 2022-08-01.
-
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name
     :param str resource_group_name: The name of the resource group.
@@ -209,6 +218,7 @@ def get_azure_traffic_collector_output(azure_traffic_collector_name: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkfunction:getAzureTrafficCollector', __args__, opts=opts, typ=GetAzureTrafficCollectorResult)
     return __ret__.apply(lambda __response__: GetAzureTrafficCollectorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         collector_policies=pulumi.get(__response__, 'collector_policies'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

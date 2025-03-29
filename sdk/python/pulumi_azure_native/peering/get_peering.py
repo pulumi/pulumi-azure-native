@@ -27,7 +27,10 @@ class GetPeeringResult:
     """
     Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
     """
-    def __init__(__self__, direct=None, exchange=None, id=None, kind=None, location=None, name=None, peering_location=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, direct=None, exchange=None, id=None, kind=None, location=None, name=None, peering_location=None, provisioning_state=None, sku=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if direct and not isinstance(direct, dict):
             raise TypeError("Expected argument 'direct' to be a dict")
         pulumi.set(__self__, "direct", direct)
@@ -61,6 +64,14 @@ class GetPeeringResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -157,6 +168,7 @@ class AwaitableGetPeeringResult(GetPeeringResult):
         if False:
             yield self
         return GetPeeringResult(
+            azure_api_version=self.azure_api_version,
             direct=self.direct,
             exchange=self.exchange,
             id=self.id,
@@ -189,6 +201,7 @@ def get_peering(peering_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:peering:getPeering', __args__, opts=opts, typ=GetPeeringResult).value
 
     return AwaitableGetPeeringResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         direct=pulumi.get(__ret__, 'direct'),
         exchange=pulumi.get(__ret__, 'exchange'),
         id=pulumi.get(__ret__, 'id'),
@@ -218,6 +231,7 @@ def get_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:peering:getPeering', __args__, opts=opts, typ=GetPeeringResult)
     return __ret__.apply(lambda __response__: GetPeeringResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         direct=pulumi.get(__response__, 'direct'),
         exchange=pulumi.get(__response__, 'exchange'),
         id=pulumi.get(__response__, 'id'),

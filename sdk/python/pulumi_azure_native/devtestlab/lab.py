@@ -245,7 +245,7 @@ class Lab(pulumi.CustomResource):
         """
         A lab.
 
-        Uses Azure REST API version 2018-09-15. In version 1.x of the Azure Native provider, it used API version 2018-09-15.
+        Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -273,7 +273,7 @@ class Lab(pulumi.CustomResource):
         """
         A lab.
 
-        Uses Azure REST API version 2018-09-15. In version 1.x of the Azure Native provider, it used API version 2018-09-15.
+        Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param LabArgs args: The arguments to use to populate this resource's properties.
@@ -328,6 +328,7 @@ class Lab(pulumi.CustomResource):
             __props__.__dict__["support"] = support
             __props__.__dict__["tags"] = tags
             __props__.__dict__["artifacts_storage_account"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_date"] = None
             __props__.__dict__["default_premium_storage_account"] = None
             __props__.__dict__["default_storage_account"] = None
@@ -366,6 +367,7 @@ class Lab(pulumi.CustomResource):
 
         __props__.__dict__["announcement"] = None
         __props__.__dict__["artifacts_storage_account"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_date"] = None
         __props__.__dict__["default_premium_storage_account"] = None
         __props__.__dict__["default_storage_account"] = None
@@ -405,6 +407,14 @@ class Lab(pulumi.CustomResource):
         The lab's artifact storage account.
         """
         return pulumi.get(self, "artifacts_storage_account")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")

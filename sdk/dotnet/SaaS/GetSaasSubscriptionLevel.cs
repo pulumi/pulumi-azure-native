@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.SaaS
     public sealed class GetSaasSubscriptionLevelResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource uri
         /// </summary>
         public readonly string Id;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNative.SaaS
 
         [OutputConstructor]
         private GetSaasSubscriptionLevelResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNative.SaaS
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

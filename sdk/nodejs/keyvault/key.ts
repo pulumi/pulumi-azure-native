@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The key resource.
  *
- * Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2019-09-01.
+ * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+ * Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Key extends pulumi.CustomResource {
     /**
@@ -46,12 +46,16 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly attributes!: pulumi.Output<outputs.keyvault.KeyAttributesResponse | undefined>;
     /**
-     * The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
      */
     public /*out*/ readonly curveName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly keyOps!: pulumi.Output<string[] | undefined>;
     /**
-     * The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+     * The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
      */
     public /*out*/ readonly keySize!: pulumi.Output<number | undefined>;
     /**
@@ -117,6 +121,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
             resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["curveName"] = undefined /*out*/;
             resourceInputs["keyOps"] = undefined /*out*/;
             resourceInputs["keySize"] = undefined /*out*/;
@@ -130,6 +135,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["curveName"] = undefined /*out*/;
             resourceInputs["keyOps"] = undefined /*out*/;
             resourceInputs["keySize"] = undefined /*out*/;

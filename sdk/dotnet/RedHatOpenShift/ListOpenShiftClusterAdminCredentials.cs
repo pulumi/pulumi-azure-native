@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// <summary>
         /// The operation returns the admin kubeconfig.
         /// 
-        /// Uses Azure REST API version 2022-09-04.
+        /// Uses Azure REST API version 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListOpenShiftClusterAdminCredentialsResult> InvokeAsync(ListOpenShiftClusterAdminCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterAdminCredentialsResult>("azure-native:redhatopenshift:listOpenShiftClusterAdminCredentials", args ?? new ListOpenShiftClusterAdminCredentialsArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// <summary>
         /// The operation returns the admin kubeconfig.
         /// 
-        /// Uses Azure REST API version 2022-09-04.
+        /// Uses Azure REST API version 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListOpenShiftClusterAdminCredentialsResult> Invoke(ListOpenShiftClusterAdminCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterAdminCredentialsResult>("azure-native:redhatopenshift:listOpenShiftClusterAdminCredentials", args ?? new ListOpenShiftClusterAdminCredentialsInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// <summary>
         /// The operation returns the admin kubeconfig.
         /// 
-        /// Uses Azure REST API version 2022-09-04.
+        /// Uses Azure REST API version 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListOpenShiftClusterAdminCredentialsResult> Invoke(ListOpenShiftClusterAdminCredentialsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterAdminCredentialsResult>("azure-native:redhatopenshift:listOpenShiftClusterAdminCredentials", args ?? new ListOpenShiftClusterAdminCredentialsInvokeArgs(), options.WithDefaults());

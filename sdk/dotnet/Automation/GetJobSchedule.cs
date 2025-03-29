@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the job schedule identified by job schedule name.
         /// 
-        /// Uses Azure REST API version 2022-08-08.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetJobScheduleResult> InvokeAsync(GetJobScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobScheduleResult>("azure-native:automation:getJobSchedule", args ?? new GetJobScheduleArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the job schedule identified by job schedule name.
         /// 
-        /// Uses Azure REST API version 2022-08-08.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetJobScheduleResult> Invoke(GetJobScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobScheduleResult>("azure-native:automation:getJobSchedule", args ?? new GetJobScheduleInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the job schedule identified by job schedule name.
         /// 
-        /// Uses Azure REST API version 2022-08-08.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetJobScheduleResult> Invoke(GetJobScheduleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobScheduleResult>("azure-native:automation:getJobSchedule", args ?? new GetJobScheduleInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Automation
     public sealed class GetJobScheduleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the id of the resource.
         /// </summary>
         public readonly string Id;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.Automation
 
         [OutputConstructor]
         private GetJobScheduleResult(
+            string azureApiVersion,
+
             string id,
 
             string? jobScheduleId,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.Automation
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             JobScheduleId = jobScheduleId;
             Name = name;

@@ -12,13 +12,17 @@ namespace Pulumi.AzureNative.StreamAnalytics
     /// <summary>
     /// Complete information about the private endpoint.
     /// 
-    /// Uses Azure REST API version 2020-03-01. In version 1.x of the Azure Native provider, it used API version 2020-03-01-preview.
-    /// 
-    /// Other available API versions: 2020-03-01-preview.
+    /// Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:PrivateEndpoint")]
     public partial class PrivateEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The date when this private endpoint was created.
         /// </summary>

@@ -32,6 +32,10 @@ export interface GetSubscriptionTarDirectoryArgs {
  */
 export interface GetSubscriptionTarDirectoryResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified ID for the Subscription Changed Directory resource.
      */
     readonly id: string;

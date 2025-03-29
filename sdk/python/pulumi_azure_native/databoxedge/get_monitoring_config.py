@@ -27,7 +27,10 @@ class GetMonitoringConfigResult:
     """
     The metric setting details for the role
     """
-    def __init__(__self__, id=None, metric_configurations=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, metric_configurations=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetMonitoringConfigResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -91,6 +102,7 @@ class AwaitableGetMonitoringConfigResult(GetMonitoringConfigResult):
         if False:
             yield self
         return GetMonitoringConfigResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             metric_configurations=self.metric_configurations,
             name=self.name,
@@ -105,9 +117,9 @@ def get_monitoring_config(device_name: Optional[str] = None,
     """
     The metric setting details for the role
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str device_name: The device name.
@@ -122,6 +134,7 @@ def get_monitoring_config(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getMonitoringConfig', __args__, opts=opts, typ=GetMonitoringConfigResult).value
 
     return AwaitableGetMonitoringConfigResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         metric_configurations=pulumi.get(__ret__, 'metric_configurations'),
         name=pulumi.get(__ret__, 'name'),
@@ -134,9 +147,9 @@ def get_monitoring_config_output(device_name: Optional[pulumi.Input[str]] = None
     """
     The metric setting details for the role
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str device_name: The device name.
@@ -150,6 +163,7 @@ def get_monitoring_config_output(device_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getMonitoringConfig', __args__, opts=opts, typ=GetMonitoringConfigResult)
     return __ret__.apply(lambda __response__: GetMonitoringConfigResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         metric_configurations=pulumi.get(__response__, 'metric_configurations'),
         name=pulumi.get(__response__, 'name'),

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.DiskConfigurationType>? DiskConfigurationType { get; set; }
 
         /// <summary>
+        /// Enable SQL IaaS Agent storage configuration blade in Azure Portal.
+        /// </summary>
+        [Input("enableStorageConfigBlade")]
+        public Input<bool>? EnableStorageConfigBlade { get; set; }
+
+        /// <summary>
         /// SQL Server Data Storage Settings.
         /// </summary>
         [Input("sqlDataSettings")]
@@ -53,6 +59,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
 
         public StorageConfigurationSettingsArgs()
         {
+            EnableStorageConfigBlade = false;
         }
         public static new StorageConfigurationSettingsArgs Empty => new StorageConfigurationSettingsArgs();
     }

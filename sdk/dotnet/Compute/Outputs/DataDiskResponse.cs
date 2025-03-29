@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? Caching;
         /// <summary>
-        /// Specifies how the virtual machine should be created. Possible values are: **Attach.** This value is used when you are using a specialized disk to create the virtual machine. **FromImage.** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
+        /// Specifies how the virtual machine disk should be created. Possible values are **Attach:** This value is used when you are using a specialized disk to create the virtual machine. **FromImage:** This value is used when you are using an image to create the virtual machine data disk. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described. **Empty:** This value is used when creating an empty data disk. **Copy:** This value is used to create a data disk from a snapshot or another disk. **Restore:** This value is used to create a data disk from a disk restore point.
         /// </summary>
         public readonly string CreateOption;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? DeleteOption;
         /// <summary>
-        /// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview** mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+        /// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
         /// </summary>
         public readonly string? DetachOption;
         /// <summary>
@@ -60,6 +60,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// The disk name.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The source resource identifier. It can be a snapshot, or disk restore point from which to create a disk.
+        /// </summary>
+        public readonly Outputs.ApiEntityReferenceResponse? SourceResource;
         /// <summary>
         /// Specifies whether the data disk is in process of detachment from the VirtualMachine/VirtualMachineScaleset
         /// </summary>
@@ -97,6 +101,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string? name,
 
+            Outputs.ApiEntityReferenceResponse? sourceResource,
+
             bool? toBeDetached,
 
             Outputs.VirtualHardDiskResponse? vhd,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
             Lun = lun;
             ManagedDisk = managedDisk;
             Name = name;
+            SourceResource = sourceResource;
             ToBeDetached = toBeDetached;
             Vhd = vhd;
             WriteAcceleratorEnabled = writeAcceleratorEnabled;

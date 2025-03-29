@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Databricks
         /// <summary>
         /// Gets the workspace.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:databricks:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Databricks
         /// <summary>
         /// Gets the workspace.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:databricks:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Databricks
         /// <summary>
         /// Gets the workspace.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:databricks:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -88,9 +88,17 @@ namespace Pulumi.AzureNative.Databricks
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// Access Connector Resource that is going to be associated with Databricks Workspace
+        /// </summary>
+        public readonly Outputs.WorkspacePropertiesResponseAccessConnector? AccessConnector;
+        /// <summary>
         /// The workspace provider authorizations.
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkspaceProviderAuthorizationResponse> Authorizations;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
         /// </summary>
@@ -100,6 +108,14 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         public readonly string CreatedDateTime;
         /// <summary>
+        /// Properties for Default Catalog configuration during workspace creation.
+        /// </summary>
+        public readonly Outputs.DefaultCatalogPropertiesResponse? DefaultCatalog;
+        /// <summary>
+        /// Gets or Sets Default Storage Firewall configuration information
+        /// </summary>
+        public readonly string? DefaultStorageFirewall;
+        /// <summary>
         /// The resource Id of the managed disk encryption set.
         /// </summary>
         public readonly string DiskEncryptionSetId;
@@ -108,9 +124,17 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         public readonly Outputs.WorkspacePropertiesResponseEncryption? Encryption;
         /// <summary>
+        /// Contains settings related to the Enhanced Security and Compliance Add-On.
+        /// </summary>
+        public readonly Outputs.EnhancedSecurityComplianceDefinitionResponse? EnhancedSecurityCompliance;
+        /// <summary>
         /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Indicates whether unity catalog enabled for the workspace or not.
+        /// </summary>
+        public readonly bool IsUcEnabled;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -186,17 +210,29 @@ namespace Pulumi.AzureNative.Databricks
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            Outputs.WorkspacePropertiesResponseAccessConnector? accessConnector,
+
             ImmutableArray<Outputs.WorkspaceProviderAuthorizationResponse> authorizations,
+
+            string azureApiVersion,
 
             Outputs.CreatedByResponse? createdBy,
 
             string createdDateTime,
 
+            Outputs.DefaultCatalogPropertiesResponse? defaultCatalog,
+
+            string? defaultStorageFirewall,
+
             string diskEncryptionSetId,
 
             Outputs.WorkspacePropertiesResponseEncryption? encryption,
 
+            Outputs.EnhancedSecurityComplianceDefinitionResponse? enhancedSecurityCompliance,
+
             string id,
+
+            bool isUcEnabled,
 
             string location,
 
@@ -234,12 +270,18 @@ namespace Pulumi.AzureNative.Databricks
 
             string workspaceUrl)
         {
+            AccessConnector = accessConnector;
             Authorizations = authorizations;
+            AzureApiVersion = azureApiVersion;
             CreatedBy = createdBy;
             CreatedDateTime = createdDateTime;
+            DefaultCatalog = defaultCatalog;
+            DefaultStorageFirewall = defaultStorageFirewall;
             DiskEncryptionSetId = diskEncryptionSetId;
             Encryption = encryption;
+            EnhancedSecurityCompliance = enhancedSecurityCompliance;
             Id = id;
+            IsUcEnabled = isUcEnabled;
             Location = location;
             ManagedDiskIdentity = managedDiskIdentity;
             ManagedResourceGroupId = managedResourceGroupId;

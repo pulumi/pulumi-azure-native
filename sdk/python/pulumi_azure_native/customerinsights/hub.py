@@ -136,7 +136,7 @@ class Hub(pulumi.CustomResource):
         """
         Hub resource.
 
-        Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
+        Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +156,7 @@ class Hub(pulumi.CustomResource):
         """
         Hub resource.
 
-        Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
+        Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param HubArgs args: The arguments to use to populate this resource's properties.
@@ -197,6 +197,7 @@ class Hub(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tenant_features"] = tenant_features
             __props__.__dict__["api_endpoint"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -226,6 +227,7 @@ class Hub(pulumi.CustomResource):
         __props__ = HubArgs.__new__(HubArgs)
 
         __props__.__dict__["api_endpoint"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["hub_billing_info"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -243,6 +245,14 @@ class Hub(pulumi.CustomResource):
         API endpoint URL of the hub.
         """
         return pulumi.get(self, "api_endpoint")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hubBillingInfo")

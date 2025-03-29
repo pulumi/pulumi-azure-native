@@ -68,9 +68,9 @@ def get_billing_info(monitor_name: Optional[str] = None,
     """
     Marketplace Subscription and Organization details to which resource gets billed into.
 
-    Uses Azure REST API version 2023-07-01-preview.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
+    Other available API versions: 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str monitor_name: Monitor resource name
@@ -91,9 +91,9 @@ def get_billing_info_output(monitor_name: Optional[pulumi.Input[str]] = None,
     """
     Marketplace Subscription and Organization details to which resource gets billed into.
 
-    Uses Azure REST API version 2023-07-01-preview.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
+    Other available API versions: 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str monitor_name: Monitor resource name

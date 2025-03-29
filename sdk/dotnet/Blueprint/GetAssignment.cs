@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Blueprint
     public sealed class GetAssignmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// ID of the published version of a blueprint definition.
         /// </summary>
         public readonly string? BlueprintId;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.Blueprint
 
         [OutputConstructor]
         private GetAssignmentResult(
+            string azureApiVersion,
+
             string? blueprintId,
 
             string? description,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.Blueprint
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BlueprintId = blueprintId;
             Description = description;
             DisplayName = displayName;

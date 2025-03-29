@@ -26,13 +26,16 @@ class GetExpressRoutePortAuthorizationResult:
     """
     ExpressRoutePort Authorization resource definition.
     """
-    def __init__(__self__, authorization_key=None, authorization_use_status=None, circuit_resource_uri=None, etag=None, id=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, authorization_key=None, authorization_use_status=None, azure_api_version=None, circuit_resource_uri=None, etag=None, id=None, name=None, provisioning_state=None, type=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
         if authorization_use_status and not isinstance(authorization_use_status, str):
             raise TypeError("Expected argument 'authorization_use_status' to be a str")
         pulumi.set(__self__, "authorization_use_status", authorization_use_status)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if circuit_resource_uri and not isinstance(circuit_resource_uri, str):
             raise TypeError("Expected argument 'circuit_resource_uri' to be a str")
         pulumi.set(__self__, "circuit_resource_uri", circuit_resource_uri)
@@ -67,6 +70,14 @@ class GetExpressRoutePortAuthorizationResult:
         The authorization use status.
         """
         return pulumi.get(self, "authorization_use_status")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="circuitResourceUri")
@@ -125,6 +136,7 @@ class AwaitableGetExpressRoutePortAuthorizationResult(GetExpressRoutePortAuthori
         return GetExpressRoutePortAuthorizationResult(
             authorization_key=self.authorization_key,
             authorization_use_status=self.authorization_use_status,
+            azure_api_version=self.azure_api_version,
             circuit_resource_uri=self.circuit_resource_uri,
             etag=self.etag,
             id=self.id,
@@ -140,9 +152,9 @@ def get_express_route_port_authorization(authorization_name: Optional[str] = Non
     """
     Gets the specified authorization from the specified express route port.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str authorization_name: The name of the authorization.
@@ -159,6 +171,7 @@ def get_express_route_port_authorization(authorization_name: Optional[str] = Non
     return AwaitableGetExpressRoutePortAuthorizationResult(
         authorization_key=pulumi.get(__ret__, 'authorization_key'),
         authorization_use_status=pulumi.get(__ret__, 'authorization_use_status'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         circuit_resource_uri=pulumi.get(__ret__, 'circuit_resource_uri'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -172,9 +185,9 @@ def get_express_route_port_authorization_output(authorization_name: Optional[pul
     """
     Gets the specified authorization from the specified express route port.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str authorization_name: The name of the authorization.
@@ -190,6 +203,7 @@ def get_express_route_port_authorization_output(authorization_name: Optional[pul
     return __ret__.apply(lambda __response__: GetExpressRoutePortAuthorizationResult(
         authorization_key=pulumi.get(__response__, 'authorization_key'),
         authorization_use_status=pulumi.get(__response__, 'authorization_use_status'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         circuit_resource_uri=pulumi.get(__response__, 'circuit_resource_uri'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * PaloAltoNetworks Firewall
  *
- * Uses Azure REST API version 2023-09-01.
+ * Uses Azure REST API version 2025-02-06-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Firewall extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly associatedRulestack!: pulumi.Output<outputs.cloudngfw.RulestackDetailsResponse | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * DNS settings for Firewall
      */
     public readonly dnsSettings!: pulumi.Output<outputs.cloudngfw.DNSSettingsResponse>;
@@ -61,6 +65,10 @@ export class Firewall extends pulumi.CustomResource {
      * Panorama Managed: Default is False. Default will be CloudSec managed
      */
     public readonly isPanoramaManaged!: pulumi.Output<string | undefined>;
+    /**
+     * Strata Cloud Managed: Default is False. Default will be CloudSec managed
+     */
+    public readonly isStrataCloudManaged!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -93,6 +101,10 @@ export class Firewall extends pulumi.CustomResource {
      * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Strata Cloud Manager Configuration, only applicable if Strata Cloud Manager is selected.
+     */
+    public readonly strataCloudManagerConfig!: pulumi.Output<outputs.cloudngfw.StrataCloudManagerConfigResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -138,6 +150,7 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["frontEndSettings"] = args ? args.frontEndSettings : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["isPanoramaManaged"] = args ? args.isPanoramaManaged : undefined;
+            resourceInputs["isStrataCloudManaged"] = args ? args.isStrataCloudManaged : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["marketplaceDetails"] = args ? args.marketplaceDetails : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
@@ -145,17 +158,21 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["panoramaConfig"] = args ? args.panoramaConfig : undefined;
             resourceInputs["planData"] = args ? args.planData : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["strataCloudManagerConfig"] = args ? args.strataCloudManagerConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["associatedRulestack"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dnsSettings"] = undefined /*out*/;
             resourceInputs["frontEndSettings"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["isPanoramaManaged"] = undefined /*out*/;
+            resourceInputs["isStrataCloudManaged"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["marketplaceDetails"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -164,6 +181,7 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["panoramaConfig"] = undefined /*out*/;
             resourceInputs["planData"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["strataCloudManagerConfig"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -204,6 +222,10 @@ export interface FirewallArgs {
      */
     isPanoramaManaged?: pulumi.Input<string | enums.cloudngfw.BooleanEnum>;
     /**
+     * Strata Cloud Managed: Default is False. Default will be CloudSec managed
+     */
+    isStrataCloudManaged?: pulumi.Input<string | enums.cloudngfw.BooleanEnum>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -231,6 +253,10 @@ export interface FirewallArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Strata Cloud Manager Configuration, only applicable if Strata Cloud Manager is selected.
+     */
+    strataCloudManagerConfig?: pulumi.Input<inputs.cloudngfw.StrataCloudManagerConfigArgs>;
     /**
      * Resource tags.
      */

@@ -27,7 +27,10 @@ class GetRelationshipResult:
     """
     The relationship resource format.
     """
-    def __init__(__self__, cardinality=None, description=None, display_name=None, expiry_date_time_utc=None, fields=None, id=None, lookup_mappings=None, name=None, profile_type=None, provisioning_state=None, related_profile_type=None, relationship_guid_id=None, relationship_name=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, cardinality=None, description=None, display_name=None, expiry_date_time_utc=None, fields=None, id=None, lookup_mappings=None, name=None, profile_type=None, provisioning_state=None, related_profile_type=None, relationship_guid_id=None, relationship_name=None, tenant_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cardinality and not isinstance(cardinality, str):
             raise TypeError("Expected argument 'cardinality' to be a str")
         pulumi.set(__self__, "cardinality", cardinality)
@@ -73,6 +76,14 @@ class GetRelationshipResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -201,6 +212,7 @@ class AwaitableGetRelationshipResult(GetRelationshipResult):
         if False:
             yield self
         return GetRelationshipResult(
+            azure_api_version=self.azure_api_version,
             cardinality=self.cardinality,
             description=self.description,
             display_name=self.display_name,
@@ -240,6 +252,7 @@ def get_relationship(hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights:getRelationship', __args__, opts=opts, typ=GetRelationshipResult).value
 
     return AwaitableGetRelationshipResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cardinality=pulumi.get(__ret__, 'cardinality'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -276,6 +289,7 @@ def get_relationship_output(hub_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getRelationship', __args__, opts=opts, typ=GetRelationshipResult)
     return __ret__.apply(lambda __response__: GetRelationshipResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cardinality=pulumi.get(__response__, 'cardinality'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

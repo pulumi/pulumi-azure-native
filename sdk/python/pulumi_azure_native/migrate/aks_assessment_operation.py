@@ -118,9 +118,9 @@ class AksAssessmentOperation(pulumi.CustomResource):
         """
         ARM model of AKS Assessment.
 
-        Uses Azure REST API version 2023-04-01-preview.
+        Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,9 +139,9 @@ class AksAssessmentOperation(pulumi.CustomResource):
         """
         ARM model of AKS Assessment.
 
-        Uses Azure REST API version 2023-04-01-preview.
+        Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AksAssessmentOperationArgs args: The arguments to use to populate this resource's properties.
@@ -183,6 +183,7 @@ class AksAssessmentOperation(pulumi.CustomResource):
             if settings is None and not opts.urn:
                 raise TypeError("Missing required property 'settings'")
             __props__.__dict__["settings"] = settings
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["details"] = None
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
@@ -213,6 +214,7 @@ class AksAssessmentOperation(pulumi.CustomResource):
 
         __props__ = AksAssessmentOperationArgs.__new__(AksAssessmentOperationArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["details"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["name"] = None
@@ -222,6 +224,14 @@ class AksAssessmentOperation(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return AksAssessmentOperation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

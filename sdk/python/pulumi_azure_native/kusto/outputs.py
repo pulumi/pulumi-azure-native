@@ -28,10 +28,12 @@ __all__ = [
     'KeyVaultPropertiesResponse',
     'LanguageExtensionResponse',
     'LanguageExtensionsListResponse',
+    'MigrationClusterPropertiesResponse',
     'OptimizedAutoscaleResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
+    'SuspensionDetailsResponse',
     'SystemDataResponse',
     'TableLevelSharingPropertiesResponse',
     'TrustedExternalTenantResponse',
@@ -111,6 +113,29 @@ class CalloutPolicyResponse(dict):
     """
     Configuration for external callout policies, including URI patterns, access types, and service types.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "calloutId":
+            suggest = "callout_id"
+        elif key == "calloutType":
+            suggest = "callout_type"
+        elif key == "calloutUriRegex":
+            suggest = "callout_uri_regex"
+        elif key == "outboundAccess":
+            suggest = "outbound_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CalloutPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CalloutPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CalloutPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  callout_id: str,
                  callout_type: Optional[str] = None,
@@ -559,7 +584,9 @@ class LanguageExtensionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "languageExtensionImageName":
+        if key == "languageExtensionCustomImageName":
+            suggest = "language_extension_custom_image_name"
+        elif key == "languageExtensionImageName":
             suggest = "language_extension_image_name"
         elif key == "languageExtensionName":
             suggest = "language_extension_name"
@@ -576,17 +603,29 @@ class LanguageExtensionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 language_extension_custom_image_name: Optional[str] = None,
                  language_extension_image_name: Optional[str] = None,
                  language_extension_name: Optional[str] = None):
         """
         The language extension object.
+        :param str language_extension_custom_image_name: The language extension custom image name.
         :param str language_extension_image_name: The language extension image name.
         :param str language_extension_name: The language extension name.
         """
+        if language_extension_custom_image_name is not None:
+            pulumi.set(__self__, "language_extension_custom_image_name", language_extension_custom_image_name)
         if language_extension_image_name is not None:
             pulumi.set(__self__, "language_extension_image_name", language_extension_image_name)
         if language_extension_name is not None:
             pulumi.set(__self__, "language_extension_name", language_extension_name)
+
+    @property
+    @pulumi.getter(name="languageExtensionCustomImageName")
+    def language_extension_custom_image_name(self) -> Optional[str]:
+        """
+        The language extension custom image name.
+        """
+        return pulumi.get(self, "language_extension_custom_image_name")
 
     @property
     @pulumi.getter(name="languageExtensionImageName")
@@ -626,6 +665,78 @@ class LanguageExtensionsListResponse(dict):
         The list of language extensions.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MigrationClusterPropertiesResponse(dict):
+    """
+    Represents a properties of a cluster that is part of a migration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataIngestionUri":
+            suggest = "data_ingestion_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationClusterPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationClusterPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationClusterPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_ingestion_uri: str,
+                 id: str,
+                 role: str,
+                 uri: str):
+        """
+        Represents a properties of a cluster that is part of a migration.
+        :param str data_ingestion_uri: The public data ingestion URL of the cluster.
+        :param str id: The resource ID of the cluster.
+        :param str role: The role of the cluster in the migration process.
+        :param str uri: The public URL of the cluster.
+        """
+        pulumi.set(__self__, "data_ingestion_uri", data_ingestion_uri)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="dataIngestionUri")
+    def data_ingestion_uri(self) -> str:
+        """
+        The public data ingestion URL of the cluster.
+        """
+        return pulumi.get(self, "data_ingestion_uri")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID of the cluster.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        The role of the cluster in the migration process.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The public URL of the cluster.
+        """
+        return pulumi.get(self, "uri")
 
 
 @pulumi.output_type
@@ -907,6 +1018,46 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
         The private link service connection status.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class SuspensionDetailsResponse(dict):
+    """
+    The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "suspensionStartDate":
+            suggest = "suspension_start_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SuspensionDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SuspensionDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SuspensionDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 suspension_start_date: Optional[str] = None):
+        """
+        The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+        :param str suspension_start_date: The starting date and time of the suspension state.
+        """
+        if suspension_start_date is not None:
+            pulumi.set(__self__, "suspension_start_date", suspension_start_date)
+
+    @property
+    @pulumi.getter(name="suspensionStartDate")
+    def suspension_start_date(self) -> Optional[str]:
+        """
+        The starting date and time of the suspension state.
+        """
+        return pulumi.get(self, "suspension_start_date")
 
 
 @pulumi.output_type
@@ -1209,16 +1360,22 @@ class VirtualNetworkConfigurationResponse(dict):
     def __init__(__self__, *,
                  data_management_public_ip_id: str,
                  engine_public_ip_id: str,
-                 subnet_id: str):
+                 subnet_id: str,
+                 state: Optional[str] = None):
         """
         A class that contains virtual network definition.
         :param str data_management_public_ip_id: Data management's service public IP address resource id.
         :param str engine_public_ip_id: Engine service's public IP address resource id.
         :param str subnet_id: The subnet resource id.
+        :param str state: When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
         """
         pulumi.set(__self__, "data_management_public_ip_id", data_management_public_ip_id)
         pulumi.set(__self__, "engine_public_ip_id", engine_public_ip_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if state is None:
+            state = 'Enabled'
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter(name="dataManagementPublicIpId")
@@ -1243,5 +1400,13 @@ class VirtualNetworkConfigurationResponse(dict):
         The subnet resource id.
         """
         return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
+        """
+        return pulumi.get(self, "state")
 
 

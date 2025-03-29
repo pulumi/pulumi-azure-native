@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Gets connection resource.
         /// 
-        /// Uses Azure REST API version 2023-10-11-preview.
+        /// Uses Azure REST API version 2024-09-27.
         /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
+        /// Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("azure-native:azuredatatransfer:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Gets connection resource.
         /// 
-        /// Uses Azure REST API version 2023-10-11-preview.
+        /// Uses Azure REST API version 2024-09-27.
         /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
+        /// Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("azure-native:azuredatatransfer:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Gets connection resource.
         /// 
-        /// Uses Azure REST API version 2023-10-11-preview.
+        /// Uses Azure REST API version 2024-09-27.
         /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
+        /// Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("azure-native:azuredatatransfer:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.AzureDataTransfer
     public sealed class GetConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
 
         [OutputConstructor]
         private GetConnectionResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

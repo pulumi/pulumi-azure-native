@@ -12,13 +12,17 @@ namespace Pulumi.AzureNative.NetworkFunction
     /// <summary>
     /// Azure Traffic Collector resource.
     /// 
-    /// Uses Azure REST API version 2022-11-01. In version 1.x of the Azure Native provider, it used API version 2022-05-01.
-    /// 
-    /// Other available API versions: 2022-08-01.
+    /// Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkfunction:AzureTrafficCollector")]
     public partial class AzureTrafficCollector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Collector Policies for Azure Traffic Collector.
         /// </summary>

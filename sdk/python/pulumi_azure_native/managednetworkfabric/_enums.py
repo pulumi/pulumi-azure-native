@@ -5,21 +5,26 @@
 from enum import Enum
 
 __all__ = [
+    'AclActionType',
     'Action',
-    'AddressFamily',
+    'AddressFamilyType',
     'AllowASOverride',
     'BooleanEnumProperty',
     'CommunityActionTypes',
     'Condition',
-    'ConditionActionType',
     'ConfigurationType',
     'DestinationType',
     'Encapsulation',
     'EncapsulationType',
+    'Extension',
     'GatewayType',
     'IPAddressType',
+    'IsManagementType',
+    'IsMonitoringEnabled',
+    'IsWorkloadManagementNetworkEnabled',
     'Layer4Protocol',
-    'NetworkDeviceRoleTypes',
+    'NetworkRackType',
+    'NfcSku',
     'NniType',
     'PeeringOption',
     'PollingType',
@@ -27,10 +32,21 @@ __all__ = [
     'PrefixType',
     'RedistributeConnectedSubnets',
     'RedistributeStaticRoutes',
+    'RoutePolicyActionType',
+    'RoutePolicyConditionType',
     'SourceDestinationType',
     'TapRuleActionType',
     'WellKnownCommunities',
 ]
+
+
+class AclActionType(str, Enum):
+    """
+    Type of actions that can be performed.
+    """
+    DROP = "Drop"
+    COUNT = "Count"
+    LOG = "Log"
 
 
 class Action(str, Enum):
@@ -41,12 +57,12 @@ class Action(str, Enum):
     DENY = "Deny"
 
 
-class AddressFamily(str, Enum):
+class AddressFamilyType(str, Enum):
     """
-    IP address family. Example: ipv4 | ipv6.
+    AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
     """
-    IPV4 = "ipv4"
-    IPV6 = "ipv6"
+    I_PV4 = "IPv4"
+    I_PV6 = "IPv6"
 
 
 class AllowASOverride(str, Enum):
@@ -59,7 +75,7 @@ class AllowASOverride(str, Enum):
 
 class BooleanEnumProperty(str, Enum):
     """
-    Based on this parameter the layer2/layer3 is made as mandatory. Example: True/False
+    Based on this option layer3 parameters are mandatory. Example: True/False
     """
     TRUE = "True"
     FALSE = "False"
@@ -67,7 +83,7 @@ class BooleanEnumProperty(str, Enum):
 
 class CommunityActionTypes(str, Enum):
     """
-    action. Example: Permit | Deny.
+    Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
     """
     PERMIT = "Permit"
     DENY = "Deny"
@@ -80,14 +96,7 @@ class Condition(str, Enum):
     EQUAL_TO = "EqualTo"
     GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo"
     LESSER_THAN_OR_EQUAL_TO = "LesserThanOrEqualTo"
-
-
-class ConditionActionType(str, Enum):
-    """
-    action. Example: allow | deny.
-    """
-    ALLOW = "allow"
-    DENY = "deny"
+    RANGE = "Range"
 
 
 class ConfigurationType(str, Enum):
@@ -122,6 +131,14 @@ class EncapsulationType(str, Enum):
     GT_PV1 = "GTPv1"
 
 
+class Extension(str, Enum):
+    """
+    Extension. Example: NoExtension | NPB.
+    """
+    NO_EXTENSION = "NoExtension"
+    NPB = "NPB"
+
+
 class GatewayType(str, Enum):
     """
     Gateway Type of the resource.
@@ -138,6 +155,30 @@ class IPAddressType(str, Enum):
     I_PV6 = "IPv6"
 
 
+class IsManagementType(str, Enum):
+    """
+    Configuration to use NNI for Infrastructure Management. Example: True/False.
+    """
+    TRUE = "True"
+    FALSE = "False"
+
+
+class IsMonitoringEnabled(str, Enum):
+    """
+    To check whether monitoring of internal network is enabled or not.
+    """
+    TRUE = "True"
+    FALSE = "False"
+
+
+class IsWorkloadManagementNetworkEnabled(str, Enum):
+    """
+    A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+    """
+    TRUE = "True"
+    FALSE = "False"
+
+
 class Layer4Protocol(str, Enum):
     """
     Layer4 protocol type that needs to be matched.
@@ -146,15 +187,22 @@ class Layer4Protocol(str, Enum):
     UDP = "UDP"
 
 
-class NetworkDeviceRoleTypes(str, Enum):
+class NetworkRackType(str, Enum):
     """
-    networkDeviceRole is the device role: Example: CE | ToR.
+    Network Rack SKU name.
     """
-    CE = "CE"
-    TO_R = "ToR"
-    NPB = "NPB"
-    TS = "TS"
-    MANAGEMENT = "Management"
+    AGGREGATE = "Aggregate"
+    COMPUTE = "Compute"
+    COMBINED = "Combined"
+
+
+class NfcSku(str, Enum):
+    """
+    Network Fabric Controller SKU.
+    """
+    BASIC = "Basic"
+    STANDARD = "Standard"
+    HIGH_PERFORMANCE = "HighPerformance"
 
 
 class NniType(str, Enum):
@@ -211,6 +259,23 @@ class RedistributeStaticRoutes(str, Enum):
     """
     TRUE = "True"
     FALSE = "False"
+
+
+class RoutePolicyActionType(str, Enum):
+    """
+    Action type. Example: Permit | Deny | Continue.
+    """
+    PERMIT = "Permit"
+    DENY = "Deny"
+    CONTINUE_ = "Continue"
+
+
+class RoutePolicyConditionType(str, Enum):
+    """
+    Type of the condition used.
+    """
+    OR_ = "Or"
+    AND_ = "And"
 
 
 class SourceDestinationType(str, Enum):

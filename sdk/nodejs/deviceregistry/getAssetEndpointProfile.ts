@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a AssetEndpointProfile
  *
- * Uses Azure REST API version 2023-11-01-preview.
+ * Uses Azure REST API version 2024-11-01.
  *
- * Other available API versions: 2024-09-01-preview, 2024-11-01.
+ * Other available API versions: 2023-11-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAssetEndpointProfile(args: GetAssetEndpointProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetEndpointProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,11 +42,27 @@ export interface GetAssetEndpointProfileResult {
      */
     readonly additionalConfiguration?: string;
     /**
+     * Defines the client authentication mechanism to the server.
+     */
+    readonly authentication?: outputs.deviceregistry.AuthenticationResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Reference to a discovered asset endpoint profile. Populated only if the asset endpoint profile has been created from discovery flow. Discovered asset endpoint profile name must be provided.
+     */
+    readonly discoveredAssetEndpointProfileRef?: string;
+    /**
+     * Defines the configuration for the connector type that is being used with the endpoint profile.
+     */
+    readonly endpointProfileType: string;
+    /**
      * The extended location.
      */
     readonly extendedLocation: outputs.deviceregistry.ExtendedLocationResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -62,6 +78,10 @@ export interface GetAssetEndpointProfileResult {
      */
     readonly provisioningState: string;
     /**
+     * Read only object to reflect changes that have occurred on the Edge. Similar to Kubernetes status property for custom resources.
+     */
+    readonly status: outputs.deviceregistry.AssetEndpointProfileStatusResponse;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.deviceregistry.SystemDataResponse;
@@ -74,17 +94,9 @@ export interface GetAssetEndpointProfileResult {
      */
     readonly targetAddress: string;
     /**
-     * Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
-     */
-    readonly transportAuthentication?: outputs.deviceregistry.TransportAuthenticationResponse;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Defines the client authentication mechanism to the server.
-     */
-    readonly userAuthentication?: outputs.deviceregistry.UserAuthenticationResponse;
     /**
      * Globally unique, immutable, non-reusable id.
      */
@@ -93,9 +105,9 @@ export interface GetAssetEndpointProfileResult {
 /**
  * Get a AssetEndpointProfile
  *
- * Uses Azure REST API version 2023-11-01-preview.
+ * Uses Azure REST API version 2024-11-01.
  *
- * Other available API versions: 2024-09-01-preview, 2024-11-01.
+ * Other available API versions: 2023-11-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAssetEndpointProfileOutput(args: GetAssetEndpointProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetEndpointProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

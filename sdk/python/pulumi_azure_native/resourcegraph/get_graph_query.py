@@ -27,7 +27,10 @@ class GetGraphQueryResult:
     """
     Graph Query entity definition.
     """
-    def __init__(__self__, description=None, etag=None, id=None, location=None, name=None, query=None, result_kind=None, system_data=None, tags=None, time_modified=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, etag=None, id=None, location=None, name=None, query=None, result_kind=None, system_data=None, tags=None, time_modified=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -63,6 +66,14 @@ class GetGraphQueryResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -74,7 +85,7 @@ class GetGraphQueryResult:
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
-        This will be used to handle Optimistic Concurrency.
+        This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         """
         return pulumi.get(self, "etag")
 
@@ -88,7 +99,7 @@ class GetGraphQueryResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> Optional[str]:
         """
         The location of the resource
         """
@@ -122,7 +133,7 @@ class GetGraphQueryResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        The system metadata relating to this resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -157,6 +168,7 @@ class AwaitableGetGraphQueryResult(GetGraphQueryResult):
         if False:
             yield self
         return GetGraphQueryResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             etag=self.etag,
             id=self.id,
@@ -176,12 +188,12 @@ def get_graph_query(resource_group_name: Optional[str] = None,
     """
     Get a single graph query by its resourceName.
 
-    Uses Azure REST API version 2020-04-01-preview.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+    Other available API versions: 2020-04-01-preview, 2021-03-01, 2022-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcegraph [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Graph Query resource.
     """
     __args__ = dict()
@@ -191,6 +203,7 @@ def get_graph_query(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resourcegraph:getGraphQuery', __args__, opts=opts, typ=GetGraphQueryResult).value
 
     return AwaitableGetGraphQueryResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -208,12 +221,12 @@ def get_graph_query_output(resource_group_name: Optional[pulumi.Input[str]] = No
     """
     Get a single graph query by its resourceName.
 
-    Uses Azure REST API version 2020-04-01-preview.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+    Other available API versions: 2020-04-01-preview, 2021-03-01, 2022-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcegraph [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Graph Query resource.
     """
     __args__ = dict()
@@ -222,6 +235,7 @@ def get_graph_query_output(resource_group_name: Optional[pulumi.Input[str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resourcegraph:getGraphQuery', __args__, opts=opts, typ=GetGraphQueryResult)
     return __ret__.apply(lambda __response__: GetGraphQueryResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

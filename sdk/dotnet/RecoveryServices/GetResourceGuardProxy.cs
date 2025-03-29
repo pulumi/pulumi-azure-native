@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Returns ResourceGuardProxy under vault and with the name referenced in request
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetResourceGuardProxyResult> InvokeAsync(GetResourceGuardProxyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceGuardProxyResult>("azure-native:recoveryservices:getResourceGuardProxy", args ?? new GetResourceGuardProxyArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Returns ResourceGuardProxy under vault and with the name referenced in request
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetResourceGuardProxyResult> Invoke(GetResourceGuardProxyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGuardProxyResult>("azure-native:recoveryservices:getResourceGuardProxy", args ?? new GetResourceGuardProxyInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Returns ResourceGuardProxy under vault and with the name referenced in request
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetResourceGuardProxyResult> Invoke(GetResourceGuardProxyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGuardProxyResult>("azure-native:recoveryservices:getResourceGuardProxy", args ?? new GetResourceGuardProxyInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.RecoveryServices
     public sealed class GetResourceGuardProxyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Optional ETag.
         /// </summary>
         public readonly string? ETag;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.RecoveryServices
 
         [OutputConstructor]
         private GetResourceGuardProxyResult(
+            string azureApiVersion,
+
             string? eTag,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             Location = location;

@@ -14,11 +14,3 @@ from .get_job_definition import *
 from .job_definition import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.hybriddata.v20190601 as __v20190601
-    v20190601 = __v20190601
-else:
-    v20190601 = _utilities.lazy_import('pulumi_azure_native.hybriddata.v20190601')
-

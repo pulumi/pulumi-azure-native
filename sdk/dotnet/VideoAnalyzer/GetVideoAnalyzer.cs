@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// Get the details of the specified Video Analyzer account
         /// 
         /// Uses Azure REST API version 2021-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-05-01-preview.
         /// </summary>
         public static Task<GetVideoAnalyzerResult> InvokeAsync(GetVideoAnalyzerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVideoAnalyzerResult>("azure-native:videoanalyzer:getVideoAnalyzer", args ?? new GetVideoAnalyzerArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// Get the details of the specified Video Analyzer account
         /// 
         /// Uses Azure REST API version 2021-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-05-01-preview.
         /// </summary>
         public static Output<GetVideoAnalyzerResult> Invoke(GetVideoAnalyzerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVideoAnalyzerResult>("azure-native:videoanalyzer:getVideoAnalyzer", args ?? new GetVideoAnalyzerInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// Get the details of the specified Video Analyzer account
         /// 
         /// Uses Azure REST API version 2021-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-05-01-preview.
         /// </summary>
         public static Output<GetVideoAnalyzerResult> Invoke(GetVideoAnalyzerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVideoAnalyzerResult>("azure-native:videoanalyzer:getVideoAnalyzer", args ?? new GetVideoAnalyzerInvokeArgs(), options.WithDefaults());
@@ -87,6 +81,10 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     [OutputType]
     public sealed class GetVideoAnalyzerResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The account encryption properties.
         /// </summary>
@@ -150,6 +148,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
         [OutputConstructor]
         private GetVideoAnalyzerResult(
+            string azureApiVersion,
+
             Outputs.AccountEncryptionResponse? encryption,
 
             ImmutableArray<Outputs.EndpointResponse> endpoints,
@@ -180,6 +180,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Encryption = encryption;
             Endpoints = endpoints;
             Id = id;

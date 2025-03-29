@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Specifies information about the gallery image version that you want to create or update.
  *
- * Uses Azure REST API version 2022-03-03. In version 1.x of the Azure Native provider, it used API version 2020-09-30.
+ * Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
  *
- * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+ * Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GalleryImageVersion extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class GalleryImageVersion extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -62,9 +66,17 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly replicationStatus!: pulumi.Output<outputs.compute.ReplicationStatusResponse>;
     /**
+     * Indicates if this is a soft-delete resource restoration request.
+     */
+    public readonly restore!: pulumi.Output<boolean | undefined>;
+    /**
      * This is the safety profile of the Gallery Image Version.
      */
     public readonly safetyProfile!: pulumi.Output<outputs.compute.GalleryImageVersionSafetyProfileResponse | undefined>;
+    /**
+     * The security profile of a gallery image version
+     */
+    public readonly securityProfile!: pulumi.Output<outputs.compute.ImageVersionSecurityProfileResponse | undefined>;
     /**
      * This is the storage profile of a Gallery Image Version.
      */
@@ -77,6 +89,10 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * This is the validations profile of a Gallery Image Version.
+     */
+    public /*out*/ readonly validationsProfile!: pulumi.Output<outputs.compute.ValidationsProfileResponse>;
 
     /**
      * Create a GalleryImageVersion resource with the given unique name, arguments, and options.
@@ -107,23 +123,31 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["publishingProfile"] = args ? args.publishingProfile : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restore"] = args ? args.restore : undefined;
             resourceInputs["safetyProfile"] = args ? args.safetyProfile : undefined;
+            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["replicationStatus"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationsProfile"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publishingProfile"] = undefined /*out*/;
             resourceInputs["replicationStatus"] = undefined /*out*/;
+            resourceInputs["restore"] = undefined /*out*/;
             resourceInputs["safetyProfile"] = undefined /*out*/;
+            resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["storageProfile"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationsProfile"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:compute/v20180601:GalleryImageVersion" }, { type: "azure-native:compute/v20190301:GalleryImageVersion" }, { type: "azure-native:compute/v20190701:GalleryImageVersion" }, { type: "azure-native:compute/v20191201:GalleryImageVersion" }, { type: "azure-native:compute/v20200930:GalleryImageVersion" }, { type: "azure-native:compute/v20210701:GalleryImageVersion" }, { type: "azure-native:compute/v20211001:GalleryImageVersion" }, { type: "azure-native:compute/v20220103:GalleryImageVersion" }, { type: "azure-native:compute/v20220303:GalleryImageVersion" }, { type: "azure-native:compute/v20220803:GalleryImageVersion" }, { type: "azure-native:compute/v20230703:GalleryImageVersion" }, { type: "azure-native:compute/v20240303:GalleryImageVersion" }] };
@@ -161,9 +185,17 @@ export interface GalleryImageVersionArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * Indicates if this is a soft-delete resource restoration request.
+     */
+    restore?: pulumi.Input<boolean>;
+    /**
      * This is the safety profile of the Gallery Image Version.
      */
     safetyProfile?: pulumi.Input<inputs.compute.GalleryImageVersionSafetyProfileArgs>;
+    /**
+     * The security profile of a gallery image version
+     */
+    securityProfile?: pulumi.Input<inputs.compute.ImageVersionSecurityProfileArgs>;
     /**
      * This is the storage profile of a Gallery Image Version.
      */

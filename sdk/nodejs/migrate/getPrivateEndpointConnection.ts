@@ -41,6 +41,10 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * For optimistic concurrency control.
      */
     readonly eTag?: string;

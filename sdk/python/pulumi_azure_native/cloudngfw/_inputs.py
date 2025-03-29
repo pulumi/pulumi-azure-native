@@ -48,6 +48,8 @@ __all__ = [
     'SecurityServicesArgsDict',
     'SourceAddrArgs',
     'SourceAddrArgsDict',
+    'StrataCloudManagerConfigArgs',
+    'StrataCloudManagerConfigArgsDict',
     'TagInfoArgs',
     'TagInfoArgsDict',
     'VnetConfigurationArgs',
@@ -768,6 +770,10 @@ if not MYPY:
         """
         Egress nat IP to use
         """
+        private_source_nat_rules_destination: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of ipv4 destination address for which source NAT is to be performed
+        """
         trusted_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         Non-RFC 1918 address
@@ -790,6 +796,7 @@ class NetworkProfileArgs:
                  network_type: pulumi.Input[Union[str, 'NetworkType']],
                  public_ips: pulumi.Input[Sequence[pulumi.Input['IPAddressArgs']]],
                  egress_nat_ip: Optional[pulumi.Input[Sequence[pulumi.Input['IPAddressArgs']]]] = None,
+                 private_source_nat_rules_destination: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vnet_configuration: Optional[pulumi.Input['VnetConfigurationArgs']] = None,
                  vwan_configuration: Optional[pulumi.Input['VwanConfigurationArgs']] = None):
@@ -799,6 +806,7 @@ class NetworkProfileArgs:
         :param pulumi.Input[Union[str, 'NetworkType']] network_type: vnet or vwan, cannot be updated
         :param pulumi.Input[Sequence[pulumi.Input['IPAddressArgs']]] public_ips: List of IPs associated with the Firewall
         :param pulumi.Input[Sequence[pulumi.Input['IPAddressArgs']]] egress_nat_ip: Egress nat IP to use
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_source_nat_rules_destination: Array of ipv4 destination address for which source NAT is to be performed
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_ranges: Non-RFC 1918 address
         :param pulumi.Input['VnetConfigurationArgs'] vnet_configuration: Vnet configurations
         :param pulumi.Input['VwanConfigurationArgs'] vwan_configuration: Vwan configurations
@@ -808,6 +816,8 @@ class NetworkProfileArgs:
         pulumi.set(__self__, "public_ips", public_ips)
         if egress_nat_ip is not None:
             pulumi.set(__self__, "egress_nat_ip", egress_nat_ip)
+        if private_source_nat_rules_destination is not None:
+            pulumi.set(__self__, "private_source_nat_rules_destination", private_source_nat_rules_destination)
         if trusted_ranges is not None:
             pulumi.set(__self__, "trusted_ranges", trusted_ranges)
         if vnet_configuration is not None:
@@ -862,6 +872,18 @@ class NetworkProfileArgs:
     @egress_nat_ip.setter
     def egress_nat_ip(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPAddressArgs']]]]):
         pulumi.set(self, "egress_nat_ip", value)
+
+    @property
+    @pulumi.getter(name="privateSourceNatRulesDestination")
+    def private_source_nat_rules_destination(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of ipv4 destination address for which source NAT is to be performed
+        """
+        return pulumi.get(self, "private_source_nat_rules_destination")
+
+    @private_source_nat_rules_destination.setter
+    def private_source_nat_rules_destination(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "private_source_nat_rules_destination", value)
 
     @property
     @pulumi.getter(name="trustedRanges")
@@ -1355,6 +1377,41 @@ class SourceAddrArgs:
     @prefix_lists.setter
     def prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "prefix_lists", value)
+
+
+if not MYPY:
+    class StrataCloudManagerConfigArgsDict(TypedDict):
+        """
+        This field is only present if Strata Cloud Manager is managing the policy for this firewall
+        """
+        cloud_manager_name: pulumi.Input[str]
+        """
+        Strata Cloud Manager name which is intended to manage the policy for this firewall.
+        """
+elif False:
+    StrataCloudManagerConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StrataCloudManagerConfigArgs:
+    def __init__(__self__, *,
+                 cloud_manager_name: pulumi.Input[str]):
+        """
+        This field is only present if Strata Cloud Manager is managing the policy for this firewall
+        :param pulumi.Input[str] cloud_manager_name: Strata Cloud Manager name which is intended to manage the policy for this firewall.
+        """
+        pulumi.set(__self__, "cloud_manager_name", cloud_manager_name)
+
+    @property
+    @pulumi.getter(name="cloudManagerName")
+    def cloud_manager_name(self) -> pulumi.Input[str]:
+        """
+        Strata Cloud Manager name which is intended to manage the policy for this firewall.
+        """
+        return pulumi.get(self, "cloud_manager_name")
+
+    @cloud_manager_name.setter
+    def cloud_manager_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cloud_manager_name", value)
 
 
 if not MYPY:

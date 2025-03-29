@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The HDInsight cluster.
  *
- * Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01-preview.
+ * Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
  *
- * Other available API versions: 2023-04-15-preview, 2023-06-01-preview, 2023-08-15-preview, 2023-11-01-preview, 2024-05-01-preview, 2024-08-01-preview, 2025-01-15-preview.
+ * Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The ETag for the resource
      */
@@ -99,11 +103,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -115,7 +121,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Cluster" }, { type: "azure-native:hdinsight/v20180601preview:Cluster" }, { type: "azure-native:hdinsight/v20210601:Cluster" }, { type: "azure-native:hdinsight/v20230415preview:Cluster" }, { type: "azure-native:hdinsight/v20230815preview:Cluster" }, { type: "azure-native:hdinsight/v20240801preview:Cluster" }, { type: "azure-native:hdinsight/v20250115preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Cluster" }, { type: "azure-native:hdinsight/v20180601preview:Cluster" }, { type: "azure-native:hdinsight/v20210601:Cluster" }, { type: "azure-native:hdinsight/v20230415preview:Cluster" }, { type: "azure-native:hdinsight/v20230601preview:Cluster" }, { type: "azure-native:hdinsight/v20230815preview:Cluster" }, { type: "azure-native:hdinsight/v20231101preview:Cluster" }, { type: "azure-native:hdinsight/v20240501preview:Cluster" }, { type: "azure-native:hdinsight/v20240801preview:Cluster" }, { type: "azure-native:hdinsight/v20250115preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

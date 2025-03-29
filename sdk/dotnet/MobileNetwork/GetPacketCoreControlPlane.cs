@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified packet core control plane.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPacketCoreControlPlaneResult> InvokeAsync(GetPacketCoreControlPlaneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCoreControlPlaneResult>("azure-native:mobilenetwork:getPacketCoreControlPlane", args ?? new GetPacketCoreControlPlaneArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified packet core control plane.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPacketCoreControlPlaneResult> Invoke(GetPacketCoreControlPlaneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreControlPlaneResult>("azure-native:mobilenetwork:getPacketCoreControlPlane", args ?? new GetPacketCoreControlPlaneInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified packet core control plane.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPacketCoreControlPlaneResult> Invoke(GetPacketCoreControlPlaneInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreControlPlaneResult>("azure-native:mobilenetwork:getPacketCoreControlPlane", args ?? new GetPacketCoreControlPlaneInvokeArgs(), options.WithDefaults());
@@ -88,9 +88,17 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class GetPacketCoreControlPlaneResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
         /// </summary>
         public readonly Outputs.InterfacePropertiesResponse ControlPlaneAccessInterface;
+        /// <summary>
+        /// The virtual IP address(es) for the control plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to anycast traffic for this address to the control plane access interfaces on the active and standby nodes. In non-HA system this list should be omitted or empty.
+        /// </summary>
+        public readonly ImmutableArray<string> ControlPlaneAccessVirtualIpv4Addresses;
         /// <summary>
         /// The core network technology generation (5G core or EPC / 4G core).
         /// </summary>
@@ -99,6 +107,14 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// Configuration for uploading packet core diagnostics
         /// </summary>
         public readonly Outputs.DiagnosticsUploadConfigurationResponse? DiagnosticsUpload;
+        /// <summary>
+        /// Configuration for sending packet core events to an Azure Event Hub.
+        /// </summary>
+        public readonly Outputs.EventHubConfigurationResponse? EventHub;
+        /// <summary>
+        /// The provisioning state of the secret containing private keys and keyIds for SUPI concealment.
+        /// </summary>
+        public readonly Outputs.HomeNetworkPrivateKeysProvisioningResponse HomeNetworkPrivateKeysProvisioning;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
@@ -144,6 +160,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string RollbackVersion;
         /// <summary>
+        /// Signaling configuration for the packet core.
+        /// </summary>
+        public readonly Outputs.SignalingConfigurationResponse? Signaling;
+        /// <summary>
         /// Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
         /// </summary>
         public readonly ImmutableArray<Outputs.SiteResourceIdResponse> Sites;
@@ -168,17 +188,29 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly int? UeMtu;
         /// <summary>
+        /// The user consent configuration for the packet core.
+        /// </summary>
+        public readonly Outputs.UserConsentConfigurationResponse? UserConsent;
+        /// <summary>
         /// The desired version of the packet core software.
         /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]
         private GetPacketCoreControlPlaneResult(
+            string azureApiVersion,
+
             Outputs.InterfacePropertiesResponse controlPlaneAccessInterface,
+
+            ImmutableArray<string> controlPlaneAccessVirtualIpv4Addresses,
 
             string? coreNetworkTechnology,
 
             Outputs.DiagnosticsUploadConfigurationResponse? diagnosticsUpload,
+
+            Outputs.EventHubConfigurationResponse? eventHub,
+
+            Outputs.HomeNetworkPrivateKeysProvisioningResponse homeNetworkPrivateKeysProvisioning,
 
             string id,
 
@@ -202,6 +234,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string rollbackVersion,
 
+            Outputs.SignalingConfigurationResponse? signaling,
+
             ImmutableArray<Outputs.SiteResourceIdResponse> sites,
 
             string sku,
@@ -214,11 +248,17 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             int? ueMtu,
 
+            Outputs.UserConsentConfigurationResponse? userConsent,
+
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             ControlPlaneAccessInterface = controlPlaneAccessInterface;
+            ControlPlaneAccessVirtualIpv4Addresses = controlPlaneAccessVirtualIpv4Addresses;
             CoreNetworkTechnology = coreNetworkTechnology;
             DiagnosticsUpload = diagnosticsUpload;
+            EventHub = eventHub;
+            HomeNetworkPrivateKeysProvisioning = homeNetworkPrivateKeysProvisioning;
             Id = id;
             Identity = identity;
             Installation = installation;
@@ -230,12 +270,14 @@ namespace Pulumi.AzureNative.MobileNetwork
             Platform = platform;
             ProvisioningState = provisioningState;
             RollbackVersion = rollbackVersion;
+            Signaling = signaling;
             Sites = sites;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;
             Type = type;
             UeMtu = ueMtu;
+            UserConsent = userConsent;
             Version = version;
         }
     }

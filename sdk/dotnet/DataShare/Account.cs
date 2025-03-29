@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.DataShare
     /// <summary>
     /// An account data transfer object.
     /// 
-    /// Uses Azure REST API version 2021-08-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+    /// Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Time at which the account was created.
         /// </summary>

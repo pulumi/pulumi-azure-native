@@ -38,6 +38,10 @@ export interface GetComputePolicyArgs {
  */
 export interface GetComputePolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource identifier.
      */
     readonly id: string;

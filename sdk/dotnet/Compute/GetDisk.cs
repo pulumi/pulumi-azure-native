@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Gets information about a disk.
         /// 
-        /// Uses Azure REST API version 2022-07-02.
+        /// Uses Azure REST API version 2024-03-02.
         /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-native:compute:getDisk", args ?? new GetDiskArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Gets information about a disk.
         /// 
-        /// Uses Azure REST API version 2022-07-02.
+        /// Uses Azure REST API version 2024-03-02.
         /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:compute:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Gets information about a disk.
         /// 
-        /// Uses Azure REST API version 2022-07-02.
+        /// Uses Azure REST API version 2024-03-02.
         /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:compute:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.Compute
     [OutputType]
     public sealed class GetDiskResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
         /// </summary>
@@ -159,6 +163,10 @@ namespace Pulumi.AzureNative.Compute
         /// Resource Id
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The UTC time when the ownership state of the disk was last changed i.e., the time the disk was last attached or detached from a VM or the time when the VM to which the disk was attached was deallocated or started.
+        /// </summary>
+        public readonly string LastOwnershipUpdateTime;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -254,6 +262,8 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetDiskResult(
+            string azureApiVersion,
+
             bool? burstingEnabled,
 
             string burstingEnabledTime,
@@ -289,6 +299,8 @@ namespace Pulumi.AzureNative.Compute
             string? hyperVGeneration,
 
             string id,
+
+            string lastOwnershipUpdateTime,
 
             string location,
 
@@ -336,6 +348,7 @@ namespace Pulumi.AzureNative.Compute
 
             ImmutableArray<string> zones)
         {
+            AzureApiVersion = azureApiVersion;
             BurstingEnabled = burstingEnabled;
             BurstingEnabledTime = burstingEnabledTime;
             CompletionPercent = completionPercent;
@@ -354,6 +367,7 @@ namespace Pulumi.AzureNative.Compute
             ExtendedLocation = extendedLocation;
             HyperVGeneration = hyperVGeneration;
             Id = id;
+            LastOwnershipUpdateTime = lastOwnershipUpdateTime;
             Location = location;
             ManagedBy = managedBy;
             ManagedByExtended = managedByExtended;

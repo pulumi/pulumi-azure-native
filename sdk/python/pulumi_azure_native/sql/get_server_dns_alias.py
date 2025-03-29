@@ -26,7 +26,10 @@ class GetServerDnsAliasResult:
     """
     A server DNS alias.
     """
-    def __init__(__self__, azure_dns_record=None, id=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, azure_dns_record=None, id=None, name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_dns_record and not isinstance(azure_dns_record, str):
             raise TypeError("Expected argument 'azure_dns_record' to be a str")
         pulumi.set(__self__, "azure_dns_record", azure_dns_record)
@@ -39,6 +42,14 @@ class GetServerDnsAliasResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureDnsRecord")
@@ -79,6 +90,7 @@ class AwaitableGetServerDnsAliasResult(GetServerDnsAliasResult):
         if False:
             yield self
         return GetServerDnsAliasResult(
+            azure_api_version=self.azure_api_version,
             azure_dns_record=self.azure_dns_record,
             id=self.id,
             name=self.name,
@@ -92,9 +104,9 @@ def get_server_dns_alias(dns_alias_name: Optional[str] = None,
     """
     Gets a server DNS alias.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str dns_alias_name: The name of the server dns alias.
@@ -109,6 +121,7 @@ def get_server_dns_alias(dns_alias_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getServerDnsAlias', __args__, opts=opts, typ=GetServerDnsAliasResult).value
 
     return AwaitableGetServerDnsAliasResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_dns_record=pulumi.get(__ret__, 'azure_dns_record'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -120,9 +133,9 @@ def get_server_dns_alias_output(dns_alias_name: Optional[pulumi.Input[str]] = No
     """
     Gets a server DNS alias.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str dns_alias_name: The name of the server dns alias.
@@ -136,6 +149,7 @@ def get_server_dns_alias_output(dns_alias_name: Optional[pulumi.Input[str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getServerDnsAlias', __args__, opts=opts, typ=GetServerDnsAliasResult)
     return __ret__.apply(lambda __response__: GetServerDnsAliasResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_dns_record=pulumi.get(__response__, 'azure_dns_record'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

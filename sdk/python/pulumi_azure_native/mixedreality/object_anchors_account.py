@@ -184,7 +184,7 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
         """
         ObjectAnchorsAccount Response.
 
-        Uses Azure REST API version 2021-03-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-03-01-preview.
+        Uses Azure REST API version 2021-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,7 +206,7 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
         """
         ObjectAnchorsAccount Response.
 
-        Uses Azure REST API version 2021-03-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-03-01-preview.
+        Uses Azure REST API version 2021-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ObjectAnchorsAccountArgs args: The arguments to use to populate this resource's properties.
@@ -254,6 +254,7 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["account_domain"] = None
             __props__.__dict__["account_id"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -283,6 +284,7 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
 
         __props__.__dict__["account_domain"] = None
         __props__.__dict__["account_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
@@ -310,6 +312,14 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
         unique id of certain account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

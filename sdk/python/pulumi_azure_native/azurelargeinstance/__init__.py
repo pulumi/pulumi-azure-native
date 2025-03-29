@@ -12,11 +12,3 @@ from .get_azure_large_instance import *
 from .get_azure_large_storage_instance import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.azurelargeinstance.v20240801preview as __v20240801preview
-    v20240801preview = __v20240801preview
-else:
-    v20240801preview = _utilities.lazy_import('pulumi_azure_native.azurelargeinstance.v20240801preview')
-

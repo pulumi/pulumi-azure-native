@@ -12,9 +12,7 @@ namespace Pulumi.AzureNative.Orbital
     /// <summary>
     /// Customer creates a contact resource for a spacecraft resource.
     /// 
-    /// Uses Azure REST API version 2022-11-01.
-    /// 
-    /// Other available API versions: 2022-03-01.
+    /// Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:Contact")]
     public partial class Contact : global::Pulumi.CustomResource
@@ -24,6 +22,12 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         [Output("antennaConfiguration")]
         public Output<Outputs.ContactsPropertiesResponseAntennaConfiguration> AntennaConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The reference to the contact profile resource.

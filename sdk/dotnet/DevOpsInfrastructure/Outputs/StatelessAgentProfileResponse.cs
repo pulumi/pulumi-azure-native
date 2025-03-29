@@ -22,18 +22,25 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Defines pool buffer.
+        /// Defines pool buffer/stand-by agents.
         /// </summary>
         public readonly object? ResourcePredictions;
+        /// <summary>
+        /// Defines how the pool buffer/stand-by agents is provided.
+        /// </summary>
+        public readonly Union<Outputs.AutomaticResourcePredictionsProfileResponse, Outputs.ManualResourcePredictionsProfileResponse>? ResourcePredictionsProfile;
 
         [OutputConstructor]
         private StatelessAgentProfileResponse(
             string kind,
 
-            object? resourcePredictions)
+            object? resourcePredictions,
+
+            Union<Outputs.AutomaticResourcePredictionsProfileResponse, Outputs.ManualResourcePredictionsProfileResponse>? resourcePredictionsProfile)
         {
             Kind = kind;
             ResourcePredictions = resourcePredictions;
+            ResourcePredictionsProfile = resourcePredictionsProfile;
         }
     }
 }

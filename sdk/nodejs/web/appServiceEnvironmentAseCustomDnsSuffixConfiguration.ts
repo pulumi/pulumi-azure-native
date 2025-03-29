@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Full view of the custom domain suffix configuration for ASEv3.
  *
- * Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2022-03-01.
+ * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AppServiceEnvironmentAseCustomDnsSuffixConfiguration extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class AppServiceEnvironmentAseCustomDnsSuffixConfiguration extends pulumi
         return obj['__pulumiType'] === AppServiceEnvironmentAseCustomDnsSuffixConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
      */
@@ -88,10 +92,12 @@ export class AppServiceEnvironmentAseCustomDnsSuffixConfiguration extends pulumi
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningDetails"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["certificateUrl"] = undefined /*out*/;
             resourceInputs["dnsSuffix"] = undefined /*out*/;
             resourceInputs["keyVaultReferenceIdentity"] = undefined /*out*/;

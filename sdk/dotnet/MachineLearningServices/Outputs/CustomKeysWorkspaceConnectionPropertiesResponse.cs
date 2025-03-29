@@ -29,13 +29,31 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Category of the connection
         /// </summary>
         public readonly string? Category;
+        public readonly string CreatedByWorkspaceArmId;
         /// <summary>
         /// Custom Keys credential object
         /// </summary>
         public readonly Outputs.CustomKeysResponse? Credentials;
         public readonly string? ExpiryTime;
-        public readonly object? Metadata;
+        /// <summary>
+        /// Group based on connection category
+        /// </summary>
+        public readonly string Group;
+        public readonly bool? IsSharedToAll;
+        /// <summary>
+        /// Store user metadata for this connection
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly ImmutableArray<string> SharedUserList;
         public readonly string? Target;
+        /// <summary>
+        /// Value details of the workspace connection.
+        /// </summary>
+        public readonly string? Value;
+        /// <summary>
+        /// format for the workspace connection value
+        /// </summary>
+        public readonly string? ValueFormat;
 
         [OutputConstructor]
         private CustomKeysWorkspaceConnectionPropertiesResponse(
@@ -43,20 +61,38 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? category,
 
+            string createdByWorkspaceArmId,
+
             Outputs.CustomKeysResponse? credentials,
 
             string? expiryTime,
 
-            object? metadata,
+            string group,
 
-            string? target)
+            bool? isSharedToAll,
+
+            ImmutableDictionary<string, string>? metadata,
+
+            ImmutableArray<string> sharedUserList,
+
+            string? target,
+
+            string? value,
+
+            string? valueFormat)
         {
             AuthType = authType;
             Category = category;
+            CreatedByWorkspaceArmId = createdByWorkspaceArmId;
             Credentials = credentials;
             ExpiryTime = expiryTime;
+            Group = group;
+            IsSharedToAll = isSharedToAll;
             Metadata = metadata;
+            SharedUserList = sharedUserList;
             Target = target;
+            Value = value;
+            ValueFormat = valueFormat;
         }
     }
 }

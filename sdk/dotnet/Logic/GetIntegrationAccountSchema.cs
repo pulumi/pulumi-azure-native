@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Logic
         /// 
         /// Uses Azure REST API version 2019-05-01.
         /// 
-        /// Other available API versions: 2015-08-01-preview.
+        /// Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetIntegrationAccountSchemaResult> InvokeAsync(GetIntegrationAccountSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Logic
         /// 
         /// Uses Azure REST API version 2019-05-01.
         /// 
-        /// Other available API versions: 2015-08-01-preview.
+        /// Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIntegrationAccountSchemaResult> Invoke(GetIntegrationAccountSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Logic
         /// 
         /// Uses Azure REST API version 2019-05-01.
         /// 
-        /// Other available API versions: 2015-08-01-preview.
+        /// Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIntegrationAccountSchemaResult> Invoke(GetIntegrationAccountSchemaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Logic
     public sealed class GetIntegrationAccountSchemaResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The changed time.
         /// </summary>
         public readonly string ChangedTime;
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNative.Logic
 
         [OutputConstructor]
         private GetIntegrationAccountSchemaResult(
+            string azureApiVersion,
+
             string changedTime,
 
             string? content,
@@ -192,6 +198,7 @@ namespace Pulumi.AzureNative.Logic
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ChangedTime = changedTime;
             Content = content;
             ContentLink = contentLink;

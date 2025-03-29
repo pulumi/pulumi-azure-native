@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Blueprint artifact that applies a Role assignment.
  *
- * Uses Azure REST API version 2018-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-11-01-preview.
+ * Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
  */
 export class RoleAssignmentArtifact extends pulumi.CustomResource {
     /**
@@ -36,6 +36,10 @@ export class RoleAssignmentArtifact extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleAssignmentArtifact.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Artifacts which need to be deployed before the specified artifact.
      */
@@ -110,9 +114,11 @@ export class RoleAssignmentArtifact extends pulumi.CustomResource {
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
             resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dependsOn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
@@ -124,7 +130,7 @@ export class RoleAssignmentArtifact extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:RoleAssignmentArtifact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact" }, { type: "azure-native:blueprint/v20181101preview:RoleAssignmentArtifact" }, { type: "azure-native:blueprint/v20181101preview:TemplateArtifact" }, { type: "azure-native:blueprint:PolicyAssignmentArtifact" }, { type: "azure-native:blueprint:TemplateArtifact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleAssignmentArtifact.__pulumiType, name, resourceInputs, opts);
     }

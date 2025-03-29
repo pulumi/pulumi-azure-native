@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Retrieves an existing video resource with the given name.
  *
  * Uses Azure REST API version 2021-11-01-preview.
- *
- * Other available API versions: 2021-05-01-preview.
  */
 export function getVideo(args: GetVideoArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +44,10 @@ export interface GetVideoResult {
      * Video archival properties.
      */
     readonly archival?: outputs.videoanalyzer.VideoArchivalResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Set of URLs to the video content.
      */
@@ -87,8 +89,6 @@ export interface GetVideoResult {
  * Retrieves an existing video resource with the given name.
  *
  * Uses Azure REST API version 2021-11-01-preview.
- *
- * Other available API versions: 2021-05-01-preview.
  */
 export function getVideoOutput(args: GetVideoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVideoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

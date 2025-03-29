@@ -165,9 +165,9 @@ def list_bot_connection_with_secrets(connection_name: Optional[str] = None,
     """
     Get a Connection Setting registration for a Bot Service
 
-    Uses Azure REST API version 2022-09-15.
+    Uses Azure REST API version 2023-09-15-preview.
 
-    Other available API versions: 2023-09-15-preview.
+    Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.
@@ -199,9 +199,9 @@ def list_bot_connection_with_secrets_output(connection_name: Optional[pulumi.Inp
     """
     Get a Connection Setting registration for a Bot Service
 
-    Uses Azure REST API version 2022-09-15.
+    Uses Azure REST API version 2023-09-15-preview.
 
-    Other available API versions: 2023-09-15-preview.
+    Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.

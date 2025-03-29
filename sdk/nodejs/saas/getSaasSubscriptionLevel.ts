@@ -36,6 +36,10 @@ export interface GetSaasSubscriptionLevelArgs {
  */
 export interface GetSaasSubscriptionLevelResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource uri
      */
     readonly id: string;

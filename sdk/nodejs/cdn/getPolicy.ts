@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieve protection policy with specified name within a resource group.
  *
- * Uses Azure REST API version 2023-05-01.
+ * Uses Azure REST API version 2024-09-01.
  *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetPolicyArgs {
  * Defines web application firewall policy for Azure CDN.
  */
 export interface GetPolicyResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Describes custom rules inside the policy.
      */
@@ -102,9 +106,9 @@ export interface GetPolicyResult {
 /**
  * Retrieve protection policy with specified name within a resource group.
  *
- * Uses Azure REST API version 2023-05-01.
+ * Uses Azure REST API version 2024-09-01.
  *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A cluster resource
+ * Get a Cluster
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,7 +25,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
 
 export interface GetClusterArgs {
     /**
-     * Name of the cluster in the private cloud
+     * Name of the cluster
      */
     clusterName: string;
     /**
@@ -43,6 +43,10 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The identity
      */
     readonly clusterId: number;
@@ -55,11 +59,11 @@ export interface GetClusterResult {
      */
     readonly hosts?: string[];
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -67,20 +71,28 @@ export interface GetClusterResult {
      */
     readonly provisioningState: string;
     /**
-     * The cluster SKU
+     * The SKU (Stock Keeping Unit) assigned to this resource.
      */
     readonly sku: outputs.avs.SkuResponse;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.avs.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Name of the vsan datastore associated with the cluster
+     */
+    readonly vsanDatastoreName?: string;
 }
 /**
- * A cluster resource
+ * Get a Cluster
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +105,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
 
 export interface GetClusterOutputArgs {
     /**
-     * Name of the cluster in the private cloud
+     * Name of the cluster
      */
     clusterName: pulumi.Input<string>;
     /**

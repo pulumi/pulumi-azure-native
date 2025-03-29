@@ -27,7 +27,10 @@ class GetServiceResult:
     """
     The service resource.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +52,14 @@ class GetServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetServiceResult(GetServiceResult):
         if False:
             yield self
         return GetServiceResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -132,8 +144,6 @@ def get_service(application_name: Optional[str] = None,
 
     Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2021-06-01.
-
 
     :param str application_name: The name of the application resource.
     :param str cluster_name: The name of the cluster resource.
@@ -149,6 +159,7 @@ def get_service(application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabric:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -166,8 +177,6 @@ def get_service_output(application_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2021-06-01.
-
 
     :param str application_name: The name of the application resource.
     :param str cluster_name: The name of the cluster resource.
@@ -182,6 +191,7 @@ def get_service_output(application_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

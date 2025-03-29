@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     public sealed class MigrateSqlServerSqlDbDatabaseInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// id of the database
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
         /// Whether to set database read only before migration
         /// </summary>
         [Input("makeSourceDbReadOnly")]
@@ -26,6 +32,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Settings selected for DB schema migration.
+        /// </summary>
+        [Input("schemaSetting")]
+        public Input<object>? SchemaSetting { get; set; }
 
         [Input("tableMap")]
         private InputMap<string>? _tableMap;

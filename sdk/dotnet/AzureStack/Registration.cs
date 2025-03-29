@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.AzureStack
     /// <summary>
     /// Registration information.
     /// 
-    /// Uses Azure REST API version 2022-06-01. In version 1.x of the Azure Native provider, it used API version 2017-06-01.
+    /// Uses Azure REST API version 2022-06-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
     /// 
-    /// Other available API versions: 2020-06-01-preview.
+    /// Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestack:Registration")]
     public partial class Registration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the billing mode for the Azure Stack registration.
         /// </summary>

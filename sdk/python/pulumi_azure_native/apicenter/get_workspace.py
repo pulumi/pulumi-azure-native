@@ -27,7 +27,10 @@ class GetWorkspaceResult:
     """
     Workspace entity.
     """
-    def __init__(__self__, description=None, id=None, name=None, system_data=None, title=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, id=None, name=None, system_data=None, title=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -46,6 +49,14 @@ class GetWorkspaceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             id=self.id,
             name=self.name,
@@ -117,9 +129,9 @@ def get_workspace(resource_group_name: Optional[str] = None,
     """
     Returns details of the workspace.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-03-15-preview.
 
-    Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+    Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -134,6 +146,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apicenter:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -147,9 +160,9 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     """
     Returns details of the workspace.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-03-15-preview.
 
-    Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+    Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -163,6 +176,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

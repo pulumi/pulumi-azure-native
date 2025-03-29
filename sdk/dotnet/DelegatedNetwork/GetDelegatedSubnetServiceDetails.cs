@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// <summary>
         /// Gets details about the specified dnc DelegatedSubnet Link.
         /// 
-        /// Uses Azure REST API version 2021-03-15.
+        /// Uses Azure REST API version 2023-06-27-preview.
         /// 
-        /// Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+        /// Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDelegatedSubnetServiceDetailsResult> InvokeAsync(GetDelegatedSubnetServiceDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedSubnetServiceDetailsResult>("azure-native:delegatednetwork:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// <summary>
         /// Gets details about the specified dnc DelegatedSubnet Link.
         /// 
-        /// Uses Azure REST API version 2021-03-15.
+        /// Uses Azure REST API version 2023-06-27-preview.
         /// 
-        /// Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+        /// Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDelegatedSubnetServiceDetailsResult> Invoke(GetDelegatedSubnetServiceDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDelegatedSubnetServiceDetailsResult>("azure-native:delegatednetwork:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// <summary>
         /// Gets details about the specified dnc DelegatedSubnet Link.
         /// 
-        /// Uses Azure REST API version 2021-03-15.
+        /// Uses Azure REST API version 2023-06-27-preview.
         /// 
-        /// Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+        /// Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDelegatedSubnetServiceDetailsResult> Invoke(GetDelegatedSubnetServiceDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDelegatedSubnetServiceDetailsResult>("azure-native:delegatednetwork:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,15 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     public sealed class GetDelegatedSubnetServiceDetailsResult
     {
         /// <summary>
+        /// Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
+        /// Delegated subnet's prefix size should be smaller than this by a minimum of 3.
+        /// </summary>
+        public readonly int? AllocationBlockPrefixSize;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Properties of the controller.
         /// </summary>
         public readonly Outputs.ControllerDetailsResponse? ControllerDetails;
@@ -126,6 +135,10 @@ namespace Pulumi.AzureNative.DelegatedNetwork
 
         [OutputConstructor]
         private GetDelegatedSubnetServiceDetailsResult(
+            int? allocationBlockPrefixSize,
+
+            string azureApiVersion,
+
             Outputs.ControllerDetailsResponse? controllerDetails,
 
             string id,
@@ -144,6 +157,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork
 
             string type)
         {
+            AllocationBlockPrefixSize = allocationBlockPrefixSize;
+            AzureApiVersion = azureApiVersion;
             ControllerDetails = controllerDetails;
             Id = id;
             Location = location;

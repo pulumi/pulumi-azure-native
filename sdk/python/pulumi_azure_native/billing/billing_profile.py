@@ -102,7 +102,7 @@ class BillingProfile(pulumi.CustomResource):
         """
         A billing profile.
 
-        Uses Azure REST API version 2024-04-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,7 +120,7 @@ class BillingProfile(pulumi.CustomResource):
         """
         A billing profile.
 
-        Uses Azure REST API version 2024-04-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param BillingProfileArgs args: The arguments to use to populate this resource's properties.
@@ -156,6 +156,7 @@ class BillingProfile(pulumi.CustomResource):
             __props__.__dict__["billing_profile_name"] = billing_profile_name
             __props__.__dict__["properties"] = properties
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -183,12 +184,21 @@ class BillingProfile(pulumi.CustomResource):
 
         __props__ = BillingProfileArgs.__new__(BillingProfileArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return BillingProfile(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

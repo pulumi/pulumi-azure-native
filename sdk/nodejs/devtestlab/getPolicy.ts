@@ -48,6 +48,10 @@ export interface GetPolicyArgs {
  */
 export interface GetPolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creation date of the policy.
      */
     readonly createdDate: string;

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Solutions
         /// 
         /// Uses Azure REST API version 2021-07-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListApplicationAllowedUpgradePlansResult> InvokeAsync(ListApplicationAllowedUpgradePlansArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplicationAllowedUpgradePlansResult>("azure-native:solutions:listApplicationAllowedUpgradePlans", args ?? new ListApplicationAllowedUpgradePlansArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Solutions
         /// 
         /// Uses Azure REST API version 2021-07-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListApplicationAllowedUpgradePlansResult> Invoke(ListApplicationAllowedUpgradePlansInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplicationAllowedUpgradePlansResult>("azure-native:solutions:listApplicationAllowedUpgradePlans", args ?? new ListApplicationAllowedUpgradePlansInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Solutions
         /// 
         /// Uses Azure REST API version 2021-07-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListApplicationAllowedUpgradePlansResult> Invoke(ListApplicationAllowedUpgradePlansInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplicationAllowedUpgradePlansResult>("azure-native:solutions:listApplicationAllowedUpgradePlans", args ?? new ListApplicationAllowedUpgradePlansInvokeArgs(), options.WithDefaults());

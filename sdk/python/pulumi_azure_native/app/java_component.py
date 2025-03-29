@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['JavaComponentArgs', 'JavaComponent']
@@ -24,29 +23,21 @@ class JavaComponentArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 component_type: Optional[pulumi.Input[Union[str, 'JavaComponentType']]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]] = None):
+                 properties: Optional[pulumi.Input[Union['NacosComponentArgs', 'SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs', 'SpringCloudGatewayComponentArgs']]] = None):
         """
         The set of arguments for constructing a JavaComponent resource.
         :param pulumi.Input[str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[str, 'JavaComponentType']] component_type: Type of the Java Component.
-        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]] configurations: List of Java Components configuration properties
         :param pulumi.Input[str] name: Name of the Java Component.
-        :param pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]] service_binds: List of Java Components that are bound to the Java component
+        :param pulumi.Input[Union['NacosComponentArgs', 'SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs', 'SpringCloudGatewayComponentArgs']] properties: Java Component resource specific properties
         """
         pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if component_type is not None:
-            pulumi.set(__self__, "component_type", component_type)
-        if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if service_binds is not None:
-            pulumi.set(__self__, "service_binds", service_binds)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="environmentName")
@@ -73,30 +64,6 @@ class JavaComponentArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="componentType")
-    def component_type(self) -> Optional[pulumi.Input[Union[str, 'JavaComponentType']]]:
-        """
-        Type of the Java Component.
-        """
-        return pulumi.get(self, "component_type")
-
-    @component_type.setter
-    def component_type(self, value: Optional[pulumi.Input[Union[str, 'JavaComponentType']]]):
-        pulumi.set(self, "component_type", value)
-
-    @property
-    @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]:
-        """
-        List of Java Components configuration properties
-        """
-        return pulumi.get(self, "configurations")
-
-    @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentConfigurationPropertyArgs']]]]):
-        pulumi.set(self, "configurations", value)
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -109,16 +76,16 @@ class JavaComponentArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="serviceBinds")
-    def service_binds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]:
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Union['NacosComponentArgs', 'SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs', 'SpringCloudGatewayComponentArgs']]]:
         """
-        List of Java Components that are bound to the Java component
+        Java Component resource specific properties
         """
-        return pulumi.get(self, "service_binds")
+        return pulumi.get(self, "properties")
 
-    @service_binds.setter
-    def service_binds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaComponentServiceBindArgs']]]]):
-        pulumi.set(self, "service_binds", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Union['NacosComponentArgs', 'SpringBootAdminComponentArgs', 'SpringCloudConfigComponentArgs', 'SpringCloudEurekaComponentArgs', 'SpringCloudGatewayComponentArgs']]]):
+        pulumi.set(self, "properties", value)
 
 
 class JavaComponent(pulumi.CustomResource):
@@ -126,28 +93,24 @@ class JavaComponent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_type: Optional[pulumi.Input[Union[str, 'JavaComponentType']]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JavaComponentConfigurationPropertyArgs', 'JavaComponentConfigurationPropertyArgsDict']]]]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['NacosComponentArgs', 'NacosComponentArgsDict'], Union['SpringBootAdminComponentArgs', 'SpringBootAdminComponentArgsDict'], Union['SpringCloudConfigComponentArgs', 'SpringCloudConfigComponentArgsDict'], Union['SpringCloudEurekaComponentArgs', 'SpringCloudEurekaComponentArgsDict'], Union['SpringCloudGatewayComponentArgs', 'SpringCloudGatewayComponentArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JavaComponentServiceBindArgs', 'JavaComponentServiceBindArgsDict']]]]] = None,
                  __props__=None):
         """
         Java Component.
 
-        Uses Azure REST API version 2023-11-02-preview.
+        Uses Azure REST API version 2024-10-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-02-preview.
 
-        Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[str, 'JavaComponentType']] component_type: Type of the Java Component.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JavaComponentConfigurationPropertyArgs', 'JavaComponentConfigurationPropertyArgsDict']]]] configurations: List of Java Components configuration properties
         :param pulumi.Input[str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[str] name: Name of the Java Component.
+        :param pulumi.Input[Union[Union['NacosComponentArgs', 'NacosComponentArgsDict'], Union['SpringBootAdminComponentArgs', 'SpringBootAdminComponentArgsDict'], Union['SpringCloudConfigComponentArgs', 'SpringCloudConfigComponentArgsDict'], Union['SpringCloudEurekaComponentArgs', 'SpringCloudEurekaComponentArgsDict'], Union['SpringCloudGatewayComponentArgs', 'SpringCloudGatewayComponentArgsDict']]] properties: Java Component resource specific properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JavaComponentServiceBindArgs', 'JavaComponentServiceBindArgsDict']]]] service_binds: List of Java Components that are bound to the Java component
         """
         ...
     @overload
@@ -158,9 +121,9 @@ class JavaComponent(pulumi.CustomResource):
         """
         Java Component.
 
-        Uses Azure REST API version 2023-11-02-preview.
+        Uses Azure REST API version 2024-10-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-02-preview.
 
-        Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param JavaComponentArgs args: The arguments to use to populate this resource's properties.
@@ -177,12 +140,10 @@ class JavaComponent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_type: Optional[pulumi.Input[Union[str, 'JavaComponentType']]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JavaComponentConfigurationPropertyArgs', 'JavaComponentConfigurationPropertyArgsDict']]]]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['NacosComponentArgs', 'NacosComponentArgsDict'], Union['SpringBootAdminComponentArgs', 'SpringBootAdminComponentArgsDict'], Union['SpringCloudConfigComponentArgs', 'SpringCloudConfigComponentArgsDict'], Union['SpringCloudEurekaComponentArgs', 'SpringCloudEurekaComponentArgsDict'], Union['SpringCloudGatewayComponentArgs', 'SpringCloudGatewayComponentArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JavaComponentServiceBindArgs', 'JavaComponentServiceBindArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -192,17 +153,15 @@ class JavaComponent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JavaComponentArgs.__new__(JavaComponentArgs)
 
-            __props__.__dict__["component_type"] = component_type
-            __props__.__dict__["configurations"] = configurations
             if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["service_binds"] = service_binds
-            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20231102preview:JavaComponent"), pulumi.Alias(type_="azure-native:app/v20240202preview:JavaComponent"), pulumi.Alias(type_="azure-native:app/v20240802preview:JavaComponent"), pulumi.Alias(type_="azure-native:app/v20241002preview:JavaComponent"), pulumi.Alias(type_="azure-native:app/v20250101:JavaComponent")])
@@ -229,30 +188,20 @@ class JavaComponent(pulumi.CustomResource):
 
         __props__ = JavaComponentArgs.__new__(JavaComponentArgs)
 
-        __props__.__dict__["component_type"] = None
-        __props__.__dict__["configurations"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["service_binds"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return JavaComponent(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="componentType")
-    def component_type(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
         """
-        Type of the Java Component.
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "component_type")
-
-    @property
-    @pulumi.getter
-    def configurations(self) -> pulumi.Output[Optional[Sequence['outputs.JavaComponentConfigurationPropertyResponse']]]:
-        """
-        List of Java Components configuration properties
-        """
-        return pulumi.get(self, "configurations")
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -263,20 +212,12 @@ class JavaComponent(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output[Any]:
         """
-        Provisioning state of the Java Component.
+        Java Component resource specific properties
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="serviceBinds")
-    def service_binds(self) -> pulumi.Output[Optional[Sequence['outputs.JavaComponentServiceBindResponse']]]:
-        """
-        List of Java Components that are bound to the Java component
-        """
-        return pulumi.get(self, "service_binds")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

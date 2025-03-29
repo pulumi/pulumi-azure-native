@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetBareMetalMachineKeySetResult:
-    def __init__(__self__, azure_group_id=None, detailed_status=None, detailed_status_message=None, expiration=None, extended_location=None, id=None, jump_hosts_allowed=None, last_validation=None, location=None, name=None, os_group_name=None, privilege_level=None, provisioning_state=None, system_data=None, tags=None, type=None, user_list=None, user_list_status=None):
+    def __init__(__self__, azure_api_version=None, azure_group_id=None, detailed_status=None, detailed_status_message=None, etag=None, expiration=None, extended_location=None, id=None, jump_hosts_allowed=None, last_validation=None, location=None, name=None, os_group_name=None, privilege_level=None, provisioning_state=None, system_data=None, tags=None, type=None, user_list=None, user_list_status=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_group_id and not isinstance(azure_group_id, str):
             raise TypeError("Expected argument 'azure_group_id' to be a str")
         pulumi.set(__self__, "azure_group_id", azure_group_id)
@@ -34,6 +37,9 @@ class GetBareMetalMachineKeySetResult:
         if detailed_status_message and not isinstance(detailed_status_message, str):
             raise TypeError("Expected argument 'detailed_status_message' to be a str")
         pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if expiration and not isinstance(expiration, str):
             raise TypeError("Expected argument 'expiration' to be a str")
         pulumi.set(__self__, "expiration", expiration)
@@ -81,6 +87,14 @@ class GetBareMetalMachineKeySetResult:
         pulumi.set(__self__, "user_list_status", user_list_status)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="azureGroupId")
     def azure_group_id(self) -> str:
         """
@@ -103,6 +117,14 @@ class GetBareMetalMachineKeySetResult:
         The descriptive message about the current detailed status.
         """
         return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -231,9 +253,11 @@ class AwaitableGetBareMetalMachineKeySetResult(GetBareMetalMachineKeySetResult):
         if False:
             yield self
         return GetBareMetalMachineKeySetResult(
+            azure_api_version=self.azure_api_version,
             azure_group_id=self.azure_group_id,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
+            etag=self.etag,
             expiration=self.expiration,
             extended_location=self.extended_location,
             id=self.id,
@@ -258,9 +282,9 @@ def get_bare_metal_machine_key_set(bare_metal_machine_key_set_name: Optional[str
     """
     Get bare metal machine key set of the provided cluster.
 
-    Uses Azure REST API version 2023-10-01-preview.
+    Uses Azure REST API version 2025-02-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str bare_metal_machine_key_set_name: The name of the bare metal machine key set.
@@ -275,9 +299,11 @@ def get_bare_metal_machine_key_set(bare_metal_machine_key_set_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getBareMetalMachineKeySet', __args__, opts=opts, typ=GetBareMetalMachineKeySetResult).value
 
     return AwaitableGetBareMetalMachineKeySetResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_group_id=pulumi.get(__ret__, 'azure_group_id'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        etag=pulumi.get(__ret__, 'etag'),
         expiration=pulumi.get(__ret__, 'expiration'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
@@ -300,9 +326,9 @@ def get_bare_metal_machine_key_set_output(bare_metal_machine_key_set_name: Optio
     """
     Get bare metal machine key set of the provided cluster.
 
-    Uses Azure REST API version 2023-10-01-preview.
+    Uses Azure REST API version 2025-02-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str bare_metal_machine_key_set_name: The name of the bare metal machine key set.
@@ -316,9 +342,11 @@ def get_bare_metal_machine_key_set_output(bare_metal_machine_key_set_name: Optio
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud:getBareMetalMachineKeySet', __args__, opts=opts, typ=GetBareMetalMachineKeySetResult)
     return __ret__.apply(lambda __response__: GetBareMetalMachineKeySetResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_group_id=pulumi.get(__response__, 'azure_group_id'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        etag=pulumi.get(__response__, 'etag'),
         expiration=pulumi.get(__response__, 'expiration'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),

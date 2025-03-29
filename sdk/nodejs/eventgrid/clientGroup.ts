@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The Client group resource.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ClientGroup extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class ClientGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Description for the Client Group resource.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -59,7 +63,7 @@ export class ClientGroup extends pulumi.CustomResource {
      */
     public readonly query!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to the ClientGroup resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -89,11 +93,13 @@ export class ClientGroup extends pulumi.CustomResource {
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

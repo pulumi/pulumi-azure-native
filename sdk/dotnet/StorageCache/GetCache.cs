@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Returns a cache.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:storagecache:getCache", args ?? new GetCacheArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Returns a cache.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:storagecache:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Returns a cache.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:storagecache:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.StorageCache
     [OutputType]
     public sealed class GetCacheResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The size of this Cache, in GB.
         /// </summary>
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNative.StorageCache
 
         [OutputConstructor]
         private GetCacheResult(
+            string azureApiVersion,
+
             int? cacheSizeGB,
 
             Outputs.CacheDirectorySettingsResponse? directoryServicesSettings,
@@ -222,6 +228,7 @@ namespace Pulumi.AzureNative.StorageCache
 
             ImmutableArray<string> zones)
         {
+            AzureApiVersion = azureApiVersion;
             CacheSizeGB = cacheSizeGB;
             DirectoryServicesSettings = directoryServicesSettings;
             EncryptionSettings = encryptionSettings;

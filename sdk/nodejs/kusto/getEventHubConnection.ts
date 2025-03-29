@@ -43,6 +43,10 @@ export interface GetEventHubConnectionArgs {
  */
 export interface GetEventHubConnectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The event hub consumer group.
      */
     readonly consumerGroup: string;

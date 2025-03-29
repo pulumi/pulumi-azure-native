@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     /// <summary>
     /// Represents an instance of a orchestrator.
     /// 
-    /// Uses Azure REST API version 2021-03-15. In version 1.x of the Azure Native provider, it used API version 2021-03-15.
+    /// Uses Azure REST API version 2023-06-27-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-15.
     /// 
-    /// Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+    /// Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork:OrchestratorInstanceServiceDetails")]
     public partial class OrchestratorInstanceServiceDetails : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// </summary>
         [Output("apiServerEndpoint")]
         public Output<string?> ApiServerEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// RootCA certificate of kubernetes cluster base64 encoded

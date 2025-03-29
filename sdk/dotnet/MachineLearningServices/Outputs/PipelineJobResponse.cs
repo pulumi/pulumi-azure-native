@@ -59,6 +59,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Jobs;
         /// <summary>
+        /// Notification setting for the job
+        /// </summary>
+        public readonly Outputs.NotificationSettingResponse? NotificationSetting;
+        /// <summary>
         /// Outputs for the pipeline job
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Outputs;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             ImmutableDictionary<string, object>? jobs,
 
+            Outputs.NotificationSettingResponse? notificationSetting,
+
             ImmutableDictionary<string, object>? outputs,
 
             ImmutableDictionary<string, string>? properties,
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             IsArchived = isArchived;
             JobType = jobType;
             Jobs = jobs;
+            NotificationSetting = notificationSetting;
             Outputs = outputs;
             Properties = properties;
             Services = services;

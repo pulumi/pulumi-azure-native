@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
  *
- * Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+ * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Image extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Image extends pulumi.CustomResource {
         return obj['__pulumiType'] === Image.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The extended location of the Image.
      */
@@ -100,10 +104,12 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["sourceVirtualMachine"] = args ? args.sourceVirtualMachine : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hyperVGeneration"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

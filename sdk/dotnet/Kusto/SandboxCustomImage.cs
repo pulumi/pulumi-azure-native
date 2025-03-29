@@ -12,13 +12,25 @@ namespace Pulumi.AzureNative.Kusto
     /// <summary>
     /// Class representing a Kusto sandbox custom image.
     /// 
-    /// Uses Azure REST API version 2023-08-15.
+    /// Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2023-08-15.
     /// 
-    /// Other available API versions: 2024-04-13.
+    /// Other available API versions: 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:SandboxCustomImage")]
     public partial class SandboxCustomImage : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
+        /// </summary>
+        [Output("baseImageName")]
+        public Output<string?> BaseImageName { get; private set; } = null!;
+
         /// <summary>
         /// The language name, for example Python.
         /// </summary>
@@ -26,10 +38,10 @@ namespace Pulumi.AzureNative.Kusto
         public Output<string> Language { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the language.
+        /// The version of the language. Either this property or baseImageName should be specified.
         /// </summary>
         [Output("languageVersion")]
-        public Output<string> LanguageVersion { get; private set; } = null!;
+        public Output<string?> LanguageVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -106,6 +118,12 @@ namespace Pulumi.AzureNative.Kusto
     public sealed class SandboxCustomImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
+        /// </summary>
+        [Input("baseImageName")]
+        public Input<string>? BaseImageName { get; set; }
+
+        /// <summary>
         /// The name of the Kusto cluster.
         /// </summary>
         [Input("clusterName", required: true)]
@@ -118,10 +136,10 @@ namespace Pulumi.AzureNative.Kusto
         public InputUnion<string, Pulumi.AzureNative.Kusto.Language> Language { get; set; } = null!;
 
         /// <summary>
-        /// The version of the language.
+        /// The version of the language. Either this property or baseImageName should be specified.
         /// </summary>
-        [Input("languageVersion", required: true)]
-        public Input<string> LanguageVersion { get; set; } = null!;
+        [Input("languageVersion")]
+        public Input<string>? LanguageVersion { get; set; }
 
         /// <summary>
         /// The requirements file content.

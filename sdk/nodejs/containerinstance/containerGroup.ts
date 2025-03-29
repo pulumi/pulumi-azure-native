@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A container group.
  *
- * Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+ * Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
- * Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-05-01, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**
@@ -42,9 +42,17 @@ export class ContainerGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The properties for confidential container group
      */
     public readonly confidentialComputeProperties!: pulumi.Output<outputs.containerinstance.ConfidentialComputePropertiesResponse | undefined>;
+    /**
+     * The reference container group profile properties.
+     */
+    public readonly containerGroupProfile!: pulumi.Output<outputs.containerinstance.ContainerGroupProfileReferenceDefinitionResponse | undefined>;
     /**
      * The containers within the container group.
      */
@@ -86,6 +94,10 @@ export class ContainerGroup extends pulumi.CustomResource {
      */
     public readonly ipAddress!: pulumi.Output<outputs.containerinstance.IpAddressResponse | undefined>;
     /**
+     * The flag indicating whether the container group is created by standby pool.
+     */
+    public /*out*/ readonly isCreatedFromStandbyPool!: pulumi.Output<boolean>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -96,7 +108,7 @@ export class ContainerGroup extends pulumi.CustomResource {
     /**
      * The operating system type required by the containers in the container group.
      */
-    public readonly osType!: pulumi.Output<string>;
+    public readonly osType!: pulumi.Output<string | undefined>;
     /**
      * The priority of the container group.
      */
@@ -116,6 +128,10 @@ export class ContainerGroup extends pulumi.CustomResource {
      * The SKU for a container group.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
+    /**
+     * The reference standby pool profile properties.
+     */
+    public readonly standbyPoolProfile!: pulumi.Output<outputs.containerinstance.StandbyPoolProfileDefinitionResponse | undefined>;
     /**
      * The subnet resource IDs for a container group.
      */
@@ -151,14 +167,12 @@ export class ContainerGroup extends pulumi.CustomResource {
             if ((!args || args.containers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containers'");
             }
-            if ((!args || args.osType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'osType'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["confidentialComputeProperties"] = args ? args.confidentialComputeProperties : undefined;
             resourceInputs["containerGroupName"] = args ? args.containerGroupName : undefined;
+            resourceInputs["containerGroupProfile"] = args ? args.containerGroupProfile : undefined;
             resourceInputs["containers"] = args ? args.containers : undefined;
             resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
             resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
@@ -174,16 +188,21 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["standbyPoolProfile"] = args ? args.standbyPoolProfile : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["isCreatedFromStandbyPool"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["confidentialComputeProperties"] = undefined /*out*/;
+            resourceInputs["containerGroupProfile"] = undefined /*out*/;
             resourceInputs["containers"] = undefined /*out*/;
             resourceInputs["diagnostics"] = undefined /*out*/;
             resourceInputs["dnsConfig"] = undefined /*out*/;
@@ -194,6 +213,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["initContainers"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["isCreatedFromStandbyPool"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["osType"] = undefined /*out*/;
@@ -201,6 +221,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["restartPolicy"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["standbyPoolProfile"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -226,6 +247,10 @@ export interface ContainerGroupArgs {
      * The name of the container group.
      */
     containerGroupName?: pulumi.Input<string>;
+    /**
+     * The reference container group profile properties.
+     */
+    containerGroupProfile?: pulumi.Input<inputs.containerinstance.ContainerGroupProfileReferenceDefinitionArgs>;
     /**
      * The containers within the container group.
      */
@@ -269,13 +294,13 @@ export interface ContainerGroupArgs {
     /**
      * The operating system type required by the containers in the container group.
      */
-    osType: pulumi.Input<string | enums.containerinstance.OperatingSystemTypes>;
+    osType?: pulumi.Input<string | enums.containerinstance.OperatingSystemTypes>;
     /**
      * The priority of the container group.
      */
     priority?: pulumi.Input<string | enums.containerinstance.ContainerGroupPriority>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -289,6 +314,10 @@ export interface ContainerGroupArgs {
      * The SKU for a container group.
      */
     sku?: pulumi.Input<string | enums.containerinstance.ContainerGroupSku>;
+    /**
+     * The reference standby pool profile properties.
+     */
+    standbyPoolProfile?: pulumi.Input<inputs.containerinstance.StandbyPoolProfileDefinitionArgs>;
     /**
      * The subnet resource IDs for a container group.
      */

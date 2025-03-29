@@ -30,6 +30,7 @@ class NamespaceArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 premium_messaging_partitions: Optional[pulumi.Input[int]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  sku: Optional[pulumi.Input['SBSkuArgs']] = None,
@@ -37,7 +38,7 @@ class NamespaceArgs:
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Namespace resource.
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] alternate_name: Alternate name for namespace
         :param pulumi.Input[bool] disable_local_auth: This property disables SAS authentication for the Service Bus namespace.
         :param pulumi.Input['EncryptionArgs'] encryption: Properties of BYOK Encryption description
@@ -45,6 +46,7 @@ class NamespaceArgs:
         :param pulumi.Input[str] location: The Geo-location where the resource lives
         :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'
         :param pulumi.Input[str] namespace_name: The namespace name.
+        :param pulumi.Input[int] premium_messaging_partitions: The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: List of private endpoint connections.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
@@ -67,6 +69,8 @@ class NamespaceArgs:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
+        if premium_messaging_partitions is not None:
+            pulumi.set(__self__, "premium_messaging_partitions", premium_messaging_partitions)
         if private_endpoint_connections is not None:
             pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if public_network_access is None:
@@ -84,7 +88,7 @@ class NamespaceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -177,6 +181,18 @@ class NamespaceArgs:
         pulumi.set(self, "namespace_name", value)
 
     @property
+    @pulumi.getter(name="premiumMessagingPartitions")
+    def premium_messaging_partitions(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+        """
+        return pulumi.get(self, "premium_messaging_partitions")
+
+    @premium_messaging_partitions.setter
+    def premium_messaging_partitions(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "premium_messaging_partitions", value)
+
+    @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
         """
@@ -250,6 +266,7 @@ class Namespace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 premium_messaging_partitions: Optional[pulumi.Input[int]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -260,9 +277,9 @@ class Namespace(pulumi.CustomResource):
         """
         Description of a namespace resource.
 
-        Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -273,10 +290,11 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Geo-location where the resource lives
         :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'
         :param pulumi.Input[str] namespace_name: The namespace name.
+        :param pulumi.Input[int] premium_messaging_partitions: The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
         :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]] private_endpoint_connections: List of private endpoint connections.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SBSkuArgs', 'SBSkuArgsDict']] sku: Properties of SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[bool] zone_redundant: Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
@@ -290,9 +308,9 @@ class Namespace(pulumi.CustomResource):
         """
         Description of a namespace resource.
 
-        Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.
@@ -316,6 +334,7 @@ class Namespace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 premium_messaging_partitions: Optional[pulumi.Input[int]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -338,6 +357,7 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["premium_messaging_partitions"] = premium_messaging_partitions
             __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
             if public_network_access is None:
                 public_network_access = 'Enabled'
@@ -348,6 +368,7 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zone_redundant"] = zone_redundant
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["metric_id"] = None
             __props__.__dict__["name"] = None
@@ -382,6 +403,7 @@ class Namespace(pulumi.CustomResource):
         __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
         __props__.__dict__["alternate_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["disable_local_auth"] = None
         __props__.__dict__["encryption"] = None
@@ -390,6 +412,7 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["metric_id"] = None
         __props__.__dict__["minimum_tls_version"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["premium_messaging_partitions"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
@@ -410,6 +433,14 @@ class Namespace(pulumi.CustomResource):
         Alternate name for namespace
         """
         return pulumi.get(self, "alternate_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -474,6 +505,14 @@ class Namespace(pulumi.CustomResource):
         Resource name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="premiumMessagingPartitions")
+    def premium_messaging_partitions(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+        """
+        return pulumi.get(self, "premium_messaging_partitions")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")

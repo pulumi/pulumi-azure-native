@@ -45,6 +45,10 @@ export interface GetBrokerResult {
      */
     readonly authImage: outputs.iotoperationsmq.ContainerImageResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The details of Broker Docker Image.
      */
     readonly brokerImage: outputs.iotoperationsmq.ContainerImageResponse;

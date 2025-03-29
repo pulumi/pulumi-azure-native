@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get the details of a Track in the Asset
  *
  * Uses Azure REST API version 2023-01-01.
+ *
+ * Other available API versions: 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getTrack(args: GetTrackArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +48,10 @@ export interface GetTrackArgs {
  */
 export interface GetTrackResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -70,6 +76,8 @@ export interface GetTrackResult {
  * Get the details of a Track in the Asset
  *
  * Uses Azure REST API version 2023-01-01.
+ *
+ * Other available API versions: 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getTrackOutput(args: GetTrackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

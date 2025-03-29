@@ -27,7 +27,10 @@ class GetInvitationResult:
     """
     A Invitation data transfer object.
     """
-    def __init__(__self__, expiration_date=None, id=None, invitation_id=None, invitation_status=None, name=None, responded_at=None, sent_at=None, system_data=None, target_active_directory_id=None, target_email=None, target_object_id=None, type=None, user_email=None, user_name=None):
+    def __init__(__self__, azure_api_version=None, expiration_date=None, id=None, invitation_id=None, invitation_status=None, name=None, responded_at=None, sent_at=None, system_data=None, target_active_directory_id=None, target_email=None, target_object_id=None, type=None, user_email=None, user_name=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if expiration_date and not isinstance(expiration_date, str):
             raise TypeError("Expected argument 'expiration_date' to be a str")
         pulumi.set(__self__, "expiration_date", expiration_date)
@@ -70,6 +73,14 @@ class GetInvitationResult:
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="expirationDate")
@@ -192,6 +203,7 @@ class AwaitableGetInvitationResult(GetInvitationResult):
         if False:
             yield self
         return GetInvitationResult(
+            azure_api_version=self.azure_api_version,
             expiration_date=self.expiration_date,
             id=self.id,
             invitation_id=self.invitation_id,
@@ -233,6 +245,7 @@ def get_invitation(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:getInvitation', __args__, opts=opts, typ=GetInvitationResult).value
 
     return AwaitableGetInvitationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         expiration_date=pulumi.get(__ret__, 'expiration_date'),
         id=pulumi.get(__ret__, 'id'),
         invitation_id=pulumi.get(__ret__, 'invitation_id'),
@@ -271,6 +284,7 @@ def get_invitation_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getInvitation', __args__, opts=opts, typ=GetInvitationResult)
     return __ret__.apply(lambda __response__: GetInvitationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         expiration_date=pulumi.get(__response__, 'expiration_date'),
         id=pulumi.get(__response__, 'id'),
         invitation_id=pulumi.get(__response__, 'invitation_id'),

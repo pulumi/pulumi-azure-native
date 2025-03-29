@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a relation for a given incident.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+        /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetIncidentRelationResult> InvokeAsync(GetIncidentRelationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentRelationResult>("azure-native:securityinsights:getIncidentRelation", args ?? new GetIncidentRelationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a relation for a given incident.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+        /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIncidentRelationResult> Invoke(GetIncidentRelationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentRelationResult>("azure-native:securityinsights:getIncidentRelation", args ?? new GetIncidentRelationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a relation for a given incident.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+        /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIncidentRelationResult> Invoke(GetIncidentRelationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentRelationResult>("azure-native:securityinsights:getIncidentRelation", args ?? new GetIncidentRelationInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetIncidentRelationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         public readonly string? Etag;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
         [OutputConstructor]
         private GetIncidentRelationResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Name = name;

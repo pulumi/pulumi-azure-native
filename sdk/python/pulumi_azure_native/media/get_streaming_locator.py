@@ -27,13 +27,16 @@ class GetStreamingLocatorResult:
     """
     A Streaming Locator resource
     """
-    def __init__(__self__, alternative_media_id=None, asset_name=None, content_keys=None, created=None, default_content_key_policy_name=None, end_time=None, filters=None, id=None, name=None, start_time=None, streaming_locator_id=None, streaming_policy_name=None, system_data=None, type=None):
+    def __init__(__self__, alternative_media_id=None, asset_name=None, azure_api_version=None, content_keys=None, created=None, default_content_key_policy_name=None, end_time=None, filters=None, id=None, name=None, start_time=None, streaming_locator_id=None, streaming_policy_name=None, system_data=None, type=None):
         if alternative_media_id and not isinstance(alternative_media_id, str):
             raise TypeError("Expected argument 'alternative_media_id' to be a str")
         pulumi.set(__self__, "alternative_media_id", alternative_media_id)
         if asset_name and not isinstance(asset_name, str):
             raise TypeError("Expected argument 'asset_name' to be a str")
         pulumi.set(__self__, "asset_name", asset_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if content_keys and not isinstance(content_keys, list):
             raise TypeError("Expected argument 'content_keys' to be a list")
         pulumi.set(__self__, "content_keys", content_keys)
@@ -86,6 +89,14 @@ class GetStreamingLocatorResult:
         Asset Name
         """
         return pulumi.get(self, "asset_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contentKeys")
@@ -192,6 +203,7 @@ class AwaitableGetStreamingLocatorResult(GetStreamingLocatorResult):
         return GetStreamingLocatorResult(
             alternative_media_id=self.alternative_media_id,
             asset_name=self.asset_name,
+            azure_api_version=self.azure_api_version,
             content_keys=self.content_keys,
             created=self.created,
             default_content_key_policy_name=self.default_content_key_policy_name,
@@ -215,7 +227,7 @@ def get_streaming_locator(account_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-01-01.
 
-    Other available API versions: 2018-03-30-preview.
+    Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The Media Services account name.
@@ -232,6 +244,7 @@ def get_streaming_locator(account_name: Optional[str] = None,
     return AwaitableGetStreamingLocatorResult(
         alternative_media_id=pulumi.get(__ret__, 'alternative_media_id'),
         asset_name=pulumi.get(__ret__, 'asset_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         content_keys=pulumi.get(__ret__, 'content_keys'),
         created=pulumi.get(__ret__, 'created'),
         default_content_key_policy_name=pulumi.get(__ret__, 'default_content_key_policy_name'),
@@ -253,7 +266,7 @@ def get_streaming_locator_output(account_name: Optional[pulumi.Input[str]] = Non
 
     Uses Azure REST API version 2023-01-01.
 
-    Other available API versions: 2018-03-30-preview.
+    Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The Media Services account name.
@@ -269,6 +282,7 @@ def get_streaming_locator_output(account_name: Optional[pulumi.Input[str]] = Non
     return __ret__.apply(lambda __response__: GetStreamingLocatorResult(
         alternative_media_id=pulumi.get(__response__, 'alternative_media_id'),
         asset_name=pulumi.get(__response__, 'asset_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         content_keys=pulumi.get(__response__, 'content_keys'),
         created=pulumi.get(__response__, 'created'),
         default_content_key_policy_name=pulumi.get(__response__, 'default_content_key_policy_name'),

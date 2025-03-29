@@ -157,10 +157,11 @@ class Springbootapp(pulumi.CustomResource):
                 raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["springbootapps_name"] = springbootapps_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazurespringboot/v20240401preview:Springbootapp"), pulumi.Alias(type_="azure-native:offazurespringboot/v20240401preview:springbootapp"), pulumi.Alias(type_="azure-native:offazurespringboot:springbootapp")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazurespringboot/v20240401preview:Springbootapp")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Springbootapp, __self__).__init__(
             'azure-native:offazurespringboot:Springbootapp',
@@ -184,11 +185,20 @@ class Springbootapp(pulumi.CustomResource):
 
         __props__ = SpringbootappArgs.__new__(SpringbootappArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Springbootapp(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

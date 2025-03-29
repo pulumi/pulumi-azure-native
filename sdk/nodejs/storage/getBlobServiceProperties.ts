@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBlobServiceProperties(args: GetBlobServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobServicePropertiesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +46,10 @@ export interface GetBlobServicePropertiesResult {
      * Deprecated in favor of isVersioningEnabled property.
      */
     readonly automaticSnapshotPolicyEnabled?: boolean;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The blob service properties for change feed events.
      */
@@ -98,9 +102,9 @@ export interface GetBlobServicePropertiesResult {
 /**
  * Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBlobServicePropertiesOutput(args: GetBlobServicePropertiesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobServicePropertiesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

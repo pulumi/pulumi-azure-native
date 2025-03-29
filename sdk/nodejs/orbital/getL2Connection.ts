@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-03-01-preview.
  *
- * Other available API versions: 2024-03-01.
+ * Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getL2Connection(args: GetL2ConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetL2ConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +38,10 @@ export interface GetL2ConnectionArgs {
  */
 export interface GetL2ConnectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Globally-unique identifier for this connection that is to be used as a circuit ID.
      */
     readonly circuitId: string;
@@ -49,6 +53,10 @@ export interface GetL2ConnectionResult {
      * A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
      */
     readonly groundStation: outputs.orbital.L2ConnectionsPropertiesResponseGroundStation;
+    /**
+     * The name of the partner router to establish a connection to within the ground station.
+     */
+    readonly groundStationPartnerRouter: outputs.orbital.L2ConnectionsPropertiesResponseGroundStationPartnerRouter;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -83,7 +91,7 @@ export interface GetL2ConnectionResult {
  *
  * Uses Azure REST API version 2024-03-01-preview.
  *
- * Other available API versions: 2024-03-01.
+ * Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getL2ConnectionOutput(args: GetL2ConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL2ConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

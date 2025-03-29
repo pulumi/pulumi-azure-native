@@ -70,6 +70,10 @@ namespace Pulumi.AzureNative.ChangeAnalysis
     public sealed class GetConfigurationProfileResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNative.ChangeAnalysis
 
         [OutputConstructor]
         private GetConfigurationProfileResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.ResourceIdentityResponse? identity,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

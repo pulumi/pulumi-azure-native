@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.AzureSphere
     /// <summary>
     /// An Azure Sphere catalog
     /// 
-    /// Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
     /// 
-    /// Other available API versions: 2024-04-01.
+    /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azuresphere:Catalog")]
     public partial class Catalog : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -48,6 +54,12 @@ namespace Pulumi.AzureNative.AzureSphere
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure Sphere tenant ID associated with the catalog.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

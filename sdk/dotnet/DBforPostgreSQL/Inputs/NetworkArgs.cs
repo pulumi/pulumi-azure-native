@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         [Input("privateDnsZoneArmResourceId")]
         public Input<string>? PrivateDnsZoneArmResourceId { get; set; }
 
+        /// <summary>
+        /// public network access is enabled or not
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ServerPublicNetworkAccessState>? PublicNetworkAccess { get; set; }
+
         public NetworkArgs()
         {
         }

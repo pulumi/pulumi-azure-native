@@ -27,7 +27,10 @@ class GetReadWriteDatabaseResult:
     """
     Class representing a read write database.
     """
-    def __init__(__self__, hot_cache_period=None, id=None, is_followed=None, kind=None, location=None, name=None, provisioning_state=None, soft_delete_period=None, statistics=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, hot_cache_period=None, id=None, is_followed=None, kind=None, location=None, name=None, provisioning_state=None, soft_delete_period=None, statistics=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if hot_cache_period and not isinstance(hot_cache_period, str):
             raise TypeError("Expected argument 'hot_cache_period' to be a str")
         pulumi.set(__self__, "hot_cache_period", hot_cache_period)
@@ -61,6 +64,14 @@ class GetReadWriteDatabaseResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hotCachePeriod")
@@ -158,6 +169,7 @@ class AwaitableGetReadWriteDatabaseResult(GetReadWriteDatabaseResult):
         if False:
             yield self
         return GetReadWriteDatabaseResult(
+            azure_api_version=self.azure_api_version,
             hot_cache_period=self.hot_cache_period,
             id=self.id,
             is_followed=self.is_followed,
@@ -196,6 +208,7 @@ def get_read_write_database(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse:getReadWriteDatabase', __args__, opts=opts, typ=GetReadWriteDatabaseResult).value
 
     return AwaitableGetReadWriteDatabaseResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         hot_cache_period=pulumi.get(__ret__, 'hot_cache_period'),
         id=pulumi.get(__ret__, 'id'),
         is_followed=pulumi.get(__ret__, 'is_followed'),
@@ -231,6 +244,7 @@ def get_read_write_database_output(database_name: Optional[pulumi.Input[str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getReadWriteDatabase', __args__, opts=opts, typ=GetReadWriteDatabaseResult)
     return __ret__.apply(lambda __response__: GetReadWriteDatabaseResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         hot_cache_period=pulumi.get(__response__, 'hot_cache_period'),
         id=pulumi.get(__response__, 'id'),
         is_followed=pulumi.get(__response__, 'is_followed'),

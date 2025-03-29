@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// <summary>
     /// An environment, which is essentially an ARM template deployment.
     /// 
-    /// Uses Azure REST API version 2018-09-15. In version 1.x of the Azure Native provider, it used API version 2018-09-15.
+    /// Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Environment")]
     public partial class Environment : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         [Output("armTemplateDisplayName")]
         public Output<string?> ArmTemplateDisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The creator of the environment.

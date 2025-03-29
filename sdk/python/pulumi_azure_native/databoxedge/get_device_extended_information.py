@@ -272,9 +272,9 @@ def get_device_extended_information(device_name: Optional[str] = None,
     """
     Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
-    Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str device_name: The device name.
@@ -312,9 +312,9 @@ def get_device_extended_information_output(device_name: Optional[pulumi.Input[st
     """
     Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
-    Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str device_name: The device name.

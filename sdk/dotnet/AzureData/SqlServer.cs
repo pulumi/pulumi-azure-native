@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.AzureData
     /// <summary>
     /// A SQL server.
     /// 
-    /// Uses Azure REST API version 2019-07-24-preview. In version 1.x of the Azure Native provider, it used API version 2019-07-24-preview.
+    /// Uses Azure REST API version 2019-07-24-preview. In version 2.x of the Azure Native provider, it used API version 2019-07-24-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azuredata:SqlServer")]
     public partial class SqlServer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Cores of the Sql Server.
         /// </summary>

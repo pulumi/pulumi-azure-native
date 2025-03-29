@@ -152,9 +152,9 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
         """
         VirtualHubRouteTableV2 Resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,9 +175,9 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
         """
         VirtualHubRouteTableV2 Resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param VirtualHubRouteTableV2InitArgs args: The arguments to use to populate this resource's properties.
@@ -221,6 +221,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
             if virtual_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__.__dict__["virtual_hub_name"] = virtual_hub_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20190901:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20230201:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20230401:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20230501:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20230601:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20230901:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20231101:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20240101:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20240301:VirtualHubRouteTableV2"), pulumi.Alias(type_="azure-native:network/v20240501:VirtualHubRouteTableV2")])
@@ -248,6 +249,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
         __props__ = VirtualHubRouteTableV2InitArgs.__new__(VirtualHubRouteTableV2InitArgs)
 
         __props__.__dict__["attached_connections"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -261,6 +263,14 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
         List of all connections attached to this route table v2.
         """
         return pulumi.get(self, "attached_connections")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

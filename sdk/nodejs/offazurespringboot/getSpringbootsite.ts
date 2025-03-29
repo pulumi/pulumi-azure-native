@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a springbootsites resource.
  *
- * Uses Azure REST API version 2023-01-01-preview.
+ * Uses Azure REST API version 2024-04-01-preview.
+ *
+ * Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSpringbootsite(args: GetSpringbootsiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSpringbootsiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,6 +37,10 @@ export interface GetSpringbootsiteArgs {
  * The springbootsites envelope resource definition.
  */
 export interface GetSpringbootsiteResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The extended location definition.
      */
@@ -71,7 +77,9 @@ export interface GetSpringbootsiteResult {
 /**
  * Get a springbootsites resource.
  *
- * Uses Azure REST API version 2023-01-01-preview.
+ * Uses Azure REST API version 2024-04-01-preview.
+ *
+ * Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSpringbootsiteOutput(args: GetSpringbootsiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpringbootsiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

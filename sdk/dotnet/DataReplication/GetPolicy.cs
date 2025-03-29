@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataReplication
         /// 
         /// Uses Azure REST API version 2021-02-16-preview.
         /// 
-        /// Other available API versions: 2024-09-01.
+        /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:datareplication:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DataReplication
         /// 
         /// Uses Azure REST API version 2021-02-16-preview.
         /// 
-        /// Other available API versions: 2024-09-01.
+        /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:datareplication:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.DataReplication
         /// 
         /// Uses Azure REST API version 2021-02-16-preview.
         /// 
-        /// Other available API versions: 2024-09-01.
+        /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:datareplication:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.DataReplication
     public sealed class GetPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the Id of the resource.
         /// </summary>
         public readonly string Id;
@@ -119,6 +123,8 @@ namespace Pulumi.AzureNative.DataReplication
 
         [OutputConstructor]
         private GetPolicyResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.DataReplication
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

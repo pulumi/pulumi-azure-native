@@ -14,7 +14,9 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// <summary>
         /// List springbootservers resource.
         /// 
-        /// Uses Azure REST API version 2023-01-01-preview.
+        /// Uses Azure REST API version 2024-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSpringbootserverResult> InvokeAsync(GetSpringbootserverArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpringbootserverResult>("azure-native:offazurespringboot:getSpringbootserver", args ?? new GetSpringbootserverArgs(), options.WithDefaults());
@@ -22,7 +24,9 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// <summary>
         /// List springbootservers resource.
         /// 
-        /// Uses Azure REST API version 2023-01-01-preview.
+        /// Uses Azure REST API version 2024-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSpringbootserverResult> Invoke(GetSpringbootserverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootserverResult>("azure-native:offazurespringboot:getSpringbootserver", args ?? new GetSpringbootserverInvokeArgs(), options.WithDefaults());
@@ -30,7 +34,9 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// <summary>
         /// List springbootservers resource.
         /// 
-        /// Uses Azure REST API version 2023-01-01-preview.
+        /// Uses Azure REST API version 2024-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSpringbootserverResult> Invoke(GetSpringbootserverInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootserverResult>("azure-native:offazurespringboot:getSpringbootserver", args ?? new GetSpringbootserverInvokeArgs(), options.WithDefaults());
@@ -94,6 +100,10 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
     public sealed class GetSpringbootserverResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -110,16 +120,14 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource tags
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetSpringbootserverResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -128,15 +136,13 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
 
             Outputs.SystemDataResponse systemData,
 
-            ImmutableDictionary<string, string>? tags,
-
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;
             SystemData = systemData;
-            Tags = tags;
             Type = type;
         }
     }

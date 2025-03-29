@@ -27,7 +27,10 @@ class GetRoleManagementPolicyResult:
     """
     Role management policy
     """
-    def __init__(__self__, description=None, display_name=None, effective_rules=None, id=None, is_organization_default=None, last_modified_by=None, last_modified_date_time=None, name=None, policy_properties=None, rules=None, scope=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, display_name=None, effective_rules=None, id=None, is_organization_default=None, last_modified_by=None, last_modified_date_time=None, name=None, policy_properties=None, rules=None, scope=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -64,6 +67,14 @@ class GetRoleManagementPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -168,6 +179,7 @@ class AwaitableGetRoleManagementPolicyResult(GetRoleManagementPolicyResult):
         if False:
             yield self
         return GetRoleManagementPolicyResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             effective_rules=self.effective_rules,
@@ -190,7 +202,7 @@ def get_role_management_policy(role_management_policy_name: Optional[str] = None
 
     Uses Azure REST API version 2024-09-01-preview.
 
-    Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
+    Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str role_management_policy_name: The name (guid) of the role management policy to get.
@@ -203,6 +215,7 @@ def get_role_management_policy(role_management_policy_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getRoleManagementPolicy', __args__, opts=opts, typ=GetRoleManagementPolicyResult).value
 
     return AwaitableGetRoleManagementPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         effective_rules=pulumi.get(__ret__, 'effective_rules'),
@@ -223,7 +236,7 @@ def get_role_management_policy_output(role_management_policy_name: Optional[pulu
 
     Uses Azure REST API version 2024-09-01-preview.
 
-    Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
+    Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str role_management_policy_name: The name (guid) of the role management policy to get.
@@ -235,6 +248,7 @@ def get_role_management_policy_output(role_management_policy_name: Optional[pulu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getRoleManagementPolicy', __args__, opts=opts, typ=GetRoleManagementPolicyResult)
     return __ret__.apply(lambda __response__: GetRoleManagementPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         effective_rules=pulumi.get(__response__, 'effective_rules'),

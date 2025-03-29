@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An addon resource
+ * Get a Addon
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,7 +25,7 @@ export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetAddonArgs {
     /**
-     * Name of the addon for the private cloud
+     * Name of the addon.
      */
     addonName: string;
     /**
@@ -43,28 +43,40 @@ export interface GetAddonArgs {
  */
 export interface GetAddonResult {
     /**
-     * Resource ID.
+     * Addon type
+     */
+    readonly addonType: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * The properties of an addon resource
+     * The state of the addon provisioning
      */
-    readonly properties: outputs.avs.AddonArcPropertiesResponse | outputs.avs.AddonHcxPropertiesResponse | outputs.avs.AddonSrmPropertiesResponse | outputs.avs.AddonVrPropertiesResponse;
+    readonly provisioningState: string;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.avs.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * An addon resource
+ * Get a Addon
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +89,7 @@ export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOut
 
 export interface GetAddonOutputArgs {
     /**
-     * Name of the addon for the private cloud
+     * Name of the addon.
      */
     addonName: pulumi.Input<string>;
     /**

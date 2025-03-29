@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
  *
- * Uses Azure REST API version 2022-09-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDeviceGroup(args: GetDeviceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,6 +51,10 @@ export interface GetDeviceGroupResult {
      * Flag to define if the user allows for crash dump collection.
      */
     readonly allowCrashDumpsCollection?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Description of the device group.
      */
@@ -95,9 +99,9 @@ export interface GetDeviceGroupResult {
 /**
  * Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
  *
- * Uses Azure REST API version 2022-09-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDeviceGroupOutput(args: GetDeviceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -131,9 +131,9 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         """
         Describes a federated identity credential.
 
-        Uses Azure REST API version 2023-01-31. In version 1.x of the Azure Native provider, it used API version 2022-01-31-preview.
+        Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
 
-        Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
+        Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,9 +153,9 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         """
         Describes a federated identity credential.
 
-        Uses Azure REST API version 2023-01-31. In version 1.x of the Azure Native provider, it used API version 2022-01-31-preview.
+        Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
 
-        Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
+        Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param FederatedIdentityCredentialArgs args: The arguments to use to populate this resource's properties.
@@ -203,6 +203,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
             if subject is None and not opts.urn:
                 raise TypeError("Missing required property 'subject'")
             __props__.__dict__["subject"] = subject
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -231,6 +232,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         __props__ = FederatedIdentityCredentialArgs.__new__(FederatedIdentityCredentialArgs)
 
         __props__.__dict__["audiences"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["issuer"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["subject"] = None
@@ -245,6 +247,14 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         The list of audiences that can appear in the issued token.
         """
         return pulumi.get(self, "audiences")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

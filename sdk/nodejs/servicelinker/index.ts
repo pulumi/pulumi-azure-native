@@ -54,21 +54,6 @@ utilities.lazyLoad(exports, ["listLinkerConfigurations","listLinkerConfiguration
 // Export enums:
 export * from "../types/enums/servicelinker";
 
-// Export sub-modules:
-import * as v20211101preview from "./v20211101preview";
-import * as v20221101preview from "./v20221101preview";
-import * as v20230401preview from "./v20230401preview";
-import * as v20240401 from "./v20240401";
-import * as v20240701preview from "./v20240701preview";
-
-export {
-    v20211101preview,
-    v20221101preview,
-    v20230401preview,
-    v20240401,
-    v20240701preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

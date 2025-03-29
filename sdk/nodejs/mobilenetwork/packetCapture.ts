@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Packet capture session resource.
  *
- * Uses Azure REST API version 2023-06-01.
+ * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
  *
- * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+ * Other available API versions: 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PacketCapture extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class PacketCapture extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Number of bytes captured per packet, the remaining bytes are truncated. The default "0" means the entire packet is captured.
      */
     public readonly bytesToCapturePerPacket!: pulumi.Output<number | undefined>;
@@ -57,6 +61,10 @@ export class PacketCapture extends pulumi.CustomResource {
      * List of network interfaces to capture on.
      */
     public readonly networkInterfaces!: pulumi.Output<string[] | undefined>;
+    /**
+     * The list of output files of a packet capture session.
+     */
+    public /*out*/ readonly outputFiles!: pulumi.Output<string[]>;
     /**
      * The provisioning state of the packet capture session resource.
      */
@@ -110,18 +118,22 @@ export class PacketCapture extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["timeLimitInSeconds"] = (args ? args.timeLimitInSeconds : undefined) ?? 18000;
             resourceInputs["totalBytesPerSession"] = (args ? args.totalBytesPerSession : undefined) ?? 67108864;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["captureStartTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputFiles"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["reason"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bytesToCapturePerPacket"] = undefined /*out*/;
             resourceInputs["captureStartTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["outputFiles"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["reason"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

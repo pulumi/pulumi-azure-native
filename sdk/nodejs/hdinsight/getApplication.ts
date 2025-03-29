@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets properties of the specified application.
  *
- * Uses Azure REST API version 2021-06-01.
+ * Uses Azure REST API version 2024-08-01-preview.
  *
- * Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
+ * Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetApplicationArgs {
  * The HDInsight cluster application
  */
 export interface GetApplicationResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The ETag for the application
      */
@@ -74,9 +78,9 @@ export interface GetApplicationResult {
 /**
  * Gets properties of the specified application.
  *
- * Uses Azure REST API version 2021-06-01.
+ * Uses Azure REST API version 2024-08-01-preview.
  *
- * Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
+ * Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

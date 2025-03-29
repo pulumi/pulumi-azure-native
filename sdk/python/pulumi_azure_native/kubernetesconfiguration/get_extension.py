@@ -27,13 +27,16 @@ class GetExtensionResult:
     """
     The Extension object.
     """
-    def __init__(__self__, aks_assigned_identity=None, auto_upgrade_minor_version=None, configuration_protected_settings=None, configuration_settings=None, current_version=None, custom_location_settings=None, error_info=None, extension_type=None, id=None, identity=None, is_system_extension=None, name=None, package_uri=None, plan=None, provisioning_state=None, release_train=None, scope=None, statuses=None, system_data=None, type=None, version=None):
+    def __init__(__self__, aks_assigned_identity=None, auto_upgrade_minor_version=None, azure_api_version=None, configuration_protected_settings=None, configuration_settings=None, current_version=None, custom_location_settings=None, error_info=None, extension_type=None, id=None, identity=None, is_system_extension=None, name=None, package_uri=None, plan=None, provisioning_state=None, release_train=None, scope=None, statuses=None, system_data=None, type=None, version=None):
         if aks_assigned_identity and not isinstance(aks_assigned_identity, dict):
             raise TypeError("Expected argument 'aks_assigned_identity' to be a dict")
         pulumi.set(__self__, "aks_assigned_identity", aks_assigned_identity)
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if configuration_protected_settings and not isinstance(configuration_protected_settings, dict):
             raise TypeError("Expected argument 'configuration_protected_settings' to be a dict")
         pulumi.set(__self__, "configuration_protected_settings", configuration_protected_settings)
@@ -107,6 +110,14 @@ class GetExtensionResult:
         Flag to note if this extension participates in auto upgrade of minor version, or not.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="configurationProtectedSettings")
@@ -269,6 +280,7 @@ class AwaitableGetExtensionResult(GetExtensionResult):
         return GetExtensionResult(
             aks_assigned_identity=self.aks_assigned_identity,
             auto_upgrade_minor_version=self.auto_upgrade_minor_version,
+            azure_api_version=self.azure_api_version,
             configuration_protected_settings=self.configuration_protected_settings,
             configuration_settings=self.configuration_settings,
             current_version=self.current_version,
@@ -301,7 +313,7 @@ def get_extension(cluster_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-05-01.
 
-    Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01, 2024-11-01.
+    Other available API versions: 2022-04-02-preview, 2022-07-01, 2022-11-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
@@ -322,6 +334,7 @@ def get_extension(cluster_name: Optional[str] = None,
     return AwaitableGetExtensionResult(
         aks_assigned_identity=pulumi.get(__ret__, 'aks_assigned_identity'),
         auto_upgrade_minor_version=pulumi.get(__ret__, 'auto_upgrade_minor_version'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         configuration_protected_settings=pulumi.get(__ret__, 'configuration_protected_settings'),
         configuration_settings=pulumi.get(__ret__, 'configuration_settings'),
         current_version=pulumi.get(__ret__, 'current_version'),
@@ -352,7 +365,7 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2023-05-01.
 
-    Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01, 2024-11-01.
+    Other available API versions: 2022-04-02-preview, 2022-07-01, 2022-11-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
@@ -372,6 +385,7 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetExtensionResult(
         aks_assigned_identity=pulumi.get(__response__, 'aks_assigned_identity'),
         auto_upgrade_minor_version=pulumi.get(__response__, 'auto_upgrade_minor_version'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         configuration_protected_settings=pulumi.get(__response__, 'configuration_protected_settings'),
         configuration_settings=pulumi.get(__response__, 'configuration_settings'),
         current_version=pulumi.get(__response__, 'current_version'),

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The relationship link resource format.
  *
- * Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
+ * Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
  */
 export class RelationshipLink extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class RelationshipLink extends pulumi.CustomResource {
         return obj['__pulumiType'] === RelationshipLink.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Localized descriptions for the Relationship Link.
      */
@@ -131,6 +135,7 @@ export class RelationshipLink extends pulumi.CustomResource {
             resourceInputs["relationshipLinkName"] = args ? args.relationshipLinkName : undefined;
             resourceInputs["relationshipName"] = args ? args.relationshipName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["linkName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -138,6 +143,7 @@ export class RelationshipLink extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["interactionType"] = undefined /*out*/;

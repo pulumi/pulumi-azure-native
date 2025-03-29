@@ -27,10 +27,13 @@ class GetAssessmentProjectsOperationResult:
     """
     An Assessment project site resource.
     """
-    def __init__(__self__, assessment_solution_id=None, created_timestamp=None, customer_storage_account_arm_id=None, customer_workspace_id=None, customer_workspace_location=None, id=None, location=None, name=None, private_endpoint_connections=None, project_status=None, provisioning_state=None, public_network_access=None, service_endpoint=None, system_data=None, tags=None, type=None, updated_timestamp=None):
+    def __init__(__self__, assessment_solution_id=None, azure_api_version=None, created_timestamp=None, customer_storage_account_arm_id=None, customer_workspace_id=None, customer_workspace_location=None, id=None, location=None, name=None, private_endpoint_connections=None, project_status=None, provisioning_state=None, public_network_access=None, service_endpoint=None, system_data=None, tags=None, type=None, updated_timestamp=None):
         if assessment_solution_id and not isinstance(assessment_solution_id, str):
             raise TypeError("Expected argument 'assessment_solution_id' to be a str")
         pulumi.set(__self__, "assessment_solution_id", assessment_solution_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_timestamp and not isinstance(created_timestamp, str):
             raise TypeError("Expected argument 'created_timestamp' to be a str")
         pulumi.set(__self__, "created_timestamp", created_timestamp)
@@ -89,6 +92,14 @@ class GetAssessmentProjectsOperationResult:
         return pulumi.get(self, "assessment_solution_id")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="createdTimestamp")
     def created_timestamp(self) -> str:
         """
@@ -125,7 +136,7 @@ class GetAssessmentProjectsOperationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -229,6 +240,7 @@ class AwaitableGetAssessmentProjectsOperationResult(GetAssessmentProjectsOperati
             yield self
         return GetAssessmentProjectsOperationResult(
             assessment_solution_id=self.assessment_solution_id,
+            azure_api_version=self.azure_api_version,
             created_timestamp=self.created_timestamp,
             customer_storage_account_arm_id=self.customer_storage_account_arm_id,
             customer_workspace_id=self.customer_workspace_id,
@@ -253,9 +265,9 @@ def get_assessment_projects_operation(project_name: Optional[str] = None,
     """
     Get a AssessmentProject
 
-    Uses Azure REST API version 2023-03-15.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str project_name: Assessment Project Name
@@ -269,6 +281,7 @@ def get_assessment_projects_operation(project_name: Optional[str] = None,
 
     return AwaitableGetAssessmentProjectsOperationResult(
         assessment_solution_id=pulumi.get(__ret__, 'assessment_solution_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
         customer_storage_account_arm_id=pulumi.get(__ret__, 'customer_storage_account_arm_id'),
         customer_workspace_id=pulumi.get(__ret__, 'customer_workspace_id'),
@@ -291,9 +304,9 @@ def get_assessment_projects_operation_output(project_name: Optional[pulumi.Input
     """
     Get a AssessmentProject
 
-    Uses Azure REST API version 2023-03-15.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str project_name: Assessment Project Name
@@ -306,6 +319,7 @@ def get_assessment_projects_operation_output(project_name: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getAssessmentProjectsOperation', __args__, opts=opts, typ=GetAssessmentProjectsOperationResult)
     return __ret__.apply(lambda __response__: GetAssessmentProjectsOperationResult(
         assessment_solution_id=pulumi.get(__response__, 'assessment_solution_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_timestamp=pulumi.get(__response__, 'created_timestamp'),
         customer_storage_account_arm_id=pulumi.get(__response__, 'customer_storage_account_arm_id'),
         customer_workspace_id=pulumi.get(__response__, 'customer_workspace_id'),

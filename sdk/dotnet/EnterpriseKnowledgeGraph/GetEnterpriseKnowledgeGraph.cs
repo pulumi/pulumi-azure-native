@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
     public sealed class GetEnterpriseKnowledgeGraphResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies the resource ID.
         /// </summary>
         public readonly string Id;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
 
         [OutputConstructor]
         private GetEnterpriseKnowledgeGraphResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

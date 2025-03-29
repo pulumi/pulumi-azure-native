@@ -152,7 +152,7 @@ class PrivateStoreCollection(pulumi.CustomResource):
         """
         The Collection data structure.
 
-        Uses Azure REST API version 2023-01-01. In version 1.x of the Azure Native provider, it used API version 2021-12-01.
+        Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,7 +173,7 @@ class PrivateStoreCollection(pulumi.CustomResource):
         """
         The Collection data structure.
 
-        Uses Azure REST API version 2023-01-01. In version 1.x of the Azure Native provider, it used API version 2021-12-01.
+        Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateStoreCollectionArgs args: The arguments to use to populate this resource's properties.
@@ -218,6 +218,7 @@ class PrivateStoreCollection(pulumi.CustomResource):
             __props__.__dict__["applied_rules"] = None
             __props__.__dict__["approve_all_items"] = None
             __props__.__dict__["approve_all_items_modified_at"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["number_of_offers"] = None
             __props__.__dict__["system_data"] = None
@@ -250,6 +251,7 @@ class PrivateStoreCollection(pulumi.CustomResource):
         __props__.__dict__["applied_rules"] = None
         __props__.__dict__["approve_all_items"] = None
         __props__.__dict__["approve_all_items_modified_at"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["claim"] = None
         __props__.__dict__["collection_id"] = None
         __props__.__dict__["collection_name"] = None
@@ -292,6 +294,14 @@ class PrivateStoreCollection(pulumi.CustomResource):
         Gets the modified date of all items approved.
         """
         return pulumi.get(self, "approve_all_items_modified_at")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

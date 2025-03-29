@@ -27,7 +27,7 @@ class GetApiResult:
     """
     API details.
     """
-    def __init__(__self__, api_revision=None, api_revision_description=None, api_type=None, api_version=None, api_version_description=None, api_version_set=None, api_version_set_id=None, authentication_settings=None, contact=None, description=None, display_name=None, id=None, is_current=None, is_online=None, license=None, name=None, path=None, protocols=None, service_url=None, source_api_id=None, subscription_key_parameter_names=None, subscription_required=None, terms_of_service_url=None, type=None):
+    def __init__(__self__, api_revision=None, api_revision_description=None, api_type=None, api_version=None, api_version_description=None, api_version_set=None, api_version_set_id=None, authentication_settings=None, azure_api_version=None, contact=None, description=None, display_name=None, id=None, is_current=None, is_online=None, license=None, name=None, path=None, protocols=None, service_url=None, source_api_id=None, subscription_key_parameter_names=None, subscription_required=None, terms_of_service_url=None, type=None):
         if api_revision and not isinstance(api_revision, str):
             raise TypeError("Expected argument 'api_revision' to be a str")
         pulumi.set(__self__, "api_revision", api_revision)
@@ -52,6 +52,9 @@ class GetApiResult:
         if authentication_settings and not isinstance(authentication_settings, dict):
             raise TypeError("Expected argument 'authentication_settings' to be a dict")
         pulumi.set(__self__, "authentication_settings", authentication_settings)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if contact and not isinstance(contact, dict):
             raise TypeError("Expected argument 'contact' to be a dict")
         pulumi.set(__self__, "contact", contact)
@@ -164,6 +167,14 @@ class GetApiResult:
         Collection of authentication settings included into this API.
         """
         return pulumi.get(self, "authentication_settings")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -308,6 +319,7 @@ class AwaitableGetApiResult(GetApiResult):
             api_version_set=self.api_version_set,
             api_version_set_id=self.api_version_set_id,
             authentication_settings=self.authentication_settings,
+            azure_api_version=self.azure_api_version,
             contact=self.contact,
             description=self.description,
             display_name=self.display_name,
@@ -333,9 +345,9 @@ def get_api(api_id: Optional[str] = None,
     """
     Gets the details of the API specified by its identifier.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2016-10-10, 2017-03-01, 2018-06-01-preview, 2020-12-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -358,6 +370,7 @@ def get_api(api_id: Optional[str] = None,
         api_version_set=pulumi.get(__ret__, 'api_version_set'),
         api_version_set_id=pulumi.get(__ret__, 'api_version_set_id'),
         authentication_settings=pulumi.get(__ret__, 'authentication_settings'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         contact=pulumi.get(__ret__, 'contact'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -381,9 +394,9 @@ def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the details of the API specified by its identifier.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2016-10-10, 2017-03-01, 2018-06-01-preview, 2020-12-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -405,6 +418,7 @@ def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
         api_version_set=pulumi.get(__response__, 'api_version_set'),
         api_version_set_id=pulumi.get(__response__, 'api_version_set_id'),
         authentication_settings=pulumi.get(__response__, 'authentication_settings'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         contact=pulumi.get(__response__, 'contact'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     public sealed class GetNetworkResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 
         [OutputConstructor]
         private GetNetworkResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string ClusterResourceId;
         /// <summary>
+        /// The status message after processing the member update operation.
+        /// </summary>
+        public readonly string Message;
+        /// <summary>
         /// The name of the FleetMember.
         /// </summary>
         public readonly string Name;
@@ -37,6 +41,8 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         private MemberUpdateStatusResponse(
             string clusterResourceId,
 
+            string message,
+
             string name,
 
             string operationId,
@@ -44,6 +50,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
             Outputs.UpdateStatusResponse status)
         {
             ClusterResourceId = clusterResourceId;
+            Message = message;
             Name = name;
             OperationId = operationId;
             Status = status;

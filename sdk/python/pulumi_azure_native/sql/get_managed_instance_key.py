@@ -26,10 +26,13 @@ class GetManagedInstanceKeyResult:
     """
     A managed instance key.
     """
-    def __init__(__self__, auto_rotation_enabled=None, creation_date=None, id=None, kind=None, name=None, thumbprint=None, type=None):
+    def __init__(__self__, auto_rotation_enabled=None, azure_api_version=None, creation_date=None, id=None, kind=None, name=None, thumbprint=None, type=None):
         if auto_rotation_enabled and not isinstance(auto_rotation_enabled, bool):
             raise TypeError("Expected argument 'auto_rotation_enabled' to be a bool")
         pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -56,6 +59,14 @@ class GetManagedInstanceKeyResult:
         Key auto rotation opt-in flag. Either true or false.
         """
         return pulumi.get(self, "auto_rotation_enabled")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -113,6 +124,7 @@ class AwaitableGetManagedInstanceKeyResult(GetManagedInstanceKeyResult):
             yield self
         return GetManagedInstanceKeyResult(
             auto_rotation_enabled=self.auto_rotation_enabled,
+            azure_api_version=self.azure_api_version,
             creation_date=self.creation_date,
             id=self.id,
             kind=self.kind,
@@ -128,9 +140,9 @@ def get_managed_instance_key(key_name: Optional[str] = None,
     """
     Gets a managed instance key.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str key_name: The name of the managed instance key to be retrieved.
@@ -146,6 +158,7 @@ def get_managed_instance_key(key_name: Optional[str] = None,
 
     return AwaitableGetManagedInstanceKeyResult(
         auto_rotation_enabled=pulumi.get(__ret__, 'auto_rotation_enabled'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -159,9 +172,9 @@ def get_managed_instance_key_output(key_name: Optional[pulumi.Input[str]] = None
     """
     Gets a managed instance key.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str key_name: The name of the managed instance key to be retrieved.
@@ -176,6 +189,7 @@ def get_managed_instance_key_output(key_name: Optional[pulumi.Input[str]] = None
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getManagedInstanceKey', __args__, opts=opts, typ=GetManagedInstanceKeyResult)
     return __ret__.apply(lambda __response__: GetManagedInstanceKeyResult(
         auto_rotation_enabled=pulumi.get(__response__, 'auto_rotation_enabled'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

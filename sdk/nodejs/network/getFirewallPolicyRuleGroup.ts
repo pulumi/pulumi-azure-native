@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets the specified FirewallPolicyRuleGroup.
  *
  * Uses Azure REST API version 2020-04-01.
+ *
+ * Other available API versions: 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFirewallPolicyRuleGroup(args: GetFirewallPolicyRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +42,10 @@ export interface GetFirewallPolicyRuleGroupArgs {
  * Rule Group resource.
  */
 export interface GetFirewallPolicyRuleGroupResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -73,6 +79,8 @@ export interface GetFirewallPolicyRuleGroupResult {
  * Gets the specified FirewallPolicyRuleGroup.
  *
  * Uses Azure REST API version 2020-04-01.
+ *
+ * Other available API versions: 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFirewallPolicyRuleGroupOutput(args: GetFirewallPolicyRuleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallPolicyRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

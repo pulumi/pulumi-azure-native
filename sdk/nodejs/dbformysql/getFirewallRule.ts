@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets information about a server firewall rule.
  *
- * Uses Azure REST API version 2022-01-01.
+ * Uses Azure REST API version 2023-12-30.
  *
- * Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+ * Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,11 +43,15 @@ export interface GetFirewallRuleArgs {
  */
 export interface GetFirewallRuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The end IP address of the server firewall rule. Must be IPv4 format.
      */
     readonly endIpAddress: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -59,7 +63,7 @@ export interface GetFirewallRuleResult {
      */
     readonly startIpAddress: string;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.dbformysql.SystemDataResponse;
     /**
@@ -70,9 +74,9 @@ export interface GetFirewallRuleResult {
 /**
  * Gets information about a server firewall rule.
  *
- * Uses Azure REST API version 2022-01-01.
+ * Uses Azure REST API version 2023-12-30.
  *
- * Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+ * Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

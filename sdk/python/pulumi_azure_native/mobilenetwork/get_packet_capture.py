@@ -27,7 +27,10 @@ class GetPacketCaptureResult:
     """
     Packet capture session resource.
     """
-    def __init__(__self__, bytes_to_capture_per_packet=None, capture_start_time=None, id=None, name=None, network_interfaces=None, provisioning_state=None, reason=None, status=None, system_data=None, time_limit_in_seconds=None, total_bytes_per_session=None, type=None):
+    def __init__(__self__, azure_api_version=None, bytes_to_capture_per_packet=None, capture_start_time=None, id=None, name=None, network_interfaces=None, output_files=None, provisioning_state=None, reason=None, status=None, system_data=None, time_limit_in_seconds=None, total_bytes_per_session=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bytes_to_capture_per_packet and not isinstance(bytes_to_capture_per_packet, float):
             raise TypeError("Expected argument 'bytes_to_capture_per_packet' to be a float")
         pulumi.set(__self__, "bytes_to_capture_per_packet", bytes_to_capture_per_packet)
@@ -43,6 +46,9 @@ class GetPacketCaptureResult:
         if network_interfaces and not isinstance(network_interfaces, list):
             raise TypeError("Expected argument 'network_interfaces' to be a list")
         pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if output_files and not isinstance(output_files, list):
+            raise TypeError("Expected argument 'output_files' to be a list")
+        pulumi.set(__self__, "output_files", output_files)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -64,6 +70,14 @@ class GetPacketCaptureResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bytesToCapturePerPacket")
@@ -104,6 +118,14 @@ class GetPacketCaptureResult:
         List of network interfaces to capture on.
         """
         return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="outputFiles")
+    def output_files(self) -> Sequence[str]:
+        """
+        The list of output files of a packet capture session.
+        """
+        return pulumi.get(self, "output_files")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -168,11 +190,13 @@ class AwaitableGetPacketCaptureResult(GetPacketCaptureResult):
         if False:
             yield self
         return GetPacketCaptureResult(
+            azure_api_version=self.azure_api_version,
             bytes_to_capture_per_packet=self.bytes_to_capture_per_packet,
             capture_start_time=self.capture_start_time,
             id=self.id,
             name=self.name,
             network_interfaces=self.network_interfaces,
+            output_files=self.output_files,
             provisioning_state=self.provisioning_state,
             reason=self.reason,
             status=self.status,
@@ -189,9 +213,9 @@ def get_packet_capture(packet_capture_name: Optional[str] = None,
     """
     Gets information about the specified packet capture session.
 
-    Uses Azure REST API version 2023-06-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str packet_capture_name: The name of the packet capture session.
@@ -206,11 +230,13 @@ def get_packet_capture(packet_capture_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork:getPacketCapture', __args__, opts=opts, typ=GetPacketCaptureResult).value
 
     return AwaitableGetPacketCaptureResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bytes_to_capture_per_packet=pulumi.get(__ret__, 'bytes_to_capture_per_packet'),
         capture_start_time=pulumi.get(__ret__, 'capture_start_time'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        output_files=pulumi.get(__ret__, 'output_files'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         reason=pulumi.get(__ret__, 'reason'),
         status=pulumi.get(__ret__, 'status'),
@@ -225,9 +251,9 @@ def get_packet_capture_output(packet_capture_name: Optional[pulumi.Input[str]] =
     """
     Gets information about the specified packet capture session.
 
-    Uses Azure REST API version 2023-06-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str packet_capture_name: The name of the packet capture session.
@@ -241,11 +267,13 @@ def get_packet_capture_output(packet_capture_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork:getPacketCapture', __args__, opts=opts, typ=GetPacketCaptureResult)
     return __ret__.apply(lambda __response__: GetPacketCaptureResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bytes_to_capture_per_packet=pulumi.get(__response__, 'bytes_to_capture_per_packet'),
         capture_start_time=pulumi.get(__response__, 'capture_start_time'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         network_interfaces=pulumi.get(__response__, 'network_interfaces'),
+        output_files=pulumi.get(__response__, 'output_files'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         reason=pulumi.get(__response__, 'reason'),
         status=pulumi.get(__response__, 'status'),

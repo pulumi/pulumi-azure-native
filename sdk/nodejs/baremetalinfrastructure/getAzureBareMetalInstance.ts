@@ -36,6 +36,10 @@ export interface GetAzureBareMetalInstanceArgs {
  */
 export interface GetAzureBareMetalInstanceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Specifies the Azure Bare Metal Instance unique ID.
      */
     readonly azureBareMetalInstanceId?: string;

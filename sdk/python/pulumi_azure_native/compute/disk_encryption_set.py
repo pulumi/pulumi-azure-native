@@ -188,9 +188,9 @@ class DiskEncryptionSet(pulumi.CustomResource):
         """
         disk encryption set resource.
 
-        Uses Azure REST API version 2022-07-02. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
 
-        Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,9 +213,9 @@ class DiskEncryptionSet(pulumi.CustomResource):
         """
         disk encryption set resource.
 
-        Uses Azure REST API version 2022-07-02. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
 
-        Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DiskEncryptionSetArgs args: The arguments to use to populate this resource's properties.
@@ -262,6 +262,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__.__dict__["rotation_to_latest_key_version_enabled"] = rotation_to_latest_key_version_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["auto_key_rotation_error"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["last_key_rotation_timestamp"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["previous_keys"] = None
@@ -293,6 +294,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         __props__.__dict__["active_key"] = None
         __props__.__dict__["auto_key_rotation_error"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["encryption_type"] = None
         __props__.__dict__["federated_client_id"] = None
         __props__.__dict__["identity"] = None
@@ -321,6 +323,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
         The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
         """
         return pulumi.get(self, "auto_key_rotation_error")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="encryptionType")

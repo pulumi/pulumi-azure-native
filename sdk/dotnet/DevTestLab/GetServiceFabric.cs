@@ -122,6 +122,10 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly Outputs.ApplicableScheduleResponse ApplicableSchedule;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource id of the environment under which the service fabric resource is present
         /// </summary>
         public readonly string? EnvironmentId;
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNative.DevTestLab
         private GetServiceFabricResult(
             Outputs.ApplicableScheduleResponse applicableSchedule,
 
+            string azureApiVersion,
+
             string? environmentId,
 
             string? externalServiceFabricId,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.DevTestLab
             string uniqueIdentifier)
         {
             ApplicableSchedule = applicableSchedule;
+            AzureApiVersion = azureApiVersion;
             EnvironmentId = environmentId;
             ExternalServiceFabricId = externalServiceFabricId;
             Id = id;

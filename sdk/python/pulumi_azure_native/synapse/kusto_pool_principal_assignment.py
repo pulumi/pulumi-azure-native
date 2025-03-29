@@ -165,7 +165,9 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
         """
         Class representing a cluster principal assignment.
 
-        Uses Azure REST API version 2021-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
+        Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+
+        Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,7 +189,9 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
         """
         Class representing a cluster principal assignment.
 
-        Uses Azure REST API version 2021-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
+        Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+
+        Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param KustoPoolPrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -242,6 +246,7 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["aad_object_id"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principal_name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -273,6 +278,7 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
         __props__ = KustoPoolPrincipalAssignmentArgs.__new__(KustoPoolPrincipalAssignmentArgs)
 
         __props__.__dict__["aad_object_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["principal_id"] = None
         __props__.__dict__["principal_name"] = None
@@ -292,6 +298,14 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
         The service principal object id in AAD (Azure active directory)
         """
         return pulumi.get(self, "aad_object_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

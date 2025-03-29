@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a domain.
         /// 
-        /// Uses Azure REST API version 2022-06-15.
+        /// Uses Azure REST API version 2025-02-15.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:eventgrid:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a domain.
         /// 
-        /// Uses Azure REST API version 2022-06-15.
+        /// Uses Azure REST API version 2025-02-15.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:eventgrid:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a domain.
         /// 
-        /// Uses Azure REST API version 2022-06-15.
+        /// Uses Azure REST API version 2025-02-15.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:eventgrid:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
@@ -108,6 +108,10 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly bool? AutoDeleteTopicWithLastSubscription;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Data Residency Boundary of the resource.
         /// </summary>
         public readonly string? DataResidencyBoundary;
@@ -119,6 +123,11 @@ namespace Pulumi.AzureNative.EventGrid
         /// Endpoint for the Event Grid Domain Resource which is used for publishing the events.
         /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// Event Type Information for the domain. This information is provided by the publisher and can be used by the 
+        /// subscriber to view different types of events that are published.
+        /// </summary>
+        public readonly Outputs.EventTypeInfoResponse? EventTypeInfo;
         /// <summary>
         /// Fully qualified identifier of the resource.
         /// </summary>
@@ -148,6 +157,10 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string MetricResourceId;
         /// <summary>
+        /// Minimum TLS version of the publisher allowed to publish to this domain
+        /// </summary>
+        public readonly string? MinimumTlsVersionAllowed;
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         public readonly string Name;
@@ -165,7 +178,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
-        /// The system metadata relating to the Event Grid Domain resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -183,11 +196,15 @@ namespace Pulumi.AzureNative.EventGrid
 
             bool? autoDeleteTopicWithLastSubscription,
 
+            string azureApiVersion,
+
             string? dataResidencyBoundary,
 
             bool? disableLocalAuth,
 
             string endpoint,
+
+            Outputs.EventTypeInfoResponse? eventTypeInfo,
 
             string id,
 
@@ -202,6 +219,8 @@ namespace Pulumi.AzureNative.EventGrid
             string location,
 
             string metricResourceId,
+
+            string? minimumTlsVersionAllowed,
 
             string name,
 
@@ -219,9 +238,11 @@ namespace Pulumi.AzureNative.EventGrid
         {
             AutoCreateTopicWithFirstSubscription = autoCreateTopicWithFirstSubscription;
             AutoDeleteTopicWithLastSubscription = autoDeleteTopicWithLastSubscription;
+            AzureApiVersion = azureApiVersion;
             DataResidencyBoundary = dataResidencyBoundary;
             DisableLocalAuth = disableLocalAuth;
             Endpoint = endpoint;
+            EventTypeInfo = eventTypeInfo;
             Id = id;
             Identity = identity;
             InboundIpRules = inboundIpRules;
@@ -229,6 +250,7 @@ namespace Pulumi.AzureNative.EventGrid
             InputSchemaMapping = inputSchemaMapping;
             Location = location;
             MetricResourceId = metricResourceId;
+            MinimumTlsVersionAllowed = minimumTlsVersionAllowed;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;

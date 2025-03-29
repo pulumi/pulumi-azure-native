@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Represents a share on the  Data Box Edge/Gateway device.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:databoxedge:getShare", args ?? new GetShareArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Represents a share on the  Data Box Edge/Gateway device.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:databoxedge:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Represents a share on the  Data Box Edge/Gateway device.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:databoxedge:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string AccessProtocol;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Azure container mapping for the share.
         /// </summary>
         public readonly Outputs.AzureContainerInfoResponse? AzureContainerInfo;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         private GetShareResult(
             string accessProtocol,
 
+            string azureApiVersion,
+
             Outputs.AzureContainerInfoResponse? azureContainerInfo,
 
             ImmutableArray<Outputs.ClientAccessRightResponse> clientAccessRights,
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
             ImmutableArray<Outputs.UserAccessRightResponse> userAccessRights)
         {
             AccessProtocol = accessProtocol;
+            AzureApiVersion = azureApiVersion;
             AzureContainerInfo = azureContainerInfo;
             ClientAccessRights = clientAccessRights;
             DataPolicy = dataPolicy;

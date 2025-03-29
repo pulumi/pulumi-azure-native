@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get properties of a namespace topic.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNamespaceTopic(args: GetNamespaceTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetNamespaceTopicArgs {
  */
 export interface GetNamespaceTopicResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Event retention for the namespace topic expressed in days. The property default value is 1 day.
      * Min event retention duration value is 1 day and max event retention duration value is 1 day.
      */
@@ -68,7 +72,7 @@ export interface GetNamespaceTopicResult {
      */
     readonly publisherType?: string;
     /**
-     * The system metadata relating to namespace topic resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -79,9 +83,9 @@ export interface GetNamespaceTopicResult {
 /**
  * Get properties of a namespace topic.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNamespaceTopicOutput(args: GetNamespaceTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

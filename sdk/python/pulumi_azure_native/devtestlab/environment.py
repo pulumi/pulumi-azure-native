@@ -168,7 +168,7 @@ class Environment(pulumi.CustomResource):
         """
         An environment, which is essentially an ARM template deployment.
 
-        Uses Azure REST API version 2018-09-15. In version 1.x of the Azure Native provider, it used API version 2018-09-15.
+        Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,7 +190,7 @@ class Environment(pulumi.CustomResource):
         """
         An environment, which is essentially an ARM template deployment.
 
-        Uses Azure REST API version 2018-09-15. In version 1.x of the Azure Native provider, it used API version 2018-09-15.
+        Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -238,6 +238,7 @@ class Environment(pulumi.CustomResource):
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_by_user"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_group_id"] = None
@@ -268,6 +269,7 @@ class Environment(pulumi.CustomResource):
         __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
 
         __props__.__dict__["arm_template_display_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_by_user"] = None
         __props__.__dict__["deployment_properties"] = None
         __props__.__dict__["location"] = None
@@ -286,6 +288,14 @@ class Environment(pulumi.CustomResource):
         The display name of the Azure Resource Manager template that produced the environment.
         """
         return pulumi.get(self, "arm_template_display_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdByUser")

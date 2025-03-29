@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// Gets the collector policy in a specified Traffic Collector
         /// 
         /// Uses Azure REST API version 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-05-01.
         /// </summary>
         public static Task<GetCollectorPolicyResult> InvokeAsync(GetCollectorPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCollectorPolicyResult>("azure-native:networkfunction:getCollectorPolicy", args ?? new GetCollectorPolicyArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// Gets the collector policy in a specified Traffic Collector
         /// 
         /// Uses Azure REST API version 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-05-01.
         /// </summary>
         public static Output<GetCollectorPolicyResult> Invoke(GetCollectorPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCollectorPolicyResult>("azure-native:networkfunction:getCollectorPolicy", args ?? new GetCollectorPolicyInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// Gets the collector policy in a specified Traffic Collector
         /// 
         /// Uses Azure REST API version 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-05-01.
         /// </summary>
         public static Output<GetCollectorPolicyResult> Invoke(GetCollectorPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCollectorPolicyResult>("azure-native:networkfunction:getCollectorPolicy", args ?? new GetCollectorPolicyInvokeArgs(), options.WithDefaults());
@@ -100,6 +94,10 @@ namespace Pulumi.AzureNative.NetworkFunction
     public sealed class GetCollectorPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Emission policies.
         /// </summary>
         public readonly ImmutableArray<Outputs.EmissionPoliciesPropertiesFormatResponse> EmissionPolicies;
@@ -142,6 +140,8 @@ namespace Pulumi.AzureNative.NetworkFunction
 
         [OutputConstructor]
         private GetCollectorPolicyResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.EmissionPoliciesPropertiesFormatResponse> emissionPolicies,
 
             string etag,
@@ -162,6 +162,7 @@ namespace Pulumi.AzureNative.NetworkFunction
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EmissionPolicies = emissionPolicies;
             Etag = etag;
             Id = id;

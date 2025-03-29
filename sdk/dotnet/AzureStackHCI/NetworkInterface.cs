@@ -12,13 +12,25 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// The network interface resource definition.
     /// 
-    /// Uses Azure REST API version 2022-12-15-preview.
+    /// Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+    /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean indicating whether this is a existing local network interface or if one should be created.
+        /// </summary>
+        [Output("createFromLocal")]
+        public Output<bool?> CreateFromLocal { get; private set; } = null!;
+
         /// <summary>
         /// DNS Settings for the interface
         /// </summary>
@@ -54,6 +66,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// NetworkSecurityGroup - Network Security Group attached to the network interface.
+        /// </summary>
+        [Output("networkSecurityGroup")]
+        public Output<Outputs.NetworkSecurityGroupArmReferenceResponse?> NetworkSecurityGroup { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the network interface.
@@ -112,6 +130,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:NetworkInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:NetworkInterface" },
@@ -146,6 +165,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
     public sealed class NetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean indicating whether this is a existing local network interface or if one should be created.
+        /// </summary>
+        [Input("createFromLocal")]
+        public Input<bool>? CreateFromLocal { get; set; }
+
         /// <summary>
         /// DNS Settings for the interface
         /// </summary>
@@ -189,6 +214,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Input<string>? NetworkInterfaceName { get; set; }
 
         /// <summary>
+        /// NetworkSecurityGroup - Network Security Group attached to the network interface.
+        /// </summary>
+        [Input("networkSecurityGroup")]
+        public Input<Inputs.NetworkSecurityGroupArmReferenceArgs>? NetworkSecurityGroup { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -208,6 +239,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         public NetworkInterfaceArgs()
         {
+            CreateFromLocal = false;
         }
         public static new NetworkInterfaceArgs Empty => new NetworkInterfaceArgs();
     }

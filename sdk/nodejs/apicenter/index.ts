@@ -99,19 +99,6 @@ utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 // Export enums:
 export * from "../types/enums/apicenter";
 
-// Export sub-modules:
-import * as v20230701preview from "./v20230701preview";
-import * as v20240301 from "./v20240301";
-import * as v20240315preview from "./v20240315preview";
-import * as v20240601preview from "./v20240601preview";
-
-export {
-    v20230701preview,
-    v20240301,
-    v20240315preview,
-    v20240601preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

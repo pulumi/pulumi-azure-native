@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// Details of an Update run
     /// 
-    /// Uses Azure REST API version 2023-03-01.
+    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
-    /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    /// Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:UpdateRun")]
     public partial class UpdateRun : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// More detailed description of the step.
         /// </summary>
@@ -42,6 +48,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("errorMessage")]
         public Output<string?> ErrorMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
+        /// </summary>
+        [Output("expectedExecutionTime")]
+        public Output<string?> ExpectedExecutionTime { get; private set; } = null!;
 
         /// <summary>
         /// Timestamp of the most recently completed step in the update run.
@@ -205,6 +217,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("errorMessage")]
         public Input<string>? ErrorMessage { get; set; }
+
+        /// <summary>
+        /// Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
+        /// </summary>
+        [Input("expectedExecutionTime")]
+        public Input<string>? ExpectedExecutionTime { get; set; }
 
         /// <summary>
         /// Timestamp of the most recently completed step in the update run.

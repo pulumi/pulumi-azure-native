@@ -27,7 +27,10 @@ class GetLedgerResult:
     """
     Confidential Ledger. Contains the properties of Confidential Ledger Resource.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -51,18 +54,26 @@ class GetLedgerResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
-        The Azure location where the Confidential Ledger is running.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -70,7 +81,7 @@ class GetLedgerResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the Resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -86,7 +97,7 @@ class GetLedgerResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -94,7 +105,7 @@ class GetLedgerResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Additional tags for Confidential Ledger
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -102,7 +113,7 @@ class GetLedgerResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -113,6 +124,7 @@ class AwaitableGetLedgerResult(GetLedgerResult):
         if False:
             yield self
         return GetLedgerResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -128,13 +140,13 @@ def get_ledger(ledger_name: Optional[str] = None,
     """
     Retrieves the properties of a Confidential Ledger.
 
-    Uses Azure REST API version 2022-05-13.
+    Uses Azure REST API version 2023-06-28-preview.
 
-    Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+    Other available API versions: 2022-05-13, 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str ledger_name: Name of the Confidential Ledger
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['ledgerName'] = ledger_name
@@ -143,6 +155,7 @@ def get_ledger(ledger_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:confidentialledger:getLedger', __args__, opts=opts, typ=GetLedgerResult).value
 
     return AwaitableGetLedgerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -156,13 +169,13 @@ def get_ledger_output(ledger_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves the properties of a Confidential Ledger.
 
-    Uses Azure REST API version 2022-05-13.
+    Uses Azure REST API version 2023-06-28-preview.
 
-    Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+    Other available API versions: 2022-05-13, 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str ledger_name: Name of the Confidential Ledger
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['ledgerName'] = ledger_name
@@ -170,6 +183,7 @@ def get_ledger_output(ledger_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:confidentialledger:getLedger', __args__, opts=opts, typ=GetLedgerResult)
     return __ret__.apply(lambda __response__: GetLedgerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation retrieves the policy definition version in the given subscription with the given name.
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
+        /// Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPolicyDefinitionVersionResult> InvokeAsync(GetPolicyDefinitionVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefinitionVersionResult>("azure-native:authorization:getPolicyDefinitionVersion", args ?? new GetPolicyDefinitionVersionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation retrieves the policy definition version in the given subscription with the given name.
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
+        /// Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPolicyDefinitionVersionResult> Invoke(GetPolicyDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionVersionResult>("azure-native:authorization:getPolicyDefinitionVersion", args ?? new GetPolicyDefinitionVersionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation retrieves the policy definition version in the given subscription with the given name.
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
+        /// Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPolicyDefinitionVersionResult> Invoke(GetPolicyDefinitionVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionVersionResult>("azure-native:authorization:getPolicyDefinitionVersion", args ?? new GetPolicyDefinitionVersionInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetPolicyDefinitionVersionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The policy definition description.
         /// </summary>
         public readonly string? Description;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetPolicyDefinitionVersionResult(
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.Authorization
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Id = id;

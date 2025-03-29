@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     public sealed class GetKafkaConnectorTopicMapResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The batching settings for kafka messages.
         /// </summary>
         public readonly Outputs.KafkaTopicMapBatchingResponse? Batching;
@@ -168,6 +172,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
         [OutputConstructor]
         private GetKafkaConnectorTopicMapResult(
+            string azureApiVersion,
+
             Outputs.KafkaTopicMapBatchingResponse? batching,
 
             string? compression,
@@ -198,6 +204,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Batching = batching;
             Compression = compression;
             CopyMqttProperties = copyMqttProperties;

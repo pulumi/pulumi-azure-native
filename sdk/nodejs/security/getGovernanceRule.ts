@@ -36,6 +36,10 @@ export interface GetGovernanceRuleArgs {
  */
 export interface GetGovernanceRuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Description of the governance rule
      */
     readonly description?: string;

@@ -27,7 +27,10 @@ class GetSimPolicyResult:
     """
     SIM policy resource.
     """
-    def __init__(__self__, default_slice=None, id=None, location=None, name=None, provisioning_state=None, registration_timer=None, rfsp_index=None, site_provisioning_state=None, slice_configurations=None, system_data=None, tags=None, type=None, ue_ambr=None):
+    def __init__(__self__, azure_api_version=None, default_slice=None, id=None, location=None, name=None, provisioning_state=None, registration_timer=None, rfsp_index=None, site_provisioning_state=None, slice_configurations=None, system_data=None, tags=None, type=None, ue_ambr=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if default_slice and not isinstance(default_slice, dict):
             raise TypeError("Expected argument 'default_slice' to be a dict")
         pulumi.set(__self__, "default_slice", default_slice)
@@ -67,6 +70,14 @@ class GetSimPolicyResult:
         if ue_ambr and not isinstance(ue_ambr, dict):
             raise TypeError("Expected argument 'ue_ambr' to be a dict")
         pulumi.set(__self__, "ue_ambr", ue_ambr)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultSlice")
@@ -179,6 +190,7 @@ class AwaitableGetSimPolicyResult(GetSimPolicyResult):
         if False:
             yield self
         return GetSimPolicyResult(
+            azure_api_version=self.azure_api_version,
             default_slice=self.default_slice,
             id=self.id,
             location=self.location,
@@ -201,9 +213,9 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
     """
     Gets information about the specified SIM policy.
 
-    Uses Azure REST API version 2023-06-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -218,6 +230,7 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork:getSimPolicy', __args__, opts=opts, typ=GetSimPolicyResult).value
 
     return AwaitableGetSimPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         default_slice=pulumi.get(__ret__, 'default_slice'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -238,9 +251,9 @@ def get_sim_policy_output(mobile_network_name: Optional[pulumi.Input[str]] = Non
     """
     Gets information about the specified SIM policy.
 
-    Uses Azure REST API version 2023-06-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -254,6 +267,7 @@ def get_sim_policy_output(mobile_network_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork:getSimPolicy', __args__, opts=opts, typ=GetSimPolicyResult)
     return __ret__.apply(lambda __response__: GetSimPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         default_slice=pulumi.get(__response__, 'default_slice'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

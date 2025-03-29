@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.WindowsIoT
     /// <summary>
     /// The description of the Windows IoT Device Service.
     /// 
-    /// Uses Azure REST API version 2019-06-01. In version 1.x of the Azure Native provider, it used API version 2019-06-01.
+    /// Uses Azure REST API version 2019-06-01. In version 2.x of the Azure Native provider, it used API version 2019-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:windowsiot:Service")]
     public partial class Service : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.WindowsIoT
         /// </summary>
         [Output("adminDomainName")]
         public Output<string?> AdminDomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Windows IoT Device Service ODM AAD domain

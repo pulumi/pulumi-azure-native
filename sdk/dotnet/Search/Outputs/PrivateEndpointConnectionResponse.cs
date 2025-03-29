@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Search.Outputs
 {
 
     /// <summary>
-    /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+    /// Describes an existing private endpoint connection to the search service.
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Search.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        /// Describes the properties of an existing private endpoint connection to the search service.
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponse? Properties;
         /// <summary>

@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.PowerBIDedicated
     public sealed class GetAutoScaleVCoreResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The maximum capacity of an auto scale v-core resource.
         /// </summary>
         public readonly int? CapacityLimit;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.PowerBIDedicated
 
         [OutputConstructor]
         private GetAutoScaleVCoreResult(
+            string azureApiVersion,
+
             int? capacityLimit,
 
             string? capacityObjectId,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CapacityLimit = capacityLimit;
             CapacityObjectId = capacityObjectId;
             Id = id;

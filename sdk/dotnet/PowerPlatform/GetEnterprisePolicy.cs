@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.PowerPlatform
     public sealed class GetEnterprisePolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The encryption settings for a configuration store.
         /// </summary>
         public readonly Outputs.PropertiesResponseEncryption? Encryption;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.PowerPlatform
 
         [OutputConstructor]
         private GetEnterprisePolicyResult(
+            string azureApiVersion,
+
             Outputs.PropertiesResponseEncryption? encryption,
 
             string? healthStatus,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.PowerPlatform
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Encryption = encryption;
             HealthStatus = healthStatus;
             Id = id;

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets details of the Source Control Configuration.
  *
  * Uses Azure REST API version 2023-05-01.
+ *
+ * Other available API versions: 2022-07-01, 2022-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSourceControlConfiguration(args: GetSourceControlConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,6 +52,10 @@ export interface GetSourceControlConfigurationArgs {
  * The SourceControl Configuration object returned in Get & Put response.
  */
 export interface GetSourceControlConfigurationResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Compliance Status of the Configuration
      */
@@ -123,6 +129,8 @@ export interface GetSourceControlConfigurationResult {
  * Gets details of the Source Control Configuration.
  *
  * Uses Azure REST API version 2023-05-01.
+ *
+ * Other available API versions: 2022-07-01, 2022-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSourceControlConfigurationOutput(args: GetSourceControlConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSourceControlConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

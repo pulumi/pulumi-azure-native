@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Application;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The Environment; PRD, QA, DEV, etc to which SAP system belongs to. Select from the list of available dropdown values.
         /// </summary>
         public readonly string Environment;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNative.Workloads
         private GetSapInstanceResult(
             string application,
 
+            string azureApiVersion,
+
             string environment,
 
             Outputs.SAPMigrateErrorResponse errors,
@@ -169,6 +175,7 @@ namespace Pulumi.AzureNative.Workloads
             string type)
         {
             Application = application;
+            AzureApiVersion = azureApiVersion;
             Environment = environment;
             Errors = errors;
             Id = id;

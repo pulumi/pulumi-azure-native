@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.DataFactory
     public sealed class GetManagedPrivateEndpointResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Etag identifies change in the resource.
         /// </summary>
         public readonly string Etag;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNative.DataFactory
 
         [OutputConstructor]
         private GetManagedPrivateEndpointResult(
+            string azureApiVersion,
+
             string etag,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.DataFactory
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Name = name;

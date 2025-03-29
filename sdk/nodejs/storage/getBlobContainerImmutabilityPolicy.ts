@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutabilityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerImmutabilityPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,6 +53,10 @@ export interface GetBlobContainerImmutabilityPolicyResult {
      */
     readonly allowProtectedAppendWritesAll?: boolean;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource Etag.
      */
     readonly etag: string;
@@ -80,9 +84,9 @@ export interface GetBlobContainerImmutabilityPolicyResult {
 /**
  * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBlobContainerImmutabilityPolicyOutput(args: GetBlobContainerImmutabilityPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobContainerImmutabilityPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

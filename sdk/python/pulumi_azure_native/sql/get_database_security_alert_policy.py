@@ -27,7 +27,10 @@ class GetDatabaseSecurityAlertPolicyResult:
     """
     A database security alert policy.
     """
-    def __init__(__self__, creation_time=None, disabled_alerts=None, email_account_admins=None, email_addresses=None, id=None, name=None, retention_days=None, state=None, storage_account_access_key=None, storage_endpoint=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, disabled_alerts=None, email_account_admins=None, email_addresses=None, id=None, name=None, retention_days=None, state=None, storage_account_access_key=None, storage_endpoint=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -64,6 +67,14 @@ class GetDatabaseSecurityAlertPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -168,6 +179,7 @@ class AwaitableGetDatabaseSecurityAlertPolicyResult(GetDatabaseSecurityAlertPoli
         if False:
             yield self
         return GetDatabaseSecurityAlertPolicyResult(
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             disabled_alerts=self.disabled_alerts,
             email_account_admins=self.email_account_admins,
@@ -190,9 +202,9 @@ def get_database_security_alert_policy(database_name: Optional[str] = None,
     """
     Gets a database's security alert policy.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2018-06-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str database_name: The name of the  database for which the security alert policy is defined.
@@ -209,6 +221,7 @@ def get_database_security_alert_policy(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getDatabaseSecurityAlertPolicy', __args__, opts=opts, typ=GetDatabaseSecurityAlertPolicyResult).value
 
     return AwaitableGetDatabaseSecurityAlertPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         disabled_alerts=pulumi.get(__ret__, 'disabled_alerts'),
         email_account_admins=pulumi.get(__ret__, 'email_account_admins'),
@@ -229,9 +242,9 @@ def get_database_security_alert_policy_output(database_name: Optional[pulumi.Inp
     """
     Gets a database's security alert policy.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2018-06-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str database_name: The name of the  database for which the security alert policy is defined.
@@ -247,6 +260,7 @@ def get_database_security_alert_policy_output(database_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDatabaseSecurityAlertPolicy', __args__, opts=opts, typ=GetDatabaseSecurityAlertPolicyResult)
     return __ret__.apply(lambda __response__: GetDatabaseSecurityAlertPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         disabled_alerts=pulumi.get(__response__, 'disabled_alerts'),
         email_account_admins=pulumi.get(__response__, 'email_account_admins'),

@@ -27,7 +27,10 @@ class GetAssetFilterResult:
     """
     An Asset Filter.
     """
-    def __init__(__self__, first_quality=None, id=None, name=None, presentation_time_range=None, system_data=None, tracks=None, type=None):
+    def __init__(__self__, azure_api_version=None, first_quality=None, id=None, name=None, presentation_time_range=None, system_data=None, tracks=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if first_quality and not isinstance(first_quality, dict):
             raise TypeError("Expected argument 'first_quality' to be a dict")
         pulumi.set(__self__, "first_quality", first_quality)
@@ -49,6 +52,14 @@ class GetAssetFilterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="firstQuality")
@@ -113,6 +124,7 @@ class AwaitableGetAssetFilterResult(GetAssetFilterResult):
         if False:
             yield self
         return GetAssetFilterResult(
+            azure_api_version=self.azure_api_version,
             first_quality=self.first_quality,
             id=self.id,
             name=self.name,
@@ -132,6 +144,8 @@ def get_asset_filter(account_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-01-01.
 
+    Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str account_name: The Media Services account name.
     :param str asset_name: The Asset name.
@@ -147,6 +161,7 @@ def get_asset_filter(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media:getAssetFilter', __args__, opts=opts, typ=GetAssetFilterResult).value
 
     return AwaitableGetAssetFilterResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         first_quality=pulumi.get(__ret__, 'first_quality'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -164,6 +179,8 @@ def get_asset_filter_output(account_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2023-01-01.
 
+    Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str account_name: The Media Services account name.
     :param str asset_name: The Asset name.
@@ -178,6 +195,7 @@ def get_asset_filter_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media:getAssetFilter', __args__, opts=opts, typ=GetAssetFilterResult)
     return __ret__.apply(lambda __response__: GetAssetFilterResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         first_quality=pulumi.get(__response__, 'first_quality'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

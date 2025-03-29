@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/pulumi/pulumi-azure-native-sdk/resources/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/storage/v2"
-	web "github.com/pulumi/pulumi-azure-native-sdk/web/v2/v20220901"
+	web "github.com/pulumi/pulumi-azure-native-sdk/web/v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 

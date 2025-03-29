@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Machine Learning datastore object wrapped into ARM resource envelope.
  *
- * Uses Azure REST API version 2020-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-05-01-preview.
+ * Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
  */
 export class MachineLearningDatastore extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
         return obj['__pulumiType'] === MachineLearningDatastore.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The identity of the resource.
      */
@@ -122,6 +126,7 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
             resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["workspaceSystemAssignedIdentity"] = args ? args.workspaceSystemAssignedIdentity : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -129,6 +134,7 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -138,7 +144,7 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20210301preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20220201preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20220501:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20220601preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20221001:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20221001preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20221201preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20230201preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20230401:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20230401preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20230601preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20230801preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20231001:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20240101preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20240401:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20240401preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20240701preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20241001:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20241001preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20250101preview:MachineLearningDatastore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20210301preview:Datastore" }, { type: "azure-native:machinelearningservices/v20210301preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20220201preview:Datastore" }, { type: "azure-native:machinelearningservices/v20220201preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20220501:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20220601preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20221001:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20221001preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20221201preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20230201preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20230401:Datastore" }, { type: "azure-native:machinelearningservices/v20230401:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20230401preview:Datastore" }, { type: "azure-native:machinelearningservices/v20230401preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20230601preview:Datastore" }, { type: "azure-native:machinelearningservices/v20230601preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20230801preview:Datastore" }, { type: "azure-native:machinelearningservices/v20230801preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20231001:Datastore" }, { type: "azure-native:machinelearningservices/v20231001:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20240101preview:Datastore" }, { type: "azure-native:machinelearningservices/v20240101preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20240401:Datastore" }, { type: "azure-native:machinelearningservices/v20240401:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20240401preview:Datastore" }, { type: "azure-native:machinelearningservices/v20240401preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20240701preview:Datastore" }, { type: "azure-native:machinelearningservices/v20240701preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20241001:Datastore" }, { type: "azure-native:machinelearningservices/v20241001:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20241001preview:Datastore" }, { type: "azure-native:machinelearningservices/v20241001preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20250101preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices:Datastore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineLearningDatastore.__pulumiType, name, resourceInputs, opts);
     }

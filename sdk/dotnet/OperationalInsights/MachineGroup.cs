@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// <summary>
     /// A user-defined logical grouping of machines.
     /// 
-    /// Uses Azure REST API version 2015-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2015-11-01-preview.
+    /// Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:MachineGroup")]
     public partial class MachineGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
         /// </summary>

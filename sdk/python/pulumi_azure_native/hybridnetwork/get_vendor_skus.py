@@ -27,7 +27,10 @@ class GetVendorSkusResult:
     """
     Sku sub resource.
     """
-    def __init__(__self__, deployment_mode=None, id=None, managed_application_parameters=None, managed_application_template=None, name=None, network_function_template=None, network_function_type=None, preview=None, provisioning_state=None, sku_type=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, deployment_mode=None, id=None, managed_application_parameters=None, managed_application_template=None, name=None, network_function_template=None, network_function_type=None, preview=None, provisioning_state=None, sku_type=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if deployment_mode and not isinstance(deployment_mode, str):
             raise TypeError("Expected argument 'deployment_mode' to be a str")
         pulumi.set(__self__, "deployment_mode", deployment_mode)
@@ -64,6 +67,14 @@ class GetVendorSkusResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deploymentMode")
@@ -168,6 +179,7 @@ class AwaitableGetVendorSkusResult(GetVendorSkusResult):
         if False:
             yield self
         return GetVendorSkusResult(
+            azure_api_version=self.azure_api_version,
             deployment_mode=self.deployment_mode,
             id=self.id,
             managed_application_parameters=self.managed_application_parameters,
@@ -201,6 +213,7 @@ def get_vendor_skus(sku_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridnetwork:getVendorSkus', __args__, opts=opts, typ=GetVendorSkusResult).value
 
     return AwaitableGetVendorSkusResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         deployment_mode=pulumi.get(__ret__, 'deployment_mode'),
         id=pulumi.get(__ret__, 'id'),
         managed_application_parameters=pulumi.get(__ret__, 'managed_application_parameters'),
@@ -231,6 +244,7 @@ def get_vendor_skus_output(sku_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:getVendorSkus', __args__, opts=opts, typ=GetVendorSkusResult)
     return __ret__.apply(lambda __response__: GetVendorSkusResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         deployment_mode=pulumi.get(__response__, 'deployment_mode'),
         id=pulumi.get(__response__, 'id'),
         managed_application_parameters=pulumi.get(__response__, 'managed_application_parameters'),

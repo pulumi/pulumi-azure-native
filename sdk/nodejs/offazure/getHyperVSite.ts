@@ -36,6 +36,10 @@ export interface GetHyperVSiteArgs {
  */
 export interface GetHyperVSiteResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * eTag for concurrency control.
      */
     readonly eTag?: string;

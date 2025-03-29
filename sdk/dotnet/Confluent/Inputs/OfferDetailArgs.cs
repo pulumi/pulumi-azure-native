@@ -34,10 +34,40 @@ namespace Pulumi.AzureNative.Confluent.Inputs
         public Input<string> PlanName { get; set; } = null!;
 
         /// <summary>
+        /// Private Offer Id
+        /// </summary>
+        [Input("privateOfferId")]
+        public Input<string>? PrivateOfferId { get; set; }
+
+        [Input("privateOfferIds")]
+        private InputList<string>? _privateOfferIds;
+
+        /// <summary>
+        /// Array of Private Offer Ids
+        /// </summary>
+        public InputList<string> PrivateOfferIds
+        {
+            get => _privateOfferIds ?? (_privateOfferIds = new InputList<string>());
+            set => _privateOfferIds = value;
+        }
+
+        /// <summary>
         /// Publisher Id
         /// </summary>
         [Input("publisherId", required: true)]
         public Input<string> PublisherId { get; set; } = null!;
+
+        /// <summary>
+        /// SaaS Offer Status
+        /// </summary>
+        [Input("status")]
+        public InputUnion<string, Pulumi.AzureNative.Confluent.SaaSOfferStatus>? Status { get; set; }
+
+        /// <summary>
+        /// Offer Plan Term Id
+        /// </summary>
+        [Input("termId")]
+        public Input<string>? TermId { get; set; }
 
         /// <summary>
         /// Offer Plan Term unit

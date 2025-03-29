@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetGovernanceRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Description of the governance rule
         /// </summary>
         public readonly string? Description;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetGovernanceRuleResult(
+            string azureApiVersion,
+
             string? description,
 
             string displayName,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.Security
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             ExcludedScopes = excludedScopes;

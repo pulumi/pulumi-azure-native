@@ -27,7 +27,10 @@ class GetPrivateEndpointResult:
     """
     Complete information about the private endpoint.
     """
-    def __init__(__self__, created_date=None, etag=None, id=None, manual_private_link_service_connections=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, created_date=None, etag=None, id=None, manual_private_link_service_connections=None, name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -46,6 +49,14 @@ class GetPrivateEndpointResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -102,6 +113,7 @@ class AwaitableGetPrivateEndpointResult(GetPrivateEndpointResult):
         if False:
             yield self
         return GetPrivateEndpointResult(
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             etag=self.etag,
             id=self.id,
@@ -119,8 +131,6 @@ def get_private_endpoint(cluster_name: Optional[str] = None,
 
     Uses Azure REST API version 2020-03-01.
 
-    Other available API versions: 2020-03-01-preview.
-
 
     :param str cluster_name: The name of the cluster.
     :param str private_endpoint_name: The name of the private endpoint.
@@ -134,6 +144,7 @@ def get_private_endpoint(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:streamanalytics:getPrivateEndpoint', __args__, opts=opts, typ=GetPrivateEndpointResult).value
 
     return AwaitableGetPrivateEndpointResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -149,8 +160,6 @@ def get_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]] = None
 
     Uses Azure REST API version 2020-03-01.
 
-    Other available API versions: 2020-03-01-preview.
-
 
     :param str cluster_name: The name of the cluster.
     :param str private_endpoint_name: The name of the private endpoint.
@@ -163,6 +172,7 @@ def get_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:streamanalytics:getPrivateEndpoint', __args__, opts=opts, typ=GetPrivateEndpointResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

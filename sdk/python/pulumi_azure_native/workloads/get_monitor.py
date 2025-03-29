@@ -27,10 +27,16 @@ class GetMonitorResult:
     """
     SAP monitor info on Azure (ARM properties and SAP monitor properties)
     """
-    def __init__(__self__, app_location=None, errors=None, id=None, identity=None, location=None, log_analytics_workspace_arm_id=None, managed_resource_group_configuration=None, monitor_subnet=None, msi_arm_id=None, name=None, provisioning_state=None, routing_preference=None, storage_account_arm_id=None, system_data=None, tags=None, type=None, zone_redundancy_preference=None):
+    def __init__(__self__, app_location=None, app_service_plan_configuration=None, azure_api_version=None, errors=None, id=None, identity=None, location=None, log_analytics_workspace_arm_id=None, managed_resource_group_configuration=None, monitor_subnet=None, msi_arm_id=None, name=None, provisioning_state=None, routing_preference=None, storage_account_arm_id=None, system_data=None, tags=None, type=None, zone_redundancy_preference=None):
         if app_location and not isinstance(app_location, str):
             raise TypeError("Expected argument 'app_location' to be a str")
         pulumi.set(__self__, "app_location", app_location)
+        if app_service_plan_configuration and not isinstance(app_service_plan_configuration, dict):
+            raise TypeError("Expected argument 'app_service_plan_configuration' to be a dict")
+        pulumi.set(__self__, "app_service_plan_configuration", app_service_plan_configuration)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if errors and not isinstance(errors, dict):
             raise TypeError("Expected argument 'errors' to be a dict")
         pulumi.set(__self__, "errors", errors)
@@ -89,8 +95,24 @@ class GetMonitorResult:
         return pulumi.get(self, "app_location")
 
     @property
+    @pulumi.getter(name="appServicePlanConfiguration")
+    def app_service_plan_configuration(self) -> Optional['outputs.AppServicePlanConfigurationResponse']:
+        """
+        App service plan configuration
+        """
+        return pulumi.get(self, "app_service_plan_configuration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
-    def errors(self) -> 'outputs.MonitorPropertiesResponseErrors':
+    def errors(self) -> 'outputs.ErrorDetailResponse':
         """
         Defines the SAP monitor errors.
         """
@@ -100,15 +122,15 @@ class GetMonitorResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.UserAssignedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        [currently not in use] Managed service identity(user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -130,7 +152,7 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> Optional['outputs.ManagedRGConfigurationResponse']:
+    def managed_resource_group_configuration(self) -> Optional['outputs.ManagedResourceGroupConfigurationResponse']:
         """
         Managed resource group configuration
         """
@@ -224,6 +246,8 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             yield self
         return GetMonitorResult(
             app_location=self.app_location,
+            app_service_plan_configuration=self.app_service_plan_configuration,
+            azure_api_version=self.azure_api_version,
             errors=self.errors,
             id=self.id,
             identity=self.identity,
@@ -248,9 +272,9 @@ def get_monitor(monitor_name: Optional[str] = None,
     """
     Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-02-01-preview.
 
-    Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
+    Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str monitor_name: Name of the SAP monitor resource.
@@ -264,6 +288,8 @@ def get_monitor(monitor_name: Optional[str] = None,
 
     return AwaitableGetMonitorResult(
         app_location=pulumi.get(__ret__, 'app_location'),
+        app_service_plan_configuration=pulumi.get(__ret__, 'app_service_plan_configuration'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         errors=pulumi.get(__ret__, 'errors'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -286,9 +312,9 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
     """
     Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-02-01-preview.
 
-    Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
+    Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str monitor_name: Name of the SAP monitor resource.
@@ -301,6 +327,8 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getMonitor', __args__, opts=opts, typ=GetMonitorResult)
     return __ret__.apply(lambda __response__: GetMonitorResult(
         app_location=pulumi.get(__response__, 'app_location'),
+        app_service_plan_configuration=pulumi.get(__response__, 'app_service_plan_configuration'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         errors=pulumi.get(__response__, 'errors'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

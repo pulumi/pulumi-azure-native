@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Resource definition for Discounts.
  *
- * Uses Azure REST API version 2024-11-01-preview.
+ * Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
  */
 export class Discount extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class Discount extends pulumi.CustomResource {
      * List of applied scopes supported for discounts.
      */
     public readonly appliedScopeType!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Fully-qualified identifier of the benefit under applicable benefit list.
      */
@@ -170,6 +174,7 @@ export class Discount extends pulumi.CustomResource {
             resourceInputs["startAt"] = args ? args.startAt : undefined;
             resourceInputs["systemId"] = args ? args.systemId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["benefitResourceId"] = undefined /*out*/;
             resourceInputs["billingAccountResourceId"] = undefined /*out*/;
             resourceInputs["billingProfileResourceId"] = undefined /*out*/;
@@ -182,6 +187,7 @@ export class Discount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["appliedScopeType"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["benefitResourceId"] = undefined /*out*/;
             resourceInputs["billingAccountResourceId"] = undefined /*out*/;
             resourceInputs["billingProfileResourceId"] = undefined /*out*/;

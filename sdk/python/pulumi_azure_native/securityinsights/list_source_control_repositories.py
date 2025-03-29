@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ListSourceControlRepositoriesResult',
@@ -62,22 +63,40 @@ class AwaitableListSourceControlRepositoriesResult(ListSourceControlRepositories
             value=self.value)
 
 
-def list_source_control_repositories(resource_group_name: Optional[str] = None,
+def list_source_control_repositories(client_id: Optional[str] = None,
+                                     code: Optional[str] = None,
+                                     installation_id: Optional[str] = None,
+                                     kind: Optional[Union[str, 'RepositoryAccessKind']] = None,
+                                     resource_group_name: Optional[str] = None,
+                                     state: Optional[str] = None,
+                                     token: Optional[str] = None,
                                      workspace_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSourceControlRepositoriesResult:
     """
     Gets a list of repositories metadata.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2021-03-01-preview, 2021-09-01-preview, 2021-10-01-preview, 2022-01-01-preview, 2022-04-01-preview, 2022-05-01-preview, 2022-06-01-preview, 2022-07-01-preview, 2022-08-01-preview, 2022-09-01-preview, 2022-10-01-preview, 2022-11-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+    Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
+    :param str client_id: OAuth ClientId. Required when `kind` is `OAuth`
+    :param str code: OAuth Code. Required when `kind` is `OAuth`
+    :param str installation_id: Application installation ID. Required when `kind` is `App`. Supported by `GitHub` only.
+    :param Union[str, 'RepositoryAccessKind'] kind: The kind of repository access credentials
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str state: OAuth State. Required when `kind` is `OAuth`
+    :param str token: Personal Access Token. Required when `kind` is `PAT`
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
+    __args__['clientId'] = client_id
+    __args__['code'] = code
+    __args__['installationId'] = installation_id
+    __args__['kind'] = kind
     __args__['resourceGroupName'] = resource_group_name
+    __args__['state'] = state
+    __args__['token'] = token
     __args__['workspaceName'] = workspace_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:listSourceControlRepositories', __args__, opts=opts, typ=ListSourceControlRepositoriesResult).value
@@ -85,22 +104,40 @@ def list_source_control_repositories(resource_group_name: Optional[str] = None,
     return AwaitableListSourceControlRepositoriesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_source_control_repositories_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+def list_source_control_repositories_output(client_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                            code: Optional[pulumi.Input[Optional[str]]] = None,
+                                            installation_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                            kind: Optional[pulumi.Input[Union[str, 'RepositoryAccessKind']]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            state: Optional[pulumi.Input[Optional[str]]] = None,
+                                            token: Optional[pulumi.Input[Optional[str]]] = None,
                                             workspace_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSourceControlRepositoriesResult]:
     """
     Gets a list of repositories metadata.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2021-03-01-preview, 2021-09-01-preview, 2021-10-01-preview, 2022-01-01-preview, 2022-04-01-preview, 2022-05-01-preview, 2022-06-01-preview, 2022-07-01-preview, 2022-08-01-preview, 2022-09-01-preview, 2022-10-01-preview, 2022-11-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+    Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
+    :param str client_id: OAuth ClientId. Required when `kind` is `OAuth`
+    :param str code: OAuth Code. Required when `kind` is `OAuth`
+    :param str installation_id: Application installation ID. Required when `kind` is `App`. Supported by `GitHub` only.
+    :param Union[str, 'RepositoryAccessKind'] kind: The kind of repository access credentials
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str state: OAuth State. Required when `kind` is `OAuth`
+    :param str token: Personal Access Token. Required when `kind` is `PAT`
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
+    __args__['clientId'] = client_id
+    __args__['code'] = code
+    __args__['installationId'] = installation_id
+    __args__['kind'] = kind
     __args__['resourceGroupName'] = resource_group_name
+    __args__['state'] = state
+    __args__['token'] = token
     __args__['workspaceName'] = workspace_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:listSourceControlRepositories', __args__, opts=opts, typ=ListSourceControlRepositoriesResult)

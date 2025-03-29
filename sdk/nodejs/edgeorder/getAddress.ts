@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get information about the specified address.
  *
- * Uses Azure REST API version 2022-05-01-preview.
+ * Uses Azure REST API version 2024-02-01.
  *
- * Other available API versions: 2024-02-01.
+ * Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAddress(args: GetAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetAddressResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,15 +38,23 @@ export interface GetAddressArgs {
  */
 export interface GetAddressResult {
     /**
+     * Type of address based on its usage context.
+     */
+    readonly addressClassification?: string;
+    /**
      * Status of address validation.
      */
     readonly addressValidationStatus: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Contact details for the address.
      */
-    readonly contactDetails: outputs.edgeorder.ContactDetailsResponse;
+    readonly contactDetails?: outputs.edgeorder.ContactDetailsResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -58,11 +66,15 @@ export interface GetAddressResult {
      */
     readonly name: string;
     /**
+     * Provisioning state
+     */
+    readonly provisioningState: string;
+    /**
      * Shipping details for the address.
      */
     readonly shippingAddress?: outputs.edgeorder.ShippingAddressResponse;
     /**
-     * Represents resource creation and update time.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.edgeorder.SystemDataResponse;
     /**
@@ -77,9 +89,9 @@ export interface GetAddressResult {
 /**
  * Get information about the specified address.
  *
- * Uses Azure REST API version 2022-05-01-preview.
+ * Uses Azure REST API version 2024-02-01.
  *
- * Other available API versions: 2024-02-01.
+ * Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAddressOutput(args: GetAddressOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAddressResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

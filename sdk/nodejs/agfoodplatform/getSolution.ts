@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Get installed Solution details by Solution id.
  *
  * Uses Azure REST API version 2023-06-01-preview.
- *
- * Other available API versions: 2021-09-01-preview.
  */
 export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +41,10 @@ export interface GetSolutionArgs {
  */
 export interface GetSolutionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The ETag value to implement optimistic concurrency.
      */
     readonly eTag: string;
@@ -71,8 +73,6 @@ export interface GetSolutionResult {
  * Get installed Solution details by Solution id.
  *
  * Uses Azure REST API version 2023-06-01-preview.
- *
- * Other available API versions: 2021-09-01-preview.
  */
 export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -27,7 +27,10 @@ class GetCreatorResult:
     """
     An Azure resource which represents Maps Creator product and provides ability to manage private location data.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +43,9 @@ class GetCreatorResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -48,10 +54,18 @@ class GetCreatorResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -80,6 +94,14 @@ class GetCreatorResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -102,10 +124,12 @@ class AwaitableGetCreatorResult(GetCreatorResult):
         if False:
             yield self
         return GetCreatorResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
             properties=self.properties,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -117,9 +141,9 @@ def get_creator(account_name: Optional[str] = None,
     """
     Get a Maps Creator resource.
 
-    Uses Azure REST API version 2021-02-01.
+    Uses Azure REST API version 2024-07-01-preview.
 
-    Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+    Other available API versions: 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the Maps Account.
@@ -134,10 +158,12 @@ def get_creator(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:maps:getCreator', __args__, opts=opts, typ=GetCreatorResult).value
 
     return AwaitableGetCreatorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_creator_output(account_name: Optional[pulumi.Input[str]] = None,
@@ -147,9 +173,9 @@ def get_creator_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Maps Creator resource.
 
-    Uses Azure REST API version 2021-02-01.
+    Uses Azure REST API version 2024-07-01-preview.
 
-    Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+    Other available API versions: 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the Maps Account.
@@ -163,9 +189,11 @@ def get_creator_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:maps:getCreator', __args__, opts=opts, typ=GetCreatorResult)
     return __ret__.apply(lambda __response__: GetCreatorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

@@ -204,7 +204,7 @@ class EnterprisePolicy(pulumi.CustomResource):
         """
         Definition of the EnterprisePolicy.
 
-        Uses Azure REST API version 2020-10-30-preview. In version 1.x of the Azure Native provider, it used API version 2020-10-30-preview.
+        Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,7 +228,7 @@ class EnterprisePolicy(pulumi.CustomResource):
         """
         Definition of the EnterprisePolicy.
 
-        Uses Azure REST API version 2020-10-30-preview. In version 1.x of the Azure Native provider, it used API version 2020-10-30-preview.
+        Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
 
         :param str resource_name: The name of the resource.
         :param EnterprisePolicyArgs args: The arguments to use to populate this resource's properties.
@@ -278,6 +278,7 @@ class EnterprisePolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["system_id"] = None
@@ -306,6 +307,7 @@ class EnterprisePolicy(pulumi.CustomResource):
 
         __props__ = EnterprisePolicyArgs.__new__(EnterprisePolicyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["encryption"] = None
         __props__.__dict__["health_status"] = None
         __props__.__dict__["identity"] = None
@@ -319,6 +321,14 @@ class EnterprisePolicy(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return EnterprisePolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// <summary>
     /// The Data Box Edge/Gateway device.
     /// 
-    /// Uses Azure REST API version 2022-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+    /// Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
     /// 
-    /// Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Device")]
     public partial class Device : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Type of compute roles configured.
         /// </summary>
@@ -108,6 +114,12 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// Kubernetes Workload Profile
+        /// </summary>
+        [Output("kubernetesWorkloadProfile")]
+        public Output<string> KubernetesWorkloadProfile { get; private set; } = null!;
 
         /// <summary>
         /// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.

@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// Security Standard on a resource
     /// 
-    /// Uses Azure REST API version 2021-08-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-08-01-preview.
+    /// Uses Azure REST API version 2021-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Standard")]
     public partial class Standard : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// category of the standard provided
         /// </summary>

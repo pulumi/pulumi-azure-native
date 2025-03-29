@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Gets information about a disk access resource.
         /// 
-        /// Uses Azure REST API version 2022-07-02.
+        /// Uses Azure REST API version 2024-03-02.
         /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDiskAccessResult> InvokeAsync(GetDiskAccessArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessResult>("azure-native:compute:getDiskAccess", args ?? new GetDiskAccessArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Gets information about a disk access resource.
         /// 
-        /// Uses Azure REST API version 2022-07-02.
+        /// Uses Azure REST API version 2024-03-02.
         /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDiskAccessResult> Invoke(GetDiskAccessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskAccessResult>("azure-native:compute:getDiskAccess", args ?? new GetDiskAccessInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Gets information about a disk access resource.
         /// 
-        /// Uses Azure REST API version 2022-07-02.
+        /// Uses Azure REST API version 2024-03-02.
         /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDiskAccessResult> Invoke(GetDiskAccessInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskAccessResult>("azure-native:compute:getDiskAccess", args ?? new GetDiskAccessInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetDiskAccessResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The extended location where the disk access will be created. Extended location cannot be changed.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetDiskAccessResult(
+            string azureApiVersion,
+
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             string id,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.Compute
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;

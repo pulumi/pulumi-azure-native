@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Returns details of the API.
  *
- * Uses Azure REST API version 2024-03-01.
+ * Uses Azure REST API version 2024-03-15-preview.
  *
- * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +47,10 @@ export interface GetApiArgs {
  * API entity.
  */
 export interface GetApiResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The set of contacts
      */
@@ -107,9 +111,9 @@ export interface GetApiResult {
 /**
  * Returns details of the API.
  *
- * Uses Azure REST API version 2024-03-01.
+ * Uses Azure REST API version 2024-03-15-preview.
  *
- * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

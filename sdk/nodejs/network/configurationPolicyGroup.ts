@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * VpnServerConfigurationPolicyGroup Resource.
  *
- * Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2022-01-01.
+ * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ConfigurationPolicyGroup extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class ConfigurationPolicyGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationPolicyGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -99,11 +103,13 @@ export class ConfigurationPolicyGroup extends pulumi.CustomResource {
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["vpnServerConfigurationName"] = args ? args.vpnServerConfigurationName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["p2SConnectionConfigurations"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

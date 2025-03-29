@@ -27,7 +27,10 @@ class GetLinkedSubscriptionResult:
     """
     Linked Subscription information.
     """
-    def __init__(__self__, device_connection_status=None, device_id=None, device_link_state=None, device_object_id=None, etag=None, id=None, kind=None, last_connected_time=None, linked_subscription_id=None, location=None, name=None, registration_resource_id=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, device_connection_status=None, device_id=None, device_link_state=None, device_object_id=None, etag=None, id=None, kind=None, last_connected_time=None, linked_subscription_id=None, location=None, name=None, registration_resource_id=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if device_connection_status and not isinstance(device_connection_status, str):
             raise TypeError("Expected argument 'device_connection_status' to be a str")
         pulumi.set(__self__, "device_connection_status", device_connection_status)
@@ -73,6 +76,14 @@ class GetLinkedSubscriptionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deviceConnectionStatus")
@@ -201,6 +212,7 @@ class AwaitableGetLinkedSubscriptionResult(GetLinkedSubscriptionResult):
         if False:
             yield self
         return GetLinkedSubscriptionResult(
+            azure_api_version=self.azure_api_version,
             device_connection_status=self.device_connection_status,
             device_id=self.device_id,
             device_link_state=self.device_link_state,
@@ -237,6 +249,7 @@ def get_linked_subscription(linked_subscription_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestack:getLinkedSubscription', __args__, opts=opts, typ=GetLinkedSubscriptionResult).value
 
     return AwaitableGetLinkedSubscriptionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         device_connection_status=pulumi.get(__ret__, 'device_connection_status'),
         device_id=pulumi.get(__ret__, 'device_id'),
         device_link_state=pulumi.get(__ret__, 'device_link_state'),
@@ -270,6 +283,7 @@ def get_linked_subscription_output(linked_subscription_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack:getLinkedSubscription', __args__, opts=opts, typ=GetLinkedSubscriptionResult)
     return __ret__.apply(lambda __response__: GetLinkedSubscriptionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         device_connection_status=pulumi.get(__response__, 'device_connection_status'),
         device_id=pulumi.get(__response__, 'device_id'),
         device_link_state=pulumi.get(__response__, 'device_link_state'),

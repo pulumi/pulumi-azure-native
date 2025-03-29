@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     /// <summary>
     /// The Extension object.
     /// 
-    /// Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-07-01-preview.
+    /// Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01, 2024-11-01.
+    /// Other available API versions: 2022-04-02-preview, 2022-07-01, 2022-11-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
@@ -30,6 +30,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// </summary>
         [Output("autoUpgradeMinorVersion")]
         public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Configuration settings that are sensitive, as name-value pairs for configuring this extension.

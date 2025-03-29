@@ -27,10 +27,13 @@ class GetAttachedDatabaseConfigurationResult:
     """
     Class representing an attached database configuration.
     """
-    def __init__(__self__, attached_database_names=None, cluster_resource_id=None, database_name=None, database_name_override=None, database_name_prefix=None, default_principals_modification_kind=None, id=None, location=None, name=None, provisioning_state=None, table_level_sharing_properties=None, type=None):
+    def __init__(__self__, attached_database_names=None, azure_api_version=None, cluster_resource_id=None, database_name=None, database_name_override=None, database_name_prefix=None, default_principals_modification_kind=None, id=None, location=None, name=None, provisioning_state=None, table_level_sharing_properties=None, type=None):
         if attached_database_names and not isinstance(attached_database_names, list):
             raise TypeError("Expected argument 'attached_database_names' to be a list")
         pulumi.set(__self__, "attached_database_names", attached_database_names)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_resource_id and not isinstance(cluster_resource_id, str):
             raise TypeError("Expected argument 'cluster_resource_id' to be a str")
         pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
@@ -72,6 +75,14 @@ class GetAttachedDatabaseConfigurationResult:
         The list of databases from the clusterResourceId which are currently attached to the cluster.
         """
         return pulumi.get(self, "attached_database_names")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterResourceId")
@@ -169,6 +180,7 @@ class AwaitableGetAttachedDatabaseConfigurationResult(GetAttachedDatabaseConfigu
             yield self
         return GetAttachedDatabaseConfigurationResult(
             attached_database_names=self.attached_database_names,
+            azure_api_version=self.azure_api_version,
             cluster_resource_id=self.cluster_resource_id,
             database_name=self.database_name,
             database_name_override=self.database_name_override,
@@ -189,14 +201,14 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
     """
     Returns an attached database configuration.
 
-    Uses Azure REST API version 2022-12-29.
+    Uses Azure REST API version 2024-04-13.
 
-    Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+    Other available API versions: 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.
     :param str cluster_name: The name of the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['attachedDatabaseConfigurationName'] = attached_database_configuration_name
@@ -207,6 +219,7 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
 
     return AwaitableGetAttachedDatabaseConfigurationResult(
         attached_database_names=pulumi.get(__ret__, 'attached_database_names'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_resource_id=pulumi.get(__ret__, 'cluster_resource_id'),
         database_name=pulumi.get(__ret__, 'database_name'),
         database_name_override=pulumi.get(__ret__, 'database_name_override'),
@@ -225,14 +238,14 @@ def get_attached_database_configuration_output(attached_database_configuration_n
     """
     Returns an attached database configuration.
 
-    Uses Azure REST API version 2022-12-29.
+    Uses Azure REST API version 2024-04-13.
 
-    Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+    Other available API versions: 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.
     :param str cluster_name: The name of the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['attachedDatabaseConfigurationName'] = attached_database_configuration_name
@@ -242,6 +255,7 @@ def get_attached_database_configuration_output(attached_database_configuration_n
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto:getAttachedDatabaseConfiguration', __args__, opts=opts, typ=GetAttachedDatabaseConfigurationResult)
     return __ret__.apply(lambda __response__: GetAttachedDatabaseConfigurationResult(
         attached_database_names=pulumi.get(__response__, 'attached_database_names'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_resource_id=pulumi.get(__response__, 'cluster_resource_id'),
         database_name=pulumi.get(__response__, 'database_name'),
         database_name_override=pulumi.get(__response__, 'database_name_override'),

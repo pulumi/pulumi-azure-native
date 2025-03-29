@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Workspace details.
  *
- * Uses Azure REST API version 2023-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
+ * Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Workspace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workspace.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Data plane endpoint.
      */
@@ -86,12 +90,14 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataPlaneEndpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataPlaneEndpoint"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

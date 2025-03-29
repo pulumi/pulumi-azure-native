@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get properties of a channel.
  *
- * Uses Azure REST API version 2022-06-15.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetChannelArgs {
  * Channel info.
  */
 export interface GetChannelResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The type of the event channel which represents the direction flow of events.
      */
@@ -76,7 +80,7 @@ export interface GetChannelResult {
      */
     readonly readinessState?: string;
     /**
-     * The system metadata relating to Channel resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -87,9 +91,9 @@ export interface GetChannelResult {
 /**
  * Get properties of a channel.
  *
- * Uses Azure REST API version 2022-06-15.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

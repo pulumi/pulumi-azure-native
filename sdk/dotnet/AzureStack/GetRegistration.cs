@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.AzureStack
         /// 
         /// Uses Azure REST API version 2022-06-01.
         /// 
-        /// Other available API versions: 2020-06-01-preview.
+        /// Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRegistrationResult> InvokeAsync(GetRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-native:azurestack:getRegistration", args ?? new GetRegistrationArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.AzureStack
         /// 
         /// Uses Azure REST API version 2022-06-01.
         /// 
-        /// Other available API versions: 2020-06-01-preview.
+        /// Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRegistrationResult> Invoke(GetRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationResult>("azure-native:azurestack:getRegistration", args ?? new GetRegistrationInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.AzureStack
         /// 
         /// Uses Azure REST API version 2022-06-01.
         /// 
-        /// Other available API versions: 2020-06-01-preview.
+        /// Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRegistrationResult> Invoke(GetRegistrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationResult>("azure-native:azurestack:getRegistration", args ?? new GetRegistrationInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.AzureStack
     public sealed class GetRegistrationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies the billing mode for the Azure Stack registration.
         /// </summary>
         public readonly string? BillingModel;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.AzureStack
 
         [OutputConstructor]
         private GetRegistrationResult(
+            string azureApiVersion,
+
             string? billingModel,
 
             string? cloudId,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.AzureStack
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BillingModel = billingModel;
             CloudId = cloudId;
             Etag = etag;

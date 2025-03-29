@@ -27,7 +27,10 @@ class GetAFDOriginGroupResult:
     """
     AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from Azure Front Door.
     """
-    def __init__(__self__, deployment_status=None, health_probe_settings=None, id=None, load_balancing_settings=None, name=None, profile_name=None, provisioning_state=None, session_affinity_state=None, system_data=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
+    def __init__(__self__, azure_api_version=None, deployment_status=None, health_probe_settings=None, id=None, load_balancing_settings=None, name=None, profile_name=None, provisioning_state=None, session_affinity_state=None, system_data=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
@@ -61,6 +64,14 @@ class GetAFDOriginGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deploymentStatus")
@@ -154,6 +165,7 @@ class AwaitableGetAFDOriginGroupResult(GetAFDOriginGroupResult):
         if False:
             yield self
         return GetAFDOriginGroupResult(
+            azure_api_version=self.azure_api_version,
             deployment_status=self.deployment_status,
             health_probe_settings=self.health_probe_settings,
             id=self.id,
@@ -174,9 +186,9 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
     """
     Gets an existing origin group within a profile.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the endpoint.
@@ -191,6 +203,7 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getAFDOriginGroup', __args__, opts=opts, typ=GetAFDOriginGroupResult).value
 
     return AwaitableGetAFDOriginGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         deployment_status=pulumi.get(__ret__, 'deployment_status'),
         health_probe_settings=pulumi.get(__ret__, 'health_probe_settings'),
         id=pulumi.get(__ret__, 'id'),
@@ -209,9 +222,9 @@ def get_afd_origin_group_output(origin_group_name: Optional[pulumi.Input[str]] =
     """
     Gets an existing origin group within a profile.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the endpoint.
@@ -225,6 +238,7 @@ def get_afd_origin_group_output(origin_group_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getAFDOriginGroup', __args__, opts=opts, typ=GetAFDOriginGroupResult)
     return __ret__.apply(lambda __response__: GetAFDOriginGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         deployment_status=pulumi.get(__response__, 'deployment_status'),
         health_probe_settings=pulumi.get(__response__, 'health_probe_settings'),
         id=pulumi.get(__response__, 'id'),

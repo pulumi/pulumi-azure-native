@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Represents a Package in Azure Security Insights.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ContentPackage extends pulumi.CustomResource {
     /**
@@ -46,17 +46,25 @@ export class ContentPackage extends pulumi.CustomResource {
      */
     public readonly author!: pulumi.Output<outputs.securityinsights.MetadataAuthorResponse | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The categories of the package
      */
     public readonly categories!: pulumi.Output<outputs.securityinsights.MetadataCategoriesResponse | undefined>;
     /**
-     * The package id
+     * The content id of the package
      */
     public readonly contentId!: pulumi.Output<string>;
     /**
      * The package kind
      */
     public readonly contentKind!: pulumi.Output<string>;
+    /**
+     * Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
+     */
+    public readonly contentProductId!: pulumi.Output<string>;
     /**
      * The version of the content schema.
      */
@@ -85,6 +93,10 @@ export class ContentPackage extends pulumi.CustomResource {
      * the icon identifier. this id can later be fetched from the content metadata
      */
     public readonly icon!: pulumi.Output<string | undefined>;
+    /**
+     * Flag indicates if this template is deprecated
+     */
+    public readonly isDeprecated!: pulumi.Output<string | undefined>;
     /**
      * Flag indicates if this package is among the featured list.
      */
@@ -159,6 +171,9 @@ export class ContentPackage extends pulumi.CustomResource {
             if ((!args || args.contentKind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentKind'");
             }
+            if ((!args || args.contentProductId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'contentProductId'");
+            }
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -175,12 +190,14 @@ export class ContentPackage extends pulumi.CustomResource {
             resourceInputs["categories"] = args ? args.categories : undefined;
             resourceInputs["contentId"] = args ? args.contentId : undefined;
             resourceInputs["contentKind"] = args ? args.contentKind : undefined;
+            resourceInputs["contentProductId"] = args ? args.contentProductId : undefined;
             resourceInputs["contentSchemaVersion"] = args ? args.contentSchemaVersion : undefined;
             resourceInputs["dependencies"] = args ? args.dependencies : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["firstPublishDate"] = args ? args.firstPublishDate : undefined;
             resourceInputs["icon"] = args ? args.icon : undefined;
+            resourceInputs["isDeprecated"] = args ? args.isDeprecated : undefined;
             resourceInputs["isFeatured"] = args ? args.isFeatured : undefined;
             resourceInputs["isNew"] = args ? args.isNew : undefined;
             resourceInputs["isPreview"] = args ? args.isPreview : undefined;
@@ -195,15 +212,18 @@ export class ContentPackage extends pulumi.CustomResource {
             resourceInputs["threatAnalysisTechniques"] = args ? args.threatAnalysisTechniques : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["categories"] = undefined /*out*/;
             resourceInputs["contentId"] = undefined /*out*/;
             resourceInputs["contentKind"] = undefined /*out*/;
+            resourceInputs["contentProductId"] = undefined /*out*/;
             resourceInputs["contentSchemaVersion"] = undefined /*out*/;
             resourceInputs["dependencies"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -211,6 +231,7 @@ export class ContentPackage extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["firstPublishDate"] = undefined /*out*/;
             resourceInputs["icon"] = undefined /*out*/;
+            resourceInputs["isDeprecated"] = undefined /*out*/;
             resourceInputs["isFeatured"] = undefined /*out*/;
             resourceInputs["isNew"] = undefined /*out*/;
             resourceInputs["isPreview"] = undefined /*out*/;
@@ -246,13 +267,17 @@ export interface ContentPackageArgs {
      */
     categories?: pulumi.Input<inputs.securityinsights.MetadataCategoriesArgs>;
     /**
-     * The package id
+     * The content id of the package
      */
     contentId: pulumi.Input<string>;
     /**
      * The package kind
      */
     contentKind: pulumi.Input<string | enums.securityinsights.PackageKind>;
+    /**
+     * Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
+     */
+    contentProductId: pulumi.Input<string>;
     /**
      * The version of the content schema.
      */
@@ -277,6 +302,10 @@ export interface ContentPackageArgs {
      * the icon identifier. this id can later be fetched from the content metadata
      */
     icon?: pulumi.Input<string>;
+    /**
+     * Flag indicates if this template is deprecated
+     */
+    isDeprecated?: pulumi.Input<string | enums.securityinsights.Flag>;
     /**
      * Flag indicates if this package is among the featured list.
      */

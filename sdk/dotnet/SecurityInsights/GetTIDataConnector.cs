@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a data connector.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Task<GetTIDataConnectorResult> InvokeAsync(GetTIDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTIDataConnectorResult>("azure-native:securityinsights:getTIDataConnector", args ?? new GetTIDataConnectorArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a data connector.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetTIDataConnectorResult> Invoke(GetTIDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTIDataConnectorResult>("azure-native:securityinsights:getTIDataConnector", args ?? new GetTIDataConnectorInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a data connector.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetTIDataConnectorResult> Invoke(GetTIDataConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTIDataConnectorResult>("azure-native:securityinsights:getTIDataConnector", args ?? new GetTIDataConnectorInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetTIDataConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The available data types for the connector.
         /// </summary>
         public readonly Outputs.TIDataConnectorDataTypesResponse? DataTypes;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
         [OutputConstructor]
         private GetTIDataConnectorResult(
+            string azureApiVersion,
+
             Outputs.TIDataConnectorDataTypesResponse? dataTypes,
 
             string? etag,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataTypes = dataTypes;
             Etag = etag;
             Id = id;

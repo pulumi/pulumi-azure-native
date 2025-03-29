@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The Role Assignment resource format.
  *
- * Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
+ * Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
  */
 export class RoleAssignment extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class RoleAssignment extends pulumi.CustomResource {
      * The name of the metadata object.
      */
     public readonly assignmentName!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Widget types set for the assignment.
      */
@@ -171,12 +175,14 @@ export class RoleAssignment extends pulumi.CustomResource {
             resourceInputs["segments"] = args ? args.segments : undefined;
             resourceInputs["views"] = args ? args.views : undefined;
             resourceInputs["widgetTypes"] = args ? args.widgetTypes : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["assignmentName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["conflationPolicies"] = undefined /*out*/;
             resourceInputs["connectors"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Returns the description for the specified namespace.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01.
+        /// Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:relay:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Returns the description for the specified namespace.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01.
+        /// Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:relay:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Returns the description for the specified namespace.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01.
+        /// Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:relay:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.Relay
     [OutputType]
     public sealed class GetNamespaceResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The time the namespace was created.
         /// </summary>
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.Relay
 
         [OutputConstructor]
         private GetNamespaceResult(
+            string azureApiVersion,
+
             string createdAt,
 
             string id,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.Relay
 
             string updatedAt)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedAt = createdAt;
             Id = id;
             Location = location;

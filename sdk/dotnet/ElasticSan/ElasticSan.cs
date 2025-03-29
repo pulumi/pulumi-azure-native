@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.ElasticSan
     /// <summary>
     /// Response for ElasticSan request.
     /// 
-    /// Uses Azure REST API version 2021-11-20-preview. In version 1.x of the Azure Native provider, it used API version 2021-11-20-preview.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2021-11-20-preview.
     /// 
-    /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+    /// Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:ElasticSan")]
     public partial class ElasticSan : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.ElasticSan
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Base size of the Elastic San appliance in TiB.
@@ -38,16 +44,22 @@ namespace Pulumi.AzureNative.ElasticSan
         public Output<double> ExtendedCapacitySizeTiB { get; private set; } = null!;
 
         /// <summary>
-        /// The geo-location where the resource lives.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of Private Endpoint Connections.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// State of the operation on the resource.
@@ -56,19 +68,25 @@ namespace Pulumi.AzureNative.ElasticSan
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// resource sku
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Resource metadata required by ARM RPC
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource tags.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -98,7 +116,7 @@ namespace Pulumi.AzureNative.ElasticSan
         public Output<double> TotalVolumeSizeGiB { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -193,10 +211,16 @@ namespace Pulumi.AzureNative.ElasticSan
         public Input<double> ExtendedCapacitySizeTiB { get; set; } = null!;
 
         /// <summary>
-        /// The geo-location where the resource lives.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.ElasticSan.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -214,7 +238,7 @@ namespace Pulumi.AzureNative.ElasticSan
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Azure resource tags.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

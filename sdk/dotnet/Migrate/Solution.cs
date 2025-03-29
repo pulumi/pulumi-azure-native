@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// Solution REST Resource.
     /// 
-    /// Uses Azure REST API version 2018-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-09-01-preview.
+    /// Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:Solution")]
     public partial class Solution : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets or sets the ETAG for optimistic concurrency control.
         /// </summary>
@@ -68,6 +74,8 @@ namespace Pulumi.AzureNative.Migrate
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:Solution" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230101:Solution" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230101:SolutionsControllerSolution" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:SolutionsControllerSolution" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a partner destination.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPartnerDestinationResult> InvokeAsync(GetPartnerDestinationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerDestinationResult>("azure-native:eventgrid:getPartnerDestination", args ?? new GetPartnerDestinationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a partner destination.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPartnerDestinationResult> Invoke(GetPartnerDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerDestinationResult>("azure-native:eventgrid:getPartnerDestination", args ?? new GetPartnerDestinationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a partner destination.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPartnerDestinationResult> Invoke(GetPartnerDestinationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerDestinationResult>("azure-native:eventgrid:getPartnerDestination", args ?? new GetPartnerDestinationInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? ActivationState;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Endpoint Base URL of the partner destination
         /// </summary>
         public readonly string? EndpointBaseUrl;
@@ -129,7 +133,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system metadata relating to Partner Destination resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.EventGrid
         [OutputConstructor]
         private GetPartnerDestinationResult(
             string? activationState,
+
+            string azureApiVersion,
 
             string? endpointBaseUrl,
 
@@ -170,6 +176,7 @@ namespace Pulumi.AzureNative.EventGrid
             string type)
         {
             ActivationState = activationState;
+            AzureApiVersion = azureApiVersion;
             EndpointBaseUrl = endpointBaseUrl;
             EndpointServiceContext = endpointServiceContext;
             ExpirationTimeIfNotActivatedUtc = expirationTimeIfNotActivatedUtc;

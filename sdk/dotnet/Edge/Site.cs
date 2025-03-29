@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Edge
     /// <summary>
     /// Site as ARM Resource
     /// 
-    /// Uses Azure REST API version 2024-02-01-preview.
+    /// Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:Site")]
     public partial class Site : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>

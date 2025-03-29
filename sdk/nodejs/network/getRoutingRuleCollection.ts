@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets a network manager routing configuration rule collection.
  *
- * Uses Azure REST API version 2024-03-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2024-05-01.
+ * Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRoutingRuleCollection(args: GetRoutingRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingRuleCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,6 +51,10 @@ export interface GetRoutingRuleCollectionResult {
      * Groups for configuration
      */
     readonly appliesTo: outputs.network.NetworkManagerRoutingGroupItemResponse[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * A description of the routing rule collection.
      */
@@ -91,9 +95,9 @@ export interface GetRoutingRuleCollectionResult {
 /**
  * Gets a network manager routing configuration rule collection.
  *
- * Uses Azure REST API version 2024-03-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2024-05-01.
+ * Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRoutingRuleCollectionOutput(args: GetRoutingRuleCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoutingRuleCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

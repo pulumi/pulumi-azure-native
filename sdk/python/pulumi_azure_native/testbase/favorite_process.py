@@ -29,7 +29,7 @@ class FavoriteProcessArgs:
         The set of arguments for constructing a FavoriteProcess resource.
         :param pulumi.Input[str] actual_process_name: The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
         :param pulumi.Input[str] package_name: The resource name of the Test Base Package.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input[str] favorite_process_resource_name: The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
         """
@@ -68,7 +68,7 @@ class FavoriteProcessArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group that contains the resource.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -115,16 +115,16 @@ class FavoriteProcess(pulumi.CustomResource):
         """
         A favorite process identifier.
 
-        Uses Azure REST API version 2022-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
+        Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
 
-        Other available API versions: 2023-11-01-preview.
+        Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] actual_process_name: The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
         :param pulumi.Input[str] favorite_process_resource_name: The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
         :param pulumi.Input[str] package_name: The resource name of the Test Base Package.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
         """
         ...
@@ -136,9 +136,9 @@ class FavoriteProcess(pulumi.CustomResource):
         """
         A favorite process identifier.
 
-        Uses Azure REST API version 2022-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
+        Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
 
-        Other available API versions: 2023-11-01-preview.
+        Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param FavoriteProcessArgs args: The arguments to use to populate this resource's properties.
@@ -182,6 +182,7 @@ class FavoriteProcess(pulumi.CustomResource):
             if test_base_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'test_base_account_name'")
             __props__.__dict__["test_base_account_name"] = test_base_account_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -210,6 +211,7 @@ class FavoriteProcess(pulumi.CustomResource):
         __props__ = FavoriteProcessArgs.__new__(FavoriteProcessArgs)
 
         __props__.__dict__["actual_process_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
@@ -224,10 +226,18 @@ class FavoriteProcess(pulumi.CustomResource):
         return pulumi.get(self, "actual_process_name")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -235,7 +245,7 @@ class FavoriteProcess(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -243,7 +253,7 @@ class FavoriteProcess(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

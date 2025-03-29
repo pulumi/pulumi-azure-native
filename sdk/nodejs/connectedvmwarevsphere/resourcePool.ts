@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Define the resourcePool.
  *
- * Uses Azure REST API version 2022-07-15-preview. In version 1.x of the Azure Native provider, it used API version 2020-10-01-preview.
+ * Uses Azure REST API version 2023-12-01. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ResourcePool extends pulumi.CustomResource {
     /**
@@ -42,10 +42,22 @@ export class ResourcePool extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Gets the max CPU usage across all cores on the pool in MHz.
+     */
+    public /*out*/ readonly cpuCapacityMHz!: pulumi.Output<number>;
+    /**
      * Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
      * Utilization will not exceed this limit even if there are available resources.
      */
     public /*out*/ readonly cpuLimitMHz!: pulumi.Output<number>;
+    /**
+     * Gets the used CPU usage across all cores on the pool in MHz.
+     */
+    public /*out*/ readonly cpuOverallUsageMHz!: pulumi.Output<number>;
     /**
      * Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
      * to be available.
@@ -61,7 +73,7 @@ export class ResourcePool extends pulumi.CustomResource {
      */
     public /*out*/ readonly customResourceName!: pulumi.Output<string>;
     /**
-     * Gets or sets the datastore ARM ids.
+     * Gets the datastore ARM ids.
      */
     public /*out*/ readonly datastoreIds!: pulumi.Output<string[]>;
     /**
@@ -81,10 +93,18 @@ export class ResourcePool extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Gets the total amount of physical memory on the pool in GB.
+     */
+    public /*out*/ readonly memCapacityGB!: pulumi.Output<number>;
+    /**
      * Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
      * Utilization will not exceed the specified limit even if there are available resources.
      */
     public /*out*/ readonly memLimitMB!: pulumi.Output<number>;
+    /**
+     * Gets the used physical memory on the pool in GB.
+     */
+    public /*out*/ readonly memOverallUsageGB!: pulumi.Output<number>;
     /**
      * Gets or sets MemReservationMB which specifies the guaranteed available memory in
      * megabytes.
@@ -108,11 +128,11 @@ export class ResourcePool extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the network ARM ids.
+     * Gets the network ARM ids.
      */
     public /*out*/ readonly networkIds!: pulumi.Output<string[]>;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -163,12 +183,17 @@ export class ResourcePool extends pulumi.CustomResource {
             resourceInputs["resourcePoolName"] = args ? args.resourcePoolName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["cpuCapacityMHz"] = undefined /*out*/;
             resourceInputs["cpuLimitMHz"] = undefined /*out*/;
+            resourceInputs["cpuOverallUsageMHz"] = undefined /*out*/;
             resourceInputs["cpuReservationMHz"] = undefined /*out*/;
             resourceInputs["cpuSharesLevel"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["datastoreIds"] = undefined /*out*/;
+            resourceInputs["memCapacityGB"] = undefined /*out*/;
             resourceInputs["memLimitMB"] = undefined /*out*/;
+            resourceInputs["memOverallUsageGB"] = undefined /*out*/;
             resourceInputs["memReservationMB"] = undefined /*out*/;
             resourceInputs["memSharesLevel"] = undefined /*out*/;
             resourceInputs["moName"] = undefined /*out*/;
@@ -180,7 +205,10 @@ export class ResourcePool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["cpuCapacityMHz"] = undefined /*out*/;
             resourceInputs["cpuLimitMHz"] = undefined /*out*/;
+            resourceInputs["cpuOverallUsageMHz"] = undefined /*out*/;
             resourceInputs["cpuReservationMHz"] = undefined /*out*/;
             resourceInputs["cpuSharesLevel"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
@@ -189,7 +217,9 @@ export class ResourcePool extends pulumi.CustomResource {
             resourceInputs["inventoryItemId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["memCapacityGB"] = undefined /*out*/;
             resourceInputs["memLimitMB"] = undefined /*out*/;
+            resourceInputs["memOverallUsageGB"] = undefined /*out*/;
             resourceInputs["memReservationMB"] = undefined /*out*/;
             resourceInputs["memSharesLevel"] = undefined /*out*/;
             resourceInputs["moName"] = undefined /*out*/;

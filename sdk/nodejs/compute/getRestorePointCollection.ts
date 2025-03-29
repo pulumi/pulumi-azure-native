@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The operation to get the restore point collection.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-11-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRestorePointCollection(args: GetRestorePointCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetRestorePointCollectionArgs {
  * Create or update Restore Point collection parameters.
  */
 export interface GetRestorePointCollectionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Resource Id
      */
@@ -82,9 +86,9 @@ export interface GetRestorePointCollectionResult {
 /**
  * The operation to get the restore point collection.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-11-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRestorePointCollectionOutput(args: GetRestorePointCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRestorePointCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

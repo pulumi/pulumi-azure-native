@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.MySQLDiscovery
     public sealed class GetMySQLSiteResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.MySQLDiscovery
 
         [OutputConstructor]
         private GetMySQLSiteResult(
+            string azureApiVersion,
+
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.MySQLDiscovery
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;

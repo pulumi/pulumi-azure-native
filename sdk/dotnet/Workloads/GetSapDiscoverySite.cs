@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class GetSapDiscoverySiteResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Indicates any errors on the SAP Migration discovery site resource.
         /// </summary>
         public readonly Outputs.SAPMigrateErrorResponse Errors;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNative.Workloads
 
         [OutputConstructor]
         private GetSapDiscoverySiteResult(
+            string azureApiVersion,
+
             Outputs.SAPMigrateErrorResponse errors,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.Workloads
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Errors = errors;
             ExtendedLocation = extendedLocation;
             Id = id;

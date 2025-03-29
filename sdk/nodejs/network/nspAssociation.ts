@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The NSP resource association resource
  *
- * Uses Azure REST API version 2021-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+ * Uses Azure REST API version 2023-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class NspAssociation extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class NspAssociation extends pulumi.CustomResource {
      * Access mode on the association.
      */
     public readonly accessMode!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies if there are provisioning issues
      */
@@ -105,11 +109,13 @@ export class NspAssociation extends pulumi.CustomResource {
             resourceInputs["profile"] = args ? args.profile : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hasProvisioningIssues"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessMode"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hasProvisioningIssues"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

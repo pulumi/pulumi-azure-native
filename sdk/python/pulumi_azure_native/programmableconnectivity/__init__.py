@@ -12,11 +12,3 @@ from .get_operator_api_connection import *
 from .operator_api_connection import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.programmableconnectivity.v20240115preview as __v20240115preview
-    v20240115preview = __v20240115preview
-else:
-    v20240115preview = _utilities.lazy_import('pulumi_azure_native.programmableconnectivity.v20240115preview')
-

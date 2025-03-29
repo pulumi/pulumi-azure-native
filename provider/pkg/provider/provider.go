@@ -1270,6 +1270,15 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	if err != nil {
 		return nil, err
 	}
+	stateWithPreviousInputs := oldState
+	if version.GetVersion().Major >= 3 {
+		stateWithPreviousInputs, err = plugin.UnmarshalProperties(req.GetInputs(), plugin.MarshalOptions{
+			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
+		})
+		if err != nil {
+			return nil, err
+		}
+	}
 
 	res, err := k.lookupResourceFromURN(urn)
 	if err != nil {
@@ -1294,11 +1303,11 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		outputs = response
 	case res.ReadMethod == "HEAD":
 		url := id + res.ReadPath
-		err = k.azureClient.Head(ctx, url, getApiVersion(res, oldState))
+		err = k.azureClient.Head(ctx, url, getApiVersion(res, stateWithPreviousInputs))
 		response = oldState.Mappable()
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	default:
-		response, err = crudClient.Read(ctx, id, getApiVersion(res, oldState))
+		response, err = crudClient.Read(ctx, id, getApiVersion(res, stateWithPreviousInputs))
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	}
 	if err != nil {
@@ -1591,6 +1600,15 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 	state, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
 	})
+	stateWithPreviousInputs := state
+	if version.GetVersion().Major >= 3 {
+		stateWithPreviousInputs, err = plugin.UnmarshalProperties(req.GetOldInputs(), plugin.MarshalOptions{
+			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
+		})
+		if err != nil {
+			return nil, err
+		}
+	}
 
 	switch {
 	case isCustom && customRes.Delete != nil:
@@ -1636,7 +1654,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			}
 		}
 	default:
-		apiVersion := getApiVersion(res, state)
+		apiVersion := getApiVersion(res, stateWithPreviousInputs)
 		err := k.azureClient.Delete(ctx, id, apiVersion, res.DeleteAsyncStyle, nil)
 		if err != nil {
 			return nil, azure.AzureError(err)

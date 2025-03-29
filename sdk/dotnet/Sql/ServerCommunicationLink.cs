@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Sql
     /// <summary>
     /// Server communication link.
     /// 
-    /// Uses Azure REST API version 2014-04-01. In version 1.x of the Azure Native provider, it used API version 2014-04-01.
+    /// Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerCommunicationLink")]
     public partial class ServerCommunicationLink : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Communication link kind.  This property is used for Azure Portal metadata.
         /// </summary>

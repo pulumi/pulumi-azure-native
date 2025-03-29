@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Lists all pending connections for a connection.
  *
- * Uses Azure REST API version 2023-10-11-preview.
+ * Uses Azure REST API version 2024-09-27.
  *
- * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
+ * Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listListPendingConnection(args: ListListPendingConnectionArgs, opts?: pulumi.InvokeOptions): Promise<ListListPendingConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,9 +49,9 @@ export interface ListListPendingConnectionResult {
 /**
  * Lists all pending connections for a connection.
  *
- * Uses Azure REST API version 2023-10-11-preview.
+ * Uses Azure REST API version 2024-09-27.
  *
- * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
+ * Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listListPendingConnectionOutput(args: ListListPendingConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListListPendingConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

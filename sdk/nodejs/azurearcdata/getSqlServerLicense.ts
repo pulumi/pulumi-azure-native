@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01-preview.
  *
- * Other available API versions: 2025-03-01-preview.
+ * Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSqlServerLicense(args: GetSqlServerLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerLicenseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetSqlServerLicenseArgs {
  * Describe SQL Server license resource.
  */
 export interface GetSqlServerLicenseResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -71,7 +75,7 @@ export interface GetSqlServerLicenseResult {
  *
  * Uses Azure REST API version 2024-05-01-preview.
  *
- * Other available API versions: 2025-03-01-preview.
+ * Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSqlServerLicenseOutput(args: GetSqlServerLicenseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerLicenseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

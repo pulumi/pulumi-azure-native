@@ -36,6 +36,10 @@ export interface GetEnterpriseKnowledgeGraphArgs {
  */
 export interface GetEnterpriseKnowledgeGraphResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Specifies the resource ID.
      */
     readonly id: string;

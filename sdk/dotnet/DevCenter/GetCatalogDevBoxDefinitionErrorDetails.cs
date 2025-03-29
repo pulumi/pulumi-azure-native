@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Catalog Devbox Definition error details
         /// 
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCatalogDevBoxDefinitionErrorDetailsResult> InvokeAsync(GetCatalogDevBoxDefinitionErrorDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCatalogDevBoxDefinitionErrorDetailsResult>("azure-native:devcenter:getCatalogDevBoxDefinitionErrorDetails", args ?? new GetCatalogDevBoxDefinitionErrorDetailsArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Catalog Devbox Definition error details
         /// 
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCatalogDevBoxDefinitionErrorDetailsResult> Invoke(GetCatalogDevBoxDefinitionErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogDevBoxDefinitionErrorDetailsResult>("azure-native:devcenter:getCatalogDevBoxDefinitionErrorDetails", args ?? new GetCatalogDevBoxDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Catalog Devbox Definition error details
         /// 
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCatalogDevBoxDefinitionErrorDetailsResult> Invoke(GetCatalogDevBoxDefinitionErrorDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogDevBoxDefinitionErrorDetailsResult>("azure-native:devcenter:getCatalogDevBoxDefinitionErrorDetails", args ?? new GetCatalogDevBoxDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());

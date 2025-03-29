@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Describes a Machine Extension.
  *
- * Uses Azure REST API version 2022-05-21-preview.
+ * Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
  *
- * Other available API versions: 2023-04-01-preview.
+ * Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class MachineExtension extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class MachineExtension extends pulumi.CustomResource {
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
      */
@@ -128,12 +132,14 @@ export class MachineExtension extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
         } else {
             resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enableAutomaticUpgrade"] = undefined /*out*/;
             resourceInputs["forceUpdateTag"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;

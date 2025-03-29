@@ -27,7 +27,10 @@ class GetVirtualMachineResult:
     """
     Define the virtualMachine.
     """
-    def __init__(__self__, custom_resource_name=None, extended_location=None, firmware_type=None, folder_path=None, guest_agent_profile=None, hardware_profile=None, id=None, identity=None, instance_uuid=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, network_profile=None, os_profile=None, placement_profile=None, power_state=None, provisioning_state=None, resource_pool_id=None, security_profile=None, smbios_uuid=None, statuses=None, storage_profile=None, system_data=None, tags=None, template_id=None, type=None, uuid=None, v_center_id=None, vm_id=None):
+    def __init__(__self__, azure_api_version=None, custom_resource_name=None, extended_location=None, firmware_type=None, folder_path=None, guest_agent_profile=None, hardware_profile=None, id=None, identity=None, instance_uuid=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, network_profile=None, os_profile=None, placement_profile=None, power_state=None, provisioning_state=None, resource_pool_id=None, security_profile=None, smbios_uuid=None, statuses=None, storage_profile=None, system_data=None, tags=None, template_id=None, type=None, uuid=None, v_center_id=None, vm_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_resource_name and not isinstance(custom_resource_name, str):
             raise TypeError("Expected argument 'custom_resource_name' to be a str")
         pulumi.set(__self__, "custom_resource_name", custom_resource_name)
@@ -124,6 +127,14 @@ class GetVirtualMachineResult:
         if vm_id and not isinstance(vm_id, str):
             raise TypeError("Expected argument 'vm_id' to be a str")
         pulumi.set(__self__, "vm_id", vm_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customResourceName")
@@ -281,7 +292,7 @@ class GetVirtualMachineResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -389,6 +400,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
         if False:
             yield self
         return GetVirtualMachineResult(
+            azure_api_version=self.azure_api_version,
             custom_resource_name=self.custom_resource_name,
             extended_location=self.extended_location,
             firmware_type=self.firmware_type,
@@ -429,9 +441,9 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     """
     Implements virtual machine GET method.
 
-    Uses Azure REST API version 2022-07-15-preview.
+    Uses Azure REST API version 2023-03-01-preview.
 
-    Other available API versions: 2023-03-01-preview.
+    Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -444,6 +456,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult).value
 
     return AwaitableGetVirtualMachineResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_resource_name=pulumi.get(__ret__, 'custom_resource_name'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         firmware_type=pulumi.get(__ret__, 'firmware_type'),
@@ -482,9 +495,9 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     """
     Implements virtual machine GET method.
 
-    Uses Azure REST API version 2022-07-15-preview.
+    Uses Azure REST API version 2023-03-01-preview.
 
-    Other available API versions: 2023-03-01-preview.
+    Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -496,6 +509,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         firmware_type=pulumi.get(__response__, 'firmware_type'),

@@ -27,7 +27,10 @@ class GetPrivateStoreCollectionOfferResult:
     """
     The privateStore offer data structure.
     """
-    def __init__(__self__, created_at=None, e_tag=None, icon_file_uris=None, id=None, modified_at=None, name=None, offer_display_name=None, plans=None, private_store_id=None, publisher_display_name=None, specific_plan_ids_limitation=None, system_data=None, type=None, unique_offer_id=None, update_suppressed_due_idempotence=None):
+    def __init__(__self__, azure_api_version=None, created_at=None, e_tag=None, icon_file_uris=None, id=None, modified_at=None, name=None, offer_display_name=None, plans=None, private_store_id=None, publisher_display_name=None, specific_plan_ids_limitation=None, system_data=None, type=None, unique_offer_id=None, update_suppressed_due_idempotence=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -73,6 +76,14 @@ class GetPrivateStoreCollectionOfferResult:
         if update_suppressed_due_idempotence and not isinstance(update_suppressed_due_idempotence, bool):
             raise TypeError("Expected argument 'update_suppressed_due_idempotence' to be a bool")
         pulumi.set(__self__, "update_suppressed_due_idempotence", update_suppressed_due_idempotence)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -201,6 +212,7 @@ class AwaitableGetPrivateStoreCollectionOfferResult(GetPrivateStoreCollectionOff
         if False:
             yield self
         return GetPrivateStoreCollectionOfferResult(
+            azure_api_version=self.azure_api_version,
             created_at=self.created_at,
             e_tag=self.e_tag,
             icon_file_uris=self.icon_file_uris,
@@ -240,6 +252,7 @@ def get_private_store_collection_offer(collection_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:marketplace:getPrivateStoreCollectionOffer', __args__, opts=opts, typ=GetPrivateStoreCollectionOfferResult).value
 
     return AwaitableGetPrivateStoreCollectionOfferResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_at=pulumi.get(__ret__, 'created_at'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         icon_file_uris=pulumi.get(__ret__, 'icon_file_uris'),
@@ -276,6 +289,7 @@ def get_private_store_collection_offer_output(collection_id: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:marketplace:getPrivateStoreCollectionOffer', __args__, opts=opts, typ=GetPrivateStoreCollectionOfferResult)
     return __ret__.apply(lambda __response__: GetPrivateStoreCollectionOfferResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_at=pulumi.get(__response__, 'created_at'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         icon_file_uris=pulumi.get(__response__, 'icon_file_uris'),

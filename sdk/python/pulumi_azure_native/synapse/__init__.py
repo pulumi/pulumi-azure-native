@@ -68,20 +68,3 @@ from .workspace_managed_sql_server_vulnerability_assessment import *
 from .workspace_sql_aad_admin import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.synapse.v20210401preview as __v20210401preview
-    v20210401preview = __v20210401preview
-    import pulumi_azure_native.synapse.v20210501 as __v20210501
-    v20210501 = __v20210501
-    import pulumi_azure_native.synapse.v20210601 as __v20210601
-    v20210601 = __v20210601
-    import pulumi_azure_native.synapse.v20210601preview as __v20210601preview
-    v20210601preview = __v20210601preview
-else:
-    v20210401preview = _utilities.lazy_import('pulumi_azure_native.synapse.v20210401preview')
-    v20210501 = _utilities.lazy_import('pulumi_azure_native.synapse.v20210501')
-    v20210601 = _utilities.lazy_import('pulumi_azure_native.synapse.v20210601')
-    v20210601preview = _utilities.lazy_import('pulumi_azure_native.synapse.v20210601preview')
-

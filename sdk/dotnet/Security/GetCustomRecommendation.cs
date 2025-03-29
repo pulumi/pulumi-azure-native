@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string AssessmentKey;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// List of all standard supported clouds.
         /// </summary>
         public readonly ImmutableArray<string> CloudProviders;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.Security
         private GetCustomRecommendationResult(
             string assessmentKey,
 
+            string azureApiVersion,
+
             ImmutableArray<string> cloudProviders,
 
             string? description,
@@ -157,6 +163,7 @@ namespace Pulumi.AzureNative.Security
             string type)
         {
             AssessmentKey = assessmentKey;
+            AzureApiVersion = azureApiVersion;
             CloudProviders = cloudProviders;
             Description = description;
             DisplayName = displayName;

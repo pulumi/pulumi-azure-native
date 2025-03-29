@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The Internet Gateway resource definition.
  *
- * Uses Azure REST API version 2023-06-15.
+ * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-06-15.
  */
 export class InternetGateway extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class InternetGateway extends pulumi.CustomResource {
      * Switch configuration description.
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * ARM Resource ID of the Internet Gateway Rule.
      */
@@ -112,6 +116,7 @@ export class InternetGateway extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["ipv4Address"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
@@ -119,6 +124,7 @@ export class InternetGateway extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
         } else {
             resourceInputs["annotation"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["internetGatewayRuleId"] = undefined /*out*/;
             resourceInputs["ipv4Address"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

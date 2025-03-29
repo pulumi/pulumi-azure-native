@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.WebPubSub
         /// <summary>
         /// Get the specified shared private link resource
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebPubSubSharedPrivateLinkResourceResult> InvokeAsync(GetWebPubSubSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.WebPubSub
         /// <summary>
         /// Get the specified shared private link resource
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebPubSubSharedPrivateLinkResourceResult> Invoke(GetWebPubSubSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.WebPubSub
         /// <summary>
         /// Get the specified shared private link resource
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebPubSubSharedPrivateLinkResourceResult> Invoke(GetWebPubSubSharedPrivateLinkResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.WebPubSub
     public sealed class GetWebPubSubSharedPrivateLinkResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public string ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the shared private link resource
+        /// The name of the shared private link resource.
         /// </summary>
         [Input("sharedPrivateLinkResourceName", required: true)]
         public string SharedPrivateLinkResourceName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.WebPubSub
     public sealed class GetWebPubSubSharedPrivateLinkResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the shared private link resource
+        /// The name of the shared private link resource.
         /// </summary>
         [Input("sharedPrivateLinkResourceName", required: true)]
         public Input<string> SharedPrivateLinkResourceName { get; set; } = null!;
@@ -100,15 +100,19 @@ namespace Pulumi.AzureNative.WebPubSub
     public sealed class GetWebPubSubSharedPrivateLinkResourceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The group id from the provider of resource the shared private link resource is for
         /// </summary>
         public readonly string GroupId;
         /// <summary>
-        /// Fully qualified resource Id for the resource.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -128,16 +132,18 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetWebPubSubSharedPrivateLinkResourceResult(
+            string azureApiVersion,
+
             string groupId,
 
             string id,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.WebPubSub
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             GroupId = groupId;
             Id = id;
             Name = name;

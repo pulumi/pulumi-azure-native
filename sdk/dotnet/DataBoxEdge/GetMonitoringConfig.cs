@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The metric setting details for the role
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMonitoringConfigResult> InvokeAsync(GetMonitoringConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringConfigResult>("azure-native:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The metric setting details for the role
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMonitoringConfigResult> Invoke(GetMonitoringConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringConfigResult>("azure-native:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The metric setting details for the role
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMonitoringConfigResult> Invoke(GetMonitoringConfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringConfigResult>("azure-native:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetMonitoringConfigResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetMonitoringConfigResult(
+            string azureApiVersion,
+
             string id,
 
             ImmutableArray<Outputs.MetricConfigurationResponse> metricConfigurations,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             MetricConfigurations = metricConfigurations;
             Name = name;

@@ -118,6 +118,10 @@ namespace Pulumi.AzureNative.Confluent
     public sealed class GetTopicResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Config Specification of the topic
         /// </summary>
         public readonly Outputs.TopicsRelatedLinkResponse? Configs;
@@ -168,6 +172,8 @@ namespace Pulumi.AzureNative.Confluent
 
         [OutputConstructor]
         private GetTopicResult(
+            string azureApiVersion,
+
             Outputs.TopicsRelatedLinkResponse? configs,
 
             string id,
@@ -192,6 +198,7 @@ namespace Pulumi.AzureNative.Confluent
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Configs = configs;
             Id = id;
             InputConfigs = inputConfigs;

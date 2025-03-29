@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Synapse
     /// <summary>
     /// Class representing a read only following database.
     /// 
-    /// Uses Azure REST API version 2021-06-01-preview.
+    /// Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:ReadOnlyFollowingDatabase")]
     public partial class ReadOnlyFollowingDatabase : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Output("attachedDatabaseConfigurationName")]
         public Output<string> AttachedDatabaseConfigurationName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The time the data should be kept in cache for fast queries in TimeSpan.
@@ -124,6 +130,8 @@ namespace Pulumi.AzureNative.Synapse
                 {
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:ReadWriteDatabase" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

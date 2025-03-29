@@ -8,6 +8,42 @@ using Pulumi;
 namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
+    /// Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+    /// </summary>
+    [EnumType]
+    public readonly struct ArcKindEnum : IEquatable<ArcKindEnum>
+    {
+        private readonly string _value;
+
+        private ArcKindEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ArcKindEnum AVS { get; } = new ArcKindEnum("AVS");
+        public static ArcKindEnum HCI { get; } = new ArcKindEnum("HCI");
+        public static ArcKindEnum SCVMM { get; } = new ArcKindEnum("SCVMM");
+        public static ArcKindEnum VMware { get; } = new ArcKindEnum("VMware");
+        public static ArcKindEnum EPS { get; } = new ArcKindEnum("EPS");
+        public static ArcKindEnum GCP { get; } = new ArcKindEnum("GCP");
+        public static ArcKindEnum AWS { get; } = new ArcKindEnum("AWS");
+
+        public static bool operator ==(ArcKindEnum left, ArcKindEnum right) => left.Equals(right);
+        public static bool operator !=(ArcKindEnum left, ArcKindEnum right) => !left.Equals(right);
+
+        public static explicit operator string(ArcKindEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ArcKindEnum other && Equals(other);
+        public bool Equals(ArcKindEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the assessment mode.
     /// </summary>
     [EnumType]
@@ -61,6 +97,37 @@ namespace Pulumi.AzureNative.HybridCompute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GatewayType other && Equals(other);
         public bool Equals(GatewayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes the license assignment state (Assigned or NotAssigned).
+    /// </summary>
+    [EnumType]
+    public readonly struct LicenseAssignmentState : IEquatable<LicenseAssignmentState>
+    {
+        private readonly string _value;
+
+        private LicenseAssignmentState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LicenseAssignmentState Assigned { get; } = new LicenseAssignmentState("Assigned");
+        public static LicenseAssignmentState NotAssigned { get; } = new LicenseAssignmentState("NotAssigned");
+
+        public static bool operator ==(LicenseAssignmentState left, LicenseAssignmentState right) => left.Equals(right);
+        public static bool operator !=(LicenseAssignmentState left, LicenseAssignmentState right) => !left.Equals(right);
+
+        public static explicit operator string(LicenseAssignmentState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LicenseAssignmentState other && Equals(other);
+        public bool Equals(LicenseAssignmentState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -123,6 +190,72 @@ namespace Pulumi.AzureNative.HybridCompute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LicenseEdition other && Equals(other);
         public bool Equals(LicenseEdition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the product type of the license.
+    /// </summary>
+    [EnumType]
+    public readonly struct LicenseProfileProductType : IEquatable<LicenseProfileProductType>
+    {
+        private readonly string _value;
+
+        private LicenseProfileProductType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LicenseProfileProductType WindowsServer { get; } = new LicenseProfileProductType("WindowsServer");
+        public static LicenseProfileProductType WindowsIoTEnterprise { get; } = new LicenseProfileProductType("WindowsIoTEnterprise");
+
+        public static bool operator ==(LicenseProfileProductType left, LicenseProfileProductType right) => left.Equals(right);
+        public static bool operator !=(LicenseProfileProductType left, LicenseProfileProductType right) => !left.Equals(right);
+
+        public static explicit operator string(LicenseProfileProductType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LicenseProfileProductType other && Equals(other);
+        public bool Equals(LicenseProfileProductType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the subscription status of the product.
+    /// </summary>
+    [EnumType]
+    public readonly struct LicenseProfileSubscriptionStatus : IEquatable<LicenseProfileSubscriptionStatus>
+    {
+        private readonly string _value;
+
+        private LicenseProfileSubscriptionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LicenseProfileSubscriptionStatus Unknown { get; } = new LicenseProfileSubscriptionStatus("Unknown");
+        public static LicenseProfileSubscriptionStatus Enabling { get; } = new LicenseProfileSubscriptionStatus("Enabling");
+        public static LicenseProfileSubscriptionStatus Enabled { get; } = new LicenseProfileSubscriptionStatus("Enabled");
+        public static LicenseProfileSubscriptionStatus Disabled { get; } = new LicenseProfileSubscriptionStatus("Disabled");
+        public static LicenseProfileSubscriptionStatus Disabling { get; } = new LicenseProfileSubscriptionStatus("Disabling");
+        public static LicenseProfileSubscriptionStatus Failed { get; } = new LicenseProfileSubscriptionStatus("Failed");
+
+        public static bool operator ==(LicenseProfileSubscriptionStatus left, LicenseProfileSubscriptionStatus right) => left.Equals(right);
+        public static bool operator !=(LicenseProfileSubscriptionStatus left, LicenseProfileSubscriptionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(LicenseProfileSubscriptionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LicenseProfileSubscriptionStatus other && Equals(other);
+        public bool Equals(LicenseProfileSubscriptionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -256,6 +389,38 @@ namespace Pulumi.AzureNative.HybridCompute
     }
 
     /// <summary>
+    /// Describes the program year the volume license is for.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProgramYear : IEquatable<ProgramYear>
+    {
+        private readonly string _value;
+
+        private ProgramYear(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProgramYear Year_1 { get; } = new ProgramYear("Year 1");
+        public static ProgramYear Year_2 { get; } = new ProgramYear("Year 2");
+        public static ProgramYear Year_3 { get; } = new ProgramYear("Year 3");
+
+        public static bool operator ==(ProgramYear left, ProgramYear right) => left.Equals(right);
+        public static bool operator !=(ProgramYear left, ProgramYear right) => !left.Equals(right);
+
+        public static explicit operator string(ProgramYear value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProgramYear other && Equals(other);
+        public bool Equals(ProgramYear other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
     /// </summary>
     [EnumType]
@@ -276,6 +441,10 @@ namespace Pulumi.AzureNative.HybridCompute
         /// Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
         /// </summary>
         public static PublicNetworkAccessType Disabled { get; } = new PublicNetworkAccessType("Disabled");
+        /// <summary>
+        /// Azure Arc agent communication with Azure Arc services over public (internet) is enforced by Network Security Perimeter (NSP)
+        /// </summary>
+        public static PublicNetworkAccessType SecuredByPerimeter { get; } = new PublicNetworkAccessType("SecuredByPerimeter");
 
         public static bool operator ==(PublicNetworkAccessType left, PublicNetworkAccessType right) => left.Equals(right);
         public static bool operator !=(PublicNetworkAccessType left, PublicNetworkAccessType right) => !left.Equals(right);

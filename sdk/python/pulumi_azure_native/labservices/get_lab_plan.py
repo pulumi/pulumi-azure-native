@@ -27,10 +27,13 @@ class GetLabPlanResult:
     """
     Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
     """
-    def __init__(__self__, allowed_regions=None, default_auto_shutdown_profile=None, default_connection_profile=None, default_network_profile=None, id=None, identity=None, linked_lms_instance=None, location=None, name=None, provisioning_state=None, shared_gallery_id=None, support_info=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, allowed_regions=None, azure_api_version=None, default_auto_shutdown_profile=None, default_connection_profile=None, default_network_profile=None, id=None, identity=None, linked_lms_instance=None, location=None, name=None, provisioning_state=None, resource_operation_error=None, shared_gallery_id=None, support_info=None, system_data=None, tags=None, type=None):
         if allowed_regions and not isinstance(allowed_regions, list):
             raise TypeError("Expected argument 'allowed_regions' to be a list")
         pulumi.set(__self__, "allowed_regions", allowed_regions)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if default_auto_shutdown_profile and not isinstance(default_auto_shutdown_profile, dict):
             raise TypeError("Expected argument 'default_auto_shutdown_profile' to be a dict")
         pulumi.set(__self__, "default_auto_shutdown_profile", default_auto_shutdown_profile)
@@ -58,6 +61,9 @@ class GetLabPlanResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_operation_error and not isinstance(resource_operation_error, dict):
+            raise TypeError("Expected argument 'resource_operation_error' to be a dict")
+        pulumi.set(__self__, "resource_operation_error", resource_operation_error)
         if shared_gallery_id and not isinstance(shared_gallery_id, str):
             raise TypeError("Expected argument 'shared_gallery_id' to be a str")
         pulumi.set(__self__, "shared_gallery_id", shared_gallery_id)
@@ -81,6 +87,14 @@ class GetLabPlanResult:
         The allowed regions for the lab creator to use when creating labs using this lab plan.
         """
         return pulumi.get(self, "allowed_regions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultAutoShutdownProfile")
@@ -155,6 +169,14 @@ class GetLabPlanResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceOperationError")
+    def resource_operation_error(self) -> 'outputs.ResourceOperationErrorResponse':
+        """
+        Error details of last operation done on lab plan.
+        """
+        return pulumi.get(self, "resource_operation_error")
+
+    @property
     @pulumi.getter(name="sharedGalleryId")
     def shared_gallery_id(self) -> Optional[str]:
         """
@@ -202,6 +224,7 @@ class AwaitableGetLabPlanResult(GetLabPlanResult):
             yield self
         return GetLabPlanResult(
             allowed_regions=self.allowed_regions,
+            azure_api_version=self.azure_api_version,
             default_auto_shutdown_profile=self.default_auto_shutdown_profile,
             default_connection_profile=self.default_connection_profile,
             default_network_profile=self.default_network_profile,
@@ -211,6 +234,7 @@ class AwaitableGetLabPlanResult(GetLabPlanResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            resource_operation_error=self.resource_operation_error,
             shared_gallery_id=self.shared_gallery_id,
             support_info=self.support_info,
             system_data=self.system_data,
@@ -224,9 +248,9 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
     """
     Retrieves the properties of a Lab Plan.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2023-06-07.
 
-    Other available API versions: 2023-06-07.
+    Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
@@ -240,6 +264,7 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
 
     return AwaitableGetLabPlanResult(
         allowed_regions=pulumi.get(__ret__, 'allowed_regions'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         default_auto_shutdown_profile=pulumi.get(__ret__, 'default_auto_shutdown_profile'),
         default_connection_profile=pulumi.get(__ret__, 'default_connection_profile'),
         default_network_profile=pulumi.get(__ret__, 'default_network_profile'),
@@ -249,6 +274,7 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_operation_error=pulumi.get(__ret__, 'resource_operation_error'),
         shared_gallery_id=pulumi.get(__ret__, 'shared_gallery_id'),
         support_info=pulumi.get(__ret__, 'support_info'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -260,9 +286,9 @@ def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves the properties of a Lab Plan.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2023-06-07.
 
-    Other available API versions: 2023-06-07.
+    Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
@@ -275,6 +301,7 @@ def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getLabPlan', __args__, opts=opts, typ=GetLabPlanResult)
     return __ret__.apply(lambda __response__: GetLabPlanResult(
         allowed_regions=pulumi.get(__response__, 'allowed_regions'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         default_auto_shutdown_profile=pulumi.get(__response__, 'default_auto_shutdown_profile'),
         default_connection_profile=pulumi.get(__response__, 'default_connection_profile'),
         default_network_profile=pulumi.get(__response__, 'default_network_profile'),
@@ -284,6 +311,7 @@ def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_operation_error=pulumi.get(__response__, 'resource_operation_error'),
         shared_gallery_id=pulumi.get(__response__, 'shared_gallery_id'),
         support_info=pulumi.get(__response__, 'support_info'),
         system_data=pulumi.get(__response__, 'system_data'),

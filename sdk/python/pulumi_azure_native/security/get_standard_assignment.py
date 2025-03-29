@@ -27,13 +27,16 @@ class GetStandardAssignmentResult:
     """
     Security Assignment on a resource group over a given scope
     """
-    def __init__(__self__, assigned_standard=None, attestation_data=None, description=None, display_name=None, effect=None, excluded_scopes=None, exemption_data=None, expires_on=None, id=None, metadata=None, name=None, type=None):
+    def __init__(__self__, assigned_standard=None, attestation_data=None, azure_api_version=None, description=None, display_name=None, effect=None, excluded_scopes=None, exemption_data=None, expires_on=None, id=None, metadata=None, name=None, type=None):
         if assigned_standard and not isinstance(assigned_standard, dict):
             raise TypeError("Expected argument 'assigned_standard' to be a dict")
         pulumi.set(__self__, "assigned_standard", assigned_standard)
         if attestation_data and not isinstance(attestation_data, dict):
             raise TypeError("Expected argument 'attestation_data' to be a dict")
         pulumi.set(__self__, "attestation_data", attestation_data)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -80,6 +83,14 @@ class GetStandardAssignmentResult:
         Additional data about assignment that has Attest effect
         """
         return pulumi.get(self, "attestation_data")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -170,6 +181,7 @@ class AwaitableGetStandardAssignmentResult(GetStandardAssignmentResult):
         return GetStandardAssignmentResult(
             assigned_standard=self.assigned_standard,
             attestation_data=self.attestation_data,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             effect=self.effect,
@@ -203,6 +215,7 @@ def get_standard_assignment(resource_id: Optional[str] = None,
     return AwaitableGetStandardAssignmentResult(
         assigned_standard=pulumi.get(__ret__, 'assigned_standard'),
         attestation_data=pulumi.get(__ret__, 'attestation_data'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         effect=pulumi.get(__ret__, 'effect'),
@@ -233,6 +246,7 @@ def get_standard_assignment_output(resource_id: Optional[pulumi.Input[str]] = No
     return __ret__.apply(lambda __response__: GetStandardAssignmentResult(
         assigned_standard=pulumi.get(__response__, 'assigned_standard'),
         attestation_data=pulumi.get(__response__, 'attestation_data'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         effect=pulumi.get(__response__, 'effect'),

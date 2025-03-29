@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A server security alert policy.
  *
- * Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+ * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
- * Other available API versions: 2017-03-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServerSecurityAlertPolicy.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies the UTC creation time of the policy.
      */
@@ -116,11 +120,13 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
             resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["disabledAlerts"] = undefined /*out*/;
             resourceInputs["emailAccountAdmins"] = undefined /*out*/;

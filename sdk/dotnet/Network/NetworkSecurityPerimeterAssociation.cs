@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// The NSP resource association resource
     /// 
-    /// Uses Azure REST API version 2024-06-01-preview.
+    /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityPerimeterAssociation")]
     public partial class NetworkSecurityPerimeterAssociation : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("accessMode")]
         public Output<string?> AccessMode { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Specifies if there are provisioning issues
@@ -97,9 +103,13 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeterAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NetworkSecurityPerimeterAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NetworkSecurityPerimeterAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NetworkSecurityPerimeterAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:NspAssociation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

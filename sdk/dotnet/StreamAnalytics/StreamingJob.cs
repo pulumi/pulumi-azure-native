@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.StreamAnalytics
     /// <summary>
     /// A streaming job object, containing all information associated with the named streaming job.
     /// 
-    /// Uses Azure REST API version 2020-03-01. In version 1.x of the Azure Native provider, it used API version 2016-03-01.
+    /// Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
     /// 
-    /// Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
+    /// Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:StreamingJob")]
     public partial class StreamingJob : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The cluster which streaming jobs will run on.
         /// </summary>

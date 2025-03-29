@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Represents a scaling plan definition.
  *
- * Uses Azure REST API version 2022-09-09. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+ * Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
  *
- * Other available API versions: 2021-02-01-preview, 2022-02-10-preview, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+ * Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ScalingPlan extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class ScalingPlan extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Description of scaling plan.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -67,13 +71,13 @@ export class ScalingPlan extends pulumi.CustomResource {
     public readonly hostPoolType!: pulumi.Output<string | undefined>;
     public readonly identity!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
     /**
-     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
@@ -93,7 +97,7 @@ export class ScalingPlan extends pulumi.CustomResource {
     public readonly schedules!: pulumi.Output<outputs.desktopvirtualization.ScalingScheduleResponse[] | undefined>;
     public readonly sku!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
@@ -142,12 +146,14 @@ export class ScalingPlan extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["exclusionTag"] = undefined /*out*/;
@@ -169,7 +175,7 @@ export class ScalingPlan extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20201110preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210114preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210201preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210309preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210401preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210712:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210903preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20220210preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20220401preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20220909:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20221014preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20230905:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20231004preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20231101preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20240116preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20240306preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20240403:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20240408preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20240808preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20241101preview:ScalingPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20201110preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210114preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210201preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210309preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210401preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210712:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210903preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20220210preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20220401preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20220909:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20221014preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20230707preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20230905:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20231004preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20231101preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20240116preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20240306preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20240403:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20240408preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20240808preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20241101preview:ScalingPlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScalingPlan.__pulumiType, name, resourceInputs, opts);
     }
@@ -201,7 +207,7 @@ export interface ScalingPlanArgs {
     hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.ScalingHostPoolType>;
     identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
-     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     kind?: pulumi.Input<string>;
     /**

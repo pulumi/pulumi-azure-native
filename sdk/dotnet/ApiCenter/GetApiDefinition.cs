@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// Returns details of the API definition.
         /// 
-        /// Uses Azure REST API version 2024-03-01.
+        /// Uses Azure REST API version 2024-03-15-preview.
         /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        /// Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetApiDefinitionResult> InvokeAsync(GetApiDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiDefinitionResult>("azure-native:apicenter:getApiDefinition", args ?? new GetApiDefinitionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// Returns details of the API definition.
         /// 
-        /// Uses Azure REST API version 2024-03-01.
+        /// Uses Azure REST API version 2024-03-15-preview.
         /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        /// Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetApiDefinitionResult> Invoke(GetApiDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiDefinitionResult>("azure-native:apicenter:getApiDefinition", args ?? new GetApiDefinitionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// Returns details of the API definition.
         /// 
-        /// Uses Azure REST API version 2024-03-01.
+        /// Uses Azure REST API version 2024-03-15-preview.
         /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        /// Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetApiDefinitionResult> Invoke(GetApiDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiDefinitionResult>("azure-native:apicenter:getApiDefinition", args ?? new GetApiDefinitionInvokeArgs(), options.WithDefaults());
@@ -136,6 +136,10 @@ namespace Pulumi.AzureNative.ApiCenter
     public sealed class GetApiDefinitionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// API definition description.
         /// </summary>
         public readonly string? Description;
@@ -166,6 +170,8 @@ namespace Pulumi.AzureNative.ApiCenter
 
         [OutputConstructor]
         private GetApiDefinitionResult(
+            string azureApiVersion,
+
             string? description,
 
             string id,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.ApiCenter
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Id = id;
             Name = name;

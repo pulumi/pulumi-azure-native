@@ -151,7 +151,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         """
         Class representing a read only following database.
 
-        Uses Azure REST API version 2021-06-01-preview.
+        Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,7 +173,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         """
         Class representing a read only following database.
 
-        Uses Azure REST API version 2021-06-01-preview.
+        Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ReadOnlyFollowingDatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -222,6 +222,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["attached_database_configuration_name"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["leader_cluster_resource_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principals_modification_kind"] = None
@@ -230,7 +231,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
             __props__.__dict__["statistics"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:synapse:ReadWriteDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReadOnlyFollowingDatabase, __self__).__init__(
             'azure-native:synapse:ReadOnlyFollowingDatabase',
@@ -255,6 +256,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         __props__ = ReadOnlyFollowingDatabaseArgs.__new__(ReadOnlyFollowingDatabaseArgs)
 
         __props__.__dict__["attached_database_configuration_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["hot_cache_period"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["leader_cluster_resource_id"] = None
@@ -275,6 +277,14 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         The name of the attached database configuration cluster
         """
         return pulumi.get(self, "attached_database_configuration_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hotCachePeriod")

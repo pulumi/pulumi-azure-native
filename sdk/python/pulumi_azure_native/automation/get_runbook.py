@@ -27,7 +27,10 @@ class GetRunbookResult:
     """
     Definition of the runbook type.
     """
-    def __init__(__self__, creation_time=None, description=None, draft=None, etag=None, id=None, job_count=None, last_modified_by=None, last_modified_time=None, location=None, log_activity_trace=None, log_progress=None, log_verbose=None, name=None, output_types=None, parameters=None, provisioning_state=None, publish_content_link=None, runbook_type=None, state=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, description=None, draft=None, etag=None, id=None, job_count=None, last_modified_by=None, last_modified_time=None, location=None, log_activity_trace=None, log_progress=None, log_verbose=None, name=None, output_types=None, parameters=None, provisioning_state=None, runbook_type=None, state=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -76,9 +79,6 @@ class GetRunbookResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if publish_content_link and not isinstance(publish_content_link, dict):
-            raise TypeError("Expected argument 'publish_content_link' to be a dict")
-        pulumi.set(__self__, "publish_content_link", publish_content_link)
         if runbook_type and not isinstance(runbook_type, str):
             raise TypeError("Expected argument 'runbook_type' to be a str")
         pulumi.set(__self__, "runbook_type", runbook_type)
@@ -91,6 +91,14 @@ class GetRunbookResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -221,14 +229,6 @@ class GetRunbookResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="publishContentLink")
-    def publish_content_link(self) -> Optional['outputs.ContentLinkResponse']:
-        """
-        Gets or sets the published runbook content link.
-        """
-        return pulumi.get(self, "publish_content_link")
-
-    @property
     @pulumi.getter(name="runbookType")
     def runbook_type(self) -> Optional[str]:
         """
@@ -267,6 +267,7 @@ class AwaitableGetRunbookResult(GetRunbookResult):
         if False:
             yield self
         return GetRunbookResult(
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             description=self.description,
             draft=self.draft,
@@ -283,7 +284,6 @@ class AwaitableGetRunbookResult(GetRunbookResult):
             output_types=self.output_types,
             parameters=self.parameters,
             provisioning_state=self.provisioning_state,
-            publish_content_link=self.publish_content_link,
             runbook_type=self.runbook_type,
             state=self.state,
             tags=self.tags,
@@ -297,9 +297,9 @@ def get_runbook(automation_account_name: Optional[str] = None,
     """
     Retrieve the runbook identified by runbook name.
 
-    Uses Azure REST API version 2022-08-08.
+    Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2015-10-31, 2018-06-30, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -314,6 +314,7 @@ def get_runbook(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getRunbook', __args__, opts=opts, typ=GetRunbookResult).value
 
     return AwaitableGetRunbookResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         draft=pulumi.get(__ret__, 'draft'),
@@ -330,7 +331,6 @@ def get_runbook(automation_account_name: Optional[str] = None,
         output_types=pulumi.get(__ret__, 'output_types'),
         parameters=pulumi.get(__ret__, 'parameters'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        publish_content_link=pulumi.get(__ret__, 'publish_content_link'),
         runbook_type=pulumi.get(__ret__, 'runbook_type'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -342,9 +342,9 @@ def get_runbook_output(automation_account_name: Optional[pulumi.Input[str]] = No
     """
     Retrieve the runbook identified by runbook name.
 
-    Uses Azure REST API version 2022-08-08.
+    Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2015-10-31, 2018-06-30, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -358,6 +358,7 @@ def get_runbook_output(automation_account_name: Optional[pulumi.Input[str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getRunbook', __args__, opts=opts, typ=GetRunbookResult)
     return __ret__.apply(lambda __response__: GetRunbookResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         draft=pulumi.get(__response__, 'draft'),
@@ -374,7 +375,6 @@ def get_runbook_output(automation_account_name: Optional[pulumi.Input[str]] = No
         output_types=pulumi.get(__response__, 'output_types'),
         parameters=pulumi.get(__response__, 'parameters'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        publish_content_link=pulumi.get(__response__, 'publish_content_link'),
         runbook_type=pulumi.get(__response__, 'runbook_type'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags'),

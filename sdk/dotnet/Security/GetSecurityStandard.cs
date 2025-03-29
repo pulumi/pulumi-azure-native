@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly ImmutableArray<Outputs.PartialAssessmentPropertiesResponse> Assessments;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// List of all standard supported clouds.
         /// </summary>
         public readonly ImmutableArray<string> CloudProviders;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.Security
         private GetSecurityStandardResult(
             ImmutableArray<Outputs.PartialAssessmentPropertiesResponse> assessments,
 
+            string azureApiVersion,
+
             ImmutableArray<string> cloudProviders,
 
             string? description,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.Security
             string type)
         {
             Assessments = assessments;
+            AzureApiVersion = azureApiVersion;
             CloudProviders = cloudProviders;
             Description = description;
             DisplayName = displayName;

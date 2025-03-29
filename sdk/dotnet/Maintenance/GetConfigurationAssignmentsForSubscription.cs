@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// Get configuration assignment for resource.
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetConfigurationAssignmentsForSubscriptionResult> InvokeAsync(GetConfigurationAssignmentsForSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentsForSubscriptionResult>("azure-native:maintenance:getConfigurationAssignmentsForSubscription", args ?? new GetConfigurationAssignmentsForSubscriptionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// Get configuration assignment for resource.
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConfigurationAssignmentsForSubscriptionResult> Invoke(GetConfigurationAssignmentsForSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentsForSubscriptionResult>("azure-native:maintenance:getConfigurationAssignmentsForSubscription", args ?? new GetConfigurationAssignmentsForSubscriptionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// Get configuration assignment for resource.
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConfigurationAssignmentsForSubscriptionResult> Invoke(GetConfigurationAssignmentsForSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentsForSubscriptionResult>("azure-native:maintenance:getConfigurationAssignmentsForSubscription", args ?? new GetConfigurationAssignmentsForSubscriptionInvokeArgs(), options.WithDefaults());
@@ -76,6 +76,10 @@ namespace Pulumi.AzureNative.Maintenance
     public sealed class GetConfigurationAssignmentsForSubscriptionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Properties of the configuration assignment
         /// </summary>
         public readonly Outputs.ConfigurationAssignmentFilterPropertiesResponse? Filter;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNative.Maintenance
 
         [OutputConstructor]
         private GetConfigurationAssignmentsForSubscriptionResult(
+            string azureApiVersion,
+
             Outputs.ConfigurationAssignmentFilterPropertiesResponse? filter,
 
             string id,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.Maintenance
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Filter = filter;
             Id = id;
             Location = location;

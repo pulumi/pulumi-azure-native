@@ -19,19 +19,6 @@ utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./
 // Export enums:
 export * from "../types/enums/azureplaywrightservice";
 
-// Export sub-modules:
-import * as v20231001preview from "./v20231001preview";
-import * as v20240201preview from "./v20240201preview";
-import * as v20240801preview from "./v20240801preview";
-import * as v20241201 from "./v20241201";
-
-export {
-    v20231001preview,
-    v20240201preview,
-    v20240801preview,
-    v20241201,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

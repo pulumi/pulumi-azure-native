@@ -27,10 +27,13 @@ class GetAppResult:
     """
     The IoT Central application.
     """
-    def __init__(__self__, application_id=None, display_name=None, id=None, identity=None, location=None, name=None, sku=None, state=None, subdomain=None, tags=None, template=None, type=None):
+    def __init__(__self__, application_id=None, azure_api_version=None, display_name=None, id=None, identity=None, location=None, name=None, network_rule_sets=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, state=None, subdomain=None, system_data=None, tags=None, template=None, type=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -46,6 +49,18 @@ class GetAppResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_rule_sets and not isinstance(network_rule_sets, dict):
+            raise TypeError("Expected argument 'network_rule_sets' to be a dict")
+        pulumi.set(__self__, "network_rule_sets", network_rule_sets)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -55,6 +70,9 @@ class GetAppResult:
         if subdomain and not isinstance(subdomain, str):
             raise TypeError("Expected argument 'subdomain' to be a str")
         pulumi.set(__self__, "subdomain", subdomain)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -74,6 +92,14 @@ class GetAppResult:
         return pulumi.get(self, "application_id")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
         """
@@ -85,7 +111,7 @@ class GetAppResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The ARM resource identifier.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -101,7 +127,7 @@ class GetAppResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -109,9 +135,41 @@ class GetAppResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The ARM resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkRuleSets")
+    def network_rule_sets(self) -> Optional['outputs.NetworkRuleSetsResponse']:
+        """
+        Network Rule Set Properties of this IoT Central application.
+        """
+        return pulumi.get(self, "network_rule_sets")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        Private endpoint connections created on this IoT Central application.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the application.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether requests from the public network are allowed.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter
@@ -138,10 +196,18 @@ class GetAppResult:
         return pulumi.get(self, "subdomain")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        The resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -157,7 +223,7 @@ class GetAppResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -169,14 +235,20 @@ class AwaitableGetAppResult(GetAppResult):
             yield self
         return GetAppResult(
             application_id=self.application_id,
+            azure_api_version=self.azure_api_version,
             display_name=self.display_name,
             id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
+            network_rule_sets=self.network_rule_sets,
+            private_endpoint_connections=self.private_endpoint_connections,
+            provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             sku=self.sku,
             state=self.state,
             subdomain=self.subdomain,
+            system_data=self.system_data,
             tags=self.tags,
             template=self.template,
             type=self.type)
@@ -188,9 +260,9 @@ def get_app(resource_group_name: Optional[str] = None,
     """
     Get the metadata of an IoT Central application.
 
-    Uses Azure REST API version 2021-06-01.
+    Uses Azure REST API version 2021-11-01-preview.
 
-    Other available API versions: 2021-11-01-preview.
+    Other available API versions: 2021-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotcentral [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.
@@ -204,14 +276,20 @@ def get_app(resource_group_name: Optional[str] = None,
 
     return AwaitableGetAppResult(
         application_id=pulumi.get(__ret__, 'application_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        network_rule_sets=pulumi.get(__ret__, 'network_rule_sets'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
         sku=pulumi.get(__ret__, 'sku'),
         state=pulumi.get(__ret__, 'state'),
         subdomain=pulumi.get(__ret__, 'subdomain'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         template=pulumi.get(__ret__, 'template'),
         type=pulumi.get(__ret__, 'type'))
@@ -221,9 +299,9 @@ def get_app_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Get the metadata of an IoT Central application.
 
-    Uses Azure REST API version 2021-06-01.
+    Uses Azure REST API version 2021-11-01-preview.
 
-    Other available API versions: 2021-11-01-preview.
+    Other available API versions: 2021-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotcentral [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.
@@ -236,14 +314,20 @@ def get_app_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotcentral:getApp', __args__, opts=opts, typ=GetAppResult)
     return __ret__.apply(lambda __response__: GetAppResult(
         application_id=pulumi.get(__response__, 'application_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        network_rule_sets=pulumi.get(__response__, 'network_rule_sets'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
         sku=pulumi.get(__response__, 'sku'),
         state=pulumi.get(__response__, 'state'),
         subdomain=pulumi.get(__response__, 'subdomain'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         template=pulumi.get(__response__, 'template'),
         type=pulumi.get(__response__, 'type')))

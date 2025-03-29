@@ -27,10 +27,13 @@ class GetAuthorizationResult:
     """
     Authorization contract.
     """
-    def __init__(__self__, authorization_type=None, error=None, id=None, name=None, o_auth2_grant_type=None, parameters=None, status=None, type=None):
+    def __init__(__self__, authorization_type=None, azure_api_version=None, error=None, id=None, name=None, o_auth2_grant_type=None, parameters=None, status=None, type=None):
         if authorization_type and not isinstance(authorization_type, str):
             raise TypeError("Expected argument 'authorization_type' to be a str")
         pulumi.set(__self__, "authorization_type", authorization_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if error and not isinstance(error, dict):
             raise TypeError("Expected argument 'error' to be a dict")
         pulumi.set(__self__, "error", error)
@@ -60,6 +63,14 @@ class GetAuthorizationResult:
         Authorization type options
         """
         return pulumi.get(self, "authorization_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -125,6 +136,7 @@ class AwaitableGetAuthorizationResult(GetAuthorizationResult):
             yield self
         return GetAuthorizationResult(
             authorization_type=self.authorization_type,
+            azure_api_version=self.azure_api_version,
             error=self.error,
             id=self.id,
             name=self.name,
@@ -142,9 +154,9 @@ def get_authorization(authorization_id: Optional[str] = None,
     """
     Gets the details of the authorization specified by its identifier.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str authorization_id: Identifier of the authorization.
@@ -162,6 +174,7 @@ def get_authorization(authorization_id: Optional[str] = None,
 
     return AwaitableGetAuthorizationResult(
         authorization_type=pulumi.get(__ret__, 'authorization_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         error=pulumi.get(__ret__, 'error'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -177,9 +190,9 @@ def get_authorization_output(authorization_id: Optional[pulumi.Input[str]] = Non
     """
     Gets the details of the authorization specified by its identifier.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str authorization_id: Identifier of the authorization.
@@ -196,6 +209,7 @@ def get_authorization_output(authorization_id: Optional[pulumi.Input[str]] = Non
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getAuthorization', __args__, opts=opts, typ=GetAuthorizationResult)
     return __ret__.apply(lambda __response__: GetAuthorizationResult(
         authorization_type=pulumi.get(__response__, 'authorization_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         error=pulumi.get(__response__, 'error'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

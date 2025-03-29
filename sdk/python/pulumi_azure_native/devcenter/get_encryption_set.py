@@ -27,7 +27,10 @@ class GetEncryptionSetResult:
     """
     Represents a devcenter encryption set resource.
     """
-    def __init__(__self__, devbox_disks_encryption_enable_status=None, id=None, identity=None, key_encryption_key_url=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, devbox_disks_encryption_enable_status=None, id=None, identity=None, key_encryption_key_url=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if devbox_disks_encryption_enable_status and not isinstance(devbox_disks_encryption_enable_status, str):
             raise TypeError("Expected argument 'devbox_disks_encryption_enable_status' to be a str")
         pulumi.set(__self__, "devbox_disks_encryption_enable_status", devbox_disks_encryption_enable_status)
@@ -58,6 +61,14 @@ class GetEncryptionSetResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="devboxDisksEncryptionEnableStatus")
@@ -146,6 +157,7 @@ class AwaitableGetEncryptionSetResult(GetEncryptionSetResult):
         if False:
             yield self
         return GetEncryptionSetResult(
+            azure_api_version=self.azure_api_version,
             devbox_disks_encryption_enable_status=self.devbox_disks_encryption_enable_status,
             id=self.id,
             identity=self.identity,
@@ -165,9 +177,9 @@ def get_encryption_set(dev_center_name: Optional[str] = None,
     """
     Gets a devcenter encryption set.
 
-    Uses Azure REST API version 2024-05-01-preview.
+    Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -182,6 +194,7 @@ def get_encryption_set(dev_center_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter:getEncryptionSet', __args__, opts=opts, typ=GetEncryptionSetResult).value
 
     return AwaitableGetEncryptionSetResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         devbox_disks_encryption_enable_status=pulumi.get(__ret__, 'devbox_disks_encryption_enable_status'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -199,9 +212,9 @@ def get_encryption_set_output(dev_center_name: Optional[pulumi.Input[str]] = Non
     """
     Gets a devcenter encryption set.
 
-    Uses Azure REST API version 2024-05-01-preview.
+    Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -215,6 +228,7 @@ def get_encryption_set_output(dev_center_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getEncryptionSet', __args__, opts=opts, typ=GetEncryptionSetResult)
     return __ret__.apply(lambda __response__: GetEncryptionSetResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         devbox_disks_encryption_enable_status=pulumi.get(__response__, 'devbox_disks_encryption_enable_status'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

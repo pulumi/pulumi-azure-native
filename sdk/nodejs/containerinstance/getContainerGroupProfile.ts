@@ -36,6 +36,10 @@ export interface GetContainerGroupProfileArgs {
  */
 export interface GetContainerGroupProfileResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The properties for confidential container group
      */
     readonly confidentialComputeProperties?: outputs.containerinstance.ConfidentialComputePropertiesResponse;

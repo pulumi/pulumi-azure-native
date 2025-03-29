@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Get a LocalRulestackResource
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2025-02-06-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetLocalRulestackResult> InvokeAsync(GetLocalRulestackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalRulestackResult>("azure-native:cloudngfw:getLocalRulestack", args ?? new GetLocalRulestackArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Get a LocalRulestackResource
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2025-02-06-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLocalRulestackResult> Invoke(GetLocalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackResult>("azure-native:cloudngfw:getLocalRulestack", args ?? new GetLocalRulestackInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Get a LocalRulestackResource
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2025-02-06-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLocalRulestackResult> Invoke(GetLocalRulestackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackResult>("azure-native:cloudngfw:getLocalRulestack", args ?? new GetLocalRulestackInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// subscription scope of global rulestack
         /// </summary>
         public readonly ImmutableArray<string> AssociatedSubscriptions;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Mode for default rules creation
         /// </summary>
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         private GetLocalRulestackResult(
             ImmutableArray<string> associatedSubscriptions,
 
+            string azureApiVersion,
+
             string? defaultMode,
 
             string? description,
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNative.Cloudngfw
             string type)
         {
             AssociatedSubscriptions = associatedSubscriptions;
+            AzureApiVersion = azureApiVersion;
             DefaultMode = defaultMode;
             Description = description;
             Id = id;

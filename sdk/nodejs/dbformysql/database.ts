@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Represents a Database.
  *
- * Uses Azure REST API version 2022-01-01. In version 1.x of the Azure Native provider, it used API version 2017-12-01.
+ * Uses Azure REST API version 2023-12-30. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
  *
- * Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+ * Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class Database extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The charset of the database.
      */
     public readonly charset!: pulumi.Output<string | undefined>;
@@ -54,7 +58,7 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.dbformysql.SystemDataResponse>;
     /**
@@ -84,10 +88,12 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["charset"] = undefined /*out*/;
             resourceInputs["collation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -95,7 +101,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200701preview:Database" }, { type: "azure-native:dbformysql/v20200701privatepreview:Database" }, { type: "azure-native:dbformysql/v20210501:Database" }, { type: "azure-native:dbformysql/v20210501preview:Database" }, { type: "azure-native:dbformysql/v20211201preview:Database" }, { type: "azure-native:dbformysql/v20220101:Database" }, { type: "azure-native:dbformysql/v20230601preview:Database" }, { type: "azure-native:dbformysql/v20230630:Database" }, { type: "azure-native:dbformysql/v20231230:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:Database" }, { type: "azure-native:dbformysql/v20200701preview:Database" }, { type: "azure-native:dbformysql/v20200701privatepreview:Database" }, { type: "azure-native:dbformysql/v20210501:Database" }, { type: "azure-native:dbformysql/v20210501preview:Database" }, { type: "azure-native:dbformysql/v20211201preview:Database" }, { type: "azure-native:dbformysql/v20220101:Database" }, { type: "azure-native:dbformysql/v20230601preview:Database" }, { type: "azure-native:dbformysql/v20230630:Database" }, { type: "azure-native:dbformysql/v20231230:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, resourceInputs, opts);
     }

@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public static class GetLogicalNetwork
     {
         /// <summary>
-        /// The logical network resource definition.
+        /// The operation to get a logical network.
         /// 
-        /// Uses Azure REST API version 2023-09-01-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetLogicalNetworkResult> InvokeAsync(GetLogicalNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogicalNetworkResult>("azure-native:azurestackhci:getLogicalNetwork", args ?? new GetLogicalNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The logical network resource definition.
+        /// The operation to get a logical network.
         /// 
-        /// Uses Azure REST API version 2023-09-01-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLogicalNetworkResult> Invoke(GetLogicalNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogicalNetworkResult>("azure-native:azurestackhci:getLogicalNetwork", args ?? new GetLogicalNetworkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The logical network resource definition.
+        /// The operation to get a logical network.
         /// 
-        /// Uses Azure REST API version 2023-09-01-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLogicalNetworkResult> Invoke(GetLogicalNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogicalNetworkResult>("azure-native:azurestackhci:getLogicalNetwork", args ?? new GetLogicalNetworkInvokeArgs(), options.WithDefaults());
@@ -88,15 +88,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetLogicalNetworkResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
         /// </summary>
-        public readonly Outputs.LogicalNetworkPropertiesResponseDhcpOptions? DhcpOptions;
+        public readonly Outputs.LogicalNetworkPropertiesDhcpOptionsResponse? DhcpOptions;
         /// <summary>
         /// The extendedLocation of the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -138,7 +142,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetLogicalNetworkResult(
-            Outputs.LogicalNetworkPropertiesResponseDhcpOptions? dhcpOptions,
+            string azureApiVersion,
+
+            Outputs.LogicalNetworkPropertiesDhcpOptionsResponse? dhcpOptions,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string? vmSwitchName)
         {
+            AzureApiVersion = azureApiVersion;
             DhcpOptions = dhcpOptions;
             ExtendedLocation = extendedLocation;
             Id = id;

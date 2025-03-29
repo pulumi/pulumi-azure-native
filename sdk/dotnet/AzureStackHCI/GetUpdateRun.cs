@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Get the Update run for a specified update
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetUpdateRunResult> InvokeAsync(GetUpdateRunArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUpdateRunResult>("azure-native:azurestackhci:getUpdateRun", args ?? new GetUpdateRunArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Get the Update run for a specified update
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetUpdateRunResult> Invoke(GetUpdateRunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateRunResult>("azure-native:azurestackhci:getUpdateRun", args ?? new GetUpdateRunInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Get the Update run for a specified update
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetUpdateRunResult> Invoke(GetUpdateRunInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateRunResult>("azure-native:azurestackhci:getUpdateRun", args ?? new GetUpdateRunInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetUpdateRunResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// More detailed description of the step.
         /// </summary>
         public readonly string? Description;
@@ -127,6 +131,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Error message, specified if the step is in a failed state.
         /// </summary>
         public readonly string? ErrorMessage;
+        /// <summary>
+        /// Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
+        /// </summary>
+        public readonly string? ExpectedExecutionTime;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -182,6 +190,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetUpdateRunResult(
+            string azureApiVersion,
+
             string? description,
 
             string? duration,
@@ -189,6 +199,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
             string? endTimeUtc,
 
             string? errorMessage,
+
+            string? expectedExecutionTime,
 
             string id,
 
@@ -216,10 +228,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Duration = duration;
             EndTimeUtc = endTimeUtc;
             ErrorMessage = errorMessage;
+            ExpectedExecutionTime = expectedExecutionTime;
             Id = id;
             LastUpdatedTime = lastUpdatedTime;
             LastUpdatedTimeUtc = lastUpdatedTimeUtc;

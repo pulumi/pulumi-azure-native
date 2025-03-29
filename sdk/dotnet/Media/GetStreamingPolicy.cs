@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Media
         /// Get the details of a Streaming Policy in the Media Services account
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStreamingPolicyResult> InvokeAsync(GetStreamingPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamingPolicyResult>("azure-native:media:getStreamingPolicy", args ?? new GetStreamingPolicyArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Media
         /// Get the details of a Streaming Policy in the Media Services account
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStreamingPolicyResult> Invoke(GetStreamingPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingPolicyResult>("azure-native:media:getStreamingPolicy", args ?? new GetStreamingPolicyInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Media
         /// Get the details of a Streaming Policy in the Media Services account
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStreamingPolicyResult> Invoke(GetStreamingPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingPolicyResult>("azure-native:media:getStreamingPolicy", args ?? new GetStreamingPolicyInvokeArgs(), options.WithDefaults());
@@ -94,6 +100,10 @@ namespace Pulumi.AzureNative.Media
     public sealed class GetStreamingPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Configuration of CommonEncryptionCbcs
         /// </summary>
         public readonly Outputs.CommonEncryptionCbcsResponse? CommonEncryptionCbcs;
@@ -136,6 +146,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetStreamingPolicyResult(
+            string azureApiVersion,
+
             Outputs.CommonEncryptionCbcsResponse? commonEncryptionCbcs,
 
             Outputs.CommonEncryptionCencResponse? commonEncryptionCenc,
@@ -156,6 +168,7 @@ namespace Pulumi.AzureNative.Media
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CommonEncryptionCbcs = commonEncryptionCbcs;
             CommonEncryptionCenc = commonEncryptionCenc;
             Created = created;

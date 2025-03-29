@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// Gets a backup policy belonging to a backup vault
         /// 
-        /// Uses Azure REST API version 2023-01-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01, 2025-02-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:dataprotection:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// Gets a backup policy belonging to a backup vault
         /// 
-        /// Uses Azure REST API version 2023-01-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01, 2025-02-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:dataprotection:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// Gets a backup policy belonging to a backup vault
         /// 
-        /// Uses Azure REST API version 2023-01-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01, 2025-02-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:dataprotection:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DataProtection
     public sealed class GetBackupPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id represents the complete path to the resource.
         /// </summary>
         public readonly string Id;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.DataProtection
 
         [OutputConstructor]
         private GetBackupPolicyResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.DataProtection
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

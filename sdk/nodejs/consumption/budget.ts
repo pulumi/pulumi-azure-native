@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A budget resource.
  *
- * Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2019-10-01.
+ * Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
- * Other available API versions: 2023-11-01, 2024-08-01.
+ * Other available API versions: 2023-05-01, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native consumption [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Budget extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class Budget extends pulumi.CustomResource {
      * The total amount of cost to track with the budget
      */
     public readonly amount!: pulumi.Output<number>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The category of the budget, whether the budget tracks cost or usage.
      */
@@ -121,12 +125,14 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["timeGrain"] = args ? args.timeGrain : undefined;
             resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentSpend"] = undefined /*out*/;
             resourceInputs["forecastSpend"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["amount"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["category"] = undefined /*out*/;
             resourceInputs["currentSpend"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;

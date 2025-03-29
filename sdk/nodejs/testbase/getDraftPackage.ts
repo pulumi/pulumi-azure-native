@@ -49,6 +49,10 @@ export interface GetDraftPackageResult {
      */
     readonly applicationName?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Comments added by user.
      */
     readonly comments?: string;

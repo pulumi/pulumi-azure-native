@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets a managed instance.
  *
- * Uses Azure REST API version 2021-11-01.
+ * Uses Azure REST API version 2023-08-01.
  *
- * Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2015-05-01-preview, 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagedInstance(args: GetManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,25 +47,53 @@ export interface GetManagedInstanceResult {
      */
     readonly administratorLogin?: string;
     /**
-     * The Azure Active Directory administrator of the server.
+     * The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
      */
     readonly administrators?: outputs.sql.ManagedInstanceExternalAdministratorResponse;
+    /**
+     * The managed instance's authentication metadata lookup mode.
+     */
+    readonly authenticationMetadata?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Collation of the managed instance.
      */
     readonly collation?: string;
     /**
+     * Specifies the point in time (ISO8601 format) of the Managed Instance creation.
+     */
+    readonly createTime: string;
+    /**
      * The storage account type used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
      */
     readonly currentBackupStorageRedundancy: string;
+    /**
+     * Specifies the internal format of instance databases specific to the SQL engine version.
+     */
+    readonly databaseFormat?: string;
     /**
      * The Dns Zone that the managed instance is in.
      */
     readonly dnsZone: string;
     /**
+     * Status of external governance.
+     */
+    readonly externalGovernanceStatus: string;
+    /**
      * The fully qualified domain name of the managed instance.
      */
     readonly fullyQualifiedDomainName: string;
+    /**
+     * Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
+     */
+    readonly hybridSecondaryUsage?: string;
+    /**
+     * Hybrid secondary usage detected. Possible values are 'Active' (customer does not meet the requirements to use the secondary as Passive DR) and 'Passive' (customer meets the requirements to use the secondary as Passive DR).
+     */
+    readonly hybridSecondaryUsageDetected: string;
     /**
      * Resource ID.
      */
@@ -78,6 +106,10 @@ export interface GetManagedInstanceResult {
      * The Id of the instance pool this managed server belongs to.
      */
     readonly instancePoolId?: string;
+    /**
+     * Whether or not this is a GPv2 variant of General Purpose edition.
+     */
+    readonly isGeneralPurposeV2?: boolean;
     /**
      * A CMK URI of the key to use for encryption.
      */
@@ -103,6 +135,10 @@ export interface GetManagedInstanceResult {
      */
     readonly name: string;
     /**
+     * Pricing model of Managed Instance.
+     */
+    readonly pricingModel?: string;
+    /**
      * The resource id of a user assigned identity to be used by default.
      */
     readonly primaryUserAssignedIdentityId?: string;
@@ -110,6 +146,9 @@ export interface GetManagedInstanceResult {
      * List of private endpoint connections on a managed instance.
      */
     readonly privateEndpointConnections: outputs.sql.ManagedInstancePecPropertyResponse[];
+    /**
+     * Provisioning state of managed instance.
+     */
     readonly provisioningState: string;
     /**
      * Connection type used for connecting to the instance.
@@ -136,9 +175,17 @@ export interface GetManagedInstanceResult {
      */
     readonly state: string;
     /**
+     * Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+     */
+    readonly storageIOps?: number;
+    /**
      * Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
      */
     readonly storageSizeInGB?: number;
+    /**
+     * Storage throughput MBps parameter is not supported in the instance create/update operation.
+     */
+    readonly storageThroughputMBps?: number;
     /**
      * Subnet resource ID for the managed instance.
      */
@@ -165,6 +212,10 @@ export interface GetManagedInstanceResult {
      */
     readonly vCores?: number;
     /**
+     * Virtual cluster resource id for the Managed Instance.
+     */
+    readonly virtualClusterId: string;
+    /**
      * Whether or not the multi-az is enabled.
      */
     readonly zoneRedundant?: boolean;
@@ -172,9 +223,9 @@ export interface GetManagedInstanceResult {
 /**
  * Gets a managed instance.
  *
- * Uses Azure REST API version 2021-11-01.
+ * Uses Azure REST API version 2023-08-01.
  *
- * Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2015-05-01-preview, 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

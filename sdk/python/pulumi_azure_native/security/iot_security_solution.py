@@ -275,9 +275,9 @@ class IotSecuritySolution(pulumi.CustomResource):
         """
         IoT Security solution configuration and resource information.
 
-        Uses Azure REST API version 2019-08-01. In version 1.x of the Azure Native provider, it used API version 2019-08-01.
+        Uses Azure REST API version 2019-08-01. In version 2.x of the Azure Native provider, it used API version 2019-08-01.
 
-        Other available API versions: 2017-08-01-preview.
+        Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,9 +305,9 @@ class IotSecuritySolution(pulumi.CustomResource):
         """
         IoT Security solution configuration and resource information.
 
-        Uses Azure REST API version 2019-08-01. In version 1.x of the Azure Native provider, it used API version 2019-08-01.
+        Uses Azure REST API version 2019-08-01. In version 2.x of the Azure Native provider, it used API version 2019-08-01.
 
-        Other available API versions: 2017-08-01-preview.
+        Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param IotSecuritySolutionArgs args: The arguments to use to populate this resource's properties.
@@ -372,6 +372,7 @@ class IotSecuritySolution(pulumi.CustomResource):
             __props__.__dict__["user_defined_resources"] = user_defined_resources
             __props__.__dict__["workspace"] = workspace
             __props__.__dict__["auto_discovered_resources"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -401,6 +402,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
         __props__.__dict__["additional_workspaces"] = None
         __props__.__dict__["auto_discovered_resources"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["disabled_data_sources"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["export"] = None
@@ -432,6 +434,14 @@ class IotSecuritySolution(pulumi.CustomResource):
         List of resources that were automatically discovered as relevant to the security solution.
         """
         return pulumi.get(self, "auto_discovered_resources")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="disabledDataSources")

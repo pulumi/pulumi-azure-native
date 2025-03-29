@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A gateway resource.
  *
- * Uses Azure REST API version 2023-07-07-preview.
+ * Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
  */
 export class ManagedGateway extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class ManagedGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagedGateway.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -76,11 +80,13 @@ export class ManagedGateway extends pulumi.CustomResource {
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
             resourceInputs["managedGatewayName"] = args ? args.managedGatewayName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

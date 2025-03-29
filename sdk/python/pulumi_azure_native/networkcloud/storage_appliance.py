@@ -196,9 +196,9 @@ class StorageAppliance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+        Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,9 +220,9 @@ class StorageAppliance(pulumi.CustomResource):
                  args: StorageApplianceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+        Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param StorageApplianceArgs args: The arguments to use to populate this resource's properties.
@@ -282,18 +282,24 @@ class StorageAppliance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_appliance_sku_id'")
             __props__.__dict__["storage_appliance_sku_id"] = storage_appliance_sku_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["capacity"] = None
             __props__.__dict__["capacity_used"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["detailed_status"] = None
             __props__.__dict__["detailed_status_message"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["management_ipv4_address"] = None
+            __props__.__dict__["manufacturer"] = None
+            __props__.__dict__["model"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["remote_vendor_management_feature"] = None
             __props__.__dict__["remote_vendor_management_status"] = None
+            __props__.__dict__["secret_rotation_status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:StorageAppliance"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:StorageAppliance"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:StorageAppliance"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:StorageAppliance"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:StorageAppliance"), pulumi.Alias(type_="azure-native:networkcloud/v20250201:StorageAppliance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAppliance, __self__).__init__(
@@ -319,25 +325,31 @@ class StorageAppliance(pulumi.CustomResource):
         __props__ = StorageApplianceArgs.__new__(StorageApplianceArgs)
 
         __props__.__dict__["administrator_credentials"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["capacity"] = None
         __props__.__dict__["capacity_used"] = None
         __props__.__dict__["cluster_id"] = None
         __props__.__dict__["detailed_status"] = None
         __props__.__dict__["detailed_status_message"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["management_ipv4_address"] = None
+        __props__.__dict__["manufacturer"] = None
+        __props__.__dict__["model"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["rack_id"] = None
         __props__.__dict__["rack_slot"] = None
         __props__.__dict__["remote_vendor_management_feature"] = None
         __props__.__dict__["remote_vendor_management_status"] = None
+        __props__.__dict__["secret_rotation_status"] = None
         __props__.__dict__["serial_number"] = None
         __props__.__dict__["storage_appliance_sku_id"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return StorageAppliance(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -349,10 +361,18 @@ class StorageAppliance(pulumi.CustomResource):
         return pulumi.get(self, "administrator_credentials")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def capacity(self) -> pulumi.Output[float]:
         """
-        The total capacity of the storage appliance.
+        The total capacity of the storage appliance. Measured in GiB.
         """
         return pulumi.get(self, "capacity")
 
@@ -368,7 +388,7 @@ class StorageAppliance(pulumi.CustomResource):
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[str]:
         """
-        The resource ID of the cluster this storage appliance is associated with.
+        The resource ID of the cluster this storage appliance is associated with. Measured in GiB.
         """
         return pulumi.get(self, "cluster_id")
 
@@ -387,6 +407,14 @@ class StorageAppliance(pulumi.CustomResource):
         The descriptive message about the current detailed status.
         """
         return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -411,6 +439,22 @@ class StorageAppliance(pulumi.CustomResource):
         The endpoint for the management interface of the storage appliance.
         """
         return pulumi.get(self, "management_ipv4_address")
+
+    @property
+    @pulumi.getter
+    def manufacturer(self) -> pulumi.Output[str]:
+        """
+        The manufacturer of the storage appliance.
+        """
+        return pulumi.get(self, "manufacturer")
+
+    @property
+    @pulumi.getter
+    def model(self) -> pulumi.Output[str]:
+        """
+        The model of the storage appliance.
+        """
+        return pulumi.get(self, "model")
 
     @property
     @pulumi.getter
@@ -461,6 +505,14 @@ class StorageAppliance(pulumi.CustomResource):
         return pulumi.get(self, "remote_vendor_management_status")
 
     @property
+    @pulumi.getter(name="secretRotationStatus")
+    def secret_rotation_status(self) -> pulumi.Output[Sequence['outputs.SecretRotationStatusResponse']]:
+        """
+        The list of statuses that represent secret rotation activity.
+        """
+        return pulumi.get(self, "secret_rotation_status")
+
+    @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> pulumi.Output[str]:
         """
@@ -499,4 +551,12 @@ class StorageAppliance(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Output[str]:
+        """
+        The version of the storage appliance.
+        """
+        return pulumi.get(self, "version")
 

@@ -17,29 +17,43 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.Outputs
     public sealed class OverviewStatusResponse
     {
         /// <summary>
-        /// The count of all failed full automation control.
+        /// The count of all failed control.
         /// </summary>
-        public readonly int? FailedCount;
+        public readonly int FailedCount;
         /// <summary>
         /// The count of all manual control.
         /// </summary>
-        public readonly int? ManualCount;
+        public readonly int ManualCount;
         /// <summary>
-        /// The count of all passed full automation control.
+        /// The count of all not applicable control.
         /// </summary>
-        public readonly int? PassedCount;
+        public readonly int NotApplicableCount;
+        /// <summary>
+        /// The count of all passed control.
+        /// </summary>
+        public readonly int PassedCount;
+        /// <summary>
+        /// The count of all pending for approval control.
+        /// </summary>
+        public readonly int PendingCount;
 
         [OutputConstructor]
         private OverviewStatusResponse(
-            int? failedCount,
+            int failedCount,
 
-            int? manualCount,
+            int manualCount,
 
-            int? passedCount)
+            int notApplicableCount,
+
+            int passedCount,
+
+            int pendingCount)
         {
             FailedCount = failedCount;
             ManualCount = manualCount;
+            NotApplicableCount = notApplicableCount;
             PassedCount = passedCount;
+            PendingCount = pendingCount;
         }
     }
 }

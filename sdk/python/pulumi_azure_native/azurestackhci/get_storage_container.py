@@ -27,7 +27,10 @@ class GetStorageContainerResult:
     """
     The storage container resource definition.
     """
-    def __init__(__self__, extended_location=None, id=None, location=None, name=None, path=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, extended_location=None, id=None, location=None, name=None, path=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -60,6 +63,14 @@ class GetStorageContainerResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
         """
@@ -71,7 +82,7 @@ class GetStorageContainerResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -93,7 +104,7 @@ class GetStorageContainerResult:
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[str]:
+    def path(self) -> str:
         """
         Path of the storage container on the disk
         """
@@ -146,6 +157,7 @@ class AwaitableGetStorageContainerResult(GetStorageContainerResult):
         if False:
             yield self
         return GetStorageContainerResult(
+            azure_api_version=self.azure_api_version,
             extended_location=self.extended_location,
             id=self.id,
             location=self.location,
@@ -164,9 +176,9 @@ def get_storage_container(resource_group_name: Optional[str] = None,
     """
     Gets a storage container
 
-    Uses Azure REST API version 2022-12-15-preview.
+    Uses Azure REST API version 2025-02-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+    Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -179,6 +191,7 @@ def get_storage_container(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci:getStorageContainer', __args__, opts=opts, typ=GetStorageContainerResult).value
 
     return AwaitableGetStorageContainerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -195,9 +208,9 @@ def get_storage_container_output(resource_group_name: Optional[pulumi.Input[str]
     """
     Gets a storage container
 
-    Uses Azure REST API version 2022-12-15-preview.
+    Uses Azure REST API version 2025-02-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+    Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -209,6 +222,7 @@ def get_storage_container_output(resource_group_name: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getStorageContainer', __args__, opts=opts, typ=GetStorageContainerResult)
     return __ret__.apply(lambda __response__: GetStorageContainerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

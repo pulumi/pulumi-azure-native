@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Static Site Database Connection resource.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStaticSiteDatabaseConnection(args: GetStaticSiteDatabaseConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteDatabaseConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetStaticSiteDatabaseConnectionArgs {
  * Static Site Database Connection resource.
  */
 export interface GetStaticSiteDatabaseConnectionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * A list of configuration files associated with this database connection.
      */
@@ -82,9 +86,9 @@ export interface GetStaticSiteDatabaseConnectionResult {
 /**
  * Static Site Database Connection resource.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStaticSiteDatabaseConnectionOutput(args: GetStaticSiteDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteDatabaseConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

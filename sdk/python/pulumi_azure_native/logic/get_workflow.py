@@ -27,13 +27,16 @@ class GetWorkflowResult:
     """
     The workflow type.
     """
-    def __init__(__self__, access_control=None, access_endpoint=None, changed_time=None, created_time=None, definition=None, endpoints_configuration=None, id=None, identity=None, integration_account=None, integration_service_environment=None, location=None, name=None, parameters=None, provisioning_state=None, sku=None, state=None, tags=None, type=None, version=None):
+    def __init__(__self__, access_control=None, access_endpoint=None, azure_api_version=None, changed_time=None, created_time=None, definition=None, endpoints_configuration=None, id=None, identity=None, integration_account=None, integration_service_environment=None, location=None, name=None, parameters=None, provisioning_state=None, sku=None, state=None, tags=None, type=None, version=None):
         if access_control and not isinstance(access_control, dict):
             raise TypeError("Expected argument 'access_control' to be a dict")
         pulumi.set(__self__, "access_control", access_control)
         if access_endpoint and not isinstance(access_endpoint, str):
             raise TypeError("Expected argument 'access_endpoint' to be a str")
         pulumi.set(__self__, "access_endpoint", access_endpoint)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if changed_time and not isinstance(changed_time, str):
             raise TypeError("Expected argument 'changed_time' to be a str")
         pulumi.set(__self__, "changed_time", changed_time)
@@ -101,6 +104,14 @@ class GetWorkflowResult:
         Gets the access endpoint.
         """
         return pulumi.get(self, "access_endpoint")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="changedTime")
@@ -247,6 +258,7 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
         return GetWorkflowResult(
             access_control=self.access_control,
             access_endpoint=self.access_endpoint,
+            azure_api_version=self.azure_api_version,
             changed_time=self.changed_time,
             created_time=self.created_time,
             definition=self.definition,
@@ -274,7 +286,7 @@ def get_workflow(resource_group_name: Optional[str] = None,
 
     Uses Azure REST API version 2019-05-01.
 
-    Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
+    Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The resource group name.
@@ -289,6 +301,7 @@ def get_workflow(resource_group_name: Optional[str] = None,
     return AwaitableGetWorkflowResult(
         access_control=pulumi.get(__ret__, 'access_control'),
         access_endpoint=pulumi.get(__ret__, 'access_endpoint'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         changed_time=pulumi.get(__ret__, 'changed_time'),
         created_time=pulumi.get(__ret__, 'created_time'),
         definition=pulumi.get(__ret__, 'definition'),
@@ -314,7 +327,7 @@ def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2019-05-01.
 
-    Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
+    Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The resource group name.
@@ -328,6 +341,7 @@ def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetWorkflowResult(
         access_control=pulumi.get(__response__, 'access_control'),
         access_endpoint=pulumi.get(__response__, 'access_endpoint'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         changed_time=pulumi.get(__response__, 'changed_time'),
         created_time=pulumi.get(__response__, 'created_time'),
         definition=pulumi.get(__response__, 'definition'),

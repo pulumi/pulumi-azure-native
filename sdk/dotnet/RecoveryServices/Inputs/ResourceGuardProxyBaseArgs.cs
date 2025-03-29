@@ -26,8 +26,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
             set => _resourceGuardOperationDetails = value;
         }
 
-        [Input("resourceGuardResourceId")]
-        public Input<string>? ResourceGuardResourceId { get; set; }
+        [Input("resourceGuardResourceId", required: true)]
+        public Input<string> ResourceGuardResourceId { get; set; } = null!;
 
         public ResourceGuardProxyBaseArgs()
         {

@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.AgriculturePlatform
     /// <summary>
     /// Schema of the AgriService resource from Microsoft.AgriculturePlatform resource provider.
     /// 
-    /// Uses Azure REST API version 2024-06-01-preview.
+    /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:agricultureplatform:AgriService")]
     public partial class AgriService : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>

@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
     public sealed class GetAzureBareMetalInstanceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies the Azure Bare Metal Instance unique ID.
         /// </summary>
         public readonly string? AzureBareMetalInstanceId;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
 
         [OutputConstructor]
         private GetAzureBareMetalInstanceResult(
+            string azureApiVersion,
+
             string? azureBareMetalInstanceId,
 
             Outputs.HardwareProfileResponse? hardwareProfile,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             AzureBareMetalInstanceId = azureBareMetalInstanceId;
             HardwareProfile = hardwareProfile;
             HwRevision = hwRevision;

@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     public sealed class GetDataLakeConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// DataLake database format to use.
         /// </summary>
         public readonly string DatabaseFormat;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
         [OutputConstructor]
         private GetDataLakeConnectorResult(
+            string azureApiVersion,
+
             string databaseFormat,
 
             Outputs.ExtendedLocationPropertyResponse extendedLocation,
@@ -192,6 +198,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DatabaseFormat = databaseFormat;
             ExtendedLocation = extendedLocation;
             Id = id;

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The Extension object.
  *
- * Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-07-01-preview.
+ * Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
- * Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01, 2024-11-01.
+ * Other available API versions: 2022-04-02-preview, 2022-07-01, 2022-11-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Extension extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class Extension extends pulumi.CustomResource {
      * Flag to note if this extension participates in auto upgrade of minor version, or not.
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Configuration settings that are sensitive, as name-value pairs for configuring this extension.
      */
@@ -161,6 +165,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["statuses"] = args ? args.statuses : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["customLocationSettings"] = undefined /*out*/;
             resourceInputs["errorInfo"] = undefined /*out*/;
@@ -173,6 +178,7 @@ export class Extension extends pulumi.CustomResource {
         } else {
             resourceInputs["aksAssignedIdentity"] = undefined /*out*/;
             resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationProtectedSettings"] = undefined /*out*/;
             resourceInputs["configurationSettings"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;

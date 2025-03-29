@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of the specified replica.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getReplica(args: GetReplicaArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetReplicaArgs {
  * The replica resource.
  */
 export interface GetReplicaResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The URI of the replica where the replica API will be available.
      */
@@ -74,9 +78,9 @@ export interface GetReplicaResult {
 /**
  * Gets the properties of the specified replica.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getReplicaOutput(args: GetReplicaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// </summary>
         public readonly string? AssignedManagedNetwork;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
         private GetScopeAssignmentResult(
             string? assignedManagedNetwork,
 
+            string azureApiVersion,
+
             string etag,
 
             string id,
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
             string type)
         {
             AssignedManagedNetwork = assignedManagedNetwork;
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Location = location;

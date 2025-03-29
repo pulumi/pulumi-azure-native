@@ -56,9 +56,9 @@ def get_required_aml_fs_subnets_size(sku: Optional[Union['SkuName', 'SkuNameDict
     """
     Get the number of available IP addresses needed for the AML file system information provided.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param Union['SkuName', 'SkuNameDict'] sku: SKU for the resource.
@@ -78,9 +78,9 @@ def get_required_aml_fs_subnets_size_output(sku: Optional[pulumi.Input[Optional[
     """
     Get the number of available IP addresses needed for the AML file system information provided.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param Union['SkuName', 'SkuNameDict'] sku: SKU for the resource.

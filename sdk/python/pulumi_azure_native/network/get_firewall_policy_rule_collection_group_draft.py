@@ -27,7 +27,10 @@ class GetFirewallPolicyRuleCollectionGroupDraftResult:
     """
     Rule Collection Group resource.
     """
-    def __init__(__self__, id=None, name=None, priority=None, rule_collections=None, size=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, priority=None, rule_collections=None, size=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +49,14 @@ class GetFirewallPolicyRuleCollectionGroupDraftResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetFirewallPolicyRuleCollectionGroupDraftResult(GetFirewallPolicy
         if False:
             yield self
         return GetFirewallPolicyRuleCollectionGroupDraftResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             priority=self.priority,
@@ -117,9 +129,9 @@ def get_firewall_policy_rule_collection_group_draft(firewall_policy_name: Option
     """
     Get Rule Collection Group Draft.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.
@@ -134,6 +146,7 @@ def get_firewall_policy_rule_collection_group_draft(firewall_policy_name: Option
     __ret__ = pulumi.runtime.invoke('azure-native:network:getFirewallPolicyRuleCollectionGroupDraft', __args__, opts=opts, typ=GetFirewallPolicyRuleCollectionGroupDraftResult).value
 
     return AwaitableGetFirewallPolicyRuleCollectionGroupDraftResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         priority=pulumi.get(__ret__, 'priority'),
@@ -147,9 +160,9 @@ def get_firewall_policy_rule_collection_group_draft_output(firewall_policy_name:
     """
     Get Rule Collection Group Draft.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.
@@ -163,6 +176,7 @@ def get_firewall_policy_rule_collection_group_draft_output(firewall_policy_name:
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getFirewallPolicyRuleCollectionGroupDraft', __args__, opts=opts, typ=GetFirewallPolicyRuleCollectionGroupDraftResult)
     return __ret__.apply(lambda __response__: GetFirewallPolicyRuleCollectionGroupDraftResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         priority=pulumi.get(__response__, 'priority'),

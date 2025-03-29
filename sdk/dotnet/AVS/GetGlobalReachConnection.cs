@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.AVS
     public static class GetGlobalReachConnection
     {
         /// <summary>
-        /// A global reach connection resource
+        /// Get a GlobalReachConnection
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetGlobalReachConnectionResult> InvokeAsync(GetGlobalReachConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalReachConnectionResult>("azure-native:avs:getGlobalReachConnection", args ?? new GetGlobalReachConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A global reach connection resource
+        /// Get a GlobalReachConnection
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGlobalReachConnectionResult> Invoke(GetGlobalReachConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalReachConnectionResult>("azure-native:avs:getGlobalReachConnection", args ?? new GetGlobalReachConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A global reach connection resource
+        /// Get a GlobalReachConnection
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGlobalReachConnectionResult> Invoke(GetGlobalReachConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalReachConnectionResult>("azure-native:avs:getGlobalReachConnection", args ?? new GetGlobalReachConnectionInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetGlobalReachConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the global reach connection in the private cloud
+        /// Name of the global reach connection
         /// </summary>
         [Input("globalReachConnectionName", required: true)]
         public string GlobalReachConnectionName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetGlobalReachConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the global reach connection in the private cloud
+        /// Name of the global reach connection
         /// </summary>
         [Input("globalReachConnectionName", required: true)]
         public Input<string> GlobalReachConnectionName { get; set; } = null!;
@@ -100,31 +100,39 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetGlobalReachConnectionResult
     {
         /// <summary>
-        /// The network used for global reach carved out from the original network block provided for the private cloud
+        /// The network used for global reach carved out from the original network block
+        /// provided for the private cloud
         /// </summary>
         public readonly string AddressPrefix;
         /// <summary>
-        /// Authorization key from the peer express route used for the global reach connection
+        /// Authorization key from the peer express route used for the global reach
+        /// connection
         /// </summary>
         public readonly string? AuthorizationKey;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The connection status of the global reach connection
         /// </summary>
         public readonly string CircuitConnectionStatus;
         /// <summary>
-        /// The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+        /// The ID of the Private Cloud's ExpressRoute Circuit that is participating in the
+        /// global reach connection
         /// </summary>
         public readonly string? ExpressRouteId;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Identifier of the ExpressRoute Circuit to peer with in the global reach connection
+        /// Identifier of the ExpressRoute Circuit to peer with in the global reach
+        /// connection
         /// </summary>
         public readonly string? PeerExpressRouteCircuit;
         /// <summary>
@@ -132,7 +140,11 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -141,6 +153,8 @@ namespace Pulumi.AzureNative.AVS
             string addressPrefix,
 
             string? authorizationKey,
+
+            string azureApiVersion,
 
             string circuitConnectionStatus,
 
@@ -154,16 +168,20 @@ namespace Pulumi.AzureNative.AVS
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AddressPrefix = addressPrefix;
             AuthorizationKey = authorizationKey;
+            AzureApiVersion = azureApiVersion;
             CircuitConnectionStatus = circuitConnectionStatus;
             ExpressRouteId = expressRouteId;
             Id = id;
             Name = name;
             PeerExpressRouteCircuit = peerExpressRouteCircuit;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

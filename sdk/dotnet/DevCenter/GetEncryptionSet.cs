@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a devcenter encryption set.
         /// 
-        /// Uses Azure REST API version 2024-05-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetEncryptionSetResult> InvokeAsync(GetEncryptionSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionSetResult>("azure-native:devcenter:getEncryptionSet", args ?? new GetEncryptionSetArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a devcenter encryption set.
         /// 
-        /// Uses Azure REST API version 2024-05-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEncryptionSetResult> Invoke(GetEncryptionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionSetResult>("azure-native:devcenter:getEncryptionSet", args ?? new GetEncryptionSetInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a devcenter encryption set.
         /// 
-        /// Uses Azure REST API version 2024-05-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEncryptionSetResult> Invoke(GetEncryptionSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionSetResult>("azure-native:devcenter:getEncryptionSet", args ?? new GetEncryptionSetInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.DevCenter
     public sealed class GetEncryptionSetResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Devbox disk encryption enable or disable status. Indicates if Devbox disks encryption using DevCenter CMK is enabled or not.
         /// </summary>
         public readonly string? DevboxDisksEncryptionEnableStatus;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.DevCenter
 
         [OutputConstructor]
         private GetEncryptionSetResult(
+            string azureApiVersion,
+
             string? devboxDisksEncryptionEnableStatus,
 
             string id,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.DevCenter
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DevboxDisksEncryptionEnableStatus = devboxDisksEncryptionEnableStatus;
             Id = id;
             Identity = identity;

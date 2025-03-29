@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified attached data network.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAttachedDataNetworkResult> InvokeAsync(GetAttachedDataNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDataNetworkResult>("azure-native:mobilenetwork:getAttachedDataNetwork", args ?? new GetAttachedDataNetworkArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified attached data network.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAttachedDataNetworkResult> Invoke(GetAttachedDataNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachedDataNetworkResult>("azure-native:mobilenetwork:getAttachedDataNetwork", args ?? new GetAttachedDataNetworkInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified attached data network.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAttachedDataNetworkResult> Invoke(GetAttachedDataNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachedDataNetworkResult>("azure-native:mobilenetwork:getAttachedDataNetwork", args ?? new GetAttachedDataNetworkInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class GetAttachedDataNetworkResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The DNS servers to signal to UEs to use for this attached data network. This configuration is mandatory - if you don't want DNS servers, you must provide an empty array.
         /// </summary>
         public readonly ImmutableArray<string> DnsAddresses;
@@ -167,6 +171,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
         [OutputConstructor]
         private GetAttachedDataNetworkResult(
+            string azureApiVersion,
+
             ImmutableArray<string> dnsAddresses,
 
             string id,
@@ -191,6 +197,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             Outputs.InterfacePropertiesResponse userPlaneDataInterface)
         {
+            AzureApiVersion = azureApiVersion;
             DnsAddresses = dnsAddresses;
             Id = id;
             Location = location;

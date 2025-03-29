@@ -10,86 +10,50 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Billing
 {
     /// <summary>
-    /// The role assignment
+    /// The properties of the billing role assignment.
     /// 
-    /// Uses Azure REST API version 2019-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-10-01-preview.
+    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01-preview.
     /// 
-    /// Other available API versions: 2024-04-01.
+    /// Other available API versions: 2019-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billing [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:billing:BillingRoleAssignmentByDepartment")]
     public partial class BillingRoleAssignmentByDepartment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The principal Id of the user who created the role assignment.
+        /// The Azure API version of the resource.
         /// </summary>
-        [Output("createdByPrincipalId")]
-        public Output<string> CreatedByPrincipalId { get; private set; } = null!;
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The tenant Id of the user who created the role assignment.
-        /// </summary>
-        [Output("createdByPrincipalTenantId")]
-        public Output<string> CreatedByPrincipalTenantId { get; private set; } = null!;
-
-        /// <summary>
-        /// The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        /// </summary>
-        [Output("createdByUserEmailAddress")]
-        public Output<string> CreatedByUserEmailAddress { get; private set; } = null!;
-
-        /// <summary>
-        /// The date the role assignment was created.
-        /// </summary>
-        [Output("createdOn")]
-        public Output<string> CreatedOn { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The principal id of the user to whom the role was assigned.
+        /// The properties of the billing role assignment.
         /// </summary>
-        [Output("principalId")]
-        public Output<string?> PrincipalId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BillingRoleAssignmentPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The principal tenant id of the user to whom the role was assigned.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        [Output("principalTenantId")]
-        public Output<string?> PrincipalTenantId { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the role definition.
+        /// Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain &lt; &gt; % &amp; \ ? /
         /// </summary>
-        [Output("roleDefinitionId")]
-        public Output<string?> RoleDefinitionId { get; private set; } = null!;
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The scope at which the role was assigned.
-        /// </summary>
-        [Output("scope")]
-        public Output<string> Scope { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        /// </summary>
-        [Output("userAuthenticationType")]
-        public Output<string?> UserAuthenticationType { get; private set; } = null!;
-
-        /// <summary>
-        /// The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        /// </summary>
-        [Output("userEmailAddress")]
-        public Output<string?> UserEmailAddress { get; private set; } = null!;
 
 
         /// <summary>
@@ -154,40 +118,28 @@ namespace Pulumi.AzureNative.Billing
         public Input<string>? BillingRoleAssignmentName { get; set; }
 
         /// <summary>
-        /// The ID that uniquely identifies a department.
+        /// The name of the department.
         /// </summary>
         [Input("departmentName", required: true)]
         public Input<string> DepartmentName { get; set; } = null!;
 
         /// <summary>
-        /// The principal id of the user to whom the role was assigned.
+        /// The properties of the billing role assignment.
         /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
+        [Input("properties")]
+        public Input<Inputs.BillingRoleAssignmentPropertiesArgs>? Properties { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// The principal tenant id of the user to whom the role was assigned.
+        /// Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain &lt; &gt; % &amp; \ ? /
         /// </summary>
-        [Input("principalTenantId")]
-        public Input<string>? PrincipalTenantId { get; set; }
-
-        /// <summary>
-        /// The ID of the role definition.
-        /// </summary>
-        [Input("roleDefinitionId")]
-        public Input<string>? RoleDefinitionId { get; set; }
-
-        /// <summary>
-        /// The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        /// </summary>
-        [Input("userAuthenticationType")]
-        public Input<string>? UserAuthenticationType { get; set; }
-
-        /// <summary>
-        /// The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        /// </summary>
-        [Input("userEmailAddress")]
-        public Input<string>? UserEmailAddress { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public BillingRoleAssignmentByDepartmentArgs()
         {

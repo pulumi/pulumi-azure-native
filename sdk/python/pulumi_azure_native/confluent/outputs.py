@@ -747,7 +747,7 @@ class ClusterNetworkEntityResponse(dict):
 @pulumi.output_type
 class ClusterRecordResponse(dict):
     """
-    Record of the environment
+    Details of cluster record
     """
     def __init__(__self__, *,
                  display_name: Optional[str] = None,
@@ -757,10 +757,10 @@ class ClusterRecordResponse(dict):
                  spec: Optional['outputs.ClusterSpecEntityResponse'] = None,
                  status: Optional['outputs.ClusterStatusEntityResponse'] = None):
         """
-        Record of the environment
-        :param str display_name: Display name of the user
-        :param str id: Id of the environment
-        :param str kind: Type of environment
+        Details of cluster record
+        :param str display_name: Display name of the cluster
+        :param str id: Id of the cluster
+        :param str kind: Type of cluster
         :param 'MetadataEntityResponse' metadata: Metadata of the record
         :param 'ClusterSpecEntityResponse' spec: Specification of the cluster
         :param 'ClusterStatusEntityResponse' status: Specification of the cluster
@@ -782,7 +782,7 @@ class ClusterRecordResponse(dict):
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
         """
-        Display name of the user
+        Display name of the cluster
         """
         return pulumi.get(self, "display_name")
 
@@ -790,7 +790,7 @@ class ClusterRecordResponse(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Id of the environment
+        Id of the cluster
         """
         return pulumi.get(self, "id")
 
@@ -798,7 +798,7 @@ class ClusterRecordResponse(dict):
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Type of environment
+        Type of cluster
         """
         return pulumi.get(self, "kind")
 
@@ -1187,7 +1187,7 @@ class ConnectorInfoBaseResponse(dict):
 @pulumi.output_type
 class EnvironmentRecordResponse(dict):
     """
-    Record of the environment
+    Details about environment name, metadata and environment id of an environment
     """
     def __init__(__self__, *,
                  display_name: Optional[str] = None,
@@ -1195,7 +1195,7 @@ class EnvironmentRecordResponse(dict):
                  kind: Optional[str] = None,
                  metadata: Optional['outputs.MetadataEntityResponse'] = None):
         """
-        Record of the environment
+        Details about environment name, metadata and environment id of an environment
         :param str display_name: Display name of the user
         :param str id: Id of the environment
         :param str kind: Type of environment
@@ -2350,6 +2350,12 @@ class OfferDetailResponse(dict):
             suggest = "publisher_id"
         elif key == "termUnit":
             suggest = "term_unit"
+        elif key == "privateOfferId":
+            suggest = "private_offer_id"
+        elif key == "privateOfferIds":
+            suggest = "private_offer_ids"
+        elif key == "termId":
+            suggest = "term_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OfferDetailResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2367,23 +2373,36 @@ class OfferDetailResponse(dict):
                  plan_id: str,
                  plan_name: str,
                  publisher_id: str,
-                 status: str,
-                 term_unit: str):
+                 term_unit: str,
+                 private_offer_id: Optional[str] = None,
+                 private_offer_ids: Optional[Sequence[str]] = None,
+                 status: Optional[str] = None,
+                 term_id: Optional[str] = None):
         """
         Confluent Offer detail
         :param str id: Offer Id
         :param str plan_id: Offer Plan Id
         :param str plan_name: Offer Plan Name
         :param str publisher_id: Publisher Id
-        :param str status: SaaS Offer Status
         :param str term_unit: Offer Plan Term unit
+        :param str private_offer_id: Private Offer Id
+        :param Sequence[str] private_offer_ids: Array of Private Offer Ids
+        :param str status: SaaS Offer Status
+        :param str term_id: Offer Plan Term Id
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "plan_id", plan_id)
         pulumi.set(__self__, "plan_name", plan_name)
         pulumi.set(__self__, "publisher_id", publisher_id)
-        pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "term_unit", term_unit)
+        if private_offer_id is not None:
+            pulumi.set(__self__, "private_offer_id", private_offer_id)
+        if private_offer_ids is not None:
+            pulumi.set(__self__, "private_offer_ids", private_offer_ids)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if term_id is not None:
+            pulumi.set(__self__, "term_id", term_id)
 
     @property
     @pulumi.getter
@@ -2418,20 +2437,44 @@ class OfferDetailResponse(dict):
         return pulumi.get(self, "publisher_id")
 
     @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        SaaS Offer Status
-        """
-        return pulumi.get(self, "status")
-
-    @property
     @pulumi.getter(name="termUnit")
     def term_unit(self) -> str:
         """
         Offer Plan Term unit
         """
         return pulumi.get(self, "term_unit")
+
+    @property
+    @pulumi.getter(name="privateOfferId")
+    def private_offer_id(self) -> Optional[str]:
+        """
+        Private Offer Id
+        """
+        return pulumi.get(self, "private_offer_id")
+
+    @property
+    @pulumi.getter(name="privateOfferIds")
+    def private_offer_ids(self) -> Optional[Sequence[str]]:
+        """
+        Array of Private Offer Ids
+        """
+        return pulumi.get(self, "private_offer_ids")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        SaaS Offer Status
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="termId")
+    def term_id(self) -> Optional[str]:
+        """
+        Offer Plan Term Id
+        """
+        return pulumi.get(self, "term_id")
 
 
 @pulumi.output_type
@@ -2551,7 +2594,7 @@ class RegionSpecEntityResponse(dict):
 @pulumi.output_type
 class RoleBindingRecordResponse(dict):
     """
-    Record of the environment
+    Details on principal, role name and crn pattern of a role binding
     """
     def __init__(__self__, *,
                  crn_pattern: Optional[str] = None,
@@ -2561,9 +2604,9 @@ class RoleBindingRecordResponse(dict):
                  principal: Optional[str] = None,
                  role_name: Optional[str] = None):
         """
-        Record of the environment
+        Details on principal, role name and crn pattern of a role binding
         :param str crn_pattern: A CRN that specifies the scope and resource patterns necessary for the role to bind
-        :param str id: Id of the role
+        :param str id: Id of the role binding
         :param str kind: The type of the resource.
         :param 'MetadataEntityResponse' metadata: Metadata of the record
         :param str principal: The principal User or Group to bind the role to
@@ -2594,7 +2637,7 @@ class RoleBindingRecordResponse(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Id of the role
+        Id of the role binding
         """
         return pulumi.get(self, "id")
 
@@ -3377,10 +3420,14 @@ class UserDetailResponse(dict):
         suggest = None
         if key == "emailAddress":
             suggest = "email_address"
+        elif key == "aadEmail":
+            suggest = "aad_email"
         elif key == "firstName":
             suggest = "first_name"
         elif key == "lastName":
             suggest = "last_name"
+        elif key == "userPrincipalName":
+            suggest = "user_principal_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserDetailResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3395,19 +3442,27 @@ class UserDetailResponse(dict):
 
     def __init__(__self__, *,
                  email_address: str,
+                 aad_email: Optional[str] = None,
                  first_name: Optional[str] = None,
-                 last_name: Optional[str] = None):
+                 last_name: Optional[str] = None,
+                 user_principal_name: Optional[str] = None):
         """
         Subscriber detail
         :param str email_address: Email address
+        :param str aad_email: AAD email address
         :param str first_name: First name
         :param str last_name: Last name
+        :param str user_principal_name: User principal name
         """
         pulumi.set(__self__, "email_address", email_address)
+        if aad_email is not None:
+            pulumi.set(__self__, "aad_email", aad_email)
         if first_name is not None:
             pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
+        if user_principal_name is not None:
+            pulumi.set(__self__, "user_principal_name", user_principal_name)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -3416,6 +3471,14 @@ class UserDetailResponse(dict):
         Email address
         """
         return pulumi.get(self, "email_address")
+
+    @property
+    @pulumi.getter(name="aadEmail")
+    def aad_email(self) -> Optional[str]:
+        """
+        AAD email address
+        """
+        return pulumi.get(self, "aad_email")
 
     @property
     @pulumi.getter(name="firstName")
@@ -3432,6 +3495,14 @@ class UserDetailResponse(dict):
         Last name
         """
         return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter(name="userPrincipalName")
+    def user_principal_name(self) -> Optional[str]:
+        """
+        User principal name
+        """
+        return pulumi.get(self, "user_principal_name")
 
 
 @pulumi.output_type

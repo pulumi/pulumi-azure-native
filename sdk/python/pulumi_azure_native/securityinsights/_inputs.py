@@ -16,20 +16,32 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AWSAuthModelArgs',
+    'AWSAuthModelArgsDict',
     'ActivityEntityQueriesPropertiesQueryDefinitionsArgs',
     'ActivityEntityQueriesPropertiesQueryDefinitionsArgsDict',
+    'AddIncidentTaskActionPropertiesArgs',
+    'AddIncidentTaskActionPropertiesArgsDict',
     'AlertDetailsOverrideArgs',
     'AlertDetailsOverrideArgsDict',
     'AlertPropertyMappingArgs',
     'AlertPropertyMappingArgsDict',
     'AlertsDataTypeOfDataConnectorArgs',
     'AlertsDataTypeOfDataConnectorArgsDict',
+    'ApiKeyAuthModelArgs',
+    'ApiKeyAuthModelArgsDict',
     'AssignmentItemArgs',
     'AssignmentItemArgsDict',
+    'AutomationRuleAddIncidentTaskActionArgs',
+    'AutomationRuleAddIncidentTaskActionArgsDict',
+    'AutomationRuleBooleanConditionArgs',
+    'AutomationRuleBooleanConditionArgsDict',
     'AutomationRuleModifyPropertiesActionArgs',
     'AutomationRuleModifyPropertiesActionArgsDict',
     'AutomationRulePropertyArrayChangedValuesConditionArgs',
     'AutomationRulePropertyArrayChangedValuesConditionArgsDict',
+    'AutomationRulePropertyArrayValuesConditionArgs',
+    'AutomationRulePropertyArrayValuesConditionArgsDict',
     'AutomationRulePropertyValuesChangedConditionArgs',
     'AutomationRulePropertyValuesChangedConditionArgsDict',
     'AutomationRulePropertyValuesConditionArgs',
@@ -44,6 +56,12 @@ __all__ = [
     'AwsCloudTrailDataConnectorDataTypesArgsDict',
     'AzureDevOpsResourceInfoArgs',
     'AzureDevOpsResourceInfoArgsDict',
+    'BasicAuthModelArgs',
+    'BasicAuthModelArgsDict',
+    'BooleanConditionPropertiesArgs',
+    'BooleanConditionPropertiesArgsDict',
+    'CcpResponseConfigArgs',
+    'CcpResponseConfigArgsDict',
     'ClientInfoArgs',
     'ClientInfoArgsDict',
     'ConnectivityCriterionArgs',
@@ -64,6 +82,8 @@ __all__ = [
     'CustomizableConnectionsConfigArgsDict',
     'CustomizableConnectorUiConfigArgs',
     'CustomizableConnectorUiConfigArgsDict',
+    'DCRConfigurationArgs',
+    'DCRConfigurationArgsDict',
     'DataConnectorDataTypeCommonArgs',
     'DataConnectorDataTypeCommonArgsDict',
     'DeploymentInfoArgs',
@@ -78,6 +98,12 @@ __all__ = [
     'FieldMappingArgsDict',
     'FileMetadataArgs',
     'FileMetadataArgsDict',
+    'GCPAuthModelArgs',
+    'GCPAuthModelArgsDict',
+    'GenericBlobSbsAuthModelArgs',
+    'GenericBlobSbsAuthModelArgsDict',
+    'GitHubAuthModelArgs',
+    'GitHubAuthModelArgsDict',
     'GitHubResourceInfoArgs',
     'GitHubResourceInfoArgsDict',
     'GraphQueryArgs',
@@ -100,10 +126,16 @@ __all__ = [
     'InstructionStepDetailsArgsDict',
     'InstructionStepArgs',
     'InstructionStepArgsDict',
+    'JwtAuthModelArgs',
+    'JwtAuthModelArgsDict',
     'LogArgs',
     'LogArgsDict',
     'MCASDataConnectorDataTypesArgs',
     'MCASDataConnectorDataTypesArgsDict',
+    'MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs',
+    'MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgsDict',
+    'MSTIDataConnectorDataTypesArgs',
+    'MSTIDataConnectorDataTypesArgsDict',
     'MetadataAuthorArgs',
     'MetadataAuthorArgsDict',
     'MetadataCategoriesArgs',
@@ -114,6 +146,10 @@ __all__ = [
     'MetadataSourceArgsDict',
     'MetadataSupportArgs',
     'MetadataSupportArgsDict',
+    'NoneAuthModelArgs',
+    'NoneAuthModelArgsDict',
+    'OAuthModelArgs',
+    'OAuthModelArgsDict',
     'OfficeDataConnectorDataTypesExchangeArgs',
     'OfficeDataConnectorDataTypesExchangeArgsDict',
     'OfficeDataConnectorDataTypesSharePointArgs',
@@ -122,10 +158,18 @@ __all__ = [
     'OfficeDataConnectorDataTypesTeamsArgsDict',
     'OfficeDataConnectorDataTypesArgs',
     'OfficeDataConnectorDataTypesArgsDict',
+    'OracleAuthModelArgs',
+    'OracleAuthModelArgsDict',
     'PlaybookActionPropertiesArgs',
     'PlaybookActionPropertiesArgsDict',
+    'PremiumMdtiDataConnectorDataTypesConnectorArgs',
+    'PremiumMdtiDataConnectorDataTypesConnectorArgsDict',
+    'PremiumMdtiDataConnectorDataTypesArgs',
+    'PremiumMdtiDataConnectorDataTypesArgsDict',
     'PropertyArrayChangedConditionPropertiesArgs',
     'PropertyArrayChangedConditionPropertiesArgsDict',
+    'PropertyArrayConditionPropertiesArgs',
+    'PropertyArrayConditionPropertiesArgsDict',
     'PropertyChangedConditionPropertiesArgs',
     'PropertyChangedConditionPropertiesArgsDict',
     'PropertyConditionPropertiesArgs',
@@ -136,10 +180,12 @@ __all__ = [
     'RepositoryArgsDict',
     'ResourceProviderRequiredPermissionsArgs',
     'ResourceProviderRequiredPermissionsArgsDict',
+    'RestApiPollerRequestConfigArgs',
+    'RestApiPollerRequestConfigArgsDict',
+    'RestApiPollerRequestPagingConfigArgs',
+    'RestApiPollerRequestPagingConfigArgsDict',
     'RfcConnectorArgs',
     'RfcConnectorArgsDict',
-    'SampleQueryArgs',
-    'SampleQueryArgsDict',
     'SapAgentConfigurationArgs',
     'SapAgentConfigurationArgsDict',
     'SapControlConnectorArgs',
@@ -148,6 +194,8 @@ __all__ = [
     'SapSystemsConfigurationArgsDict',
     'SecurityMLAnalyticsSettingsDataSourceArgs',
     'SecurityMLAnalyticsSettingsDataSourceArgsDict',
+    'SessionAuthModelArgs',
+    'SessionAuthModelArgsDict',
     'TIDataConnectorDataTypesIndicatorsArgs',
     'TIDataConnectorDataTypesIndicatorsArgsDict',
     'TIDataConnectorDataTypesArgs',
@@ -171,6 +219,83 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AWSAuthModelArgsDict(TypedDict):
+        """
+        Model for API authentication with AWS.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        AWS STS assume role ARN
+        """
+        type: pulumi.Input[str]
+        """
+        Type of paging
+        Expected value is 'AWS'.
+        """
+        external_id: NotRequired[pulumi.Input[str]]
+        """
+        AWS STS assume role external ID. This is used to prevent the confused deputy problem: 'https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html'
+        """
+elif False:
+    AWSAuthModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AWSAuthModelArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 external_id: Optional[pulumi.Input[str]] = None):
+        """
+        Model for API authentication with AWS.
+        :param pulumi.Input[str] role_arn: AWS STS assume role ARN
+        :param pulumi.Input[str] type: Type of paging
+               Expected value is 'AWS'.
+        :param pulumi.Input[str] external_id: AWS STS assume role external ID. This is used to prevent the confused deputy problem: 'https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html'
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "type", 'AWS')
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        AWS STS assume role ARN
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of paging
+        Expected value is 'AWS'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS STS assume role external ID. This is used to prevent the confused deputy problem: 'https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html'
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_id", value)
+
 
 if not MYPY:
     class ActivityEntityQueriesPropertiesQueryDefinitionsArgsDict(TypedDict):
@@ -206,6 +331,61 @@ class ActivityEntityQueriesPropertiesQueryDefinitionsArgs:
     @query.setter
     def query(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "query", value)
+
+
+if not MYPY:
+    class AddIncidentTaskActionPropertiesArgsDict(TypedDict):
+        """
+        Describes an automation rule action to add a task to an incident.
+        """
+        title: pulumi.Input[str]
+        """
+        The title of the task.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the task.
+        """
+elif False:
+    AddIncidentTaskActionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AddIncidentTaskActionPropertiesArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        Describes an automation rule action to add a task to an incident.
+        :param pulumi.Input[str] title: The title of the task.
+        :param pulumi.Input[str] description: The description of the task.
+        """
+        pulumi.set(__self__, "title", title)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        The title of the task.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the task.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 if not MYPY:
@@ -417,6 +597,122 @@ class AlertsDataTypeOfDataConnectorArgs:
 
 
 if not MYPY:
+    class ApiKeyAuthModelArgsDict(TypedDict):
+        """
+        Model for authentication with the API Key. Will result in additional header on the request (default behavior) to the remote server: 'ApiKeyName: ApiKeyIdentifier ApiKey'. If 'IsApiKeyInPostPayload' is true it will send it in the body of the request and not the header.
+        """
+        api_key: pulumi.Input[str]
+        """
+        API Key for the user secret key credential
+        """
+        api_key_name: pulumi.Input[str]
+        """
+        API Key name
+        """
+        type: pulumi.Input[str]
+        """
+        Type of paging
+        Expected value is 'APIKey'.
+        """
+        api_key_identifier: NotRequired[pulumi.Input[str]]
+        """
+        API Key Identifier
+        """
+        is_api_key_in_post_payload: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate if API key is set in HTTP POST payload
+        """
+elif False:
+    ApiKeyAuthModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiKeyAuthModelArgs:
+    def __init__(__self__, *,
+                 api_key: pulumi.Input[str],
+                 api_key_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 api_key_identifier: Optional[pulumi.Input[str]] = None,
+                 is_api_key_in_post_payload: Optional[pulumi.Input[bool]] = None):
+        """
+        Model for authentication with the API Key. Will result in additional header on the request (default behavior) to the remote server: 'ApiKeyName: ApiKeyIdentifier ApiKey'. If 'IsApiKeyInPostPayload' is true it will send it in the body of the request and not the header.
+        :param pulumi.Input[str] api_key: API Key for the user secret key credential
+        :param pulumi.Input[str] api_key_name: API Key name
+        :param pulumi.Input[str] type: Type of paging
+               Expected value is 'APIKey'.
+        :param pulumi.Input[str] api_key_identifier: API Key Identifier
+        :param pulumi.Input[bool] is_api_key_in_post_payload: Flag to indicate if API key is set in HTTP POST payload
+        """
+        pulumi.set(__self__, "api_key", api_key)
+        pulumi.set(__self__, "api_key_name", api_key_name)
+        pulumi.set(__self__, "type", 'APIKey')
+        if api_key_identifier is not None:
+            pulumi.set(__self__, "api_key_identifier", api_key_identifier)
+        if is_api_key_in_post_payload is not None:
+            pulumi.set(__self__, "is_api_key_in_post_payload", is_api_key_in_post_payload)
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> pulumi.Input[str]:
+        """
+        API Key for the user secret key credential
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_key", value)
+
+    @property
+    @pulumi.getter(name="apiKeyName")
+    def api_key_name(self) -> pulumi.Input[str]:
+        """
+        API Key name
+        """
+        return pulumi.get(self, "api_key_name")
+
+    @api_key_name.setter
+    def api_key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_key_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of paging
+        Expected value is 'APIKey'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="apiKeyIdentifier")
+    def api_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        API Key Identifier
+        """
+        return pulumi.get(self, "api_key_identifier")
+
+    @api_key_identifier.setter
+    def api_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_key_identifier", value)
+
+    @property
+    @pulumi.getter(name="isApiKeyInPostPayload")
+    def is_api_key_in_post_payload(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate if API key is set in HTTP POST payload
+        """
+        return pulumi.get(self, "is_api_key_in_post_payload")
+
+    @is_api_key_in_post_payload.setter
+    def is_api_key_in_post_payload(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_api_key_in_post_payload", value)
+
+
+if not MYPY:
     class AssignmentItemArgsDict(TypedDict):
         """
         An entity describing a content item.
@@ -450,6 +746,125 @@ class AssignmentItemArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class AutomationRuleAddIncidentTaskActionArgsDict(TypedDict):
+        """
+        Describes an automation rule action to add a task to an incident
+        """
+        action_type: pulumi.Input[str]
+        """
+        The type of the automation rule action.
+        Expected value is 'AddIncidentTask'.
+        """
+        order: pulumi.Input[int]
+        action_configuration: NotRequired[pulumi.Input['AddIncidentTaskActionPropertiesArgsDict']]
+        """
+        Describes an automation rule action to add a task to an incident.
+        """
+elif False:
+    AutomationRuleAddIncidentTaskActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomationRuleAddIncidentTaskActionArgs:
+    def __init__(__self__, *,
+                 action_type: pulumi.Input[str],
+                 order: pulumi.Input[int],
+                 action_configuration: Optional[pulumi.Input['AddIncidentTaskActionPropertiesArgs']] = None):
+        """
+        Describes an automation rule action to add a task to an incident
+        :param pulumi.Input[str] action_type: The type of the automation rule action.
+               Expected value is 'AddIncidentTask'.
+        :param pulumi.Input['AddIncidentTaskActionPropertiesArgs'] action_configuration: Describes an automation rule action to add a task to an incident.
+        """
+        pulumi.set(__self__, "action_type", 'AddIncidentTask')
+        pulumi.set(__self__, "order", order)
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[str]:
+        """
+        The type of the automation rule action.
+        Expected value is 'AddIncidentTask'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional[pulumi.Input['AddIncidentTaskActionPropertiesArgs']]:
+        """
+        Describes an automation rule action to add a task to an incident.
+        """
+        return pulumi.get(self, "action_configuration")
+
+    @action_configuration.setter
+    def action_configuration(self, value: Optional[pulumi.Input['AddIncidentTaskActionPropertiesArgs']]):
+        pulumi.set(self, "action_configuration", value)
+
+
+if not MYPY:
+    class AutomationRuleBooleanConditionArgsDict(TypedDict):
+        """
+        Describes an automation rule condition with boolean operators.
+        """
+        inner_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgsDict', 'PropertyArrayChangedConditionPropertiesArgsDict', 'PropertyArrayConditionPropertiesArgsDict', 'PropertyChangedConditionPropertiesArgsDict', 'PropertyConditionPropertiesArgsDict']]]]]
+        operator: NotRequired[pulumi.Input[Union[str, 'AutomationRuleBooleanConditionSupportedOperator']]]
+        """
+        Describes a boolean condition operator.
+        """
+elif False:
+    AutomationRuleBooleanConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomationRuleBooleanConditionArgs:
+    def __init__(__self__, *,
+                 inner_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgs', 'PropertyArrayChangedConditionPropertiesArgs', 'PropertyArrayConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]] = None,
+                 operator: Optional[pulumi.Input[Union[str, 'AutomationRuleBooleanConditionSupportedOperator']]] = None):
+        """
+        Describes an automation rule condition with boolean operators.
+        :param pulumi.Input[Union[str, 'AutomationRuleBooleanConditionSupportedOperator']] operator: Describes a boolean condition operator.
+        """
+        if inner_conditions is not None:
+            pulumi.set(__self__, "inner_conditions", inner_conditions)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="innerConditions")
+    def inner_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgs', 'PropertyArrayChangedConditionPropertiesArgs', 'PropertyArrayConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]]:
+        return pulumi.get(self, "inner_conditions")
+
+    @inner_conditions.setter
+    def inner_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgs', 'PropertyArrayChangedConditionPropertiesArgs', 'PropertyArrayConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]]):
+        pulumi.set(self, "inner_conditions", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[Union[str, 'AutomationRuleBooleanConditionSupportedOperator']]]:
+        """
+        Describes a boolean condition operator.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[Union[str, 'AutomationRuleBooleanConditionSupportedOperator']]]):
+        pulumi.set(self, "operator", value)
 
 
 if not MYPY:
@@ -549,6 +964,75 @@ class AutomationRulePropertyArrayChangedValuesConditionArgs:
     @change_type.setter
     def change_type(self, value: Optional[pulumi.Input[Union[str, 'AutomationRulePropertyArrayChangedConditionSupportedChangeType']]]):
         pulumi.set(self, "change_type", value)
+
+
+if not MYPY:
+    class AutomationRulePropertyArrayValuesConditionArgsDict(TypedDict):
+        """
+        Describes an automation rule condition on array properties.
+        """
+        array_condition_type: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyArrayConditionSupportedArrayConditionType']]]
+        """
+        Describes an array condition evaluation type.
+        """
+        array_type: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyArrayConditionSupportedArrayType']]]
+        """
+        Describes an array condition evaluated array type.
+        """
+        item_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgsDict', 'PropertyArrayChangedConditionPropertiesArgsDict', 'PropertyArrayConditionPropertiesArgsDict', 'PropertyChangedConditionPropertiesArgsDict', 'PropertyConditionPropertiesArgsDict']]]]]
+elif False:
+    AutomationRulePropertyArrayValuesConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomationRulePropertyArrayValuesConditionArgs:
+    def __init__(__self__, *,
+                 array_condition_type: Optional[pulumi.Input[Union[str, 'AutomationRulePropertyArrayConditionSupportedArrayConditionType']]] = None,
+                 array_type: Optional[pulumi.Input[Union[str, 'AutomationRulePropertyArrayConditionSupportedArrayType']]] = None,
+                 item_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgs', 'PropertyArrayChangedConditionPropertiesArgs', 'PropertyArrayConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]] = None):
+        """
+        Describes an automation rule condition on array properties.
+        :param pulumi.Input[Union[str, 'AutomationRulePropertyArrayConditionSupportedArrayConditionType']] array_condition_type: Describes an array condition evaluation type.
+        :param pulumi.Input[Union[str, 'AutomationRulePropertyArrayConditionSupportedArrayType']] array_type: Describes an array condition evaluated array type.
+        """
+        if array_condition_type is not None:
+            pulumi.set(__self__, "array_condition_type", array_condition_type)
+        if array_type is not None:
+            pulumi.set(__self__, "array_type", array_type)
+        if item_conditions is not None:
+            pulumi.set(__self__, "item_conditions", item_conditions)
+
+    @property
+    @pulumi.getter(name="arrayConditionType")
+    def array_condition_type(self) -> Optional[pulumi.Input[Union[str, 'AutomationRulePropertyArrayConditionSupportedArrayConditionType']]]:
+        """
+        Describes an array condition evaluation type.
+        """
+        return pulumi.get(self, "array_condition_type")
+
+    @array_condition_type.setter
+    def array_condition_type(self, value: Optional[pulumi.Input[Union[str, 'AutomationRulePropertyArrayConditionSupportedArrayConditionType']]]):
+        pulumi.set(self, "array_condition_type", value)
+
+    @property
+    @pulumi.getter(name="arrayType")
+    def array_type(self) -> Optional[pulumi.Input[Union[str, 'AutomationRulePropertyArrayConditionSupportedArrayType']]]:
+        """
+        Describes an array condition evaluated array type.
+        """
+        return pulumi.get(self, "array_type")
+
+    @array_type.setter
+    def array_type(self, value: Optional[pulumi.Input[Union[str, 'AutomationRulePropertyArrayConditionSupportedArrayType']]]):
+        pulumi.set(self, "array_type", value)
+
+    @property
+    @pulumi.getter(name="itemConditions")
+    def item_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgs', 'PropertyArrayChangedConditionPropertiesArgs', 'PropertyArrayConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]]:
+        return pulumi.get(self, "item_conditions")
+
+    @item_conditions.setter
+    def item_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgs', 'PropertyArrayChangedConditionPropertiesArgs', 'PropertyArrayConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]]):
+        pulumi.set(self, "item_conditions", value)
 
 
 if not MYPY:
@@ -745,7 +1229,7 @@ if not MYPY:
         """
         triggers_on: pulumi.Input[Union[str, 'TriggersOn']]
         triggers_when: pulumi.Input[Union[str, 'TriggersWhen']]
-        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['PropertyArrayChangedConditionPropertiesArgsDict', 'PropertyChangedConditionPropertiesArgsDict', 'PropertyConditionPropertiesArgsDict']]]]]
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgsDict', 'PropertyArrayChangedConditionPropertiesArgsDict', 'PropertyArrayConditionPropertiesArgsDict', 'PropertyChangedConditionPropertiesArgsDict', 'PropertyConditionPropertiesArgsDict']]]]]
         """
         The conditions to evaluate to determine if the automation rule should be triggered on a given object.
         """
@@ -762,12 +1246,12 @@ class AutomationRuleTriggeringLogicArgs:
                  is_enabled: pulumi.Input[bool],
                  triggers_on: pulumi.Input[Union[str, 'TriggersOn']],
                  triggers_when: pulumi.Input[Union[str, 'TriggersWhen']],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertyArrayChangedConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgs', 'PropertyArrayChangedConditionPropertiesArgs', 'PropertyArrayConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None):
         """
         Describes automation rule triggering logic.
         :param pulumi.Input[bool] is_enabled: Determines whether the automation rule is enabled or disabled.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PropertyArrayChangedConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]] conditions: The conditions to evaluate to determine if the automation rule should be triggered on a given object.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgs', 'PropertyArrayChangedConditionPropertiesArgs', 'PropertyArrayConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]] conditions: The conditions to evaluate to determine if the automation rule should be triggered on a given object.
         :param pulumi.Input[str] expiration_time_utc: Determines when the automation rule should automatically expire and be disabled.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -810,14 +1294,14 @@ class AutomationRuleTriggeringLogicArgs:
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertyArrayChangedConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]]:
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgs', 'PropertyArrayChangedConditionPropertiesArgs', 'PropertyArrayConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]]:
         """
         The conditions to evaluate to determine if the automation rule should be triggered on a given object.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertyArrayChangedConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]]):
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgs', 'PropertyArrayChangedConditionPropertiesArgs', 'PropertyArrayConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]]):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -959,6 +1443,381 @@ class AzureDevOpsResourceInfoArgs:
     @service_connection_id.setter
     def service_connection_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_connection_id", value)
+
+
+if not MYPY:
+    class BasicAuthModelArgsDict(TypedDict):
+        """
+        Model for API authentication with basic flow - user name + password.
+        """
+        password: pulumi.Input[str]
+        """
+        The password
+        """
+        type: pulumi.Input[str]
+        """
+        Type of paging
+        Expected value is 'Basic'.
+        """
+        user_name: pulumi.Input[str]
+        """
+        The user name.
+        """
+elif False:
+    BasicAuthModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BasicAuthModelArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 user_name: pulumi.Input[str]):
+        """
+        Model for API authentication with basic flow - user name + password.
+        :param pulumi.Input[str] password: The password
+        :param pulumi.Input[str] type: Type of paging
+               Expected value is 'Basic'.
+        :param pulumi.Input[str] user_name: The user name.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "type", 'Basic')
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The password
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of paging
+        Expected value is 'Basic'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[str]:
+        """
+        The user name.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_name", value)
+
+
+if not MYPY:
+    class BooleanConditionPropertiesArgsDict(TypedDict):
+        """
+        Describes an automation rule condition that applies a boolean operator (e.g AND, OR) to conditions
+        """
+        condition_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Boolean'.
+        """
+        condition_properties: NotRequired[pulumi.Input['AutomationRuleBooleanConditionArgsDict']]
+        """
+        Describes an automation rule condition with boolean operators.
+        """
+elif False:
+    BooleanConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BooleanConditionPropertiesArgs:
+    def __init__(__self__, *,
+                 condition_type: pulumi.Input[str],
+                 condition_properties: Optional[pulumi.Input['AutomationRuleBooleanConditionArgs']] = None):
+        """
+        Describes an automation rule condition that applies a boolean operator (e.g AND, OR) to conditions
+        :param pulumi.Input[str] condition_type: 
+               Expected value is 'Boolean'.
+        :param pulumi.Input['AutomationRuleBooleanConditionArgs'] condition_properties: Describes an automation rule condition with boolean operators.
+        """
+        pulumi.set(__self__, "condition_type", 'Boolean')
+        if condition_properties is not None:
+            pulumi.set(__self__, "condition_properties", condition_properties)
+
+    @property
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is 'Boolean'.
+        """
+        return pulumi.get(self, "condition_type")
+
+    @condition_type.setter
+    def condition_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition_type", value)
+
+    @property
+    @pulumi.getter(name="conditionProperties")
+    def condition_properties(self) -> Optional[pulumi.Input['AutomationRuleBooleanConditionArgs']]:
+        """
+        Describes an automation rule condition with boolean operators.
+        """
+        return pulumi.get(self, "condition_properties")
+
+    @condition_properties.setter
+    def condition_properties(self, value: Optional[pulumi.Input['AutomationRuleBooleanConditionArgs']]):
+        pulumi.set(self, "condition_properties", value)
+
+
+if not MYPY:
+    class CcpResponseConfigArgsDict(TypedDict):
+        """
+        A custom response configuration for a rule.
+        """
+        events_json_paths: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The json paths, '$' char is the json root.
+        """
+        compression_algo: NotRequired[pulumi.Input[str]]
+        """
+        The compression algorithm. For Example: 'gzip', 'multi-gzip', 'deflate'.
+        """
+        convert_child_properties_to_array: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether the response isn't an array of events / logs.  By setting this flag to true it means the remote server will response with an object which each property has as a value an array of events / logs.
+        """
+        csv_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The csv delimiter, in case the response format is CSV.
+        """
+        csv_escape: NotRequired[pulumi.Input[str]]
+        """
+        The character used to escape characters in CSV.
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        The response format. possible values are json,csv,xml
+        """
+        has_csv_boundary: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether the response has CSV boundary in case the response in CSV format.
+        """
+        has_csv_header: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether the response has headers in case the response in CSV format.
+        """
+        is_gzip_compressed: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether the remote server support Gzip and we should expect Gzip response.
+        """
+        success_status_json_path: NotRequired[pulumi.Input[str]]
+        """
+        The value where the status message/code should appear in the response.
+        """
+        success_status_value: NotRequired[pulumi.Input[str]]
+        """
+        The status value.
+        """
+elif False:
+    CcpResponseConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CcpResponseConfigArgs:
+    def __init__(__self__, *,
+                 events_json_paths: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 compression_algo: Optional[pulumi.Input[str]] = None,
+                 convert_child_properties_to_array: Optional[pulumi.Input[bool]] = None,
+                 csv_delimiter: Optional[pulumi.Input[str]] = None,
+                 csv_escape: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[str]] = None,
+                 has_csv_boundary: Optional[pulumi.Input[bool]] = None,
+                 has_csv_header: Optional[pulumi.Input[bool]] = None,
+                 is_gzip_compressed: Optional[pulumi.Input[bool]] = None,
+                 success_status_json_path: Optional[pulumi.Input[str]] = None,
+                 success_status_value: Optional[pulumi.Input[str]] = None):
+        """
+        A custom response configuration for a rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events_json_paths: The json paths, '$' char is the json root.
+        :param pulumi.Input[str] compression_algo: The compression algorithm. For Example: 'gzip', 'multi-gzip', 'deflate'.
+        :param pulumi.Input[bool] convert_child_properties_to_array: The value indicating whether the response isn't an array of events / logs.  By setting this flag to true it means the remote server will response with an object which each property has as a value an array of events / logs.
+        :param pulumi.Input[str] csv_delimiter: The csv delimiter, in case the response format is CSV.
+        :param pulumi.Input[str] csv_escape: The character used to escape characters in CSV.
+        :param pulumi.Input[str] format: The response format. possible values are json,csv,xml
+        :param pulumi.Input[bool] has_csv_boundary: The value indicating whether the response has CSV boundary in case the response in CSV format.
+        :param pulumi.Input[bool] has_csv_header: The value indicating whether the response has headers in case the response in CSV format.
+        :param pulumi.Input[bool] is_gzip_compressed: The value indicating whether the remote server support Gzip and we should expect Gzip response.
+        :param pulumi.Input[str] success_status_json_path: The value where the status message/code should appear in the response.
+        :param pulumi.Input[str] success_status_value: The status value.
+        """
+        pulumi.set(__self__, "events_json_paths", events_json_paths)
+        if compression_algo is None:
+            compression_algo = 'gzip'
+        if compression_algo is not None:
+            pulumi.set(__self__, "compression_algo", compression_algo)
+        if convert_child_properties_to_array is not None:
+            pulumi.set(__self__, "convert_child_properties_to_array", convert_child_properties_to_array)
+        if csv_delimiter is not None:
+            pulumi.set(__self__, "csv_delimiter", csv_delimiter)
+        if csv_escape is None:
+            csv_escape = '"'
+        if csv_escape is not None:
+            pulumi.set(__self__, "csv_escape", csv_escape)
+        if format is None:
+            format = 'json'
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if has_csv_boundary is not None:
+            pulumi.set(__self__, "has_csv_boundary", has_csv_boundary)
+        if has_csv_header is not None:
+            pulumi.set(__self__, "has_csv_header", has_csv_header)
+        if is_gzip_compressed is not None:
+            pulumi.set(__self__, "is_gzip_compressed", is_gzip_compressed)
+        if success_status_json_path is not None:
+            pulumi.set(__self__, "success_status_json_path", success_status_json_path)
+        if success_status_value is not None:
+            pulumi.set(__self__, "success_status_value", success_status_value)
+
+    @property
+    @pulumi.getter(name="eventsJsonPaths")
+    def events_json_paths(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The json paths, '$' char is the json root.
+        """
+        return pulumi.get(self, "events_json_paths")
+
+    @events_json_paths.setter
+    def events_json_paths(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "events_json_paths", value)
+
+    @property
+    @pulumi.getter(name="compressionAlgo")
+    def compression_algo(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compression algorithm. For Example: 'gzip', 'multi-gzip', 'deflate'.
+        """
+        return pulumi.get(self, "compression_algo")
+
+    @compression_algo.setter
+    def compression_algo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compression_algo", value)
+
+    @property
+    @pulumi.getter(name="convertChildPropertiesToArray")
+    def convert_child_properties_to_array(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value indicating whether the response isn't an array of events / logs.  By setting this flag to true it means the remote server will response with an object which each property has as a value an array of events / logs.
+        """
+        return pulumi.get(self, "convert_child_properties_to_array")
+
+    @convert_child_properties_to_array.setter
+    def convert_child_properties_to_array(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "convert_child_properties_to_array", value)
+
+    @property
+    @pulumi.getter(name="csvDelimiter")
+    def csv_delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        The csv delimiter, in case the response format is CSV.
+        """
+        return pulumi.get(self, "csv_delimiter")
+
+    @csv_delimiter.setter
+    def csv_delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "csv_delimiter", value)
+
+    @property
+    @pulumi.getter(name="csvEscape")
+    def csv_escape(self) -> Optional[pulumi.Input[str]]:
+        """
+        The character used to escape characters in CSV.
+        """
+        return pulumi.get(self, "csv_escape")
+
+    @csv_escape.setter
+    def csv_escape(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "csv_escape", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The response format. possible values are json,csv,xml
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "format", value)
+
+    @property
+    @pulumi.getter(name="hasCsvBoundary")
+    def has_csv_boundary(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value indicating whether the response has CSV boundary in case the response in CSV format.
+        """
+        return pulumi.get(self, "has_csv_boundary")
+
+    @has_csv_boundary.setter
+    def has_csv_boundary(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "has_csv_boundary", value)
+
+    @property
+    @pulumi.getter(name="hasCsvHeader")
+    def has_csv_header(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value indicating whether the response has headers in case the response in CSV format.
+        """
+        return pulumi.get(self, "has_csv_header")
+
+    @has_csv_header.setter
+    def has_csv_header(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "has_csv_header", value)
+
+    @property
+    @pulumi.getter(name="isGzipCompressed")
+    def is_gzip_compressed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value indicating whether the remote server support Gzip and we should expect Gzip response.
+        """
+        return pulumi.get(self, "is_gzip_compressed")
+
+    @is_gzip_compressed.setter
+    def is_gzip_compressed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_gzip_compressed", value)
+
+    @property
+    @pulumi.getter(name="successStatusJsonPath")
+    def success_status_json_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value where the status message/code should appear in the response.
+        """
+        return pulumi.get(self, "success_status_json_path")
+
+    @success_status_json_path.setter
+    def success_status_json_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "success_status_json_path", value)
+
+    @property
+    @pulumi.getter(name="successStatusValue")
+    def success_status_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status value.
+        """
+        return pulumi.get(self, "success_status_value")
+
+    @success_status_value.setter
+    def success_status_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "success_status_value", value)
 
 
 if not MYPY:
@@ -1635,10 +2494,6 @@ if not MYPY:
         """
         Gets or sets the connector publisher name.
         """
-        sample_queries: pulumi.Input[Sequence[pulumi.Input['SampleQueryArgsDict']]]
-        """
-        Gets or sets the sample queries for the connector.
-        """
         title: pulumi.Input[str]
         """
         Gets or sets the connector blade title.
@@ -1646,12 +2501,6 @@ if not MYPY:
         availability: NotRequired[pulumi.Input['ConnectorDefinitionsAvailabilityArgsDict']]
         """
         The exposure status of the connector to the customers.
-        """
-        graph_queries_table_name: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets the name of the table the connector will insert the data to.
-        This name can be used in other queries by specifying {{graphQueriesTableName}} placeholder
-         in Query and LastDataReceivedQuery values.
         """
         id: NotRequired[pulumi.Input[str]]
         """
@@ -1679,10 +2528,8 @@ class CustomizableConnectorUiConfigArgs:
                  instruction_steps: pulumi.Input[Sequence[pulumi.Input['InstructionStepArgs']]],
                  permissions: pulumi.Input['ConnectorDefinitionsPermissionsArgs'],
                  publisher: pulumi.Input[str],
-                 sample_queries: pulumi.Input[Sequence[pulumi.Input['SampleQueryArgs']]],
                  title: pulumi.Input[str],
                  availability: Optional[pulumi.Input['ConnectorDefinitionsAvailabilityArgs']] = None,
-                 graph_queries_table_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  is_connectivity_criterias_match_some: Optional[pulumi.Input[bool]] = None,
                  logo: Optional[pulumi.Input[str]] = None):
@@ -1695,12 +2542,8 @@ class CustomizableConnectorUiConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InstructionStepArgs']]] instruction_steps: Gets or sets the instruction steps to enable the connector.
         :param pulumi.Input['ConnectorDefinitionsPermissionsArgs'] permissions: The required Permissions for the connector.
         :param pulumi.Input[str] publisher: Gets or sets the connector publisher name.
-        :param pulumi.Input[Sequence[pulumi.Input['SampleQueryArgs']]] sample_queries: Gets or sets the sample queries for the connector.
         :param pulumi.Input[str] title: Gets or sets the connector blade title.
         :param pulumi.Input['ConnectorDefinitionsAvailabilityArgs'] availability: The exposure status of the connector to the customers.
-        :param pulumi.Input[str] graph_queries_table_name: Gets or sets the name of the table the connector will insert the data to.
-               This name can be used in other queries by specifying {{graphQueriesTableName}} placeholder
-                in Query and LastDataReceivedQuery values.
         :param pulumi.Input[str] id: Gets or sets custom connector id. optional field.
         :param pulumi.Input[bool] is_connectivity_criterias_match_some: Gets or sets a value indicating whether to use 'OR'(SOME) or 'AND' between ConnectivityCriteria items.
         :param pulumi.Input[str] logo: Gets or sets the connector logo to be used when displaying the connector within Azure Sentinel's connector's gallery.
@@ -1713,12 +2556,9 @@ class CustomizableConnectorUiConfigArgs:
         pulumi.set(__self__, "instruction_steps", instruction_steps)
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "sample_queries", sample_queries)
         pulumi.set(__self__, "title", title)
         if availability is not None:
             pulumi.set(__self__, "availability", availability)
-        if graph_queries_table_name is not None:
-            pulumi.set(__self__, "graph_queries_table_name", graph_queries_table_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if is_connectivity_criterias_match_some is not None:
@@ -1811,18 +2651,6 @@ class CustomizableConnectorUiConfigArgs:
         pulumi.set(self, "publisher", value)
 
     @property
-    @pulumi.getter(name="sampleQueries")
-    def sample_queries(self) -> pulumi.Input[Sequence[pulumi.Input['SampleQueryArgs']]]:
-        """
-        Gets or sets the sample queries for the connector.
-        """
-        return pulumi.get(self, "sample_queries")
-
-    @sample_queries.setter
-    def sample_queries(self, value: pulumi.Input[Sequence[pulumi.Input['SampleQueryArgs']]]):
-        pulumi.set(self, "sample_queries", value)
-
-    @property
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
@@ -1845,20 +2673,6 @@ class CustomizableConnectorUiConfigArgs:
     @availability.setter
     def availability(self, value: Optional[pulumi.Input['ConnectorDefinitionsAvailabilityArgs']]):
         pulumi.set(self, "availability", value)
-
-    @property
-    @pulumi.getter(name="graphQueriesTableName")
-    def graph_queries_table_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the name of the table the connector will insert the data to.
-        This name can be used in other queries by specifying {{graphQueriesTableName}} placeholder
-         in Query and LastDataReceivedQuery values.
-        """
-        return pulumi.get(self, "graph_queries_table_name")
-
-    @graph_queries_table_name.setter
-    def graph_queries_table_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "graph_queries_table_name", value)
 
     @property
     @pulumi.getter
@@ -1896,6 +2710,79 @@ class CustomizableConnectorUiConfigArgs:
     @logo.setter
     def logo(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "logo", value)
+
+
+if not MYPY:
+    class DCRConfigurationArgsDict(TypedDict):
+        """
+        The configuration of the destination of the data.
+        """
+        data_collection_endpoint: pulumi.Input[str]
+        """
+        Represents the data collection ingestion endpoint in log analytics.
+        """
+        data_collection_rule_immutable_id: pulumi.Input[str]
+        """
+        The data collection rule immutable id, the rule defines the transformation and data destination.
+        """
+        stream_name: pulumi.Input[str]
+        """
+        The stream we are sending the data to.
+        """
+elif False:
+    DCRConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DCRConfigurationArgs:
+    def __init__(__self__, *,
+                 data_collection_endpoint: pulumi.Input[str],
+                 data_collection_rule_immutable_id: pulumi.Input[str],
+                 stream_name: pulumi.Input[str]):
+        """
+        The configuration of the destination of the data.
+        :param pulumi.Input[str] data_collection_endpoint: Represents the data collection ingestion endpoint in log analytics.
+        :param pulumi.Input[str] data_collection_rule_immutable_id: The data collection rule immutable id, the rule defines the transformation and data destination.
+        :param pulumi.Input[str] stream_name: The stream we are sending the data to.
+        """
+        pulumi.set(__self__, "data_collection_endpoint", data_collection_endpoint)
+        pulumi.set(__self__, "data_collection_rule_immutable_id", data_collection_rule_immutable_id)
+        pulumi.set(__self__, "stream_name", stream_name)
+
+    @property
+    @pulumi.getter(name="dataCollectionEndpoint")
+    def data_collection_endpoint(self) -> pulumi.Input[str]:
+        """
+        Represents the data collection ingestion endpoint in log analytics.
+        """
+        return pulumi.get(self, "data_collection_endpoint")
+
+    @data_collection_endpoint.setter
+    def data_collection_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_collection_endpoint", value)
+
+    @property
+    @pulumi.getter(name="dataCollectionRuleImmutableId")
+    def data_collection_rule_immutable_id(self) -> pulumi.Input[str]:
+        """
+        The data collection rule immutable id, the rule defines the transformation and data destination.
+        """
+        return pulumi.get(self, "data_collection_rule_immutable_id")
+
+    @data_collection_rule_immutable_id.setter
+    def data_collection_rule_immutable_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_collection_rule_immutable_id", value)
+
+    @property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> pulumi.Input[str]:
+        """
+        The stream we are sending the data to.
+        """
+        return pulumi.get(self, "stream_name")
+
+    @stream_name.setter
+    def stream_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stream_name", value)
 
 
 if not MYPY:
@@ -2348,6 +3235,237 @@ class FileMetadataArgs:
     @file_size.setter
     def file_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "file_size", value)
+
+
+if not MYPY:
+    class GCPAuthModelArgsDict(TypedDict):
+        """
+        Model for API authentication for all GCP kind connectors.
+        """
+        project_number: pulumi.Input[str]
+        """
+        GCP Project Number
+        """
+        service_account_email: pulumi.Input[str]
+        """
+        GCP Service Account Email
+        """
+        type: pulumi.Input[str]
+        """
+        Type of paging
+        Expected value is 'GCP'.
+        """
+        workload_identity_provider_id: pulumi.Input[str]
+        """
+        GCP Workload Identity Provider ID
+        """
+elif False:
+    GCPAuthModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GCPAuthModelArgs:
+    def __init__(__self__, *,
+                 project_number: pulumi.Input[str],
+                 service_account_email: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 workload_identity_provider_id: pulumi.Input[str]):
+        """
+        Model for API authentication for all GCP kind connectors.
+        :param pulumi.Input[str] project_number: GCP Project Number
+        :param pulumi.Input[str] service_account_email: GCP Service Account Email
+        :param pulumi.Input[str] type: Type of paging
+               Expected value is 'GCP'.
+        :param pulumi.Input[str] workload_identity_provider_id: GCP Workload Identity Provider ID
+        """
+        pulumi.set(__self__, "project_number", project_number)
+        pulumi.set(__self__, "service_account_email", service_account_email)
+        pulumi.set(__self__, "type", 'GCP')
+        pulumi.set(__self__, "workload_identity_provider_id", workload_identity_provider_id)
+
+    @property
+    @pulumi.getter(name="projectNumber")
+    def project_number(self) -> pulumi.Input[str]:
+        """
+        GCP Project Number
+        """
+        return pulumi.get(self, "project_number")
+
+    @project_number.setter
+    def project_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_number", value)
+
+    @property
+    @pulumi.getter(name="serviceAccountEmail")
+    def service_account_email(self) -> pulumi.Input[str]:
+        """
+        GCP Service Account Email
+        """
+        return pulumi.get(self, "service_account_email")
+
+    @service_account_email.setter
+    def service_account_email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_account_email", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of paging
+        Expected value is 'GCP'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="workloadIdentityProviderId")
+    def workload_identity_provider_id(self) -> pulumi.Input[str]:
+        """
+        GCP Workload Identity Provider ID
+        """
+        return pulumi.get(self, "workload_identity_provider_id")
+
+    @workload_identity_provider_id.setter
+    def workload_identity_provider_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workload_identity_provider_id", value)
+
+
+if not MYPY:
+    class GenericBlobSbsAuthModelArgsDict(TypedDict):
+        """
+        Model for API authentication for working with service bus or storage account.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of paging
+        Expected value is 'ServiceBus'.
+        """
+        credentials_config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Credentials for service bus namespace, keyvault uri for access key
+        """
+        storage_account_credentials_config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Credentials for storage account, keyvault uri for access key
+        """
+elif False:
+    GenericBlobSbsAuthModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GenericBlobSbsAuthModelArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 credentials_config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 storage_account_credentials_config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Model for API authentication for working with service bus or storage account.
+        :param pulumi.Input[str] type: Type of paging
+               Expected value is 'ServiceBus'.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] credentials_config: Credentials for service bus namespace, keyvault uri for access key
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] storage_account_credentials_config: Credentials for storage account, keyvault uri for access key
+        """
+        pulumi.set(__self__, "type", 'ServiceBus')
+        if credentials_config is not None:
+            pulumi.set(__self__, "credentials_config", credentials_config)
+        if storage_account_credentials_config is not None:
+            pulumi.set(__self__, "storage_account_credentials_config", storage_account_credentials_config)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of paging
+        Expected value is 'ServiceBus'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="credentialsConfig")
+    def credentials_config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Credentials for service bus namespace, keyvault uri for access key
+        """
+        return pulumi.get(self, "credentials_config")
+
+    @credentials_config.setter
+    def credentials_config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "credentials_config", value)
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialsConfig")
+    def storage_account_credentials_config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Credentials for storage account, keyvault uri for access key
+        """
+        return pulumi.get(self, "storage_account_credentials_config")
+
+    @storage_account_credentials_config.setter
+    def storage_account_credentials_config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "storage_account_credentials_config", value)
+
+
+if not MYPY:
+    class GitHubAuthModelArgsDict(TypedDict):
+        """
+        Model for API authentication for GitHub. For this authentication first we need to approve the Router app (Microsoft Security DevOps) to access the GitHub account, Then we only need the InstallationId to get the access token from https://api.github.com/app/installations/{installId}/access_tokens.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of paging
+        Expected value is 'GitHub'.
+        """
+        installation_id: NotRequired[pulumi.Input[str]]
+        """
+        The GitHubApp auth installation id.
+        """
+elif False:
+    GitHubAuthModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GitHubAuthModelArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 installation_id: Optional[pulumi.Input[str]] = None):
+        """
+        Model for API authentication for GitHub. For this authentication first we need to approve the Router app (Microsoft Security DevOps) to access the GitHub account, Then we only need the InstallationId to get the access token from https://api.github.com/app/installations/{installId}/access_tokens.
+        :param pulumi.Input[str] type: Type of paging
+               Expected value is 'GitHub'.
+        :param pulumi.Input[str] installation_id: The GitHubApp auth installation id.
+        """
+        pulumi.set(__self__, "type", 'GitHub')
+        if installation_id is not None:
+            pulumi.set(__self__, "installation_id", installation_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of paging
+        Expected value is 'GitHub'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GitHubApp auth installation id.
+        """
+        return pulumi.get(self, "installation_id")
+
+    @installation_id.setter
+    def installation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "installation_id", value)
 
 
 if not MYPY:
@@ -3250,7 +4368,7 @@ if not MYPY:
         inner_steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstructionStepArgsDict']]]]
         """
         Gets or sets the inner instruction steps details.
-        Foe Example: instruction step 1 might contain inner instruction steps: [instruction step 1.1, instruction step 1.2].
+        For Example: instruction step 1 might contain inner instruction steps: [instruction step 1.1, instruction step 1.2].
         """
         instructions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstructionStepDetailsArgsDict']]]]
         """
@@ -3274,7 +4392,7 @@ class InstructionStepArgs:
         Instruction steps to enable the connector.
         :param pulumi.Input[str] description: Gets or sets the instruction step description.
         :param pulumi.Input[Sequence[pulumi.Input['InstructionStepArgs']]] inner_steps: Gets or sets the inner instruction steps details.
-               Foe Example: instruction step 1 might contain inner instruction steps: [instruction step 1.1, instruction step 1.2].
+               For Example: instruction step 1 might contain inner instruction steps: [instruction step 1.1, instruction step 1.2].
         :param pulumi.Input[Sequence[pulumi.Input['InstructionStepDetailsArgs']]] instructions: Gets or sets the instruction step details.
         :param pulumi.Input[str] title: Gets or sets the instruction step title.
         """
@@ -3304,7 +4422,7 @@ class InstructionStepArgs:
     def inner_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstructionStepArgs']]]]:
         """
         Gets or sets the inner instruction steps details.
-        Foe Example: instruction step 1 might contain inner instruction steps: [instruction step 1.1, instruction step 1.2].
+        For Example: instruction step 1 might contain inner instruction steps: [instruction step 1.1, instruction step 1.2].
         """
         return pulumi.get(self, "inner_steps")
 
@@ -3335,6 +4453,205 @@ class InstructionStepArgs:
     @title.setter
     def title(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title", value)
+
+
+if not MYPY:
+    class JwtAuthModelArgsDict(TypedDict):
+        """
+        Model for API authentication with JWT. Simple exchange between user name + password to access token.
+        """
+        password: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        The password
+        """
+        token_endpoint: pulumi.Input[str]
+        """
+        Token endpoint to request JWT
+        """
+        type: pulumi.Input[str]
+        """
+        Type of paging
+        Expected value is 'JwtToken'.
+        """
+        user_name: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        The user name. If user name and password sent in header request we only need to populate the `value` property with the user name (Same as basic auth). If user name and password sent in body request we need to specify the `Key` and `Value`.
+        """
+        headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The custom headers we want to add once we send request to token endpoint.
+        """
+        is_credentials_in_headers: NotRequired[pulumi.Input[bool]]
+        """
+        Flag indicating whether we want to send the user name and password to token endpoint in the headers.
+        """
+        is_json_request: NotRequired[pulumi.Input[bool]]
+        """
+        Flag indicating whether the body request is JSON (header Content-Type = application/json), meaning its a Form URL encoded request (header Content-Type = application/x-www-form-urlencoded).
+        """
+        query_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The custom query parameter we want to add once we send request to token endpoint.
+        """
+        request_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Request timeout in seconds.
+        """
+elif False:
+    JwtAuthModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JwtAuthModelArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 token_endpoint: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 user_name: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 is_credentials_in_headers: Optional[pulumi.Input[bool]] = None,
+                 is_json_request: Optional[pulumi.Input[bool]] = None,
+                 query_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 request_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Model for API authentication with JWT. Simple exchange between user name + password to access token.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] password: The password
+        :param pulumi.Input[str] token_endpoint: Token endpoint to request JWT
+        :param pulumi.Input[str] type: Type of paging
+               Expected value is 'JwtToken'.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_name: The user name. If user name and password sent in header request we only need to populate the `value` property with the user name (Same as basic auth). If user name and password sent in body request we need to specify the `Key` and `Value`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: The custom headers we want to add once we send request to token endpoint.
+        :param pulumi.Input[bool] is_credentials_in_headers: Flag indicating whether we want to send the user name and password to token endpoint in the headers.
+        :param pulumi.Input[bool] is_json_request: Flag indicating whether the body request is JSON (header Content-Type = application/json), meaning its a Form URL encoded request (header Content-Type = application/x-www-form-urlencoded).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] query_parameters: The custom query parameter we want to add once we send request to token endpoint.
+        :param pulumi.Input[int] request_timeout_in_seconds: Request timeout in seconds.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "type", 'JwtToken')
+        pulumi.set(__self__, "user_name", user_name)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if is_credentials_in_headers is not None:
+            pulumi.set(__self__, "is_credentials_in_headers", is_credentials_in_headers)
+        if is_json_request is None:
+            is_json_request = False
+        if is_json_request is not None:
+            pulumi.set(__self__, "is_json_request", is_json_request)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
+        if request_timeout_in_seconds is None:
+            request_timeout_in_seconds = 100
+        if request_timeout_in_seconds is not None:
+            pulumi.set(__self__, "request_timeout_in_seconds", request_timeout_in_seconds)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        The password
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> pulumi.Input[str]:
+        """
+        Token endpoint to request JWT
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of paging
+        Expected value is 'JwtToken'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        The user name. If user name and password sent in header request we only need to populate the `value` property with the user name (Same as basic auth). If user name and password sent in body request we need to specify the `Key` and `Value`.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "user_name", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The custom headers we want to add once we send request to token endpoint.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="isCredentialsInHeaders")
+    def is_credentials_in_headers(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag indicating whether we want to send the user name and password to token endpoint in the headers.
+        """
+        return pulumi.get(self, "is_credentials_in_headers")
+
+    @is_credentials_in_headers.setter
+    def is_credentials_in_headers(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_credentials_in_headers", value)
+
+    @property
+    @pulumi.getter(name="isJsonRequest")
+    def is_json_request(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag indicating whether the body request is JSON (header Content-Type = application/json), meaning its a Form URL encoded request (header Content-Type = application/x-www-form-urlencoded).
+        """
+        return pulumi.get(self, "is_json_request")
+
+    @is_json_request.setter
+    def is_json_request(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_json_request", value)
+
+    @property
+    @pulumi.getter(name="queryParameters")
+    def query_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The custom query parameter we want to add once we send request to token endpoint.
+        """
+        return pulumi.get(self, "query_parameters")
+
+    @query_parameters.setter
+    def query_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "query_parameters", value)
+
+    @property
+    @pulumi.getter(name="requestTimeoutInSeconds")
+    def request_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Request timeout in seconds.
+        """
+        return pulumi.get(self, "request_timeout_in_seconds")
+
+    @request_timeout_in_seconds.setter
+    def request_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "request_timeout_in_seconds", value)
 
 
 if not MYPY:
@@ -3526,6 +4843,96 @@ class MCASDataConnectorDataTypesArgs:
     @discovery_logs.setter
     def discovery_logs(self, value: Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']]):
         pulumi.set(self, "discovery_logs", value)
+
+
+if not MYPY:
+    class MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgsDict(TypedDict):
+        """
+        Data type for Microsoft Threat Intelligence data connector.
+        """
+        lookback_period: pulumi.Input[str]
+        """
+        The lookback period for the feed to be imported. The date-time to begin importing the feed from, for example: 2024-01-01T00:00:00.000Z.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+elif False:
+    MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs:
+    def __init__(__self__, *,
+                 lookback_period: pulumi.Input[str],
+                 state: Optional[pulumi.Input[Union[str, 'DataTypeState']]] = None):
+        """
+        Data type for Microsoft Threat Intelligence data connector.
+        :param pulumi.Input[str] lookback_period: The lookback period for the feed to be imported. The date-time to begin importing the feed from, for example: 2024-01-01T00:00:00.000Z.
+        :param pulumi.Input[Union[str, 'DataTypeState']] state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "lookback_period", lookback_period)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="lookbackPeriod")
+    def lookback_period(self) -> pulumi.Input[str]:
+        """
+        The lookback period for the feed to be imported. The date-time to begin importing the feed from, for example: 2024-01-01T00:00:00.000Z.
+        """
+        return pulumi.get(self, "lookback_period")
+
+    @lookback_period.setter
+    def lookback_period(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lookback_period", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'DataTypeState']]]:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
+        pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class MSTIDataConnectorDataTypesArgsDict(TypedDict):
+        """
+        The available data types for Microsoft Threat Intelligence data connector.
+        """
+        microsoft_emerging_threat_feed: pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgsDict']
+        """
+        Data type for Microsoft Threat Intelligence data connector.
+        """
+elif False:
+    MSTIDataConnectorDataTypesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MSTIDataConnectorDataTypesArgs:
+    def __init__(__self__, *,
+                 microsoft_emerging_threat_feed: pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs']):
+        """
+        The available data types for Microsoft Threat Intelligence data connector.
+        :param pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs'] microsoft_emerging_threat_feed: Data type for Microsoft Threat Intelligence data connector.
+        """
+        pulumi.set(__self__, "microsoft_emerging_threat_feed", microsoft_emerging_threat_feed)
+
+    @property
+    @pulumi.getter(name="microsoftEmergingThreatFeed")
+    def microsoft_emerging_threat_feed(self) -> pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs']:
+        """
+        Data type for Microsoft Threat Intelligence data connector.
+        """
+        return pulumi.get(self, "microsoft_emerging_threat_feed")
+
+    @microsoft_emerging_threat_feed.setter
+    def microsoft_emerging_threat_feed(self, value: pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs']):
+        pulumi.set(self, "microsoft_emerging_threat_feed", value)
 
 
 if not MYPY:
@@ -3967,6 +5374,380 @@ class MetadataSupportArgs:
 
 
 if not MYPY:
+    class NoneAuthModelArgsDict(TypedDict):
+        """
+        Model for API authentication with no authentication method - public API.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of paging
+        Expected value is 'None'.
+        """
+elif False:
+    NoneAuthModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NoneAuthModelArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        """
+        Model for API authentication with no authentication method - public API.
+        :param pulumi.Input[str] type: Type of paging
+               Expected value is 'None'.
+        """
+        pulumi.set(__self__, "type", 'None')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of paging
+        Expected value is 'None'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class OAuthModelArgsDict(TypedDict):
+        """
+        Model for API authentication with OAuth2.
+        """
+        client_id: pulumi.Input[str]
+        """
+        The Application (client) ID that the OAuth provider assigned to your app.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The Application (client) secret that the OAuth provider assigned to your app.
+        """
+        grant_type: pulumi.Input[str]
+        """
+        The grant type, usually will be 'authorization code'.
+        """
+        token_endpoint: pulumi.Input[str]
+        """
+        The token endpoint. Defines the OAuth2 refresh token.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of paging
+        Expected value is 'OAuth2'.
+        """
+        access_token_prepend: NotRequired[pulumi.Input[str]]
+        """
+        Access token prepend. Default is 'Bearer'.
+        """
+        authorization_code: NotRequired[pulumi.Input[str]]
+        """
+        The user's authorization code.
+        """
+        authorization_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The authorization endpoint.
+        """
+        authorization_endpoint_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The authorization endpoint headers.
+        """
+        authorization_endpoint_query_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The authorization endpoint query parameters.
+        """
+        is_credentials_in_headers: NotRequired[pulumi.Input[bool]]
+        """
+        Indicating whether we want to send the clientId and clientSecret to token endpoint in the headers.
+        """
+        is_jwt_bearer_flow: NotRequired[pulumi.Input[bool]]
+        """
+        A value indicating whether it's a JWT flow.
+        """
+        redirect_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Application redirect url that the user config in the OAuth provider.
+        """
+        scope: NotRequired[pulumi.Input[str]]
+        """
+        The Application (client) Scope that the OAuth provider assigned to your app.
+        """
+        token_endpoint_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The token endpoint headers.
+        """
+        token_endpoint_query_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The token endpoint query parameters.
+        """
+elif False:
+    OAuthModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OAuthModelArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: pulumi.Input[str],
+                 grant_type: pulumi.Input[str],
+                 token_endpoint: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 access_token_prepend: Optional[pulumi.Input[str]] = None,
+                 authorization_code: Optional[pulumi.Input[str]] = None,
+                 authorization_endpoint: Optional[pulumi.Input[str]] = None,
+                 authorization_endpoint_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 authorization_endpoint_query_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 is_credentials_in_headers: Optional[pulumi.Input[bool]] = None,
+                 is_jwt_bearer_flow: Optional[pulumi.Input[bool]] = None,
+                 redirect_uri: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 token_endpoint_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 token_endpoint_query_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Model for API authentication with OAuth2.
+        :param pulumi.Input[str] client_id: The Application (client) ID that the OAuth provider assigned to your app.
+        :param pulumi.Input[str] client_secret: The Application (client) secret that the OAuth provider assigned to your app.
+        :param pulumi.Input[str] grant_type: The grant type, usually will be 'authorization code'.
+        :param pulumi.Input[str] token_endpoint: The token endpoint. Defines the OAuth2 refresh token.
+        :param pulumi.Input[str] type: Type of paging
+               Expected value is 'OAuth2'.
+        :param pulumi.Input[str] access_token_prepend: Access token prepend. Default is 'Bearer'.
+        :param pulumi.Input[str] authorization_code: The user's authorization code.
+        :param pulumi.Input[str] authorization_endpoint: The authorization endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authorization_endpoint_headers: The authorization endpoint headers.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authorization_endpoint_query_parameters: The authorization endpoint query parameters.
+        :param pulumi.Input[bool] is_credentials_in_headers: Indicating whether we want to send the clientId and clientSecret to token endpoint in the headers.
+        :param pulumi.Input[bool] is_jwt_bearer_flow: A value indicating whether it's a JWT flow.
+        :param pulumi.Input[str] redirect_uri: The Application redirect url that the user config in the OAuth provider.
+        :param pulumi.Input[str] scope: The Application (client) Scope that the OAuth provider assigned to your app.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_endpoint_headers: The token endpoint headers.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_endpoint_query_parameters: The token endpoint query parameters.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "grant_type", grant_type)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "type", 'OAuth2')
+        if access_token_prepend is not None:
+            pulumi.set(__self__, "access_token_prepend", access_token_prepend)
+        if authorization_code is not None:
+            pulumi.set(__self__, "authorization_code", authorization_code)
+        if authorization_endpoint is not None:
+            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if authorization_endpoint_headers is not None:
+            pulumi.set(__self__, "authorization_endpoint_headers", authorization_endpoint_headers)
+        if authorization_endpoint_query_parameters is not None:
+            pulumi.set(__self__, "authorization_endpoint_query_parameters", authorization_endpoint_query_parameters)
+        if is_credentials_in_headers is None:
+            is_credentials_in_headers = False
+        if is_credentials_in_headers is not None:
+            pulumi.set(__self__, "is_credentials_in_headers", is_credentials_in_headers)
+        if is_jwt_bearer_flow is not None:
+            pulumi.set(__self__, "is_jwt_bearer_flow", is_jwt_bearer_flow)
+        if redirect_uri is not None:
+            pulumi.set(__self__, "redirect_uri", redirect_uri)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if token_endpoint_headers is not None:
+            pulumi.set(__self__, "token_endpoint_headers", token_endpoint_headers)
+        if token_endpoint_query_parameters is not None:
+            pulumi.set(__self__, "token_endpoint_query_parameters", token_endpoint_query_parameters)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The Application (client) ID that the OAuth provider assigned to your app.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[str]:
+        """
+        The Application (client) secret that the OAuth provider assigned to your app.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="grantType")
+    def grant_type(self) -> pulumi.Input[str]:
+        """
+        The grant type, usually will be 'authorization code'.
+        """
+        return pulumi.get(self, "grant_type")
+
+    @grant_type.setter
+    def grant_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "grant_type", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> pulumi.Input[str]:
+        """
+        The token endpoint. Defines the OAuth2 refresh token.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of paging
+        Expected value is 'OAuth2'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="accessTokenPrepend")
+    def access_token_prepend(self) -> Optional[pulumi.Input[str]]:
+        """
+        Access token prepend. Default is 'Bearer'.
+        """
+        return pulumi.get(self, "access_token_prepend")
+
+    @access_token_prepend.setter
+    def access_token_prepend(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token_prepend", value)
+
+    @property
+    @pulumi.getter(name="authorizationCode")
+    def authorization_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user's authorization code.
+        """
+        return pulumi.get(self, "authorization_code")
+
+    @authorization_code.setter
+    def authorization_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_code", value)
+
+    @property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authorization endpoint.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @authorization_endpoint.setter
+    def authorization_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_endpoint", value)
+
+    @property
+    @pulumi.getter(name="authorizationEndpointHeaders")
+    def authorization_endpoint_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The authorization endpoint headers.
+        """
+        return pulumi.get(self, "authorization_endpoint_headers")
+
+    @authorization_endpoint_headers.setter
+    def authorization_endpoint_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization_endpoint_headers", value)
+
+    @property
+    @pulumi.getter(name="authorizationEndpointQueryParameters")
+    def authorization_endpoint_query_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The authorization endpoint query parameters.
+        """
+        return pulumi.get(self, "authorization_endpoint_query_parameters")
+
+    @authorization_endpoint_query_parameters.setter
+    def authorization_endpoint_query_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization_endpoint_query_parameters", value)
+
+    @property
+    @pulumi.getter(name="isCredentialsInHeaders")
+    def is_credentials_in_headers(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicating whether we want to send the clientId and clientSecret to token endpoint in the headers.
+        """
+        return pulumi.get(self, "is_credentials_in_headers")
+
+    @is_credentials_in_headers.setter
+    def is_credentials_in_headers(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_credentials_in_headers", value)
+
+    @property
+    @pulumi.getter(name="isJwtBearerFlow")
+    def is_jwt_bearer_flow(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value indicating whether it's a JWT flow.
+        """
+        return pulumi.get(self, "is_jwt_bearer_flow")
+
+    @is_jwt_bearer_flow.setter
+    def is_jwt_bearer_flow(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_jwt_bearer_flow", value)
+
+    @property
+    @pulumi.getter(name="redirectUri")
+    def redirect_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Application redirect url that the user config in the OAuth provider.
+        """
+        return pulumi.get(self, "redirect_uri")
+
+    @redirect_uri.setter
+    def redirect_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redirect_uri", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Application (client) Scope that the OAuth provider assigned to your app.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpointHeaders")
+    def token_endpoint_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The token endpoint headers.
+        """
+        return pulumi.get(self, "token_endpoint_headers")
+
+    @token_endpoint_headers.setter
+    def token_endpoint_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "token_endpoint_headers", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpointQueryParameters")
+    def token_endpoint_query_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The token endpoint query parameters.
+        """
+        return pulumi.get(self, "token_endpoint_query_parameters")
+
+    @token_endpoint_query_parameters.setter
+    def token_endpoint_query_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "token_endpoint_query_parameters", value)
+
+
+if not MYPY:
     class OfficeDataConnectorDataTypesExchangeArgsDict(TypedDict):
         """
         Exchange data type connection.
@@ -4151,6 +5932,120 @@ class OfficeDataConnectorDataTypesArgs:
 
 
 if not MYPY:
+    class OracleAuthModelArgsDict(TypedDict):
+        """
+        Model for API authentication for Oracle.
+        """
+        pem_file: pulumi.Input[str]
+        """
+        Content of the PRM file
+        """
+        public_fingerprint: pulumi.Input[str]
+        """
+        Public Fingerprint
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        Oracle tenant ID
+        """
+        type: pulumi.Input[str]
+        """
+        Type of paging
+        Expected value is 'Oracle'.
+        """
+        user_id: pulumi.Input[str]
+        """
+        Oracle user ID
+        """
+elif False:
+    OracleAuthModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OracleAuthModelArgs:
+    def __init__(__self__, *,
+                 pem_file: pulumi.Input[str],
+                 public_fingerprint: pulumi.Input[str],
+                 tenant_id: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 user_id: pulumi.Input[str]):
+        """
+        Model for API authentication for Oracle.
+        :param pulumi.Input[str] pem_file: Content of the PRM file
+        :param pulumi.Input[str] public_fingerprint: Public Fingerprint
+        :param pulumi.Input[str] tenant_id: Oracle tenant ID
+        :param pulumi.Input[str] type: Type of paging
+               Expected value is 'Oracle'.
+        :param pulumi.Input[str] user_id: Oracle user ID
+        """
+        pulumi.set(__self__, "pem_file", pem_file)
+        pulumi.set(__self__, "public_fingerprint", public_fingerprint)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", 'Oracle')
+        pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="pemFile")
+    def pem_file(self) -> pulumi.Input[str]:
+        """
+        Content of the PRM file
+        """
+        return pulumi.get(self, "pem_file")
+
+    @pem_file.setter
+    def pem_file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pem_file", value)
+
+    @property
+    @pulumi.getter(name="publicFingerprint")
+    def public_fingerprint(self) -> pulumi.Input[str]:
+        """
+        Public Fingerprint
+        """
+        return pulumi.get(self, "public_fingerprint")
+
+    @public_fingerprint.setter
+    def public_fingerprint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "public_fingerprint", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[str]:
+        """
+        Oracle tenant ID
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of paging
+        Expected value is 'Oracle'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Input[str]:
+        """
+        Oracle user ID
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_id", value)
+
+
+if not MYPY:
     class PlaybookActionPropertiesArgsDict(TypedDict):
         logic_app_resource_id: pulumi.Input[str]
         """
@@ -4202,6 +6097,77 @@ class PlaybookActionPropertiesArgs:
 
 
 if not MYPY:
+    class PremiumMdtiDataConnectorDataTypesConnectorArgsDict(TypedDict):
+        """
+        Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+elif False:
+    PremiumMdtiDataConnectorDataTypesConnectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PremiumMdtiDataConnectorDataTypesConnectorArgs:
+    def __init__(__self__, *,
+                 state: Optional[pulumi.Input[Union[str, 'DataTypeState']]] = None):
+        """
+        Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+        :param pulumi.Input[Union[str, 'DataTypeState']] state: Describe whether this data type connection is enabled or not.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'DataTypeState']]]:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
+        pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class PremiumMdtiDataConnectorDataTypesArgsDict(TypedDict):
+        """
+        The available data types for Premium Microsoft Defender for Threat Intelligence data connector.
+        """
+        connector: pulumi.Input['PremiumMdtiDataConnectorDataTypesConnectorArgsDict']
+        """
+        Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+        """
+elif False:
+    PremiumMdtiDataConnectorDataTypesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PremiumMdtiDataConnectorDataTypesArgs:
+    def __init__(__self__, *,
+                 connector: pulumi.Input['PremiumMdtiDataConnectorDataTypesConnectorArgs']):
+        """
+        The available data types for Premium Microsoft Defender for Threat Intelligence data connector.
+        :param pulumi.Input['PremiumMdtiDataConnectorDataTypesConnectorArgs'] connector: Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+        """
+        pulumi.set(__self__, "connector", connector)
+
+    @property
+    @pulumi.getter
+    def connector(self) -> pulumi.Input['PremiumMdtiDataConnectorDataTypesConnectorArgs']:
+        """
+        Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+        """
+        return pulumi.get(self, "connector")
+
+    @connector.setter
+    def connector(self, value: pulumi.Input['PremiumMdtiDataConnectorDataTypesConnectorArgs']):
+        pulumi.set(self, "connector", value)
+
+
+if not MYPY:
     class PropertyArrayChangedConditionPropertiesArgsDict(TypedDict):
         """
         Describes an automation rule condition that evaluates an array property's value change
@@ -4249,6 +6215,64 @@ class PropertyArrayChangedConditionPropertiesArgs:
 
     @condition_properties.setter
     def condition_properties(self, value: Optional[pulumi.Input['AutomationRulePropertyArrayChangedValuesConditionArgs']]):
+        pulumi.set(self, "condition_properties", value)
+
+
+if not MYPY:
+    class PropertyArrayConditionPropertiesArgsDict(TypedDict):
+        """
+        Describes an automation rule condition that evaluates an array property's value
+        """
+        condition_type: pulumi.Input[str]
+        """
+
+        Expected value is 'PropertyArray'.
+        """
+        condition_properties: NotRequired[pulumi.Input['AutomationRulePropertyArrayValuesConditionArgsDict']]
+        """
+        Describes an automation rule condition on array properties.
+        """
+elif False:
+    PropertyArrayConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PropertyArrayConditionPropertiesArgs:
+    def __init__(__self__, *,
+                 condition_type: pulumi.Input[str],
+                 condition_properties: Optional[pulumi.Input['AutomationRulePropertyArrayValuesConditionArgs']] = None):
+        """
+        Describes an automation rule condition that evaluates an array property's value
+        :param pulumi.Input[str] condition_type: 
+               Expected value is 'PropertyArray'.
+        :param pulumi.Input['AutomationRulePropertyArrayValuesConditionArgs'] condition_properties: Describes an automation rule condition on array properties.
+        """
+        pulumi.set(__self__, "condition_type", 'PropertyArray')
+        if condition_properties is not None:
+            pulumi.set(__self__, "condition_properties", condition_properties)
+
+    @property
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is 'PropertyArray'.
+        """
+        return pulumi.get(self, "condition_type")
+
+    @condition_type.setter
+    def condition_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition_type", value)
+
+    @property
+    @pulumi.getter(name="conditionProperties")
+    def condition_properties(self) -> Optional[pulumi.Input['AutomationRulePropertyArrayValuesConditionArgs']]:
+        """
+        Describes an automation rule condition on array properties.
+        """
+        return pulumi.get(self, "condition_properties")
+
+    @condition_properties.setter
+    def condition_properties(self, value: Optional[pulumi.Input['AutomationRulePropertyArrayValuesConditionArgs']]):
         pulumi.set(self, "condition_properties", value)
 
 
@@ -4645,6 +6669,416 @@ class ResourceProviderRequiredPermissionsArgs:
 
 
 if not MYPY:
+    class RestApiPollerRequestConfigArgsDict(TypedDict):
+        """
+        The request configuration.
+        """
+        api_endpoint: pulumi.Input[str]
+        """
+        The API endpoint.
+        """
+        end_time_attribute_name: NotRequired[pulumi.Input[str]]
+        """
+        The query parameter name which the remote server expect to end query. This property goes hand to hand with `startTimeAttributeName`
+        """
+        headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The header for the request for the remote server.
+        """
+        http_method: NotRequired[pulumi.Input[Union[str, 'HttpMethodVerb']]]
+        """
+        The HTTP method, default value GET.
+        """
+        is_post_payload_json: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate if HTTP POST payload is in JSON format (vs form-urlencoded).
+        """
+        query_parameters: NotRequired[Any]
+        """
+        The HTTP query parameters to RESTful API.
+        """
+        query_parameters_template: NotRequired[pulumi.Input[str]]
+        """
+        the query parameters template. Defines the query parameters template to use when passing query parameters in advanced scenarios.
+        """
+        query_time_format: NotRequired[pulumi.Input[str]]
+        """
+        The query time format. A remote server can have a query to pull data from range 'start' to 'end'. This property indicate what is the expected time format the remote server know to parse.
+        """
+        query_time_interval_attribute_name: NotRequired[pulumi.Input[str]]
+        """
+        The query parameter name which we need to send the server for query logs in time interval. Should be defined with `queryTimeIntervalPrepend` and `queryTimeIntervalDelimiter`
+        """
+        query_time_interval_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The delimiter string between 2 QueryTimeFormat in the query parameter `queryTimeIntervalAttributeName`.
+        """
+        query_time_interval_prepend: NotRequired[pulumi.Input[str]]
+        """
+        The string prepend to the value of the query parameter in `queryTimeIntervalAttributeName`.
+        """
+        query_window_in_min: NotRequired[pulumi.Input[int]]
+        """
+        The query window in minutes for the request.
+        """
+        rate_limit_qps: NotRequired[pulumi.Input[int]]
+        """
+        The Rate limit queries per second for the request..
+        """
+        retry_count: NotRequired[pulumi.Input[int]]
+        """
+        The retry count.
+        """
+        start_time_attribute_name: NotRequired[pulumi.Input[str]]
+        """
+        The query parameter name which the remote server expect to start query. This property goes hand to hand with `endTimeAttributeName`.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The timeout in seconds.
+        """
+elif False:
+    RestApiPollerRequestConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RestApiPollerRequestConfigArgs:
+    def __init__(__self__, *,
+                 api_endpoint: pulumi.Input[str],
+                 end_time_attribute_name: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 http_method: Optional[pulumi.Input[Union[str, 'HttpMethodVerb']]] = None,
+                 is_post_payload_json: Optional[pulumi.Input[bool]] = None,
+                 query_parameters: Optional[Any] = None,
+                 query_parameters_template: Optional[pulumi.Input[str]] = None,
+                 query_time_format: Optional[pulumi.Input[str]] = None,
+                 query_time_interval_attribute_name: Optional[pulumi.Input[str]] = None,
+                 query_time_interval_delimiter: Optional[pulumi.Input[str]] = None,
+                 query_time_interval_prepend: Optional[pulumi.Input[str]] = None,
+                 query_window_in_min: Optional[pulumi.Input[int]] = None,
+                 rate_limit_qps: Optional[pulumi.Input[int]] = None,
+                 retry_count: Optional[pulumi.Input[int]] = None,
+                 start_time_attribute_name: Optional[pulumi.Input[str]] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        The request configuration.
+        :param pulumi.Input[str] api_endpoint: The API endpoint.
+        :param pulumi.Input[str] end_time_attribute_name: The query parameter name which the remote server expect to end query. This property goes hand to hand with `startTimeAttributeName`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: The header for the request for the remote server.
+        :param pulumi.Input[Union[str, 'HttpMethodVerb']] http_method: The HTTP method, default value GET.
+        :param pulumi.Input[bool] is_post_payload_json: Flag to indicate if HTTP POST payload is in JSON format (vs form-urlencoded).
+        :param Any query_parameters: The HTTP query parameters to RESTful API.
+        :param pulumi.Input[str] query_parameters_template: the query parameters template. Defines the query parameters template to use when passing query parameters in advanced scenarios.
+        :param pulumi.Input[str] query_time_format: The query time format. A remote server can have a query to pull data from range 'start' to 'end'. This property indicate what is the expected time format the remote server know to parse.
+        :param pulumi.Input[str] query_time_interval_attribute_name: The query parameter name which we need to send the server for query logs in time interval. Should be defined with `queryTimeIntervalPrepend` and `queryTimeIntervalDelimiter`
+        :param pulumi.Input[str] query_time_interval_delimiter: The delimiter string between 2 QueryTimeFormat in the query parameter `queryTimeIntervalAttributeName`.
+        :param pulumi.Input[str] query_time_interval_prepend: The string prepend to the value of the query parameter in `queryTimeIntervalAttributeName`.
+        :param pulumi.Input[int] query_window_in_min: The query window in minutes for the request.
+        :param pulumi.Input[int] rate_limit_qps: The Rate limit queries per second for the request..
+        :param pulumi.Input[int] retry_count: The retry count.
+        :param pulumi.Input[str] start_time_attribute_name: The query parameter name which the remote server expect to start query. This property goes hand to hand with `endTimeAttributeName`.
+        :param pulumi.Input[int] timeout_in_seconds: The timeout in seconds.
+        """
+        pulumi.set(__self__, "api_endpoint", api_endpoint)
+        if end_time_attribute_name is not None:
+            pulumi.set(__self__, "end_time_attribute_name", end_time_attribute_name)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if is_post_payload_json is not None:
+            pulumi.set(__self__, "is_post_payload_json", is_post_payload_json)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
+        if query_parameters_template is not None:
+            pulumi.set(__self__, "query_parameters_template", query_parameters_template)
+        if query_time_format is not None:
+            pulumi.set(__self__, "query_time_format", query_time_format)
+        if query_time_interval_attribute_name is not None:
+            pulumi.set(__self__, "query_time_interval_attribute_name", query_time_interval_attribute_name)
+        if query_time_interval_delimiter is not None:
+            pulumi.set(__self__, "query_time_interval_delimiter", query_time_interval_delimiter)
+        if query_time_interval_prepend is not None:
+            pulumi.set(__self__, "query_time_interval_prepend", query_time_interval_prepend)
+        if query_window_in_min is not None:
+            pulumi.set(__self__, "query_window_in_min", query_window_in_min)
+        if rate_limit_qps is not None:
+            pulumi.set(__self__, "rate_limit_qps", rate_limit_qps)
+        if retry_count is not None:
+            pulumi.set(__self__, "retry_count", retry_count)
+        if start_time_attribute_name is not None:
+            pulumi.set(__self__, "start_time_attribute_name", start_time_attribute_name)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="apiEndpoint")
+    def api_endpoint(self) -> pulumi.Input[str]:
+        """
+        The API endpoint.
+        """
+        return pulumi.get(self, "api_endpoint")
+
+    @api_endpoint.setter
+    def api_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_endpoint", value)
+
+    @property
+    @pulumi.getter(name="endTimeAttributeName")
+    def end_time_attribute_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The query parameter name which the remote server expect to end query. This property goes hand to hand with `startTimeAttributeName`
+        """
+        return pulumi.get(self, "end_time_attribute_name")
+
+    @end_time_attribute_name.setter
+    def end_time_attribute_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time_attribute_name", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The header for the request for the remote server.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[pulumi.Input[Union[str, 'HttpMethodVerb']]]:
+        """
+        The HTTP method, default value GET.
+        """
+        return pulumi.get(self, "http_method")
+
+    @http_method.setter
+    def http_method(self, value: Optional[pulumi.Input[Union[str, 'HttpMethodVerb']]]):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter(name="isPostPayloadJson")
+    def is_post_payload_json(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate if HTTP POST payload is in JSON format (vs form-urlencoded).
+        """
+        return pulumi.get(self, "is_post_payload_json")
+
+    @is_post_payload_json.setter
+    def is_post_payload_json(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_post_payload_json", value)
+
+    @property
+    @pulumi.getter(name="queryParameters")
+    def query_parameters(self) -> Optional[Any]:
+        """
+        The HTTP query parameters to RESTful API.
+        """
+        return pulumi.get(self, "query_parameters")
+
+    @query_parameters.setter
+    def query_parameters(self, value: Optional[Any]):
+        pulumi.set(self, "query_parameters", value)
+
+    @property
+    @pulumi.getter(name="queryParametersTemplate")
+    def query_parameters_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        the query parameters template. Defines the query parameters template to use when passing query parameters in advanced scenarios.
+        """
+        return pulumi.get(self, "query_parameters_template")
+
+    @query_parameters_template.setter
+    def query_parameters_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_parameters_template", value)
+
+    @property
+    @pulumi.getter(name="queryTimeFormat")
+    def query_time_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The query time format. A remote server can have a query to pull data from range 'start' to 'end'. This property indicate what is the expected time format the remote server know to parse.
+        """
+        return pulumi.get(self, "query_time_format")
+
+    @query_time_format.setter
+    def query_time_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_time_format", value)
+
+    @property
+    @pulumi.getter(name="queryTimeIntervalAttributeName")
+    def query_time_interval_attribute_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The query parameter name which we need to send the server for query logs in time interval. Should be defined with `queryTimeIntervalPrepend` and `queryTimeIntervalDelimiter`
+        """
+        return pulumi.get(self, "query_time_interval_attribute_name")
+
+    @query_time_interval_attribute_name.setter
+    def query_time_interval_attribute_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_time_interval_attribute_name", value)
+
+    @property
+    @pulumi.getter(name="queryTimeIntervalDelimiter")
+    def query_time_interval_delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        The delimiter string between 2 QueryTimeFormat in the query parameter `queryTimeIntervalAttributeName`.
+        """
+        return pulumi.get(self, "query_time_interval_delimiter")
+
+    @query_time_interval_delimiter.setter
+    def query_time_interval_delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_time_interval_delimiter", value)
+
+    @property
+    @pulumi.getter(name="queryTimeIntervalPrepend")
+    def query_time_interval_prepend(self) -> Optional[pulumi.Input[str]]:
+        """
+        The string prepend to the value of the query parameter in `queryTimeIntervalAttributeName`.
+        """
+        return pulumi.get(self, "query_time_interval_prepend")
+
+    @query_time_interval_prepend.setter
+    def query_time_interval_prepend(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_time_interval_prepend", value)
+
+    @property
+    @pulumi.getter(name="queryWindowInMin")
+    def query_window_in_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The query window in minutes for the request.
+        """
+        return pulumi.get(self, "query_window_in_min")
+
+    @query_window_in_min.setter
+    def query_window_in_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "query_window_in_min", value)
+
+    @property
+    @pulumi.getter(name="rateLimitQPS")
+    def rate_limit_qps(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Rate limit queries per second for the request..
+        """
+        return pulumi.get(self, "rate_limit_qps")
+
+    @rate_limit_qps.setter
+    def rate_limit_qps(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rate_limit_qps", value)
+
+    @property
+    @pulumi.getter(name="retryCount")
+    def retry_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The retry count.
+        """
+        return pulumi.get(self, "retry_count")
+
+    @retry_count.setter
+    def retry_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retry_count", value)
+
+    @property
+    @pulumi.getter(name="startTimeAttributeName")
+    def start_time_attribute_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The query parameter name which the remote server expect to start query. This property goes hand to hand with `endTimeAttributeName`.
+        """
+        return pulumi.get(self, "start_time_attribute_name")
+
+    @start_time_attribute_name.setter
+    def start_time_attribute_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time_attribute_name", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The timeout in seconds.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+
+if not MYPY:
+    class RestApiPollerRequestPagingConfigArgsDict(TypedDict):
+        """
+        The request paging configuration.
+        """
+        paging_type: pulumi.Input[Union[str, 'RestApiPollerRequestPagingKind']]
+        """
+        Type of paging
+        """
+        page_size: NotRequired[pulumi.Input[int]]
+        """
+        Page size
+        """
+        page_size_parameter_name: NotRequired[pulumi.Input[str]]
+        """
+        Page size parameter name
+        """
+elif False:
+    RestApiPollerRequestPagingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RestApiPollerRequestPagingConfigArgs:
+    def __init__(__self__, *,
+                 paging_type: pulumi.Input[Union[str, 'RestApiPollerRequestPagingKind']],
+                 page_size: Optional[pulumi.Input[int]] = None,
+                 page_size_parameter_name: Optional[pulumi.Input[str]] = None):
+        """
+        The request paging configuration.
+        :param pulumi.Input[Union[str, 'RestApiPollerRequestPagingKind']] paging_type: Type of paging
+        :param pulumi.Input[int] page_size: Page size
+        :param pulumi.Input[str] page_size_parameter_name: Page size parameter name
+        """
+        pulumi.set(__self__, "paging_type", paging_type)
+        if page_size is not None:
+            pulumi.set(__self__, "page_size", page_size)
+        if page_size_parameter_name is not None:
+            pulumi.set(__self__, "page_size_parameter_name", page_size_parameter_name)
+
+    @property
+    @pulumi.getter(name="pagingType")
+    def paging_type(self) -> pulumi.Input[Union[str, 'RestApiPollerRequestPagingKind']]:
+        """
+        Type of paging
+        """
+        return pulumi.get(self, "paging_type")
+
+    @paging_type.setter
+    def paging_type(self, value: pulumi.Input[Union[str, 'RestApiPollerRequestPagingKind']]):
+        pulumi.set(self, "paging_type", value)
+
+    @property
+    @pulumi.getter(name="pageSize")
+    def page_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Page size
+        """
+        return pulumi.get(self, "page_size")
+
+    @page_size.setter
+    def page_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "page_size", value)
+
+    @property
+    @pulumi.getter(name="pageSizeParameterName")
+    def page_size_parameter_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Page size parameter name
+        """
+        return pulumi.get(self, "page_size_parameter_name")
+
+    @page_size_parameter_name.setter
+    def page_size_parameter_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "page_size_parameter_name", value)
+
+
+if not MYPY:
     class RfcConnectorArgsDict(TypedDict):
         """
         Describes the Rfc connector.
@@ -4889,60 +7323,6 @@ class RfcConnectorArgs:
     @snc_qop.setter
     def snc_qop(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "snc_qop", value)
-
-
-if not MYPY:
-    class SampleQueryArgsDict(TypedDict):
-        """
-        The sample queries for the connector.
-        """
-        description: pulumi.Input[str]
-        """
-        Gets or sets the  sample query description.
-        """
-        query: pulumi.Input[str]
-        """
-        Gets or sets the KQL sample query.
-        """
-elif False:
-    SampleQueryArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class SampleQueryArgs:
-    def __init__(__self__, *,
-                 description: pulumi.Input[str],
-                 query: pulumi.Input[str]):
-        """
-        The sample queries for the connector.
-        :param pulumi.Input[str] description: Gets or sets the  sample query description.
-        :param pulumi.Input[str] query: Gets or sets the KQL sample query.
-        """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Input[str]:
-        """
-        Gets or sets the  sample query description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: pulumi.Input[str]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def query(self) -> pulumi.Input[str]:
-        """
-        Gets or sets the KQL sample query.
-        """
-        return pulumi.get(self, "query")
-
-    @query.setter
-    def query(self, value: pulumi.Input[str]):
-        pulumi.set(self, "query", value)
 
 
 if not MYPY:
@@ -5425,6 +7805,202 @@ class SecurityMLAnalyticsSettingsDataSourceArgs:
     @data_types.setter
     def data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "data_types", value)
+
+
+if not MYPY:
+    class SessionAuthModelArgsDict(TypedDict):
+        """
+        Model for API authentication with session cookie.
+        """
+        password: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        The password attribute name.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of paging
+        Expected value is 'Session'.
+        """
+        user_name: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        The user name attribute key value.
+        """
+        headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP request headers to session service endpoint.
+        """
+        is_post_payload_json: NotRequired[pulumi.Input[bool]]
+        """
+        Indicating whether API key is set in HTTP POST payload.
+        """
+        query_parameters: NotRequired[Any]
+        """
+        Query parameters to session service endpoint.
+        """
+        session_id_name: NotRequired[pulumi.Input[str]]
+        """
+        Session id attribute name from HTTP response header.
+        """
+        session_login_request_uri: NotRequired[pulumi.Input[str]]
+        """
+        HTTP request URL to session service endpoint.
+        """
+        session_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Session timeout in minutes.
+        """
+elif False:
+    SessionAuthModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionAuthModelArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 type: pulumi.Input[str],
+                 user_name: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 is_post_payload_json: Optional[pulumi.Input[bool]] = None,
+                 query_parameters: Optional[Any] = None,
+                 session_id_name: Optional[pulumi.Input[str]] = None,
+                 session_login_request_uri: Optional[pulumi.Input[str]] = None,
+                 session_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        Model for API authentication with session cookie.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] password: The password attribute name.
+        :param pulumi.Input[str] type: Type of paging
+               Expected value is 'Session'.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_name: The user name attribute key value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: HTTP request headers to session service endpoint.
+        :param pulumi.Input[bool] is_post_payload_json: Indicating whether API key is set in HTTP POST payload.
+        :param Any query_parameters: Query parameters to session service endpoint.
+        :param pulumi.Input[str] session_id_name: Session id attribute name from HTTP response header.
+        :param pulumi.Input[str] session_login_request_uri: HTTP request URL to session service endpoint.
+        :param pulumi.Input[int] session_timeout_in_minutes: Session timeout in minutes.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "type", 'Session')
+        pulumi.set(__self__, "user_name", user_name)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if is_post_payload_json is not None:
+            pulumi.set(__self__, "is_post_payload_json", is_post_payload_json)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
+        if session_id_name is not None:
+            pulumi.set(__self__, "session_id_name", session_id_name)
+        if session_login_request_uri is not None:
+            pulumi.set(__self__, "session_login_request_uri", session_login_request_uri)
+        if session_timeout_in_minutes is not None:
+            pulumi.set(__self__, "session_timeout_in_minutes", session_timeout_in_minutes)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        The password attribute name.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of paging
+        Expected value is 'Session'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        The user name attribute key value.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "user_name", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        HTTP request headers to session service endpoint.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="isPostPayloadJson")
+    def is_post_payload_json(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicating whether API key is set in HTTP POST payload.
+        """
+        return pulumi.get(self, "is_post_payload_json")
+
+    @is_post_payload_json.setter
+    def is_post_payload_json(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_post_payload_json", value)
+
+    @property
+    @pulumi.getter(name="queryParameters")
+    def query_parameters(self) -> Optional[Any]:
+        """
+        Query parameters to session service endpoint.
+        """
+        return pulumi.get(self, "query_parameters")
+
+    @query_parameters.setter
+    def query_parameters(self, value: Optional[Any]):
+        pulumi.set(self, "query_parameters", value)
+
+    @property
+    @pulumi.getter(name="sessionIdName")
+    def session_id_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Session id attribute name from HTTP response header.
+        """
+        return pulumi.get(self, "session_id_name")
+
+    @session_id_name.setter
+    def session_id_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "session_id_name", value)
+
+    @property
+    @pulumi.getter(name="sessionLoginRequestUri")
+    def session_login_request_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        HTTP request URL to session service endpoint.
+        """
+        return pulumi.get(self, "session_login_request_uri")
+
+    @session_login_request_uri.setter
+    def session_login_request_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "session_login_request_uri", value)
+
+    @property
+    @pulumi.getter(name="sessionTimeoutInMinutes")
+    def session_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Session timeout in minutes.
+        """
+        return pulumi.get(self, "session_timeout_in_minutes")
+
+    @session_timeout_in_minutes.setter
+    def session_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "session_timeout_in_minutes", value)
 
 
 if not MYPY:

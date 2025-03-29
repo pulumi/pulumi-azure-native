@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets an IPv6 firewall rule.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetIPv6FirewallRuleResult> InvokeAsync(GetIPv6FirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIPv6FirewallRuleResult>("azure-native:sql:getIPv6FirewallRule", args ?? new GetIPv6FirewallRuleArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets an IPv6 firewall rule.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIPv6FirewallRuleResult> Invoke(GetIPv6FirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIPv6FirewallRuleResult>("azure-native:sql:getIPv6FirewallRule", args ?? new GetIPv6FirewallRuleInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets an IPv6 firewall rule.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIPv6FirewallRuleResult> Invoke(GetIPv6FirewallRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIPv6FirewallRuleResult>("azure-native:sql:getIPv6FirewallRule", args ?? new GetIPv6FirewallRuleInvokeArgs(), options.WithDefaults());
@@ -100,7 +100,11 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetIPv6FirewallRuleResult
     {
         /// <summary>
-        /// The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
         /// </summary>
         public readonly string? EndIPv6Address;
         /// <summary>
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetIPv6FirewallRuleResult(
+            string azureApiVersion,
+
             string? endIPv6Address,
 
             string id,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.Sql
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EndIPv6Address = endIPv6Address;
             Id = id;
             Name = name;

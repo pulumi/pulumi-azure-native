@@ -27,10 +27,13 @@ class GetScheduleResult:
     """
     Definition of the schedule.
     """
-    def __init__(__self__, advanced_schedule=None, creation_time=None, description=None, expiry_time=None, expiry_time_offset_minutes=None, frequency=None, id=None, interval=None, is_enabled=None, last_modified_time=None, name=None, next_run=None, next_run_offset_minutes=None, start_time=None, start_time_offset_minutes=None, time_zone=None, type=None):
+    def __init__(__self__, advanced_schedule=None, azure_api_version=None, creation_time=None, description=None, expiry_time=None, expiry_time_offset_minutes=None, frequency=None, id=None, interval=None, is_enabled=None, last_modified_time=None, name=None, next_run=None, next_run_offset_minutes=None, start_time=None, start_time_offset_minutes=None, time_zone=None, type=None):
         if advanced_schedule and not isinstance(advanced_schedule, dict):
             raise TypeError("Expected argument 'advanced_schedule' to be a dict")
         pulumi.set(__self__, "advanced_schedule", advanced_schedule)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -87,6 +90,14 @@ class GetScheduleResult:
         Gets or sets the advanced schedule.
         """
         return pulumi.get(self, "advanced_schedule")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -224,6 +235,7 @@ class AwaitableGetScheduleResult(GetScheduleResult):
             yield self
         return GetScheduleResult(
             advanced_schedule=self.advanced_schedule,
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             description=self.description,
             expiry_time=self.expiry_time,
@@ -249,9 +261,9 @@ def get_schedule(automation_account_name: Optional[str] = None,
     """
     Retrieve the schedule identified by schedule name.
 
-    Uses Azure REST API version 2022-08-08.
+    Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -267,6 +279,7 @@ def get_schedule(automation_account_name: Optional[str] = None,
 
     return AwaitableGetScheduleResult(
         advanced_schedule=pulumi.get(__ret__, 'advanced_schedule'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         expiry_time=pulumi.get(__ret__, 'expiry_time'),
@@ -290,9 +303,9 @@ def get_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = N
     """
     Retrieve the schedule identified by schedule name.
 
-    Uses Azure REST API version 2022-08-08.
+    Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -307,6 +320,7 @@ def get_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getSchedule', __args__, opts=opts, typ=GetScheduleResult)
     return __ret__.apply(lambda __response__: GetScheduleResult(
         advanced_schedule=pulumi.get(__response__, 'advanced_schedule'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         expiry_time=pulumi.get(__response__, 'expiry_time'),

@@ -16,8 +16,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ActionOnUnmanageArgs',
+    'ActionOnUnmanageArgsDict',
     'ContainerConfigurationArgs',
     'ContainerConfigurationArgsDict',
+    'ContainerGroupSubnetIdArgs',
+    'ContainerGroupSubnetIdArgsDict',
     'DebugSettingArgs',
     'DebugSettingArgsDict',
     'DenySettingsArgs',
@@ -26,8 +30,6 @@ __all__ = [
     'DeploymentParameterArgsDict',
     'DeploymentPropertiesArgs',
     'DeploymentPropertiesArgsDict',
-    'DeploymentStackPropertiesActionOnUnmanageArgs',
-    'DeploymentStackPropertiesActionOnUnmanageArgsDict',
     'DeploymentStacksDebugSettingArgs',
     'DeploymentStacksDebugSettingArgsDict',
     'DeploymentStacksParametersLinkArgs',
@@ -69,6 +71,81 @@ __all__ = [
 MYPY = False
 
 if not MYPY:
+    class ActionOnUnmanageArgsDict(TypedDict):
+        """
+        Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+        """
+        resources: pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]
+        """
+        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        management_groups: NotRequired[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]
+        """
+        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        resource_groups: NotRequired[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]
+        """
+        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+elif False:
+    ActionOnUnmanageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ActionOnUnmanageArgs:
+    def __init__(__self__, *,
+                 resources: pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']],
+                 management_groups: Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]] = None,
+                 resource_groups: Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]] = None):
+        """
+        Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+        :param pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']] resources: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        :param pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']] management_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        :param pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']] resource_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        pulumi.set(__self__, "resources", resources)
+        if management_groups is not None:
+            pulumi.set(__self__, "management_groups", management_groups)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]:
+        """
+        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]):
+        pulumi.set(self, "resources", value)
+
+    @property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]:
+        """
+        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        return pulumi.get(self, "management_groups")
+
+    @management_groups.setter
+    def management_groups(self, value: Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]):
+        pulumi.set(self, "management_groups", value)
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]:
+        """
+        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @resource_groups.setter
+    def resource_groups(self, value: Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]):
+        pulumi.set(self, "resource_groups", value)
+
+
+if not MYPY:
     class ContainerConfigurationArgsDict(TypedDict):
         """
         Settings to customize ACI container instance.
@@ -77,19 +154,27 @@ if not MYPY:
         """
         Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
         """
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgsDict']]]]
+        """
+        The subnet resource IDs for a container group.
+        """
 elif False:
     ContainerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerConfigurationArgs:
     def __init__(__self__, *,
-                 container_group_name: Optional[pulumi.Input[str]] = None):
+                 container_group_name: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]] = None):
         """
         Settings to customize ACI container instance.
         :param pulumi.Input[str] container_group_name: Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]] subnet_ids: The subnet resource IDs for a container group.
         """
         if container_group_name is not None:
             pulumi.set(__self__, "container_group_name", container_group_name)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="containerGroupName")
@@ -102,6 +187,73 @@ class ContainerConfigurationArgs:
     @container_group_name.setter
     def container_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "container_group_name", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]:
+        """
+        The subnet resource IDs for a container group.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+
+if not MYPY:
+    class ContainerGroupSubnetIdArgsDict(TypedDict):
+        """
+        Container group subnet information.
+        """
+        id: pulumi.Input[str]
+        """
+        Resource ID of subnet.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name for the subnet.
+        """
+elif False:
+    ContainerGroupSubnetIdArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ContainerGroupSubnetIdArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Container group subnet information.
+        :param pulumi.Input[str] id: Resource ID of subnet.
+        :param pulumi.Input[str] name: Friendly name for the subnet.
+        """
+        pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Resource ID of subnet.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name for the subnet.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 if not MYPY:
@@ -143,15 +295,15 @@ class DebugSettingArgs:
 if not MYPY:
     class DenySettingsArgsDict(TypedDict):
         """
-        Defines how resources deployed by the deployment stack are locked.
+        Defines how resources deployed by the Deployment stack are locked.
         """
         mode: pulumi.Input[Union[str, 'DenySettingsMode']]
         """
-        denySettings Mode.
+        denySettings Mode that defines denied actions.
         """
         apply_to_child_scopes: NotRequired[pulumi.Input[bool]]
         """
-        DenySettings will be applied to child scopes.
+        DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
         """
         excluded_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -172,9 +324,9 @@ class DenySettingsArgs:
                  excluded_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  excluded_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        Defines how resources deployed by the deployment stack are locked.
-        :param pulumi.Input[Union[str, 'DenySettingsMode']] mode: denySettings Mode.
-        :param pulumi.Input[bool] apply_to_child_scopes: DenySettings will be applied to child scopes.
+        Defines how resources deployed by the Deployment stack are locked.
+        :param pulumi.Input[Union[str, 'DenySettingsMode']] mode: denySettings Mode that defines denied actions.
+        :param pulumi.Input[bool] apply_to_child_scopes: DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_actions: List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*\\/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_principals: List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
         """
@@ -190,7 +342,7 @@ class DenySettingsArgs:
     @pulumi.getter
     def mode(self) -> pulumi.Input[Union[str, 'DenySettingsMode']]:
         """
-        denySettings Mode.
+        denySettings Mode that defines denied actions.
         """
         return pulumi.get(self, "mode")
 
@@ -202,7 +354,7 @@ class DenySettingsArgs:
     @pulumi.getter(name="applyToChildScopes")
     def apply_to_child_scopes(self) -> Optional[pulumi.Input[bool]]:
         """
-        DenySettings will be applied to child scopes.
+        DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
         """
         return pulumi.get(self, "apply_to_child_scopes")
 
@@ -244,9 +396,13 @@ if not MYPY:
         """
         Azure Key Vault parameter reference.
         """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the value.
+        """
         value: NotRequired[Any]
         """
-        Input value to the parameter .
+        Input value to the parameter.
         """
 elif False:
     DeploymentParameterArgsDict: TypeAlias = Mapping[str, Any]
@@ -255,14 +411,18 @@ elif False:
 class DeploymentParameterArgs:
     def __init__(__self__, *,
                  reference: Optional[pulumi.Input['KeyVaultParameterReferenceArgs']] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  value: Optional[Any] = None):
         """
         Deployment parameter for the template.
         :param pulumi.Input['KeyVaultParameterReferenceArgs'] reference: Azure Key Vault parameter reference.
-        :param Any value: Input value to the parameter .
+        :param pulumi.Input[str] type: Type of the value.
+        :param Any value: Input value to the parameter.
         """
         if reference is not None:
             pulumi.set(__self__, "reference", reference)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -280,9 +440,21 @@ class DeploymentParameterArgs:
 
     @property
     @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the value.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
     def value(self) -> Optional[Any]:
         """
-        Input value to the parameter .
+        Input value to the parameter.
         """
         return pulumi.get(self, "value")
 
@@ -467,81 +639,6 @@ class DeploymentPropertiesArgs:
 
 
 if not MYPY:
-    class DeploymentStackPropertiesActionOnUnmanageArgsDict(TypedDict):
-        """
-        Defines the behavior of resources that are not managed immediately after the stack is updated.
-        """
-        resources: pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]
-        """
-        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        management_groups: NotRequired[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]
-        """
-        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        resource_groups: NotRequired[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]
-        """
-        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-elif False:
-    DeploymentStackPropertiesActionOnUnmanageArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DeploymentStackPropertiesActionOnUnmanageArgs:
-    def __init__(__self__, *,
-                 resources: pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']],
-                 management_groups: Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]] = None,
-                 resource_groups: Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]] = None):
-        """
-        Defines the behavior of resources that are not managed immediately after the stack is updated.
-        :param pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']] resources: Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        :param pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']] management_groups: Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        :param pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']] resource_groups: Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        pulumi.set(__self__, "resources", resources)
-        if management_groups is not None:
-            pulumi.set(__self__, "management_groups", management_groups)
-        if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
-
-    @property
-    @pulumi.getter
-    def resources(self) -> pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]:
-        """
-        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        return pulumi.get(self, "resources")
-
-    @resources.setter
-    def resources(self, value: pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]):
-        pulumi.set(self, "resources", value)
-
-    @property
-    @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]:
-        """
-        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        return pulumi.get(self, "management_groups")
-
-    @management_groups.setter
-    def management_groups(self, value: Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]):
-        pulumi.set(self, "management_groups", value)
-
-    @property
-    @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]:
-        """
-        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        return pulumi.get(self, "resource_groups")
-
-    @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]):
-        pulumi.set(self, "resource_groups", value)
-
-
-if not MYPY:
     class DeploymentStacksDebugSettingArgsDict(TypedDict):
         """
         The debug setting.
@@ -643,7 +740,7 @@ if not MYPY:
         """
         id: NotRequired[pulumi.Input[str]]
         """
-        The resource id of a Template Spec. Use either the id or uri property, but not both.
+        The resourceId of a Template Spec. Use either the id or uri property, but not both.
         """
         query_string: NotRequired[pulumi.Input[str]]
         """
@@ -651,7 +748,7 @@ if not MYPY:
         """
         relative_path: NotRequired[pulumi.Input[str]]
         """
-        The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
+        The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs.
         """
         uri: NotRequired[pulumi.Input[str]]
         """
@@ -671,9 +768,9 @@ class DeploymentStacksTemplateLinkArgs:
         """
         Entity representing the reference to the template.
         :param pulumi.Input[str] content_version: If included, must match the ContentVersion in the template.
-        :param pulumi.Input[str] id: The resource id of a Template Spec. Use either the id or uri property, but not both.
+        :param pulumi.Input[str] id: The resourceId of a Template Spec. Use either the id or uri property, but not both.
         :param pulumi.Input[str] query_string: The query string (for example, a SAS token) to be used with the templateLink URI.
-        :param pulumi.Input[str] relative_path: The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
+        :param pulumi.Input[str] relative_path: The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs.
         :param pulumi.Input[str] uri: The URI of the template to deploy. Use either the uri or id property, but not both.
         """
         if content_version is not None:
@@ -703,7 +800,7 @@ class DeploymentStacksTemplateLinkArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource id of a Template Spec. Use either the id or uri property, but not both.
+        The resourceId of a Template Spec. Use either the id or uri property, but not both.
         """
         return pulumi.get(self, "id")
 
@@ -727,7 +824,7 @@ class DeploymentStacksTemplateLinkArgs:
     @pulumi.getter(name="relativePath")
     def relative_path(self) -> Optional[pulumi.Input[str]]:
         """
-        The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
+        The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs.
         """
         return pulumi.get(self, "relative_path")
 
@@ -1052,7 +1149,7 @@ if not MYPY:
         """
         id: pulumi.Input[str]
         """
-        Azure Key Vault resource id.
+        Azure Key Vault resourceId.
         """
 elif False:
     KeyVaultReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -1063,7 +1160,7 @@ class KeyVaultReferenceArgs:
                  id: pulumi.Input[str]):
         """
         Azure Key Vault reference.
-        :param pulumi.Input[str] id: Azure Key Vault resource id.
+        :param pulumi.Input[str] id: Azure Key Vault resourceId.
         """
         pulumi.set(__self__, "id", id)
 
@@ -1071,7 +1168,7 @@ class KeyVaultReferenceArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        Azure Key Vault resource id.
+        Azure Key Vault resourceId.
         """
         return pulumi.get(self, "id")
 

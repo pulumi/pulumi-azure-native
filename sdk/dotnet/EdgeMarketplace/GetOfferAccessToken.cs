@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.EdgeMarketplace
         /// <summary>
         /// get access token.
         /// 
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01.
+        /// Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgemarketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetOfferAccessTokenResult> InvokeAsync(GetOfferAccessTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOfferAccessTokenResult>("azure-native:edgemarketplace:getOfferAccessToken", args ?? new GetOfferAccessTokenArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.EdgeMarketplace
         /// <summary>
         /// get access token.
         /// 
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01.
+        /// Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgemarketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOfferAccessTokenResult> Invoke(GetOfferAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfferAccessTokenResult>("azure-native:edgemarketplace:getOfferAccessToken", args ?? new GetOfferAccessTokenInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.EdgeMarketplace
         /// <summary>
         /// get access token.
         /// 
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01.
+        /// Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgemarketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOfferAccessTokenResult> Invoke(GetOfferAccessTokenInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfferAccessTokenResult>("azure-native:edgemarketplace:getOfferAccessToken", args ?? new GetOfferAccessTokenInvokeArgs(), options.WithDefaults());

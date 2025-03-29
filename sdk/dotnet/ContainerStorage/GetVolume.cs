@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.ContainerStorage
     public sealed class GetVolumeResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Requested capacity in GiB
         /// </summary>
         public readonly double CapacityGiB;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNative.ContainerStorage
 
         [OutputConstructor]
         private GetVolumeResult(
+            string azureApiVersion,
+
             double capacityGiB,
 
             string id,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.ContainerStorage
 
             Outputs.VolumeTypeResponse volumeType)
         {
+            AzureApiVersion = azureApiVersion;
             CapacityGiB = capacityGiB;
             Id = id;
             Labels = labels;

@@ -97,9 +97,9 @@ class Queue(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,9 +115,9 @@ class Queue(pulumi.CustomResource):
                  args: QueueArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.
@@ -156,6 +156,7 @@ class Queue(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["approximate_message_count"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20190601:Queue"), pulumi.Alias(type_="azure-native:storage/v20200801preview:Queue"), pulumi.Alias(type_="azure-native:storage/v20210101:Queue"), pulumi.Alias(type_="azure-native:storage/v20210201:Queue"), pulumi.Alias(type_="azure-native:storage/v20210401:Queue"), pulumi.Alias(type_="azure-native:storage/v20210601:Queue"), pulumi.Alias(type_="azure-native:storage/v20210801:Queue"), pulumi.Alias(type_="azure-native:storage/v20210901:Queue"), pulumi.Alias(type_="azure-native:storage/v20220501:Queue"), pulumi.Alias(type_="azure-native:storage/v20220901:Queue"), pulumi.Alias(type_="azure-native:storage/v20230101:Queue"), pulumi.Alias(type_="azure-native:storage/v20230401:Queue"), pulumi.Alias(type_="azure-native:storage/v20230501:Queue"), pulumi.Alias(type_="azure-native:storage/v20240101:Queue")])
@@ -183,6 +184,7 @@ class Queue(pulumi.CustomResource):
         __props__ = QueueArgs.__new__(QueueArgs)
 
         __props__.__dict__["approximate_message_count"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
@@ -195,6 +197,14 @@ class Queue(pulumi.CustomResource):
         Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
         """
         return pulumi.get(self, "approximate_message_count")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

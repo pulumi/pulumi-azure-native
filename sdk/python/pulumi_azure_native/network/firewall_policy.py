@@ -324,9 +324,9 @@ class FirewallPolicy(pulumi.CustomResource):
         """
         FirewallPolicy Resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2020-04-01, 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -357,9 +357,9 @@ class FirewallPolicy(pulumi.CustomResource):
         """
         FirewallPolicy Resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2020-04-01, 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -421,12 +421,14 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["threat_intel_mode"] = threat_intel_mode
             __props__.__dict__["threat_intel_whitelist"] = threat_intel_whitelist
             __props__.__dict__["transport_security"] = transport_security
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["child_policies"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["firewalls"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["rule_collection_groups"] = None
+            __props__.__dict__["size"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20190601:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190701:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190801:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190901:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20191101:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20191201:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200301:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200401:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200501:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200601:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200701:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200801:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20201101:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20210201:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20210301:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20210501:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20210801:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20220101:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20220501:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20220701:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20220901:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20221101:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20230201:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20230401:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20230501:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20230601:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20230901:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20231101:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20240101:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20240301:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20240501:FirewallPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -452,6 +454,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
         __props__ = FirewallPolicyArgs.__new__(FirewallPolicyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["base_policy"] = None
         __props__.__dict__["child_policies"] = None
         __props__.__dict__["dns_settings"] = None
@@ -465,6 +468,7 @@ class FirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["rule_collection_groups"] = None
+        __props__.__dict__["size"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["snat"] = None
         __props__.__dict__["sql"] = None
@@ -474,6 +478,14 @@ class FirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["transport_security"] = None
         __props__.__dict__["type"] = None
         return FirewallPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="basePolicy")
@@ -578,6 +590,14 @@ class FirewallPolicy(pulumi.CustomResource):
         List of references to FirewallPolicyRuleCollectionGroups.
         """
         return pulumi.get(self, "rule_collection_groups")
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Output[str]:
+        """
+        A read-only string that represents the size of the FirewallPolicyPropertiesFormat in MB. (ex 0.5MB)
+        """
+        return pulumi.get(self, "size")
 
     @property
     @pulumi.getter

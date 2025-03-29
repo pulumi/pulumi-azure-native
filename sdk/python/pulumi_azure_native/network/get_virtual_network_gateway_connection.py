@@ -27,10 +27,13 @@ class GetVirtualNetworkGatewayConnectionResult:
     """
     A common class for general resource information.
     """
-    def __init__(__self__, authorization_key=None, connection_mode=None, connection_protocol=None, connection_status=None, connection_type=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, egress_nat_rules=None, enable_bgp=None, enable_private_link_fast_path=None, etag=None, express_route_gateway_bypass=None, gateway_custom_bgp_ip_addresses=None, id=None, ingress_bytes_transferred=None, ingress_nat_rules=None, ipsec_policies=None, local_network_gateway2=None, location=None, name=None, peer=None, provisioning_state=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policies=None, tunnel_connection_status=None, type=None, use_local_azure_ip_address=None, use_policy_based_traffic_selectors=None, virtual_network_gateway1=None, virtual_network_gateway2=None):
+    def __init__(__self__, authorization_key=None, azure_api_version=None, connection_mode=None, connection_protocol=None, connection_status=None, connection_type=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, egress_nat_rules=None, enable_bgp=None, enable_private_link_fast_path=None, etag=None, express_route_gateway_bypass=None, gateway_custom_bgp_ip_addresses=None, id=None, ingress_bytes_transferred=None, ingress_nat_rules=None, ipsec_policies=None, local_network_gateway2=None, location=None, name=None, peer=None, provisioning_state=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policies=None, tunnel_connection_status=None, type=None, use_local_azure_ip_address=None, use_policy_based_traffic_selectors=None, virtual_network_gateway1=None, virtual_network_gateway2=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connection_mode and not isinstance(connection_mode, str):
             raise TypeError("Expected argument 'connection_mode' to be a str")
         pulumi.set(__self__, "connection_mode", connection_mode)
@@ -135,6 +138,14 @@ class GetVirtualNetworkGatewayConnectionResult:
         The authorizationKey.
         """
         return pulumi.get(self, "authorization_key")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionMode")
@@ -400,6 +411,7 @@ class AwaitableGetVirtualNetworkGatewayConnectionResult(GetVirtualNetworkGateway
             yield self
         return GetVirtualNetworkGatewayConnectionResult(
             authorization_key=self.authorization_key,
+            azure_api_version=self.azure_api_version,
             connection_mode=self.connection_mode,
             connection_protocol=self.connection_protocol,
             connection_status=self.connection_status,
@@ -440,9 +452,9 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
     """
     Gets the specified virtual network gateway connection by resource group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -456,6 +468,7 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
 
     return AwaitableGetVirtualNetworkGatewayConnectionResult(
         authorization_key=pulumi.get(__ret__, 'authorization_key'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connection_mode=pulumi.get(__ret__, 'connection_mode'),
         connection_protocol=pulumi.get(__ret__, 'connection_protocol'),
         connection_status=pulumi.get(__ret__, 'connection_status'),
@@ -494,9 +507,9 @@ def get_virtual_network_gateway_connection_output(resource_group_name: Optional[
     """
     Gets the specified virtual network gateway connection by resource group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -509,6 +522,7 @@ def get_virtual_network_gateway_connection_output(resource_group_name: Optional[
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVirtualNetworkGatewayConnection', __args__, opts=opts, typ=GetVirtualNetworkGatewayConnectionResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayConnectionResult(
         authorization_key=pulumi.get(__response__, 'authorization_key'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connection_mode=pulumi.get(__response__, 'connection_mode'),
         connection_protocol=pulumi.get(__response__, 'connection_protocol'),
         connection_status=pulumi.get(__response__, 'connection_status'),

@@ -182,9 +182,9 @@ class SuppressionListAddress(pulumi.CustomResource):
         """
         A object that represents a SuppressionList record.
 
-        Uses Azure REST API version 2023-06-01-preview.
+        Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        Other available API versions: 2024-09-01-preview.
+        Other available API versions: 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,9 +207,9 @@ class SuppressionListAddress(pulumi.CustomResource):
         """
         A object that represents a SuppressionList record.
 
-        Uses Azure REST API version 2023-06-01-preview.
+        Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        Other available API versions: 2024-09-01-preview.
+        Other available API versions: 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param SuppressionListAddressArgs args: The arguments to use to populate this resource's properties.
@@ -263,6 +263,7 @@ class SuppressionListAddress(pulumi.CustomResource):
             if suppression_list_name is None and not opts.urn:
                 raise TypeError("Missing required property 'suppression_list_name'")
             __props__.__dict__["suppression_list_name"] = suppression_list_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["data_location"] = None
             __props__.__dict__["last_modified"] = None
             __props__.__dict__["name"] = None
@@ -292,6 +293,7 @@ class SuppressionListAddress(pulumi.CustomResource):
 
         __props__ = SuppressionListAddressArgs.__new__(SuppressionListAddressArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["data_location"] = None
         __props__.__dict__["email"] = None
         __props__.__dict__["first_name"] = None
@@ -302,6 +304,14 @@ class SuppressionListAddress(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SuppressionListAddress(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataLocation")

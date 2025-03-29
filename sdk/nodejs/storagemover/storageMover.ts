@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
  *
- * Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2022-07-01-preview.
+ * Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class StorageMover extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class StorageMover extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * A description for the Storage Mover.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -58,7 +62,7 @@ export class StorageMover extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Resource system metadata.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.storagemover.SystemDataResponse>;
     /**
@@ -89,11 +93,13 @@ export class StorageMover extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageMoverName"] = args ? args.storageMoverName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

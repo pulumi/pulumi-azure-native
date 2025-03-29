@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.HybridCloud
     public sealed class GetCloudConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The cloud connector which discovered the remote resource.
         /// </summary>
         public readonly Outputs.ResourceReferenceResponse? CloudConnector;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNative.HybridCloud
 
         [OutputConstructor]
         private GetCloudConnectionResult(
+            string azureApiVersion,
+
             Outputs.ResourceReferenceResponse? cloudConnector,
 
             string etag,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.HybridCloud
 
             Outputs.ResourceReferenceResponse? virtualHub)
         {
+            AzureApiVersion = azureApiVersion;
             CloudConnector = cloudConnector;
             Etag = etag;
             Id = id;

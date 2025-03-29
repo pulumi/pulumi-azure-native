@@ -240,6 +240,47 @@ namespace Pulumi.AzureNative.MobileNetwork
     }
 
     /// <summary>
+    /// The supported NAS Encryption types.
+    /// </summary>
+    [EnumType]
+    public readonly struct NasEncryptionType : IEquatable<NasEncryptionType>
+    {
+        private readonly string _value;
+
+        private NasEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// NAS signaling is not encrypted.
+        /// </summary>
+        public static NasEncryptionType NEA0_EEA0 { get; } = new NasEncryptionType("NEA0/EEA0");
+        /// <summary>
+        /// NAS signaling is encrypted with SNOW 3G cipher.
+        /// </summary>
+        public static NasEncryptionType NEA1_EEA1 { get; } = new NasEncryptionType("NEA1/EEA1");
+        /// <summary>
+        ///  NAS signaling is encrypted with AES cipher.
+        /// </summary>
+        public static NasEncryptionType NEA2_EEA2 { get; } = new NasEncryptionType("NEA2/EEA2");
+
+        public static bool operator ==(NasEncryptionType left, NasEncryptionType right) => left.Equals(right);
+        public static bool operator !=(NasEncryptionType left, NasEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(NasEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NasEncryptionType other && Equals(other);
+        public bool Equals(NasEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The default PDU session type, which is used if the UE does not request a specific session type.
     /// </summary>
     [EnumType]

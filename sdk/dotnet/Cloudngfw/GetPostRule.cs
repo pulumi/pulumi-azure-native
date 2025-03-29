@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Get a PostRulesResource
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2025-02-06-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPostRuleResult> InvokeAsync(GetPostRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPostRuleResult>("azure-native:cloudngfw:getPostRule", args ?? new GetPostRuleArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Get a PostRulesResource
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2025-02-06-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPostRuleResult> Invoke(GetPostRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPostRuleResult>("azure-native:cloudngfw:getPostRule", args ?? new GetPostRuleInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Get a PostRulesResource
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2025-02-06-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPostRuleResult> Invoke(GetPostRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPostRuleResult>("azure-native:cloudngfw:getPostRule", args ?? new GetPostRuleInvokeArgs(), options.WithDefaults());
@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// rule comment
         /// </summary>
         public readonly string? AuditComment;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// rule category
         /// </summary>
@@ -189,6 +193,8 @@ namespace Pulumi.AzureNative.Cloudngfw
 
             string? auditComment,
 
+            string azureApiVersion,
+
             Outputs.CategoryResponse? category,
 
             string? decryptionRuleType,
@@ -234,6 +240,7 @@ namespace Pulumi.AzureNative.Cloudngfw
             ActionType = actionType;
             Applications = applications;
             AuditComment = auditComment;
+            AzureApiVersion = azureApiVersion;
             Category = category;
             DecryptionRuleType = decryptionRuleType;
             Description = description;

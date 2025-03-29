@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetGalleryInVMAccessControlProfileVersionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
         /// </summary>
         public readonly string DefaultAccess;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetGalleryInVMAccessControlProfileVersionResult(
+            string azureApiVersion,
+
             string defaultAccess,
 
             bool? excludeFromLatest,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.Compute
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DefaultAccess = defaultAccess;
             ExcludeFromLatest = excludeFromLatest;
             Id = id;

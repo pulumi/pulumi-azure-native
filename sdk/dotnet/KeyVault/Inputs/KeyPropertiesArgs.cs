@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
         public Input<Inputs.KeyAttributesArgs>? Attributes { get; set; }
 
         /// <summary>
-        /// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+        /// The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
         /// </summary>
         [Input("curveName")]
         public InputUnion<string, Pulumi.AzureNative.KeyVault.JsonWebKeyCurveName>? CurveName { get; set; }
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
         }
 
         /// <summary>
-        /// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        /// The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }

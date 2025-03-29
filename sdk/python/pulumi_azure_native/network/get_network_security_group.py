@@ -27,7 +27,10 @@ class GetNetworkSecurityGroupResult:
     """
     NetworkSecurityGroup resource.
     """
-    def __init__(__self__, default_security_rules=None, etag=None, flow_logs=None, flush_connection=None, id=None, location=None, name=None, network_interfaces=None, provisioning_state=None, resource_guid=None, security_rules=None, subnets=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, default_security_rules=None, etag=None, flow_logs=None, flush_connection=None, id=None, location=None, name=None, network_interfaces=None, provisioning_state=None, resource_guid=None, security_rules=None, subnets=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if default_security_rules and not isinstance(default_security_rules, list):
             raise TypeError("Expected argument 'default_security_rules' to be a list")
         pulumi.set(__self__, "default_security_rules", default_security_rules)
@@ -70,6 +73,14 @@ class GetNetworkSecurityGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultSecurityRules")
@@ -190,6 +201,7 @@ class AwaitableGetNetworkSecurityGroupResult(GetNetworkSecurityGroupResult):
         if False:
             yield self
         return GetNetworkSecurityGroupResult(
+            azure_api_version=self.azure_api_version,
             default_security_rules=self.default_security_rules,
             etag=self.etag,
             flow_logs=self.flow_logs,
@@ -213,9 +225,9 @@ def get_network_security_group(expand: Optional[str] = None,
     """
     Gets the specified network security group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: Expands referenced resources.
@@ -230,6 +242,7 @@ def get_network_security_group(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNetworkSecurityGroup', __args__, opts=opts, typ=GetNetworkSecurityGroupResult).value
 
     return AwaitableGetNetworkSecurityGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         default_security_rules=pulumi.get(__ret__, 'default_security_rules'),
         etag=pulumi.get(__ret__, 'etag'),
         flow_logs=pulumi.get(__ret__, 'flow_logs'),
@@ -251,9 +264,9 @@ def get_network_security_group_output(expand: Optional[pulumi.Input[Optional[str
     """
     Gets the specified network security group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: Expands referenced resources.
@@ -267,6 +280,7 @@ def get_network_security_group_output(expand: Optional[pulumi.Input[Optional[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNetworkSecurityGroup', __args__, opts=opts, typ=GetNetworkSecurityGroupResult)
     return __ret__.apply(lambda __response__: GetNetworkSecurityGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         default_security_rules=pulumi.get(__response__, 'default_security_rules'),
         etag=pulumi.get(__response__, 'etag'),
         flow_logs=pulumi.get(__response__, 'flow_logs'),

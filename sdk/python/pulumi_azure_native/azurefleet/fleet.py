@@ -25,6 +25,7 @@ class FleetArgs:
                  compute_profile: pulumi.Input['ComputeProfileArgs'],
                  resource_group_name: pulumi.Input[str],
                  vm_sizes_profile: pulumi.Input[Sequence[pulumi.Input['VmSizeProfileArgs']]],
+                 additional_locations_profile: Optional[pulumi.Input['AdditionalLocationsProfileArgs']] = None,
                  fleet_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -32,12 +33,14 @@ class FleetArgs:
                  regular_priority_profile: Optional[pulumi.Input['RegularPriorityProfileArgs']] = None,
                  spot_priority_profile: Optional[pulumi.Input['SpotPriorityProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vm_attributes: Optional[pulumi.Input['VMAttributesArgs']] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
         :param pulumi.Input['ComputeProfileArgs'] compute_profile: Compute Profile to use for running user's workloads.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['VmSizeProfileArgs']]] vm_sizes_profile: List of VM sizes supported for Compute Fleet
+        :param pulumi.Input['AdditionalLocationsProfileArgs'] additional_locations_profile: Represents the configuration for additional locations where Fleet resources may be deployed.
         :param pulumi.Input[str] fleet_name: The name of the Compute Fleet
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -45,11 +48,14 @@ class FleetArgs:
         :param pulumi.Input['RegularPriorityProfileArgs'] regular_priority_profile: Configuration Options for Regular instances in Compute Fleet.
         :param pulumi.Input['SpotPriorityProfileArgs'] spot_priority_profile: Configuration Options for Spot instances in Compute Fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['VMAttributesArgs'] vm_attributes: Attribute based Fleet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Zones in which the Compute Fleet is available
         """
         pulumi.set(__self__, "compute_profile", compute_profile)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vm_sizes_profile", vm_sizes_profile)
+        if additional_locations_profile is not None:
+            pulumi.set(__self__, "additional_locations_profile", additional_locations_profile)
         if fleet_name is not None:
             pulumi.set(__self__, "fleet_name", fleet_name)
         if identity is not None:
@@ -64,6 +70,8 @@ class FleetArgs:
             pulumi.set(__self__, "spot_priority_profile", spot_priority_profile)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vm_attributes is not None:
+            pulumi.set(__self__, "vm_attributes", vm_attributes)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -102,6 +110,18 @@ class FleetArgs:
     @vm_sizes_profile.setter
     def vm_sizes_profile(self, value: pulumi.Input[Sequence[pulumi.Input['VmSizeProfileArgs']]]):
         pulumi.set(self, "vm_sizes_profile", value)
+
+    @property
+    @pulumi.getter(name="additionalLocationsProfile")
+    def additional_locations_profile(self) -> Optional[pulumi.Input['AdditionalLocationsProfileArgs']]:
+        """
+        Represents the configuration for additional locations where Fleet resources may be deployed.
+        """
+        return pulumi.get(self, "additional_locations_profile")
+
+    @additional_locations_profile.setter
+    def additional_locations_profile(self, value: Optional[pulumi.Input['AdditionalLocationsProfileArgs']]):
+        pulumi.set(self, "additional_locations_profile", value)
 
     @property
     @pulumi.getter(name="fleetName")
@@ -188,6 +208,18 @@ class FleetArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="vmAttributes")
+    def vm_attributes(self) -> Optional[pulumi.Input['VMAttributesArgs']]:
+        """
+        Attribute based Fleet.
+        """
+        return pulumi.get(self, "vm_attributes")
+
+    @vm_attributes.setter
+    def vm_attributes(self, value: Optional[pulumi.Input['VMAttributesArgs']]):
+        pulumi.set(self, "vm_attributes", value)
+
+    @property
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -205,6 +237,7 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_locations_profile: Optional[pulumi.Input[Union['AdditionalLocationsProfileArgs', 'AdditionalLocationsProfileArgsDict']]] = None,
                  compute_profile: Optional[pulumi.Input[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']]] = None,
                  fleet_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
@@ -214,18 +247,20 @@ class Fleet(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  spot_priority_profile: Optional[pulumi.Input[Union['SpotPriorityProfileArgs', 'SpotPriorityProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vm_attributes: Optional[pulumi.Input[Union['VMAttributesArgs', 'VMAttributesArgsDict']]] = None,
                  vm_sizes_profile: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmSizeProfileArgs', 'VmSizeProfileArgsDict']]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         An Compute Fleet resource
 
-        Uses Azure REST API version 2024-05-01-preview.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
-        Other available API versions: 2023-11-01-preview, 2024-11-01.
+        Other available API versions: 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['AdditionalLocationsProfileArgs', 'AdditionalLocationsProfileArgsDict']] additional_locations_profile: Represents the configuration for additional locations where Fleet resources may be deployed.
         :param pulumi.Input[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']] compute_profile: Compute Profile to use for running user's workloads.
         :param pulumi.Input[str] fleet_name: The name of the Compute Fleet
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
@@ -235,6 +270,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SpotPriorityProfileArgs', 'SpotPriorityProfileArgsDict']] spot_priority_profile: Configuration Options for Spot instances in Compute Fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Union['VMAttributesArgs', 'VMAttributesArgsDict']] vm_attributes: Attribute based Fleet.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VmSizeProfileArgs', 'VmSizeProfileArgsDict']]]] vm_sizes_profile: List of VM sizes supported for Compute Fleet
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Zones in which the Compute Fleet is available
         """
@@ -247,9 +283,9 @@ class Fleet(pulumi.CustomResource):
         """
         An Compute Fleet resource
 
-        Uses Azure REST API version 2024-05-01-preview.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
-        Other available API versions: 2023-11-01-preview, 2024-11-01.
+        Other available API versions: 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.
@@ -266,6 +302,7 @@ class Fleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_locations_profile: Optional[pulumi.Input[Union['AdditionalLocationsProfileArgs', 'AdditionalLocationsProfileArgsDict']]] = None,
                  compute_profile: Optional[pulumi.Input[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']]] = None,
                  fleet_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
@@ -275,6 +312,7 @@ class Fleet(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  spot_priority_profile: Optional[pulumi.Input[Union['SpotPriorityProfileArgs', 'SpotPriorityProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vm_attributes: Optional[pulumi.Input[Union['VMAttributesArgs', 'VMAttributesArgsDict']]] = None,
                  vm_sizes_profile: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmSizeProfileArgs', 'VmSizeProfileArgsDict']]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -286,6 +324,7 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetArgs.__new__(FleetArgs)
 
+            __props__.__dict__["additional_locations_profile"] = additional_locations_profile
             if compute_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'compute_profile'")
             __props__.__dict__["compute_profile"] = compute_profile
@@ -299,10 +338,12 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["spot_priority_profile"] = spot_priority_profile
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["vm_attributes"] = vm_attributes
             if vm_sizes_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_sizes_profile'")
             __props__.__dict__["vm_sizes_profile"] = vm_sizes_profile
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -333,6 +374,8 @@ class Fleet(pulumi.CustomResource):
 
         __props__ = FleetArgs.__new__(FleetArgs)
 
+        __props__.__dict__["additional_locations_profile"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["compute_profile"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
@@ -346,9 +389,26 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["unique_id"] = None
+        __props__.__dict__["vm_attributes"] = None
         __props__.__dict__["vm_sizes_profile"] = None
         __props__.__dict__["zones"] = None
         return Fleet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="additionalLocationsProfile")
+    def additional_locations_profile(self) -> pulumi.Output[Optional['outputs.AdditionalLocationsProfileResponse']]:
+        """
+        Represents the configuration for additional locations where Fleet resources may be deployed.
+        """
+        return pulumi.get(self, "additional_locations_profile")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="computeProfile")
@@ -453,6 +513,14 @@ class Fleet(pulumi.CustomResource):
         Specifies the ID which uniquely identifies a Compute Fleet.
         """
         return pulumi.get(self, "unique_id")
+
+    @property
+    @pulumi.getter(name="vmAttributes")
+    def vm_attributes(self) -> pulumi.Output[Optional['outputs.VMAttributesResponse']]:
+        """
+        Attribute based Fleet.
+        """
+        return pulumi.get(self, "vm_attributes")
 
     @property
     @pulumi.getter(name="vmSizesProfile")

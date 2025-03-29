@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+        /// Other available API versions: 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRegistryDataContainerResult> InvokeAsync(GetRegistryDataContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryDataContainerResult>("azure-native:machinelearningservices:getRegistryDataContainer", args ?? new GetRegistryDataContainerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+        /// Other available API versions: 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRegistryDataContainerResult> Invoke(GetRegistryDataContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryDataContainerResult>("azure-native:machinelearningservices:getRegistryDataContainer", args ?? new GetRegistryDataContainerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+        /// Other available API versions: 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRegistryDataContainerResult> Invoke(GetRegistryDataContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryDataContainerResult>("azure-native:machinelearningservices:getRegistryDataContainer", args ?? new GetRegistryDataContainerInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetRegistryDataContainerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
         public readonly Outputs.DataContainerResponse DataContainerProperties;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetRegistryDataContainerResult(
+            string azureApiVersion,
+
             Outputs.DataContainerResponse dataContainerProperties,
 
             string id,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataContainerProperties = dataContainerProperties;
             Id = id;
             Name = name;

@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Get a StorageClassResource
  *
  * Uses Azure REST API version 2024-03-01.
- *
- * Other available API versions: 2023-10-01-preview.
  */
 export function getStorageClass(args: GetStorageClassArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageClassResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +43,10 @@ export interface GetStorageClassResult {
      * Volume can be expanded or not
      */
     readonly allowVolumeExpansion?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Allow single data node failure
      */
@@ -106,8 +108,6 @@ export interface GetStorageClassResult {
  * Get a StorageClassResource
  *
  * Uses Azure REST API version 2024-03-01.
- *
- * Other available API versions: 2023-10-01-preview.
  */
 export function getStorageClassOutput(args: GetStorageClassOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageClassResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

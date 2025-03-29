@@ -27,13 +27,16 @@ class GetCustomIPPrefixResult:
     """
     Custom IP prefix resource.
     """
-    def __init__(__self__, asn=None, authorization_message=None, child_custom_ip_prefixes=None, cidr=None, commissioned_state=None, custom_ip_prefix_parent=None, etag=None, express_route_advertise=None, extended_location=None, failed_reason=None, geo=None, id=None, location=None, name=None, no_internet_advertise=None, prefix_type=None, provisioning_state=None, public_ip_prefixes=None, resource_guid=None, signed_message=None, tags=None, type=None, zones=None):
+    def __init__(__self__, asn=None, authorization_message=None, azure_api_version=None, child_custom_ip_prefixes=None, cidr=None, commissioned_state=None, custom_ip_prefix_parent=None, etag=None, express_route_advertise=None, extended_location=None, failed_reason=None, geo=None, id=None, location=None, name=None, no_internet_advertise=None, prefix_type=None, provisioning_state=None, public_ip_prefixes=None, resource_guid=None, signed_message=None, tags=None, type=None, zones=None):
         if asn and not isinstance(asn, str):
             raise TypeError("Expected argument 'asn' to be a str")
         pulumi.set(__self__, "asn", asn)
         if authorization_message and not isinstance(authorization_message, str):
             raise TypeError("Expected argument 'authorization_message' to be a str")
         pulumi.set(__self__, "authorization_message", authorization_message)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if child_custom_ip_prefixes and not isinstance(child_custom_ip_prefixes, list):
             raise TypeError("Expected argument 'child_custom_ip_prefixes' to be a list")
         pulumi.set(__self__, "child_custom_ip_prefixes", child_custom_ip_prefixes)
@@ -113,6 +116,14 @@ class GetCustomIPPrefixResult:
         Authorization message for WAN validation.
         """
         return pulumi.get(self, "authorization_message")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="childCustomIpPrefixes")
@@ -291,6 +302,7 @@ class AwaitableGetCustomIPPrefixResult(GetCustomIPPrefixResult):
         return GetCustomIPPrefixResult(
             asn=self.asn,
             authorization_message=self.authorization_message,
+            azure_api_version=self.azure_api_version,
             child_custom_ip_prefixes=self.child_custom_ip_prefixes,
             cidr=self.cidr,
             commissioned_state=self.commissioned_state,
@@ -321,9 +333,9 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
     """
     Gets the specified custom IP prefix in a specified resource group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str custom_ip_prefix_name: The name of the custom IP prefix.
@@ -340,6 +352,7 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
     return AwaitableGetCustomIPPrefixResult(
         asn=pulumi.get(__ret__, 'asn'),
         authorization_message=pulumi.get(__ret__, 'authorization_message'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         child_custom_ip_prefixes=pulumi.get(__ret__, 'child_custom_ip_prefixes'),
         cidr=pulumi.get(__ret__, 'cidr'),
         commissioned_state=pulumi.get(__ret__, 'commissioned_state'),
@@ -368,9 +381,9 @@ def get_custom_ip_prefix_output(custom_ip_prefix_name: Optional[pulumi.Input[str
     """
     Gets the specified custom IP prefix in a specified resource group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str custom_ip_prefix_name: The name of the custom IP prefix.
@@ -386,6 +399,7 @@ def get_custom_ip_prefix_output(custom_ip_prefix_name: Optional[pulumi.Input[str
     return __ret__.apply(lambda __response__: GetCustomIPPrefixResult(
         asn=pulumi.get(__response__, 'asn'),
         authorization_message=pulumi.get(__response__, 'authorization_message'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         child_custom_ip_prefixes=pulumi.get(__response__, 'child_custom_ip_prefixes'),
         cidr=pulumi.get(__response__, 'cidr'),
         commissioned_state=pulumi.get(__response__, 'commissioned_state'),

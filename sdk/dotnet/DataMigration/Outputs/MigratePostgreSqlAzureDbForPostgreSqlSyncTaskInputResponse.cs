@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse
     {
         /// <summary>
+        /// encrypted key for secure fields
+        /// </summary>
+        public readonly string? EncryptedKeyForSecureFields;
+        /// <summary>
         /// Databases to migrate
         /// </summary>
         public readonly ImmutableArray<Outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse> SelectedDatabases;
@@ -25,20 +29,30 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly Outputs.PostgreSqlConnectionInfoResponse SourceConnectionInfo;
         /// <summary>
+        /// Migration start time
+        /// </summary>
+        public readonly string StartedOn;
+        /// <summary>
         /// Connection information for target Azure Database for PostgreSQL
         /// </summary>
         public readonly Outputs.PostgreSqlConnectionInfoResponse TargetConnectionInfo;
 
         [OutputConstructor]
         private MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse(
+            string? encryptedKeyForSecureFields,
+
             ImmutableArray<Outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse> selectedDatabases,
 
             Outputs.PostgreSqlConnectionInfoResponse sourceConnectionInfo,
 
+            string startedOn,
+
             Outputs.PostgreSqlConnectionInfoResponse targetConnectionInfo)
         {
+            EncryptedKeyForSecureFields = encryptedKeyForSecureFields;
             SelectedDatabases = selectedDatabases;
             SourceConnectionInfo = sourceConnectionInfo;
+            StartedOn = startedOn;
             TargetConnectionInfo = targetConnectionInfo;
         }
     }

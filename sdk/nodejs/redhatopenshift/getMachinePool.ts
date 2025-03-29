@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The operation returns properties of a MachinePool.
  *
- * Uses Azure REST API version 2022-09-04.
+ * Uses Azure REST API version 2023-11-22.
  *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+ * Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMachinePool(args: GetMachinePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetMachinePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetMachinePoolArgs {
  */
 export interface GetMachinePoolResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -63,9 +67,9 @@ export interface GetMachinePoolResult {
 /**
  * The operation returns properties of a MachinePool.
  *
- * Uses Azure REST API version 2022-09-04.
+ * Uses Azure REST API version 2023-11-22.
  *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+ * Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMachinePoolOutput(args: GetMachinePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachinePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

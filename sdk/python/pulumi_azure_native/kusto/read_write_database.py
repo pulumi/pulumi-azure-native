@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['ReadWriteDatabaseArgs', 'ReadWriteDatabase']
 
@@ -26,6 +27,7 @@ class ReadWriteDatabaseArgs:
                  caller_role: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  hot_cache_period: Optional[pulumi.Input[str]] = None,
+                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  soft_delete_period: Optional[pulumi.Input[str]] = None):
         """
@@ -33,10 +35,11 @@ class ReadWriteDatabaseArgs:
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] kind: Kind of the database
                Expected value is 'ReadWrite'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] caller_role: By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] hot_cache_period: The time the data should be kept in cache for fast queries in TimeSpan.
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: KeyVault properties for the database encryption.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] soft_delete_period: The time the data should be kept before it stops being accessible to queries in TimeSpan.
         """
@@ -49,6 +52,8 @@ class ReadWriteDatabaseArgs:
             pulumi.set(__self__, "database_name", database_name)
         if hot_cache_period is not None:
             pulumi.set(__self__, "hot_cache_period", hot_cache_period)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if soft_delete_period is not None:
@@ -83,7 +88,7 @@ class ReadWriteDatabaseArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Kusto cluster.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -128,6 +133,18 @@ class ReadWriteDatabaseArgs:
         pulumi.set(self, "hot_cache_period", value)
 
     @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+        """
+        KeyVault properties for the database encryption.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -161,6 +178,7 @@ class ReadWriteDatabase(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  hot_cache_period: Optional[pulumi.Input[str]] = None,
+                 key_vault_properties: Optional[pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -169,7 +187,7 @@ class ReadWriteDatabase(pulumi.CustomResource):
         """
         Class representing a read write database.
 
-        Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,10 +195,11 @@ class ReadWriteDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] hot_cache_period: The time the data should be kept in cache for fast queries in TimeSpan.
+        :param pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']] key_vault_properties: KeyVault properties for the database encryption.
         :param pulumi.Input[str] kind: Kind of the database
                Expected value is 'ReadWrite'.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] soft_delete_period: The time the data should be kept before it stops being accessible to queries in TimeSpan.
         """
         ...
@@ -192,7 +211,7 @@ class ReadWriteDatabase(pulumi.CustomResource):
         """
         Class representing a read write database.
 
-        Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param ReadWriteDatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -213,6 +232,7 @@ class ReadWriteDatabase(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  hot_cache_period: Optional[pulumi.Input[str]] = None,
+                 key_vault_properties: Optional[pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -232,6 +252,7 @@ class ReadWriteDatabase(pulumi.CustomResource):
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["hot_cache_period"] = hot_cache_period
+            __props__.__dict__["key_vault_properties"] = key_vault_properties
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'ReadWrite'
@@ -240,12 +261,14 @@ class ReadWriteDatabase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["soft_delete_period"] = soft_delete_period
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["is_followed"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["statistics"] = None
+            __props__.__dict__["suspension_details"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190121:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190515:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190907:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20191109:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200215:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200614:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200918:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20210101:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20210827:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20220201:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20220707:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20221111:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20221229:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20230502:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20230815:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20240413:ReadWriteDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:Database"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190121:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190515:Database"), pulumi.Alias(type_="azure-native:kusto/v20190515:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190907:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190907:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20191109:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200215:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200614:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200918:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20210101:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20210827:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20220201:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20220707:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20221111:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20221229:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20221229:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20230502:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20230502:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20230815:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20230815:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20240413:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20240413:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto:ReadOnlyFollowingDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReadWriteDatabase, __self__).__init__(
             'azure-native:kusto:ReadWriteDatabase',
@@ -269,16 +292,27 @@ class ReadWriteDatabase(pulumi.CustomResource):
 
         __props__ = ReadWriteDatabaseArgs.__new__(ReadWriteDatabaseArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["hot_cache_period"] = None
         __props__.__dict__["is_followed"] = None
+        __props__.__dict__["key_vault_properties"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["soft_delete_period"] = None
         __props__.__dict__["statistics"] = None
+        __props__.__dict__["suspension_details"] = None
         __props__.__dict__["type"] = None
         return ReadWriteDatabase(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hotCachePeriod")
@@ -295,6 +329,14 @@ class ReadWriteDatabase(pulumi.CustomResource):
         Indicates whether the database is followed.
         """
         return pulumi.get(self, "is_followed")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> pulumi.Output[Optional['outputs.KeyVaultPropertiesResponse']]:
+        """
+        KeyVault properties for the database encryption.
+        """
+        return pulumi.get(self, "key_vault_properties")
 
     @property
     @pulumi.getter
@@ -344,6 +386,14 @@ class ReadWriteDatabase(pulumi.CustomResource):
         The statistics of the database.
         """
         return pulumi.get(self, "statistics")
+
+    @property
+    @pulumi.getter(name="suspensionDetails")
+    def suspension_details(self) -> pulumi.Output['outputs.SuspensionDetailsResponse']:
+        """
+        The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+        """
+        return pulumi.get(self, "suspension_details")
 
     @property
     @pulumi.getter

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Gets the properties of the specified workspace.
         /// 
-        /// Uses Azure REST API version 2023-02-28.
+        /// Uses Azure REST API version 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:healthcareapis:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Gets the properties of the specified workspace.
         /// 
-        /// Uses Azure REST API version 2023-02-28.
+        /// Uses Azure REST API version 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:healthcareapis:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Gets the properties of the specified workspace.
         /// 
-        /// Uses Azure REST API version 2023-02-28.
+        /// Uses Azure REST API version 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:healthcareapis:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.HealthcareApis
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
         /// </summary>
         public readonly string? Etag;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.HealthcareApis
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Location = location;

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// <summary>
     /// Asset Endpoint Profile definition.
     /// 
-    /// Uses Azure REST API version 2023-11-01-preview.
+    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
     /// 
-    /// Other available API versions: 2024-09-01-preview, 2024-11-01.
+    /// Other available API versions: 2023-11-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:AssetEndpointProfile")]
     public partial class AssetEndpointProfile : global::Pulumi.CustomResource
@@ -24,6 +24,30 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         [Output("additionalConfiguration")]
         public Output<string?> AdditionalConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines the client authentication mechanism to the server.
+        /// </summary>
+        [Output("authentication")]
+        public Output<Outputs.AuthenticationResponse?> Authentication { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Reference to a discovered asset endpoint profile. Populated only if the asset endpoint profile has been created from discovery flow. Discovered asset endpoint profile name must be provided.
+        /// </summary>
+        [Output("discoveredAssetEndpointProfileRef")]
+        public Output<string?> DiscoveredAssetEndpointProfileRef { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines the configuration for the connector type that is being used with the endpoint profile.
+        /// </summary>
+        [Output("endpointProfileType")]
+        public Output<string> EndpointProfileType { get; private set; } = null!;
 
         /// <summary>
         /// The extended location.
@@ -50,6 +74,12 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Read only object to reflect changes that have occurred on the Edge. Similar to Kubernetes status property for custom resources.
+        /// </summary>
+        [Output("status")]
+        public Output<Outputs.AssetEndpointProfileStatusResponse> Status { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
@@ -68,22 +98,10 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Output<string> TargetAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
-        /// </summary>
-        [Output("transportAuthentication")]
-        public Output<Outputs.TransportAuthenticationResponse?> TransportAuthentication { get; private set; } = null!;
-
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Defines the client authentication mechanism to the server.
-        /// </summary>
-        [Output("userAuthentication")]
-        public Output<Outputs.UserAuthenticationResponse?> UserAuthentication { get; private set; } = null!;
 
         /// <summary>
         /// Globally unique, immutable, non-reusable id.
@@ -155,6 +173,24 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Input<string>? AssetEndpointProfileName { get; set; }
 
         /// <summary>
+        /// Defines the client authentication mechanism to the server.
+        /// </summary>
+        [Input("authentication")]
+        public Input<Inputs.AuthenticationArgs>? Authentication { get; set; }
+
+        /// <summary>
+        /// Reference to a discovered asset endpoint profile. Populated only if the asset endpoint profile has been created from discovery flow. Discovered asset endpoint profile name must be provided.
+        /// </summary>
+        [Input("discoveredAssetEndpointProfileRef")]
+        public Input<string>? DiscoveredAssetEndpointProfileRef { get; set; }
+
+        /// <summary>
+        /// Defines the configuration for the connector type that is being used with the endpoint profile.
+        /// </summary>
+        [Input("endpointProfileType", required: true)]
+        public Input<string> EndpointProfileType { get; set; } = null!;
+
+        /// <summary>
         /// The extended location.
         /// </summary>
         [Input("extendedLocation", required: true)]
@@ -189,18 +225,6 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         [Input("targetAddress", required: true)]
         public Input<string> TargetAddress { get; set; } = null!;
-
-        /// <summary>
-        /// Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
-        /// </summary>
-        [Input("transportAuthentication")]
-        public Input<Inputs.TransportAuthenticationArgs>? TransportAuthentication { get; set; }
-
-        /// <summary>
-        /// Defines the client authentication mechanism to the server.
-        /// </summary>
-        [Input("userAuthentication")]
-        public Input<Inputs.UserAuthenticationArgs>? UserAuthentication { get; set; }
 
         public AssetEndpointProfileArgs()
         {

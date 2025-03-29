@@ -116,9 +116,9 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         """
         Single item in a List or Get AuthorizationRule operation
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2017-04-01, 2024-01-01.
+        Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,9 +137,9 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         """
         Single item in a List or Get AuthorizationRule operation
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2017-04-01, 2024-01-01.
+        Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param HybridConnectionAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -183,6 +183,7 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
             if rights is None and not opts.urn:
                 raise TypeError("Missing required property 'rights'")
             __props__.__dict__["rights"] = rights
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -211,12 +212,21 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
 
         __props__ = HybridConnectionAuthorizationRuleArgs.__new__(HybridConnectionAuthorizationRuleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rights"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return HybridConnectionAuthorizationRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

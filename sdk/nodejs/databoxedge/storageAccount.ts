@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
  *
- * Uses Azure REST API version 2022-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+ * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
  *
- * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class StorageAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === StorageAccount.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * BlobEndpoint of Storage Account
      */
@@ -105,12 +109,14 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["storageAccountStatus"] = args ? args.storageAccountStatus : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobEndpoint"] = undefined /*out*/;
             resourceInputs["containerCount"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobEndpoint"] = undefined /*out*/;
             resourceInputs["containerCount"] = undefined /*out*/;
             resourceInputs["dataPolicy"] = undefined /*out*/;

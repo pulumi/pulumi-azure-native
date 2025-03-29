@@ -27,7 +27,10 @@ class GetMECRoleResult:
     """
     MEC role.
     """
-    def __init__(__self__, connection_string=None, controller_endpoint=None, id=None, kind=None, name=None, resource_unique_id=None, role_status=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, connection_string=None, controller_endpoint=None, id=None, kind=None, name=None, resource_unique_id=None, role_status=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connection_string and not isinstance(connection_string, dict):
             raise TypeError("Expected argument 'connection_string' to be a dict")
         pulumi.set(__self__, "connection_string", connection_string)
@@ -55,6 +58,14 @@ class GetMECRoleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionString")
@@ -136,6 +147,7 @@ class AwaitableGetMECRoleResult(GetMECRoleResult):
         if False:
             yield self
         return GetMECRoleResult(
+            azure_api_version=self.azure_api_version,
             connection_string=self.connection_string,
             controller_endpoint=self.controller_endpoint,
             id=self.id,
@@ -154,7 +166,7 @@ def get_mec_role(device_name: Optional[str] = None,
     """
     Gets a specific role by name.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -169,6 +181,7 @@ def get_mec_role(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getMECRole', __args__, opts=opts, typ=GetMECRoleResult).value
 
     return AwaitableGetMECRoleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connection_string=pulumi.get(__ret__, 'connection_string'),
         controller_endpoint=pulumi.get(__ret__, 'controller_endpoint'),
         id=pulumi.get(__ret__, 'id'),
@@ -185,7 +198,7 @@ def get_mec_role_output(device_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a specific role by name.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -199,6 +212,7 @@ def get_mec_role_output(device_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getMECRole', __args__, opts=opts, typ=GetMECRoleResult)
     return __ret__.apply(lambda __response__: GetMECRoleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connection_string=pulumi.get(__response__, 'connection_string'),
         controller_endpoint=pulumi.get(__response__, 'controller_endpoint'),
         id=pulumi.get(__response__, 'id'),

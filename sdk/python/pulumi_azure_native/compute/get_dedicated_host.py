@@ -27,10 +27,13 @@ class GetDedicatedHostResult:
     """
     Specifies information about the Dedicated host.
     """
-    def __init__(__self__, auto_replace_on_failure=None, host_id=None, id=None, instance_view=None, license_type=None, location=None, name=None, platform_fault_domain=None, provisioning_state=None, provisioning_time=None, sku=None, tags=None, time_created=None, type=None, virtual_machines=None):
+    def __init__(__self__, auto_replace_on_failure=None, azure_api_version=None, host_id=None, id=None, instance_view=None, license_type=None, location=None, name=None, platform_fault_domain=None, provisioning_state=None, provisioning_time=None, sku=None, tags=None, time_created=None, type=None, virtual_machines=None):
         if auto_replace_on_failure and not isinstance(auto_replace_on_failure, bool):
             raise TypeError("Expected argument 'auto_replace_on_failure' to be a bool")
         pulumi.set(__self__, "auto_replace_on_failure", auto_replace_on_failure)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if host_id and not isinstance(host_id, str):
             raise TypeError("Expected argument 'host_id' to be a str")
         pulumi.set(__self__, "host_id", host_id)
@@ -81,6 +84,14 @@ class GetDedicatedHostResult:
         Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
         """
         return pulumi.get(self, "auto_replace_on_failure")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hostId")
@@ -202,6 +213,7 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
             yield self
         return GetDedicatedHostResult(
             auto_replace_on_failure=self.auto_replace_on_failure,
+            azure_api_version=self.azure_api_version,
             host_id=self.host_id,
             id=self.id,
             instance_view=self.instance_view,
@@ -226,9 +238,9 @@ def get_dedicated_host(expand: Optional[str] = None,
     """
     Retrieves information about a dedicated host.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
@@ -246,6 +258,7 @@ def get_dedicated_host(expand: Optional[str] = None,
 
     return AwaitableGetDedicatedHostResult(
         auto_replace_on_failure=pulumi.get(__ret__, 'auto_replace_on_failure'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         host_id=pulumi.get(__ret__, 'host_id'),
         id=pulumi.get(__ret__, 'id'),
         instance_view=pulumi.get(__ret__, 'instance_view'),
@@ -268,9 +281,9 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = No
     """
     Retrieves information about a dedicated host.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
@@ -287,6 +300,7 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = No
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getDedicatedHost', __args__, opts=opts, typ=GetDedicatedHostResult)
     return __ret__.apply(lambda __response__: GetDedicatedHostResult(
         auto_replace_on_failure=pulumi.get(__response__, 'auto_replace_on_failure'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         host_id=pulumi.get(__response__, 'host_id'),
         id=pulumi.get(__response__, 'id'),
         instance_view=pulumi.get(__response__, 'instance_view'),

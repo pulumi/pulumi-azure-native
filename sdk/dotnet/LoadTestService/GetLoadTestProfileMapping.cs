@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.LoadTestService
         /// 
         /// Uses Azure REST API version 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2024-12-01-preview.
+        /// Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetLoadTestProfileMappingResult> InvokeAsync(GetLoadTestProfileMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadTestProfileMappingResult>("azure-native:loadtestservice:getLoadTestProfileMapping", args ?? new GetLoadTestProfileMappingArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.LoadTestService
         /// 
         /// Uses Azure REST API version 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2024-12-01-preview.
+        /// Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLoadTestProfileMappingResult> Invoke(GetLoadTestProfileMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestProfileMappingResult>("azure-native:loadtestservice:getLoadTestProfileMapping", args ?? new GetLoadTestProfileMappingInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.LoadTestService
         /// 
         /// Uses Azure REST API version 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2024-12-01-preview.
+        /// Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLoadTestProfileMappingResult> Invoke(GetLoadTestProfileMappingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestProfileMappingResult>("azure-native:loadtestservice:getLoadTestProfileMapping", args ?? new GetLoadTestProfileMappingInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.LoadTestService
     public sealed class GetLoadTestProfileMappingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Mapped Azure Load Test resource Id.
         /// </summary>
         public readonly string? AzureLoadTestingResourceId;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.LoadTestService
 
         [OutputConstructor]
         private GetLoadTestProfileMappingResult(
+            string azureApiVersion,
+
             string? azureLoadTestingResourceId,
 
             string id,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.LoadTestService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             AzureLoadTestingResourceId = azureLoadTestingResourceId;
             Id = id;
             Name = name;

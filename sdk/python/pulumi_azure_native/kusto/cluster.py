@@ -27,6 +27,7 @@ class ClusterArgs:
                  accepted_audiences: Optional[pulumi.Input[Sequence[pulumi.Input['AcceptedAudiencesArgs']]]] = None,
                  allowed_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_ip_range_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 callout_policies: Optional[pulumi.Input[Sequence[pulumi.Input['CalloutPolicyArgs']]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_stop: Optional[pulumi.Input[bool]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
@@ -49,11 +50,12 @@ class ClusterArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AzureSkuArgs'] sku: The SKU of the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['AcceptedAudiencesArgs']]] accepted_audiences: The cluster's accepted audiences.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_fqdn_list: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_range_list: The list of ips in the format of CIDR allowed to connect to the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['CalloutPolicyArgs']]] callout_policies: List of callout policies for egress from Cluster.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[bool] enable_auto_stop: A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         :param pulumi.Input[bool] enable_disk_encryption: A boolean value that indicates if the cluster's disks are encrypted.
@@ -83,6 +85,8 @@ class ClusterArgs:
             pulumi.set(__self__, "allowed_fqdn_list", allowed_fqdn_list)
         if allowed_ip_range_list is not None:
             pulumi.set(__self__, "allowed_ip_range_list", allowed_ip_range_list)
+        if callout_policies is not None:
+            pulumi.set(__self__, "callout_policies", callout_policies)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if enable_auto_stop is None:
@@ -146,7 +150,7 @@ class ClusterArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Kusto cluster.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -201,6 +205,18 @@ class ClusterArgs:
     @allowed_ip_range_list.setter
     def allowed_ip_range_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_ip_range_list", value)
+
+    @property
+    @pulumi.getter(name="calloutPolicies")
+    def callout_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CalloutPolicyArgs']]]]:
+        """
+        List of callout policies for egress from Cluster.
+        """
+        return pulumi.get(self, "callout_policies")
+
+    @callout_policies.setter
+    def callout_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CalloutPolicyArgs']]]]):
+        pulumi.set(self, "callout_policies", value)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -451,6 +467,7 @@ class Cluster(pulumi.CustomResource):
                  accepted_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AcceptedAudiencesArgs', 'AcceptedAudiencesArgsDict']]]]] = None,
                  allowed_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_ip_range_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 callout_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CalloutPolicyArgs', 'CalloutPolicyArgsDict']]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_stop: Optional[pulumi.Input[bool]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
@@ -477,15 +494,16 @@ class Cluster(pulumi.CustomResource):
         """
         Class representing a Kusto cluster.
 
-        Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
-        Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+        Other available API versions: 2018-09-07-preview, 2019-01-21, 2019-05-15, 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AcceptedAudiencesArgs', 'AcceptedAudiencesArgsDict']]]] accepted_audiences: The cluster's accepted audiences.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_fqdn_list: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_range_list: The list of ips in the format of CIDR allowed to connect to the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CalloutPolicyArgs', 'CalloutPolicyArgsDict']]]] callout_policies: List of callout policies for egress from Cluster.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[bool] enable_auto_stop: A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         :param pulumi.Input[bool] enable_disk_encryption: A boolean value that indicates if the cluster's disks are encrypted.
@@ -500,7 +518,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['OptimizedAutoscaleArgs', 'OptimizedAutoscaleArgsDict']] optimized_autoscale: Optimized auto scale definition.
         :param pulumi.Input[Union[str, 'PublicIPType']] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'ClusterNetworkAccessFlag']] restrict_outbound_network_access: Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[Union['AzureSkuArgs', 'AzureSkuArgsDict']] sku: The SKU of the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -518,9 +536,9 @@ class Cluster(pulumi.CustomResource):
         """
         Class representing a Kusto cluster.
 
-        Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
-        Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+        Other available API versions: 2018-09-07-preview, 2019-01-21, 2019-05-15, 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -540,6 +558,7 @@ class Cluster(pulumi.CustomResource):
                  accepted_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AcceptedAudiencesArgs', 'AcceptedAudiencesArgsDict']]]]] = None,
                  allowed_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_ip_range_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 callout_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CalloutPolicyArgs', 'CalloutPolicyArgsDict']]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_stop: Optional[pulumi.Input[bool]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
@@ -574,6 +593,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["accepted_audiences"] = accepted_audiences
             __props__.__dict__["allowed_fqdn_list"] = allowed_fqdn_list
             __props__.__dict__["allowed_ip_range_list"] = allowed_ip_range_list
+            __props__.__dict__["callout_policies"] = callout_policies
             __props__.__dict__["cluster_name"] = cluster_name
             if enable_auto_stop is None:
                 enable_auto_stop = True
@@ -618,8 +638,10 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["virtual_cluster_graduation_properties"] = virtual_cluster_graduation_properties
             __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["data_ingestion_uri"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["migration_cluster"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -628,6 +650,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uri"] = None
+            __props__.__dict__["zone_status"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200918:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20210101:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20210827:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20220201:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20220707:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20221111:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20221229:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20230502:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20230815:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20240413:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
@@ -655,6 +678,8 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["accepted_audiences"] = None
         __props__.__dict__["allowed_fqdn_list"] = None
         __props__.__dict__["allowed_ip_range_list"] = None
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["callout_policies"] = None
         __props__.__dict__["data_ingestion_uri"] = None
         __props__.__dict__["enable_auto_stop"] = None
         __props__.__dict__["enable_disk_encryption"] = None
@@ -667,6 +692,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["key_vault_properties"] = None
         __props__.__dict__["language_extensions"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["migration_cluster"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["optimized_autoscale"] = None
         __props__.__dict__["private_endpoint_connections"] = None
@@ -683,6 +709,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["uri"] = None
         __props__.__dict__["virtual_network_configuration"] = None
+        __props__.__dict__["zone_status"] = None
         __props__.__dict__["zones"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
@@ -709,6 +736,22 @@ class Cluster(pulumi.CustomResource):
         The list of ips in the format of CIDR allowed to connect to the cluster.
         """
         return pulumi.get(self, "allowed_ip_range_list")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="calloutPolicies")
+    def callout_policies(self) -> pulumi.Output[Optional[Sequence['outputs.CalloutPolicyResponse']]]:
+        """
+        List of callout policies for egress from Cluster.
+        """
+        return pulumi.get(self, "callout_policies")
 
     @property
     @pulumi.getter(name="dataIngestionUri")
@@ -805,6 +848,14 @@ class Cluster(pulumi.CustomResource):
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="migrationCluster")
+    def migration_cluster(self) -> pulumi.Output['outputs.MigrationClusterPropertiesResponse']:
+        """
+        Properties of the peer cluster involved in a migration to/from this cluster.
+        """
+        return pulumi.get(self, "migration_cluster")
 
     @property
     @pulumi.getter
@@ -933,6 +984,14 @@ class Cluster(pulumi.CustomResource):
         Virtual network definition.
         """
         return pulumi.get(self, "virtual_network_configuration")
+
+    @property
+    @pulumi.getter(name="zoneStatus")
+    def zone_status(self) -> pulumi.Output[str]:
+        """
+        Indicates whether the cluster is zonal or non-zonal.
+        """
+        return pulumi.get(self, "zone_status")
 
     @property
     @pulumi.getter

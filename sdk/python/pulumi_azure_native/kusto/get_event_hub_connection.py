@@ -26,7 +26,10 @@ class GetEventHubConnectionResult:
     """
     Class representing an event hub connection.
     """
-    def __init__(__self__, consumer_group=None, data_format=None, event_hub_resource_id=None, id=None, location=None, mapping_rule_name=None, name=None, table_name=None, type=None):
+    def __init__(__self__, azure_api_version=None, consumer_group=None, data_format=None, event_hub_resource_id=None, id=None, location=None, mapping_rule_name=None, name=None, table_name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if consumer_group and not isinstance(consumer_group, str):
             raise TypeError("Expected argument 'consumer_group' to be a str")
         pulumi.set(__self__, "consumer_group", consumer_group)
@@ -54,6 +57,14 @@ class GetEventHubConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="consumerGroup")
@@ -134,6 +145,7 @@ class AwaitableGetEventHubConnectionResult(GetEventHubConnectionResult):
         if False:
             yield self
         return GetEventHubConnectionResult(
+            azure_api_version=self.azure_api_version,
             consumer_group=self.consumer_group,
             data_format=self.data_format,
             event_hub_resource_id=self.event_hub_resource_id,
@@ -170,6 +182,7 @@ def get_event_hub_connection(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto:getEventHubConnection', __args__, opts=opts, typ=GetEventHubConnectionResult).value
 
     return AwaitableGetEventHubConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         consumer_group=pulumi.get(__ret__, 'consumer_group'),
         data_format=pulumi.get(__ret__, 'data_format'),
         event_hub_resource_id=pulumi.get(__ret__, 'event_hub_resource_id'),
@@ -203,6 +216,7 @@ def get_event_hub_connection_output(cluster_name: Optional[pulumi.Input[str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto:getEventHubConnection', __args__, opts=opts, typ=GetEventHubConnectionResult)
     return __ret__.apply(lambda __response__: GetEventHubConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         consumer_group=pulumi.get(__response__, 'consumer_group'),
         data_format=pulumi.get(__response__, 'data_format'),
         event_hub_resource_id=pulumi.get(__response__, 'event_hub_resource_id'),

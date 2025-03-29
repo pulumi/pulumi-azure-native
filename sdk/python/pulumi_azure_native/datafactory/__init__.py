@@ -41,11 +41,3 @@ from .private_endpoint_connection import *
 from .trigger import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.datafactory.v20180601 as __v20180601
-    v20180601 = __v20180601
-else:
-    v20180601 = _utilities.lazy_import('pulumi_azure_native.datafactory.v20180601')
-

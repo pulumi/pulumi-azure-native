@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
  *
- * Uses Azure REST API version 2023-05-01.
+ * Uses Azure REST API version 2024-05-01-preview.
  *
- * Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-05-01, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,7 +28,7 @@ export interface GetContainerGroupArgs {
      */
     containerGroupName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -38,9 +38,17 @@ export interface GetContainerGroupArgs {
  */
 export interface GetContainerGroupResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The properties for confidential container group
      */
     readonly confidentialComputeProperties?: outputs.containerinstance.ConfidentialComputePropertiesResponse;
+    /**
+     * The reference container group profile properties.
+     */
+    readonly containerGroupProfile?: outputs.containerinstance.ContainerGroupProfileReferenceDefinitionResponse;
     /**
      * The containers within the container group.
      */
@@ -86,6 +94,10 @@ export interface GetContainerGroupResult {
      */
     readonly ipAddress?: outputs.containerinstance.IpAddressResponse;
     /**
+     * The flag indicating whether the container group is created by standby pool.
+     */
+    readonly isCreatedFromStandbyPool: boolean;
+    /**
      * The resource location.
      */
     readonly location?: string;
@@ -96,7 +108,7 @@ export interface GetContainerGroupResult {
     /**
      * The operating system type required by the containers in the container group.
      */
-    readonly osType: string;
+    readonly osType?: string;
     /**
      * The priority of the container group.
      */
@@ -116,6 +128,10 @@ export interface GetContainerGroupResult {
      * The SKU for a container group.
      */
     readonly sku?: string;
+    /**
+     * The reference standby pool profile properties.
+     */
+    readonly standbyPoolProfile?: outputs.containerinstance.StandbyPoolProfileDefinitionResponse;
     /**
      * The subnet resource IDs for a container group.
      */
@@ -140,9 +156,9 @@ export interface GetContainerGroupResult {
 /**
  * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
  *
- * Uses Azure REST API version 2023-05-01.
+ * Uses Azure REST API version 2024-05-01-preview.
  *
- * Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-05-01, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getContainerGroupOutput(args: GetContainerGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -158,7 +174,7 @@ export interface GetContainerGroupOutputArgs {
      */
     containerGroupName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

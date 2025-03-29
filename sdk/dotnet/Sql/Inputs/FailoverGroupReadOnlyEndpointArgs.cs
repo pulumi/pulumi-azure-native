@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Sql.Inputs
         [Input("failoverPolicy")]
         public InputUnion<string, Pulumi.AzureNative.Sql.ReadOnlyEndpointFailoverPolicy>? FailoverPolicy { get; set; }
 
+        /// <summary>
+        /// The target partner server where the read-only endpoint points to.
+        /// </summary>
+        [Input("targetServer")]
+        public Input<string>? TargetServer { get; set; }
+
         public FailoverGroupReadOnlyEndpointArgs()
         {
         }

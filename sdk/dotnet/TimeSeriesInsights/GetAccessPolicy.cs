@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// 
         /// Uses Azure REST API version 2020-05-15.
         /// 
-        /// Other available API versions: 2021-06-30-preview.
+        /// Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-native:timeseriesinsights:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// 
         /// Uses Azure REST API version 2020-05-15.
         /// 
-        /// Other available API versions: 2021-06-30-preview.
+        /// Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:timeseriesinsights:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// 
         /// Uses Azure REST API version 2020-05-15.
         /// 
-        /// Other available API versions: 2021-06-30-preview.
+        /// Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:timeseriesinsights:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     public sealed class GetAccessPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// An description of the access policy.
         /// </summary>
         public readonly string? Description;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
         [OutputConstructor]
         private GetAccessPolicyResult(
+            string azureApiVersion,
+
             string? description,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Id = id;
             Name = name;

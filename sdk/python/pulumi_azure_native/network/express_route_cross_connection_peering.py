@@ -289,9 +289,9 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         """
         Peering in an ExpressRoute Cross Connection resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -320,9 +320,9 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         """
         Peering in an ExpressRoute Cross Connection resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCrossConnectionPeeringArgs args: The arguments to use to populate this resource's properties.
@@ -383,6 +383,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
             __props__.__dict__["state"] = state
             __props__.__dict__["vlan_id"] = vlan_id
             __props__.__dict__["azure_asn"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_by"] = None
             __props__.__dict__["primary_azure_port"] = None
@@ -413,6 +414,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         __props__ = ExpressRouteCrossConnectionPeeringArgs.__new__(ExpressRouteCrossConnectionPeeringArgs)
 
         __props__.__dict__["azure_asn"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["gateway_manager_etag"] = None
         __props__.__dict__["ipv6_peering_config"] = None
@@ -438,6 +440,14 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         The Azure ASN.
         """
         return pulumi.get(self, "azure_asn")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

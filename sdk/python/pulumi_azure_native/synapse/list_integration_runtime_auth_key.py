@@ -70,7 +70,7 @@ def list_integration_runtime_auth_key(integration_runtime_name: Optional[str] = 
 
     Uses Azure REST API version 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str integration_runtime_name: Integration runtime name
@@ -96,7 +96,7 @@ def list_integration_runtime_auth_key_output(integration_runtime_name: Optional[
 
     Uses Azure REST API version 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str integration_runtime_name: Integration runtime name

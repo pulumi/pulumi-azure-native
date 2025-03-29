@@ -104,9 +104,9 @@ def list_namespace_keys(authorization_rule_name: Optional[str] = None,
     """
     Primary and secondary connection strings to the namespace.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2024-01-01.
+    Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -133,9 +133,9 @@ def list_namespace_keys_output(authorization_rule_name: Optional[pulumi.Input[st
     """
     Primary and secondary connection strings to the namespace.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2024-01-01.
+    Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str authorization_rule_name: The authorization rule name.

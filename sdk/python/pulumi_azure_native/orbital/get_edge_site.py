@@ -27,7 +27,10 @@ class GetEdgeSiteResult:
     """
     A customer's reference to a global communications site site.
     """
-    def __init__(__self__, global_communications_site=None, id=None, location=None, name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, global_communications_site=None, id=None, location=None, name=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if global_communications_site and not isinstance(global_communications_site, dict):
             raise TypeError("Expected argument 'global_communications_site' to be a dict")
         pulumi.set(__self__, "global_communications_site", global_communications_site)
@@ -49,6 +52,14 @@ class GetEdgeSiteResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="globalCommunicationsSite")
@@ -113,6 +124,7 @@ class AwaitableGetEdgeSiteResult(GetEdgeSiteResult):
         if False:
             yield self
         return GetEdgeSiteResult(
+            azure_api_version=self.azure_api_version,
             global_communications_site=self.global_communications_site,
             id=self.id,
             location=self.location,
@@ -130,7 +142,7 @@ def get_edge_site(edge_site_name: Optional[str] = None,
 
     Uses Azure REST API version 2024-03-01-preview.
 
-    Other available API versions: 2024-03-01.
+    Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str edge_site_name: Edge site name.
@@ -143,6 +155,7 @@ def get_edge_site(edge_site_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:orbital:getEdgeSite', __args__, opts=opts, typ=GetEdgeSiteResult).value
 
     return AwaitableGetEdgeSiteResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         global_communications_site=pulumi.get(__ret__, 'global_communications_site'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -158,7 +171,7 @@ def get_edge_site_output(edge_site_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2024-03-01-preview.
 
-    Other available API versions: 2024-03-01.
+    Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str edge_site_name: Edge site name.
@@ -170,6 +183,7 @@ def get_edge_site_output(edge_site_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:orbital:getEdgeSite', __args__, opts=opts, typ=GetEdgeSiteResult)
     return __ret__.apply(lambda __response__: GetEdgeSiteResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         global_communications_site=pulumi.get(__response__, 'global_communications_site'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

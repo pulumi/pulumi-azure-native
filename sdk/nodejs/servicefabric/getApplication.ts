@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
  *
  * Uses Azure REST API version 2024-11-01-preview.
- *
- * Other available API versions: 2021-06-01.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetApplicationArgs {
  * The application resource.
  */
 export interface GetApplicationResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -96,8 +98,6 @@ export interface GetApplicationResult {
  * Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
  *
  * Uses Azure REST API version 2024-11-01-preview.
- *
- * Other available API versions: 2021-06-01.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

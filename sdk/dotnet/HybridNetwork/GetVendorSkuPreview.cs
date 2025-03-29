@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class GetVendorSkuPreviewResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ARM ID of the resource.
         /// </summary>
         public readonly string Id;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 
         [OutputConstructor]
         private GetVendorSkuPreviewResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

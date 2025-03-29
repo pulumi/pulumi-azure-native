@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetJitNetworkAccessPolicyResult:
-    def __init__(__self__, id=None, kind=None, location=None, name=None, provisioning_state=None, requests=None, type=None, virtual_machines=None):
+    def __init__(__self__, azure_api_version=None, id=None, kind=None, location=None, name=None, provisioning_state=None, requests=None, type=None, virtual_machines=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +52,14 @@ class GetJitNetworkAccessPolicyResult:
         if virtual_machines and not isinstance(virtual_machines, list):
             raise TypeError("Expected argument 'virtual_machines' to be a list")
         pulumi.set(__self__, "virtual_machines", virtual_machines)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetJitNetworkAccessPolicyResult(GetJitNetworkAccessPolicyResult):
         if False:
             yield self
         return GetJitNetworkAccessPolicyResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             kind=self.kind,
             location=self.location,
@@ -150,6 +162,7 @@ def get_jit_network_access_policy(asc_location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getJitNetworkAccessPolicy', __args__, opts=opts, typ=GetJitNetworkAccessPolicyResult).value
 
     return AwaitableGetJitNetworkAccessPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
@@ -179,6 +192,7 @@ def get_jit_network_access_policy_output(asc_location: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getJitNetworkAccessPolicy', __args__, opts=opts, typ=GetJitNetworkAccessPolicyResult)
     return __ret__.apply(lambda __response__: GetJitNetworkAccessPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),

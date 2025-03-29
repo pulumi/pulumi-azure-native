@@ -38,6 +38,10 @@ export interface GetSecurityConnectorApplicationArgs {
  */
 export interface GetSecurityConnectorApplicationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * description of the application
      */
     readonly description?: string;

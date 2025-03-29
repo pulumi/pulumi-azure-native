@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly object? SchedulePolicy;
         /// <summary>
+        /// Snapshot Backup related fields for WorkloadType SaPHanaSystem
+        /// </summary>
+        public readonly Outputs.SnapshotBackupAdditionalDetailsResponse? SnapshotBackupAdditionalDetails;
+        /// <summary>
         /// Tiering policy to automatically move RPs to another tier.
         /// Key is Target Tier, defined in RecoveryPointTierType enum.
         /// Tiering policy specifies the criteria to move RP to the target tier.
@@ -43,11 +47,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             object? schedulePolicy,
 
+            Outputs.SnapshotBackupAdditionalDetailsResponse? snapshotBackupAdditionalDetails,
+
             ImmutableDictionary<string, Outputs.TieringPolicyResponse>? tieringPolicy)
         {
             PolicyType = policyType;
             RetentionPolicy = retentionPolicy;
             SchedulePolicy = schedulePolicy;
+            SnapshotBackupAdditionalDetails = snapshotBackupAdditionalDetails;
             TieringPolicy = tieringPolicy;
         }
     }

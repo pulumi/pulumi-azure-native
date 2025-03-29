@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Authorization
     /// <summary>
     /// The policy definition.
     /// 
-    /// Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+    /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
-    /// Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01, 2025-03-01.
+    /// Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyDefinition")]
     public partial class PolicyDefinition : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The policy definition description.
         /// </summary>
@@ -78,6 +84,18 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The policy definition version in #.#.# format.
+        /// </summary>
+        [Output("version")]
+        public Output<string?> Version { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of available versions for this policy definition.
+        /// </summary>
+        [Output("versions")]
+        public Output<ImmutableArray<string>> Versions { get; private set; } = null!;
 
 
         /// <summary>
@@ -195,6 +213,24 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Input("policyType")]
         public InputUnion<string, Pulumi.AzureNative.Authorization.PolicyType>? PolicyType { get; set; }
+
+        /// <summary>
+        /// The policy definition version in #.#.# format.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        [Input("versions")]
+        private InputList<string>? _versions;
+
+        /// <summary>
+        /// A list of available versions for this policy definition.
+        /// </summary>
+        public InputList<string> Versions
+        {
+            get => _versions ?? (_versions = new InputList<string>());
+            set => _versions = value;
+        }
 
         public PolicyDefinitionArgs()
         {

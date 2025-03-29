@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Datadog.Outputs
 {
 
     /// <summary>
-    /// User info
+    /// Includes name, email and optionally, phone number. User Information can't be null.
     /// </summary>
     [OutputType]
     public sealed class UserInfoResponse

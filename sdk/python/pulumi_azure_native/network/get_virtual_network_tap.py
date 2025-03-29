@@ -27,7 +27,10 @@ class GetVirtualNetworkTapResult:
     """
     Virtual Network Tap resource.
     """
-    def __init__(__self__, destination_load_balancer_front_end_ip_configuration=None, destination_network_interface_ip_configuration=None, destination_port=None, etag=None, id=None, location=None, name=None, network_interface_tap_configurations=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, destination_load_balancer_front_end_ip_configuration=None, destination_network_interface_ip_configuration=None, destination_port=None, etag=None, id=None, location=None, name=None, network_interface_tap_configurations=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if destination_load_balancer_front_end_ip_configuration and not isinstance(destination_load_balancer_front_end_ip_configuration, dict):
             raise TypeError("Expected argument 'destination_load_balancer_front_end_ip_configuration' to be a dict")
         pulumi.set(__self__, "destination_load_balancer_front_end_ip_configuration", destination_load_balancer_front_end_ip_configuration)
@@ -64,6 +67,14 @@ class GetVirtualNetworkTapResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="destinationLoadBalancerFrontEndIPConfiguration")
@@ -168,6 +179,7 @@ class AwaitableGetVirtualNetworkTapResult(GetVirtualNetworkTapResult):
         if False:
             yield self
         return GetVirtualNetworkTapResult(
+            azure_api_version=self.azure_api_version,
             destination_load_balancer_front_end_ip_configuration=self.destination_load_balancer_front_end_ip_configuration,
             destination_network_interface_ip_configuration=self.destination_network_interface_ip_configuration,
             destination_port=self.destination_port,
@@ -188,9 +200,9 @@ def get_virtual_network_tap(resource_group_name: Optional[str] = None,
     """
     Gets information about the specified virtual network tap.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -203,6 +215,7 @@ def get_virtual_network_tap(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getVirtualNetworkTap', __args__, opts=opts, typ=GetVirtualNetworkTapResult).value
 
     return AwaitableGetVirtualNetworkTapResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         destination_load_balancer_front_end_ip_configuration=pulumi.get(__ret__, 'destination_load_balancer_front_end_ip_configuration'),
         destination_network_interface_ip_configuration=pulumi.get(__ret__, 'destination_network_interface_ip_configuration'),
         destination_port=pulumi.get(__ret__, 'destination_port'),
@@ -221,9 +234,9 @@ def get_virtual_network_tap_output(resource_group_name: Optional[pulumi.Input[st
     """
     Gets information about the specified virtual network tap.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -235,6 +248,7 @@ def get_virtual_network_tap_output(resource_group_name: Optional[pulumi.Input[st
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVirtualNetworkTap', __args__, opts=opts, typ=GetVirtualNetworkTapResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkTapResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         destination_load_balancer_front_end_ip_configuration=pulumi.get(__response__, 'destination_load_balancer_front_end_ip_configuration'),
         destination_network_interface_ip_configuration=pulumi.get(__response__, 'destination_network_interface_ip_configuration'),
         destination_port=pulumi.get(__response__, 'destination_port'),

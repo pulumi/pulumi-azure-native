@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get metadata information on an assessment type in a specific subscription
  *
  * Uses Azure REST API version 2021-06-01.
+ *
+ * Other available API versions: 2020-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAssessmentMetadataInSubscription(args: GetAssessmentMetadataInSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentMetadataInSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,6 +36,10 @@ export interface GetAssessmentMetadataInSubscriptionResult {
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
     readonly assessmentType: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     readonly categories?: string[];
     /**
      * Human readable description of the assessment
@@ -93,6 +99,8 @@ export interface GetAssessmentMetadataInSubscriptionResult {
  * Get metadata information on an assessment type in a specific subscription
  *
  * Uses Azure REST API version 2021-06-01.
+ *
+ * Other available API versions: 2020-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAssessmentMetadataInSubscriptionOutput(args: GetAssessmentMetadataInSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentMetadataInSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

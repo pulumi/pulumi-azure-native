@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the system.
  *
- * Uses Azure REST API version 2024-04-01-preview.
+ * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSystem(args: GetSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +48,10 @@ export interface GetSystemArgs {
  */
 export interface GetSystemResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The configuration of the system.
      */
     readonly configuration: outputs.securityinsights.SapSystemsConfigurationResponse;
@@ -81,9 +85,9 @@ export interface GetSystemResult {
 /**
  * Gets the system.
  *
- * Uses Azure REST API version 2024-04-01-preview.
+ * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSystemOutput(args: GetSystemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -26,7 +26,10 @@ class GetConnectionMonitorTestResult:
     """
     The Connection Monitor Test class.
     """
-    def __init__(__self__, destination=None, destination_port=None, id=None, is_test_successful=None, name=None, path=None, provisioning_state=None, source_agent=None, test_frequency_in_sec=None, type=None):
+    def __init__(__self__, azure_api_version=None, destination=None, destination_port=None, id=None, is_test_successful=None, name=None, path=None, provisioning_state=None, source_agent=None, test_frequency_in_sec=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if destination and not isinstance(destination, str):
             raise TypeError("Expected argument 'destination' to be a str")
         pulumi.set(__self__, "destination", destination)
@@ -57,6 +60,14 @@ class GetConnectionMonitorTestResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -145,6 +156,7 @@ class AwaitableGetConnectionMonitorTestResult(GetConnectionMonitorTestResult):
         if False:
             yield self
         return GetConnectionMonitorTestResult(
+            azure_api_version=self.azure_api_version,
             destination=self.destination,
             destination_port=self.destination_port,
             id=self.id,
@@ -179,6 +191,7 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:peering:getConnectionMonitorTest', __args__, opts=opts, typ=GetConnectionMonitorTestResult).value
 
     return AwaitableGetConnectionMonitorTestResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         destination=pulumi.get(__ret__, 'destination'),
         destination_port=pulumi.get(__ret__, 'destination_port'),
         id=pulumi.get(__ret__, 'id'),
@@ -210,6 +223,7 @@ def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:peering:getConnectionMonitorTest', __args__, opts=opts, typ=GetConnectionMonitorTestResult)
     return __ret__.apply(lambda __response__: GetConnectionMonitorTestResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         destination=pulumi.get(__response__, 'destination'),
         destination_port=pulumi.get(__response__, 'destination_port'),
         id=pulumi.get(__response__, 'id'),

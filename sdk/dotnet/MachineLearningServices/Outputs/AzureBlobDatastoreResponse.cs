@@ -54,9 +54,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? Protocol;
         /// <summary>
+        /// Azure Resource Group name
+        /// </summary>
+        public readonly string? ResourceGroup;
+        /// <summary>
         /// Indicates which identity to use to authenticate service data access to customer's storage.
         /// </summary>
         public readonly string? ServiceDataAccessAuthIdentity;
+        /// <summary>
+        /// Azure Subscription Id
+        /// </summary>
+        public readonly string? SubscriptionId;
         /// <summary>
         /// Tag dictionary. Tags can be added, removed, and updated.
         /// </summary>
@@ -82,7 +90,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? protocol,
 
+            string? resourceGroup,
+
             string? serviceDataAccessAuthIdentity,
+
+            string? subscriptionId,
 
             ImmutableDictionary<string, string>? tags)
         {
@@ -95,7 +107,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             IsDefault = isDefault;
             Properties = properties;
             Protocol = protocol;
+            ResourceGroup = resourceGroup;
             ServiceDataAccessAuthIdentity = serviceDataAccessAuthIdentity;
+            SubscriptionId = subscriptionId;
             Tags = tags;
         }
     }

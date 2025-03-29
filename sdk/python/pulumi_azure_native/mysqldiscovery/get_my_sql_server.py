@@ -27,7 +27,10 @@ class GetMySQLServerResult:
     """
     The MySQLServer resource definition.
     """
-    def __init__(__self__, edition=None, errors=None, host_ip=None, host_name=None, id=None, labels=None, machine_id=None, mysql_version=None, name=None, number_of_database=None, port_number=None, provisioning_state=None, support_end_in=None, support_status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, edition=None, errors=None, host_ip=None, host_name=None, id=None, labels=None, machine_id=None, mysql_version=None, name=None, number_of_database=None, port_number=None, provisioning_state=None, support_end_in=None, support_status=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if edition and not isinstance(edition, str):
             raise TypeError("Expected argument 'edition' to be a str")
         pulumi.set(__self__, "edition", edition)
@@ -79,6 +82,14 @@ class GetMySQLServerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -223,6 +234,7 @@ class AwaitableGetMySQLServerResult(GetMySQLServerResult):
         if False:
             yield self
         return GetMySQLServerResult(
+            azure_api_version=self.azure_api_version,
             edition=self.edition,
             errors=self.errors,
             host_ip=self.host_ip,
@@ -264,6 +276,7 @@ def get_my_sql_server(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mysqldiscovery:getMySQLServer', __args__, opts=opts, typ=GetMySQLServerResult).value
 
     return AwaitableGetMySQLServerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         edition=pulumi.get(__ret__, 'edition'),
         errors=pulumi.get(__ret__, 'errors'),
         host_ip=pulumi.get(__ret__, 'host_ip'),
@@ -302,6 +315,7 @@ def get_my_sql_server_output(resource_group_name: Optional[pulumi.Input[str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mysqldiscovery:getMySQLServer', __args__, opts=opts, typ=GetMySQLServerResult)
     return __ret__.apply(lambda __response__: GetMySQLServerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         edition=pulumi.get(__response__, 'edition'),
         errors=pulumi.get(__response__, 'errors'),
         host_ip=pulumi.get(__response__, 'host_ip'),

@@ -16,16 +16,34 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
     public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the sku, e.g. Standard_D32s_v3.
+        /// The scale up/out capacity, representing server's compute units.
+        /// </summary>
+        [Input("capacity")]
+        public Input<int>? Capacity { get; set; }
+
+        /// <summary>
+        /// The family of hardware.
+        /// </summary>
+        [Input("family")]
+        public Input<string>? Family { get; set; }
+
+        /// <summary>
+        /// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The tier of the particular SKU, e.g. GeneralPurpose.
+        /// The size code, to be interpreted by resource as appropriate.
         /// </summary>
-        [Input("tier", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.SkuTier> Tier { get; set; } = null!;
+        [Input("size")]
+        public Input<string>? Size { get; set; }
+
+        /// <summary>
+        /// The tier of the particular SKU, e.g. Basic.
+        /// </summary>
+        [Input("tier")]
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.SingleServerSkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

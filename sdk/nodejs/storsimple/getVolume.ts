@@ -52,6 +52,10 @@ export interface GetVolumeResult {
      */
     readonly accessControlRecordIds: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The IDs of the backup policies, in which this volume is part of.
      */
     readonly backupPolicyIds: string[];

@@ -49,13 +49,6 @@ utilities.lazyLoad(exports, ["ScopeAssignment"], () => require("./scopeAssignmen
 // Export enums:
 export * from "../types/enums/managednetwork";
 
-// Export sub-modules:
-import * as v20190601preview from "./v20190601preview";
-
-export {
-    v20190601preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

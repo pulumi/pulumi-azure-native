@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Specifies information about the gallery Application Definition that you want to create or update.
  *
- * Uses Azure REST API version 2022-03-03. In version 1.x of the Azure Native provider, it used API version 2020-09-30.
+ * Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
  *
- * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+ * Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GalleryApplication extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class GalleryApplication extends pulumi.CustomResource {
         return obj['__pulumiType'] === GalleryApplication.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
      */
@@ -74,7 +78,7 @@ export class GalleryApplication extends pulumi.CustomResource {
      */
     public readonly releaseNoteUri!: pulumi.Output<string | undefined>;
     /**
-     * This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+     * This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
      */
     public readonly supportedOSType!: pulumi.Output<string>;
     /**
@@ -118,9 +122,11 @@ export class GalleryApplication extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["supportedOSType"] = args ? args.supportedOSType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customActions"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["endOfLifeDate"] = undefined /*out*/;
@@ -185,7 +191,7 @@ export interface GalleryApplicationArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+     * This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
      */
     supportedOSType: pulumi.Input<enums.compute.OperatingSystemTypes>;
     /**

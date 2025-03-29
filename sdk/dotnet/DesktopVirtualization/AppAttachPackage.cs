@@ -12,39 +12,24 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// <summary>
     /// Schema for App Attach Package properties.
     /// 
-    /// Uses Azure REST API version 2023-10-04-preview.
+    /// Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
     /// 
-    /// Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+    /// Other available API versions: 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:AppAttachPackage")]
     public partial class AppAttachPackage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// The Azure API version of the resource.
         /// </summary>
-        [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
-
-        [Output("identity")]
-        public Output<Outputs.ResourceModelWithAllowedPropertySetResponseIdentity?> Identity { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-        /// </summary>
-        [Output("kind")]
-        public Output<string?> Kind { get; private set; } = null!;
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        /// </summary>
-        [Output("managedBy")]
-        public Output<string?> ManagedBy { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -52,20 +37,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("plan")]
-        public Output<Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
-
         /// <summary>
         /// Detailed properties for App Attach Package
         /// </summary>
         [Output("properties")]
         public Output<Outputs.AppAttachPackagePropertiesResponse> Properties { get; private set; } = null!;
 
-        [Output("sku")]
-        public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
-
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -139,34 +118,16 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class AppAttachPackageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the App Attach package arm object
+        /// The name of the App Attach package
         /// </summary>
         [Input("appAttachPackageName")]
         public Input<string>? AppAttachPackageName { get; set; }
-
-        [Input("identity")]
-        public Input<Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        /// </summary>
-        [Input("managedBy")]
-        public Input<string>? ManagedBy { get; set; }
-
-        [Input("plan")]
-        public Input<Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }
 
         /// <summary>
         /// Detailed properties for App Attach Package
@@ -179,9 +140,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("sku")]
-        public Input<Inputs.ResourceModelWithAllowedPropertySetSkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

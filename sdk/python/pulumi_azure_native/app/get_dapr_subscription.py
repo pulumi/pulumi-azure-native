@@ -27,7 +27,10 @@ class GetDaprSubscriptionResult:
     """
     Dapr PubSub Event Subscription.
     """
-    def __init__(__self__, bulk_subscribe=None, dead_letter_topic=None, id=None, metadata=None, name=None, pubsub_name=None, routes=None, scopes=None, system_data=None, topic=None, type=None):
+    def __init__(__self__, azure_api_version=None, bulk_subscribe=None, dead_letter_topic=None, id=None, metadata=None, name=None, pubsub_name=None, routes=None, scopes=None, system_data=None, topic=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bulk_subscribe and not isinstance(bulk_subscribe, dict):
             raise TypeError("Expected argument 'bulk_subscribe' to be a dict")
         pulumi.set(__self__, "bulk_subscribe", bulk_subscribe)
@@ -63,6 +66,14 @@ class GetDaprSubscriptionResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="bulkSubscribe")
     def bulk_subscribe(self) -> Optional['outputs.DaprSubscriptionBulkSubscribeOptionsResponse']:
         """
@@ -82,7 +93,7 @@ class GetDaprSubscriptionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -157,6 +168,7 @@ class AwaitableGetDaprSubscriptionResult(GetDaprSubscriptionResult):
         if False:
             yield self
         return GetDaprSubscriptionResult(
+            azure_api_version=self.azure_api_version,
             bulk_subscribe=self.bulk_subscribe,
             dead_letter_topic=self.dead_letter_topic,
             id=self.id,
@@ -177,9 +189,9 @@ def get_dapr_subscription(environment_name: Optional[str] = None,
     """
     Dapr PubSub Event Subscription.
 
-    Uses Azure REST API version 2023-08-01-preview.
+    Uses Azure REST API version 2024-10-02-preview.
 
-    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -194,6 +206,7 @@ def get_dapr_subscription(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getDaprSubscription', __args__, opts=opts, typ=GetDaprSubscriptionResult).value
 
     return AwaitableGetDaprSubscriptionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bulk_subscribe=pulumi.get(__ret__, 'bulk_subscribe'),
         dead_letter_topic=pulumi.get(__ret__, 'dead_letter_topic'),
         id=pulumi.get(__ret__, 'id'),
@@ -212,9 +225,9 @@ def get_dapr_subscription_output(environment_name: Optional[pulumi.Input[str]] =
     """
     Dapr PubSub Event Subscription.
 
-    Uses Azure REST API version 2023-08-01-preview.
+    Uses Azure REST API version 2024-10-02-preview.
 
-    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -228,6 +241,7 @@ def get_dapr_subscription_output(environment_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getDaprSubscription', __args__, opts=opts, typ=GetDaprSubscriptionResult)
     return __ret__.apply(lambda __response__: GetDaprSubscriptionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bulk_subscribe=pulumi.get(__response__, 'bulk_subscribe'),
         dead_letter_topic=pulumi.get(__response__, 'dead_letter_topic'),
         id=pulumi.get(__response__, 'id'),

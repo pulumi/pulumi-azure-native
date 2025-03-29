@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The bandwidth setting.
  *
- * Uses Azure REST API version 2017-06-01. In version 1.x of the Azure Native provider, it used API version 2017-06-01.
+ * Uses Azure REST API version 2017-06-01. In version 2.x of the Azure Native provider, it used API version 2017-06-01.
  */
 export class BandwidthSetting extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class BandwidthSetting extends pulumi.CustomResource {
         return obj['__pulumiType'] === BandwidthSetting.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
@@ -85,10 +89,12 @@ export class BandwidthSetting extends pulumi.CustomResource {
             resourceInputs["managerName"] = args ? args.managerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["schedules"] = args ? args.schedules : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumeCount"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["schedules"] = undefined /*out*/;

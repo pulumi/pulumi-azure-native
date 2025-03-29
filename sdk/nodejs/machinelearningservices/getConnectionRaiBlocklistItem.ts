@@ -8,14 +8,15 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2024-04-01-preview.
+ * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConnectionRaiBlocklistItem(args: GetConnectionRaiBlocklistItemArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionRaiBlocklistItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getConnectionRaiBlocklistItem", {
         "connectionName": args.connectionName,
+        "raiBlocklistItemName": args.raiBlocklistItemName,
         "raiBlocklistName": args.raiBlocklistName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
@@ -27,6 +28,10 @@ export interface GetConnectionRaiBlocklistItemArgs {
      * Friendly name of the workspace connection
      */
     connectionName: string;
+    /**
+     * Name of the RaiBlocklist Item
+     */
+    raiBlocklistItemName: string;
     /**
      * The name of the RaiBlocklist.
      */
@@ -43,6 +48,10 @@ export interface GetConnectionRaiBlocklistItemArgs {
 
 export interface GetConnectionRaiBlocklistItemResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -51,9 +60,9 @@ export interface GetConnectionRaiBlocklistItemResult {
      */
     readonly name: string;
     /**
-     * RAI Custom Blocklist properties.
+     * RAI Custom Blocklist Item properties.
      */
-    readonly properties: outputs.machinelearningservices.RaiBlocklistPropertiesResponse;
+    readonly properties: outputs.machinelearningservices.RaiBlocklistItemPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -64,14 +73,15 @@ export interface GetConnectionRaiBlocklistItemResult {
     readonly type: string;
 }
 /**
- * Uses Azure REST API version 2024-04-01-preview.
+ * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConnectionRaiBlocklistItemOutput(args: GetConnectionRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionRaiBlocklistItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getConnectionRaiBlocklistItem", {
         "connectionName": args.connectionName,
+        "raiBlocklistItemName": args.raiBlocklistItemName,
         "raiBlocklistName": args.raiBlocklistName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
@@ -83,6 +93,10 @@ export interface GetConnectionRaiBlocklistItemOutputArgs {
      * Friendly name of the workspace connection
      */
     connectionName: pulumi.Input<string>;
+    /**
+     * Name of the RaiBlocklist Item
+     */
+    raiBlocklistItemName: pulumi.Input<string>;
     /**
      * The name of the RaiBlocklist.
      */

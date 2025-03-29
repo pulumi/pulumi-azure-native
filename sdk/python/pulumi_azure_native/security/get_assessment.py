@@ -27,10 +27,13 @@ class GetAssessmentResult:
     """
     Security assessment on a resource - response format
     """
-    def __init__(__self__, additional_data=None, display_name=None, id=None, links=None, metadata=None, name=None, partners_data=None, resource_details=None, status=None, type=None):
+    def __init__(__self__, additional_data=None, azure_api_version=None, display_name=None, id=None, links=None, metadata=None, name=None, partners_data=None, resource_details=None, status=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
             raise TypeError("Expected argument 'additional_data' to be a dict")
         pulumi.set(__self__, "additional_data", additional_data)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -66,6 +69,14 @@ class GetAssessmentResult:
         Additional data regarding the assessment
         """
         return pulumi.get(self, "additional_data")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="displayName")
@@ -147,6 +158,7 @@ class AwaitableGetAssessmentResult(GetAssessmentResult):
             yield self
         return GetAssessmentResult(
             additional_data=self.additional_data,
+            azure_api_version=self.azure_api_version,
             display_name=self.display_name,
             id=self.id,
             links=self.links,
@@ -167,7 +179,7 @@ def get_assessment(assessment_name: Optional[str] = None,
 
     Uses Azure REST API version 2021-06-01.
 
-    Other available API versions: 2020-01-01.
+    Other available API versions: 2019-01-01-preview, 2020-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assessment_name: The Assessment Key - Unique key for the assessment type
@@ -183,6 +195,7 @@ def get_assessment(assessment_name: Optional[str] = None,
 
     return AwaitableGetAssessmentResult(
         additional_data=pulumi.get(__ret__, 'additional_data'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         links=pulumi.get(__ret__, 'links'),
@@ -201,7 +214,7 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2021-06-01.
 
-    Other available API versions: 2020-01-01.
+    Other available API versions: 2019-01-01-preview, 2020-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assessment_name: The Assessment Key - Unique key for the assessment type
@@ -216,6 +229,7 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAssessment', __args__, opts=opts, typ=GetAssessmentResult)
     return __ret__.apply(lambda __response__: GetAssessmentResult(
         additional_data=pulumi.get(__response__, 'additional_data'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
         links=pulumi.get(__response__, 'links'),

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// Gets the file upload URL of a Test Base Account.
         /// 
-        /// Uses Azure REST API version 2022-04-01-preview.
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetTestBaseAccountFileUploadUrlResult> InvokeAsync(GetTestBaseAccountFileUploadUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// Gets the file upload URL of a Test Base Account.
         /// 
-        /// Uses Azure REST API version 2022-04-01-preview.
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTestBaseAccountFileUploadUrlResult> Invoke(GetTestBaseAccountFileUploadUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// Gets the file upload URL of a Test Base Account.
         /// 
-        /// Uses Azure REST API version 2022-04-01-preview.
+        /// Uses Azure REST API version 2023-11-01-preview.
         /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTestBaseAccountFileUploadUrlResult> Invoke(GetTestBaseAccountFileUploadUrlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlInvokeArgs(), options.WithDefaults());
@@ -52,10 +52,16 @@ namespace Pulumi.AzureNative.TestBase
         public string? BlobName { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource type for file uploading.
+        /// </summary>
+        [Input("resourceType")]
+        public Union<string, Pulumi.AzureNative.TestBase.FileUploadResourceType>? ResourceType { get; set; }
 
         /// <summary>
         /// The resource name of the Test Base Account.
@@ -78,10 +84,16 @@ namespace Pulumi.AzureNative.TestBase
         public Input<string>? BlobName { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource type for file uploading.
+        /// </summary>
+        [Input("resourceType")]
+        public InputUnion<string, Pulumi.AzureNative.TestBase.FileUploadResourceType>? ResourceType { get; set; }
 
         /// <summary>
         /// The resource name of the Test Base Account.

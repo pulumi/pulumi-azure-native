@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.ContainerService
     /// <summary>
     /// The Fleet resource.
     /// 
-    /// Uses Azure REST API version 2023-03-15-preview.
+    /// Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15-preview.
     /// 
-    /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+    /// Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
@@ -30,6 +36,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Output("hubProfile")]
         public Output<Outputs.FleetHubProfileResponse?> HubProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed identity.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -136,6 +148,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("hubProfile")]
         public Input<Inputs.FleetHubProfileArgs>? HubProfile { get; set; }
+
+        /// <summary>
+        /// Managed identity.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

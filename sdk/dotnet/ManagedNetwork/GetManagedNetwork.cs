@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.ManagedNetwork
     public sealed class GetManagedNetworkResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The collection of groups and policies concerned with connectivity
         /// </summary>
         public readonly Outputs.ConnectivityCollectionResponse Connectivity;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
 
         [OutputConstructor]
         private GetManagedNetworkResult(
+            string azureApiVersion,
+
             Outputs.ConnectivityCollectionResponse connectivity,
 
             string etag,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Connectivity = connectivity;
             Etag = etag;
             Id = id;

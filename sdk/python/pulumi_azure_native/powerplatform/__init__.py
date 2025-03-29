@@ -14,11 +14,3 @@ from .get_private_endpoint_connection import *
 from .private_endpoint_connection import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.powerplatform.v20201030preview as __v20201030preview
-    v20201030preview = __v20201030preview
-else:
-    v20201030preview = _utilities.lazy_import('pulumi_azure_native.powerplatform.v20201030preview')
-

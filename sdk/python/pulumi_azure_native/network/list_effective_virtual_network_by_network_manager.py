@@ -73,7 +73,7 @@ def list_effective_virtual_network_by_network_manager(conditional_members: Optio
 
     Uses Azure REST API version 2022-04-01-preview.
 
-    Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
+    Other available API versions: 2021-02-01-preview, 2022-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str conditional_members: Conditional Members.
@@ -105,7 +105,7 @@ def list_effective_virtual_network_by_network_manager_output(conditional_members
 
     Uses Azure REST API version 2022-04-01-preview.
 
-    Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
+    Other available API versions: 2021-02-01-preview, 2022-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str conditional_members: Conditional Members.

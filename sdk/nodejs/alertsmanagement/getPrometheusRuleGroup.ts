@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Retrieve a Prometheus rule group definition.
  *
  * Uses Azure REST API version 2023-03-01.
+ *
+ * Other available API versions: 2021-07-22-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPrometheusRuleGroup(args: GetPrometheusRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrometheusRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,6 +37,10 @@ export interface GetPrometheusRuleGroupArgs {
  * The Prometheus rule group resource.
  */
 export interface GetPrometheusRuleGroupResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Apply rule to data from a specific cluster.
      */
@@ -88,6 +94,8 @@ export interface GetPrometheusRuleGroupResult {
  * Retrieve a Prometheus rule group definition.
  *
  * Uses Azure REST API version 2023-03-01.
+ *
+ * Other available API versions: 2021-07-22-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPrometheusRuleGroupOutput(args: GetPrometheusRuleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrometheusRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

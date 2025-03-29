@@ -9,11 +9,3 @@ from .document_processor import *
 from .get_document_processor import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.syntex.v20220915preview as __v20220915preview
-    v20220915preview = __v20220915preview
-else:
-    v20220915preview = _utilities.lazy_import('pulumi_azure_native.syntex.v20220915preview')
-

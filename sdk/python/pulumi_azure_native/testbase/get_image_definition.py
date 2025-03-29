@@ -27,10 +27,13 @@ class GetImageDefinitionResult:
     """
     The test base image definition resource.
     """
-    def __init__(__self__, architecture=None, id=None, name=None, os_state=None, provisioning_state=None, security_type=None, system_data=None, type=None):
+    def __init__(__self__, architecture=None, azure_api_version=None, id=None, name=None, os_state=None, provisioning_state=None, security_type=None, system_data=None, type=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -60,6 +63,14 @@ class GetImageDefinitionResult:
         Custom image architecture.
         """
         return pulumi.get(self, "architecture")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -122,6 +133,7 @@ class AwaitableGetImageDefinitionResult(GetImageDefinitionResult):
             yield self
         return GetImageDefinitionResult(
             architecture=self.architecture,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             os_state=self.os_state,
@@ -154,6 +166,7 @@ def get_image_definition(image_definition_name: Optional[str] = None,
 
     return AwaitableGetImageDefinitionResult(
         architecture=pulumi.get(__ret__, 'architecture'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         os_state=pulumi.get(__ret__, 'os_state'),
@@ -183,6 +196,7 @@ def get_image_definition_output(image_definition_name: Optional[pulumi.Input[str
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getImageDefinition', __args__, opts=opts, typ=GetImageDefinitionResult)
     return __ret__.apply(lambda __response__: GetImageDefinitionResult(
         architecture=pulumi.get(__response__, 'architecture'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         os_state=pulumi.get(__response__, 'os_state'),

@@ -171,7 +171,7 @@ class ApiSource(pulumi.CustomResource):
         """
         API source entity.
 
-        Uses Azure REST API version 2024-06-01-preview.
+        Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +193,7 @@ class ApiSource(pulumi.CustomResource):
         """
         API source entity.
 
-        Uses Azure REST API version 2024-06-01-preview.
+        Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ApiSourceArgs args: The arguments to use to populate this resource's properties.
@@ -243,6 +243,7 @@ class ApiSource(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["link_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -272,6 +273,7 @@ class ApiSource(pulumi.CustomResource):
         __props__ = ApiSourceArgs.__new__(ApiSourceArgs)
 
         __props__.__dict__["azure_api_management_source"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["import_specification"] = None
         __props__.__dict__["link_state"] = None
         __props__.__dict__["name"] = None
@@ -288,6 +290,14 @@ class ApiSource(pulumi.CustomResource):
         API source configuration for Azure API Management.
         """
         return pulumi.get(self, "azure_api_management_source")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="importSpecification")

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Migrate
         /// 
         /// Uses Azure REST API version 2020-05-01.
         /// 
-        /// Other available API versions: 2023-01-01.
+        /// Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult>("azure-native:migrate:getPrivateEndpointConnectionControllerPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Migrate
         /// 
         /// Uses Azure REST API version 2020-05-01.
         /// 
-        /// Other available API versions: 2023-01-01.
+        /// Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult>("azure-native:migrate:getPrivateEndpointConnectionControllerPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Migrate
         /// 
         /// Uses Azure REST API version 2020-05-01.
         /// 
-        /// Other available API versions: 2023-01-01.
+        /// Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult>("azure-native:migrate:getPrivateEndpointConnectionControllerPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Migrate
     public sealed class GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the tag for optimistic concurrency control.
         /// </summary>
         public readonly string ETag;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.Migrate
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult(
+            string azureApiVersion,
+
             string eTag,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.Migrate
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             Name = name;

@@ -91,12 +91,12 @@ def list_signal_r_keys(resource_group_name: Optional[str] = None,
     """
     Get the access keys of the resource.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
     __args__ = dict()
@@ -116,12 +116,12 @@ def list_signal_r_keys_output(resource_group_name: Optional[pulumi.Input[str]] =
     """
     Get the access keys of the resource.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
     __args__ = dict()

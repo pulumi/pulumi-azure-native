@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// <summary>
     /// A Log Analytics QueryPack-Query definition.
     /// 
-    /// Uses Azure REST API version 2019-09-01. In version 1.x of the Azure Native provider, it used API version 2019-09-01.
+    /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2019-09-01.
     /// 
-    /// Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
+    /// Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Query")]
     public partial class Query : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         [Output("author")]
         public Output<string> Author { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Body of the query.
@@ -44,7 +50,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -62,7 +68,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<Outputs.LogAnalyticsQueryPackQueryPropertiesResponseRelated?> Related { get; private set; } = null!;
 
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -86,7 +92,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<string> TimeModified { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

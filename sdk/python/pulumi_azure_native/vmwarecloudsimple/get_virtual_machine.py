@@ -27,10 +27,13 @@ class GetVirtualMachineResult:
     """
     Virtual machine model
     """
-    def __init__(__self__, amount_of_ram=None, controllers=None, customization=None, disks=None, dnsname=None, expose_to_guest_vm=None, folder=None, guest_os=None, guest_os_type=None, id=None, location=None, name=None, nics=None, number_of_cores=None, password=None, private_cloud_id=None, provisioning_state=None, public_ip=None, resource_pool=None, status=None, tags=None, template_id=None, type=None, username=None, v_sphere_networks=None, vm_id=None, vmwaretools=None):
+    def __init__(__self__, amount_of_ram=None, azure_api_version=None, controllers=None, customization=None, disks=None, dnsname=None, expose_to_guest_vm=None, folder=None, guest_os=None, guest_os_type=None, id=None, location=None, name=None, nics=None, number_of_cores=None, password=None, private_cloud_id=None, provisioning_state=None, public_ip=None, resource_pool=None, status=None, tags=None, template_id=None, type=None, username=None, v_sphere_networks=None, vm_id=None, vmwaretools=None):
         if amount_of_ram and not isinstance(amount_of_ram, int):
             raise TypeError("Expected argument 'amount_of_ram' to be a int")
         pulumi.set(__self__, "amount_of_ram", amount_of_ram)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if controllers and not isinstance(controllers, list):
             raise TypeError("Expected argument 'controllers' to be a list")
         pulumi.set(__self__, "controllers", controllers)
@@ -117,6 +120,14 @@ class GetVirtualMachineResult:
         The amount of memory
         """
         return pulumi.get(self, "amount_of_ram")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -334,6 +345,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             yield self
         return GetVirtualMachineResult(
             amount_of_ram=self.amount_of_ram,
+            azure_api_version=self.azure_api_version,
             controllers=self.controllers,
             customization=self.customization,
             disks=self.disks,
@@ -382,6 +394,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
 
     return AwaitableGetVirtualMachineResult(
         amount_of_ram=pulumi.get(__ret__, 'amount_of_ram'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         controllers=pulumi.get(__ret__, 'controllers'),
         customization=pulumi.get(__ret__, 'customization'),
         disks=pulumi.get(__ret__, 'disks'),
@@ -427,6 +440,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     __ret__ = pulumi.runtime.invoke_output('azure-native:vmwarecloudsimple:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineResult(
         amount_of_ram=pulumi.get(__response__, 'amount_of_ram'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         controllers=pulumi.get(__response__, 'controllers'),
         customization=pulumi.get(__response__, 'customization'),
         disks=pulumi.get(__response__, 'disks'),

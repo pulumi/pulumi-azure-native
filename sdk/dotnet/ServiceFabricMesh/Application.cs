@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     /// <summary>
     /// This type describes an application resource.
     /// 
-    /// Uses Azure REST API version 2018-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-09-01-preview.
+    /// Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Internal - used by Visual Studio to setup the debugging session on the local development environment.
         /// </summary>

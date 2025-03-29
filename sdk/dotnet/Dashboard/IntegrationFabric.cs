@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Dashboard
     /// <summary>
     /// The integration fabric resource type.
     /// 
-    /// Uses Azure REST API version 2023-10-01-preview.
+    /// Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
     /// 
-    /// Other available API versions: 2024-10-01.
+    /// Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard:IntegrationFabric")]
     public partial class IntegrationFabric : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

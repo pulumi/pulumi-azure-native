@@ -13,10 +13,14 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'AppSkuInfoResponse',
+    'NetworkRuleSetIpRuleResponse',
+    'NetworkRuleSetsResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'SystemAssignedServiceIdentityResponse',
@@ -43,6 +47,282 @@ class AppSkuInfoResponse(dict):
         The name of the SKU.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class NetworkRuleSetIpRuleResponse(dict):
+    """
+    An object for an IP range that will be allowed access.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterName":
+            suggest = "filter_name"
+        elif key == "ipMask":
+            suggest = "ip_mask"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkRuleSetIpRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkRuleSetIpRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkRuleSetIpRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: str,
+                 filter_name: Optional[str] = None,
+                 ip_mask: Optional[str] = None):
+        """
+        An object for an IP range that will be allowed access.
+        :param str action: The network action for the IP mask.
+        :param str filter_name: The readable name of the IP rule.
+        :param str ip_mask: The CIDR block defining the IP range.
+        """
+        pulumi.set(__self__, "action", action)
+        if filter_name is not None:
+            pulumi.set(__self__, "filter_name", filter_name)
+        if ip_mask is not None:
+            pulumi.set(__self__, "ip_mask", ip_mask)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The network action for the IP mask.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="filterName")
+    def filter_name(self) -> Optional[str]:
+        """
+        The readable name of the IP rule.
+        """
+        return pulumi.get(self, "filter_name")
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> Optional[str]:
+        """
+        The CIDR block defining the IP range.
+        """
+        return pulumi.get(self, "ip_mask")
+
+
+@pulumi.output_type
+class NetworkRuleSetsResponse(dict):
+    """
+    Network Rule Set Properties of this IoT Central application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyToDevices":
+            suggest = "apply_to_devices"
+        elif key == "applyToIoTCentral":
+            suggest = "apply_to_io_t_central"
+        elif key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkRuleSetsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkRuleSetsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkRuleSetsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apply_to_devices: Optional[bool] = None,
+                 apply_to_io_t_central: Optional[bool] = None,
+                 default_action: Optional[str] = None,
+                 ip_rules: Optional[Sequence['outputs.NetworkRuleSetIpRuleResponse']] = None):
+        """
+        Network Rule Set Properties of this IoT Central application.
+        :param bool apply_to_devices: Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.
+        :param bool apply_to_io_t_central: Whether these rules apply for connectivity via IoT Central web portal and APIs.
+        :param str default_action: The default network action to apply.
+        :param Sequence['NetworkRuleSetIpRuleResponse'] ip_rules: List of IP rules.
+        """
+        if apply_to_devices is None:
+            apply_to_devices = False
+        if apply_to_devices is not None:
+            pulumi.set(__self__, "apply_to_devices", apply_to_devices)
+        if apply_to_io_t_central is None:
+            apply_to_io_t_central = False
+        if apply_to_io_t_central is not None:
+            pulumi.set(__self__, "apply_to_io_t_central", apply_to_io_t_central)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+
+    @property
+    @pulumi.getter(name="applyToDevices")
+    def apply_to_devices(self) -> Optional[bool]:
+        """
+        Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.
+        """
+        return pulumi.get(self, "apply_to_devices")
+
+    @property
+    @pulumi.getter(name="applyToIoTCentral")
+    def apply_to_io_t_central(self) -> Optional[bool]:
+        """
+        Whether these rules apply for connectivity via IoT Central web portal and APIs.
+        """
+        return pulumi.get(self, "apply_to_io_t_central")
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[str]:
+        """
+        The default network action to apply.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence['outputs.NetworkRuleSetIpRuleResponse']]:
+        """
+        List of IP rules.
+        """
+        return pulumi.get(self, "ip_rules")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The private endpoint connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Sequence[str],
+                 id: str,
+                 name: str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The private endpoint connection resource.
+        :param Sequence[str] group_ids: The group ids for the private endpoint resource.
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint resource.
+        """
+        return pulumi.get(self, "private_endpoint")
 
 
 @pulumi.output_type

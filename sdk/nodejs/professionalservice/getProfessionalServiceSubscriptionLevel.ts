@@ -41,6 +41,10 @@ export interface GetProfessionalServiceSubscriptionLevelArgs {
  */
 export interface GetProfessionalServiceSubscriptionLevelResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource uri
      */
     readonly id: string;

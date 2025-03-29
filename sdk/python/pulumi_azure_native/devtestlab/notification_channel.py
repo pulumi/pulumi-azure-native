@@ -204,7 +204,7 @@ class NotificationChannel(pulumi.CustomResource):
         """
         A notification.
 
-        Uses Azure REST API version 2018-09-15. In version 1.x of the Azure Native provider, it used API version 2018-09-15.
+        Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,7 +228,7 @@ class NotificationChannel(pulumi.CustomResource):
         """
         A notification.
 
-        Uses Azure REST API version 2018-09-15. In version 1.x of the Azure Native provider, it used API version 2018-09-15.
+        Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param NotificationChannelArgs args: The arguments to use to populate this resource's properties.
@@ -278,6 +278,7 @@ class NotificationChannel(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["web_hook_url"] = web_hook_url
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_date"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -306,6 +307,7 @@ class NotificationChannel(pulumi.CustomResource):
 
         __props__ = NotificationChannelArgs.__new__(NotificationChannelArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_date"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["email_recipient"] = None
@@ -319,6 +321,14 @@ class NotificationChannel(pulumi.CustomResource):
         __props__.__dict__["unique_identifier"] = None
         __props__.__dict__["web_hook_url"] = None
         return NotificationChannel(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")

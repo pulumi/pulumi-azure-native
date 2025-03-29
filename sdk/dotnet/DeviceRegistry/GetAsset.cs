@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Get a Asset
         /// 
-        /// Uses Azure REST API version 2023-11-01-preview.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2024-09-01-preview, 2024-11-01.
+        /// Other available API versions: 2023-11-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-native:deviceregistry:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Get a Asset
         /// 
-        /// Uses Azure REST API version 2023-11-01-preview.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2024-09-01-preview, 2024-11-01.
+        /// Other available API versions: 2023-11-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:deviceregistry:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Get a Asset
         /// 
-        /// Uses Azure REST API version 2023-11-01-preview.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2024-09-01-preview, 2024-11-01.
+        /// Other available API versions: 2023-11-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:deviceregistry:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
@@ -88,33 +88,41 @@ namespace Pulumi.AzureNative.DeviceRegistry
     public sealed class GetAssetResult
     {
         /// <summary>
-        /// A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format &lt;ModuleCR.metadata.namespace&gt;/&lt;ModuleCR.metadata.name&gt;.
+        /// A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
         /// </summary>
-        public readonly string AssetEndpointProfileUri;
-        /// <summary>
-        /// Resource path to asset type (model) definition.
-        /// </summary>
-        public readonly string? AssetType;
+        public readonly string AssetEndpointProfileRef;
         /// <summary>
         /// A set of key-value pairs that contain custom attributes set by the customer.
         /// </summary>
         public readonly object? Attributes;
         /// <summary>
-        /// Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
+        /// The Azure API version of the resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataPointResponse> DataPoints;
+        public readonly string AzureApiVersion;
         /// <summary>
-        /// Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+        /// Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
         /// </summary>
-        public readonly string? DefaultDataPointsConfiguration;
+        public readonly ImmutableArray<Outputs.DatasetResponse> Datasets;
+        /// <summary>
+        /// Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
+        /// </summary>
+        public readonly string? DefaultDatasetsConfiguration;
         /// <summary>
         /// Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
         /// </summary>
         public readonly string? DefaultEventsConfiguration;
         /// <summary>
+        /// Object that describes the default topic information for the asset.
+        /// </summary>
+        public readonly Outputs.TopicResponse? DefaultTopic;
+        /// <summary>
         /// Human-readable description of the asset.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided.
+        /// </summary>
+        public readonly ImmutableArray<string> DiscoveredAssetRefs;
         /// <summary>
         /// Human-readable display name.
         /// </summary>
@@ -144,7 +152,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         public readonly string? HardwareRevision;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -206,23 +214,27 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// An integer that is incremented each time the resource is modified.
         /// </summary>
-        public readonly int Version;
+        public readonly double Version;
 
         [OutputConstructor]
         private GetAssetResult(
-            string assetEndpointProfileUri,
-
-            string? assetType,
+            string assetEndpointProfileRef,
 
             object? attributes,
 
-            ImmutableArray<Outputs.DataPointResponse> dataPoints,
+            string azureApiVersion,
 
-            string? defaultDataPointsConfiguration,
+            ImmutableArray<Outputs.DatasetResponse> datasets,
+
+            string? defaultDatasetsConfiguration,
 
             string? defaultEventsConfiguration,
 
+            Outputs.TopicResponse? defaultTopic,
+
             string? description,
+
+            ImmutableArray<string> discoveredAssetRefs,
 
             string? displayName,
 
@@ -268,15 +280,17 @@ namespace Pulumi.AzureNative.DeviceRegistry
 
             string uuid,
 
-            int version)
+            double version)
         {
-            AssetEndpointProfileUri = assetEndpointProfileUri;
-            AssetType = assetType;
+            AssetEndpointProfileRef = assetEndpointProfileRef;
             Attributes = attributes;
-            DataPoints = dataPoints;
-            DefaultDataPointsConfiguration = defaultDataPointsConfiguration;
+            AzureApiVersion = azureApiVersion;
+            Datasets = datasets;
+            DefaultDatasetsConfiguration = defaultDatasetsConfiguration;
             DefaultEventsConfiguration = defaultEventsConfiguration;
+            DefaultTopic = defaultTopic;
             Description = description;
+            DiscoveredAssetRefs = discoveredAssetRefs;
             DisplayName = displayName;
             DocumentationUri = documentationUri;
             Enabled = enabled;

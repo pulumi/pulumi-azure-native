@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.AVS
     public static class GetCluster
     {
         /// <summary>
-        /// A cluster resource
+        /// Get a Cluster
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:avs:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A cluster resource
+        /// Get a Cluster
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:avs:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A cluster resource
+        /// Get a Cluster
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:avs:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the cluster in the private cloud
+        /// Name of the cluster
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the cluster in the private cloud
+        /// Name of the cluster
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The identity
         /// </summary>
         public readonly int ClusterId;
@@ -112,11 +116,11 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly ImmutableArray<string> Hosts;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -124,16 +128,26 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The cluster SKU
+        /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Name of the vsan datastore associated with the cluster
+        /// </summary>
+        public readonly string? VsanDatastoreName;
 
         [OutputConstructor]
         private GetClusterResult(
+            string azureApiVersion,
+
             int clusterId,
 
             int? clusterSize,
@@ -148,8 +162,13 @@ namespace Pulumi.AzureNative.AVS
 
             Outputs.SkuResponse sku,
 
-            string type)
+            Outputs.SystemDataResponse systemData,
+
+            string type,
+
+            string? vsanDatastoreName)
         {
+            AzureApiVersion = azureApiVersion;
             ClusterId = clusterId;
             ClusterSize = clusterSize;
             Hosts = hosts;
@@ -157,7 +176,9 @@ namespace Pulumi.AzureNative.AVS
             Name = name;
             ProvisioningState = provisioningState;
             Sku = sku;
+            SystemData = systemData;
             Type = type;
+            VsanDatastoreName = vsanDatastoreName;
         }
     }
 }

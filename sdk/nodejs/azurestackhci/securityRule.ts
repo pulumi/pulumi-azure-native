@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Security Rule resource.
  *
- * Uses Azure REST API version 2024-02-01-preview.
+ * Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
  *
- * Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+ * Other available API versions: 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SecurityRule extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class SecurityRule extends pulumi.CustomResource {
      * The network traffic is allowed or denied.
      */
     public readonly access!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A description for this rule. Restricted to 140 chars.
      */
@@ -140,12 +144,14 @@ export class SecurityRule extends pulumi.CustomResource {
             resourceInputs["securityRuleName"] = args ? args.securityRuleName : undefined;
             resourceInputs["sourceAddressPrefixes"] = args ? args.sourceAddressPrefixes : undefined;
             resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["access"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["destinationAddressPrefixes"] = undefined /*out*/;
             resourceInputs["destinationPortRanges"] = undefined /*out*/;

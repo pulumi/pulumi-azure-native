@@ -44,6 +44,10 @@ export interface GetOperatorApiConnectionResult {
      */
     readonly appId?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The Network API for the current operator in the country/region provided in the linked Operator API Plan.
      */
     readonly camaraApiName: string;

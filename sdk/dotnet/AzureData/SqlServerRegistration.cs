@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.AzureData
     /// <summary>
     /// A SQL server registration.
     /// 
-    /// Uses Azure REST API version 2019-07-24-preview. In version 1.x of the Azure Native provider, it used API version 2019-07-24-preview.
+    /// Uses Azure REST API version 2019-07-24-preview. In version 2.x of the Azure Native provider, it used API version 2019-07-24-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azuredata:SqlServerRegistration")]
     public partial class SqlServerRegistration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

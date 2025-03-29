@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// <summary>
         /// Description for Get the certificate associated with a certificate order.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAppServiceCertificateOrderCertificateResult> InvokeAsync(GetAppServiceCertificateOrderCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// <summary>
         /// Description for Get the certificate associated with a certificate order.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAppServiceCertificateOrderCertificateResult> Invoke(GetAppServiceCertificateOrderCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// <summary>
         /// Description for Get the certificate associated with a certificate order.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAppServiceCertificateOrderCertificateResult> Invoke(GetAppServiceCertificateOrderCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.CertificateRegistration
     public sealed class GetAppServiceCertificateOrderCertificateResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
@@ -112,7 +116,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// </summary>
         public readonly string? KeyVaultSecretName;
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.CertificateRegistration
 
         [OutputConstructor]
         private GetAppServiceCertificateOrderCertificateResult(
+            string azureApiVersion,
+
             string id,
 
             string? keyVaultId,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             KeyVaultId = keyVaultId;
             KeyVaultSecretName = keyVaultSecretName;

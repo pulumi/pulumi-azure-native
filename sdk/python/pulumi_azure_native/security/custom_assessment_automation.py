@@ -170,7 +170,7 @@ class CustomAssessmentAutomation(pulumi.CustomResource):
         """
         Custom Assessment Automation
 
-        Uses Azure REST API version 2021-07-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-07-01-preview.
+        Uses Azure REST API version 2021-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,7 +192,7 @@ class CustomAssessmentAutomation(pulumi.CustomResource):
         """
         Custom Assessment Automation
 
-        Uses Azure REST API version 2021-07-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-07-01-preview.
+        Uses Azure REST API version 2021-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CustomAssessmentAutomationArgs args: The arguments to use to populate this resource's properties.
@@ -237,6 +237,7 @@ class CustomAssessmentAutomation(pulumi.CustomResource):
             __props__.__dict__["severity"] = severity
             __props__.__dict__["supported_cloud"] = supported_cloud
             __props__.__dict__["assessment_key"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -265,6 +266,7 @@ class CustomAssessmentAutomation(pulumi.CustomResource):
         __props__ = CustomAssessmentAutomationArgs.__new__(CustomAssessmentAutomationArgs)
 
         __props__.__dict__["assessment_key"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["compressed_query"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -283,6 +285,14 @@ class CustomAssessmentAutomation(pulumi.CustomResource):
         The assessment metadata key used when an assessment is generated for this assessment automation.
         """
         return pulumi.get(self, "assessment_key")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="compressedQuery")

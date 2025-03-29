@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Implements GuestAgent GET method.
         /// 
-        /// Uses Azure REST API version 2022-12-15-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetGuestAgentResult> InvokeAsync(GetGuestAgentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestAgentResult>("azure-native:azurestackhci:getGuestAgent", args ?? new GetGuestAgentArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Implements GuestAgent GET method.
         /// 
-        /// Uses Azure REST API version 2022-12-15-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGuestAgentResult> Invoke(GetGuestAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestAgentResult>("azure-native:azurestackhci:getGuestAgent", args ?? new GetGuestAgentInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Implements GuestAgent GET method.
         /// 
-        /// Uses Azure REST API version 2022-12-15-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGuestAgentResult> Invoke(GetGuestAgentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestAgentResult>("azure-native:azurestackhci:getGuestAgent", args ?? new GetGuestAgentInvokeArgs(), options.WithDefaults());
@@ -46,22 +46,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetGuestAgentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the GuestAgent.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group. The name is case insensitive.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public string ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the vm.
-        /// </summary>
-        [Input("virtualMachineName", required: true)]
-        public string VirtualMachineName { get; set; } = null!;
+        [Input("resourceUri", required: true)]
+        public string ResourceUri { get; set; } = null!;
 
         public GetGuestAgentArgs()
         {
@@ -72,22 +60,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetGuestAgentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the GuestAgent.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group. The name is case insensitive.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the vm.
-        /// </summary>
-        [Input("virtualMachineName", required: true)]
-        public Input<string> VirtualMachineName { get; set; } = null!;
+        [Input("resourceUri", required: true)]
+        public Input<string> ResourceUri { get; set; } = null!;
 
         public GetGuestAgentInvokeArgs()
         {
@@ -100,15 +76,15 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetGuestAgentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Username / Password Credentials to provision guest agent.
         /// </summary>
         public readonly Outputs.GuestCredentialResponse? Credentials;
         /// <summary>
-        /// HTTP Proxy configuration for the VM.
-        /// </summary>
-        public readonly Outputs.HttpProxyConfigurationResponse? HttpProxyConfig;
-        /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -120,7 +96,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string? ProvisioningAction;
         /// <summary>
-        /// The provisioning state.
+        /// Provisioning state of the virtual machine instance.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -138,9 +114,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetGuestAgentResult(
-            Outputs.GuestCredentialResponse? credentials,
+            string azureApiVersion,
 
-            Outputs.HttpProxyConfigurationResponse? httpProxyConfig,
+            Outputs.GuestCredentialResponse? credentials,
 
             string id,
 
@@ -156,8 +132,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Credentials = credentials;
-            HttpProxyConfig = httpProxyConfig;
             Id = id;
             Name = name;
             ProvisioningAction = provisioningAction;

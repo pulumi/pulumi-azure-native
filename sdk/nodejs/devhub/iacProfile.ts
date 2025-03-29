@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Resource representation of a IacProfile.
  *
- * Uses Azure REST API version 2024-05-01-preview.
+ * Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
  *
- * Other available API versions: 2024-08-01-preview, 2025-03-01-preview.
+ * Other available API versions: 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class IacProfile extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class IacProfile extends pulumi.CustomResource {
      * Determines the authorization status of requests.
      */
     public /*out*/ readonly authStatus!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Repository Branch Name
      */
@@ -141,6 +145,7 @@ export class IacProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templates"] = args ? args.templates : undefined;
             resourceInputs["authStatus"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["prStatus"] = undefined /*out*/;
@@ -149,6 +154,7 @@ export class IacProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authStatus"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["branchName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetLogAnalyticExportRequestRateByIntervalResult> InvokeAsync(GetLogAnalyticExportRequestRateByIntervalArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLogAnalyticExportRequestRateByIntervalResult> Invoke(GetLogAnalyticExportRequestRateByIntervalInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLogAnalyticExportRequestRateByIntervalResult> Invoke(GetLogAnalyticExportRequestRateByIntervalInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalInvokeArgs(), options.WithDefaults());

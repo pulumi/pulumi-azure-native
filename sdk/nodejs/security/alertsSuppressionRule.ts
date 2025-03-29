@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Describes the suppression rule
  *
- * Uses Azure REST API version 2019-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-01-01-preview.
+ * Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
  */
 export class AlertsSuppressionRule extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
      * Type of the alert to automatically suppress. For all alert types, use '*'
      */
     public readonly alertType!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Any comment regarding the rule
      */
@@ -103,11 +107,13 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
             resourceInputs["reason"] = args ? args.reason : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["suppressionAlertsScope"] = args ? args.suppressionAlertsScope : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["alertType"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["comment"] = undefined /*out*/;
             resourceInputs["expirationDateUtc"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;

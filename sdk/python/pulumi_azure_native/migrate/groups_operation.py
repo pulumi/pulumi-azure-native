@@ -135,9 +135,9 @@ class GroupsOperation(pulumi.CustomResource):
         """
         Group resource.
 
-        Uses Azure REST API version 2023-03-15.
+        Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
-        Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,9 +157,9 @@ class GroupsOperation(pulumi.CustomResource):
         """
         Group resource.
 
-        Uses Azure REST API version 2023-03-15.
+        Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
-        Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param GroupsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -203,6 +203,7 @@ class GroupsOperation(pulumi.CustomResource):
             __props__.__dict__["supported_assessment_types"] = supported_assessment_types
             __props__.__dict__["are_assessments_running"] = None
             __props__.__dict__["assessments"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_timestamp"] = None
             __props__.__dict__["group_status"] = None
             __props__.__dict__["machine_count"] = None
@@ -210,7 +211,7 @@ class GroupsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:GroupsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:Group"), pulumi.Alias(type_="azure-native:migrate/v20191001:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate:Group")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GroupsOperation, __self__).__init__(
             'azure-native:migrate:GroupsOperation',
@@ -236,6 +237,7 @@ class GroupsOperation(pulumi.CustomResource):
 
         __props__.__dict__["are_assessments_running"] = None
         __props__.__dict__["assessments"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_timestamp"] = None
         __props__.__dict__["group_status"] = None
         __props__.__dict__["group_type"] = None
@@ -263,6 +265,14 @@ class GroupsOperation(pulumi.CustomResource):
         List of References to Assessments created on this group.
         """
         return pulumi.get(self, "assessments")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTimestamp")

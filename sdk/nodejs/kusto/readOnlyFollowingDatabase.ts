@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Class representing a read only following database.
  *
- * Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+ * Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
  */
 export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
      * The name of the attached database configuration cluster
      */
     public /*out*/ readonly attachedDatabaseConfigurationName!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The origin of the following setup.
      */
@@ -89,6 +93,10 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly statistics!: pulumi.Output<outputs.kusto.DatabaseStatisticsResponse>;
     /**
+     * The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+     */
+    public /*out*/ readonly suspensionDetails!: pulumi.Output<outputs.kusto.SuspensionDetailsResponse>;
+    /**
      * Table level sharing specifications
      */
     public /*out*/ readonly tableLevelSharingProperties!: pulumi.Output<outputs.kusto.TableLevelSharingPropertiesResponse>;
@@ -125,6 +133,7 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["attachedDatabaseConfigurationName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["databaseShareOrigin"] = undefined /*out*/;
             resourceInputs["leaderClusterResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -133,10 +142,12 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["softDeletePeriod"] = undefined /*out*/;
             resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["suspensionDetails"] = undefined /*out*/;
             resourceInputs["tableLevelSharingProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["attachedDatabaseConfigurationName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["databaseShareOrigin"] = undefined /*out*/;
             resourceInputs["hotCachePeriod"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -148,11 +159,12 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["softDeletePeriod"] = undefined /*out*/;
             resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["suspensionDetails"] = undefined /*out*/;
             resourceInputs["tableLevelSharingProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190121:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190515:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190907:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20191109:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200215:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200614:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200918:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20210101:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20210827:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20220201:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20220707:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20221111:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20221229:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20230502:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20230815:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20240413:ReadOnlyFollowingDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20180907preview:Database" }, { type: "azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190121:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190515:Database" }, { type: "azure-native:kusto/v20190515:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190907:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190907:ReadWriteDatabase" }, { type: "azure-native:kusto/v20191109:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20191109:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200215:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200614:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200918:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20210101:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20210827:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20220201:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20220707:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20221111:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20221229:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20221229:ReadWriteDatabase" }, { type: "azure-native:kusto/v20230502:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20230502:ReadWriteDatabase" }, { type: "azure-native:kusto/v20230815:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20230815:ReadWriteDatabase" }, { type: "azure-native:kusto/v20240413:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20240413:ReadWriteDatabase" }, { type: "azure-native:kusto:ReadWriteDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReadOnlyFollowingDatabase.__pulumiType, name, resourceInputs, opts);
     }
@@ -188,7 +200,7 @@ export interface ReadOnlyFollowingDatabaseArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

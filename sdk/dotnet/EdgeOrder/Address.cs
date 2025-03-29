@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.EdgeOrder
     /// <summary>
     /// Address Resource.
     /// 
-    /// Uses Azure REST API version 2022-05-01-preview.
+    /// Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
     /// 
-    /// Other available API versions: 2024-02-01.
+    /// Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:edgeorder:Address")]
     public partial class Address : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Type of address based on its usage context.
+        /// </summary>
+        [Output("addressClassification")]
+        public Output<string?> AddressClassification { get; private set; } = null!;
+
         /// <summary>
         /// Status of address validation.
         /// </summary>
@@ -26,10 +32,16 @@ namespace Pulumi.AzureNative.EdgeOrder
         public Output<string> AddressValidationStatus { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Contact details for the address.
         /// </summary>
         [Output("contactDetails")]
-        public Output<Outputs.ContactDetailsResponse> ContactDetails { get; private set; } = null!;
+        public Output<Outputs.ContactDetailsResponse?> ContactDetails { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -44,13 +56,19 @@ namespace Pulumi.AzureNative.EdgeOrder
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Provisioning state
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
         /// Shipping details for the address.
         /// </summary>
         [Output("shippingAddress")]
         public Output<Outputs.ShippingAddressResponse?> ShippingAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Represents resource creation and update time.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -94,8 +112,10 @@ namespace Pulumi.AzureNative.EdgeOrder
                 {
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:Address" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:Address" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:AddressByName" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20220501preview:Address" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20240201:Address" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder:AddressByName" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,6 +140,12 @@ namespace Pulumi.AzureNative.EdgeOrder
     public sealed class AddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Type of address based on its usage context.
+        /// </summary>
+        [Input("addressClassification")]
+        public InputUnion<string, Pulumi.AzureNative.EdgeOrder.AddressClassification>? AddressClassification { get; set; }
+
+        /// <summary>
         /// The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
         /// </summary>
         [Input("addressName")]
@@ -128,8 +154,8 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// Contact details for the address.
         /// </summary>
-        [Input("contactDetails", required: true)]
-        public Input<Inputs.ContactDetailsArgs> ContactDetails { get; set; } = null!;
+        [Input("contactDetails")]
+        public Input<Inputs.ContactDetailsArgs>? ContactDetails { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

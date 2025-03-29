@@ -205,9 +205,9 @@ class Job(pulumi.CustomResource):
         """
         Job Resource.
 
-        Uses Azure REST API version 2022-12-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
-        Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
+        Other available API versions: 2022-12-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databox [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,9 +231,9 @@ class Job(pulumi.CustomResource):
         """
         Job Resource.
 
-        Uses Azure REST API version 2022-12-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
-        Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
+        Other available API versions: 2022-12-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databox [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.
@@ -287,7 +287,10 @@ class Job(pulumi.CustomResource):
             if transfer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'transfer_type'")
             __props__.__dict__["transfer_type"] = transfer_type
+            __props__.__dict__["all_devices_lost"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["cancellation_reason"] = None
+            __props__.__dict__["delayed_stage"] = None
             __props__.__dict__["error"] = None
             __props__.__dict__["is_cancellable"] = None
             __props__.__dict__["is_cancellable_without_fee"] = None
@@ -325,7 +328,10 @@ class Job(pulumi.CustomResource):
 
         __props__ = JobArgs.__new__(JobArgs)
 
+        __props__.__dict__["all_devices_lost"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cancellation_reason"] = None
+        __props__.__dict__["delayed_stage"] = None
         __props__.__dict__["delivery_info"] = None
         __props__.__dict__["delivery_type"] = None
         __props__.__dict__["details"] = None
@@ -350,12 +356,36 @@ class Job(pulumi.CustomResource):
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="allDevicesLost")
+    def all_devices_lost(self) -> pulumi.Output[bool]:
+        """
+        Flag to indicate if all devices associated with the job are lost.
+        """
+        return pulumi.get(self, "all_devices_lost")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="cancellationReason")
     def cancellation_reason(self) -> pulumi.Output[str]:
         """
         Reason for cancellation.
         """
         return pulumi.get(self, "cancellation_reason")
+
+    @property
+    @pulumi.getter(name="delayedStage")
+    def delayed_stage(self) -> pulumi.Output[str]:
+        """
+        Name of the stage where delay might be present.
+        """
+        return pulumi.get(self, "delayed_stage")
 
     @property
     @pulumi.getter(name="deliveryInfo")

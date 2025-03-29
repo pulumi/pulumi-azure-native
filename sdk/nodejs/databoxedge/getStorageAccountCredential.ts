@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of the specified storage account credential.
  *
- * Uses Azure REST API version 2022-03-01.
+ * Uses Azure REST API version 2023-07-01.
  *
- * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStorageAccountCredential(args: GetStorageAccountCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,6 +55,10 @@ export interface GetStorageAccountCredentialResult {
      */
     readonly alias: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Blob end point for private clouds.
      */
     readonly blobDomainName?: string;
@@ -94,9 +98,9 @@ export interface GetStorageAccountCredentialResult {
 /**
  * Gets the properties of the specified storage account credential.
  *
- * Uses Azure REST API version 2022-03-01.
+ * Uses Azure REST API version 2023-07-01.
  *
- * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStorageAccountCredentialOutput(args: GetStorageAccountCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageAccountCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -118,6 +118,10 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class GetSecretResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The identifier of the resource.
         /// </summary>
         public readonly string Id;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
         [OutputConstructor]
         private GetSecretResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string? value)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

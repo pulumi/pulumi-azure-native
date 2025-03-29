@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Gets information about the specified network function resource.
         /// 
-        /// Uses Azure REST API version 2022-01-01-preview.
+        /// Uses Azure REST API version 2024-04-15.
         /// 
-        /// Other available API versions: 2023-09-01, 2024-04-15.
+        /// Other available API versions: 2022-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNetworkFunctionResult> InvokeAsync(GetNetworkFunctionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFunctionResult>("azure-native:hybridnetwork:getNetworkFunction", args ?? new GetNetworkFunctionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Gets information about the specified network function resource.
         /// 
-        /// Uses Azure REST API version 2022-01-01-preview.
+        /// Uses Azure REST API version 2024-04-15.
         /// 
-        /// Other available API versions: 2023-09-01, 2024-04-15.
+        /// Other available API versions: 2022-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkFunctionResult> Invoke(GetNetworkFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionResult>("azure-native:hybridnetwork:getNetworkFunction", args ?? new GetNetworkFunctionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Gets information about the specified network function resource.
         /// 
-        /// Uses Azure REST API version 2022-01-01-preview.
+        /// Uses Azure REST API version 2024-04-15.
         /// 
-        /// Other available API versions: 2023-09-01, 2024-04-15.
+        /// Other available API versions: 2022-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkFunctionResult> Invoke(GetNetworkFunctionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionResult>("azure-native:hybridnetwork:getNetworkFunction", args ?? new GetNetworkFunctionInvokeArgs(), options.WithDefaults());
@@ -88,9 +88,9 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class GetNetworkFunctionResult
     {
         /// <summary>
-        /// The reference to the device resource. Once set, it cannot be updated.
+        /// The Azure API version of the resource.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? Device;
+        public readonly string AzureApiVersion;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -100,47 +100,23 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The managed identity of the network function.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
-        /// <summary>
-        /// The resource URI of the managed application.
-        /// </summary>
-        public readonly Outputs.SubResourceResponse ManagedApplication;
-        /// <summary>
-        /// The parameters for the managed application.
-        /// </summary>
-        public readonly object? ManagedApplicationParameters;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The network function container configurations from the user.
+        /// Network function properties.
         /// </summary>
-        public readonly object? NetworkFunctionContainerConfigurations;
+        public readonly Union<Outputs.NetworkFunctionValueWithSecretsResponse, Outputs.NetworkFunctionValueWithoutSecretsResponse> Properties;
         /// <summary>
-        /// The network function configurations from the user.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkFunctionUserConfigurationResponse> NetworkFunctionUserConfigurations;
-        /// <summary>
-        /// The provisioning state of the network function resource.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The service key for the network function resource.
-        /// </summary>
-        public readonly string ServiceKey;
-        /// <summary>
-        /// The sku name for the network function. Once set, it cannot be updated.
-        /// </summary>
-        public readonly string? SkuName;
-        /// <summary>
-        /// The sku type for the network function.
-        /// </summary>
-        public readonly string SkuType;
-        /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -151,71 +127,39 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The vendor name for the network function. Once set, it cannot be updated.
-        /// </summary>
-        public readonly string? VendorName;
-        /// <summary>
-        /// The vendor provisioning state for the network function resource.
-        /// </summary>
-        public readonly string VendorProvisioningState;
 
         [OutputConstructor]
         private GetNetworkFunctionResult(
-            Outputs.SubResourceResponse? device,
+            string azureApiVersion,
 
             string? etag,
 
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
             string location,
-
-            Outputs.SubResourceResponse managedApplication,
-
-            object? managedApplicationParameters,
 
             string name,
 
-            object? networkFunctionContainerConfigurations,
-
-            ImmutableArray<Outputs.NetworkFunctionUserConfigurationResponse> networkFunctionUserConfigurations,
-
-            string provisioningState,
-
-            string serviceKey,
-
-            string? skuName,
-
-            string skuType,
+            Union<Outputs.NetworkFunctionValueWithSecretsResponse, Outputs.NetworkFunctionValueWithoutSecretsResponse> properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? vendorName,
-
-            string vendorProvisioningState)
+            string type)
         {
-            Device = device;
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
+            Identity = identity;
             Location = location;
-            ManagedApplication = managedApplication;
-            ManagedApplicationParameters = managedApplicationParameters;
             Name = name;
-            NetworkFunctionContainerConfigurations = networkFunctionContainerConfigurations;
-            NetworkFunctionUserConfigurations = networkFunctionUserConfigurations;
-            ProvisioningState = provisioningState;
-            ServiceKey = serviceKey;
-            SkuName = skuName;
-            SkuType = skuType;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            VendorName = vendorName;
-            VendorProvisioningState = vendorProvisioningState;
         }
     }
 }

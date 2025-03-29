@@ -68,13 +68,13 @@ def get_package_download_url(package_name: Optional[str] = None,
     """
     Gets the download URL of a package.
 
-    Uses Azure REST API version 2022-04-01-preview.
+    Uses Azure REST API version 2023-11-01-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str package_name: The resource name of the Test Base Package.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()
@@ -94,13 +94,13 @@ def get_package_download_url_output(package_name: Optional[pulumi.Input[str]] = 
     """
     Gets the download URL of a package.
 
-    Uses Azure REST API version 2022-04-01-preview.
+    Uses Azure REST API version 2023-11-01-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str package_name: The resource name of the Test Base Package.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()

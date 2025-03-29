@@ -66,13 +66,6 @@ export const Space: typeof import("./space").Space = null as any;
 utilities.lazyLoad(exports, ["Space"], () => require("./space"));
 
 
-// Export sub-modules:
-import * as v20231114preview from "./v20231114preview";
-
-export {
-    v20231114preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

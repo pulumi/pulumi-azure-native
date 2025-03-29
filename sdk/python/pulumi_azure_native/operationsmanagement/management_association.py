@@ -150,7 +150,7 @@ class ManagementAssociation(pulumi.CustomResource):
         """
         The container for solution.
 
-        Uses Azure REST API version 2015-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2015-11-01-preview.
+        Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +171,7 @@ class ManagementAssociation(pulumi.CustomResource):
         """
         The container for solution.
 
-        Uses Azure REST API version 2015-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2015-11-01-preview.
+        Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagementAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -219,6 +219,7 @@ class ManagementAssociation(pulumi.CustomResource):
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationsmanagement/v20151101preview:ManagementAssociation")])
@@ -245,11 +246,20 @@ class ManagementAssociation(pulumi.CustomResource):
 
         __props__ = ManagementAssociationArgs.__new__(ManagementAssociationArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return ManagementAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

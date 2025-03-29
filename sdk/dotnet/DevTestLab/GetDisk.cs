@@ -118,6 +118,10 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class GetDiskResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of the disk.
         /// </summary>
         public readonly string CreatedDate;
@@ -184,6 +188,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
         [OutputConstructor]
         private GetDiskResult(
+            string azureApiVersion,
+
             string createdDate,
 
             string? diskBlobName,
@@ -216,6 +222,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string uniqueIdentifier)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedDate = createdDate;
             DiskBlobName = diskBlobName;
             DiskSizeGiB = diskSizeGiB;

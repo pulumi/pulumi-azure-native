@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Implements an IP Community GET method.
  *
- * Uses Azure REST API version 2023-02-01-preview.
+ * Uses Azure REST API version 2023-06-15.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getIpCommunity(args: GetIpCommunityArgs, opts?: pulumi.InvokeOptions): Promise<GetIpCommunityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,25 +34,33 @@ export interface GetIpCommunityArgs {
 }
 
 /**
- * The IpCommunity resource definition.
+ * The IP Community resource definition.
  */
 export interface GetIpCommunityResult {
     /**
-     * Action to be taken on the configuration. Example: Permit | Deny.
+     * Administrative state of the resource.
      */
-    readonly action: string;
+    readonly administrativeState: string;
     /**
      * Switch configuration description.
      */
     readonly annotation?: string;
     /**
-     * List the communityMembers of IP Community .
+     * The Azure API version of the resource.
      */
-    readonly communityMembers: string[];
+    readonly azureApiVersion: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Configuration state of the resource.
+     */
+    readonly configurationState: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * List of IP Community Rules.
+     */
+    readonly ipCommunityRules: outputs.managednetworkfabric.IpCommunityRuleResponse[];
     /**
      * The geo-location where the resource lives
      */
@@ -62,7 +70,7 @@ export interface GetIpCommunityResult {
      */
     readonly name: string;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**
@@ -77,17 +85,13 @@ export interface GetIpCommunityResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Supported well known Community List.
-     */
-    readonly wellKnownCommunities?: string[];
 }
 /**
  * Implements an IP Community GET method.
  *
- * Uses Azure REST API version 2023-02-01-preview.
+ * Uses Azure REST API version 2023-06-15.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getIpCommunityOutput(args: GetIpCommunityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpCommunityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

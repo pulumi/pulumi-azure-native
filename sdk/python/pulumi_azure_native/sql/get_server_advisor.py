@@ -27,7 +27,7 @@ class GetServerAdvisorResult:
     """
     Database, Server or Elastic Pool Advisor.
     """
-    def __init__(__self__, advisor_status=None, auto_execute_status=None, auto_execute_status_inherited_from=None, id=None, kind=None, last_checked=None, location=None, name=None, recommendations_status=None, recommended_actions=None, type=None):
+    def __init__(__self__, advisor_status=None, auto_execute_status=None, auto_execute_status_inherited_from=None, azure_api_version=None, id=None, kind=None, last_checked=None, location=None, name=None, recommendations_status=None, recommended_actions=None, type=None):
         if advisor_status and not isinstance(advisor_status, str):
             raise TypeError("Expected argument 'advisor_status' to be a str")
         pulumi.set(__self__, "advisor_status", advisor_status)
@@ -37,6 +37,9 @@ class GetServerAdvisorResult:
         if auto_execute_status_inherited_from and not isinstance(auto_execute_status_inherited_from, str):
             raise TypeError("Expected argument 'auto_execute_status_inherited_from' to be a str")
         pulumi.set(__self__, "auto_execute_status_inherited_from", auto_execute_status_inherited_from)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -85,6 +88,14 @@ class GetServerAdvisorResult:
         Gets the resource from which current value of auto-execute status is inherited. Auto-execute status can be set on (and inherited from) different levels in the resource hierarchy. Possible values are 'Subscription', 'Server', 'ElasticPool', 'Database' and 'Default' (when status is not explicitly set on any level).
         """
         return pulumi.get(self, "auto_execute_status_inherited_from")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -160,6 +171,7 @@ class AwaitableGetServerAdvisorResult(GetServerAdvisorResult):
             advisor_status=self.advisor_status,
             auto_execute_status=self.auto_execute_status,
             auto_execute_status_inherited_from=self.auto_execute_status_inherited_from,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             kind=self.kind,
             last_checked=self.last_checked,
@@ -177,9 +189,9 @@ def get_server_advisor(advisor_name: Optional[str] = None,
     """
     Gets a server advisor.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2014-04-01, 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str advisor_name: The name of the Server Advisor.
@@ -197,6 +209,7 @@ def get_server_advisor(advisor_name: Optional[str] = None,
         advisor_status=pulumi.get(__ret__, 'advisor_status'),
         auto_execute_status=pulumi.get(__ret__, 'auto_execute_status'),
         auto_execute_status_inherited_from=pulumi.get(__ret__, 'auto_execute_status_inherited_from'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         last_checked=pulumi.get(__ret__, 'last_checked'),
@@ -212,9 +225,9 @@ def get_server_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a server advisor.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2014-04-01, 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str advisor_name: The name of the Server Advisor.
@@ -231,6 +244,7 @@ def get_server_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None,
         advisor_status=pulumi.get(__response__, 'advisor_status'),
         auto_execute_status=pulumi.get(__response__, 'auto_execute_status'),
         auto_execute_status_inherited_from=pulumi.get(__response__, 'auto_execute_status_inherited_from'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),
         last_checked=pulumi.get(__response__, 'last_checked'),

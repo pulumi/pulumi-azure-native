@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetProfileResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Key-Value pair representing additional properties for profiles.
         /// </summary>
         public readonly ImmutableDictionary<string, string> ExtendedProperties;
@@ -111,6 +115,10 @@ namespace Pulumi.AzureNative.Cdn
         /// Resource location.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
+        /// </summary>
+        public readonly Outputs.ProfileLogScrubbingResponse? LogScrubbing;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -146,6 +154,8 @@ namespace Pulumi.AzureNative.Cdn
 
         [OutputConstructor]
         private GetProfileResult(
+            string azureApiVersion,
+
             ImmutableDictionary<string, string> extendedProperties,
 
             string frontDoorId,
@@ -157,6 +167,8 @@ namespace Pulumi.AzureNative.Cdn
             string kind,
 
             string location,
+
+            Outputs.ProfileLogScrubbingResponse? logScrubbing,
 
             string name,
 
@@ -174,12 +186,14 @@ namespace Pulumi.AzureNative.Cdn
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedProperties = extendedProperties;
             FrontDoorId = frontDoorId;
             Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;
+            LogScrubbing = logScrubbing;
             Name = name;
             OriginResponseTimeoutSeconds = originResponseTimeoutSeconds;
             ProvisioningState = provisioningState;

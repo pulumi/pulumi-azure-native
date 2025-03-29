@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Definition of the Runtime Environment type.
  *
- * Uses Azure REST API version 2023-05-15-preview.
+ * Uses Azure REST API version 2023-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-15-preview.
  *
- * Other available API versions: 2024-10-23.
+ * Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class RuntimeEnvironment extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class RuntimeEnvironment extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuntimeEnvironment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * List of Default packages for Environment
      */
@@ -104,10 +108,12 @@ export class RuntimeEnvironment extends pulumi.CustomResource {
             resourceInputs["runtimeEnvironmentName"] = args ? args.runtimeEnvironmentName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultPackages"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["language"] = undefined /*out*/;

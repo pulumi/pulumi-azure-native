@@ -119,19 +119,6 @@ utilities.lazyLoad(exports, ["Task"], () => require("./task"));
 // Export enums:
 export * from "../types/enums/datamigration";
 
-// Export sub-modules:
-import * as v20210630 from "./v20210630";
-import * as v20211030preview from "./v20211030preview";
-import * as v20220330preview from "./v20220330preview";
-import * as v20230715preview from "./v20230715preview";
-
-export {
-    v20210630,
-    v20211030preview,
-    v20220330preview,
-    v20230715preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

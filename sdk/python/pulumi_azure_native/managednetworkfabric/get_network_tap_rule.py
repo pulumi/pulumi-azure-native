@@ -27,13 +27,16 @@ class GetNetworkTapRuleResult:
     """
     The NetworkTapRule resource definition.
     """
-    def __init__(__self__, administrative_state=None, annotation=None, configuration_state=None, configuration_type=None, dynamic_match_configurations=None, id=None, last_synced_time=None, location=None, match_configurations=None, name=None, network_tap_id=None, polling_interval_in_seconds=None, provisioning_state=None, system_data=None, tags=None, tap_rules_url=None, type=None):
+    def __init__(__self__, administrative_state=None, annotation=None, azure_api_version=None, configuration_state=None, configuration_type=None, dynamic_match_configurations=None, id=None, last_synced_time=None, location=None, match_configurations=None, name=None, network_tap_id=None, polling_interval_in_seconds=None, provisioning_state=None, system_data=None, tags=None, tap_rules_url=None, type=None):
         if administrative_state and not isinstance(administrative_state, str):
             raise TypeError("Expected argument 'administrative_state' to be a str")
         pulumi.set(__self__, "administrative_state", administrative_state)
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if configuration_state and not isinstance(configuration_state, str):
             raise TypeError("Expected argument 'configuration_state' to be a str")
         pulumi.set(__self__, "configuration_state", configuration_state)
@@ -95,6 +98,14 @@ class GetNetworkTapRuleResult:
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="configurationState")
@@ -225,6 +236,7 @@ class AwaitableGetNetworkTapRuleResult(GetNetworkTapRuleResult):
         return GetNetworkTapRuleResult(
             administrative_state=self.administrative_state,
             annotation=self.annotation,
+            azure_api_version=self.azure_api_version,
             configuration_state=self.configuration_state,
             configuration_type=self.configuration_type,
             dynamic_match_configurations=self.dynamic_match_configurations,
@@ -263,6 +275,7 @@ def get_network_tap_rule(network_tap_rule_name: Optional[str] = None,
     return AwaitableGetNetworkTapRuleResult(
         administrative_state=pulumi.get(__ret__, 'administrative_state'),
         annotation=pulumi.get(__ret__, 'annotation'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         configuration_state=pulumi.get(__ret__, 'configuration_state'),
         configuration_type=pulumi.get(__ret__, 'configuration_type'),
         dynamic_match_configurations=pulumi.get(__ret__, 'dynamic_match_configurations'),
@@ -298,6 +311,7 @@ def get_network_tap_rule_output(network_tap_rule_name: Optional[pulumi.Input[str
     return __ret__.apply(lambda __response__: GetNetworkTapRuleResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),
         annotation=pulumi.get(__response__, 'annotation'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         configuration_state=pulumi.get(__response__, 'configuration_state'),
         configuration_type=pulumi.get(__response__, 'configuration_type'),
         dynamic_match_configurations=pulumi.get(__response__, 'dynamic_match_configurations'),

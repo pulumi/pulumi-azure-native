@@ -36,6 +36,10 @@ export interface GetPricingArgs {
  */
 export interface GetPricingResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Optional. True if the plan is deprecated. If there are replacing plans they will appear in `replacedBy` property
      */
     readonly deprecated: boolean;

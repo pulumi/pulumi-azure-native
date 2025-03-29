@@ -99,7 +99,7 @@ class ServerInstance(pulumi.CustomResource):
         """
         Define the Server Instance resource.
 
-        Uses Azure REST API version 2023-10-01-preview.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +117,7 @@ class ServerInstance(pulumi.CustomResource):
         """
         Define the Server Instance resource.
 
-        Uses Azure REST API version 2023-10-01-preview.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ServerInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -157,6 +157,7 @@ class ServerInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sap_instance_name'")
             __props__.__dict__["sap_instance_name"] = sap_instance_name
             __props__.__dict__["server_instance_name"] = server_instance_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["configuration_data"] = None
             __props__.__dict__["errors"] = None
             __props__.__dict__["instance_sid"] = None
@@ -194,6 +195,7 @@ class ServerInstance(pulumi.CustomResource):
 
         __props__ = ServerInstanceArgs.__new__(ServerInstanceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["configuration_data"] = None
         __props__.__dict__["errors"] = None
         __props__.__dict__["instance_sid"] = None
@@ -208,6 +210,14 @@ class ServerInstance(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ServerInstance(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="configurationData")

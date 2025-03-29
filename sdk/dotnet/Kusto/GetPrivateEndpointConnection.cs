@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Gets a private endpoint connection.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Other available API versions: 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:kusto:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Gets a private endpoint connection.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Other available API versions: 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:kusto:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Gets a private endpoint connection.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Other available API versions: 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:kusto:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Kusto
         public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.Kusto
     [OutputType]
     public sealed class GetPrivateEndpointConnectionResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Group id of the private endpoint.
         /// </summary>
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.Kusto
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string azureApiVersion,
+
             string groupId,
 
             string id,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.Kusto
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             GroupId = groupId;
             Id = id;
             Name = name;

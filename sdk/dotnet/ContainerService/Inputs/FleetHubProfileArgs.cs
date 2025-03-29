@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class FleetHubProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The agent profile for the Fleet hub.
+        /// </summary>
+        [Input("agentProfile")]
+        public Input<Inputs.AgentProfileArgs>? AgentProfile { get; set; }
+
+        /// <summary>
+        /// The access profile for the Fleet hub API server.
+        /// </summary>
+        [Input("apiServerAccessProfile")]
+        public Input<Inputs.APIServerAccessProfileArgs>? ApiServerAccessProfile { get; set; }
+
+        /// <summary>
         /// DNS prefix used to create the FQDN for the Fleet hub.
         /// </summary>
         [Input("dnsPrefix")]

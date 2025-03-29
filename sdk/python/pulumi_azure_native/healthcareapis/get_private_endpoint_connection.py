@@ -27,7 +27,10 @@ class GetPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
     """
-    def __init__(__self__, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +52,14 @@ class GetPrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
         if False:
             yield self
         return GetPrivateEndpointConnectionResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             private_endpoint=self.private_endpoint,
@@ -129,9 +141,9 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     """
     Gets the specified private endpoint connection associated with the service.
 
-    Uses Azure REST API version 2023-02-28.
+    Uses Azure REST API version 2024-03-31.
 
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+    Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -146,6 +158,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:healthcareapis:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
@@ -160,9 +173,9 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     """
     Gets the specified private endpoint connection associated with the service.
 
-    Uses Azure REST API version 2023-02-28.
+    Uses Azure REST API version 2024-03-31.
 
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+    Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -176,6 +189,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:healthcareapis:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         private_endpoint=pulumi.get(__response__, 'private_endpoint'),

@@ -41,6 +41,10 @@ export interface GetDatasetArgs {
  */
 export interface GetDatasetResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Etag identifies change in the resource.
      */
     readonly etag: string;

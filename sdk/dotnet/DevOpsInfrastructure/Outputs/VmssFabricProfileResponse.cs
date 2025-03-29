@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
         /// The Azure SKU of the machines in the pool.
         /// </summary>
         public readonly Outputs.DevOpsAzureSkuResponse Sku;
+        /// <summary>
+        /// The storage profile of the machines in the pool.
+        /// </summary>
+        public readonly Outputs.StorageProfileResponse? StorageProfile;
 
         [OutputConstructor]
         private VmssFabricProfileResponse(
@@ -48,13 +52,16 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
 
             Outputs.OsProfileResponse? osProfile,
 
-            Outputs.DevOpsAzureSkuResponse sku)
+            Outputs.DevOpsAzureSkuResponse sku,
+
+            Outputs.StorageProfileResponse? storageProfile)
         {
             Images = images;
             Kind = kind;
             NetworkProfile = networkProfile;
             OsProfile = osProfile;
             Sku = sku;
+            StorageProfile = storageProfile;
         }
     }
 }

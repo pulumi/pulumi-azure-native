@@ -27,7 +27,10 @@ class GetFileImportResult:
     """
     Represents a file import in Azure Security Insights.
     """
-    def __init__(__self__, content_type=None, created_time_utc=None, error_file=None, errors_preview=None, files_valid_until_time_utc=None, id=None, import_file=None, import_valid_until_time_utc=None, ingested_record_count=None, ingestion_mode=None, name=None, source=None, state=None, system_data=None, total_record_count=None, type=None, valid_record_count=None):
+    def __init__(__self__, azure_api_version=None, content_type=None, created_time_utc=None, error_file=None, errors_preview=None, files_valid_until_time_utc=None, id=None, import_file=None, import_valid_until_time_utc=None, ingested_record_count=None, ingestion_mode=None, name=None, source=None, state=None, system_data=None, total_record_count=None, type=None, valid_record_count=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
@@ -81,6 +84,14 @@ class GetFileImportResult:
         pulumi.set(__self__, "valid_record_count", valid_record_count)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> str:
         """
@@ -124,7 +135,7 @@ class GetFileImportResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -223,6 +234,7 @@ class AwaitableGetFileImportResult(GetFileImportResult):
         if False:
             yield self
         return GetFileImportResult(
+            azure_api_version=self.azure_api_version,
             content_type=self.content_type,
             created_time_utc=self.created_time_utc,
             error_file=self.error_file,
@@ -249,9 +261,9 @@ def get_file_import(file_import_id: Optional[str] = None,
     """
     Gets a file import.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str file_import_id: File import ID
@@ -266,6 +278,7 @@ def get_file_import(file_import_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getFileImport', __args__, opts=opts, typ=GetFileImportResult).value
 
     return AwaitableGetFileImportResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         content_type=pulumi.get(__ret__, 'content_type'),
         created_time_utc=pulumi.get(__ret__, 'created_time_utc'),
         error_file=pulumi.get(__ret__, 'error_file'),
@@ -290,9 +303,9 @@ def get_file_import_output(file_import_id: Optional[pulumi.Input[str]] = None,
     """
     Gets a file import.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str file_import_id: File import ID
@@ -306,6 +319,7 @@ def get_file_import_output(file_import_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getFileImport', __args__, opts=opts, typ=GetFileImportResult)
     return __ret__.apply(lambda __response__: GetFileImportResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         content_type=pulumi.get(__response__, 'content_type'),
         created_time_utc=pulumi.get(__response__, 'created_time_utc'),
         error_file=pulumi.get(__response__, 'error_file'),

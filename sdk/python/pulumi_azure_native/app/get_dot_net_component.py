@@ -27,7 +27,10 @@ class GetDotNetComponentResult:
     """
     .NET Component.
     """
-    def __init__(__self__, component_type=None, configurations=None, id=None, name=None, provisioning_state=None, service_binds=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, component_type=None, configurations=None, id=None, name=None, provisioning_state=None, service_binds=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if component_type and not isinstance(component_type, str):
             raise TypeError("Expected argument 'component_type' to be a str")
         pulumi.set(__self__, "component_type", component_type)
@@ -54,6 +57,14 @@ class GetDotNetComponentResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="componentType")
     def component_type(self) -> Optional[str]:
         """
@@ -73,7 +84,7 @@ class GetDotNetComponentResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -124,6 +135,7 @@ class AwaitableGetDotNetComponentResult(GetDotNetComponentResult):
         if False:
             yield self
         return GetDotNetComponentResult(
+            azure_api_version=self.azure_api_version,
             component_type=self.component_type,
             configurations=self.configurations,
             id=self.id,
@@ -141,9 +153,9 @@ def get_dot_net_component(environment_name: Optional[str] = None,
     """
     .NET Component.
 
-    Uses Azure REST API version 2023-11-02-preview.
+    Uses Azure REST API version 2024-10-02-preview.
 
-    Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -158,6 +170,7 @@ def get_dot_net_component(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getDotNetComponent', __args__, opts=opts, typ=GetDotNetComponentResult).value
 
     return AwaitableGetDotNetComponentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         component_type=pulumi.get(__ret__, 'component_type'),
         configurations=pulumi.get(__ret__, 'configurations'),
         id=pulumi.get(__ret__, 'id'),
@@ -173,9 +186,9 @@ def get_dot_net_component_output(environment_name: Optional[pulumi.Input[str]] =
     """
     .NET Component.
 
-    Uses Azure REST API version 2023-11-02-preview.
+    Uses Azure REST API version 2024-10-02-preview.
 
-    Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -189,6 +202,7 @@ def get_dot_net_component_output(environment_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getDotNetComponent', __args__, opts=opts, typ=GetDotNetComponentResult)
     return __ret__.apply(lambda __response__: GetDotNetComponentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         component_type=pulumi.get(__response__, 'component_type'),
         configurations=pulumi.get(__response__, 'configurations'),
         id=pulumi.get(__response__, 'id'),

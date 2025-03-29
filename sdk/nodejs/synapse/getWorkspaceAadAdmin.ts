@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2021-06-01.
  *
- * Other available API versions: 2021-06-01-preview.
+ * Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceAadAdminResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +38,10 @@ export interface GetWorkspaceAadAdminResult {
      * Workspace active directory administrator type
      */
     readonly administratorType?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -68,7 +72,7 @@ export interface GetWorkspaceAadAdminResult {
  *
  * Uses Azure REST API version 2021-06-01.
  *
- * Other available API versions: 2021-06-01-preview.
+ * Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspaceAadAdminOutput(args: GetWorkspaceAadAdminOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceAadAdminResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

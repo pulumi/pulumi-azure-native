@@ -10,13 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
-    /// Uses Azure REST API version 2024-04-01-preview.
+    /// Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
     /// 
-    /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ConnectionRaiBlocklist")]
     public partial class ConnectionRaiBlocklist : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -24,10 +30,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// RAI Custom Blocklist Item properties.
+        /// RAI Custom Blocklist properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RaiBlocklistItemPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RaiBlocklistPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -67,9 +73,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklist" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklistItem" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:ConnectionRaiBlocklist" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:ConnectionRaiBlocklist" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:ConnectionRaiBlocklist" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ConnectionRaiBlocklistItem" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -100,22 +108,22 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// RAI Custom Blocklist Item properties.
+        /// RAI Custom Blocklist properties.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.RaiBlocklistItemPropertiesArgs> Properties { get; set; } = null!;
+        public Input<Inputs.RaiBlocklistPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
-        /// Name of the RaiBlocklist Item
+        /// Api version used by proxy call
         /// </summary>
-        [Input("raiBlocklistItemName")]
-        public Input<string>? RaiBlocklistItemName { get; set; }
+        [Input("proxyApiVersion")]
+        public Input<string>? ProxyApiVersion { get; set; }
 
         /// <summary>
         /// The name of the RaiBlocklist.
         /// </summary>
-        [Input("raiBlocklistName", required: true)]
-        public Input<string> RaiBlocklistName { get; set; } = null!;
+        [Input("raiBlocklistName")]
+        public Input<string>? RaiBlocklistName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -27,7 +27,10 @@ class GetBandwidthScheduleResult:
     """
     The bandwidth schedule details.
     """
-    def __init__(__self__, days=None, id=None, name=None, rate_in_mbps=None, start=None, stop=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, days=None, id=None, name=None, rate_in_mbps=None, start=None, stop=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if days and not isinstance(days, list):
             raise TypeError("Expected argument 'days' to be a list")
         pulumi.set(__self__, "days", days)
@@ -52,6 +55,14 @@ class GetBandwidthScheduleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -124,6 +135,7 @@ class AwaitableGetBandwidthScheduleResult(GetBandwidthScheduleResult):
         if False:
             yield self
         return GetBandwidthScheduleResult(
+            azure_api_version=self.azure_api_version,
             days=self.days,
             id=self.id,
             name=self.name,
@@ -141,9 +153,9 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
     """
     Gets the properties of the specified bandwidth schedule.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str device_name: The device name.
@@ -158,6 +170,7 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getBandwidthSchedule', __args__, opts=opts, typ=GetBandwidthScheduleResult).value
 
     return AwaitableGetBandwidthScheduleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         days=pulumi.get(__ret__, 'days'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -173,9 +186,9 @@ def get_bandwidth_schedule_output(device_name: Optional[pulumi.Input[str]] = Non
     """
     Gets the properties of the specified bandwidth schedule.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str device_name: The device name.
@@ -189,6 +202,7 @@ def get_bandwidth_schedule_output(device_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getBandwidthSchedule', __args__, opts=opts, typ=GetBandwidthScheduleResult)
     return __ret__.apply(lambda __response__: GetBandwidthScheduleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         days=pulumi.get(__response__, 'days'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

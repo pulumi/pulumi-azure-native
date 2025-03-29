@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the webhook identified by webhook name.
         /// 
-        /// Uses Azure REST API version 2015-10-31.
+        /// Uses Azure REST API version 2023-05-15-preview.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:automation:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the webhook identified by webhook name.
         /// 
-        /// Uses Azure REST API version 2015-10-31.
+        /// Uses Azure REST API version 2023-05-15-preview.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:automation:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the webhook identified by webhook name.
         /// 
-        /// Uses Azure REST API version 2015-10-31.
+        /// Uses Azure REST API version 2023-05-15-preview.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:automation:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Automation
     public sealed class GetWebhookResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the creation time.
         /// </summary>
         public readonly string? CreationTime;
@@ -112,7 +116,7 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string? ExpiryTime;
         /// <summary>
-        /// Fully qualified resource Id for the resource
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -148,7 +152,11 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly Outputs.RunbookAssociationPropertyResponse? Runbook;
         /// <summary>
-        /// The type of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -158,6 +166,8 @@ namespace Pulumi.AzureNative.Automation
 
         [OutputConstructor]
         private GetWebhookResult(
+            string azureApiVersion,
+
             string? creationTime,
 
             string? description,
@@ -182,10 +192,13 @@ namespace Pulumi.AzureNative.Automation
 
             Outputs.RunbookAssociationPropertyResponse? runbook,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string? uri)
         {
+            AzureApiVersion = azureApiVersion;
             CreationTime = creationTime;
             Description = description;
             ExpiryTime = expiryTime;
@@ -198,6 +211,7 @@ namespace Pulumi.AzureNative.Automation
             Parameters = parameters;
             RunOn = runOn;
             Runbook = runbook;
+            SystemData = systemData;
             Type = type;
             Uri = uri;
         }

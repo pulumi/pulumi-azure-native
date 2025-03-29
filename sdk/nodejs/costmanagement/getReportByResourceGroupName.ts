@@ -36,6 +36,10 @@ export interface GetReportByResourceGroupNameArgs {
  */
 export interface GetReportByResourceGroupNameResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Has definition for the report.
      */
     readonly definition: outputs.costmanagement.ReportDefinitionResponse;

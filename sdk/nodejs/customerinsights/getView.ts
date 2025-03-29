@@ -43,6 +43,10 @@ export interface GetViewArgs {
  */
 export interface GetViewResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Date time when view was last modified.
      */
     readonly changed: string;

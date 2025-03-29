@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The order details.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetOrderResult> InvokeAsync(GetOrderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The order details.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOrderResult> Invoke(GetOrderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The order details.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOrderResult> Invoke(GetOrderInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     [OutputType]
     public sealed class GetOrderResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The contact details.
         /// </summary>
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetOrderResult(
+            string azureApiVersion,
+
             Outputs.ContactDetailsResponse contactInformation,
 
             Outputs.OrderStatusResponse currentStatus,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ContactInformation = contactInformation;
             CurrentStatus = currentStatus;
             DeliveryTrackingInfo = deliveryTrackingInfo;

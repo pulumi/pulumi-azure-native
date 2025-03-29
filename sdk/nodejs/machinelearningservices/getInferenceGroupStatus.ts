@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2023-08-01-preview.
+ * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getInferenceGroupStatus(args: GetInferenceGroupStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetInferenceGroupStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,10 +47,6 @@ export interface GetInferenceGroupStatusResult {
      */
     readonly actualCapacityInfo?: outputs.machinelearningservices.ActualCapacityInfoResponse;
     /**
-     * Gets or sets capacity used from the pool's reserved capacity.
-     */
-    readonly bonusExtraCapacity?: number;
-    /**
      * Gets or sets the actual number of endpoints in the group.
      */
     readonly endpointCount?: number;
@@ -60,9 +56,9 @@ export interface GetInferenceGroupStatusResult {
     readonly requestedCapacity?: number;
 }
 /**
- * Uses Azure REST API version 2023-08-01-preview.
+ * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getInferenceGroupStatusOutput(args: GetInferenceGroupStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceGroupStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

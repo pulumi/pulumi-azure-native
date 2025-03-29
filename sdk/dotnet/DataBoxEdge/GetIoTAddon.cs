@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets a specific addon by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Task<GetIoTAddonResult> InvokeAsync(GetIoTAddonArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIoTAddonResult>("azure-native:databoxedge:getIoTAddon", args ?? new GetIoTAddonArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets a specific addon by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Output<GetIoTAddonResult> Invoke(GetIoTAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIoTAddonResult>("azure-native:databoxedge:getIoTAddon", args ?? new GetIoTAddonInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets a specific addon by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Output<GetIoTAddonResult> Invoke(GetIoTAddonInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIoTAddonResult>("azure-native:databoxedge:getIoTAddon", args ?? new GetIoTAddonInvokeArgs(), options.WithDefaults());
@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetIoTAddonResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Host OS supported by the IoT addon.
         /// </summary>
         public readonly string HostPlatform;
@@ -153,6 +157,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetIoTAddonResult(
+            string azureApiVersion,
+
             string hostPlatform,
 
             string hostPlatformType,
@@ -175,6 +181,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string version)
         {
+            AzureApiVersion = azureApiVersion;
             HostPlatform = hostPlatform;
             HostPlatformType = hostPlatformType;
             Id = id;

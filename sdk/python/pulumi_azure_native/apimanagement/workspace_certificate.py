@@ -151,9 +151,9 @@ class WorkspaceCertificate(pulumi.CustomResource):
         """
         Certificate details.
 
-        Uses Azure REST API version 2023-09-01-preview.
+        Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
-        Other available API versions: 2024-05-01, 2024-06-01-preview.
+        Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,9 +174,9 @@ class WorkspaceCertificate(pulumi.CustomResource):
         """
         Certificate details.
 
-        Uses Azure REST API version 2023-09-01-preview.
+        Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
-        Other available API versions: 2024-05-01, 2024-06-01-preview.
+        Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -222,6 +222,7 @@ class WorkspaceCertificate(pulumi.CustomResource):
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["expiration_date"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["subject"] = None
@@ -251,6 +252,7 @@ class WorkspaceCertificate(pulumi.CustomResource):
 
         __props__ = WorkspaceCertificateArgs.__new__(WorkspaceCertificateArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["expiration_date"] = None
         __props__.__dict__["key_vault"] = None
         __props__.__dict__["name"] = None
@@ -258,6 +260,14 @@ class WorkspaceCertificate(pulumi.CustomResource):
         __props__.__dict__["thumbprint"] = None
         __props__.__dict__["type"] = None
         return WorkspaceCertificate(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="expirationDate")

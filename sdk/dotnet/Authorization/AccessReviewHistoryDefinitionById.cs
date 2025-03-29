@@ -12,11 +12,19 @@ namespace Pulumi.AzureNative.Authorization
     /// <summary>
     /// Access Review History Definition.
     /// 
-    /// Uses Azure REST API version 2021-12-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-11-16-preview.
+    /// Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
+    /// 
+    /// Other available API versions: 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:AccessReviewHistoryDefinitionById")]
     public partial class AccessReviewHistoryDefinitionById : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Date time when history definition was created
         /// </summary>
@@ -34,12 +42,6 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// The DateTime when the review is scheduled to end. Required if type is endDate
-        /// </summary>
-        [Output("endDate")]
-        public Output<string?> EndDate { get; private set; } = null!;
 
         /// <summary>
         /// Set of access review history instances for this history definition.
@@ -60,12 +62,6 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of times to repeat the access review. Required and must be positive if type is numbered.
-        /// </summary>
-        [Output("numberOfOccurrences")]
-        public Output<int?> NumberOfOccurrences { get; private set; } = null!;
-
-        /// <summary>
         /// The identity id
         /// </summary>
         [Output("principalId")]
@@ -84,6 +80,12 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string> PrincipalType { get; private set; } = null!;
 
         /// <summary>
+        /// Access Review History Definition recurrence settings.
+        /// </summary>
+        [Output("range")]
+        public Output<Outputs.AccessReviewRecurrenceRangeResponse?> Range { get; private set; } = null!;
+
+        /// <summary>
         /// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
         /// </summary>
         [Output("reviewHistoryPeriodEndDateTime")]
@@ -100,12 +102,6 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<Outputs.AccessReviewScopeResponse>> Scopes { get; private set; } = null!;
-
-        /// <summary>
-        /// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-        /// </summary>
-        [Output("startDate")]
-        public Output<string?> StartDate { get; private set; } = null!;
 
         /// <summary>
         /// This read-only field specifies the of the requested review history data. This is either requested, in-progress, done or error.
@@ -194,12 +190,6 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The DateTime when the review is scheduled to end. Required if type is endDate
-        /// </summary>
-        [Input("endDate")]
-        public Input<string>? EndDate { get; set; }
-
-        /// <summary>
         /// The id of the access review history definition.
         /// </summary>
         [Input("historyDefinitionId")]
@@ -224,10 +214,10 @@ namespace Pulumi.AzureNative.Authorization
         public Input<int>? Interval { get; set; }
 
         /// <summary>
-        /// The number of times to repeat the access review. Required and must be positive if type is numbered.
+        /// Access Review History Definition recurrence settings.
         /// </summary>
-        [Input("numberOfOccurrences")]
-        public Input<int>? NumberOfOccurrences { get; set; }
+        [Input("range")]
+        public Input<Inputs.AccessReviewRecurrenceRangeArgs>? Range { get; set; }
 
         [Input("scopes")]
         private InputList<Inputs.AccessReviewScopeArgs>? _scopes;
@@ -242,16 +232,10 @@ namespace Pulumi.AzureNative.Authorization
         }
 
         /// <summary>
-        /// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-        /// </summary>
-        [Input("startDate")]
-        public Input<string>? StartDate { get; set; }
-
-        /// <summary>
-        /// The recurrence range type. The possible values are: endDate, noEnd, numbered.
+        /// The recurrence type : weekly, monthly, etc.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNative.Authorization.AccessReviewRecurrenceRangeType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.AccessReviewRecurrencePatternType>? Type { get; set; }
 
         public AccessReviewHistoryDefinitionByIdArgs()
         {

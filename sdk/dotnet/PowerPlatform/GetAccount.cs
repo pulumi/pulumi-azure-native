@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.PowerPlatform
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The description of the account.
         /// </summary>
         public readonly string? Description;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.PowerPlatform
 
         [OutputConstructor]
         private GetAccountResult(
+            string azureApiVersion,
+
             string? description,
 
             string id,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.PowerPlatform
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Id = id;
             Location = location;

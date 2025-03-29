@@ -28,11 +28,12 @@ class ServerArgs:
                  administrators: Optional[pulumi.Input['ServerExternalAdministratorArgs']] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+                 is_i_pv6_enabled: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[str]] = None,
+                 minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']]] = None,
                  restrict_outbound_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -42,14 +43,15 @@ class ServerArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] administrator_login: Administrator username for the server. Once created it cannot be changed.
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
-        :param pulumi.Input['ServerExternalAdministratorArgs'] administrators: The Azure Active Directory administrator of the server.
+        :param pulumi.Input['ServerExternalAdministratorArgs'] administrators: The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant CMK scenario
         :param pulumi.Input['ResourceIdentityArgs'] identity: The Azure Active Directory identity of the server.
+        :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] is_i_pv6_enabled: Whether or not to enable IPv6 support for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        :param pulumi.Input[Union[str, 'MinimalTlsVersion']] minimal_tls_version: Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
-        :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        :param pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] restrict_outbound_network_access: Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -66,6 +68,8 @@ class ServerArgs:
             pulumi.set(__self__, "federated_client_id", federated_client_id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if is_i_pv6_enabled is not None:
+            pulumi.set(__self__, "is_i_pv6_enabled", is_i_pv6_enabled)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
         if location is not None:
@@ -125,7 +129,7 @@ class ServerArgs:
     @pulumi.getter
     def administrators(self) -> Optional[pulumi.Input['ServerExternalAdministratorArgs']]:
         """
-        The Azure Active Directory administrator of the server.
+        The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         """
         return pulumi.get(self, "administrators")
 
@@ -158,6 +162,18 @@ class ServerArgs:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="isIPv6Enabled")
+    def is_i_pv6_enabled(self) -> Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]]:
+        """
+        Whether or not to enable IPv6 support for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "is_i_pv6_enabled")
+
+    @is_i_pv6_enabled.setter
+    def is_i_pv6_enabled(self, value: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]]):
+        pulumi.set(self, "is_i_pv6_enabled", value)
+
+    @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -183,14 +199,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> Optional[pulumi.Input[str]]:
+    def minimal_tls_version(self) -> Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]]:
         """
-        Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         """
         return pulumi.get(self, "minimal_tls_version")
 
     @minimal_tls_version.setter
-    def minimal_tls_version(self, value: Optional[pulumi.Input[str]]):
+    def minimal_tls_version(self, value: Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]]):
         pulumi.set(self, "minimal_tls_version", value)
 
     @property
@@ -207,14 +223,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]]:
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']]]:
         """
-        Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]]):
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']]]):
         pulumi.set(self, "public_network_access", value)
 
     @property
@@ -276,11 +292,12 @@ class Server(pulumi.CustomResource):
                  administrators: Optional[pulumi.Input[Union['ServerExternalAdministratorArgs', 'ServerExternalAdministratorArgsDict']]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
+                 is_i_pv6_enabled: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[str]] = None,
+                 minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restrict_outbound_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -290,9 +307,9 @@ class Server(pulumi.CustomResource):
         """
         An Azure SQL Database server.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2014-04-01, 2015-05-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         **Warning:** when `AzureADOnlyAuthentication` is enabled, the Azure SQL API rejects any `AdministratorLoginPassword`, even if it is the same as the current one.
 
@@ -308,14 +325,15 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the server. Once created it cannot be changed.
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
-        :param pulumi.Input[Union['ServerExternalAdministratorArgs', 'ServerExternalAdministratorArgsDict']] administrators: The Azure Active Directory administrator of the server.
+        :param pulumi.Input[Union['ServerExternalAdministratorArgs', 'ServerExternalAdministratorArgsDict']] administrators: The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant CMK scenario
         :param pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']] identity: The Azure Active Directory identity of the server.
+        :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] is_i_pv6_enabled: Whether or not to enable IPv6 support for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        :param pulumi.Input[Union[str, 'MinimalTlsVersion']] minimal_tls_version: Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
-        :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        :param pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] restrict_outbound_network_access: Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[str] server_name: The name of the server.
@@ -331,9 +349,9 @@ class Server(pulumi.CustomResource):
         """
         An Azure SQL Database server.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2014-04-01, 2015-05-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         **Warning:** when `AzureADOnlyAuthentication` is enabled, the Azure SQL API rejects any `AdministratorLoginPassword`, even if it is the same as the current one.
 
@@ -365,11 +383,12 @@ class Server(pulumi.CustomResource):
                  administrators: Optional[pulumi.Input[Union['ServerExternalAdministratorArgs', 'ServerExternalAdministratorArgsDict']]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
+                 is_i_pv6_enabled: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[str]] = None,
+                 minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restrict_outbound_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -389,6 +408,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["administrators"] = administrators
             __props__.__dict__["federated_client_id"] = federated_client_id
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["is_i_pv6_enabled"] = is_i_pv6_enabled
             __props__.__dict__["key_id"] = key_id
             __props__.__dict__["location"] = location
             __props__.__dict__["minimal_tls_version"] = minimal_tls_version
@@ -401,6 +421,8 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["external_governance_status"] = None
             __props__.__dict__["fully_qualified_domain_name"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
@@ -434,9 +456,12 @@ class Server(pulumi.CustomResource):
 
         __props__.__dict__["administrator_login"] = None
         __props__.__dict__["administrators"] = None
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["external_governance_status"] = None
         __props__.__dict__["federated_client_id"] = None
         __props__.__dict__["fully_qualified_domain_name"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["is_i_pv6_enabled"] = None
         __props__.__dict__["key_id"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
@@ -465,9 +490,25 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def administrators(self) -> pulumi.Output[Optional['outputs.ServerExternalAdministratorResponse']]:
         """
-        The Azure Active Directory administrator of the server.
+        The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         """
         return pulumi.get(self, "administrators")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="externalGovernanceStatus")
+    def external_governance_status(self) -> pulumi.Output[str]:
+        """
+        Status of external governance.
+        """
+        return pulumi.get(self, "external_governance_status")
 
     @property
     @pulumi.getter(name="federatedClientId")
@@ -492,6 +533,14 @@ class Server(pulumi.CustomResource):
         The Azure Active Directory identity of the server.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="isIPv6Enabled")
+    def is_i_pv6_enabled(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether or not to enable IPv6 support for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "is_i_pv6_enabled")
 
     @property
     @pulumi.getter(name="keyId")
@@ -521,7 +570,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="minimalTlsVersion")
     def minimal_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         """
         return pulumi.get(self, "minimal_tls_version")
 
@@ -553,7 +602,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> pulumi.Output[Optional[str]]:
         """
-        Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         """
         return pulumi.get(self, "public_network_access")
 

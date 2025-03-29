@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public sealed class GetPipelineTopologyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// An optional description of the pipeline topology. It is recommended that the expected use of the topology to be described here.
         /// </summary>
         public readonly string? Description;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
         [OutputConstructor]
         private GetPipelineTopologyResult(
+            string azureApiVersion,
+
             string? description,
 
             string id,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Id = id;
             Kind = kind;

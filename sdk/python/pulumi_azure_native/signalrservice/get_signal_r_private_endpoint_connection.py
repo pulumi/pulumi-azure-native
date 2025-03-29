@@ -27,7 +27,10 @@ class GetSignalRPrivateEndpointConnectionResult:
     """
     A private endpoint connection to an azure resource
     """
-    def __init__(__self__, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if group_ids and not isinstance(group_ids, list):
             raise TypeError("Expected argument 'group_ids' to be a list")
         pulumi.set(__self__, "group_ids", group_ids)
@@ -54,6 +57,14 @@ class GetSignalRPrivateEndpointConnectionResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="groupIds")
     def group_ids(self) -> Sequence[str]:
         """
@@ -65,7 +76,7 @@ class GetSignalRPrivateEndpointConnectionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -73,7 +84,7 @@ class GetSignalRPrivateEndpointConnectionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -105,7 +116,7 @@ class GetSignalRPrivateEndpointConnectionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -113,7 +124,7 @@ class GetSignalRPrivateEndpointConnectionResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -124,6 +135,7 @@ class AwaitableGetSignalRPrivateEndpointConnectionResult(GetSignalRPrivateEndpoi
         if False:
             yield self
         return GetSignalRPrivateEndpointConnectionResult(
+            azure_api_version=self.azure_api_version,
             group_ids=self.group_ids,
             id=self.id,
             name=self.name,
@@ -141,13 +153,13 @@ def get_signal_r_private_endpoint_connection(private_endpoint_connection_name: O
     """
     Get the specified private endpoint connection
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str private_endpoint_connection_name: The name of the private endpoint connection
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
     __args__ = dict()
@@ -158,6 +170,7 @@ def get_signal_r_private_endpoint_connection(private_endpoint_connection_name: O
     __ret__ = pulumi.runtime.invoke('azure-native:signalrservice:getSignalRPrivateEndpointConnection', __args__, opts=opts, typ=GetSignalRPrivateEndpointConnectionResult).value
 
     return AwaitableGetSignalRPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         group_ids=pulumi.get(__ret__, 'group_ids'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -173,13 +186,13 @@ def get_signal_r_private_endpoint_connection_output(private_endpoint_connection_
     """
     Get the specified private endpoint connection
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str private_endpoint_connection_name: The name of the private endpoint connection
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
     __args__ = dict()
@@ -189,6 +202,7 @@ def get_signal_r_private_endpoint_connection_output(private_endpoint_connection_
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:signalrservice:getSignalRPrivateEndpointConnection', __args__, opts=opts, typ=GetSignalRPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetSignalRPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         group_ids=pulumi.get(__response__, 'group_ids'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

@@ -36,6 +36,10 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Time at which the account was created.
      */
     readonly createdAt: string;

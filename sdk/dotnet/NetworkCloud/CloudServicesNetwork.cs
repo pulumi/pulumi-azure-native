@@ -15,9 +15,9 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
     /// virtual machines and/or Hybrid AKS clusters.
     /// 
-    /// Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+    /// Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+    /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:CloudServicesNetwork")]
     public partial class CloudServicesNetwork : global::Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("associatedResourceIds")]
         public Output<ImmutableArray<string>> AssociatedResourceIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The resource ID of the Network Cloud cluster this cloud services network is associated with.
@@ -63,6 +69,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("enabledEgressEndpoints")]
         public Output<ImmutableArray<Outputs.EgressEndpointResponse>> EnabledEgressEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
         /// The extended location of the cluster associated with the resource.

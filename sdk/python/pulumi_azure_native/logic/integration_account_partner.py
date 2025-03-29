@@ -168,9 +168,9 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         """
         The integration account partner.
 
-        Uses Azure REST API version 2019-05-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
+        Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
-        Other available API versions: 2015-08-01-preview.
+        Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,9 +192,9 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         """
         The integration account partner.
 
-        Uses Azure REST API version 2019-05-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
+        Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
-        Other available API versions: 2015-08-01-preview.
+        Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountPartnerArgs args: The arguments to use to populate this resource's properties.
@@ -244,11 +244,12 @@ class IntegrationAccountPartner(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["changed_time"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountPartner")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20160601:Partner"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountPartner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountPartner, __self__).__init__(
             'azure-native:logic:IntegrationAccountPartner',
@@ -272,6 +273,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
         __props__ = IntegrationAccountPartnerArgs.__new__(IntegrationAccountPartnerArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["changed_time"] = None
         __props__.__dict__["content"] = None
         __props__.__dict__["created_time"] = None
@@ -282,6 +284,14 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return IntegrationAccountPartner(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="changedTime")

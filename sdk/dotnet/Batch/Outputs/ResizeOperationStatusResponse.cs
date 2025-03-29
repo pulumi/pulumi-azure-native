@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ResizeErrorResponse> Errors;
         /// <summary>
-        /// The default value is requeue.
-        /// </summary>
-        public readonly string? NodeDeallocationOption;
-        /// <summary>
         /// The default value is 15 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service returns an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
         /// </summary>
         public readonly string? ResizeTimeout;
@@ -36,8 +32,6 @@ namespace Pulumi.AzureNative.Batch.Outputs
         private ResizeOperationStatusResponse(
             ImmutableArray<Outputs.ResizeErrorResponse> errors,
 
-            string? nodeDeallocationOption,
-
             string? resizeTimeout,
 
             string? startTime,
@@ -47,7 +41,6 @@ namespace Pulumi.AzureNative.Batch.Outputs
             int? targetLowPriorityNodes)
         {
             Errors = errors;
-            NodeDeallocationOption = nodeDeallocationOption;
             ResizeTimeout = resizeTimeout;
             StartTime = startTime;
             TargetDedicatedNodes = targetDedicatedNodes;

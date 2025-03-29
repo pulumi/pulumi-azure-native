@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.DataFactory
     public sealed class GetFactoryResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Time the factory was created in ISO8601 format.
         /// </summary>
         public readonly string CreateTime;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.DataFactory
 
         [OutputConstructor]
         private GetFactoryResult(
+            string azureApiVersion,
+
             string createTime,
 
             string eTag,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.DataFactory
 
             string version)
         {
+            AzureApiVersion = azureApiVersion;
             CreateTime = createTime;
             ETag = eTag;
             Encryption = encryption;

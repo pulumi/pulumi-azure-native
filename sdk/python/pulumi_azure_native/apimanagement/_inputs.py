@@ -88,6 +88,10 @@ __all__ = [
     'HttpMessageDiagnosticArgsDict',
     'KeyVaultContractCreatePropertiesArgs',
     'KeyVaultContractCreatePropertiesArgsDict',
+    'LLMDiagnosticSettingsArgs',
+    'LLMDiagnosticSettingsArgsDict',
+    'LLMMessageDiagnosticSettingsArgs',
+    'LLMMessageDiagnosticSettingsArgsDict',
     'OAuth2AuthenticationSettingsContractArgs',
     'OAuth2AuthenticationSettingsContractArgsDict',
     'OpenIdAuthenticationSettingsContractArgs',
@@ -483,7 +487,7 @@ if not MYPY:
         """
         API Management gateway resource SKU properties.
         """
-        name: pulumi.Input[Union[str, 'SkuType']]
+        name: pulumi.Input[Union[str, 'ApiGatewaySkuType']]
         """
         Name of the Sku.
         """
@@ -497,11 +501,11 @@ elif False:
 @pulumi.input_type
 class ApiManagementGatewaySkuPropertiesArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[Union[str, 'SkuType']],
+                 name: pulumi.Input[Union[str, 'ApiGatewaySkuType']],
                  capacity: Optional[pulumi.Input[int]] = None):
         """
         API Management gateway resource SKU properties.
-        :param pulumi.Input[Union[str, 'SkuType']] name: Name of the Sku.
+        :param pulumi.Input[Union[str, 'ApiGatewaySkuType']] name: Name of the Sku.
         :param pulumi.Input[int] capacity: Capacity of the SKU (number of deployed units of the SKU)
         """
         pulumi.set(__self__, "name", name)
@@ -510,14 +514,14 @@ class ApiManagementGatewaySkuPropertiesArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[Union[str, 'SkuType']]:
+    def name(self) -> pulumi.Input[Union[str, 'ApiGatewaySkuType']]:
         """
         Name of the Sku.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[Union[str, 'SkuType']]):
+    def name(self, value: pulumi.Input[Union[str, 'ApiGatewaySkuType']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -2798,6 +2802,138 @@ class KeyVaultContractCreatePropertiesArgs:
     @secret_identifier.setter
     def secret_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_identifier", value)
+
+
+if not MYPY:
+    class LLMDiagnosticSettingsArgsDict(TypedDict):
+        """
+        Diagnostic settings for Large Language Models
+        """
+        logs: NotRequired[pulumi.Input[Union[str, 'LlmDiagnosticSettings']]]
+        """
+        Specifies whether default diagnostic should be enabled for Large Language Models or not.
+        """
+        requests: NotRequired[pulumi.Input['LLMMessageDiagnosticSettingsArgsDict']]
+        """
+        Diagnostic settings for Large Language Models requests.
+        """
+        responses: NotRequired[pulumi.Input['LLMMessageDiagnosticSettingsArgsDict']]
+        """
+        Diagnostic settings for Large Language Models responses.
+        """
+elif False:
+    LLMDiagnosticSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LLMDiagnosticSettingsArgs:
+    def __init__(__self__, *,
+                 logs: Optional[pulumi.Input[Union[str, 'LlmDiagnosticSettings']]] = None,
+                 requests: Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']] = None,
+                 responses: Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']] = None):
+        """
+        Diagnostic settings for Large Language Models
+        :param pulumi.Input[Union[str, 'LlmDiagnosticSettings']] logs: Specifies whether default diagnostic should be enabled for Large Language Models or not.
+        :param pulumi.Input['LLMMessageDiagnosticSettingsArgs'] requests: Diagnostic settings for Large Language Models requests.
+        :param pulumi.Input['LLMMessageDiagnosticSettingsArgs'] responses: Diagnostic settings for Large Language Models responses.
+        """
+        if logs is not None:
+            pulumi.set(__self__, "logs", logs)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if responses is not None:
+            pulumi.set(__self__, "responses", responses)
+
+    @property
+    @pulumi.getter
+    def logs(self) -> Optional[pulumi.Input[Union[str, 'LlmDiagnosticSettings']]]:
+        """
+        Specifies whether default diagnostic should be enabled for Large Language Models or not.
+        """
+        return pulumi.get(self, "logs")
+
+    @logs.setter
+    def logs(self, value: Optional[pulumi.Input[Union[str, 'LlmDiagnosticSettings']]]):
+        pulumi.set(self, "logs", value)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']]:
+        """
+        Diagnostic settings for Large Language Models requests.
+        """
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']]):
+        pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter
+    def responses(self) -> Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']]:
+        """
+        Diagnostic settings for Large Language Models responses.
+        """
+        return pulumi.get(self, "responses")
+
+    @responses.setter
+    def responses(self, value: Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']]):
+        pulumi.set(self, "responses", value)
+
+
+if not MYPY:
+    class LLMMessageDiagnosticSettingsArgsDict(TypedDict):
+        """
+        Diagnostic settings for Large Language Models Messages
+        """
+        max_size_in_bytes: NotRequired[pulumi.Input[int]]
+        """
+        Maximum size of message to logs in bytes. The default size is 32KB.
+        """
+        messages: NotRequired[pulumi.Input[Union[str, 'LlmMessageLogTypes']]]
+        """
+        Specifies which message should be logged. Currently there is only 'all' option.
+        """
+elif False:
+    LLMMessageDiagnosticSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LLMMessageDiagnosticSettingsArgs:
+    def __init__(__self__, *,
+                 max_size_in_bytes: Optional[pulumi.Input[int]] = None,
+                 messages: Optional[pulumi.Input[Union[str, 'LlmMessageLogTypes']]] = None):
+        """
+        Diagnostic settings for Large Language Models Messages
+        :param pulumi.Input[int] max_size_in_bytes: Maximum size of message to logs in bytes. The default size is 32KB.
+        :param pulumi.Input[Union[str, 'LlmMessageLogTypes']] messages: Specifies which message should be logged. Currently there is only 'all' option.
+        """
+        if max_size_in_bytes is not None:
+            pulumi.set(__self__, "max_size_in_bytes", max_size_in_bytes)
+        if messages is not None:
+            pulumi.set(__self__, "messages", messages)
+
+    @property
+    @pulumi.getter(name="maxSizeInBytes")
+    def max_size_in_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum size of message to logs in bytes. The default size is 32KB.
+        """
+        return pulumi.get(self, "max_size_in_bytes")
+
+    @max_size_in_bytes.setter
+    def max_size_in_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_size_in_bytes", value)
+
+    @property
+    @pulumi.getter
+    def messages(self) -> Optional[pulumi.Input[Union[str, 'LlmMessageLogTypes']]]:
+        """
+        Specifies which message should be logged. Currently there is only 'all' option.
+        """
+        return pulumi.get(self, "messages")
+
+    @messages.setter
+    def messages(self, value: Optional[pulumi.Input[Union[str, 'LlmMessageLogTypes']]]):
+        pulumi.set(self, "messages", value)
 
 
 if not MYPY:

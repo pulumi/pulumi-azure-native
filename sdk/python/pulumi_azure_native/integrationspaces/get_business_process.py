@@ -27,7 +27,10 @@ class GetBusinessProcessResult:
     """
     A business process under application.
     """
-    def __init__(__self__, business_process_mapping=None, business_process_stages=None, description=None, id=None, identifier=None, name=None, provisioning_state=None, system_data=None, table_name=None, tracking_data_store_reference_name=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, business_process_mapping=None, business_process_stages=None, description=None, id=None, identifier=None, name=None, provisioning_state=None, system_data=None, table_name=None, tracking_data_store_reference_name=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if business_process_mapping and not isinstance(business_process_mapping, dict):
             raise TypeError("Expected argument 'business_process_mapping' to be a dict")
         pulumi.set(__self__, "business_process_mapping", business_process_mapping)
@@ -64,6 +67,14 @@ class GetBusinessProcessResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="businessProcessMapping")
@@ -168,6 +179,7 @@ class AwaitableGetBusinessProcessResult(GetBusinessProcessResult):
         if False:
             yield self
         return GetBusinessProcessResult(
+            azure_api_version=self.azure_api_version,
             business_process_mapping=self.business_process_mapping,
             business_process_stages=self.business_process_stages,
             description=self.description,
@@ -207,6 +219,7 @@ def get_business_process(application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:integrationspaces:getBusinessProcess', __args__, opts=opts, typ=GetBusinessProcessResult).value
 
     return AwaitableGetBusinessProcessResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         business_process_mapping=pulumi.get(__ret__, 'business_process_mapping'),
         business_process_stages=pulumi.get(__ret__, 'business_process_stages'),
         description=pulumi.get(__ret__, 'description'),
@@ -243,6 +256,7 @@ def get_business_process_output(application_name: Optional[pulumi.Input[str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:integrationspaces:getBusinessProcess', __args__, opts=opts, typ=GetBusinessProcessResult)
     return __ret__.apply(lambda __response__: GetBusinessProcessResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         business_process_mapping=pulumi.get(__response__, 'business_process_mapping'),
         business_process_stages=pulumi.get(__response__, 'business_process_stages'),
         description=pulumi.get(__response__, 'description'),

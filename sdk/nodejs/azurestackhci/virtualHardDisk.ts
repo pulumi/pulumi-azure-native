@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The virtual hard disk resource definition.
  *
- * Uses Azure REST API version 2022-12-15-preview.
+ * Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VirtualHardDisk extends pulumi.CustomResource {
     /**
@@ -41,11 +41,22 @@ export class VirtualHardDisk extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualHardDisk.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Block size in bytes
+     */
     public readonly blockSizeBytes!: pulumi.Output<number | undefined>;
     /**
      * Storage ContainerID of the storage container to be used for VHD
      */
     public readonly containerId!: pulumi.Output<string | undefined>;
+    /**
+     * Boolean indicating whether it is an existing local hard disk or if one should be created.
+     */
+    public readonly createFromLocal!: pulumi.Output<boolean | undefined>;
     /**
      * The format of the actual VHD file [vhd, vhdx]
      */
@@ -54,6 +65,10 @@ export class VirtualHardDisk extends pulumi.CustomResource {
      * Size of the disk in GB
      */
     public readonly diskSizeGB!: pulumi.Output<number | undefined>;
+    /**
+     * URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
+     */
+    public readonly downloadUrl!: pulumi.Output<string | undefined>;
     /**
      * Boolean for enabling dynamic sizing on the virtual hard disk
      */
@@ -70,11 +85,17 @@ export class VirtualHardDisk extends pulumi.CustomResource {
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Logical sector in bytes
+     */
     public readonly logicalSectorBytes!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Physical sector in bytes
+     */
     public readonly physicalSectorBytes!: pulumi.Output<number | undefined>;
     /**
      * Provisioning state of the virtual hard disk.
@@ -113,8 +134,10 @@ export class VirtualHardDisk extends pulumi.CustomResource {
             }
             resourceInputs["blockSizeBytes"] = args ? args.blockSizeBytes : undefined;
             resourceInputs["containerId"] = args ? args.containerId : undefined;
+            resourceInputs["createFromLocal"] = (args ? args.createFromLocal : undefined) ?? false;
             resourceInputs["diskFileFormat"] = args ? args.diskFileFormat : undefined;
             resourceInputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
+            resourceInputs["downloadUrl"] = args ? args.downloadUrl : undefined;
             resourceInputs["dynamic"] = args ? args.dynamic : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
@@ -124,16 +147,20 @@ export class VirtualHardDisk extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualHardDiskName"] = args ? args.virtualHardDiskName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blockSizeBytes"] = undefined /*out*/;
             resourceInputs["containerId"] = undefined /*out*/;
+            resourceInputs["createFromLocal"] = undefined /*out*/;
             resourceInputs["diskFileFormat"] = undefined /*out*/;
             resourceInputs["diskSizeGB"] = undefined /*out*/;
+            resourceInputs["downloadUrl"] = undefined /*out*/;
             resourceInputs["dynamic"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hyperVGeneration"] = undefined /*out*/;
@@ -148,7 +175,7 @@ export class VirtualHardDisk extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20230701preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20230901preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240101:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240201preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240501preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240715preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240801preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20241001preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20250201preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20250401preview:VirtualHardDisk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20230701preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20230901preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240101:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240201preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240501preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240715preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240801preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20241001preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20250201preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20250401preview:VirtualHardDisk" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualHardDisk.__pulumiType, name, resourceInputs, opts);
     }
@@ -158,11 +185,18 @@ export class VirtualHardDisk extends pulumi.CustomResource {
  * The set of arguments for constructing a VirtualHardDisk resource.
  */
 export interface VirtualHardDiskArgs {
+    /**
+     * Block size in bytes
+     */
     blockSizeBytes?: pulumi.Input<number>;
     /**
      * Storage ContainerID of the storage container to be used for VHD
      */
     containerId?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether it is an existing local hard disk or if one should be created.
+     */
+    createFromLocal?: pulumi.Input<boolean>;
     /**
      * The format of the actual VHD file [vhd, vhdx]
      */
@@ -171,6 +205,10 @@ export interface VirtualHardDiskArgs {
      * Size of the disk in GB
      */
     diskSizeGB?: pulumi.Input<number>;
+    /**
+     * URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
+     */
+    downloadUrl?: pulumi.Input<string>;
     /**
      * Boolean for enabling dynamic sizing on the virtual hard disk
      */
@@ -187,7 +225,13 @@ export interface VirtualHardDiskArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Logical sector in bytes
+     */
     logicalSectorBytes?: pulumi.Input<number>;
+    /**
+     * Physical sector in bytes
+     */
     physicalSectorBytes?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.

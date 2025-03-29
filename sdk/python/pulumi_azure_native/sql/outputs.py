@@ -17,14 +17,19 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CertificateInfoResponse',
     'DatabaseIdentityResponse',
+    'DatabaseKeyResponse',
     'DatabaseUserIdentityResponse',
     'DatabaseVulnerabilityAssessmentRuleBaselineItemResponse',
+    'DistributedAvailabilityGroupDatabaseResponse',
     'ElasticPoolPerDatabaseSettingsResponse',
     'FailoverGroupReadOnlyEndpointResponse',
     'FailoverGroupReadWriteEndpointResponse',
     'InstanceFailoverGroupReadOnlyEndpointResponse',
     'InstanceFailoverGroupReadWriteEndpointResponse',
+    'JobAgentIdentityResponse',
+    'JobAgentUserAssignedIdentityResponse',
     'JobScheduleResponse',
     'JobStepActionResponse',
     'JobStepExecutionOptionsResponse',
@@ -61,6 +66,58 @@ __all__ = [
     'UserIdentityResponse',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
 ]
+
+@pulumi.output_type
+class CertificateInfoResponse(dict):
+    """
+    Certificate information
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateName":
+            suggest = "certificate_name"
+        elif key == "expiryDate":
+            suggest = "expiry_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_name: str,
+                 expiry_date: str):
+        """
+        Certificate information
+        :param str certificate_name: The certificate name
+        :param str expiry_date: The certificate expiry date
+        """
+        pulumi.set(__self__, "certificate_name", certificate_name)
+        pulumi.set(__self__, "expiry_date", expiry_date)
+
+    @property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> str:
+        """
+        The certificate name
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @property
+    @pulumi.getter(name="expiryDate")
+    def expiry_date(self) -> str:
+        """
+        The certificate expiry date
+        """
+        return pulumi.get(self, "expiry_date")
+
 
 @pulumi.output_type
 class DatabaseIdentityResponse(dict):
@@ -125,6 +182,78 @@ class DatabaseIdentityResponse(dict):
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class DatabaseKeyResponse(dict):
+    """
+    Database level key used for encryption at rest.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationDate":
+            suggest = "creation_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_date: str,
+                 subregion: str,
+                 thumbprint: str,
+                 type: str):
+        """
+        Database level key used for encryption at rest.
+        :param str creation_date: The database key creation date.
+        :param str subregion: Subregion of the server key.
+        :param str thumbprint: Thumbprint of the database key.
+        :param str type: The database key type. Only supported value is 'AzureKeyVault'.
+        """
+        pulumi.set(__self__, "creation_date", creation_date)
+        pulumi.set(__self__, "subregion", subregion)
+        pulumi.set(__self__, "thumbprint", thumbprint)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
+        """
+        The database key creation date.
+        """
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def subregion(self) -> str:
+        """
+        Subregion of the server key.
+        """
+        return pulumi.get(self, "subregion")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        Thumbprint of the database key.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The database key type. Only supported value is 'AzureKeyVault'.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -202,6 +331,306 @@ class DatabaseVulnerabilityAssessmentRuleBaselineItemResponse(dict):
 
 
 @pulumi.output_type
+class DistributedAvailabilityGroupDatabaseResponse(dict):
+    """
+    Database specific information
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectedState":
+            suggest = "connected_state"
+        elif key == "instanceRedoReplicationLagSeconds":
+            suggest = "instance_redo_replication_lag_seconds"
+        elif key == "instanceReplicaId":
+            suggest = "instance_replica_id"
+        elif key == "instanceSendReplicationLagSeconds":
+            suggest = "instance_send_replication_lag_seconds"
+        elif key == "lastBackupLsn":
+            suggest = "last_backup_lsn"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "lastCommitLsn":
+            suggest = "last_commit_lsn"
+        elif key == "lastCommitTime":
+            suggest = "last_commit_time"
+        elif key == "lastHardenedLsn":
+            suggest = "last_hardened_lsn"
+        elif key == "lastHardenedTime":
+            suggest = "last_hardened_time"
+        elif key == "lastReceivedLsn":
+            suggest = "last_received_lsn"
+        elif key == "lastReceivedTime":
+            suggest = "last_received_time"
+        elif key == "lastSentLsn":
+            suggest = "last_sent_lsn"
+        elif key == "lastSentTime":
+            suggest = "last_sent_time"
+        elif key == "mostRecentLinkError":
+            suggest = "most_recent_link_error"
+        elif key == "partnerAuthCertValidity":
+            suggest = "partner_auth_cert_validity"
+        elif key == "partnerReplicaId":
+            suggest = "partner_replica_id"
+        elif key == "replicaState":
+            suggest = "replica_state"
+        elif key == "seedingProgress":
+            suggest = "seeding_progress"
+        elif key == "synchronizationHealth":
+            suggest = "synchronization_health"
+        elif key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributedAvailabilityGroupDatabaseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributedAvailabilityGroupDatabaseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributedAvailabilityGroupDatabaseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connected_state: str,
+                 instance_redo_replication_lag_seconds: int,
+                 instance_replica_id: str,
+                 instance_send_replication_lag_seconds: int,
+                 last_backup_lsn: str,
+                 last_backup_time: str,
+                 last_commit_lsn: str,
+                 last_commit_time: str,
+                 last_hardened_lsn: str,
+                 last_hardened_time: str,
+                 last_received_lsn: str,
+                 last_received_time: str,
+                 last_sent_lsn: str,
+                 last_sent_time: str,
+                 most_recent_link_error: str,
+                 partner_auth_cert_validity: 'outputs.CertificateInfoResponse',
+                 partner_replica_id: str,
+                 replica_state: str,
+                 seeding_progress: str,
+                 synchronization_health: str,
+                 database_name: Optional[str] = None):
+        """
+        Database specific information
+        :param str connected_state: Link connected state
+        :param int instance_redo_replication_lag_seconds: Redo lag when Managed Instance link side is primary
+        :param str instance_replica_id: Managed instance replica id
+        :param int instance_send_replication_lag_seconds: Replication lag when Managed Instance link side is primary
+        :param str last_backup_lsn: Last backup LSN
+        :param str last_backup_time: Last backup LSN time
+        :param str last_commit_lsn: Last commit LSN
+        :param str last_commit_time: Last commit LSN time
+        :param str last_hardened_lsn: Last hardened LSN
+        :param str last_hardened_time: Last hardened LSN time
+        :param str last_received_lsn: Last received LSN
+        :param str last_received_time: Last received LSN time
+        :param str last_sent_lsn: Last sent LSN
+        :param str last_sent_time: Last sent LSN time
+        :param str most_recent_link_error: The most recent link connection error description
+        :param 'CertificateInfoResponse' partner_auth_cert_validity: SQL server certificate validity
+        :param str partner_replica_id: SQL server replica id
+        :param str replica_state: Current link state
+        :param str seeding_progress: Seeding progress
+        :param str synchronization_health: Link health state
+        :param str database_name: The name of the database in link
+        """
+        pulumi.set(__self__, "connected_state", connected_state)
+        pulumi.set(__self__, "instance_redo_replication_lag_seconds", instance_redo_replication_lag_seconds)
+        pulumi.set(__self__, "instance_replica_id", instance_replica_id)
+        pulumi.set(__self__, "instance_send_replication_lag_seconds", instance_send_replication_lag_seconds)
+        pulumi.set(__self__, "last_backup_lsn", last_backup_lsn)
+        pulumi.set(__self__, "last_backup_time", last_backup_time)
+        pulumi.set(__self__, "last_commit_lsn", last_commit_lsn)
+        pulumi.set(__self__, "last_commit_time", last_commit_time)
+        pulumi.set(__self__, "last_hardened_lsn", last_hardened_lsn)
+        pulumi.set(__self__, "last_hardened_time", last_hardened_time)
+        pulumi.set(__self__, "last_received_lsn", last_received_lsn)
+        pulumi.set(__self__, "last_received_time", last_received_time)
+        pulumi.set(__self__, "last_sent_lsn", last_sent_lsn)
+        pulumi.set(__self__, "last_sent_time", last_sent_time)
+        pulumi.set(__self__, "most_recent_link_error", most_recent_link_error)
+        pulumi.set(__self__, "partner_auth_cert_validity", partner_auth_cert_validity)
+        pulumi.set(__self__, "partner_replica_id", partner_replica_id)
+        pulumi.set(__self__, "replica_state", replica_state)
+        pulumi.set(__self__, "seeding_progress", seeding_progress)
+        pulumi.set(__self__, "synchronization_health", synchronization_health)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="connectedState")
+    def connected_state(self) -> str:
+        """
+        Link connected state
+        """
+        return pulumi.get(self, "connected_state")
+
+    @property
+    @pulumi.getter(name="instanceRedoReplicationLagSeconds")
+    def instance_redo_replication_lag_seconds(self) -> int:
+        """
+        Redo lag when Managed Instance link side is primary
+        """
+        return pulumi.get(self, "instance_redo_replication_lag_seconds")
+
+    @property
+    @pulumi.getter(name="instanceReplicaId")
+    def instance_replica_id(self) -> str:
+        """
+        Managed instance replica id
+        """
+        return pulumi.get(self, "instance_replica_id")
+
+    @property
+    @pulumi.getter(name="instanceSendReplicationLagSeconds")
+    def instance_send_replication_lag_seconds(self) -> int:
+        """
+        Replication lag when Managed Instance link side is primary
+        """
+        return pulumi.get(self, "instance_send_replication_lag_seconds")
+
+    @property
+    @pulumi.getter(name="lastBackupLsn")
+    def last_backup_lsn(self) -> str:
+        """
+        Last backup LSN
+        """
+        return pulumi.get(self, "last_backup_lsn")
+
+    @property
+    @pulumi.getter(name="lastBackupTime")
+    def last_backup_time(self) -> str:
+        """
+        Last backup LSN time
+        """
+        return pulumi.get(self, "last_backup_time")
+
+    @property
+    @pulumi.getter(name="lastCommitLsn")
+    def last_commit_lsn(self) -> str:
+        """
+        Last commit LSN
+        """
+        return pulumi.get(self, "last_commit_lsn")
+
+    @property
+    @pulumi.getter(name="lastCommitTime")
+    def last_commit_time(self) -> str:
+        """
+        Last commit LSN time
+        """
+        return pulumi.get(self, "last_commit_time")
+
+    @property
+    @pulumi.getter(name="lastHardenedLsn")
+    def last_hardened_lsn(self) -> str:
+        """
+        Last hardened LSN
+        """
+        return pulumi.get(self, "last_hardened_lsn")
+
+    @property
+    @pulumi.getter(name="lastHardenedTime")
+    def last_hardened_time(self) -> str:
+        """
+        Last hardened LSN time
+        """
+        return pulumi.get(self, "last_hardened_time")
+
+    @property
+    @pulumi.getter(name="lastReceivedLsn")
+    def last_received_lsn(self) -> str:
+        """
+        Last received LSN
+        """
+        return pulumi.get(self, "last_received_lsn")
+
+    @property
+    @pulumi.getter(name="lastReceivedTime")
+    def last_received_time(self) -> str:
+        """
+        Last received LSN time
+        """
+        return pulumi.get(self, "last_received_time")
+
+    @property
+    @pulumi.getter(name="lastSentLsn")
+    def last_sent_lsn(self) -> str:
+        """
+        Last sent LSN
+        """
+        return pulumi.get(self, "last_sent_lsn")
+
+    @property
+    @pulumi.getter(name="lastSentTime")
+    def last_sent_time(self) -> str:
+        """
+        Last sent LSN time
+        """
+        return pulumi.get(self, "last_sent_time")
+
+    @property
+    @pulumi.getter(name="mostRecentLinkError")
+    def most_recent_link_error(self) -> str:
+        """
+        The most recent link connection error description
+        """
+        return pulumi.get(self, "most_recent_link_error")
+
+    @property
+    @pulumi.getter(name="partnerAuthCertValidity")
+    def partner_auth_cert_validity(self) -> 'outputs.CertificateInfoResponse':
+        """
+        SQL server certificate validity
+        """
+        return pulumi.get(self, "partner_auth_cert_validity")
+
+    @property
+    @pulumi.getter(name="partnerReplicaId")
+    def partner_replica_id(self) -> str:
+        """
+        SQL server replica id
+        """
+        return pulumi.get(self, "partner_replica_id")
+
+    @property
+    @pulumi.getter(name="replicaState")
+    def replica_state(self) -> str:
+        """
+        Current link state
+        """
+        return pulumi.get(self, "replica_state")
+
+    @property
+    @pulumi.getter(name="seedingProgress")
+    def seeding_progress(self) -> str:
+        """
+        Seeding progress
+        """
+        return pulumi.get(self, "seeding_progress")
+
+    @property
+    @pulumi.getter(name="synchronizationHealth")
+    def synchronization_health(self) -> str:
+        """
+        Link health state
+        """
+        return pulumi.get(self, "synchronization_health")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The name of the database in link
+        """
+        return pulumi.get(self, "database_name")
+
+
+@pulumi.output_type
 class ElasticPoolPerDatabaseSettingsResponse(dict):
     """
     Per database settings of an elastic pool.
@@ -209,7 +638,9 @@ class ElasticPoolPerDatabaseSettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "maxCapacity":
+        if key == "autoPauseDelay":
+            suggest = "auto_pause_delay"
+        elif key == "maxCapacity":
             suggest = "max_capacity"
         elif key == "minCapacity":
             suggest = "min_capacity"
@@ -226,17 +657,29 @@ class ElasticPoolPerDatabaseSettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 auto_pause_delay: Optional[int] = None,
                  max_capacity: Optional[float] = None,
                  min_capacity: Optional[float] = None):
         """
         Per database settings of an elastic pool.
+        :param int auto_pause_delay: Auto Pause Delay for per database within pool
         :param float max_capacity: The maximum capacity any one database can consume.
         :param float min_capacity: The minimum capacity all databases are guaranteed.
         """
+        if auto_pause_delay is not None:
+            pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if min_capacity is not None:
             pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @property
+    @pulumi.getter(name="autoPauseDelay")
+    def auto_pause_delay(self) -> Optional[int]:
+        """
+        Auto Pause Delay for per database within pool
+        """
+        return pulumi.get(self, "auto_pause_delay")
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -265,6 +708,8 @@ class FailoverGroupReadOnlyEndpointResponse(dict):
         suggest = None
         if key == "failoverPolicy":
             suggest = "failover_policy"
+        elif key == "targetServer":
+            suggest = "target_server"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FailoverGroupReadOnlyEndpointResponse. Access the value via the '{suggest}' property getter instead.")
@@ -278,13 +723,17 @@ class FailoverGroupReadOnlyEndpointResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 failover_policy: Optional[str] = None):
+                 failover_policy: Optional[str] = None,
+                 target_server: Optional[str] = None):
         """
         Read-only endpoint of the failover group instance.
         :param str failover_policy: Failover policy of the read-only endpoint for the failover group.
+        :param str target_server: The target partner server where the read-only endpoint points to.
         """
         if failover_policy is not None:
             pulumi.set(__self__, "failover_policy", failover_policy)
+        if target_server is not None:
+            pulumi.set(__self__, "target_server", target_server)
 
     @property
     @pulumi.getter(name="failoverPolicy")
@@ -293,6 +742,14 @@ class FailoverGroupReadOnlyEndpointResponse(dict):
         Failover policy of the read-only endpoint for the failover group.
         """
         return pulumi.get(self, "failover_policy")
+
+    @property
+    @pulumi.getter(name="targetServer")
+    def target_server(self) -> Optional[str]:
+        """
+        The target partner server where the read-only endpoint points to.
+        """
+        return pulumi.get(self, "target_server")
 
 
 @pulumi.output_type
@@ -442,6 +899,123 @@ class InstanceFailoverGroupReadWriteEndpointResponse(dict):
 
 
 @pulumi.output_type
+class JobAgentIdentityResponse(dict):
+    """
+    Azure Active Directory identity configuration for a resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobAgentIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobAgentIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobAgentIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 tenant_id: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.JobAgentUserAssignedIdentityResponse']] = None):
+        """
+        Azure Active Directory identity configuration for a resource.
+        :param str type: The job agent identity type
+        :param str tenant_id: The job agent identity tenant id
+        :param Mapping[str, 'JobAgentUserAssignedIdentityResponse'] user_assigned_identities: The resource ids of the user assigned identities to use
+        """
+        pulumi.set(__self__, "type", type)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The job agent identity type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The job agent identity tenant id
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.JobAgentUserAssignedIdentityResponse']]:
+        """
+        The resource ids of the user assigned identities to use
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class JobAgentUserAssignedIdentityResponse(dict):
+    """
+    Azure Active Directory identity configuration for a resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobAgentUserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobAgentUserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobAgentUserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        Azure Active Directory identity configuration for a resource.
+        :param str client_id: The Azure Active Directory client id.
+        :param str principal_id: The Azure Active Directory principal id.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The Azure Active Directory client id.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Azure Active Directory principal id.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class JobScheduleResponse(dict):
     """
     Scheduling properties of a job.
@@ -482,13 +1056,13 @@ class JobScheduleResponse(dict):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if end_time is None:
-            end_time = '9999-12-31T11:59:59+00:00'
+            end_time = '9999-12-31T17:29:59+05:30'
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
         if start_time is None:
-            start_time = '0001-01-01T00:00:00+00:00'
+            start_time = '0001-01-01T05:30:00+05:30'
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
         if type is None:
@@ -726,29 +1300,30 @@ class JobStepOutputResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 credential: str,
                  database_name: str,
                  server_name: str,
                  table_name: str,
+                 credential: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  schema_name: Optional[str] = None,
                  subscription_id: Optional[str] = None,
                  type: Optional[str] = None):
         """
         The output configuration of a job step.
-        :param str credential: The resource ID of the credential to use to connect to the output destination.
         :param str database_name: The output destination database.
         :param str server_name: The output destination server name.
         :param str table_name: The output destination table.
+        :param str credential: The resource ID of the credential to use to connect to the output destination.
         :param str resource_group_name: The output destination resource group.
         :param str schema_name: The output destination schema.
         :param str subscription_id: The output destination subscription id.
         :param str type: The output destination type.
         """
-        pulumi.set(__self__, "credential", credential)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "table_name", table_name)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if schema_name is None:
@@ -761,14 +1336,6 @@ class JobStepOutputResponse(dict):
             type = 'SqlDatabase'
         if type is not None:
             pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def credential(self) -> str:
-        """
-        The resource ID of the credential to use to connect to the output destination.
-        """
-        return pulumi.get(self, "credential")
 
     @property
     @pulumi.getter(name="databaseName")
@@ -793,6 +1360,14 @@ class JobStepOutputResponse(dict):
         The output destination table.
         """
         return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[str]:
+        """
+        The resource ID of the credential to use to connect to the output destination.
+        """
+        return pulumi.get(self, "credential")
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -1876,7 +2451,7 @@ class RecommendedActionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 details: Mapping[str, Any],
+                 details: Mapping[str, str],
                  error_details: 'outputs.RecommendedActionErrorInfoResponse',
                  estimated_impact: Sequence['outputs.RecommendedActionImpactRecordResponse'],
                  execute_action_duration: str,
@@ -1906,7 +2481,7 @@ class RecommendedActionResponse(dict):
                  valid_since: str):
         """
         Database, Server or Elastic Pool Recommended Action.
-        :param Mapping[str, Any] details: Gets additional details specific to this recommended action.
+        :param Mapping[str, str] details: Gets additional details specific to this recommended action.
         :param 'RecommendedActionErrorInfoResponse' error_details: Gets the error details if and why this recommended action is put to error state.
         :param Sequence['RecommendedActionImpactRecordResponse'] estimated_impact: Gets the estimated impact info for this recommended action e.g., Estimated CPU gain, Estimated Disk Space change
         :param str execute_action_duration: Gets the time taken for applying this recommended action on user resource. e.g., time taken for index creation
@@ -1966,7 +2541,7 @@ class RecommendedActionResponse(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Mapping[str, Any]:
+    def details(self) -> Mapping[str, str]:
         """
         Gets additional details specific to this recommended action.
         """

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements ExternalNetworks GET method.
         /// 
-        /// Uses Azure REST API version 2023-02-01-preview.
+        /// Uses Azure REST API version 2023-06-15.
         /// 
-        /// Other available API versions: 2023-06-15.
+        /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetExternalNetworkResult> InvokeAsync(GetExternalNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExternalNetworkResult>("azure-native:managednetworkfabric:getExternalNetwork", args ?? new GetExternalNetworkArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements ExternalNetworks GET method.
         /// 
-        /// Uses Azure REST API version 2023-02-01-preview.
+        /// Uses Azure REST API version 2023-06-15.
         /// 
-        /// Other available API versions: 2023-06-15.
+        /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetExternalNetworkResult> Invoke(GetExternalNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExternalNetworkResult>("azure-native:managednetworkfabric:getExternalNetwork", args ?? new GetExternalNetworkInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements ExternalNetworks GET method.
         /// 
-        /// Uses Azure REST API version 2023-02-01-preview.
+        /// Uses Azure REST API version 2023-06-15.
         /// 
-        /// Other available API versions: 2023-06-15.
+        /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetExternalNetworkResult> Invoke(GetExternalNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExternalNetworkResult>("azure-native:managednetworkfabric:getExternalNetwork", args ?? new GetExternalNetworkInvokeArgs(), options.WithDefaults());
@@ -46,13 +46,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetExternalNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the ExternalNetwork
+        /// Name of the External Network.
         /// </summary>
         [Input("externalNetworkName", required: true)]
         public string ExternalNetworkName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the L3IsolationDomain
+        /// Name of the L3 Isolation Domain.
         /// </summary>
         [Input("l3IsolationDomainName", required: true)]
         public string L3IsolationDomainName { get; set; } = null!;
@@ -72,13 +72,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetExternalNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the ExternalNetwork
+        /// Name of the External Network.
         /// </summary>
         [Input("externalNetworkName", required: true)]
         public Input<string> ExternalNetworkName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the L3IsolationDomain
+        /// Name of the L3 Isolation Domain.
         /// </summary>
         [Input("l3IsolationDomainName", required: true)]
         public Input<string> L3IsolationDomainName { get; set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetExternalNetworkResult
     {
         /// <summary>
-        /// AdministrativeState of the externalNetwork. Example: Enabled | Disabled.
+        /// Administrative state of the resource.
         /// </summary>
         public readonly string AdministrativeState;
         /// <summary>
@@ -108,19 +108,31 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// List of resources the externalNetwork is disabled on. Can be either entire NetworkFabric or NetworkRack.
+        /// The Azure API version of the resource.
         /// </summary>
-        public readonly ImmutableArray<string> DisabledOnResources;
+        public readonly string AzureApiVersion;
         /// <summary>
-        /// ARM resource ID of exportRoutePolicy.
+        /// Configuration state of the resource.
+        /// </summary>
+        public readonly string ConfigurationState;
+        /// <summary>
+        /// Export Route Policy either IPv4 or IPv6.
+        /// </summary>
+        public readonly Outputs.ExportRoutePolicyResponse? ExportRoutePolicy;
+        /// <summary>
+        /// ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         /// </summary>
         public readonly string? ExportRoutePolicyId;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// ARM resource ID of importRoutePolicy.
+        /// Import Route Policy either IPv4 or IPv6.
+        /// </summary>
+        public readonly Outputs.ImportRoutePolicyResponse? ImportRoutePolicy;
+        /// <summary>
+        /// ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         /// </summary>
         public readonly string? ImportRoutePolicyId;
         /// <summary>
@@ -128,9 +140,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the networkToNetworkInterconnectId of the resource.
+        /// ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
         /// </summary>
-        public readonly string NetworkToNetworkInterconnectId;
+        public readonly string? NetworkToNetworkInterconnectId;
         /// <summary>
         /// option A properties object
         /// </summary>
@@ -138,13 +150,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// option B properties object
         /// </summary>
-        public readonly Outputs.OptionBPropertiesResponse? OptionBProperties;
+        public readonly Outputs.L3OptionBPropertiesResponse? OptionBProperties;
         /// <summary>
         /// Peering option list.
         /// </summary>
         public readonly string PeeringOption;
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -162,21 +174,27 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string? annotation,
 
-            ImmutableArray<string> disabledOnResources,
+            string azureApiVersion,
+
+            string configurationState,
+
+            Outputs.ExportRoutePolicyResponse? exportRoutePolicy,
 
             string? exportRoutePolicyId,
 
             string id,
 
+            Outputs.ImportRoutePolicyResponse? importRoutePolicy,
+
             string? importRoutePolicyId,
 
             string name,
 
-            string networkToNetworkInterconnectId,
+            string? networkToNetworkInterconnectId,
 
             Outputs.ExternalNetworkPropertiesResponseOptionAProperties? optionAProperties,
 
-            Outputs.OptionBPropertiesResponse? optionBProperties,
+            Outputs.L3OptionBPropertiesResponse? optionBProperties,
 
             string peeringOption,
 
@@ -188,9 +206,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         {
             AdministrativeState = administrativeState;
             Annotation = annotation;
-            DisabledOnResources = disabledOnResources;
+            AzureApiVersion = azureApiVersion;
+            ConfigurationState = configurationState;
+            ExportRoutePolicy = exportRoutePolicy;
             ExportRoutePolicyId = exportRoutePolicyId;
             Id = id;
+            ImportRoutePolicy = importRoutePolicy;
             ImportRoutePolicyId = importRoutePolicyId;
             Name = name;
             NetworkToNetworkInterconnectId = networkToNetworkInterconnectId;

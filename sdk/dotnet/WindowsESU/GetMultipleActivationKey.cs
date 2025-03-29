@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.WindowsESU
         /// </summary>
         public readonly string? AgreementNumber;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// End of support of security updates activated by the MAK key.
         /// </summary>
         public readonly string ExpirationDate;
@@ -135,6 +139,8 @@ namespace Pulumi.AzureNative.WindowsESU
         private GetMultipleActivationKeyResult(
             string? agreementNumber,
 
+            string azureApiVersion,
+
             string expirationDate,
 
             string id,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.WindowsESU
             string type)
         {
             AgreementNumber = agreementNumber;
+            AzureApiVersion = azureApiVersion;
             ExpirationDate = expirationDate;
             Id = id;
             InstalledServerNumber = installedServerNumber;

@@ -135,9 +135,9 @@ class Configuration(pulumi.CustomResource):
         """
         Represents a Configuration.
 
-        Uses Azure REST API version 2022-01-01. In version 1.x of the Azure Native provider, it used API version 2017-12-01.
+        Uses Azure REST API version 2023-12-30. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
 
-        Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,9 +157,9 @@ class Configuration(pulumi.CustomResource):
         """
         Represents a Configuration.
 
-        Uses Azure REST API version 2022-01-01. In version 1.x of the Azure Native provider, it used API version 2017-12-01.
+        Uses Azure REST API version 2023-12-30. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
 
-        Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -202,6 +202,7 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["value"] = value
             __props__.__dict__["allowed_values"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["data_type"] = None
             __props__.__dict__["default_value"] = None
             __props__.__dict__["description"] = None
@@ -212,7 +213,7 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20200701preview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20200701privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20210501:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20210501preview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20211201preview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20220101:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20230601preview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20230630:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20231230:Configuration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20171201:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20200701preview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20200701privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20210501:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20210501preview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20211201preview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20220101:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20230601preview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20230630:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20231230:Configuration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Configuration, __self__).__init__(
             'azure-native:dbformysql:Configuration',
@@ -237,6 +238,7 @@ class Configuration(pulumi.CustomResource):
         __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
         __props__.__dict__["allowed_values"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["current_value"] = None
         __props__.__dict__["data_type"] = None
         __props__.__dict__["default_value"] = None
@@ -259,6 +261,14 @@ class Configuration(pulumi.CustomResource):
         Allowed values of the configuration.
         """
         return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="currentValue")
@@ -344,7 +354,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

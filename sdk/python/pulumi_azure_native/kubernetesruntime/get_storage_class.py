@@ -27,13 +27,16 @@ class GetStorageClassResult:
     """
     A StorageClass resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
     """
-    def __init__(__self__, access_modes=None, allow_volume_expansion=None, data_resilience=None, failover_speed=None, id=None, limitations=None, mount_options=None, name=None, performance=None, priority=None, provisioner=None, provisioning_state=None, system_data=None, type=None, type_properties=None, volume_binding_mode=None):
+    def __init__(__self__, access_modes=None, allow_volume_expansion=None, azure_api_version=None, data_resilience=None, failover_speed=None, id=None, limitations=None, mount_options=None, name=None, performance=None, priority=None, provisioner=None, provisioning_state=None, system_data=None, type=None, type_properties=None, volume_binding_mode=None):
         if access_modes and not isinstance(access_modes, list):
             raise TypeError("Expected argument 'access_modes' to be a list")
         pulumi.set(__self__, "access_modes", access_modes)
         if allow_volume_expansion and not isinstance(allow_volume_expansion, str):
             raise TypeError("Expected argument 'allow_volume_expansion' to be a str")
         pulumi.set(__self__, "allow_volume_expansion", allow_volume_expansion)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_resilience and not isinstance(data_resilience, str):
             raise TypeError("Expected argument 'data_resilience' to be a str")
         pulumi.set(__self__, "data_resilience", data_resilience)
@@ -92,6 +95,14 @@ class GetStorageClassResult:
         Volume can be expanded or not
         """
         return pulumi.get(self, "allow_volume_expansion")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataResilience")
@@ -214,6 +225,7 @@ class AwaitableGetStorageClassResult(GetStorageClassResult):
         return GetStorageClassResult(
             access_modes=self.access_modes,
             allow_volume_expansion=self.allow_volume_expansion,
+            azure_api_version=self.azure_api_version,
             data_resilience=self.data_resilience,
             failover_speed=self.failover_speed,
             id=self.id,
@@ -238,8 +250,6 @@ def get_storage_class(resource_uri: Optional[str] = None,
 
     Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-10-01-preview.
-
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param str storage_class_name: The name of the the storage class
@@ -253,6 +263,7 @@ def get_storage_class(resource_uri: Optional[str] = None,
     return AwaitableGetStorageClassResult(
         access_modes=pulumi.get(__ret__, 'access_modes'),
         allow_volume_expansion=pulumi.get(__ret__, 'allow_volume_expansion'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_resilience=pulumi.get(__ret__, 'data_resilience'),
         failover_speed=pulumi.get(__ret__, 'failover_speed'),
         id=pulumi.get(__ret__, 'id'),
@@ -275,8 +286,6 @@ def get_storage_class_output(resource_uri: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-10-01-preview.
-
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param str storage_class_name: The name of the the storage class
@@ -289,6 +298,7 @@ def get_storage_class_output(resource_uri: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetStorageClassResult(
         access_modes=pulumi.get(__response__, 'access_modes'),
         allow_volume_expansion=pulumi.get(__response__, 'allow_volume_expansion'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_resilience=pulumi.get(__response__, 'data_resilience'),
         failover_speed=pulumi.get(__response__, 'failover_speed'),
         id=pulumi.get(__response__, 'id'),

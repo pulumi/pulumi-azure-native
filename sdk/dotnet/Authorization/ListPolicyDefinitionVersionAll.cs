@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation lists all the policy definition versions for all policy definitions within a subscription.
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
+        /// Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListPolicyDefinitionVersionAllResult> InvokeAsync(ListPolicyDefinitionVersionAllArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPolicyDefinitionVersionAllResult>("azure-native:authorization:listPolicyDefinitionVersionAll", args ?? new ListPolicyDefinitionVersionAllArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation lists all the policy definition versions for all policy definitions within a subscription.
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
+        /// Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListPolicyDefinitionVersionAllResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPolicyDefinitionVersionAllResult>("azure-native:authorization:listPolicyDefinitionVersionAll", InvokeArgs.Empty, options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation lists all the policy definition versions for all policy definitions within a subscription.
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
+        /// Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListPolicyDefinitionVersionAllResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListPolicyDefinitionVersionAllResult>("azure-native:authorization:listPolicyDefinitionVersionAll", InvokeArgs.Empty, options.WithDefaults());

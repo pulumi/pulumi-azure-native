@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A host resource belonging to a site resource.
  *
- * Uses Azure REST API version 2023-06-06.
+ * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
  *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class HypervHostController extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class HypervHostController extends pulumi.CustomResource {
         return obj['__pulumiType'] === HypervHostController.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets the timestamp marking Hyper-V host creation.
      */
@@ -105,6 +109,7 @@ export class HypervHostController extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["runAsAccountId"] = args ? args.runAsAccountId : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -113,6 +118,7 @@ export class HypervHostController extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;

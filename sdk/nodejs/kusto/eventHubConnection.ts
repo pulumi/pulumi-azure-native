@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Class representing an event hub connection.
  *
- * Uses Azure REST API version 2018-09-07-preview. In version 1.x of the Azure Native provider, it used API version 2018-09-07-preview.
+ * Uses Azure REST API version 2018-09-07-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-07-preview.
  */
 export class EventHubConnection extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class EventHubConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventHubConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The event hub consumer group.
      */
@@ -108,9 +112,11 @@ export class EventHubConnection extends pulumi.CustomResource {
             resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["consumerGroup"] = undefined /*out*/;
             resourceInputs["dataFormat"] = undefined /*out*/;
             resourceInputs["eventHubResourceId"] = undefined /*out*/;

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a datasource instance.
         /// 
-        /// Uses Azure REST API version 2020-08-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview, 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a datasource instance.
         /// 
-        /// Uses Azure REST API version 2020-08-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview, 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a datasource instance.
         /// 
-        /// Uses Azure REST API version 2020-08-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview, 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.OperationalInsights
     public sealed class GetDataSourceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ETag of the data source.
         /// </summary>
         public readonly string? Etag;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.OperationalInsights
 
         [OutputConstructor]
         private GetDataSourceResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Kind = kind;

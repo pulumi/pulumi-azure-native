@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.CostManagement
     /// <summary>
     /// The Connector model definition
     /// 
-    /// Uses Azure REST API version 2018-08-01-preview.
+    /// Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Connector")]
     public partial class Connector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Collection information
         /// </summary>
@@ -121,7 +127,9 @@ namespace Pulumi.AzureNative.CostManagement
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20180801preview:Connector" },
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20190301preview:CloudConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20190301preview:Connector" },
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:CloudConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

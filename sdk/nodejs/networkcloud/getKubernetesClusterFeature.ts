@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get properties of the provided the Kubernetes cluster feature.
  *
- * Uses Azure REST API version 2024-06-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getKubernetesClusterFeature(args: GetKubernetesClusterFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterFeatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +44,10 @@ export interface GetKubernetesClusterFeatureResult {
      */
     readonly availabilityLifecycle: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The detailed status of the feature.
      */
     readonly detailedStatus: string;
@@ -51,6 +55,10 @@ export interface GetKubernetesClusterFeatureResult {
      * The descriptive message for the detailed status of the feature.
      */
     readonly detailedStatusMessage: string;
+    /**
+     * Resource ETag.
+     */
+    readonly etag: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -95,9 +103,9 @@ export interface GetKubernetesClusterFeatureResult {
 /**
  * Get properties of the provided the Kubernetes cluster feature.
  *
- * Uses Azure REST API version 2024-06-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getKubernetesClusterFeatureOutput(args: GetKubernetesClusterFeatureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesClusterFeatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -66,9 +66,9 @@ def list_list_tenant_configuration_violation(opts: Optional[pulumi.InvokeOptions
     """
     Gets list of items that violate tenant's configuration.
 
-    Uses Azure REST API version 2020-09-01-preview.
+    Uses Azure REST API version 2022-12-01-preview.
 
-    Other available API versions: 2022-12-01-preview, 2025-04-01-preview.
+    Other available API versions: 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -81,9 +81,9 @@ def list_list_tenant_configuration_violation_output(opts: Optional[Union[pulumi.
     """
     Gets list of items that violate tenant's configuration.
 
-    Uses Azure REST API version 2020-09-01-preview.
+    Uses Azure REST API version 2022-12-01-preview.
 
-    Other available API versions: 2022-12-01-preview, 2025-04-01-preview.
+    Other available API versions: 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

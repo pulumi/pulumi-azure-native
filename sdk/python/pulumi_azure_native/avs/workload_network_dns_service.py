@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['WorkloadNetworkDnsServiceArgs', 'WorkloadNetworkDnsService']
@@ -35,7 +36,7 @@ class WorkloadNetworkDnsServiceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] default_dns_zone: Default DNS zone of the DNS Service.
         :param pulumi.Input[str] display_name: Display name of the DNS Service.
-        :param pulumi.Input[str] dns_service_id: NSX DNS Service identifier. Generally the same as the DNS Service's display name
+        :param pulumi.Input[str] dns_service_id: ID of the DNS service.
         :param pulumi.Input[str] dns_service_ip: DNS service IP of the DNS Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdn_zones: FQDN zones of the DNS Service.
         :param pulumi.Input[Union[str, 'DnsServiceLogLevelEnum']] log_level: DNS Service log level.
@@ -110,7 +111,7 @@ class WorkloadNetworkDnsServiceArgs:
     @pulumi.getter(name="dnsServiceId")
     def dns_service_id(self) -> Optional[pulumi.Input[str]]:
         """
-        NSX DNS Service identifier. Generally the same as the DNS Service's display name
+        ID of the DNS service.
         """
         return pulumi.get(self, "dns_service_id")
 
@@ -185,15 +186,15 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
         """
         NSX DNS Service
 
-        Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2020-07-17-preview.
+        Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_dns_zone: Default DNS zone of the DNS Service.
         :param pulumi.Input[str] display_name: Display name of the DNS Service.
-        :param pulumi.Input[str] dns_service_id: NSX DNS Service identifier. Generally the same as the DNS Service's display name
+        :param pulumi.Input[str] dns_service_id: ID of the DNS service.
         :param pulumi.Input[str] dns_service_ip: DNS service IP of the DNS Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdn_zones: FQDN zones of the DNS Service.
         :param pulumi.Input[Union[str, 'DnsServiceLogLevelEnum']] log_level: DNS Service log level.
@@ -210,9 +211,9 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
         """
         NSX DNS Service
 
-        Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2020-07-17-preview.
+        Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkDnsServiceArgs args: The arguments to use to populate this resource's properties.
@@ -260,9 +261,11 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["revision"] = revision
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkDnsService"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkDnsService"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkDnsService"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkDnsService"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkDnsService"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkDnsService"), pulumi.Alias(type_="azure-native:avs/v20230901:WorkloadNetworkDnsService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -288,6 +291,7 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
 
         __props__ = WorkloadNetworkDnsServiceArgs.__new__(WorkloadNetworkDnsServiceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["default_dns_zone"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["dns_service_ip"] = None
@@ -297,8 +301,17 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["revision"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return WorkloadNetworkDnsService(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultDnsZone")
@@ -344,7 +357,7 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -373,10 +386,18 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

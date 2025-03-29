@@ -31,6 +31,10 @@ export interface GetUserSettingsArgs {
  */
 export interface GetUserSettingsResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The cloud shell user settings properties.
      */
     readonly properties: outputs.portal.UserPropertiesResponse;

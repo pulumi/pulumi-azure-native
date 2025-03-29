@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Contract returning to user the delta models.
         /// 
-        /// Uses Azure REST API version 2024-10-01-preview.
+        /// Uses Azure REST API version 2025-01-01-preview.
         /// 
-        /// Other available API versions: 2025-01-01-preview.
+        /// Other available API versions: 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetInferenceGroupDeltaModelsStatusAsyncResult> InvokeAsync(GetInferenceGroupDeltaModelsStatusAsyncArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferenceGroupDeltaModelsStatusAsyncResult>("azure-native:machinelearningservices:getInferenceGroupDeltaModelsStatusAsync", args ?? new GetInferenceGroupDeltaModelsStatusAsyncArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Contract returning to user the delta models.
         /// 
-        /// Uses Azure REST API version 2024-10-01-preview.
+        /// Uses Azure REST API version 2025-01-01-preview.
         /// 
-        /// Other available API versions: 2025-01-01-preview.
+        /// Other available API versions: 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInferenceGroupDeltaModelsStatusAsyncResult> Invoke(GetInferenceGroupDeltaModelsStatusAsyncInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceGroupDeltaModelsStatusAsyncResult>("azure-native:machinelearningservices:getInferenceGroupDeltaModelsStatusAsync", args ?? new GetInferenceGroupDeltaModelsStatusAsyncInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Contract returning to user the delta models.
         /// 
-        /// Uses Azure REST API version 2024-10-01-preview.
+        /// Uses Azure REST API version 2025-01-01-preview.
         /// 
-        /// Other available API versions: 2025-01-01-preview.
+        /// Other available API versions: 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInferenceGroupDeltaModelsStatusAsyncResult> Invoke(GetInferenceGroupDeltaModelsStatusAsyncInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceGroupDeltaModelsStatusAsyncResult>("azure-native:machinelearningservices:getInferenceGroupDeltaModelsStatusAsync", args ?? new GetInferenceGroupDeltaModelsStatusAsyncInvokeArgs(), options.WithDefaults());

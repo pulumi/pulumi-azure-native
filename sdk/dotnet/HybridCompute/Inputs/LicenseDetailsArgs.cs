@@ -45,6 +45,18 @@ namespace Pulumi.AzureNative.HybridCompute.Inputs
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.HybridCompute.LicenseCoreType>? Type { get; set; }
 
+        [Input("volumeLicenseDetails")]
+        private InputList<Inputs.VolumeLicenseDetailsArgs>? _volumeLicenseDetails;
+
+        /// <summary>
+        /// A list of volume license details.
+        /// </summary>
+        public InputList<Inputs.VolumeLicenseDetailsArgs> VolumeLicenseDetails
+        {
+            get => _volumeLicenseDetails ?? (_volumeLicenseDetails = new InputList<Inputs.VolumeLicenseDetailsArgs>());
+            set => _volumeLicenseDetails = value;
+        }
+
         public LicenseDetailsArgs()
         {
         }

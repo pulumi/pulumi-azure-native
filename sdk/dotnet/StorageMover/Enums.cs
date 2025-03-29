@@ -39,6 +39,72 @@ namespace Pulumi.AzureNative.StorageMover
     }
 
     /// <summary>
+    /// The Credentials type.
+    /// </summary>
+    [EnumType]
+    public readonly struct CredentialType : IEquatable<CredentialType>
+    {
+        private readonly string _value;
+
+        private CredentialType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CredentialType AzureKeyVaultSmb { get; } = new CredentialType("AzureKeyVaultSmb");
+
+        public static bool operator ==(CredentialType left, CredentialType right) => left.Equals(right);
+        public static bool operator !=(CredentialType left, CredentialType right) => !left.Equals(right);
+
+        public static explicit operator string(CredentialType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CredentialType other && Equals(other);
+        public bool Equals(CredentialType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The day of week.
+    /// </summary>
+    [EnumType]
+    public readonly struct DayOfWeek : IEquatable<DayOfWeek>
+    {
+        private readonly string _value;
+
+        private DayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
+        public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
+        public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
+        public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
+        public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
+        public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
+        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
+
+        public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
+        public static bool operator !=(DayOfWeek left, DayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
+        public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The Endpoint resource type.
     /// </summary>
     [EnumType]
@@ -53,6 +119,8 @@ namespace Pulumi.AzureNative.StorageMover
 
         public static EndpointType AzureStorageBlobContainer { get; } = new EndpointType("AzureStorageBlobContainer");
         public static EndpointType NfsMount { get; } = new EndpointType("NfsMount");
+        public static EndpointType AzureStorageSmbFileShare { get; } = new EndpointType("AzureStorageSmbFileShare");
+        public static EndpointType SmbMount { get; } = new EndpointType("SmbMount");
 
         public static bool operator ==(EndpointType left, EndpointType right) => left.Equals(right);
         public static bool operator !=(EndpointType left, EndpointType right) => !left.Equals(right);

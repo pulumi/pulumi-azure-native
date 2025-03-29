@@ -27,13 +27,16 @@ class GetAnomalySecurityMLAnalyticsSettingsResult:
     """
     Represents Anomaly Security ML Analytics Settings
     """
-    def __init__(__self__, anomaly_settings_version=None, anomaly_version=None, customizable_observations=None, description=None, display_name=None, enabled=None, etag=None, frequency=None, id=None, is_default_settings=None, kind=None, last_modified_utc=None, name=None, required_data_connectors=None, settings_definition_id=None, settings_status=None, system_data=None, tactics=None, techniques=None, type=None):
+    def __init__(__self__, anomaly_settings_version=None, anomaly_version=None, azure_api_version=None, customizable_observations=None, description=None, display_name=None, enabled=None, etag=None, frequency=None, id=None, is_default_settings=None, kind=None, last_modified_utc=None, name=None, required_data_connectors=None, settings_definition_id=None, settings_status=None, system_data=None, tactics=None, techniques=None, type=None):
         if anomaly_settings_version and not isinstance(anomaly_settings_version, int):
             raise TypeError("Expected argument 'anomaly_settings_version' to be a int")
         pulumi.set(__self__, "anomaly_settings_version", anomaly_settings_version)
         if anomaly_version and not isinstance(anomaly_version, str):
             raise TypeError("Expected argument 'anomaly_version' to be a str")
         pulumi.set(__self__, "anomaly_version", anomaly_version)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if customizable_observations and not isinstance(customizable_observations, dict):
             raise TypeError("Expected argument 'customizable_observations' to be a dict")
         pulumi.set(__self__, "customizable_observations", customizable_observations)
@@ -104,6 +107,14 @@ class GetAnomalySecurityMLAnalyticsSettingsResult:
         The anomaly version of the AnomalySecurityMLAnalyticsSettings.
         """
         return pulumi.get(self, "anomaly_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customizableObservations")
@@ -259,6 +270,7 @@ class AwaitableGetAnomalySecurityMLAnalyticsSettingsResult(GetAnomalySecurityMLA
         return GetAnomalySecurityMLAnalyticsSettingsResult(
             anomaly_settings_version=self.anomaly_settings_version,
             anomaly_version=self.anomaly_version,
+            azure_api_version=self.azure_api_version,
             customizable_observations=self.customizable_observations,
             description=self.description,
             display_name=self.display_name,
@@ -286,7 +298,7 @@ def get_anomaly_security_ml_analytics_settings(resource_group_name: Optional[str
     """
     Gets the Security ML Analytics Settings.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -303,6 +315,7 @@ def get_anomaly_security_ml_analytics_settings(resource_group_name: Optional[str
     return AwaitableGetAnomalySecurityMLAnalyticsSettingsResult(
         anomaly_settings_version=pulumi.get(__ret__, 'anomaly_settings_version'),
         anomaly_version=pulumi.get(__ret__, 'anomaly_version'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         customizable_observations=pulumi.get(__ret__, 'customizable_observations'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -328,7 +341,7 @@ def get_anomaly_security_ml_analytics_settings_output(resource_group_name: Optio
     """
     Gets the Security ML Analytics Settings.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -344,6 +357,7 @@ def get_anomaly_security_ml_analytics_settings_output(resource_group_name: Optio
     return __ret__.apply(lambda __response__: GetAnomalySecurityMLAnalyticsSettingsResult(
         anomaly_settings_version=pulumi.get(__response__, 'anomaly_settings_version'),
         anomaly_version=pulumi.get(__response__, 'anomaly_version'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         customizable_observations=pulumi.get(__response__, 'customizable_observations'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

@@ -27,10 +27,13 @@ class GetHubRouteTableResult:
     """
     RouteTable resource in a virtual hub.
     """
-    def __init__(__self__, associated_connections=None, etag=None, id=None, labels=None, name=None, propagating_connections=None, provisioning_state=None, routes=None, type=None):
+    def __init__(__self__, associated_connections=None, azure_api_version=None, etag=None, id=None, labels=None, name=None, propagating_connections=None, provisioning_state=None, routes=None, type=None):
         if associated_connections and not isinstance(associated_connections, list):
             raise TypeError("Expected argument 'associated_connections' to be a list")
         pulumi.set(__self__, "associated_connections", associated_connections)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -63,6 +66,14 @@ class GetHubRouteTableResult:
         List of all connections associated with this route table.
         """
         return pulumi.get(self, "associated_connections")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -136,6 +147,7 @@ class AwaitableGetHubRouteTableResult(GetHubRouteTableResult):
             yield self
         return GetHubRouteTableResult(
             associated_connections=self.associated_connections,
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             labels=self.labels,
@@ -153,9 +165,9 @@ def get_hub_route_table(resource_group_name: Optional[str] = None,
     """
     Retrieves the details of a RouteTable.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The resource group name of the VirtualHub.
@@ -171,6 +183,7 @@ def get_hub_route_table(resource_group_name: Optional[str] = None,
 
     return AwaitableGetHubRouteTableResult(
         associated_connections=pulumi.get(__ret__, 'associated_connections'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         labels=pulumi.get(__ret__, 'labels'),
@@ -186,9 +199,9 @@ def get_hub_route_table_output(resource_group_name: Optional[pulumi.Input[str]] 
     """
     Retrieves the details of a RouteTable.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The resource group name of the VirtualHub.
@@ -203,6 +216,7 @@ def get_hub_route_table_output(resource_group_name: Optional[pulumi.Input[str]] 
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getHubRouteTable', __args__, opts=opts, typ=GetHubRouteTableResult)
     return __ret__.apply(lambda __response__: GetHubRouteTableResult(
         associated_connections=pulumi.get(__response__, 'associated_connections'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         labels=pulumi.get(__response__, 'labels'),

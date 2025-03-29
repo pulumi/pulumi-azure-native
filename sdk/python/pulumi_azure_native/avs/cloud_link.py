@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['CloudLinkArgs', 'CloudLink']
 
@@ -25,9 +26,9 @@ class CloudLinkArgs:
                  linked_cloud: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CloudLink resource.
-        :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
+        :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] cloud_link_name: Name of the cloud link resource
+        :param pulumi.Input[str] cloud_link_name: Name of the cloud link.
         :param pulumi.Input[str] linked_cloud: Identifier of the other private cloud participating in the link.
         """
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
@@ -41,7 +42,7 @@ class CloudLinkArgs:
     @pulumi.getter(name="privateCloudName")
     def private_cloud_name(self) -> pulumi.Input[str]:
         """
-        The name of the private cloud.
+        Name of the private cloud
         """
         return pulumi.get(self, "private_cloud_name")
 
@@ -65,7 +66,7 @@ class CloudLinkArgs:
     @pulumi.getter(name="cloudLinkName")
     def cloud_link_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the cloud link resource
+        Name of the cloud link.
         """
         return pulumi.get(self, "cloud_link_name")
 
@@ -99,15 +100,15 @@ class CloudLink(pulumi.CustomResource):
         """
         A cloud link resource
 
-        Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2021-06-01.
+        Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cloud_link_name: Name of the cloud link resource
+        :param pulumi.Input[str] cloud_link_name: Name of the cloud link.
         :param pulumi.Input[str] linked_cloud: Identifier of the other private cloud participating in the link.
-        :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
+        :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -119,9 +120,9 @@ class CloudLink(pulumi.CustomResource):
         """
         A cloud link resource
 
-        Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2021-06-01.
+        Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param CloudLinkArgs args: The arguments to use to populate this resource's properties.
@@ -159,8 +160,11 @@ class CloudLink(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20210601:CloudLink"), pulumi.Alias(type_="azure-native:avs/v20211201:CloudLink"), pulumi.Alias(type_="azure-native:avs/v20220501:CloudLink"), pulumi.Alias(type_="azure-native:avs/v20230301:CloudLink"), pulumi.Alias(type_="azure-native:avs/v20230901:CloudLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -186,11 +190,22 @@ class CloudLink(pulumi.CustomResource):
 
         __props__ = CloudLinkArgs.__new__(CloudLinkArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["linked_cloud"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return CloudLink(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="linkedCloud")
@@ -204,9 +219,17 @@ class CloudLink(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -217,10 +240,18 @@ class CloudLink(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a replication link.
         /// 
-        /// Uses Azure REST API version 2023-05-01-preview.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetReplicationLinkResult> InvokeAsync(GetReplicationLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationLinkResult>("azure-native:sql:getReplicationLink", args ?? new GetReplicationLinkArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a replication link.
         /// 
-        /// Uses Azure REST API version 2023-05-01-preview.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetReplicationLinkResult> Invoke(GetReplicationLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationLinkResult>("azure-native:sql:getReplicationLink", args ?? new GetReplicationLinkInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a replication link.
         /// 
-        /// Uses Azure REST API version 2023-05-01-preview.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetReplicationLinkResult> Invoke(GetReplicationLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationLinkResult>("azure-native:sql:getReplicationLink", args ?? new GetReplicationLinkInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetReplicationLinkResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -174,6 +178,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetReplicationLinkResult(
+            string azureApiVersion,
+
             string id,
 
             bool isTerminationAllowed,
@@ -204,6 +210,7 @@ namespace Pulumi.AzureNative.Sql
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             IsTerminationAllowed = isTerminationAllowed;
             LinkType = linkType;

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a gallery image
         /// 
-        /// Uses Azure REST API version 2022-12-15-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:azurestackhci:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a gallery image
         /// 
-        /// Uses Azure REST API version 2022-12-15-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:azurestackhci:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a gallery image
         /// 
-        /// Uses Azure REST API version 2022-12-15-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:azurestackhci:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());
@@ -88,13 +88,17 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetGalleryImageResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
         /// </summary>
         public readonly string? CloudInitDataSource;
         /// <summary>
-        /// Container Name for storage container
+        /// Storage ContainerID of the storage container to be used for gallery image
         /// </summary>
-        public readonly string? ContainerName;
+        public readonly string? ContainerId;
         /// <summary>
         /// The extendedLocation of the resource.
         /// </summary>
@@ -104,7 +108,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string? HyperVGeneration;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -126,11 +130,15 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Operating system type that the gallery image uses [Windows, Linux]
         /// </summary>
-        public readonly string? OsType;
+        public readonly string OsType;
         /// <summary>
         /// Provisioning state of the gallery image.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource ID of the source virtual machine from whose OS disk the gallery image is created.
+        /// </summary>
+        public readonly string? SourceVirtualMachineId;
         /// <summary>
         /// The observed state of gallery images
         /// </summary>
@@ -151,12 +159,18 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Specifies information about the gallery image version that you want to create or update.
         /// </summary>
         public readonly Outputs.GalleryImageVersionResponse? Version;
+        /// <summary>
+        /// The credentials used to login to the image repository that has access to the specified image
+        /// </summary>
+        public readonly Outputs.VmImageRepositoryCredentialsResponse? VmImageRepositoryCredentials;
 
         [OutputConstructor]
         private GetGalleryImageResult(
+            string azureApiVersion,
+
             string? cloudInitDataSource,
 
-            string? containerName,
+            string? containerId,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 
@@ -172,9 +186,11 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string name,
 
-            string? osType,
+            string osType,
 
             string provisioningState,
+
+            string? sourceVirtualMachineId,
 
             Outputs.GalleryImageStatusResponse status,
 
@@ -184,10 +200,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string type,
 
-            Outputs.GalleryImageVersionResponse? version)
+            Outputs.GalleryImageVersionResponse? version,
+
+            Outputs.VmImageRepositoryCredentialsResponse? vmImageRepositoryCredentials)
         {
+            AzureApiVersion = azureApiVersion;
             CloudInitDataSource = cloudInitDataSource;
-            ContainerName = containerName;
+            ContainerId = containerId;
             ExtendedLocation = extendedLocation;
             HyperVGeneration = hyperVGeneration;
             Id = id;
@@ -197,11 +216,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
             Name = name;
             OsType = osType;
             ProvisioningState = provisioningState;
+            SourceVirtualMachineId = sourceVirtualMachineId;
             Status = status;
             SystemData = systemData;
             Tags = tags;
             Type = type;
             Version = version;
+            VmImageRepositoryCredentials = vmImageRepositoryCredentials;
         }
     }
 }

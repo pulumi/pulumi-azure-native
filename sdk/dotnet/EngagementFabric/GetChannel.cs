@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.EngagementFabric
     public sealed class GetChannelResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The functions to be enabled for the channel
         /// </summary>
         public readonly ImmutableArray<string> ChannelFunctions;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.EngagementFabric
 
         [OutputConstructor]
         private GetChannelResult(
+            string azureApiVersion,
+
             ImmutableArray<string> channelFunctions,
 
             string channelType,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.EngagementFabric
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ChannelFunctions = channelFunctions;
             ChannelType = channelType;
             Credentials = credentials;

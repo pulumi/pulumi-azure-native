@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly string? InfraResourceGroup;
         /// <summary>
+        /// Additional Service settings for planned maintenance
+        /// </summary>
+        public readonly Outputs.WeeklyMaintenanceScheduleConfigurationResponse? MaintenanceScheduleConfiguration;
+        /// <summary>
         /// The resource Id of the Managed Environment that the Spring Apps instance builds on
         /// </summary>
         public readonly string? ManagedEnvironmentId;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             string? infraResourceGroup,
 
+            Outputs.WeeklyMaintenanceScheduleConfigurationResponse? maintenanceScheduleConfiguration,
+
             string? managedEnvironmentId,
 
             Outputs.MarketplaceResourceResponse? marketplaceResource,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         {
             Fqdn = fqdn;
             InfraResourceGroup = infraResourceGroup;
+            MaintenanceScheduleConfiguration = maintenanceScheduleConfiguration;
             ManagedEnvironmentId = managedEnvironmentId;
             MarketplaceResource = marketplaceResource;
             NetworkProfile = networkProfile;

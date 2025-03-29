@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of the specified configuration store.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,9 +38,17 @@ export interface GetConfigurationStoreArgs {
  */
 export interface GetConfigurationStoreResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creation date of configuration store.
      */
     readonly creationDate: string;
+    /**
+     * Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
+     */
+    readonly dataPlaneProxy?: outputs.appconfiguration.DataPlaneProxyPropertiesResponse;
     /**
      * Disables all authentication methods other than AAD authentication.
      */
@@ -109,9 +117,9 @@ export interface GetConfigurationStoreResult {
 /**
  * Gets the properties of the specified configuration store.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

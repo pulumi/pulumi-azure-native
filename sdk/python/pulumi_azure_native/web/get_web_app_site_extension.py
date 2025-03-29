@@ -26,10 +26,13 @@ class GetWebAppSiteExtensionResult:
     """
     Site Extension Information.
     """
-    def __init__(__self__, authors=None, comment=None, description=None, download_count=None, extension_id=None, extension_type=None, extension_url=None, feed_url=None, icon_url=None, id=None, installed_date_time=None, installer_command_line_params=None, kind=None, license_url=None, local_is_latest_version=None, local_path=None, name=None, project_url=None, provisioning_state=None, published_date_time=None, summary=None, title=None, type=None, version=None):
+    def __init__(__self__, authors=None, azure_api_version=None, comment=None, description=None, download_count=None, extension_id=None, extension_type=None, extension_url=None, feed_url=None, icon_url=None, id=None, installed_date_time=None, installer_command_line_params=None, kind=None, license_url=None, local_is_latest_version=None, local_path=None, name=None, project_url=None, provisioning_state=None, published_date_time=None, summary=None, title=None, type=None, version=None):
         if authors and not isinstance(authors, list):
             raise TypeError("Expected argument 'authors' to be a list")
         pulumi.set(__self__, "authors", authors)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if comment and not isinstance(comment, str):
             raise TypeError("Expected argument 'comment' to be a str")
         pulumi.set(__self__, "comment", comment)
@@ -107,6 +110,14 @@ class GetWebAppSiteExtensionResult:
         List of authors.
         """
         return pulumi.get(self, "authors")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -297,6 +308,7 @@ class AwaitableGetWebAppSiteExtensionResult(GetWebAppSiteExtensionResult):
             yield self
         return GetWebAppSiteExtensionResult(
             authors=self.authors,
+            azure_api_version=self.azure_api_version,
             comment=self.comment,
             description=self.description,
             download_count=self.download_count,
@@ -329,9 +341,9 @@ def get_web_app_site_extension(name: Optional[str] = None,
     """
     Description for Get site extension information by its ID for a web site, or a deployment slot.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Site name.
@@ -347,6 +359,7 @@ def get_web_app_site_extension(name: Optional[str] = None,
 
     return AwaitableGetWebAppSiteExtensionResult(
         authors=pulumi.get(__ret__, 'authors'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         comment=pulumi.get(__ret__, 'comment'),
         description=pulumi.get(__ret__, 'description'),
         download_count=pulumi.get(__ret__, 'download_count'),
@@ -377,9 +390,9 @@ def get_web_app_site_extension_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Get site extension information by its ID for a web site, or a deployment slot.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Site name.
@@ -394,6 +407,7 @@ def get_web_app_site_extension_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppSiteExtension', __args__, opts=opts, typ=GetWebAppSiteExtensionResult)
     return __ret__.apply(lambda __response__: GetWebAppSiteExtensionResult(
         authors=pulumi.get(__response__, 'authors'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         comment=pulumi.get(__response__, 'comment'),
         description=pulumi.get(__response__, 'description'),
         download_count=pulumi.get(__response__, 'download_count'),

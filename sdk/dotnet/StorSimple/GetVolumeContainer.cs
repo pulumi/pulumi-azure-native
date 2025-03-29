@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.StorSimple
     public sealed class GetVolumeContainerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The bandwidth-rate set on the volume container.
         /// </summary>
         public readonly int? BandWidthRateInMbps;
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNative.StorSimple
 
         [OutputConstructor]
         private GetVolumeContainerResult(
+            string azureApiVersion,
+
             int? bandWidthRateInMbps,
 
             string? bandwidthSettingId,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.StorSimple
 
             int volumeCount)
         {
+            AzureApiVersion = azureApiVersion;
             BandWidthRateInMbps = bandWidthRateInMbps;
             BandwidthSettingId = bandwidthSettingId;
             EncryptionKey = encryptionKey;

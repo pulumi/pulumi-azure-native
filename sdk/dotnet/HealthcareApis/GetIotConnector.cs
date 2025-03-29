@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Gets the properties of the specified IoT Connector.
         /// 
-        /// Uses Azure REST API version 2023-02-28.
+        /// Uses Azure REST API version 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetIotConnectorResult> InvokeAsync(GetIotConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotConnectorResult>("azure-native:healthcareapis:getIotConnector", args ?? new GetIotConnectorArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Gets the properties of the specified IoT Connector.
         /// 
-        /// Uses Azure REST API version 2023-02-28.
+        /// Uses Azure REST API version 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIotConnectorResult> Invoke(GetIotConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotConnectorResult>("azure-native:healthcareapis:getIotConnector", args ?? new GetIotConnectorInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Gets the properties of the specified IoT Connector.
         /// 
-        /// Uses Azure REST API version 2023-02-28.
+        /// Uses Azure REST API version 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIotConnectorResult> Invoke(GetIotConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotConnectorResult>("azure-native:healthcareapis:getIotConnector", args ?? new GetIotConnectorInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.HealthcareApis
     public sealed class GetIotConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Device Mappings.
         /// </summary>
         public readonly Outputs.IotMappingPropertiesResponse? DeviceMapping;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNative.HealthcareApis
 
         [OutputConstructor]
         private GetIotConnectorResult(
+            string azureApiVersion,
+
             Outputs.IotMappingPropertiesResponse? deviceMapping,
 
             string? etag,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DeviceMapping = deviceMapping;
             Etag = etag;
             Id = id;

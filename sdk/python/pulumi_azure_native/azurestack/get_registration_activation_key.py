@@ -57,7 +57,7 @@ def get_registration_activation_key(registration_name: Optional[str] = None,
 
     Uses Azure REST API version 2022-06-01.
 
-    Other available API versions: 2020-06-01-preview.
+    Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str registration_name: Name of the Azure Stack registration.
@@ -79,7 +79,7 @@ def get_registration_activation_key_output(registration_name: Optional[pulumi.In
 
     Uses Azure REST API version 2022-06-01.
 
-    Other available API versions: 2020-06-01-preview.
+    Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str registration_name: Name of the Azure Stack registration.

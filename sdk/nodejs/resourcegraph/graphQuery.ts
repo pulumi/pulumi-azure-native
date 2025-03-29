@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Graph Query entity definition.
  *
- * Uses Azure REST API version 2020-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-09-01-preview.
+ * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2020-04-01-preview.
  *
- * Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+ * Other available API versions: 2020-04-01-preview, 2021-03-01, 2022-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcegraph [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GraphQuery extends pulumi.CustomResource {
     /**
@@ -42,17 +42,21 @@ export class GraphQuery extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The description of a graph query.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * This will be used to handle Optimistic Concurrency.
+     * This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The location of the resource
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Azure resource name. This is GUID value. The display name should be assigned within properties field.
      */
@@ -66,7 +70,7 @@ export class GraphQuery extends pulumi.CustomResource {
      */
     public /*out*/ readonly resultKind!: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * The system metadata relating to this resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.resourcegraph.SystemDataResponse>;
     /**
@@ -100,18 +104,20 @@ export class GraphQuery extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resultKind"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["timeModified"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -139,11 +145,15 @@ export interface GraphQueryArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * The location of the resource
+     */
+    location?: pulumi.Input<string>;
+    /**
      * KQL query that will be graph.
      */
     query: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

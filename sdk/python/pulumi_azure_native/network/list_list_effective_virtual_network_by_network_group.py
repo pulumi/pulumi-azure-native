@@ -72,7 +72,7 @@ def list_list_effective_virtual_network_by_network_group(network_group_name: Opt
 
     Uses Azure REST API version 2022-04-01-preview.
 
-    Other available API versions: 2021-05-01-preview.
+    Other available API versions: 2022-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str network_group_name: The name of the network group.
@@ -101,7 +101,7 @@ def list_list_effective_virtual_network_by_network_group_output(network_group_na
 
     Uses Azure REST API version 2022-04-01-preview.
 
-    Other available API versions: 2021-05-01-preview.
+    Other available API versions: 2022-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str network_group_name: The name of the network group.

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Represents an instance of a orchestrator.
  *
- * Uses Azure REST API version 2021-03-15. In version 1.x of the Azure Native provider, it used API version 2021-03-15.
+ * Uses Azure REST API version 2023-06-27-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-15.
  *
- * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ * Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
      * K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
      */
     public readonly apiServerEndpoint!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * RootCA certificate of kubernetes cluster base64 encoded
      */
@@ -130,12 +134,14 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["apiServerEndpoint"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterRootCA"] = undefined /*out*/;
             resourceInputs["controllerDetails"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;

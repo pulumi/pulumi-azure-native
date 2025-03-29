@@ -12,25 +12,25 @@ namespace Pulumi.AzureNative.Datadog
     public static class GetMonitor
     {
         /// <summary>
-        /// Uses Azure REST API version 2022-06-01.
+        /// Uses Azure REST API version 2023-10-20.
         /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+        /// Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:datadog:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Uses Azure REST API version 2022-06-01.
+        /// Uses Azure REST API version 2023-10-20.
         /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+        /// Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:datadog:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Uses Azure REST API version 2022-06-01.
+        /// Uses Azure REST API version 2023-10-20.
         /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+        /// Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:datadog:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Datadog
     public sealed class GetMonitorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// ARM id of the monitor resource.
         /// </summary>
         public readonly string Id;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNative.Datadog
 
         [OutputConstructor]
         private GetMonitorResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityPropertiesResponse? identity,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.Datadog
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

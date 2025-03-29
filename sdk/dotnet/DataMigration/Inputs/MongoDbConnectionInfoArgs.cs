@@ -16,16 +16,73 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     public sealed class MongoDbConnectionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Additional connection settings
+        /// </summary>
+        [Input("additionalSettings")]
+        public Input<string>? AdditionalSettings { get; set; }
+
+        /// <summary>
+        /// Authentication type to use for connection
+        /// </summary>
+        [Input("authentication")]
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.AuthenticationType>? Authentication { get; set; }
+
+        /// <summary>
         /// A MongoDB connection string or blob container URL. The user name and password can be specified here or in the userName and password properties
         /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
         /// <summary>
+        /// Data source 
+        /// </summary>
+        [Input("dataSource")]
+        public Input<string>? DataSource { get; set; }
+
+        /// <summary>
+        /// Whether to encrypt the connection
+        /// </summary>
+        [Input("encryptConnection")]
+        public Input<bool>? EncryptConnection { get; set; }
+
+        [Input("enforceSSL")]
+        public Input<bool>? EnforceSSL { get; set; }
+
+        /// <summary>
         /// Password credential.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
+
+        /// <summary>
+        /// port for server
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// server brand version
+        /// </summary>
+        [Input("serverBrandVersion")]
+        public Input<string>? ServerBrandVersion { get; set; }
+
+        /// <summary>
+        /// name of the server
+        /// </summary>
+        [Input("serverName")]
+        public Input<string>? ServerName { get; set; }
+
+        /// <summary>
+        /// server version
+        /// </summary>
+        [Input("serverVersion")]
+        public Input<string>? ServerVersion { get; set; }
+
+        /// <summary>
+        /// Whether to trust the server certificate
+        /// </summary>
+        [Input("trustServerCertificate")]
+        public Input<bool>? TrustServerCertificate { get; set; }
 
         /// <summary>
         /// Type of connection info
@@ -42,6 +99,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
 
         public MongoDbConnectionInfoArgs()
         {
+            TrustServerCertificate = false;
         }
         public static new MongoDbConnectionInfoArgs Empty => new MongoDbConnectionInfoArgs();
     }

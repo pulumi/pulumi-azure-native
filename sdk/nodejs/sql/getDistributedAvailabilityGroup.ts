@@ -2,14 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets a distributed availability group info.
  *
- * Uses Azure REST API version 2021-11-01.
+ * Uses Azure REST API version 2023-08-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDistributedAvailabilityGroup(args: GetDistributedAvailabilityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributedAvailabilityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,53 +43,61 @@ export interface GetDistributedAvailabilityGroupArgs {
  */
 export interface GetDistributedAvailabilityGroupResult {
     /**
-     * The distributed availability group id
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Databases in the distributed availability group
+     */
+    readonly databases?: outputs.sql.DistributedAvailabilityGroupDatabaseResponse[];
+    /**
+     * ID of the distributed availability group
      */
     readonly distributedAvailabilityGroupId: string;
+    /**
+     * Name of the distributed availability group
+     */
+    readonly distributedAvailabilityGroupName: string;
+    /**
+     * The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
+     */
+    readonly failoverMode?: string;
     /**
      * Resource ID.
      */
     readonly id: string;
     /**
-     * The last hardened lsn
+     * Managed instance side availability group name
      */
-    readonly lastHardenedLsn: string;
+    readonly instanceAvailabilityGroupName?: string;
     /**
-     * The link state
+     * Managed instance side link role
      */
-    readonly linkState: string;
+    readonly instanceLinkRole?: string;
     /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The primary availability group name
+     * SQL server side availability group name
      */
-    readonly primaryAvailabilityGroupName?: string;
+    readonly partnerAvailabilityGroupName?: string;
     /**
-     * The replication mode of a distributed availability group. Parameter will be ignored during link creation.
+     * SQL server side endpoint - IP or DNS resolvable name
+     */
+    readonly partnerEndpoint?: string;
+    /**
+     * SQL server side link role
+     */
+    readonly partnerLinkRole: string;
+    /**
+     * Replication mode of the link
      */
     readonly replicationMode?: string;
     /**
-     * The secondary availability group name
+     * Database seeding mode – can be Automatic (default), or Manual for supported scenarios.
      */
-    readonly secondaryAvailabilityGroupName?: string;
-    /**
-     * The source endpoint
-     */
-    readonly sourceEndpoint?: string;
-    /**
-     * The source replica id
-     */
-    readonly sourceReplicaId: string;
-    /**
-     * The name of the target database
-     */
-    readonly targetDatabase?: string;
-    /**
-     * The target replica id
-     */
-    readonly targetReplicaId: string;
+    readonly seedingMode?: string;
     /**
      * Resource type.
      */
@@ -95,9 +106,9 @@ export interface GetDistributedAvailabilityGroupResult {
 /**
  * Gets a distributed availability group info.
  *
- * Uses Azure REST API version 2021-11-01.
+ * Uses Azure REST API version 2023-08-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDistributedAvailabilityGroupOutput(args: GetDistributedAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDistributedAvailabilityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

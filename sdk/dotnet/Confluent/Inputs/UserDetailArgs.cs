@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Confluent.Inputs
     public sealed class UserDetailArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// AAD email address
+        /// </summary>
+        [Input("aadEmail")]
+        public Input<string>? AadEmail { get; set; }
+
+        /// <summary>
         /// Email address
         /// </summary>
         [Input("emailAddress", required: true)]
@@ -32,6 +38,12 @@ namespace Pulumi.AzureNative.Confluent.Inputs
         /// </summary>
         [Input("lastName")]
         public Input<string>? LastName { get; set; }
+
+        /// <summary>
+        /// User principal name
+        /// </summary>
+        [Input("userPrincipalName")]
+        public Input<string>? UserPrincipalName { get; set; }
 
         public UserDetailArgs()
         {

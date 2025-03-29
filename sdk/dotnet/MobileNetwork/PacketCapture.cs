@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// <summary>
     /// Packet capture session resource.
     /// 
-    /// Uses Azure REST API version 2023-06-01.
+    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
     /// 
-    /// Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+    /// Other available API versions: 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:PacketCapture")]
     public partial class PacketCapture : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Number of bytes captured per packet, the remaining bytes are truncated. The default "0" means the entire packet is captured.
         /// </summary>
@@ -42,6 +48,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<string>> NetworkInterfaces { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of output files of a packet capture session.
+        /// </summary>
+        [Output("outputFiles")]
+        public Output<ImmutableArray<string>> OutputFiles { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the packet capture session resource.

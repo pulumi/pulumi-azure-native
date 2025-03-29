@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Lists impacted resources in the tenant by an event (Security Advisory).
  *
- * Uses Azure REST API version 2022-10-01.
+ * Uses Azure REST API version 2024-02-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview, 2024-02-01.
+ * Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listSecurityAdvisoryImpactedResourceByTenantIdAndEventId(args: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdArgs, opts?: pulumi.InvokeOptions): Promise<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,9 +49,9 @@ export interface ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult 
 /**
  * Lists impacted resources in the tenant by an event (Security Advisory).
  *
- * Uses Azure REST API version 2022-10-01.
+ * Uses Azure REST API version 2024-02-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview, 2024-02-01.
+ * Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcehealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutput(args: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

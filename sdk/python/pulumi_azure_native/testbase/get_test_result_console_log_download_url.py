@@ -70,14 +70,14 @@ def get_test_result_console_log_download_url(log_file_name: Optional[str] = None
     """
     Gets the download URL of the test execution console log file.
 
-    Uses Azure REST API version 2022-04-01-preview.
+    Uses Azure REST API version 2023-11-01-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str log_file_name: The log file name corresponding to the download URL.
     :param str package_name: The resource name of the Test Base Package.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     :param str test_result_name: The Test Result Name. It equals to TestResult-{TestResultId} string.
     """
@@ -102,14 +102,14 @@ def get_test_result_console_log_download_url_output(log_file_name: Optional[pulu
     """
     Gets the download URL of the test execution console log file.
 
-    Uses Azure REST API version 2022-04-01-preview.
+    Uses Azure REST API version 2023-11-01-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str log_file_name: The log file name corresponding to the download URL.
     :param str package_name: The resource name of the Test Base Package.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     :param str test_result_name: The Test Result Name. It equals to TestResult-{TestResultId} string.
     """

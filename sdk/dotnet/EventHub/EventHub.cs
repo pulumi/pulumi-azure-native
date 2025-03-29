@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.EventHub
     /// <summary>
     /// Single item in List or Get Event Hub operation
     /// 
-    /// Uses Azure REST API version 2022-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+    /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
     /// 
-    /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:EventHub")]
     public partial class EventHub : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Properties of capture description
         /// </summary>
@@ -90,6 +96,12 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets and Sets Metadata of User.
+        /// </summary>
+        [Output("userMetadata")]
+        public Output<string?> UserMetadata { get; private set; } = null!;
 
 
         /// <summary>
@@ -198,6 +210,12 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Input("status")]
         public Input<Pulumi.AzureNative.EventHub.EntityStatus>? Status { get; set; }
+
+        /// <summary>
+        /// Gets and Sets Metadata of User.
+        /// </summary>
+        [Input("userMetadata")]
+        public Input<string>? UserMetadata { get; set; }
 
         public EventHubArgs()
         {

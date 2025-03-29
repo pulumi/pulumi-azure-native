@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Container App Job
  *
- * Uses Azure REST API version 2023-04-01-preview.
+ * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
  *
- * Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+ * Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Job extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Job extends pulumi.CustomResource {
         return obj['__pulumiType'] === Job.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Container Apps Job configuration properties.
      */
@@ -117,6 +121,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["template"] = args ? args.template : undefined;
             resourceInputs["workloadProfileName"] = args ? args.workloadProfileName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eventStreamEndpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
@@ -124,6 +129,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;
             resourceInputs["eventStreamEndpoint"] = undefined /*out*/;

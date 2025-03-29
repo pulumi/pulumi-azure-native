@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetInvitationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The expiration date for the invitation and share subscription.
         /// </summary>
         public readonly string? ExpirationDate;
@@ -166,6 +170,8 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetInvitationResult(
+            string azureApiVersion,
+
             string? expirationDate,
 
             string id,
@@ -194,6 +200,7 @@ namespace Pulumi.AzureNative.DataShare
 
             string userName)
         {
+            AzureApiVersion = azureApiVersion;
             ExpirationDate = expirationDate;
             Id = id;
             InvitationId = invitationId;

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// 
         /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWorkspaceTagResult> InvokeAsync(GetWorkspaceTagArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceTagResult>("azure-native:apimanagement:getWorkspaceTag", args ?? new GetWorkspaceTagArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// 
         /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceTagResult> Invoke(GetWorkspaceTagInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceTagResult>("azure-native:apimanagement:getWorkspaceTag", args ?? new GetWorkspaceTagInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// 
         /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceTagResult> Invoke(GetWorkspaceTagInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceTagResult>("azure-native:apimanagement:getWorkspaceTag", args ?? new GetWorkspaceTagInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetWorkspaceTagResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Tag name.
         /// </summary>
         public readonly string DisplayName;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetWorkspaceTagResult(
+            string azureApiVersion,
+
             string displayName,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DisplayName = displayName;
             Id = id;
             Name = name;

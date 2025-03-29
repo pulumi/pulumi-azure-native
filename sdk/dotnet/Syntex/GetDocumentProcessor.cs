@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Syntex
     public sealed class GetDocumentProcessorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.Syntex
 
         [OutputConstructor]
         private GetDocumentProcessorResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.Syntex
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

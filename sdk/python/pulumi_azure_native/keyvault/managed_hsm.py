@@ -23,6 +23,7 @@ __all__ = ['ManagedHsmArgs', 'ManagedHsm']
 class ManagedHsmArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['ManagedHsmPropertiesArgs']] = None,
@@ -31,6 +32,7 @@ class ManagedHsmArgs:
         """
         The set of arguments for constructing a ManagedHsm resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the managed HSM pool.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The supported Azure location where the managed HSM Pool should be created.
         :param pulumi.Input[str] name: Name of the managed HSM Pool
         :param pulumi.Input['ManagedHsmPropertiesArgs'] properties: Properties of the managed HSM
@@ -38,6 +40,8 @@ class ManagedHsmArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -60,6 +64,18 @@ class ManagedHsmArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -127,6 +143,7 @@ class ManagedHsm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['ManagedHsmPropertiesArgs', 'ManagedHsmPropertiesArgsDict']]] = None,
@@ -137,12 +154,13 @@ class ManagedHsm(pulumi.CustomResource):
         """
         Resource information with extended details.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2021-06-01-preview.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The supported Azure location where the managed HSM Pool should be created.
         :param pulumi.Input[str] name: Name of the managed HSM Pool
         :param pulumi.Input[Union['ManagedHsmPropertiesArgs', 'ManagedHsmPropertiesArgsDict']] properties: Properties of the managed HSM
@@ -159,9 +177,9 @@ class ManagedHsm(pulumi.CustomResource):
         """
         Resource information with extended details.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2021-06-01-preview.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ManagedHsmArgs args: The arguments to use to populate this resource's properties.
@@ -178,6 +196,7 @@ class ManagedHsm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['ManagedHsmPropertiesArgs', 'ManagedHsmPropertiesArgsDict']]] = None,
@@ -193,6 +212,7 @@ class ManagedHsm(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedHsmArgs.__new__(ManagedHsmArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["properties"] = properties
@@ -201,6 +221,7 @@ class ManagedHsm(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault/v20200401preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20211001:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20220201preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20220701:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20221101:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20230201:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20230701:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20240401preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20241101:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20241201preview:ManagedHsm")])
@@ -227,6 +248,8 @@ class ManagedHsm(pulumi.CustomResource):
 
         __props__ = ManagedHsmArgs.__new__(ManagedHsmArgs)
 
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -235,6 +258,22 @@ class ManagedHsm(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ManagedHsm(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

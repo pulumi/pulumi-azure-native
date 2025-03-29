@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.EventGrid
     /// <summary>
     /// Event Grid Partner Destination.
     /// 
-    /// Uses Azure REST API version 2023-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-10-15-preview.
+    /// Uses Azure REST API version 2024-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerDestination")]
     public partial class PartnerDestination : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Output("activationState")]
         public Output<string?> ActivationState { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Endpoint Base URL of the partner destination
@@ -75,7 +81,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to Partner Destination resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

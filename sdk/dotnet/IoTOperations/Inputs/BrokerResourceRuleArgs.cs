@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
     /// </summary>
     public sealed class BrokerResourceRuleArgs : global::Pulumi.ResourceArgs
     {
+        [Input("clientIds")]
+        private InputList<string>? _clientIds;
+
+        /// <summary>
+        /// A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection. This subfield may be set if the method is Connect.
+        /// </summary>
+        public InputList<string> ClientIds
+        {
+            get => _clientIds ?? (_clientIds = new InputList<string>());
+            set => _clientIds = value;
+        }
+
         /// <summary>
         /// Give access for a Broker method (i.e., Connect, Subscribe, or Publish).
         /// </summary>

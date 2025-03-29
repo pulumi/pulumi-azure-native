@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets an existing KeyGroup within a profile.
  *
- * Uses Azure REST API version 2023-07-01-preview.
+ * Uses Azure REST API version 2024-06-01-preview.
  *
- * Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getKeyGroup(args: GetKeyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,7 +33,7 @@ export interface GetKeyGroupArgs {
      */
     profileName: string;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -42,6 +42,10 @@ export interface GetKeyGroupArgs {
  * Contains a list of references of UrlSigningKey type secret objects.
  */
 export interface GetKeyGroupResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     readonly deploymentStatus: string;
     /**
      * Resource ID.
@@ -71,9 +75,9 @@ export interface GetKeyGroupResult {
 /**
  * Gets an existing KeyGroup within a profile.
  *
- * Uses Azure REST API version 2023-07-01-preview.
+ * Uses Azure REST API version 2024-06-01-preview.
  *
- * Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,7 +98,7 @@ export interface GetKeyGroupOutputArgs {
      */
     profileName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

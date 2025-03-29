@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets a Log Analytics workspace table.
  *
- * Uses Azure REST API version 2022-10-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-09-01, 2025-02-01.
+ * Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +46,10 @@ export interface GetTableResult {
      * The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
      */
     readonly archiveRetentionInDays: number;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -110,9 +114,9 @@ export interface GetTableResult {
 /**
  * Gets a Log Analytics workspace table.
  *
- * Uses Azure REST API version 2022-10-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-09-01, 2025-02-01.
+ * Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

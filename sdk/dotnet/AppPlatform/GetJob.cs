@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.AppPlatform
     public sealed class GetJobResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource Id for the resource.
         /// </summary>
         public readonly string Id;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.AppPlatform
 
         [OutputConstructor]
         private GetJobResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.AppPlatform
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

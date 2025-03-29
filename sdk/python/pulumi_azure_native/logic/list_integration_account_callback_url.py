@@ -60,7 +60,7 @@ def list_integration_account_callback_url(integration_account_name: Optional[str
 
     Uses Azure REST API version 2019-05-01.
 
-    Other available API versions: 2015-08-01-preview.
+    Other available API versions: 2015-08-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str integration_account_name: The integration account name.
@@ -88,7 +88,7 @@ def list_integration_account_callback_url_output(integration_account_name: Optio
 
     Uses Azure REST API version 2019-05-01.
 
-    Other available API versions: 2015-08-01-preview.
+    Other available API versions: 2015-08-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str integration_account_name: The integration account name.

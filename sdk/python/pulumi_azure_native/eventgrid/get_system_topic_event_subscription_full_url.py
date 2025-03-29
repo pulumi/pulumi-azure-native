@@ -24,7 +24,7 @@ __all__ = [
 @pulumi.output_type
 class GetSystemTopicEventSubscriptionFullUrlResult:
     """
-    Full endpoint url of an event subscription
+    Full endpoint URL of an event subscription
     """
     def __init__(__self__, endpoint_url=None):
         if endpoint_url and not isinstance(endpoint_url, str):
@@ -56,12 +56,12 @@ def get_system_topic_event_subscription_full_url(event_subscription_name: Option
     """
     Get the full endpoint URL for an event subscription of a system topic.
 
-    Uses Azure REST API version 2022-06-15.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+    :param str event_subscription_name: Name of the event subscription.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str system_topic_name: Name of the system topic.
     """
@@ -81,12 +81,12 @@ def get_system_topic_event_subscription_full_url_output(event_subscription_name:
     """
     Get the full endpoint URL for an event subscription of a system topic.
 
-    Uses Azure REST API version 2022-06-15.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+    :param str event_subscription_name: Name of the event subscription.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str system_topic_name: Name of the system topic.
     """

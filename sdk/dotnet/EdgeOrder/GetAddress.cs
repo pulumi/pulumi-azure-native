@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// Get information about the specified address.
         /// 
-        /// Uses Azure REST API version 2022-05-01-preview.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2024-02-01.
+        /// Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAddressResult> InvokeAsync(GetAddressArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddressResult>("azure-native:edgeorder:getAddress", args ?? new GetAddressArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// Get information about the specified address.
         /// 
-        /// Uses Azure REST API version 2022-05-01-preview.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2024-02-01.
+        /// Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAddressResult> Invoke(GetAddressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddressResult>("azure-native:edgeorder:getAddress", args ?? new GetAddressInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// Get information about the specified address.
         /// 
-        /// Uses Azure REST API version 2022-05-01-preview.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2024-02-01.
+        /// Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAddressResult> Invoke(GetAddressInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddressResult>("azure-native:edgeorder:getAddress", args ?? new GetAddressInvokeArgs(), options.WithDefaults());
@@ -88,15 +88,23 @@ namespace Pulumi.AzureNative.EdgeOrder
     public sealed class GetAddressResult
     {
         /// <summary>
+        /// Type of address based on its usage context.
+        /// </summary>
+        public readonly string? AddressClassification;
+        /// <summary>
         /// Status of address validation.
         /// </summary>
         public readonly string AddressValidationStatus;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Contact details for the address.
         /// </summary>
-        public readonly Outputs.ContactDetailsResponse ContactDetails;
+        public readonly Outputs.ContactDetailsResponse? ContactDetails;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -108,11 +116,15 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Provisioning state
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
         /// Shipping details for the address.
         /// </summary>
         public readonly Outputs.ShippingAddressResponse? ShippingAddress;
         /// <summary>
-        /// Represents resource creation and update time.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -126,15 +138,21 @@ namespace Pulumi.AzureNative.EdgeOrder
 
         [OutputConstructor]
         private GetAddressResult(
+            string? addressClassification,
+
             string addressValidationStatus,
 
-            Outputs.ContactDetailsResponse contactDetails,
+            string azureApiVersion,
+
+            Outputs.ContactDetailsResponse? contactDetails,
 
             string id,
 
             string location,
 
             string name,
+
+            string provisioningState,
 
             Outputs.ShippingAddressResponse? shippingAddress,
 
@@ -144,11 +162,14 @@ namespace Pulumi.AzureNative.EdgeOrder
 
             string type)
         {
+            AddressClassification = addressClassification;
             AddressValidationStatus = addressValidationStatus;
+            AzureApiVersion = azureApiVersion;
             ContactDetails = contactDetails;
             Id = id;
             Location = location;
             Name = name;
+            ProvisioningState = provisioningState;
             ShippingAddress = shippingAddress;
             SystemData = systemData;
             Tags = tags;

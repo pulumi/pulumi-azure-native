@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Logic
     /// <summary>
     /// The integration account agreement.
     /// 
-    /// Uses Azure REST API version 2019-05-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
+    /// Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
     /// 
-    /// Other available API versions: 2015-08-01-preview.
+    /// Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountAgreement")]
     public partial class IntegrationAccountAgreement : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         [Output("agreementType")]
         public Output<string> AgreementType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The changed time.
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.Logic
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountAgreement" },
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:Agreement" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountAgreement" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountAgreement" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountAgreement" },

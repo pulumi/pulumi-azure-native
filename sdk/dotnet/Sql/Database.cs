@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Sql
     /// <summary>
     /// A database resource.
     /// 
-    /// Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+    /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
-    /// Other available API versions: 2014-04-01, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    /// Other available API versions: 2014-04-01, 2017-03-01-preview, 2017-10-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:Database")]
     public partial class Database : global::Pulumi.CustomResource
@@ -24,6 +24,18 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("autoPauseDelay")]
         public Output<int?> AutoPauseDelay { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the availability zone the database is pinned to.
+        /// </summary>
+        [Output("availabilityZone")]
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Collation of the metadata catalog.
@@ -86,6 +98,18 @@ namespace Pulumi.AzureNative.Sql
         public Output<string?> ElasticPoolId { get; private set; } = null!;
 
         /// <summary>
+        /// The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
+        /// </summary>
+        [Output("encryptionProtector")]
+        public Output<string?> EncryptionProtector { get; private set; } = null!;
+
+        /// <summary>
+        /// The flag to enable or disable auto rotation of database encryption protector AKV key.
+        /// </summary>
+        [Output("encryptionProtectorAutoRotation")]
+        public Output<bool?> EncryptionProtectorAutoRotation { get; private set; } = null!;
+
+        /// <summary>
         /// Failover Group resource identifier that this database belongs to.
         /// </summary>
         [Output("failoverGroupId")]
@@ -98,7 +122,17 @@ namespace Pulumi.AzureNative.Sql
         public Output<string?> FederatedClientId { get; private set; } = null!;
 
         /// <summary>
-        /// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
+        /// Specifies the behavior when monthly free limits are exhausted for the free database.
+        /// 
+        /// AutoPause: The database will be auto paused upon exhaustion of free limits for remainder of the month.
+        /// 
+        /// BillForUsage: The database will continue to be online upon exhaustion of free limits and any overage will be billed.
+        /// </summary>
+        [Output("freeLimitExhaustionBehavior")]
+        public Output<string?> FreeLimitExhaustionBehavior { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Output("highAvailabilityReplicaCount")]
         public Output<int?> HighAvailabilityReplicaCount { get; private set; } = null!;
@@ -120,6 +154,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("isLedgerOn")]
         public Output<bool?> IsLedgerOn { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource ids of the user assigned identities to use
+        /// </summary>
+        [Output("keys")]
+        public Output<ImmutableDictionary<string, Outputs.DatabaseKeyResponse>?> Keys { get; private set; } = null!;
 
         /// <summary>
         /// Kind of database. This is metadata used for the Azure portal experience.
@@ -152,6 +192,18 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> ManagedBy { get; private set; } = null!;
 
         /// <summary>
+        /// Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
+        /// 
+        /// This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
+        /// 
+        /// When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
+        /// 
+        /// To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
+        /// </summary>
+        [Output("manualCutover")]
+        public Output<bool?> ManualCutover { get; private set; } = null!;
+
+        /// <summary>
         /// The max log size for this database.
         /// </summary>
         [Output("maxLogSizeBytes")]
@@ -182,6 +234,24 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> PausedDate { get; private set; } = null!;
 
         /// <summary>
+        /// To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
+        /// 
+        /// This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
+        /// 
+        /// This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
+        /// 
+        /// When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
+        /// </summary>
+        [Output("performCutover")]
+        public Output<bool?> PerformCutover { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of enclave requested on the database i.e. Default or VBS enclaves.
+        /// </summary>
+        [Output("preferredEnclaveType")]
+        public Output<string?> PreferredEnclaveType { get; private set; } = null!;
+
+        /// <summary>
         /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Output("readScale")]
@@ -206,7 +276,7 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> ResumedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+        /// The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
         /// </summary>
         [Output("secondaryType")]
         public Output<string?> SecondaryType { get; private set; } = null!;
@@ -244,6 +314,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not the database uses free monthly limits. Allowed on one database in a subscription.
+        /// </summary>
+        [Output("useFreeLimit")]
+        public Output<bool?> UseFreeLimit { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
@@ -327,6 +403,12 @@ namespace Pulumi.AzureNative.Sql
         public Input<int>? AutoPauseDelay { get; set; }
 
         /// <summary>
+        /// Specifies the availability zone the database is pinned to.
+        /// </summary>
+        [Input("availabilityZone")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.AvailabilityZoneType>? AvailabilityZone { get; set; }
+
+        /// <summary>
         /// Collation of the metadata catalog.
         /// </summary>
         [Input("catalogCollation")]
@@ -373,13 +455,35 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? ElasticPoolId { get; set; }
 
         /// <summary>
+        /// The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
+        /// </summary>
+        [Input("encryptionProtector")]
+        public Input<string>? EncryptionProtector { get; set; }
+
+        /// <summary>
+        /// The flag to enable or disable auto rotation of database encryption protector AKV key.
+        /// </summary>
+        [Input("encryptionProtectorAutoRotation")]
+        public Input<bool>? EncryptionProtectorAutoRotation { get; set; }
+
+        /// <summary>
         /// The Client id used for cross tenant per database CMK scenario
         /// </summary>
         [Input("federatedClientId")]
         public Input<string>? FederatedClientId { get; set; }
 
         /// <summary>
-        /// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
+        /// Specifies the behavior when monthly free limits are exhausted for the free database.
+        /// 
+        /// AutoPause: The database will be auto paused upon exhaustion of free limits for remainder of the month.
+        /// 
+        /// BillForUsage: The database will continue to be online upon exhaustion of free limits and any overage will be billed.
+        /// </summary>
+        [Input("freeLimitExhaustionBehavior")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.FreeLimitExhaustionBehavior>? FreeLimitExhaustionBehavior { get; set; }
+
+        /// <summary>
+        /// The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Input("highAvailabilityReplicaCount")]
         public Input<int>? HighAvailabilityReplicaCount { get; set; }
@@ -395,6 +499,18 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("isLedgerOn")]
         public Input<bool>? IsLedgerOn { get; set; }
+
+        [Input("keys")]
+        private InputList<string>? _keys;
+
+        /// <summary>
+        /// The resource ids of the user assigned identities to use
+        /// </summary>
+        public InputList<string> Keys
+        {
+            get => _keys ?? (_keys = new InputList<string>());
+            set => _keys = value;
+        }
 
         /// <summary>
         /// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
@@ -421,6 +537,18 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? MaintenanceConfigurationId { get; set; }
 
         /// <summary>
+        /// Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
+        /// 
+        /// This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
+        /// 
+        /// When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
+        /// 
+        /// To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
+        /// </summary>
+        [Input("manualCutover")]
+        public Input<bool>? ManualCutover { get; set; }
+
+        /// <summary>
         /// The max size of the database expressed in bytes.
         /// </summary>
         [Input("maxSizeBytes")]
@@ -431,6 +559,24 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("minCapacity")]
         public Input<double>? MinCapacity { get; set; }
+
+        /// <summary>
+        /// To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
+        /// 
+        /// This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
+        /// 
+        /// This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
+        /// 
+        /// When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
+        /// </summary>
+        [Input("performCutover")]
+        public Input<bool>? PerformCutover { get; set; }
+
+        /// <summary>
+        /// Type of enclave requested on the database i.e. Default or VBS enclaves.
+        /// </summary>
+        [Input("preferredEnclaveType")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.AlwaysEncryptedEnclaveType>? PreferredEnclaveType { get; set; }
 
         /// <summary>
         /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
@@ -481,7 +627,7 @@ namespace Pulumi.AzureNative.Sql
         public InputUnion<string, Pulumi.AzureNative.Sql.SampleName>? SampleName { get; set; }
 
         /// <summary>
-        /// The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+        /// The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
         /// </summary>
         [Input("secondaryType")]
         public InputUnion<string, Pulumi.AzureNative.Sql.SecondaryType>? SecondaryType { get; set; }
@@ -549,6 +695,12 @@ namespace Pulumi.AzureNative.Sql
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Whether or not the database uses free monthly limits. Allowed on one database in a subscription.
+        /// </summary>
+        [Input("useFreeLimit")]
+        public Input<bool>? UseFreeLimit { get; set; }
 
         /// <summary>
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get a ScalingPlanPooledSchedule.
         /// 
-        /// Uses Azure REST API version 2022-09-09.
+        /// Uses Azure REST API version 2024-04-03.
         /// 
-        /// Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        /// Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetScalingPlanPooledScheduleResult> InvokeAsync(GetScalingPlanPooledScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanPooledScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPooledSchedule", args ?? new GetScalingPlanPooledScheduleArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get a ScalingPlanPooledSchedule.
         /// 
-        /// Uses Azure REST API version 2022-09-09.
+        /// Uses Azure REST API version 2024-04-03.
         /// 
-        /// Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        /// Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetScalingPlanPooledScheduleResult> Invoke(GetScalingPlanPooledScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanPooledScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPooledSchedule", args ?? new GetScalingPlanPooledScheduleInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get a ScalingPlanPooledSchedule.
         /// 
-        /// Uses Azure REST API version 2022-09-09.
+        /// Uses Azure REST API version 2024-04-03.
         /// 
-        /// Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        /// Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetScalingPlanPooledScheduleResult> Invoke(GetScalingPlanPooledScheduleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanPooledScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPooledSchedule", args ?? new GetScalingPlanPooledScheduleInvokeArgs(), options.WithDefaults());
@@ -100,11 +100,15 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class GetScalingPlanPooledScheduleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Set of days of the week on which this schedule is active.
         /// </summary>
         public readonly ImmutableArray<string> DaysOfWeek;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -176,7 +180,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly Outputs.TimeResponse? RampUpStartTime;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -186,6 +190,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         [OutputConstructor]
         private GetScalingPlanPooledScheduleResult(
+            string azureApiVersion,
+
             ImmutableArray<string> daysOfWeek,
 
             string id,
@@ -228,6 +234,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DaysOfWeek = daysOfWeek;
             Id = id;
             Name = name;

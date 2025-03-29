@@ -106,9 +106,9 @@ def list_notification_hub_keys(authorization_rule_name: Optional[str] = None,
     """
     Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
 
-    Uses Azure REST API version 2023-01-01-preview.
+    Uses Azure REST API version 2023-10-01-preview.
 
-    Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+    Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str authorization_rule_name: Authorization Rule Name
@@ -138,9 +138,9 @@ def list_notification_hub_keys_output(authorization_rule_name: Optional[pulumi.I
     """
     Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
 
-    Uses Azure REST API version 2023-01-01-preview.
+    Uses Azure REST API version 2023-10-01-preview.
 
-    Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+    Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str authorization_rule_name: Authorization Rule Name

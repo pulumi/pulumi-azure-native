@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The operation to get a run command.
         /// 
-        /// Uses Azure REST API version 2023-10-03-preview.
+        /// Uses Azure REST API version 2024-07-31-preview.
         /// 
-        /// Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+        /// Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMachineRunCommandResult> InvokeAsync(GetMachineRunCommandArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineRunCommandResult>("azure-native:hybridcompute:getMachineRunCommand", args ?? new GetMachineRunCommandArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The operation to get a run command.
         /// 
-        /// Uses Azure REST API version 2023-10-03-preview.
+        /// Uses Azure REST API version 2024-07-31-preview.
         /// 
-        /// Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+        /// Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMachineRunCommandResult> Invoke(GetMachineRunCommandInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineRunCommandResult>("azure-native:hybridcompute:getMachineRunCommand", args ?? new GetMachineRunCommandInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The operation to get a run command.
         /// 
-        /// Uses Azure REST API version 2023-10-03-preview.
+        /// Uses Azure REST API version 2024-07-31-preview.
         /// 
-        /// Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+        /// Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMachineRunCommandResult> Invoke(GetMachineRunCommandInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineRunCommandResult>("azure-native:hybridcompute:getMachineRunCommand", args ?? new GetMachineRunCommandInvokeArgs(), options.WithDefaults());
@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.HybridCompute
         /// Optional. If set to true, provisioning will complete as soon as script starts and will not wait for script to complete.
         /// </summary>
         public readonly bool? AsyncExecution;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
         /// </summary>
@@ -180,6 +184,8 @@ namespace Pulumi.AzureNative.HybridCompute
         private GetMachineRunCommandResult(
             bool? asyncExecution,
 
+            string azureApiVersion,
+
             Outputs.RunCommandManagedIdentityResponse? errorBlobManagedIdentity,
 
             string? errorBlobUri,
@@ -217,6 +223,7 @@ namespace Pulumi.AzureNative.HybridCompute
             string type)
         {
             AsyncExecution = asyncExecution;
+            AzureApiVersion = azureApiVersion;
             ErrorBlobManagedIdentity = errorBlobManagedIdentity;
             ErrorBlobUri = errorBlobUri;
             Id = id;

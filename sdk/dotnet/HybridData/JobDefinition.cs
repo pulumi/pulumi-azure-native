@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.HybridData
     /// <summary>
     /// Job Definition.
     /// 
-    /// Uses Azure REST API version 2019-06-01. In version 1.x of the Azure Native provider, it used API version 2019-06-01.
+    /// Uses Azure REST API version 2019-06-01. In version 2.x of the Azure Native provider, it used API version 2019-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybriddata:JobDefinition")]
     public partial class JobDefinition : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         /// </summary>

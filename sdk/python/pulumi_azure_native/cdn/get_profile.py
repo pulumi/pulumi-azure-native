@@ -27,7 +27,10 @@ class GetProfileResult:
     """
     A profile is a logical grouping of endpoints that share the same settings.
     """
-    def __init__(__self__, extended_properties=None, front_door_id=None, id=None, identity=None, kind=None, location=None, name=None, origin_response_timeout_seconds=None, provisioning_state=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, extended_properties=None, front_door_id=None, id=None, identity=None, kind=None, location=None, log_scrubbing=None, name=None, origin_response_timeout_seconds=None, provisioning_state=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_properties and not isinstance(extended_properties, dict):
             raise TypeError("Expected argument 'extended_properties' to be a dict")
         pulumi.set(__self__, "extended_properties", extended_properties)
@@ -46,6 +49,9 @@ class GetProfileResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if log_scrubbing and not isinstance(log_scrubbing, dict):
+            raise TypeError("Expected argument 'log_scrubbing' to be a dict")
+        pulumi.set(__self__, "log_scrubbing", log_scrubbing)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -70,6 +76,14 @@ class GetProfileResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedProperties")
@@ -118,6 +132,14 @@ class GetProfileResult:
         Resource location.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logScrubbing")
+    def log_scrubbing(self) -> Optional['outputs.ProfileLogScrubbingResponse']:
+        """
+        Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
+        """
+        return pulumi.get(self, "log_scrubbing")
 
     @property
     @pulumi.getter
@@ -190,12 +212,14 @@ class AwaitableGetProfileResult(GetProfileResult):
         if False:
             yield self
         return GetProfileResult(
+            azure_api_version=self.azure_api_version,
             extended_properties=self.extended_properties,
             front_door_id=self.front_door_id,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
+            log_scrubbing=self.log_scrubbing,
             name=self.name,
             origin_response_timeout_seconds=self.origin_response_timeout_seconds,
             provisioning_state=self.provisioning_state,
@@ -212,9 +236,9 @@ def get_profile(profile_name: Optional[str] = None,
     """
     Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
@@ -227,12 +251,14 @@ def get_profile(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getProfile', __args__, opts=opts, typ=GetProfileResult).value
 
     return AwaitableGetProfileResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_properties=pulumi.get(__ret__, 'extended_properties'),
         front_door_id=pulumi.get(__ret__, 'front_door_id'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
+        log_scrubbing=pulumi.get(__ret__, 'log_scrubbing'),
         name=pulumi.get(__ret__, 'name'),
         origin_response_timeout_seconds=pulumi.get(__ret__, 'origin_response_timeout_seconds'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -247,9 +273,9 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
     """
     Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
@@ -261,12 +287,14 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getProfile', __args__, opts=opts, typ=GetProfileResult)
     return __ret__.apply(lambda __response__: GetProfileResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_properties=pulumi.get(__response__, 'extended_properties'),
         front_door_id=pulumi.get(__response__, 'front_door_id'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
+        log_scrubbing=pulumi.get(__response__, 'log_scrubbing'),
         name=pulumi.get(__response__, 'name'),
         origin_response_timeout_seconds=pulumi.get(__response__, 'origin_response_timeout_seconds'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

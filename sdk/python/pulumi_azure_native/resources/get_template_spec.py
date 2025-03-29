@@ -27,7 +27,10 @@ class GetTemplateSpecResult:
     """
     Template Spec object.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, location=None, metadata=None, name=None, system_data=None, tags=None, type=None, versions=None):
+    def __init__(__self__, azure_api_version=None, description=None, display_name=None, id=None, location=None, metadata=None, name=None, system_data=None, tags=None, type=None, versions=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -58,6 +61,14 @@ class GetTemplateSpecResult:
         if versions and not isinstance(versions, dict):
             raise TypeError("Expected argument 'versions' to be a dict")
         pulumi.set(__self__, "versions", versions)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetTemplateSpecResult(GetTemplateSpecResult):
         if False:
             yield self
         return GetTemplateSpecResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
@@ -167,6 +179,8 @@ def get_template_spec(expand: Optional[str] = None,
 
     Uses Azure REST API version 2022-02-01.
 
+    Other available API versions: 2021-03-01-preview, 2021-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -180,6 +194,7 @@ def get_template_spec(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resources:getTemplateSpec', __args__, opts=opts, typ=GetTemplateSpecResult).value
 
     return AwaitableGetTemplateSpecResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -199,6 +214,8 @@ def get_template_spec_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
 
     Uses Azure REST API version 2022-02-01.
 
+    Other available API versions: 2021-03-01-preview, 2021-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -211,6 +228,7 @@ def get_template_spec_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources:getTemplateSpec', __args__, opts=opts, typ=GetTemplateSpecResult)
     return __ret__.apply(lambda __response__: GetTemplateSpecResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),

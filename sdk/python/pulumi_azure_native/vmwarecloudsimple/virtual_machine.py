@@ -304,7 +304,7 @@ class VirtualMachine(pulumi.CustomResource):
         """
         Virtual machine model
 
-        Uses Azure REST API version 2019-04-01. In version 1.x of the Azure Native provider, it used API version 2019-04-01.
+        Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,7 +334,7 @@ class VirtualMachine(pulumi.CustomResource):
         """
         Virtual machine model
 
-        Uses Azure REST API version 2019-04-01. In version 1.x of the Azure Native provider, it used API version 2019-04-01.
+        Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -400,6 +400,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["username"] = username
             __props__.__dict__["v_sphere_networks"] = v_sphere_networks
             __props__.__dict__["virtual_machine_name"] = virtual_machine_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["controllers"] = None
             __props__.__dict__["dnsname"] = None
             __props__.__dict__["folder"] = None
@@ -437,6 +438,7 @@ class VirtualMachine(pulumi.CustomResource):
         __props__ = VirtualMachineArgs.__new__(VirtualMachineArgs)
 
         __props__.__dict__["amount_of_ram"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["controllers"] = None
         __props__.__dict__["customization"] = None
         __props__.__dict__["disks"] = None
@@ -471,6 +473,14 @@ class VirtualMachine(pulumi.CustomResource):
         The amount of memory
         """
         return pulumi.get(self, "amount_of_ram")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

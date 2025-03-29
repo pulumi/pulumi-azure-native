@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Private link service resource.
  *
- * Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+ * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
- * Other available API versions: 2019-08-01, 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PrivateLinkService extends pulumi.CustomResource {
     /**
@@ -49,6 +49,14 @@ export class PrivateLinkService extends pulumi.CustomResource {
      * The auto-approval list of the private link service.
      */
     public readonly autoApproval!: pulumi.Output<outputs.network.PrivateLinkServicePropertiesResponseAutoApproval | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * The destination IP address of the private link service.
+     */
+    public readonly destinationIPAddress!: pulumi.Output<string | undefined>;
     /**
      * Whether the private link service is enabled for proxy protocol or not.
      */
@@ -121,6 +129,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["autoApproval"] = args ? args.autoApproval : undefined;
+            resourceInputs["destinationIPAddress"] = args ? args.destinationIPAddress : undefined;
             resourceInputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["fqdns"] = args ? args.fqdns : undefined;
@@ -133,6 +142,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["visibility"] = args ? args.visibility : undefined;
             resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
@@ -142,6 +152,8 @@ export class PrivateLinkService extends pulumi.CustomResource {
         } else {
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["autoApproval"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["destinationIPAddress"] = undefined /*out*/;
             resourceInputs["enableProxyProtocol"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
@@ -172,6 +184,10 @@ export interface PrivateLinkServiceArgs {
      * The auto-approval list of the private link service.
      */
     autoApproval?: pulumi.Input<inputs.network.PrivateLinkServicePropertiesAutoApprovalArgs>;
+    /**
+     * The destination IP address of the private link service.
+     */
+    destinationIPAddress?: pulumi.Input<string>;
     /**
      * Whether the private link service is enabled for proxy protocol or not.
      */

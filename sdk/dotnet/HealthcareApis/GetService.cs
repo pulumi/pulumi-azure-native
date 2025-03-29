@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Get the metadata of a service instance.
         /// 
-        /// Uses Azure REST API version 2023-02-28.
+        /// Uses Azure REST API version 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:healthcareapis:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Get the metadata of a service instance.
         /// 
-        /// Uses Azure REST API version 2023-02-28.
+        /// Uses Azure REST API version 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:healthcareapis:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Get the metadata of a service instance.
         /// 
-        /// Uses Azure REST API version 2023-02-28.
+        /// Uses Azure REST API version 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:healthcareapis:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.HealthcareApis
     public sealed class GetServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
         /// </summary>
         public readonly string? Etag;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.HealthcareApis
 
         [OutputConstructor]
         private GetServiceResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Identity = identity;

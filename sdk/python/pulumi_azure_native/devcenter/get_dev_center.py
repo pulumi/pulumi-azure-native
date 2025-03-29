@@ -27,10 +27,19 @@ class GetDevCenterResult:
     """
     Represents a devcenter resource.
     """
-    def __init__(__self__, dev_center_uri=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, dev_center_uri=None, display_name=None, encryption=None, id=None, identity=None, location=None, name=None, project_catalog_settings=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if dev_center_uri and not isinstance(dev_center_uri, str):
             raise TypeError("Expected argument 'dev_center_uri' to be a str")
         pulumi.set(__self__, "dev_center_uri", dev_center_uri)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +52,9 @@ class GetDevCenterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if project_catalog_settings and not isinstance(project_catalog_settings, dict):
+            raise TypeError("Expected argument 'project_catalog_settings' to be a dict")
+        pulumi.set(__self__, "project_catalog_settings", project_catalog_settings)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -57,6 +69,14 @@ class GetDevCenterResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="devCenterUri")
     def dev_center_uri(self) -> str:
         """
@@ -65,10 +85,26 @@ class GetDevCenterResult:
         return pulumi.get(self, "dev_center_uri")
 
     @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the devcenter.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+        """
+        Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -95,6 +131,14 @@ class GetDevCenterResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="projectCatalogSettings")
+    def project_catalog_settings(self) -> Optional['outputs.DevCenterProjectCatalogSettingsResponse']:
+        """
+        Dev Center settings to be used when associating a project with a catalog.
+        """
+        return pulumi.get(self, "project_catalog_settings")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -135,11 +179,15 @@ class AwaitableGetDevCenterResult(GetDevCenterResult):
         if False:
             yield self
         return GetDevCenterResult(
+            azure_api_version=self.azure_api_version,
             dev_center_uri=self.dev_center_uri,
+            display_name=self.display_name,
+            encryption=self.encryption,
             id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
+            project_catalog_settings=self.project_catalog_settings,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             tags=self.tags,
@@ -152,9 +200,9 @@ def get_dev_center(dev_center_name: Optional[str] = None,
     """
     Gets a devcenter.
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -167,11 +215,15 @@ def get_dev_center(dev_center_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter:getDevCenter', __args__, opts=opts, typ=GetDevCenterResult).value
 
     return AwaitableGetDevCenterResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         dev_center_uri=pulumi.get(__ret__, 'dev_center_uri'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        encryption=pulumi.get(__ret__, 'encryption'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        project_catalog_settings=pulumi.get(__ret__, 'project_catalog_settings'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -182,9 +234,9 @@ def get_dev_center_output(dev_center_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a devcenter.
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -196,11 +248,15 @@ def get_dev_center_output(dev_center_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getDevCenter', __args__, opts=opts, typ=GetDevCenterResult)
     return __ret__.apply(lambda __response__: GetDevCenterResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         dev_center_uri=pulumi.get(__response__, 'dev_center_uri'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        encryption=pulumi.get(__response__, 'encryption'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        project_catalog_settings=pulumi.get(__response__, 'project_catalog_settings'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

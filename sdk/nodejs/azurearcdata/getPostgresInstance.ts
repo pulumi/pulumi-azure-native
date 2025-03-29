@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieves a postgres Instance resource
  *
- * Uses Azure REST API version 2023-01-15-preview.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
+ * Other available API versions: 2023-01-15-preview, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPostgresInstance(args: GetPostgresInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetPostgresInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetPostgresInstanceArgs {
  * A Postgres Instance.
  */
 export interface GetPostgresInstanceResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The extendedLocation of the resource.
      */
@@ -77,9 +81,9 @@ export interface GetPostgresInstanceResult {
 /**
  * Retrieves a postgres Instance resource
  *
- * Uses Azure REST API version 2023-01-15-preview.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
+ * Other available API versions: 2023-01-15-preview, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPostgresInstanceOutput(args: GetPostgresInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPostgresInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

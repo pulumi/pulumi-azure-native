@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets an existing attestation at resource group scope.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2024-10-01.
+ * Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAttestationAtResourceGroup(args: GetAttestationAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +41,10 @@ export interface GetAttestationAtResourceGroupResult {
      * The time the evidence was assessed
      */
     readonly assessmentDate?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Comments describing why this attestation was created.
      */
@@ -101,9 +105,9 @@ export interface GetAttestationAtResourceGroupResult {
 /**
  * Gets an existing attestation at resource group scope.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2024-10-01.
+ * Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAttestationAtResourceGroupOutput(args: GetAttestationAtResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttestationAtResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Get a InstanceResource
         /// 
-        /// Uses Azure REST API version 2024-07-01-preview.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
+        /// Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("azure-native:iotoperations:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Get a InstanceResource
         /// 
-        /// Uses Azure REST API version 2024-07-01-preview.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
+        /// Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:iotoperations:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Get a InstanceResource
         /// 
-        /// Uses Azure REST API version 2024-07-01-preview.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01, 2025-04-01.
+        /// Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:iotoperations:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.IoTOperations
     public sealed class GetInstanceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Edge location of the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -95,6 +99,10 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The managed service identities assigned to this resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -122,9 +130,13 @@ namespace Pulumi.AzureNative.IoTOperations
 
         [OutputConstructor]
         private GetInstanceResult(
+            string azureApiVersion,
+
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -138,8 +150,10 @@ namespace Pulumi.AzureNative.IoTOperations
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;

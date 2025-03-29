@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Security
         /// Use this method to get the device security group for the specified IoT Hub resource.
         /// 
         /// Uses Azure REST API version 2019-08-01.
+        /// 
+        /// Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDeviceSecurityGroupResult> InvokeAsync(GetDeviceSecurityGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceSecurityGroupResult>("azure-native:security:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Security
         /// Use this method to get the device security group for the specified IoT Hub resource.
         /// 
         /// Uses Azure REST API version 2019-08-01.
+        /// 
+        /// Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDeviceSecurityGroupResult> Invoke(GetDeviceSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceSecurityGroupResult>("azure-native:security:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Security
         /// Use this method to get the device security group for the specified IoT Hub resource.
         /// 
         /// Uses Azure REST API version 2019-08-01.
+        /// 
+        /// Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDeviceSecurityGroupResult> Invoke(GetDeviceSecurityGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceSecurityGroupResult>("azure-native:security:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupInvokeArgs(), options.WithDefaults());
@@ -86,6 +92,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly ImmutableArray<Outputs.AllowlistCustomAlertRuleResponse> AllowlistRules;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The deny-list custom alert rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.DenylistCustomAlertRuleResponse> DenylistRules;
@@ -114,6 +124,8 @@ namespace Pulumi.AzureNative.Security
         private GetDeviceSecurityGroupResult(
             ImmutableArray<Outputs.AllowlistCustomAlertRuleResponse> allowlistRules,
 
+            string azureApiVersion,
+
             ImmutableArray<Outputs.DenylistCustomAlertRuleResponse> denylistRules,
 
             string id,
@@ -127,6 +139,7 @@ namespace Pulumi.AzureNative.Security
             string type)
         {
             AllowlistRules = allowlistRules;
+            AzureApiVersion = azureApiVersion;
             DenylistRules = denylistRules;
             Id = id;
             Name = name;

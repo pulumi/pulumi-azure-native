@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// [Required] Specifies the action of the schedule
         /// </summary>
         [Input("action", required: true)]
-        public InputUnion<Inputs.EndpointScheduleActionArgs, Inputs.JobScheduleActionArgs> Action { get; set; } = null!;
+        public object Action { get; set; } = null!;
 
         /// <summary>
         /// The asset description text.

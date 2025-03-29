@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A Invitation data transfer object.
  *
- * Uses Azure REST API version 2021-08-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+ * Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
  */
 export class Invitation extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Invitation extends pulumi.CustomResource {
         return obj['__pulumiType'] === Invitation.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The expiration date for the invitation and share subscription.
      */
@@ -122,6 +126,7 @@ export class Invitation extends pulumi.CustomResource {
             resourceInputs["targetActiveDirectoryId"] = args ? args.targetActiveDirectoryId : undefined;
             resourceInputs["targetEmail"] = args ? args.targetEmail : undefined;
             resourceInputs["targetObjectId"] = args ? args.targetObjectId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["invitationId"] = undefined /*out*/;
             resourceInputs["invitationStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -132,6 +137,7 @@ export class Invitation extends pulumi.CustomResource {
             resourceInputs["userEmail"] = undefined /*out*/;
             resourceInputs["userName"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["expirationDate"] = undefined /*out*/;
             resourceInputs["invitationId"] = undefined /*out*/;
             resourceInputs["invitationStatus"] = undefined /*out*/;

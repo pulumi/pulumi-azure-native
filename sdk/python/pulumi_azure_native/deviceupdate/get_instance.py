@@ -27,10 +27,13 @@ class GetInstanceResult:
     """
     Device Update instance details.
     """
-    def __init__(__self__, account_name=None, diagnostic_storage_properties=None, enable_diagnostics=None, id=None, iot_hubs=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_name=None, azure_api_version=None, diagnostic_storage_properties=None, enable_diagnostics=None, id=None, iot_hubs=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if diagnostic_storage_properties and not isinstance(diagnostic_storage_properties, dict):
             raise TypeError("Expected argument 'diagnostic_storage_properties' to be a dict")
         pulumi.set(__self__, "diagnostic_storage_properties", diagnostic_storage_properties)
@@ -69,6 +72,14 @@ class GetInstanceResult:
         Parent Device Update Account name which Instance belongs to.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="diagnosticStorageProperties")
@@ -158,6 +169,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             yield self
         return GetInstanceResult(
             account_name=self.account_name,
+            azure_api_version=self.azure_api_version,
             diagnostic_storage_properties=self.diagnostic_storage_properties,
             enable_diagnostics=self.enable_diagnostics,
             id=self.id,
@@ -193,6 +205,7 @@ def get_instance(account_name: Optional[str] = None,
 
     return AwaitableGetInstanceResult(
         account_name=pulumi.get(__ret__, 'account_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         diagnostic_storage_properties=pulumi.get(__ret__, 'diagnostic_storage_properties'),
         enable_diagnostics=pulumi.get(__ret__, 'enable_diagnostics'),
         id=pulumi.get(__ret__, 'id'),
@@ -225,6 +238,7 @@ def get_instance_output(account_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:deviceupdate:getInstance', __args__, opts=opts, typ=GetInstanceResult)
     return __ret__.apply(lambda __response__: GetInstanceResult(
         account_name=pulumi.get(__response__, 'account_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         diagnostic_storage_properties=pulumi.get(__response__, 'diagnostic_storage_properties'),
         enable_diagnostics=pulumi.get(__response__, 'enable_diagnostics'),
         id=pulumi.get(__response__, 'id'),

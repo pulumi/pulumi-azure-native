@@ -118,6 +118,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetDatabasePrincipalAssignmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetDatabasePrincipalAssignmentResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             PrincipalId = principalId;

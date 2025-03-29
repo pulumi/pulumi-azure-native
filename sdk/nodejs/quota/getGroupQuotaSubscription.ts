@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-03-01.
  *
- * Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
+ * Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getGroupQuotaSubscription(args: GetGroupQuotaSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupQuotaSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +38,10 @@ export interface GetGroupQuotaSubscriptionArgs {
  */
 export interface GetGroupQuotaSubscriptionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -58,9 +62,9 @@ export interface GetGroupQuotaSubscriptionResult {
 /**
  * Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-03-01.
  *
- * Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
+ * Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getGroupQuotaSubscriptionOutput(args: GetGroupQuotaSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupQuotaSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.ManagedServices
     public sealed class GetRegistrationAssignmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The fully qualified path of the registration assignment.
         /// </summary>
         public readonly string Id;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.ManagedServices
 
         [OutputConstructor]
         private GetRegistrationAssignmentResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.ManagedServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

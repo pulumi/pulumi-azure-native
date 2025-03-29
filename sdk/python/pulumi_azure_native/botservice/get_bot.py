@@ -27,7 +27,10 @@ class GetBotResult:
     """
     Bot resource definition
     """
-    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -58,6 +61,14 @@ class GetBotResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetBotResult(GetBotResult):
         if False:
             yield self
         return GetBotResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             kind=self.kind,
@@ -164,9 +176,9 @@ def get_bot(resource_group_name: Optional[str] = None,
     """
     Returns a BotService specified by the parameters.
 
-    Uses Azure REST API version 2022-09-15.
+    Uses Azure REST API version 2023-09-15-preview.
 
-    Other available API versions: 2023-09-15-preview.
+    Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
@@ -179,6 +191,7 @@ def get_bot(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:botservice:getBot', __args__, opts=opts, typ=GetBotResult).value
 
     return AwaitableGetBotResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -195,9 +208,9 @@ def get_bot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Returns a BotService specified by the parameters.
 
-    Uses Azure REST API version 2022-09-15.
+    Uses Azure REST API version 2023-09-15-preview.
 
-    Other available API versions: 2023-09-15-preview.
+    Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
@@ -209,6 +222,7 @@ def get_bot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:botservice:getBot', __args__, opts=opts, typ=GetBotResult)
     return __ret__.apply(lambda __response__: GetBotResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

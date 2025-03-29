@@ -11,11 +11,3 @@ from .get_agri_service import *
 from .list_agri_service_available_solutions import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.agricultureplatform.v20240601preview as __v20240601preview
-    v20240601preview = __v20240601preview
-else:
-    v20240601preview = _utilities.lazy_import('pulumi_azure_native.agricultureplatform.v20240601preview')
-

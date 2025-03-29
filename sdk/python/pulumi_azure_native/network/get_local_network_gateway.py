@@ -27,7 +27,10 @@ class GetLocalNetworkGatewayResult:
     """
     A common class for general resource information.
     """
-    def __init__(__self__, bgp_settings=None, etag=None, fqdn=None, gateway_ip_address=None, id=None, local_network_address_space=None, location=None, name=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, bgp_settings=None, etag=None, fqdn=None, gateway_ip_address=None, id=None, local_network_address_space=None, location=None, name=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bgp_settings and not isinstance(bgp_settings, dict):
             raise TypeError("Expected argument 'bgp_settings' to be a dict")
         pulumi.set(__self__, "bgp_settings", bgp_settings)
@@ -64,6 +67,14 @@ class GetLocalNetworkGatewayResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bgpSettings")
@@ -168,6 +179,7 @@ class AwaitableGetLocalNetworkGatewayResult(GetLocalNetworkGatewayResult):
         if False:
             yield self
         return GetLocalNetworkGatewayResult(
+            azure_api_version=self.azure_api_version,
             bgp_settings=self.bgp_settings,
             etag=self.etag,
             fqdn=self.fqdn,
@@ -188,9 +200,9 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
     """
     Gets the specified local network gateway in a resource group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str local_network_gateway_name: The name of the local network gateway.
@@ -203,6 +215,7 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getLocalNetworkGateway', __args__, opts=opts, typ=GetLocalNetworkGatewayResult).value
 
     return AwaitableGetLocalNetworkGatewayResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bgp_settings=pulumi.get(__ret__, 'bgp_settings'),
         etag=pulumi.get(__ret__, 'etag'),
         fqdn=pulumi.get(__ret__, 'fqdn'),
@@ -221,9 +234,9 @@ def get_local_network_gateway_output(local_network_gateway_name: Optional[pulumi
     """
     Gets the specified local network gateway in a resource group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str local_network_gateway_name: The name of the local network gateway.
@@ -235,6 +248,7 @@ def get_local_network_gateway_output(local_network_gateway_name: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getLocalNetworkGateway', __args__, opts=opts, typ=GetLocalNetworkGatewayResult)
     return __ret__.apply(lambda __response__: GetLocalNetworkGatewayResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bgp_settings=pulumi.get(__response__, 'bgp_settings'),
         etag=pulumi.get(__response__, 'etag'),
         fqdn=pulumi.get(__response__, 'fqdn'),

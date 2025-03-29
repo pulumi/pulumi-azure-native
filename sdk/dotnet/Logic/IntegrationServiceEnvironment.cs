@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Logic
     /// <summary>
     /// The integration service environment.
     /// 
-    /// Uses Azure REST API version 2019-05-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
+    /// Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationServiceEnvironment")]
     public partial class IntegrationServiceEnvironment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Managed service identity properties.
         /// </summary>

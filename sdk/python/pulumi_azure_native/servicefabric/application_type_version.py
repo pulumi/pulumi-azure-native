@@ -149,9 +149,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         """
         An application type version resource for the specified application type name resource.
 
-        Uses Azure REST API version 2024-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
-
-        Other available API versions: 2021-06-01.
+        Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,9 +170,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         """
         An application type version resource for the specified application type name resource.
 
-        Uses Azure REST API version 2024-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
-
-        Other available API versions: 2021-06-01.
+        Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ApplicationTypeVersionArgs args: The arguments to use to populate this resource's properties.
@@ -222,11 +218,12 @@ class ApplicationTypeVersion(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20220601preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20221001preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20230301preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20230701preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20230901preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20231101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20231201preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20240201preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20240401:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20240601preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20240901preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20241101preview:ApplicationTypeVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20210601:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20220601preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20221001preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20230301preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20230301preview:ManagedClusterApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20230701preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20230701preview:ManagedClusterApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20230901preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20230901preview:ManagedClusterApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20231101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20231101preview:ManagedClusterApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20231201preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20231201preview:ManagedClusterApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20240201preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20240201preview:ManagedClusterApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20240401:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20240401:ManagedClusterApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20240601preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20240601preview:ManagedClusterApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20240901preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20240901preview:ManagedClusterApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20241101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric:ManagedClusterApplicationTypeVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationTypeVersion, __self__).__init__(
             'azure-native:servicefabric:ApplicationTypeVersion',
@@ -251,6 +248,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         __props__ = ApplicationTypeVersionArgs.__new__(ApplicationTypeVersionArgs)
 
         __props__.__dict__["app_package_url"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -266,6 +264,14 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         The URL to the application package
         """
         return pulumi.get(self, "app_package_url")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

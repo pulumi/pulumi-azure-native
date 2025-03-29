@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Get a CertificateObjectGlobalRulestackResource
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2025-02-06-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCertificateObjectGlobalRulestackResult> InvokeAsync(GetCertificateObjectGlobalRulestackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateObjectGlobalRulestackResult>("azure-native:cloudngfw:getCertificateObjectGlobalRulestack", args ?? new GetCertificateObjectGlobalRulestackArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Get a CertificateObjectGlobalRulestackResource
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2025-02-06-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCertificateObjectGlobalRulestackResult> Invoke(GetCertificateObjectGlobalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateObjectGlobalRulestackResult>("azure-native:cloudngfw:getCertificateObjectGlobalRulestack", args ?? new GetCertificateObjectGlobalRulestackInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Get a CertificateObjectGlobalRulestackResource
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2025-02-06-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCertificateObjectGlobalRulestackResult> Invoke(GetCertificateObjectGlobalRulestackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateObjectGlobalRulestackResult>("azure-native:cloudngfw:getCertificateObjectGlobalRulestack", args ?? new GetCertificateObjectGlobalRulestackInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         public readonly string? AuditComment;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// use certificate self signed
         /// </summary>
         public readonly string CertificateSelfSigned;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         private GetCertificateObjectGlobalRulestackResult(
             string? auditComment,
 
+            string azureApiVersion,
+
             string certificateSelfSigned,
 
             string? certificateSignerResourceId,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.Cloudngfw
             string type)
         {
             AuditComment = auditComment;
+            AzureApiVersion = azureApiVersion;
             CertificateSelfSigned = certificateSelfSigned;
             CertificateSignerResourceId = certificateSignerResourceId;
             Description = description;

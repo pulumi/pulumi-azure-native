@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// Security settings proxy resource
     /// 
-    /// Uses Azure REST API version 2023-11-01-preview.
+    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
     /// 
-    /// Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    /// Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:SecuritySetting")]
     public partial class SecuritySetting : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<Outputs.SecurityComplianceStatusResponse> SecurityComplianceStatus { get; private set; } = null!;
 
         /// <summary>
+        /// SMB encryption for intra-cluster traffic Compliance Assignment
+        /// </summary>
+        [Output("smbEncryptionForIntraClusterTrafficComplianceAssignment")]
+        public Output<string?> SmbEncryptionForIntraClusterTrafficComplianceAssignment { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
@@ -54,6 +66,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// WDAC Compliance Assignment
+        /// </summary>
+        [Output("wdacComplianceAssignment")]
+        public Output<string?> WdacComplianceAssignment { get; private set; } = null!;
 
 
         /// <summary>
@@ -133,9 +151,23 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [Input("securitySettingsName")]
         public Input<string>? SecuritySettingsName { get; set; }
 
+        /// <summary>
+        /// SMB encryption for intra-cluster traffic Compliance Assignment
+        /// </summary>
+        [Input("smbEncryptionForIntraClusterTrafficComplianceAssignment")]
+        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.ComplianceAssignmentType>? SmbEncryptionForIntraClusterTrafficComplianceAssignment { get; set; }
+
+        /// <summary>
+        /// WDAC Compliance Assignment
+        /// </summary>
+        [Input("wdacComplianceAssignment")]
+        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.ComplianceAssignmentType>? WdacComplianceAssignment { get; set; }
+
         public SecuritySettingArgs()
         {
             SecuredCoreComplianceAssignment = "Audit";
+            SmbEncryptionForIntraClusterTrafficComplianceAssignment = "Audit";
+            WdacComplianceAssignment = "Audit";
         }
         public static new SecuritySettingArgs Empty => new SecuritySettingArgs();
     }

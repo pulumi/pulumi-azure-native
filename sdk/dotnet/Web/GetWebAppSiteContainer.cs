@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Container of a site
         /// 
-        /// Uses Azure REST API version 2023-12-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebAppSiteContainerResult> InvokeAsync(GetWebAppSiteContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteContainerResult>("azure-native:web:getWebAppSiteContainer", args ?? new GetWebAppSiteContainerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Container of a site
         /// 
-        /// Uses Azure REST API version 2023-12-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppSiteContainerResult> Invoke(GetWebAppSiteContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerResult>("azure-native:web:getWebAppSiteContainer", args ?? new GetWebAppSiteContainerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Container of a site
         /// 
-        /// Uses Azure REST API version 2023-12-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppSiteContainerResult> Invoke(GetWebAppSiteContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerResult>("azure-native:web:getWebAppSiteContainer", args ?? new GetWebAppSiteContainerInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? AuthType;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Created Time
         /// </summary>
         public readonly string CreatedTime;
@@ -168,6 +172,8 @@ namespace Pulumi.AzureNative.Web
         private GetWebAppSiteContainerResult(
             string? authType,
 
+            string azureApiVersion,
+
             string createdTime,
 
             ImmutableArray<Outputs.EnvironmentVariableResponse> environmentVariables,
@@ -199,6 +205,7 @@ namespace Pulumi.AzureNative.Web
             ImmutableArray<Outputs.VolumeMountResponse> volumeMounts)
         {
             AuthType = authType;
+            AzureApiVersion = azureApiVersion;
             CreatedTime = createdTime;
             EnvironmentVariables = environmentVariables;
             Id = id;

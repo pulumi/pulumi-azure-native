@@ -12,11 +12,19 @@ namespace Pulumi.AzureNative.StorageCache
     /// <summary>
     /// An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// 
-    /// Uses Azure REST API version 2023-05-01.
+    /// Uses Azure REST API version 2024-03-01.
+    /// 
+    /// Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache:AmlFilesystem")]
     public partial class AmlFilesystem : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Client information for the AML file system.
         /// </summary>
@@ -76,6 +84,12 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies root squash settings of the AML file system.
+        /// </summary>
+        [Output("rootSquashSettings")]
+        public Output<Outputs.AmlFilesystemRootSquashSettingsResponse?> RootSquashSettings { get; private set; } = null!;
 
         /// <summary>
         /// SKU for the resource.
@@ -145,16 +159,10 @@ namespace Pulumi.AzureNative.StorageCache
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230301preview:AmlFilesystem" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230301preview:amlFilesystem" },
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230501:AmlFilesystem" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230501:amlFilesystem" },
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20231101preview:AmlFilesystem" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20231101preview:amlFilesystem" },
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240301:AmlFilesystem" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240301:amlFilesystem" },
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240701:AmlFilesystem" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240701:amlFilesystem" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache:amlFilesystem" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -225,6 +233,12 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies root squash settings of the AML file system.
+        /// </summary>
+        [Input("rootSquashSettings")]
+        public Input<Inputs.AmlFilesystemRootSquashSettingsArgs>? RootSquashSettings { get; set; }
 
         /// <summary>
         /// SKU for the resource.

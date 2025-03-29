@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.ServiceBus
     /// <summary>
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// 
-    /// Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+    /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
     /// 
-    /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:DisasterRecoveryConfig")]
     public partial class DisasterRecoveryConfig : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         [Output("alternateName")]
         public Output<string?> AlternateName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -155,7 +161,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string>? PartnerNamespace { get; set; }
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

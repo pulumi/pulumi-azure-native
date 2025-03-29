@@ -122,6 +122,8 @@ def list_integration_account_agreement_content_callback_url(agreement_name: Opti
 
     Uses Azure REST API version 2019-05-01.
 
+    Other available API versions: 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str agreement_name: The integration account agreement name.
     :param str integration_account_name: The integration account name.
@@ -155,6 +157,8 @@ def list_integration_account_agreement_content_callback_url_output(agreement_nam
     Get the content callback url.
 
     Uses Azure REST API version 2019-05-01.
+
+    Other available API versions: 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str agreement_name: The integration account agreement name.

@@ -27,7 +27,7 @@ class GetArcSettingResult:
     """
     ArcSetting details.
     """
-    def __init__(__self__, aggregate_state=None, arc_application_client_id=None, arc_application_object_id=None, arc_application_tenant_id=None, arc_instance_resource_group=None, arc_service_principal_object_id=None, connectivity_properties=None, default_extensions=None, id=None, name=None, per_node_details=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, aggregate_state=None, arc_application_client_id=None, arc_application_object_id=None, arc_application_tenant_id=None, arc_instance_resource_group=None, arc_service_principal_object_id=None, azure_api_version=None, connectivity_properties=None, default_extensions=None, id=None, name=None, per_node_details=None, provisioning_state=None, system_data=None, type=None):
         if aggregate_state and not isinstance(aggregate_state, str):
             raise TypeError("Expected argument 'aggregate_state' to be a str")
         pulumi.set(__self__, "aggregate_state", aggregate_state)
@@ -46,6 +46,9 @@ class GetArcSettingResult:
         if arc_service_principal_object_id and not isinstance(arc_service_principal_object_id, str):
             raise TypeError("Expected argument 'arc_service_principal_object_id' to be a str")
         pulumi.set(__self__, "arc_service_principal_object_id", arc_service_principal_object_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connectivity_properties and not isinstance(connectivity_properties, list):
             raise TypeError("Expected argument 'connectivity_properties' to be a list")
         pulumi.set(__self__, "connectivity_properties", connectivity_properties)
@@ -120,6 +123,14 @@ class GetArcSettingResult:
         return pulumi.get(self, "arc_service_principal_object_id")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="connectivityProperties")
     def connectivity_properties(self) -> Optional[Sequence['outputs.ArcConnectivityPropertiesResponse']]:
         """
@@ -139,7 +150,7 @@ class GetArcSettingResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -196,6 +207,7 @@ class AwaitableGetArcSettingResult(GetArcSettingResult):
             arc_application_tenant_id=self.arc_application_tenant_id,
             arc_instance_resource_group=self.arc_instance_resource_group,
             arc_service_principal_object_id=self.arc_service_principal_object_id,
+            azure_api_version=self.azure_api_version,
             connectivity_properties=self.connectivity_properties,
             default_extensions=self.default_extensions,
             id=self.id,
@@ -213,9 +225,9 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
     """
     Get ArcSetting resource details of HCI Cluster.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
@@ -236,6 +248,7 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
         arc_application_tenant_id=pulumi.get(__ret__, 'arc_application_tenant_id'),
         arc_instance_resource_group=pulumi.get(__ret__, 'arc_instance_resource_group'),
         arc_service_principal_object_id=pulumi.get(__ret__, 'arc_service_principal_object_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connectivity_properties=pulumi.get(__ret__, 'connectivity_properties'),
         default_extensions=pulumi.get(__ret__, 'default_extensions'),
         id=pulumi.get(__ret__, 'id'),
@@ -251,9 +264,9 @@ def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
     """
     Get ArcSetting resource details of HCI Cluster.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
@@ -273,6 +286,7 @@ def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
         arc_application_tenant_id=pulumi.get(__response__, 'arc_application_tenant_id'),
         arc_instance_resource_group=pulumi.get(__response__, 'arc_instance_resource_group'),
         arc_service_principal_object_id=pulumi.get(__response__, 'arc_service_principal_object_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connectivity_properties=pulumi.get(__response__, 'connectivity_properties'),
         default_extensions=pulumi.get(__response__, 'default_extensions'),
         id=pulumi.get(__response__, 'id'),

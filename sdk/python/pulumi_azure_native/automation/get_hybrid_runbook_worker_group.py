@@ -27,7 +27,10 @@ class GetHybridRunbookWorkerGroupResult:
     """
     Definition of hybrid runbook worker group.
     """
-    def __init__(__self__, credential=None, group_type=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, credential=None, group_type=None, id=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if credential and not isinstance(credential, dict):
             raise TypeError("Expected argument 'credential' to be a dict")
         pulumi.set(__self__, "credential", credential)
@@ -46,6 +49,14 @@ class GetHybridRunbookWorkerGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetHybridRunbookWorkerGroupResult(GetHybridRunbookWorkerGroupResu
         if False:
             yield self
         return GetHybridRunbookWorkerGroupResult(
+            azure_api_version=self.azure_api_version,
             credential=self.credential,
             group_type=self.group_type,
             id=self.id,
@@ -117,9 +129,9 @@ def get_hybrid_runbook_worker_group(automation_account_name: Optional[str] = Non
     """
     Retrieve a hybrid runbook worker group.
 
-    Uses Azure REST API version 2022-08-08.
+    Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2021-06-22, 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2021-06-22, 2022-02-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -134,6 +146,7 @@ def get_hybrid_runbook_worker_group(automation_account_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getHybridRunbookWorkerGroup', __args__, opts=opts, typ=GetHybridRunbookWorkerGroupResult).value
 
     return AwaitableGetHybridRunbookWorkerGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         credential=pulumi.get(__ret__, 'credential'),
         group_type=pulumi.get(__ret__, 'group_type'),
         id=pulumi.get(__ret__, 'id'),
@@ -147,9 +160,9 @@ def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pul
     """
     Retrieve a hybrid runbook worker group.
 
-    Uses Azure REST API version 2022-08-08.
+    Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2021-06-22, 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2021-06-22, 2022-02-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -163,6 +176,7 @@ def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pul
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getHybridRunbookWorkerGroup', __args__, opts=opts, typ=GetHybridRunbookWorkerGroupResult)
     return __ret__.apply(lambda __response__: GetHybridRunbookWorkerGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         credential=pulumi.get(__response__, 'credential'),
         group_type=pulumi.get(__response__, 'group_type'),
         id=pulumi.get(__response__, 'id'),

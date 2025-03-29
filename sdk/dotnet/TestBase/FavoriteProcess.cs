@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.TestBase
     /// <summary>
     /// A favorite process identifier.
     /// 
-    /// Uses Azure REST API version 2022-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
+    /// Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
     /// 
-    /// Other available API versions: 2023-11-01-preview.
+    /// Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:FavoriteProcess")]
     public partial class FavoriteProcess : global::Pulumi.CustomResource
@@ -26,19 +26,25 @@ namespace Pulumi.AzureNative.TestBase
         public Output<string> ActualProcessName { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -113,7 +119,7 @@ namespace Pulumi.AzureNative.TestBase
         public Input<string> PackageName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

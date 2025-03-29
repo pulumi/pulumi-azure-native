@@ -120,6 +120,10 @@
    "outputs": {
     "description": "Private endpoint connection resource.",
     "properties": {
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
+     },
      "id": {
       "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
       "type": "string"
@@ -148,6 +152,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "id",
      "name",
      "provisioningState",
@@ -183,6 +188,10 @@
      "allTenants": {
       "description": "Flag indicating whether all tenants are allowed",
       "type": "boolean"
+     },
+     "azureApiVersion": {
+      "description": "The Azure API version of the resource.",
+      "type": "string"
      },
      "id": {
       "description": "String Id used to locate any resource on Azure.",
@@ -228,6 +237,7 @@
      }
     },
     "required": [
+     "azureApiVersion",
      "id",
      "type"
     ],
@@ -477,6 +487,10 @@
     }
    },
    "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "name": {
      "description": "The name of the resource",
      "type": "string"
@@ -501,6 +515,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "name",
     "provisioningState",
     "type"
@@ -576,6 +591,10 @@
      "description": "Flag indicating whether all tenants are allowed",
      "type": "boolean"
     },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
     "name": {
      "description": "Name of this resource.",
      "type": "string"
@@ -616,6 +635,7 @@
     }
    },
    "required": [
+    "azureApiVersion",
     "type"
    ],
    "requiredInputs": [

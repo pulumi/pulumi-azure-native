@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetADLSGen2FileDataSetResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Unique id for identifying a data set resource
         /// </summary>
         public readonly string DataSetId;
@@ -153,6 +157,8 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetADLSGen2FileDataSetResult(
+            string azureApiVersion,
+
             string dataSetId,
 
             string filePath,
@@ -175,6 +181,7 @@ namespace Pulumi.AzureNative.DataShare
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataSetId = dataSetId;
             FilePath = filePath;
             FileSystem = fileSystem;

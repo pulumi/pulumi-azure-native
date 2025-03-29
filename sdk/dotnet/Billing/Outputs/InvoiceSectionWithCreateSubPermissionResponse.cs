@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.Billing.Outputs
     public sealed class InvoiceSectionWithCreateSubPermissionResponse
     {
         /// <summary>
-        /// The name of the billing profile for the invoice section.
+        /// The name of the billing profile.
         /// </summary>
         public readonly string BillingProfileDisplayName;
         /// <summary>
-        /// The ID of the billing profile for the invoice section.
+        /// The fully qualified ID that uniquely identifies a billing profile.
         /// </summary>
         public readonly string BillingProfileId;
         /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Billing.Outputs
         /// </summary>
         public readonly string InvoiceSectionDisplayName;
         /// <summary>
-        /// The ID of the invoice section.
+        /// The fully qualified ID that uniquely identifies an invoice section.
         /// </summary>
         public readonly string InvoiceSectionId;
         /// <summary>

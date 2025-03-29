@@ -70,9 +70,9 @@ def list_system_actions(agent_resource_name: Optional[str] = None,
     """
     List of actions for a business application system.
 
-    Uses Azure REST API version 2024-04-01-preview.
+    Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2024-04-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str agent_resource_name: Business Application Agent Name
@@ -99,9 +99,9 @@ def list_system_actions_output(agent_resource_name: Optional[pulumi.Input[str]] 
     """
     List of actions for a business application system.
 
-    Uses Azure REST API version 2024-04-01-preview.
+    Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2024-04-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str agent_resource_name: Business Application Agent Name

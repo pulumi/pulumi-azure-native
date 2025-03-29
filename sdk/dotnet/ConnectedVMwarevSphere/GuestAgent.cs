@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// <summary>
     /// Defines the GuestAgent.
     /// 
-    /// Uses Azure REST API version 2022-07-15-preview. In version 1.x of the Azure Native provider, it used API version 2020-10-01-preview.
+    /// Uses Azure REST API version 2023-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
     /// 
-    /// Other available API versions: 2023-03-01-preview.
+    /// Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:GuestAgent")]
     public partial class GuestAgent : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Username / Password Credentials to provision guest agent.
         /// </summary>
@@ -44,13 +50,19 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The resource id of the private link scope this machine is assigned to, if any.
+        /// </summary>
+        [Output("privateLinkScopeResourceId")]
+        public Output<string?> PrivateLinkScopeResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the guest agent provisioning action.
         /// </summary>
         [Output("provisioningAction")]
         public Output<string?> ProvisioningAction { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -68,7 +80,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<ImmutableArray<Outputs.ResourceStatusResponse>> Statuses { get; private set; } = null!;
 
         /// <summary>
-        /// The system data.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -154,6 +166,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The resource id of the private link scope this machine is assigned to, if any.
+        /// </summary>
+        [Input("privateLinkScopeResourceId")]
+        public Input<string>? PrivateLinkScopeResourceId { get; set; }
 
         /// <summary>
         /// Gets or sets the guest agent provisioning action.

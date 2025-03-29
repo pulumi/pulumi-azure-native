@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A datastore resource
+ * Get a Datastore
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -26,11 +26,11 @@ export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions
 
 export interface GetDatastoreArgs {
     /**
-     * Name of the cluster in the private cloud
+     * Name of the cluster
      */
     clusterName: string;
     /**
-     * Name of the datastore in the private cloud cluster
+     * Name of the datastore
      */
     datastoreName: string;
     /**
@@ -48,15 +48,23 @@ export interface GetDatastoreArgs {
  */
 export interface GetDatastoreResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * An iSCSI volume
      */
     readonly diskPoolVolume?: outputs.avs.DiskPoolVolumeResponse;
     /**
-     * Resource ID.
+     * An Elastic SAN volume
+     */
+    readonly elasticSanVolume?: outputs.avs.ElasticSanVolumeResponse;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -72,16 +80,20 @@ export interface GetDatastoreResult {
      */
     readonly status: string;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.avs.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * A datastore resource
+ * Get a Datastore
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatastoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,11 +107,11 @@ export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.I
 
 export interface GetDatastoreOutputArgs {
     /**
-     * Name of the cluster in the private cloud
+     * Name of the cluster
      */
     clusterName: pulumi.Input<string>;
     /**
-     * Name of the datastore in the private cloud cluster
+     * Name of the datastore
      */
     datastoreName: pulumi.Input<string>;
     /**

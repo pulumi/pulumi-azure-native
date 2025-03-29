@@ -59,6 +59,8 @@ def list_asset_streaming_locators(account_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-01-01.
 
+    Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str account_name: The Media Services account name.
     :param str asset_name: The Asset name.
@@ -81,6 +83,8 @@ def list_asset_streaming_locators_output(account_name: Optional[pulumi.Input[str
     Lists Streaming Locators which are associated with this asset.
 
     Uses Azure REST API version 2023-01-01.
+
+    Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The Media Services account name.

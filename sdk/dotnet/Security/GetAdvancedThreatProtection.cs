@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Security
         /// Gets the Advanced Threat Protection settings for the specified resource.
         /// 
         /// Uses Azure REST API version 2019-01-01.
+        /// 
+        /// Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAdvancedThreatProtectionResult> InvokeAsync(GetAdvancedThreatProtectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdvancedThreatProtectionResult>("azure-native:security:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Security
         /// Gets the Advanced Threat Protection settings for the specified resource.
         /// 
         /// Uses Azure REST API version 2019-01-01.
+        /// 
+        /// Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAdvancedThreatProtectionResult> Invoke(GetAdvancedThreatProtectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdvancedThreatProtectionResult>("azure-native:security:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Security
         /// Gets the Advanced Threat Protection settings for the specified resource.
         /// 
         /// Uses Azure REST API version 2019-01-01.
+        /// 
+        /// Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAdvancedThreatProtectionResult> Invoke(GetAdvancedThreatProtectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdvancedThreatProtectionResult>("azure-native:security:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionInvokeArgs(), options.WithDefaults());
@@ -82,6 +88,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetAdvancedThreatProtectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -100,6 +110,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetAdvancedThreatProtectionResult(
+            string azureApiVersion,
+
             string id,
 
             bool? isEnabled,
@@ -108,6 +120,7 @@ namespace Pulumi.AzureNative.Security
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             IsEnabled = isEnabled;
             Name = name;

@@ -12,15 +12,21 @@ namespace Pulumi.AzureNative.ApiCenter
     /// <summary>
     /// The service entity.
     /// 
-    /// Uses Azure REST API version 2023-07-01-preview.
+    /// Uses Azure REST API version 2024-03-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
     /// 
-    /// Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+    /// Other available API versions: 2023-07-01-preview, 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apicenter:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The identity of the service.
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
@@ -38,10 +44,16 @@ namespace Pulumi.AzureNative.ApiCenter
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the last operation.
+        /// Provisioning state of the service.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Flag used to restore soft-deleted API Center service. If specified and set to 'true' all other properties will be ignored.
+        /// </summary>
+        [Output("restore")]
+        public Output<bool?> Restore { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -114,7 +126,7 @@ namespace Pulumi.AzureNative.ApiCenter
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity of the service.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
@@ -132,7 +144,13 @@ namespace Pulumi.AzureNative.ApiCenter
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Service name
+        /// Flag used to restore soft-deleted API Center service. If specified and set to 'true' all other properties will be ignored.
+        /// </summary>
+        [Input("restore")]
+        public Input<bool>? Restore { get; set; }
+
+        /// <summary>
+        /// The name of Azure API Center service.
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
@@ -151,6 +169,7 @@ namespace Pulumi.AzureNative.ApiCenter
 
         public ServiceArgs()
         {
+            Restore = false;
         }
         public static new ServiceArgs Empty => new ServiceArgs();
     }

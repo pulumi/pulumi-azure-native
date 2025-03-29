@@ -36,6 +36,10 @@ export interface GetManagerArgs {
  */
 export interface GetManagerResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Represents the type of StorSimple Manager.
      */
     readonly cisIntrinsicSettings?: outputs.storsimple.ManagerIntrinsicSettingsResponse;

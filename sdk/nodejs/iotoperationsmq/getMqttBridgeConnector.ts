@@ -41,6 +41,10 @@ export interface GetMqttBridgeConnectorArgs {
  */
 export interface GetMqttBridgeConnectorResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The number of instances to deploy for a bridge rollout.
      */
     readonly bridgeInstances?: number;

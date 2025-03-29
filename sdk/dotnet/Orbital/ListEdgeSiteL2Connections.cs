@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Orbital
         /// 
         /// Uses Azure REST API version 2024-03-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01.
+        /// Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListEdgeSiteL2ConnectionsResult> InvokeAsync(ListEdgeSiteL2ConnectionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEdgeSiteL2ConnectionsResult>("azure-native:orbital:listEdgeSiteL2Connections", args ?? new ListEdgeSiteL2ConnectionsArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Orbital
         /// 
         /// Uses Azure REST API version 2024-03-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01.
+        /// Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListEdgeSiteL2ConnectionsResult> Invoke(ListEdgeSiteL2ConnectionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEdgeSiteL2ConnectionsResult>("azure-native:orbital:listEdgeSiteL2Connections", args ?? new ListEdgeSiteL2ConnectionsInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Orbital
         /// 
         /// Uses Azure REST API version 2024-03-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01.
+        /// Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListEdgeSiteL2ConnectionsResult> Invoke(ListEdgeSiteL2ConnectionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListEdgeSiteL2ConnectionsResult>("azure-native:orbital:listEdgeSiteL2Connections", args ?? new ListEdgeSiteL2ConnectionsInvokeArgs(), options.WithDefaults());

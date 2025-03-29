@@ -8,9 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2023-06-01-preview.
+ * Describes incident task properties
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+ * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+ *
+ * Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class IncidentTask extends pulumi.CustomResource {
     /**
@@ -40,6 +42,10 @@ export class IncidentTask extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Information on the client (user or application) that made some action
      */
     public readonly createdBy!: pulumi.Output<outputs.securityinsights.ClientInfoResponse | undefined>;
@@ -67,6 +73,9 @@ export class IncidentTask extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The status of the task
+     */
     public readonly status!: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -116,6 +125,7 @@ export class IncidentTask extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
@@ -123,6 +133,7 @@ export class IncidentTask extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -170,6 +181,9 @@ export interface IncidentTaskArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The status of the task
+     */
     status: pulumi.Input<string | enums.securityinsights.IncidentTaskStatus>;
     /**
      * The title of the task

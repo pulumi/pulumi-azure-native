@@ -26,7 +26,7 @@ class PoolArgs:
                  dev_center_project_resource_id: pulumi.Input[str],
                  fabric_profile: pulumi.Input['VmssFabricProfileArgs'],
                  maximum_concurrency: pulumi.Input[int],
-                 organization_profile: pulumi.Input['AzureDevOpsOrganizationProfileArgs'],
+                 organization_profile: pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'GitHubOrganizationProfileArgs']],
                  resource_group_name: pulumi.Input[str],
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class PoolArgs:
         :param pulumi.Input[str] dev_center_project_resource_id: The resource id of the DevCenter Project the pool belongs to.
         :param pulumi.Input['VmssFabricProfileArgs'] fabric_profile: Defines the type of fabric the agent will run on.
         :param pulumi.Input[int] maximum_concurrency: Defines how many resources can there be created at any given time.
-        :param pulumi.Input['AzureDevOpsOrganizationProfileArgs'] organization_profile: Defines the organization in which the pool will be used.
+        :param pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'GitHubOrganizationProfileArgs']] organization_profile: Defines the organization in which the pool will be used.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -114,14 +114,14 @@ class PoolArgs:
 
     @property
     @pulumi.getter(name="organizationProfile")
-    def organization_profile(self) -> pulumi.Input['AzureDevOpsOrganizationProfileArgs']:
+    def organization_profile(self) -> pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'GitHubOrganizationProfileArgs']]:
         """
         Defines the organization in which the pool will be used.
         """
         return pulumi.get(self, "organization_profile")
 
     @organization_profile.setter
-    def organization_profile(self, value: pulumi.Input['AzureDevOpsOrganizationProfileArgs']):
+    def organization_profile(self, value: pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'GitHubOrganizationProfileArgs']]):
         pulumi.set(self, "organization_profile", value)
 
     @property
@@ -208,7 +208,7 @@ class Pool(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maximum_concurrency: Optional[pulumi.Input[int]] = None,
-                 organization_profile: Optional[pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'AzureDevOpsOrganizationProfileArgsDict']]] = None,
+                 organization_profile: Optional[pulumi.Input[Union[Union['AzureDevOpsOrganizationProfileArgs', 'AzureDevOpsOrganizationProfileArgsDict'], Union['GitHubOrganizationProfileArgs', 'GitHubOrganizationProfileArgsDict']]]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -217,9 +217,9 @@ class Pool(pulumi.CustomResource):
         """
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
 
-        Uses Azure REST API version 2023-10-30-preview.
+        Uses Azure REST API version 2025-01-21. In version 2.x of the Azure Native provider, it used API version 2023-10-30-preview.
 
-        Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
+        Other available API versions: 2023-10-30-preview, 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devopsinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,7 +229,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[int] maximum_concurrency: Defines how many resources can there be created at any given time.
-        :param pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'AzureDevOpsOrganizationProfileArgsDict']] organization_profile: Defines the organization in which the pool will be used.
+        :param pulumi.Input[Union[Union['AzureDevOpsOrganizationProfileArgs', 'AzureDevOpsOrganizationProfileArgsDict'], Union['GitHubOrganizationProfileArgs', 'GitHubOrganizationProfileArgsDict']]] organization_profile: Defines the organization in which the pool will be used.
         :param pulumi.Input[str] pool_name: Name of the pool. It needs to be globally unique.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The status of the current operation.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -244,9 +244,9 @@ class Pool(pulumi.CustomResource):
         """
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
 
-        Uses Azure REST API version 2023-10-30-preview.
+        Uses Azure REST API version 2025-01-21. In version 2.x of the Azure Native provider, it used API version 2023-10-30-preview.
 
-        Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
+        Other available API versions: 2023-10-30-preview, 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devopsinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.
@@ -269,7 +269,7 @@ class Pool(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maximum_concurrency: Optional[pulumi.Input[int]] = None,
-                 organization_profile: Optional[pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'AzureDevOpsOrganizationProfileArgsDict']]] = None,
+                 organization_profile: Optional[pulumi.Input[Union[Union['AzureDevOpsOrganizationProfileArgs', 'AzureDevOpsOrganizationProfileArgsDict'], Union['GitHubOrganizationProfileArgs', 'GitHubOrganizationProfileArgsDict']]]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -306,6 +306,7 @@ class Pool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -334,6 +335,7 @@ class Pool(pulumi.CustomResource):
         __props__ = PoolArgs.__new__(PoolArgs)
 
         __props__.__dict__["agent_profile"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["dev_center_project_resource_id"] = None
         __props__.__dict__["fabric_profile"] = None
         __props__.__dict__["identity"] = None
@@ -354,6 +356,14 @@ class Pool(pulumi.CustomResource):
         Defines how the machine will be handled once it executed a job.
         """
         return pulumi.get(self, "agent_profile")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="devCenterProjectResourceId")
@@ -405,7 +415,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="organizationProfile")
-    def organization_profile(self) -> pulumi.Output['outputs.AzureDevOpsOrganizationProfileResponse']:
+    def organization_profile(self) -> pulumi.Output[Any]:
         """
         Defines the organization in which the pool will be used.
         """

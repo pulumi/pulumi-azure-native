@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// 
         /// Uses Azure REST API version 2023-01-31.
         /// 
-        /// Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
+        /// Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetFederatedIdentityCredentialResult> InvokeAsync(GetFederatedIdentityCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedIdentityCredentialResult>("azure-native:managedidentity:getFederatedIdentityCredential", args ?? new GetFederatedIdentityCredentialArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// 
         /// Uses Azure REST API version 2023-01-31.
         /// 
-        /// Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
+        /// Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFederatedIdentityCredentialResult> Invoke(GetFederatedIdentityCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedIdentityCredentialResult>("azure-native:managedidentity:getFederatedIdentityCredential", args ?? new GetFederatedIdentityCredentialInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// 
         /// Uses Azure REST API version 2023-01-31.
         /// 
-        /// Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
+        /// Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFederatedIdentityCredentialResult> Invoke(GetFederatedIdentityCredentialInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedIdentityCredentialResult>("azure-native:managedidentity:getFederatedIdentityCredential", args ?? new GetFederatedIdentityCredentialInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// </summary>
         public readonly ImmutableArray<string> Audiences;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNative.ManagedIdentity
         private GetFederatedIdentityCredentialResult(
             ImmutableArray<string> audiences,
 
+            string azureApiVersion,
+
             string id,
 
             string issuer,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
             string type)
         {
             Audiences = audiences;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Issuer = issuer;
             Name = name;

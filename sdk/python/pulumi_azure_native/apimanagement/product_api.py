@@ -99,9 +99,9 @@ class ProductApi(pulumi.CustomResource):
         """
         API details.
 
-        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2017-03-01, 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +119,9 @@ class ProductApi(pulumi.CustomResource):
         """
         API details.
 
-        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2017-03-01, 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ProductApiArgs args: The arguments to use to populate this resource's properties.
@@ -169,6 +169,7 @@ class ProductApi(pulumi.CustomResource):
             __props__.__dict__["api_version_set"] = None
             __props__.__dict__["api_version_set_id"] = None
             __props__.__dict__["authentication_settings"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["contact"] = None
             __props__.__dict__["description"] = None
             __props__.__dict__["display_name"] = None
@@ -216,6 +217,7 @@ class ProductApi(pulumi.CustomResource):
         __props__.__dict__["api_version_set"] = None
         __props__.__dict__["api_version_set_id"] = None
         __props__.__dict__["authentication_settings"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["contact"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -296,6 +298,14 @@ class ProductApi(pulumi.CustomResource):
         Collection of authentication settings included into this API.
         """
         return pulumi.get(self, "authentication_settings")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a Connection Setting registration for a Bot Service
  *
- * Uses Azure REST API version 2022-09-15.
+ * Uses Azure REST API version 2023-09-15-preview.
  *
- * Other available API versions: 2023-09-15-preview.
+ * Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetBotConnectionArgs {
  * Bot channel resource definition
  */
 export interface GetBotConnectionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Entity Tag.
      */
@@ -86,9 +90,9 @@ export interface GetBotConnectionResult {
 /**
  * Get a Connection Setting registration for a Bot Service
  *
- * Uses Azure REST API version 2022-09-15.
+ * Uses Azure REST API version 2023-09-15-preview.
  *
- * Other available API versions: 2023-09-15-preview.
+ * Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBotConnectionOutput(args: GetBotConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

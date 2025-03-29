@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The operation returns properties of a OpenShift cluster.
  *
- * Uses Azure REST API version 2022-09-04.
+ * Uses Azure REST API version 2023-11-22.
  *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+ * Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +41,10 @@ export interface GetOpenShiftClusterResult {
      * The cluster API server profile.
      */
     readonly apiserverProfile?: outputs.redhatopenshift.APIServerProfileResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The cluster profile.
      */
@@ -97,13 +101,17 @@ export interface GetOpenShiftClusterResult {
      * The cluster worker profiles.
      */
     readonly workerProfiles?: outputs.redhatopenshift.WorkerProfileResponse[];
+    /**
+     * The cluster worker profiles status.
+     */
+    readonly workerProfilesStatus: outputs.redhatopenshift.WorkerProfileResponse[];
 }
 /**
  * The operation returns properties of a OpenShift cluster.
  *
- * Uses Azure REST API version 2022-09-04.
+ * Uses Azure REST API version 2023-11-22.
  *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+ * Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getOpenShiftClusterOutput(args: GetOpenShiftClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenShiftClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

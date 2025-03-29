@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Synapse
         /// Gets a Kusto pool principalAssignment.
         /// 
         /// Uses Azure REST API version 2021-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetKustoPoolPrincipalAssignmentResult> InvokeAsync(GetKustoPoolPrincipalAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Synapse
         /// Gets a Kusto pool principalAssignment.
         /// 
         /// Uses Azure REST API version 2021-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetKustoPoolPrincipalAssignmentResult> Invoke(GetKustoPoolPrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Synapse
         /// Gets a Kusto pool principalAssignment.
         /// 
         /// Uses Azure REST API version 2021-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetKustoPoolPrincipalAssignmentResult> Invoke(GetKustoPoolPrincipalAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentInvokeArgs(), options.WithDefaults());
@@ -110,6 +116,10 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         public readonly string AadObjectId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -158,6 +168,8 @@ namespace Pulumi.AzureNative.Synapse
         private GetKustoPoolPrincipalAssignmentResult(
             string aadObjectId,
 
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -181,6 +193,7 @@ namespace Pulumi.AzureNative.Synapse
             string type)
         {
             AadObjectId = aadObjectId;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             PrincipalId = principalId;

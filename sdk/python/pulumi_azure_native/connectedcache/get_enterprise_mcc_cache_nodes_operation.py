@@ -27,7 +27,10 @@ class GetEnterpriseMccCacheNodesOperationResult:
     """
     Represents the high level Nodes needed to provision cache node resources
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +52,14 @@ class GetEnterpriseMccCacheNodesOperationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetEnterpriseMccCacheNodesOperationResult(GetEnterpriseMccCacheNo
         if False:
             yield self
         return GetEnterpriseMccCacheNodesOperationResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -144,6 +156,7 @@ def get_enterprise_mcc_cache_nodes_operation(cache_node_resource_name: Optional[
     __ret__ = pulumi.runtime.invoke('azure-native:connectedcache:getEnterpriseMccCacheNodesOperation', __args__, opts=opts, typ=GetEnterpriseMccCacheNodesOperationResult).value
 
     return AwaitableGetEnterpriseMccCacheNodesOperationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -172,6 +185,7 @@ def get_enterprise_mcc_cache_nodes_operation_output(cache_node_resource_name: Op
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedcache:getEnterpriseMccCacheNodesOperation', __args__, opts=opts, typ=GetEnterpriseMccCacheNodesOperationResult)
     return __ret__.apply(lambda __response__: GetEnterpriseMccCacheNodesOperationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

@@ -27,10 +27,13 @@ class GetVirtualMachineScaleSetVMRunCommandResult:
     """
     Describes a Virtual Machine run command.
     """
-    def __init__(__self__, async_execution=None, error_blob_managed_identity=None, error_blob_uri=None, id=None, instance_view=None, location=None, name=None, output_blob_managed_identity=None, output_blob_uri=None, parameters=None, protected_parameters=None, provisioning_state=None, run_as_password=None, run_as_user=None, source=None, tags=None, timeout_in_seconds=None, treat_failure_as_deployment_failure=None, type=None):
+    def __init__(__self__, async_execution=None, azure_api_version=None, error_blob_managed_identity=None, error_blob_uri=None, id=None, instance_view=None, location=None, name=None, output_blob_managed_identity=None, output_blob_uri=None, parameters=None, protected_parameters=None, provisioning_state=None, run_as_password=None, run_as_user=None, source=None, tags=None, timeout_in_seconds=None, treat_failure_as_deployment_failure=None, type=None):
         if async_execution and not isinstance(async_execution, bool):
             raise TypeError("Expected argument 'async_execution' to be a bool")
         pulumi.set(__self__, "async_execution", async_execution)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if error_blob_managed_identity and not isinstance(error_blob_managed_identity, dict):
             raise TypeError("Expected argument 'error_blob_managed_identity' to be a dict")
         pulumi.set(__self__, "error_blob_managed_identity", error_blob_managed_identity)
@@ -93,6 +96,14 @@ class GetVirtualMachineScaleSetVMRunCommandResult:
         Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
         """
         return pulumi.get(self, "async_execution")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="errorBlobManagedIdentity")
@@ -246,6 +257,7 @@ class AwaitableGetVirtualMachineScaleSetVMRunCommandResult(GetVirtualMachineScal
             yield self
         return GetVirtualMachineScaleSetVMRunCommandResult(
             async_execution=self.async_execution,
+            azure_api_version=self.azure_api_version,
             error_blob_managed_identity=self.error_blob_managed_identity,
             error_blob_uri=self.error_blob_uri,
             id=self.id,
@@ -275,9 +287,9 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[str] = None,
     """
     The operation to get the VMSS VM run command.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -297,6 +309,7 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[str] = None,
 
     return AwaitableGetVirtualMachineScaleSetVMRunCommandResult(
         async_execution=pulumi.get(__ret__, 'async_execution'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         error_blob_managed_identity=pulumi.get(__ret__, 'error_blob_managed_identity'),
         error_blob_uri=pulumi.get(__ret__, 'error_blob_uri'),
         id=pulumi.get(__ret__, 'id'),
@@ -324,9 +337,9 @@ def get_virtual_machine_scale_set_vm_run_command_output(expand: Optional[pulumi.
     """
     The operation to get the VMSS VM run command.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -345,6 +358,7 @@ def get_virtual_machine_scale_set_vm_run_command_output(expand: Optional[pulumi.
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getVirtualMachineScaleSetVMRunCommand', __args__, opts=opts, typ=GetVirtualMachineScaleSetVMRunCommandResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineScaleSetVMRunCommandResult(
         async_execution=pulumi.get(__response__, 'async_execution'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         error_blob_managed_identity=pulumi.get(__response__, 'error_blob_managed_identity'),
         error_blob_uri=pulumi.get(__response__, 'error_blob_uri'),
         id=pulumi.get(__response__, 'id'),

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The description of the Windows IoT Device Service.
  *
- * Uses Azure REST API version 2019-06-01. In version 1.x of the Azure Native provider, it used API version 2019-06-01.
+ * Uses Azure REST API version 2019-06-01. In version 2.x of the Azure Native provider, it used API version 2019-06-01.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class Service extends pulumi.CustomResource {
      * Windows IoT Device Service OEM AAD domain
      */
     public readonly adminDomainName!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Windows IoT Device Service ODM AAD domain
      */
@@ -99,12 +103,14 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["quantity"] = args ? args.quantity : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["startDate"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["adminDomainName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingDomainName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

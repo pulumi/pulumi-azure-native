@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DataLakeStore
     public sealed class GetTrustedIdProviderResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource identifier.
         /// </summary>
         public readonly string Id;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.DataLakeStore
 
         [OutputConstructor]
         private GetTrustedIdProviderResult(
+            string azureApiVersion,
+
             string id,
 
             string idProvider,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.DataLakeStore
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             IdProvider = idProvider;
             Name = name;

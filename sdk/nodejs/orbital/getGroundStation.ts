@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-03-01-preview.
  *
- * Other available API versions: 2024-03-01.
+ * Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getGroundStation(args: GetGroundStationArgs, opts?: pulumi.InvokeOptions): Promise<GetGroundStationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +41,10 @@ export interface GetGroundStationResult {
      * Altitude of the ground station.
      */
     readonly altitudeMeters?: number;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Ground station capabilities.
      */
@@ -99,7 +103,7 @@ export interface GetGroundStationResult {
  *
  * Uses Azure REST API version 2024-03-01-preview.
  *
- * Other available API versions: 2024-03-01.
+ * Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getGroundStationOutput(args: GetGroundStationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroundStationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

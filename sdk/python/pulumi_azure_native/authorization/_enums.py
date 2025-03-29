@@ -10,6 +10,7 @@ __all__ = [
     'AccessReviewResult',
     'ApprovalMode',
     'AssignmentScopeValidation',
+    'AssignmentType',
     'DefaultDecisionType',
     'EnablementRules',
     'EnforcementMode',
@@ -86,6 +87,16 @@ class AssignmentScopeValidation(str, Enum):
     """
 
 
+class AssignmentType(str, Enum):
+    """
+    The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    SYSTEM = "System"
+    SYSTEM_HIDDEN = "SystemHidden"
+    CUSTOM = "Custom"
+
+
 class DefaultDecisionType(str, Enum):
     """
     This specifies the behavior for the autoReview feature when an access review completes.
@@ -106,7 +117,7 @@ class EnablementRules(str, Enum):
 
 class EnforcementMode(str, Enum):
     """
-    The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+    The policy assignment enforcement mode. Possible values are Default, DoNotEnforce, and Enroll
     """
     DEFAULT = "Default"
     """
@@ -115,6 +126,10 @@ class EnforcementMode(str, Enum):
     DO_NOT_ENFORCE = "DoNotEnforce"
     """
     The policy effect is not enforced during resource creation or update.
+    """
+    ENROLL = "Enroll"
+    """
+    The policy effect is not enforced during resource creation or update until the resource or scope of the resource is enrolled to the assignment instance. Enrollment occurs upon deployment of the policy enrollment resource.
     """
 
 
@@ -169,6 +184,10 @@ class OverrideKind(str, Enum):
     POLICY_EFFECT = "policyEffect"
     """
     It will override the policy effect type.
+    """
+    DEFINITION_VERSION = "definitionVersion"
+    """
+    It will override the definition version property value of the policy assignment.
     """
 
 

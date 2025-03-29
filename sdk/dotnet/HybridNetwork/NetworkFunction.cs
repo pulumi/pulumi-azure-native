@@ -12,18 +12,18 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// <summary>
     /// Network function resource response.
     /// 
-    /// Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-01-01-preview.
+    /// Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
     /// 
-    /// Other available API versions: 2023-09-01, 2024-04-15.
+    /// Other available API versions: 2022-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:NetworkFunction")]
     public partial class NetworkFunction : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The reference to the device resource. Once set, it cannot be updated.
+        /// The Azure API version of the resource.
         /// </summary>
-        [Output("device")]
-        public Output<Outputs.SubResourceResponse?> Device { get; private set; } = null!;
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -32,22 +32,16 @@ namespace Pulumi.AzureNative.HybridNetwork
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The managed identity of the network function.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource URI of the managed application.
-        /// </summary>
-        [Output("managedApplication")]
-        public Output<Outputs.SubResourceResponse> ManagedApplication { get; private set; } = null!;
-
-        /// <summary>
-        /// The parameters for the managed application.
-        /// </summary>
-        [Output("managedApplicationParameters")]
-        public Output<object?> ManagedApplicationParameters { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -56,43 +50,13 @@ namespace Pulumi.AzureNative.HybridNetwork
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The network function container configurations from the user.
+        /// Network function properties.
         /// </summary>
-        [Output("networkFunctionContainerConfigurations")]
-        public Output<object?> NetworkFunctionContainerConfigurations { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Union<Outputs.NetworkFunctionValueWithSecretsResponse, Outputs.NetworkFunctionValueWithoutSecretsResponse>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The network function configurations from the user.
-        /// </summary>
-        [Output("networkFunctionUserConfigurations")]
-        public Output<ImmutableArray<Outputs.NetworkFunctionUserConfigurationResponse>> NetworkFunctionUserConfigurations { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the network function resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The service key for the network function resource.
-        /// </summary>
-        [Output("serviceKey")]
-        public Output<string> ServiceKey { get; private set; } = null!;
-
-        /// <summary>
-        /// The sku name for the network function. Once set, it cannot be updated.
-        /// </summary>
-        [Output("skuName")]
-        public Output<string?> SkuName { get; private set; } = null!;
-
-        /// <summary>
-        /// The sku type for the network function.
-        /// </summary>
-        [Output("skuType")]
-        public Output<string> SkuType { get; private set; } = null!;
-
-        /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -108,18 +72,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The vendor name for the network function. Once set, it cannot be updated.
-        /// </summary>
-        [Output("vendorName")]
-        public Output<string?> VendorName { get; private set; } = null!;
-
-        /// <summary>
-        /// The vendor provisioning state for the network function resource.
-        /// </summary>
-        [Output("vendorProvisioningState")]
-        public Output<string> VendorProvisioningState { get; private set; } = null!;
 
 
         /// <summary>
@@ -175,10 +127,10 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class NetworkFunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The reference to the device resource. Once set, it cannot be updated.
+        /// The managed identity of the network function.
         /// </summary>
-        [Input("device")]
-        public Input<Inputs.SubResourceArgs>? Device { get; set; }
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -187,46 +139,22 @@ namespace Pulumi.AzureNative.HybridNetwork
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The parameters for the managed application.
-        /// </summary>
-        [Input("managedApplicationParameters")]
-        public Input<object>? ManagedApplicationParameters { get; set; }
-
-        /// <summary>
-        /// The network function container configurations from the user.
-        /// </summary>
-        [Input("networkFunctionContainerConfigurations")]
-        public Input<object>? NetworkFunctionContainerConfigurations { get; set; }
-
-        /// <summary>
         /// Resource name for the network function resource.
         /// </summary>
         [Input("networkFunctionName")]
         public Input<string>? NetworkFunctionName { get; set; }
 
-        [Input("networkFunctionUserConfigurations")]
-        private InputList<Inputs.NetworkFunctionUserConfigurationArgs>? _networkFunctionUserConfigurations;
-
         /// <summary>
-        /// The network function configurations from the user.
+        /// Network function properties.
         /// </summary>
-        public InputList<Inputs.NetworkFunctionUserConfigurationArgs> NetworkFunctionUserConfigurations
-        {
-            get => _networkFunctionUserConfigurations ?? (_networkFunctionUserConfigurations = new InputList<Inputs.NetworkFunctionUserConfigurationArgs>());
-            set => _networkFunctionUserConfigurations = value;
-        }
+        [Input("properties")]
+        public InputUnion<Inputs.NetworkFunctionValueWithSecretsArgs, Inputs.NetworkFunctionValueWithoutSecretsArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The sku name for the network function. Once set, it cannot be updated.
-        /// </summary>
-        [Input("skuName")]
-        public Input<string>? SkuName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -239,12 +167,6 @@ namespace Pulumi.AzureNative.HybridNetwork
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The vendor name for the network function. Once set, it cannot be updated.
-        /// </summary>
-        [Input("vendorName")]
-        public Input<string>? VendorName { get; set; }
 
         public NetworkFunctionArgs()
         {

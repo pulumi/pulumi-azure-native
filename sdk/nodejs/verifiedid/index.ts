@@ -16,13 +16,6 @@ export const getAuthorityOutput: typeof import("./getAuthority").getAuthorityOut
 utilities.lazyLoad(exports, ["getAuthority","getAuthorityOutput"], () => require("./getAuthority"));
 
 
-// Export sub-modules:
-import * as v20240126preview from "./v20240126preview";
-
-export {
-    v20240126preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Addons
     /// <summary>
     /// The status of the Canonical support plan.
     /// 
-    /// Uses Azure REST API version 2018-03-01. In version 1.x of the Azure Native provider, it used API version 2018-03-01.
+    /// Uses Azure REST API version 2018-03-01. In version 2.x of the Azure Native provider, it used API version 2018-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:addons:SupportPlanType")]
     public partial class SupportPlanType : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the Canonical support plan, i.e. "essential", "standard" or "advanced".
         /// </summary>

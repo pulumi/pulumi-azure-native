@@ -12,11 +12,3 @@ from .list_saas_subscription_level_access_token import *
 from .saas_subscription_level import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.saas.v20180301beta as __v20180301beta
-    v20180301beta = __v20180301beta
-else:
-    v20180301beta = _utilities.lazy_import('pulumi_azure_native.saas.v20180301beta')
-

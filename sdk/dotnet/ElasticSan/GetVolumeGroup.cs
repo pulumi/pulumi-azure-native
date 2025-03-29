@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Get an VolumeGroups.
         /// 
-        /// Uses Azure REST API version 2021-11-20-preview.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVolumeGroupResult> InvokeAsync(GetVolumeGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupResult>("azure-native:elasticsan:getVolumeGroup", args ?? new GetVolumeGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Get an VolumeGroups.
         /// 
-        /// Uses Azure REST API version 2021-11-20-preview.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupResult>("azure-native:elasticsan:getVolumeGroup", args ?? new GetVolumeGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Get an VolumeGroups.
         /// 
-        /// Uses Azure REST API version 2021-11-20-preview.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupResult>("azure-native:elasticsan:getVolumeGroup", args ?? new GetVolumeGroupInvokeArgs(), options.WithDefaults());
@@ -100,21 +100,41 @@ namespace Pulumi.AzureNative.ElasticSan
     public sealed class GetVolumeGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Type of encryption
         /// </summary>
         public readonly string? Encryption;
         /// <summary>
-        /// Azure resource identifier.
+        /// Encryption Properties describing Key Vault and Identity information
+        /// </summary>
+        public readonly Outputs.EncryptionPropertiesResponse? EncryptionProperties;
+        /// <summary>
+        /// A boolean indicating whether or not Data Integrity Check is enabled
+        /// </summary>
+        public readonly bool? EnforceDataIntegrityCheckForIscsi;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Azure resource name.
+        /// The identity of the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// A collection of rules governing the accessibility from specific network locations.
         /// </summary>
         public readonly Outputs.NetworkRuleSetResponse? NetworkAcls;
+        /// <summary>
+        /// The list of Private Endpoint Connections.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Type of storage target
         /// </summary>
@@ -124,27 +144,33 @@ namespace Pulumi.AzureNative.ElasticSan
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource metadata required by ARM RPC
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Azure resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// Azure resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetVolumeGroupResult(
+            string azureApiVersion,
+
             string? encryption,
 
+            Outputs.EncryptionPropertiesResponse? encryptionProperties,
+
+            bool? enforceDataIntegrityCheckForIscsi,
+
             string id,
+
+            Outputs.IdentityResponse? identity,
 
             string name,
 
             Outputs.NetworkRuleSetResponse? networkAcls,
+
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string? protocolType,
 
@@ -152,18 +178,20 @@ namespace Pulumi.AzureNative.ElasticSan
 
             Outputs.SystemDataResponse systemData,
 
-            ImmutableDictionary<string, string>? tags,
-
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Encryption = encryption;
+            EncryptionProperties = encryptionProperties;
+            EnforceDataIntegrityCheckForIscsi = enforceDataIntegrityCheckForIscsi;
             Id = id;
+            Identity = identity;
             Name = name;
             NetworkAcls = networkAcls;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProtocolType = protocolType;
             ProvisioningState = provisioningState;
             SystemData = systemData;
-            Tags = tags;
             Type = type;
         }
     }

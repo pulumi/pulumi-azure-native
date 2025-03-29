@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A datastore resource
  *
- * Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01-preview.
+ * Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Datastore extends pulumi.CustomResource {
     /**
@@ -42,11 +42,19 @@ export class Datastore extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * An iSCSI volume
      */
     public readonly diskPoolVolume!: pulumi.Output<outputs.avs.DiskPoolVolumeResponse | undefined>;
     /**
-     * Resource name.
+     * An Elastic SAN volume
+     */
+    public readonly elasticSanVolume!: pulumi.Output<outputs.avs.ElasticSanVolumeResponse | undefined>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -62,7 +70,11 @@ export class Datastore extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -89,19 +101,25 @@ export class Datastore extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
             resourceInputs["diskPoolVolume"] = args ? (args.diskPoolVolume ? pulumi.output(args.diskPoolVolume).apply(inputs.avs.diskPoolVolumeArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["elasticSanVolume"] = args ? args.elasticSanVolume : undefined;
             resourceInputs["netAppVolume"] = args ? args.netAppVolume : undefined;
             resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["diskPoolVolume"] = undefined /*out*/;
+            resourceInputs["elasticSanVolume"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["netAppVolume"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -116,17 +134,21 @@ export class Datastore extends pulumi.CustomResource {
  */
 export interface DatastoreArgs {
     /**
-     * Name of the cluster in the private cloud
+     * Name of the cluster
      */
     clusterName: pulumi.Input<string>;
     /**
-     * Name of the datastore in the private cloud cluster
+     * Name of the datastore
      */
     datastoreName?: pulumi.Input<string>;
     /**
      * An iSCSI volume
      */
     diskPoolVolume?: pulumi.Input<inputs.avs.DiskPoolVolumeArgs>;
+    /**
+     * An Elastic SAN volume
+     */
+    elasticSanVolume?: pulumi.Input<inputs.avs.ElasticSanVolumeArgs>;
     /**
      * An Azure NetApp Files volume
      */

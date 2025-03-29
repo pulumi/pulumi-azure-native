@@ -27,10 +27,13 @@ class GetPackageResult:
     """
     Definition of the Package type.
     """
-    def __init__(__self__, all_of=None, content_link=None, default=None, error=None, id=None, location=None, name=None, provisioning_state=None, size_in_bytes=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, all_of=None, azure_api_version=None, content_link=None, default=None, error=None, id=None, location=None, name=None, provisioning_state=None, size_in_bytes=None, system_data=None, tags=None, type=None, version=None):
         if all_of and not isinstance(all_of, dict):
             raise TypeError("Expected argument 'all_of' to be a dict")
         pulumi.set(__self__, "all_of", all_of)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if content_link and not isinstance(content_link, dict):
             raise TypeError("Expected argument 'content_link' to be a dict")
         pulumi.set(__self__, "content_link", content_link)
@@ -75,6 +78,14 @@ class GetPackageResult:
         Metadata pertaining to creation and last modification of the resource.
         """
         return pulumi.get(self, "all_of")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contentLink")
@@ -180,6 +191,7 @@ class AwaitableGetPackageResult(GetPackageResult):
             yield self
         return GetPackageResult(
             all_of=self.all_of,
+            azure_api_version=self.azure_api_version,
             content_link=self.content_link,
             default=self.default,
             error=self.error,
@@ -204,7 +216,7 @@ def get_package(automation_account_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-05-15-preview.
 
-    Other available API versions: 2024-10-23.
+    Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -222,6 +234,7 @@ def get_package(automation_account_name: Optional[str] = None,
 
     return AwaitableGetPackageResult(
         all_of=pulumi.get(__ret__, 'all_of'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         content_link=pulumi.get(__ret__, 'content_link'),
         default=pulumi.get(__ret__, 'default'),
         error=pulumi.get(__ret__, 'error'),
@@ -244,7 +257,7 @@ def get_package_output(automation_account_name: Optional[pulumi.Input[str]] = No
 
     Uses Azure REST API version 2023-05-15-preview.
 
-    Other available API versions: 2024-10-23.
+    Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -261,6 +274,7 @@ def get_package_output(automation_account_name: Optional[pulumi.Input[str]] = No
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getPackage', __args__, opts=opts, typ=GetPackageResult)
     return __ret__.apply(lambda __response__: GetPackageResult(
         all_of=pulumi.get(__response__, 'all_of'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         content_link=pulumi.get(__response__, 'content_link'),
         default=pulumi.get(__response__, 'default'),
         error=pulumi.get(__response__, 'error'),

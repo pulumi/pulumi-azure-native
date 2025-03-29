@@ -27,13 +27,16 @@ class GetAlertResult:
     """
     A alert associated with SAP monitor.
     """
-    def __init__(__self__, alert_rule_properties=None, alert_rule_resource_id=None, errors=None, id=None, name=None, provider_names=None, provider_type=None, provisioning_state=None, system_data=None, template_name=None, type=None):
+    def __init__(__self__, alert_rule_properties=None, alert_rule_resource_id=None, azure_api_version=None, errors=None, id=None, name=None, provider_names=None, provider_type=None, provisioning_state=None, system_data=None, template_name=None, type=None):
         if alert_rule_properties and not isinstance(alert_rule_properties, dict):
             raise TypeError("Expected argument 'alert_rule_properties' to be a dict")
         pulumi.set(__self__, "alert_rule_properties", alert_rule_properties)
         if alert_rule_resource_id and not isinstance(alert_rule_resource_id, str):
             raise TypeError("Expected argument 'alert_rule_resource_id' to be a str")
         pulumi.set(__self__, "alert_rule_resource_id", alert_rule_resource_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if errors and not isinstance(errors, dict):
             raise TypeError("Expected argument 'errors' to be a dict")
         pulumi.set(__self__, "errors", errors)
@@ -77,6 +80,14 @@ class GetAlertResult:
         ID of the alert rule resource created.
         """
         return pulumi.get(self, "alert_rule_resource_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -159,6 +170,7 @@ class AwaitableGetAlertResult(GetAlertResult):
         return GetAlertResult(
             alert_rule_properties=self.alert_rule_properties,
             alert_rule_resource_id=self.alert_rule_resource_id,
+            azure_api_version=self.azure_api_version,
             errors=self.errors,
             id=self.id,
             name=self.name,
@@ -194,6 +206,7 @@ def get_alert(alert_name: Optional[str] = None,
     return AwaitableGetAlertResult(
         alert_rule_properties=pulumi.get(__ret__, 'alert_rule_properties'),
         alert_rule_resource_id=pulumi.get(__ret__, 'alert_rule_resource_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         errors=pulumi.get(__ret__, 'errors'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -226,6 +239,7 @@ def get_alert_output(alert_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetAlertResult(
         alert_rule_properties=pulumi.get(__response__, 'alert_rule_properties'),
         alert_rule_resource_id=pulumi.get(__response__, 'alert_rule_resource_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         errors=pulumi.get(__response__, 'errors'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

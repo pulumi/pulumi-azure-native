@@ -12,11 +12,19 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
     /// <summary>
     /// The springbootservers envelope resource definition.
     /// 
-    /// Uses Azure REST API version 2023-01-01-preview.
+    /// Uses Azure REST API version 2024-04-01-preview.
+    /// 
+    /// Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazurespringboot:Springbootserver")]
     public partial class Springbootserver : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -34,12 +42,6 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -73,10 +75,7 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20230101preview:Springbootserver" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20230101preview:springbootserver" },
                     new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20240401preview:Springbootserver" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20240401preview:springbootserver" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot:springbootserver" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,18 +122,6 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// </summary>
         [Input("springbootserversName")]
         public Input<string>? SpringbootserversName { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public SpringbootserverArgs()
         {

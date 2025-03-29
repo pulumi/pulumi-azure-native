@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Defines the Neighbor Group.
  *
- * Uses Azure REST API version 2023-06-15.
+ * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-06-15.
  */
 export class NeighborGroup extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class NeighborGroup extends pulumi.CustomResource {
      * Switch configuration description.
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * An array of destination IPv4 Addresses or IPv6 Addresses.
      */
@@ -103,6 +107,7 @@ export class NeighborGroup extends pulumi.CustomResource {
             resourceInputs["neighborGroupName"] = args ? args.neighborGroupName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkTapIds"] = undefined /*out*/;
             resourceInputs["networkTapRuleIds"] = undefined /*out*/;
@@ -111,6 +116,7 @@ export class NeighborGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["annotation"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["destination"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

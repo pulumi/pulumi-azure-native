@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Get a UpdateRun
         /// 
-        /// Uses Azure REST API version 2023-03-15-preview.
+        /// Uses Azure REST API version 2024-05-02-preview.
         /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Other available API versions: 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetUpdateRunResult> InvokeAsync(GetUpdateRunArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUpdateRunResult>("azure-native:containerservice:getUpdateRun", args ?? new GetUpdateRunArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Get a UpdateRun
         /// 
-        /// Uses Azure REST API version 2023-03-15-preview.
+        /// Uses Azure REST API version 2024-05-02-preview.
         /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Other available API versions: 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetUpdateRunResult> Invoke(GetUpdateRunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateRunResult>("azure-native:containerservice:getUpdateRun", args ?? new GetUpdateRunInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Get a UpdateRun
         /// 
-        /// Uses Azure REST API version 2023-03-15-preview.
+        /// Uses Azure REST API version 2024-05-02-preview.
         /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Other available API versions: 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetUpdateRunResult> Invoke(GetUpdateRunInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateRunResult>("azure-native:containerservice:getUpdateRun", args ?? new GetUpdateRunInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class GetUpdateRunResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
         public readonly string ETag;
@@ -137,9 +141,26 @@ namespace Pulumi.AzureNative.ContainerService
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The resource id of the FleetUpdateStrategy resource to reference.
+        /// 
+        /// When creating a new run, there are three ways to define a strategy for the run:
+        /// 1. Define a new strategy in place: Set the "strategy" field.
+        /// 2. Use an existing strategy: Set the "updateStrategyId" field. (since 2023-08-15-preview)
+        /// 3. Use the default strategy to update all the members one by one: Leave both "updateStrategyId" and "strategy" unset. (since 2023-08-15-preview)
+        /// 
+        /// Setting both "updateStrategyId" and "strategy" is invalid.
+        /// 
+        /// UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
+        /// Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
+        /// UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
+        /// </summary>
+        public readonly string? UpdateStrategyId;
 
         [OutputConstructor]
         private GetUpdateRunResult(
+            string azureApiVersion,
+
             string eTag,
 
             string id,
@@ -156,8 +177,11 @@ namespace Pulumi.AzureNative.ContainerService
 
             Outputs.SystemDataResponse systemData,
 
-            string type)
+            string type,
+
+            string? updateStrategyId)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             ManagedClusterUpdate = managedClusterUpdate;
@@ -167,6 +191,7 @@ namespace Pulumi.AzureNative.ContainerService
             Strategy = strategy;
             SystemData = systemData;
             Type = type;
+            UpdateStrategyId = updateStrategyId;
         }
     }
 }

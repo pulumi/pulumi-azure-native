@@ -232,7 +232,7 @@ class CommunityTraining(pulumi.CustomResource):
         """
         A CommunityProviderHub resource
 
-        Uses Azure REST API version 2023-11-01.
+        Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,7 +258,7 @@ class CommunityTraining(pulumi.CustomResource):
         """
         A CommunityProviderHub resource
 
-        Uses Azure REST API version 2023-11-01.
+        Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param CommunityTrainingArgs args: The arguments to use to populate this resource's properties.
@@ -324,6 +324,7 @@ class CommunityTraining(pulumi.CustomResource):
             if zone_redundancy_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_redundancy_enabled'")
             __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -352,6 +353,7 @@ class CommunityTraining(pulumi.CustomResource):
 
         __props__ = CommunityTrainingArgs.__new__(CommunityTrainingArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["disaster_recovery_enabled"] = None
         __props__.__dict__["identity_configuration"] = None
         __props__.__dict__["location"] = None
@@ -367,6 +369,14 @@ class CommunityTraining(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["zone_redundancy_enabled"] = None
         return CommunityTraining(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="disasterRecoveryEnabled")

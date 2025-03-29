@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
  *
- * Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+ * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ObjectReplicationPolicy extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
      */
     public readonly destinationAccount!: pulumi.Output<string>;
@@ -49,6 +53,10 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
      * Indicates when the policy is enabled on the source account.
      */
     public /*out*/ readonly enabledTime!: pulumi.Output<string>;
+    /**
+     * Optional. The object replication policy metrics feature options.
+     */
+    public readonly metrics!: pulumi.Output<outputs.storage.ObjectReplicationPolicyPropertiesResponseMetrics | undefined>;
     /**
      * The name of the resource
      */
@@ -95,17 +103,21 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["destinationAccount"] = args ? args.destinationAccount : undefined;
+            resourceInputs["metrics"] = args ? args.metrics : undefined;
             resourceInputs["objectReplicationPolicyId"] = args ? args.objectReplicationPolicyId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enabledTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["destinationAccount"] = undefined /*out*/;
             resourceInputs["enabledTime"] = undefined /*out*/;
+            resourceInputs["metrics"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyId"] = undefined /*out*/;
             resourceInputs["rules"] = undefined /*out*/;
@@ -131,6 +143,10 @@ export interface ObjectReplicationPolicyArgs {
      * Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
      */
     destinationAccount: pulumi.Input<string>;
+    /**
+     * Optional. The object replication policy metrics feature options.
+     */
+    metrics?: pulumi.Input<inputs.storage.ObjectReplicationPolicyPropertiesMetricsArgs>;
     /**
      * For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
      */

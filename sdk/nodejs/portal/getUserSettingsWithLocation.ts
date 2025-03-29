@@ -36,6 +36,10 @@ export interface GetUserSettingsWithLocationArgs {
  */
 export interface GetUserSettingsWithLocationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The cloud shell user settings properties.
      */
     readonly properties: outputs.portal.UserPropertiesResponse;

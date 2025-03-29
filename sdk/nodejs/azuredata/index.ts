@@ -26,13 +26,6 @@ export const SqlServerRegistration: typeof import("./sqlServerRegistration").Sql
 utilities.lazyLoad(exports, ["SqlServerRegistration"], () => require("./sqlServerRegistration"));
 
 
-// Export sub-modules:
-import * as v20190724preview from "./v20190724preview";
-
-export {
-    v20190724preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

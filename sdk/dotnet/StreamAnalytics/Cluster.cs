@@ -12,13 +12,17 @@ namespace Pulumi.AzureNative.StreamAnalytics
     /// <summary>
     /// A Stream Analytics Cluster object
     /// 
-    /// Uses Azure REST API version 2020-03-01. In version 1.x of the Azure Native provider, it used API version 2020-03-01-preview.
-    /// 
-    /// Other available API versions: 2020-03-01-preview.
+    /// Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Represents the number of streaming units currently being used on the cluster.
         /// </summary>

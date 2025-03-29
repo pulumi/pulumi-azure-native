@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * An IPv6 server firewall rule.
  *
- * Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2021-08-01-preview.
+ * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class IPv6FirewallRule extends pulumi.CustomResource {
     /**
@@ -39,7 +39,11 @@ export class IPv6FirewallRule extends pulumi.CustomResource {
     }
 
     /**
-     * The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
      */
     public readonly endIPv6Address!: pulumi.Output<string | undefined>;
     /**
@@ -78,8 +82,10 @@ export class IPv6FirewallRule extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["startIPv6Address"] = args ? args.startIPv6Address : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endIPv6Address"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["startIPv6Address"] = undefined /*out*/;
@@ -97,7 +103,7 @@ export class IPv6FirewallRule extends pulumi.CustomResource {
  */
 export interface IPv6FirewallRuleArgs {
     /**
-     * The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+     * The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
      */
     endIPv6Address?: pulumi.Input<string>;
     /**

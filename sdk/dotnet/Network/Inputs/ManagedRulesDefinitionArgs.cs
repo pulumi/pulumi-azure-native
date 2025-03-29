@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// </summary>
     public sealed class ManagedRulesDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("exceptions")]
+        private InputList<Inputs.ExceptionEntryArgs>? _exceptions;
+
+        /// <summary>
+        /// The exceptions that are applied on the policy.
+        /// </summary>
+        public InputList<Inputs.ExceptionEntryArgs> Exceptions
+        {
+            get => _exceptions ?? (_exceptions = new InputList<Inputs.ExceptionEntryArgs>());
+            set => _exceptions = value;
+        }
+
         [Input("exclusions")]
         private InputList<Inputs.OwaspCrsExclusionEntryArgs>? _exclusions;
 

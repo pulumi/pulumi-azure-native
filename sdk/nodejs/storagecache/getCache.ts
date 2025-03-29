@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Returns a cache.
  *
- * Uses Azure REST API version 2023-05-01.
+ * Uses Azure REST API version 2024-03-01.
  *
- * Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+ * Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetCacheArgs {
  * A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
  */
 export interface GetCacheResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The size of this Cache, in GB.
      */
@@ -129,9 +133,9 @@ export interface GetCacheResult {
 /**
  * Returns a cache.
  *
- * Uses Azure REST API version 2023-05-01.
+ * Uses Azure REST API version 2024-03-01.
  *
- * Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+ * Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCacheResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

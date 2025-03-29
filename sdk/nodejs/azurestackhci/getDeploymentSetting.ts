@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a DeploymentSetting
  *
- * Uses Azure REST API version 2023-08-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDeploymentSetting(args: GetDeploymentSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +47,10 @@ export interface GetDeploymentSettingResult {
      */
     readonly arcNodeResourceIds: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Scale units will contains list of deployment data
      */
     readonly deploymentConfiguration: outputs.azurestackhci.DeploymentConfigurationResponse;
@@ -55,7 +59,7 @@ export interface GetDeploymentSettingResult {
      */
     readonly deploymentMode: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -63,13 +67,17 @@ export interface GetDeploymentSettingResult {
      */
     readonly name: string;
     /**
+     * The intended operation for a cluster.
+     */
+    readonly operationType?: string;
+    /**
      * DeploymentSetting provisioning state
      */
     readonly provisioningState: string;
     /**
      * Deployment Status reported from cluster.
      */
-    readonly reportedProperties: outputs.azurestackhci.ReportedPropertiesResponse;
+    readonly reportedProperties: outputs.azurestackhci.EceReportedPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -82,9 +90,9 @@ export interface GetDeploymentSettingResult {
 /**
  * Get a DeploymentSetting
  *
- * Uses Azure REST API version 2023-08-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDeploymentSettingOutput(args: GetDeploymentSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

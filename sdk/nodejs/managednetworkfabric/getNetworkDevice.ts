@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get the Network Device resource details.
+ * Gets the Network Device resource details.
  *
- * Uses Azure REST API version 2023-02-01-preview.
+ * Uses Azure REST API version 2023-06-15.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkDevice(args: GetNetworkDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +24,7 @@ export function getNetworkDevice(args: GetNetworkDeviceArgs, opts?: pulumi.Invok
 
 export interface GetNetworkDeviceArgs {
     /**
-     * Name of the Network Device
+     * Name of the Network Device.
      */
     networkDeviceName: string;
     /**
@@ -34,19 +34,31 @@ export interface GetNetworkDeviceArgs {
 }
 
 /**
- * The NetworkDevice resource definition.
+ * The Network Device resource definition.
  */
 export interface GetNetworkDeviceResult {
+    /**
+     * Administrative state of the resource.
+     */
+    readonly administrativeState: string;
     /**
      * Switch configuration description.
      */
     readonly annotation?: string;
     /**
-     * The host Name of the device.
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Configuration state of the resource.
+     */
+    readonly configurationState: string;
+    /**
+     * The host name of the device.
      */
     readonly hostName?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -54,27 +66,35 @@ export interface GetNetworkDeviceResult {
      */
     readonly location: string;
     /**
+     * Management IPv4 Address.
+     */
+    readonly managementIpv4Address: string;
+    /**
+     * Management IPv6 Address.
+     */
+    readonly managementIpv6Address: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * networkDeviceRole is the device role: Example: CE | ToR.
+     * NetworkDeviceRole is the device role: Example: CE | ToR.
      */
     readonly networkDeviceRole: string;
     /**
      * Network Device SKU name.
      */
-    readonly networkDeviceSku: string;
+    readonly networkDeviceSku?: string;
     /**
      * Reference to network rack resource id.
      */
     readonly networkRackId: string;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**
-     * serialNumber of the format Make;Model;HardwareRevisionId;SerialNumber. Example: Arista;DCS-7280DR3-24;12.05;JPE21116969
+     * Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
      */
     readonly serialNumber: string;
     /**
@@ -95,11 +115,11 @@ export interface GetNetworkDeviceResult {
     readonly version: string;
 }
 /**
- * Get the Network Device resource details.
+ * Gets the Network Device resource details.
  *
- * Uses Azure REST API version 2023-02-01-preview.
+ * Uses Azure REST API version 2023-06-15.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkDeviceOutput(args: GetNetworkDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -111,7 +131,7 @@ export function getNetworkDeviceOutput(args: GetNetworkDeviceOutputArgs, opts?: 
 
 export interface GetNetworkDeviceOutputArgs {
     /**
-     * Name of the Network Device
+     * Name of the Network Device.
      */
     networkDeviceName: pulumi.Input<string>;
     /**

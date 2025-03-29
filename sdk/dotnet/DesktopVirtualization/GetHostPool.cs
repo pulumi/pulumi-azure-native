@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get a host pool.
         /// 
-        /// Uses Azure REST API version 2022-09-09.
+        /// Uses Azure REST API version 2024-04-03.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        /// Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetHostPoolResult> InvokeAsync(GetHostPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get a host pool.
         /// 
-        /// Uses Azure REST API version 2022-09-09.
+        /// Uses Azure REST API version 2024-04-03.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        /// Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetHostPoolResult> Invoke(GetHostPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Get a host pool.
         /// 
-        /// Uses Azure REST API version 2022-09-09.
+        /// Uses Azure REST API version 2024-04-03.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        /// Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetHostPoolResult> Invoke(GetHostPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolInvokeArgs(), options.WithDefaults());
@@ -92,9 +92,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly Outputs.AgentUpdatePropertiesResponse? AgentUpdate;
         /// <summary>
+        /// List of App Attach Package links.
+        /// </summary>
+        public readonly ImmutableArray<string> AppAttachPackageReferences;
+        /// <summary>
         /// List of applicationGroup links.
         /// </summary>
         public readonly ImmutableArray<string> ApplicationGroupReferences;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Is cloud pc resource.
         /// </summary>
@@ -120,12 +128,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string HostPoolType;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? Identity;
         /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
@@ -135,7 +143,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
         /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         /// </summary>
@@ -161,6 +169,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// The type of preferred application group type, default to Desktop Application Group
         /// </summary>
         public readonly string PreferredAppGroupType;
+        /// <summary>
+        /// List of private endpoint connection associated with the specified resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// The registration info of HostPool.
         /// </summary>
@@ -191,7 +207,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly bool? StartVMOnConnect;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -215,7 +231,11 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         private GetHostPoolResult(
             Outputs.AgentUpdatePropertiesResponse? agentUpdate,
 
+            ImmutableArray<string> appAttachPackageReferences,
+
             ImmutableArray<string> applicationGroupReferences,
+
+            string azureApiVersion,
 
             bool cloudPcResource,
 
@@ -237,7 +257,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string loadBalancerType,
 
-            string? location,
+            string location,
 
             string? managedBy,
 
@@ -252,6 +272,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
 
             string preferredAppGroupType,
+
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
+            string? publicNetworkAccess,
 
             Outputs.RegistrationInfoResponse? registrationInfo,
 
@@ -280,7 +304,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             string? vmTemplate)
         {
             AgentUpdate = agentUpdate;
+            AppAttachPackageReferences = appAttachPackageReferences;
             ApplicationGroupReferences = applicationGroupReferences;
+            AzureApiVersion = azureApiVersion;
             CloudPcResource = cloudPcResource;
             CustomRdpProperty = customRdpProperty;
             Description = description;
@@ -299,6 +325,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             PersonalDesktopAssignmentType = personalDesktopAssignmentType;
             Plan = plan;
             PreferredAppGroupType = preferredAppGroupType;
+            PrivateEndpointConnections = privateEndpointConnections;
+            PublicNetworkAccess = publicNetworkAccess;
             RegistrationInfo = registrationInfo;
             Ring = ring;
             Sku = sku;

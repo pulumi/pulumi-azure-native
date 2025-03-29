@@ -52,6 +52,10 @@ export interface GetPrivateStoreCollectionResult {
      */
     readonly approveAllItemsModifiedAt: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Gets or sets the association with Commercial's Billing Account.
      */
     readonly claim?: string;

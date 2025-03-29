@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.StorSimple
     public sealed class GetBandwidthSettingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.StorSimple
 
         [OutputConstructor]
         private GetBandwidthSettingResult(
+            string azureApiVersion,
+
             string id,
 
             string? kind,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.StorSimple
 
             int volumeCount)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Kind = kind;
             Name = name;

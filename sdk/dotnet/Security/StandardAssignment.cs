@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// Security Assignment on a resource group over a given scope
     /// 
-    /// Uses Azure REST API version 2024-08-01.
+    /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:StandardAssignment")]
     public partial class StandardAssignment : global::Pulumi.CustomResource
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("attestationData")]
         public Output<Outputs.StandardAssignmentPropertiesResponseAttestationData?> AttestationData { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Description of the standardAssignment

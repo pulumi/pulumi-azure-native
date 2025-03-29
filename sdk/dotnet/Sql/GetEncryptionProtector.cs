@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a server encryption protector.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetEncryptionProtectorResult> InvokeAsync(GetEncryptionProtectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionProtectorResult>("azure-native:sql:getEncryptionProtector", args ?? new GetEncryptionProtectorArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a server encryption protector.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEncryptionProtectorResult> Invoke(GetEncryptionProtectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionProtectorResult>("azure-native:sql:getEncryptionProtector", args ?? new GetEncryptionProtectorInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a server encryption protector.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEncryptionProtectorResult> Invoke(GetEncryptionProtectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionProtectorResult>("azure-native:sql:getEncryptionProtector", args ?? new GetEncryptionProtectorInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly bool? AutoRotationEnabled;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNative.Sql
         private GetEncryptionProtectorResult(
             bool? autoRotationEnabled,
 
+            string azureApiVersion,
+
             string id,
 
             string kind,
@@ -169,6 +175,7 @@ namespace Pulumi.AzureNative.Sql
             string uri)
         {
             AutoRotationEnabled = autoRotationEnabled;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Kind = kind;
             Location = location;

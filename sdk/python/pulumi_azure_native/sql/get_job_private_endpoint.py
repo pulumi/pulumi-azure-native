@@ -26,7 +26,10 @@ class GetJobPrivateEndpointResult:
     """
     A job agent private endpoint.
     """
-    def __init__(__self__, id=None, name=None, private_endpoint_id=None, target_server_azure_resource_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, private_endpoint_id=None, target_server_azure_resource_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -42,6 +45,14 @@ class GetJobPrivateEndpointResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -90,6 +101,7 @@ class AwaitableGetJobPrivateEndpointResult(GetJobPrivateEndpointResult):
         if False:
             yield self
         return GetJobPrivateEndpointResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             private_endpoint_id=self.private_endpoint_id,
@@ -105,9 +117,9 @@ def get_job_private_endpoint(job_agent_name: Optional[str] = None,
     """
     Gets a private endpoint.
 
-    Uses Azure REST API version 2023-05-01-preview.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str job_agent_name: The name of the job agent.
@@ -124,6 +136,7 @@ def get_job_private_endpoint(job_agent_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getJobPrivateEndpoint', __args__, opts=opts, typ=GetJobPrivateEndpointResult).value
 
     return AwaitableGetJobPrivateEndpointResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         private_endpoint_id=pulumi.get(__ret__, 'private_endpoint_id'),
@@ -137,9 +150,9 @@ def get_job_private_endpoint_output(job_agent_name: Optional[pulumi.Input[str]] 
     """
     Gets a private endpoint.
 
-    Uses Azure REST API version 2023-05-01-preview.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str job_agent_name: The name of the job agent.
@@ -155,6 +168,7 @@ def get_job_private_endpoint_output(job_agent_name: Optional[pulumi.Input[str]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getJobPrivateEndpoint', __args__, opts=opts, typ=GetJobPrivateEndpointResult)
     return __ret__.apply(lambda __response__: GetJobPrivateEndpointResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         private_endpoint_id=pulumi.get(__response__, 'private_endpoint_id'),

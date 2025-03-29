@@ -27,7 +27,10 @@ class GetAFDTargetGroupResult:
     """
     AFDTargetGroup comprises a list of Endpoints that is used for tunnelling protocols to allow certain traffic.
     """
-    def __init__(__self__, deployment_status=None, id=None, name=None, provisioning_state=None, system_data=None, target_endpoints=None, type=None):
+    def __init__(__self__, azure_api_version=None, deployment_status=None, id=None, name=None, provisioning_state=None, system_data=None, target_endpoints=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
@@ -49,6 +52,14 @@ class GetAFDTargetGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deploymentStatus")
@@ -110,6 +121,7 @@ class AwaitableGetAFDTargetGroupResult(GetAFDTargetGroupResult):
         if False:
             yield self
         return GetAFDTargetGroupResult(
+            azure_api_version=self.azure_api_version,
             deployment_status=self.deployment_status,
             id=self.id,
             name=self.name,
@@ -141,6 +153,7 @@ def get_afd_target_group(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getAFDTargetGroup', __args__, opts=opts, typ=GetAFDTargetGroupResult).value
 
     return AwaitableGetAFDTargetGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         deployment_status=pulumi.get(__ret__, 'deployment_status'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -169,6 +182,7 @@ def get_afd_target_group_output(profile_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getAFDTargetGroup', __args__, opts=opts, typ=GetAFDTargetGroupResult)
     return __ret__.apply(lambda __response__: GetAFDTargetGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         deployment_status=pulumi.get(__response__, 'deployment_status'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

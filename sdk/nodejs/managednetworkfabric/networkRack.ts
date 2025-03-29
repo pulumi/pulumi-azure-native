@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The NetworkRack resource definition.
+ * The Network Rack resource definition.
  *
- * Uses Azure REST API version 2023-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-02-01-preview.
+ * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class NetworkRack extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class NetworkRack extends pulumi.CustomResource {
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -54,19 +58,19 @@ export class NetworkRack extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * List of network device ARM resource ids.
+     * List of network device ARM resource IDs.
      */
     public /*out*/ readonly networkDevices!: pulumi.Output<string[]>;
     /**
-     * Network Fabric ARM resource id.
+     * ARM resource ID of the Network Fabric.
      */
     public readonly networkFabricId!: pulumi.Output<string>;
     /**
      * Network Rack SKU name.
      */
-    public readonly networkRackSku!: pulumi.Output<string>;
+    public readonly networkRackType!: pulumi.Output<string | undefined>;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -96,9 +100,6 @@ export class NetworkRack extends pulumi.CustomResource {
             if ((!args || args.networkFabricId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricId'");
             }
-            if ((!args || args.networkRackSku === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'networkRackSku'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -106,9 +107,10 @@ export class NetworkRack extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkFabricId"] = args ? args.networkFabricId : undefined;
             resourceInputs["networkRackName"] = args ? args.networkRackName : undefined;
-            resourceInputs["networkRackSku"] = args ? args.networkRackSku : undefined;
+            resourceInputs["networkRackType"] = args ? args.networkRackType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkDevices"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -116,11 +118,12 @@ export class NetworkRack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["annotation"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkDevices"] = undefined /*out*/;
             resourceInputs["networkFabricId"] = undefined /*out*/;
-            resourceInputs["networkRackSku"] = undefined /*out*/;
+            resourceInputs["networkRackType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -146,17 +149,17 @@ export interface NetworkRackArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Network Fabric ARM resource id.
+     * ARM resource ID of the Network Fabric.
      */
     networkFabricId: pulumi.Input<string>;
     /**
-     * Name of the Network Rack
+     * Name of the Network Rack.
      */
     networkRackName?: pulumi.Input<string>;
     /**
      * Network Rack SKU name.
      */
-    networkRackSku: pulumi.Input<string>;
+    networkRackType?: pulumi.Input<string | enums.managednetworkfabric.NetworkRackType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

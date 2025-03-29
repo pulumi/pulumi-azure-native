@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Automation
     /// <summary>
     /// A private endpoint connection
     /// 
-    /// Uses Azure REST API version 2020-01-13-preview. In version 1.x of the Azure Native provider, it used API version 2020-01-13-preview.
+    /// Uses Azure REST API version 2023-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-13-preview.
     /// 
-    /// Other available API versions: 2023-05-15-preview, 2024-10-23.
+    /// Other available API versions: 2020-01-13-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets the groupIds.
         /// </summary>
@@ -44,7 +50,13 @@ namespace Pulumi.AzureNative.Automation
         public Output<Outputs.PrivateLinkServiceConnectionStatePropertyResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

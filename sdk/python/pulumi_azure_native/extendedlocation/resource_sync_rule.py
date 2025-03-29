@@ -169,7 +169,7 @@ class ResourceSyncRule(pulumi.CustomResource):
         """
         Resource Sync Rules definition.
 
-        Uses Azure REST API version 2021-08-31-preview. In version 1.x of the Azure Native provider, it used API version 2021-08-31-preview.
+        Uses Azure REST API version 2021-08-31-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-31-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,7 +191,7 @@ class ResourceSyncRule(pulumi.CustomResource):
         """
         Resource Sync Rules definition.
 
-        Uses Azure REST API version 2021-08-31-preview. In version 1.x of the Azure Native provider, it used API version 2021-08-31-preview.
+        Uses Azure REST API version 2021-08-31-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-31-preview.
 
         :param str resource_name: The name of the resource.
         :param ResourceSyncRuleArgs args: The arguments to use to populate this resource's properties.
@@ -237,6 +237,7 @@ class ResourceSyncRule(pulumi.CustomResource):
             __props__.__dict__["selector"] = selector
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_resource_group"] = target_resource_group
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -265,6 +266,7 @@ class ResourceSyncRule(pulumi.CustomResource):
 
         __props__ = ResourceSyncRuleArgs.__new__(ResourceSyncRuleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["priority"] = None
@@ -275,6 +277,14 @@ class ResourceSyncRule(pulumi.CustomResource):
         __props__.__dict__["target_resource_group"] = None
         __props__.__dict__["type"] = None
         return ResourceSyncRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

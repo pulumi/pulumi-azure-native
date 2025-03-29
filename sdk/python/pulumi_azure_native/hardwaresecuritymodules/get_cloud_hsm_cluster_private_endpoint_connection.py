@@ -27,7 +27,10 @@ class GetCloudHsmClusterPrivateEndpointConnectionResult:
     """
     The private endpoint connection resource.
     """
-    def __init__(__self__, etag=None, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -55,6 +58,14 @@ class GetCloudHsmClusterPrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetCloudHsmClusterPrivateEndpointConnectionResult(GetCloudHsmClus
         if False:
             yield self
         return GetCloudHsmClusterPrivateEndpointConnectionResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             group_ids=self.group_ids,
             id=self.id,
@@ -153,12 +165,12 @@ def get_cloud_hsm_cluster_private_endpoint_connection(cloud_hsm_cluster_name: Op
     """
     Gets the private endpoint connection for the Cloud Hsm Cluster.
 
-    Uses Azure REST API version 2022-08-31-preview.
+    Uses Azure REST API version 2024-06-30-preview.
 
-    Other available API versions: 2023-12-10-preview, 2024-06-30-preview.
+    Other available API versions: 2022-08-31-preview, 2023-12-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 24 characters in length.
+    :param str cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
     :param str pe_connection_name: Name of the private endpoint connection associated with the Cloud HSM Cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -170,6 +182,7 @@ def get_cloud_hsm_cluster_private_endpoint_connection(cloud_hsm_cluster_name: Op
     __ret__ = pulumi.runtime.invoke('azure-native:hardwaresecuritymodules:getCloudHsmClusterPrivateEndpointConnection', __args__, opts=opts, typ=GetCloudHsmClusterPrivateEndpointConnectionResult).value
 
     return AwaitableGetCloudHsmClusterPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         group_ids=pulumi.get(__ret__, 'group_ids'),
         id=pulumi.get(__ret__, 'id'),
@@ -186,12 +199,12 @@ def get_cloud_hsm_cluster_private_endpoint_connection_output(cloud_hsm_cluster_n
     """
     Gets the private endpoint connection for the Cloud Hsm Cluster.
 
-    Uses Azure REST API version 2022-08-31-preview.
+    Uses Azure REST API version 2024-06-30-preview.
 
-    Other available API versions: 2023-12-10-preview, 2024-06-30-preview.
+    Other available API versions: 2022-08-31-preview, 2023-12-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 24 characters in length.
+    :param str cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
     :param str pe_connection_name: Name of the private endpoint connection associated with the Cloud HSM Cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -202,6 +215,7 @@ def get_cloud_hsm_cluster_private_endpoint_connection_output(cloud_hsm_cluster_n
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hardwaresecuritymodules:getCloudHsmClusterPrivateEndpointConnection', __args__, opts=opts, typ=GetCloudHsmClusterPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetCloudHsmClusterPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         group_ids=pulumi.get(__response__, 'group_ids'),
         id=pulumi.get(__response__, 'id'),

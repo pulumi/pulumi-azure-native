@@ -62,9 +62,9 @@ def get_sap_disk_configurations(app_location: Optional[str] = None,
     """
     Get the SAP Disk Configuration Layout prod/non-prod SAP System.
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2023-10-01-preview.
 
-    Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+    Other available API versions: 2023-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str app_location: The geo-location where the SAP resources will be created.
@@ -99,9 +99,9 @@ def get_sap_disk_configurations_output(app_location: Optional[pulumi.Input[str]]
     """
     Get the SAP Disk Configuration Layout prod/non-prod SAP System.
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2023-10-01-preview.
 
-    Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+    Other available API versions: 2023-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str app_location: The geo-location where the SAP resources will be created.

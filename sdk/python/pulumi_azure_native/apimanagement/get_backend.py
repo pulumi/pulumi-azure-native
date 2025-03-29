@@ -27,7 +27,13 @@ class GetBackendResult:
     """
     Backend details.
     """
-    def __init__(__self__, credentials=None, description=None, id=None, name=None, properties=None, protocol=None, proxy=None, resource_id=None, title=None, tls=None, type=None, url=None):
+    def __init__(__self__, azure_api_version=None, circuit_breaker=None, credentials=None, description=None, id=None, name=None, properties=None, protocol=None, proxy=None, resource_id=None, title=None, tls=None, type=None, url=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if circuit_breaker and not isinstance(circuit_breaker, dict):
+            raise TypeError("Expected argument 'circuit_breaker' to be a dict")
+        pulumi.set(__self__, "circuit_breaker", circuit_breaker)
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
@@ -64,6 +70,22 @@ class GetBackendResult:
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="circuitBreaker")
+    def circuit_breaker(self) -> Optional['outputs.BackendCircuitBreakerResponse']:
+        """
+        Backend Circuit Breaker Configuration
+        """
+        return pulumi.get(self, "circuit_breaker")
 
     @property
     @pulumi.getter
@@ -168,6 +190,8 @@ class AwaitableGetBackendResult(GetBackendResult):
         if False:
             yield self
         return GetBackendResult(
+            azure_api_version=self.azure_api_version,
+            circuit_breaker=self.circuit_breaker,
             credentials=self.credentials,
             description=self.description,
             id=self.id,
@@ -189,9 +213,9 @@ def get_backend(backend_id: Optional[str] = None,
     """
     Gets the details of the backend specified by its identifier.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2016-10-10, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -206,6 +230,8 @@ def get_backend(backend_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getBackend', __args__, opts=opts, typ=GetBackendResult).value
 
     return AwaitableGetBackendResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        circuit_breaker=pulumi.get(__ret__, 'circuit_breaker'),
         credentials=pulumi.get(__ret__, 'credentials'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -225,9 +251,9 @@ def get_backend_output(backend_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the details of the backend specified by its identifier.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2016-10-10, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -241,6 +267,8 @@ def get_backend_output(backend_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getBackend', __args__, opts=opts, typ=GetBackendResult)
     return __ret__.apply(lambda __response__: GetBackendResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        circuit_breaker=pulumi.get(__response__, 'circuit_breaker'),
         credentials=pulumi.get(__response__, 'credentials'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),

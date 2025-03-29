@@ -24,15 +24,6 @@ utilities.lazyLoad(exports, ["listFluidRelayServerKeys","listFluidRelayServerKey
 // Export enums:
 export * from "../types/enums/fluidrelay";
 
-// Export sub-modules:
-import * as v20210615preview from "./v20210615preview";
-import * as v20220601 from "./v20220601";
-
-export {
-    v20210615preview,
-    v20220601,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

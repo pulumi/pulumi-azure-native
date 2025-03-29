@@ -57,9 +57,9 @@ def list_organization_regions(organization_name: Optional[str] = None,
     """
     Result of POST request to list regions supported by confluent
 
-    Uses Azure REST API version 2024-02-13.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2024-07-01.
+    Other available API versions: 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str organization_name: Organization resource name
@@ -82,9 +82,9 @@ def list_organization_regions_output(organization_name: Optional[pulumi.Input[st
     """
     Result of POST request to list regions supported by confluent
 
-    Uses Azure REST API version 2024-02-13.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2024-07-01.
+    Other available API versions: 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str organization_name: Organization resource name

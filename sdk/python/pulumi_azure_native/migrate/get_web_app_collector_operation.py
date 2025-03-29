@@ -27,10 +27,13 @@ class GetWebAppCollectorOperationResult:
     """
     The web app collector REST object.
     """
-    def __init__(__self__, agent_properties=None, created_timestamp=None, discovery_site_id=None, id=None, name=None, provisioning_state=None, system_data=None, type=None, updated_timestamp=None):
+    def __init__(__self__, agent_properties=None, azure_api_version=None, created_timestamp=None, discovery_site_id=None, id=None, name=None, provisioning_state=None, system_data=None, type=None, updated_timestamp=None):
         if agent_properties and not isinstance(agent_properties, dict):
             raise TypeError("Expected argument 'agent_properties' to be a dict")
         pulumi.set(__self__, "agent_properties", agent_properties)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_timestamp and not isinstance(created_timestamp, str):
             raise TypeError("Expected argument 'created_timestamp' to be a str")
         pulumi.set(__self__, "created_timestamp", created_timestamp)
@@ -63,6 +66,14 @@ class GetWebAppCollectorOperationResult:
         Gets or sets the collector agent properties.
         """
         return pulumi.get(self, "agent_properties")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -136,6 +147,7 @@ class AwaitableGetWebAppCollectorOperationResult(GetWebAppCollectorOperationResu
             yield self
         return GetWebAppCollectorOperationResult(
             agent_properties=self.agent_properties,
+            azure_api_version=self.azure_api_version,
             created_timestamp=self.created_timestamp,
             discovery_site_id=self.discovery_site_id,
             id=self.id,
@@ -153,9 +165,9 @@ def get_web_app_collector_operation(collector_name: Optional[str] = None,
     """
     Get a WebAppCollector
 
-    Uses Azure REST API version 2023-04-01-preview.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str collector_name: Web app collector ARM name.
@@ -171,6 +183,7 @@ def get_web_app_collector_operation(collector_name: Optional[str] = None,
 
     return AwaitableGetWebAppCollectorOperationResult(
         agent_properties=pulumi.get(__ret__, 'agent_properties'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
         discovery_site_id=pulumi.get(__ret__, 'discovery_site_id'),
         id=pulumi.get(__ret__, 'id'),
@@ -186,9 +199,9 @@ def get_web_app_collector_operation_output(collector_name: Optional[pulumi.Input
     """
     Get a WebAppCollector
 
-    Uses Azure REST API version 2023-04-01-preview.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str collector_name: Web app collector ARM name.
@@ -203,6 +216,7 @@ def get_web_app_collector_operation_output(collector_name: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getWebAppCollectorOperation', __args__, opts=opts, typ=GetWebAppCollectorOperationResult)
     return __ret__.apply(lambda __response__: GetWebAppCollectorOperationResult(
         agent_properties=pulumi.get(__response__, 'agent_properties'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_timestamp=pulumi.get(__response__, 'created_timestamp'),
         discovery_site_id=pulumi.get(__response__, 'discovery_site_id'),
         id=pulumi.get(__response__, 'id'),

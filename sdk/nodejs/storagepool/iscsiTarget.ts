@@ -10,9 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Response for iSCSI Target requests.
  *
- * Uses Azure REST API version 2021-08-01. In version 1.x of the Azure Native provider, it used API version 2020-03-15-preview.
- *
- * Other available API versions: 2020-03-15-preview.
+ * Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
  */
 export class IscsiTarget extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class IscsiTarget extends pulumi.CustomResource {
      * Mode for Target connectivity.
      */
     public readonly aclMode!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * List of private IPv4 addresses to connect to the iSCSI Target.
      */
@@ -127,6 +129,7 @@ export class IscsiTarget extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["staticAcls"] = args ? args.staticAcls : undefined;
             resourceInputs["targetIqn"] = args ? args.targetIqn : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
@@ -137,6 +140,7 @@ export class IscsiTarget extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["aclMode"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["luns"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;

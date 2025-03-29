@@ -27,7 +27,10 @@ class GetAttachedDataNetworkResult:
     """
     Attached data network resource. Must be created in the same location as its parent packet core data plane.
     """
-    def __init__(__self__, dns_addresses=None, id=None, location=None, name=None, napt_configuration=None, provisioning_state=None, system_data=None, tags=None, type=None, user_equipment_address_pool_prefix=None, user_equipment_static_address_pool_prefix=None, user_plane_data_interface=None):
+    def __init__(__self__, azure_api_version=None, dns_addresses=None, id=None, location=None, name=None, napt_configuration=None, provisioning_state=None, system_data=None, tags=None, type=None, user_equipment_address_pool_prefix=None, user_equipment_static_address_pool_prefix=None, user_plane_data_interface=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if dns_addresses and not isinstance(dns_addresses, list):
             raise TypeError("Expected argument 'dns_addresses' to be a list")
         pulumi.set(__self__, "dns_addresses", dns_addresses)
@@ -64,6 +67,14 @@ class GetAttachedDataNetworkResult:
         if user_plane_data_interface and not isinstance(user_plane_data_interface, dict):
             raise TypeError("Expected argument 'user_plane_data_interface' to be a dict")
         pulumi.set(__self__, "user_plane_data_interface", user_plane_data_interface)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dnsAddresses")
@@ -173,6 +184,7 @@ class AwaitableGetAttachedDataNetworkResult(GetAttachedDataNetworkResult):
         if False:
             yield self
         return GetAttachedDataNetworkResult(
+            azure_api_version=self.azure_api_version,
             dns_addresses=self.dns_addresses,
             id=self.id,
             location=self.location,
@@ -195,9 +207,9 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
     """
     Gets information about the specified attached data network.
 
-    Uses Azure REST API version 2023-06-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str attached_data_network_name: The name of the attached data network.
@@ -214,6 +226,7 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork:getAttachedDataNetwork', __args__, opts=opts, typ=GetAttachedDataNetworkResult).value
 
     return AwaitableGetAttachedDataNetworkResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         dns_addresses=pulumi.get(__ret__, 'dns_addresses'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -234,9 +247,9 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
     """
     Gets information about the specified attached data network.
 
-    Uses Azure REST API version 2023-06-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str attached_data_network_name: The name of the attached data network.
@@ -252,6 +265,7 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork:getAttachedDataNetwork', __args__, opts=opts, typ=GetAttachedDataNetworkResult)
     return __ret__.apply(lambda __response__: GetAttachedDataNetworkResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         dns_addresses=pulumi.get(__response__, 'dns_addresses'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

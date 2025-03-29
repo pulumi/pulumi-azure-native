@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// <summary>
     /// Customer subscription which can use a sku.
     /// 
-    /// Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-01-01-preview.
+    /// Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:VendorSkuPreview")]
     public partial class VendorSkuPreview : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The preview subscription ID.
         /// </summary>

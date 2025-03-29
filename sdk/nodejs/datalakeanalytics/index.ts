@@ -44,13 +44,6 @@ utilities.lazyLoad(exports, ["listStorageAccountSasTokens","listStorageAccountSa
 // Export enums:
 export * from "../types/enums/datalakeanalytics";
 
-// Export sub-modules:
-import * as v20191101preview from "./v20191101preview";
-
-export {
-    v20191101preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

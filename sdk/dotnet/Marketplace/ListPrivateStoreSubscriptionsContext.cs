@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.Marketplace
         /// List all the subscriptions in the private store context
         /// 
         /// Uses Azure REST API version 2023-01-01.
-        /// 
-        /// Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
         /// </summary>
         public static Task<ListPrivateStoreSubscriptionsContextResult> InvokeAsync(ListPrivateStoreSubscriptionsContextArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPrivateStoreSubscriptionsContextResult>("azure-native:marketplace:listPrivateStoreSubscriptionsContext", args ?? new ListPrivateStoreSubscriptionsContextArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.Marketplace
         /// List all the subscriptions in the private store context
         /// 
         /// Uses Azure REST API version 2023-01-01.
-        /// 
-        /// Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
         /// </summary>
         public static Output<ListPrivateStoreSubscriptionsContextResult> Invoke(ListPrivateStoreSubscriptionsContextInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPrivateStoreSubscriptionsContextResult>("azure-native:marketplace:listPrivateStoreSubscriptionsContext", args ?? new ListPrivateStoreSubscriptionsContextInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.Marketplace
         /// List all the subscriptions in the private store context
         /// 
         /// Uses Azure REST API version 2023-01-01.
-        /// 
-        /// Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
         /// </summary>
         public static Output<ListPrivateStoreSubscriptionsContextResult> Invoke(ListPrivateStoreSubscriptionsContextInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListPrivateStoreSubscriptionsContextResult>("azure-native:marketplace:listPrivateStoreSubscriptionsContext", args ?? new ListPrivateStoreSubscriptionsContextInvokeArgs(), options.WithDefaults());

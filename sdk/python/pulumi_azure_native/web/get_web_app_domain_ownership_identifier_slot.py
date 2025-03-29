@@ -26,7 +26,10 @@ class GetWebAppDomainOwnershipIdentifierSlotResult:
     """
     A domain specific resource identifier.
     """
-    def __init__(__self__, id=None, kind=None, name=None, type=None, value=None):
+    def __init__(__self__, azure_api_version=None, id=None, kind=None, name=None, type=None, value=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -42,6 +45,14 @@ class GetWebAppDomainOwnershipIdentifierSlotResult:
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -90,6 +101,7 @@ class AwaitableGetWebAppDomainOwnershipIdentifierSlotResult(GetWebAppDomainOwner
         if False:
             yield self
         return GetWebAppDomainOwnershipIdentifierSlotResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             kind=self.kind,
             name=self.name,
@@ -105,9 +117,9 @@ def get_web_app_domain_ownership_identifier_slot(domain_ownership_identifier_nam
     """
     Description for Get domain ownership identifier for web app.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str domain_ownership_identifier_name: Name of domain ownership identifier.
@@ -124,6 +136,7 @@ def get_web_app_domain_ownership_identifier_slot(domain_ownership_identifier_nam
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppDomainOwnershipIdentifierSlot', __args__, opts=opts, typ=GetWebAppDomainOwnershipIdentifierSlotResult).value
 
     return AwaitableGetWebAppDomainOwnershipIdentifierSlotResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
@@ -137,9 +150,9 @@ def get_web_app_domain_ownership_identifier_slot_output(domain_ownership_identif
     """
     Description for Get domain ownership identifier for web app.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str domain_ownership_identifier_name: Name of domain ownership identifier.
@@ -155,6 +168,7 @@ def get_web_app_domain_ownership_identifier_slot_output(domain_ownership_identif
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppDomainOwnershipIdentifierSlot', __args__, opts=opts, typ=GetWebAppDomainOwnershipIdentifierSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppDomainOwnershipIdentifierSlotResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),
         name=pulumi.get(__response__, 'name'),

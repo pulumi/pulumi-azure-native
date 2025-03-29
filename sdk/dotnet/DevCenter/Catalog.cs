@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.DevCenter
     /// <summary>
     /// Represents a catalog.
     /// 
-    /// Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+    /// Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
-    /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+    /// Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Catalog")]
     public partial class Catalog : global::Pulumi.CustomResource
@@ -26,10 +26,34 @@ namespace Pulumi.AzureNative.DevCenter
         public Output<Outputs.GitCatalogResponse?> AdoGit { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The connection state of the catalog.
+        /// </summary>
+        [Output("connectionState")]
+        public Output<string> ConnectionState { get; private set; } = null!;
+
+        /// <summary>
         /// Properties for a GitHub catalog type.
         /// </summary>
         [Output("gitHub")]
         public Output<Outputs.GitCatalogResponse?> GitHub { get; private set; } = null!;
+
+        /// <summary>
+        /// When the catalog was last connected.
+        /// </summary>
+        [Output("lastConnectionTime")]
+        public Output<string> LastConnectionTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Stats of the latest synchronization.
+        /// </summary>
+        [Output("lastSyncStats")]
+        public Output<Outputs.SyncStatsResponse> LastSyncStats { get; private set; } = null!;
 
         /// <summary>
         /// When the catalog was last synced.
@@ -56,10 +80,22 @@ namespace Pulumi.AzureNative.DevCenter
         public Output<string> SyncState { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates the type of sync that is configured for the catalog.
+        /// </summary>
+        [Output("syncType")]
+        public Output<string?> SyncType { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -159,6 +195,24 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Indicates the type of sync that is configured for the catalog.
+        /// </summary>
+        [Input("syncType")]
+        public InputUnion<string, Pulumi.AzureNative.DevCenter.CatalogSyncType>? SyncType { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public CatalogArgs()
         {

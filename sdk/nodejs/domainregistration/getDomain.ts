@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Description for Get a domain.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetDomainResult {
      */
     readonly autoRenew?: boolean;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Domain creation timestamp.
      */
     readonly createdTime: string;
@@ -67,7 +71,7 @@ export interface GetDomainResult {
      */
     readonly id: string;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     readonly kind?: string;
     /**
@@ -123,9 +127,9 @@ export interface GetDomainResult {
 /**
  * Description for Get a domain.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

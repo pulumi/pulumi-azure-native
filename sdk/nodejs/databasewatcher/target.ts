@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
  *
- * Uses Azure REST API version 2023-09-01-preview.
+ * Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
  *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+ * Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Target extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Target extends pulumi.CustomResource {
         return obj['__pulumiType'] === Target.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
      */
@@ -107,11 +111,13 @@ export class Target extends pulumi.CustomResource {
             resourceInputs["targetType"] = args ? args.targetType : undefined;
             resourceInputs["targetVault"] = args ? args.targetVault : undefined;
             resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionServerName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

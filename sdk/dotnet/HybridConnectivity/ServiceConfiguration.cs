@@ -12,48 +12,18 @@ namespace Pulumi.AzureNative.HybridConnectivity
     /// <summary>
     /// The service configuration details associated with the target resource.
     /// 
-    /// Uses Azure REST API version 2023-03-15.
+    /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
     /// 
-    /// Other available API versions: 2024-12-01.
+    /// Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity:ServiceConfiguration")]
     public partial class ServiceConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The timestamp of resource creation (UTC).
+        /// The Azure API version of the resource.
         /// </summary>
-        [Output("createdAt")]
-        public Output<string?> CreatedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Output("createdBy")]
-        public Output<string?> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Output("createdByType")]
-        public Output<string?> CreatedByType { get; private set; } = null!;
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Output("lastModifiedAt")]
-        public Output<string?> LastModifiedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedBy")]
-        public Output<string?> LastModifiedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedByType")]
-        public Output<string?> LastModifiedByType { get; private set; } = null!;
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -148,46 +118,10 @@ namespace Pulumi.AzureNative.HybridConnectivity
     public sealed class ServiceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        [Input("createdAt")]
-        public Input<string>? CreatedAt { get; set; }
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Input("createdBy")]
-        public Input<string>? CreatedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Input("createdByType")]
-        public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.CreatedByType>? CreatedByType { get; set; }
-
-        /// <summary>
         /// The endpoint name.
         /// </summary>
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Input("lastModifiedAt")]
-        public Input<string>? LastModifiedAt { get; set; }
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedBy")]
-        public Input<string>? LastModifiedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedByType")]
-        public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.CreatedByType>? LastModifiedByType { get; set; }
 
         /// <summary>
         /// The port on which service is enabled.
@@ -202,7 +136,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;

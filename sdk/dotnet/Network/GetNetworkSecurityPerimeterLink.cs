@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? AutoApprovedRemotePerimeterResourceId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A message passed to the owner of the remote NSP link resource with this connection request. In case of Auto-approved flow, it is default to 'Auto Approved'. Restricted to 140 chars.
         /// </summary>
         public readonly string? Description;
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.Network
         private GetNetworkSecurityPerimeterLinkResult(
             string? autoApprovedRemotePerimeterResourceId,
 
+            string azureApiVersion,
+
             string? description,
 
             string etag,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             AutoApprovedRemotePerimeterResourceId = autoApprovedRemotePerimeterResourceId;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Etag = etag;
             Id = id;

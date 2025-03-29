@@ -27,10 +27,13 @@ class GetConnectorResult:
     """
     The connector setting
     """
-    def __init__(__self__, authentication_details=None, hybrid_compute_settings=None, id=None, name=None, type=None):
+    def __init__(__self__, authentication_details=None, azure_api_version=None, hybrid_compute_settings=None, id=None, name=None, type=None):
         if authentication_details and not isinstance(authentication_details, dict):
             raise TypeError("Expected argument 'authentication_details' to be a dict")
         pulumi.set(__self__, "authentication_details", authentication_details)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if hybrid_compute_settings and not isinstance(hybrid_compute_settings, dict):
             raise TypeError("Expected argument 'hybrid_compute_settings' to be a dict")
         pulumi.set(__self__, "hybrid_compute_settings", hybrid_compute_settings)
@@ -51,6 +54,14 @@ class GetConnectorResult:
         Settings for authentication management, these settings are relevant only for the cloud connector.
         """
         return pulumi.get(self, "authentication_details")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hybridComputeSettings")
@@ -92,6 +103,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             yield self
         return GetConnectorResult(
             authentication_details=self.authentication_details,
+            azure_api_version=self.azure_api_version,
             hybrid_compute_settings=self.hybrid_compute_settings,
             id=self.id,
             name=self.name,
@@ -115,6 +127,7 @@ def get_connector(connector_name: Optional[str] = None,
 
     return AwaitableGetConnectorResult(
         authentication_details=pulumi.get(__ret__, 'authentication_details'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         hybrid_compute_settings=pulumi.get(__ret__, 'hybrid_compute_settings'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -135,6 +148,7 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getConnector', __args__, opts=opts, typ=GetConnectorResult)
     return __ret__.apply(lambda __response__: GetConnectorResult(
         authentication_details=pulumi.get(__response__, 'authentication_details'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         hybrid_compute_settings=pulumi.get(__response__, 'hybrid_compute_settings'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

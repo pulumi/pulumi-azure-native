@@ -119,6 +119,8 @@ def list_integration_account_assembly_content_callback_url(assembly_artifact_nam
 
     Uses Azure REST API version 2019-05-01.
 
+    Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str assembly_artifact_name: The assembly artifact name.
     :param str integration_account_name: The integration account name.
@@ -146,6 +148,8 @@ def list_integration_account_assembly_content_callback_url_output(assembly_artif
     Get the content callback url for an integration account assembly.
 
     Uses Azure REST API version 2019-05-01.
+
+    Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assembly_artifact_name: The assembly artifact name.

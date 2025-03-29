@@ -26,7 +26,10 @@ class GetCredentialResult:
     """
     Definition of the credential.
     """
-    def __init__(__self__, creation_time=None, description=None, id=None, last_modified_time=None, name=None, type=None, user_name=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, description=None, id=None, last_modified_time=None, name=None, type=None, user_name=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -48,6 +51,14 @@ class GetCredentialResult:
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -112,6 +123,7 @@ class AwaitableGetCredentialResult(GetCredentialResult):
         if False:
             yield self
         return GetCredentialResult(
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             description=self.description,
             id=self.id,
@@ -128,9 +140,9 @@ def get_credential(automation_account_name: Optional[str] = None,
     """
     Retrieve the credential identified by credential name.
 
-    Uses Azure REST API version 2022-08-08.
+    Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -145,6 +157,7 @@ def get_credential(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getCredential', __args__, opts=opts, typ=GetCredentialResult).value
 
     return AwaitableGetCredentialResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -159,9 +172,9 @@ def get_credential_output(automation_account_name: Optional[pulumi.Input[str]] =
     """
     Retrieve the credential identified by credential name.
 
-    Uses Azure REST API version 2022-08-08.
+    Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -175,6 +188,7 @@ def get_credential_output(automation_account_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getCredential', __args__, opts=opts, typ=GetCredentialResult)
     return __ret__.apply(lambda __response__: GetCredentialResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),

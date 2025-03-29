@@ -33,7 +33,7 @@ class AppServiceCertificateOrderCertificateArgs:
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] key_vault_id: Key Vault resource Id.
         :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -105,7 +105,7 @@ class AppServiceCertificateOrderCertificateArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -167,16 +167,16 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
         """
         Key Vault container ARM resource for a certificate that is purchased through Azure.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2020-10-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_order_name: Name of the certificate order.
         :param pulumi.Input[str] key_vault_id: Key Vault resource Id.
         :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the certificate.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
@@ -191,9 +191,9 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
         """
         Key Vault container ARM resource for a certificate that is purchased through Azure.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2020-10-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AppServiceCertificateOrderCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -239,6 +239,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20201201:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20210101:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20210115:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20210201:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20210301:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20220301:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20220901:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20230101:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20231201:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20240401:AppServiceCertificateOrderCertificate")])
@@ -265,6 +266,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
 
         __props__ = AppServiceCertificateOrderCertificateArgs.__new__(AppServiceCertificateOrderCertificateArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["key_vault_id"] = None
         __props__.__dict__["key_vault_secret_name"] = None
         __props__.__dict__["kind"] = None
@@ -274,6 +276,14 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return AppServiceCertificateOrderCertificate(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -295,7 +305,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 

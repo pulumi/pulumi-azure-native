@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Description for Gets a private endpoint connection
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStaticSitePrivateEndpointConnection(args: GetStaticSitePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSitePrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetStaticSitePrivateEndpointConnectionArgs {
  * Remote Private Endpoint Connection ARM resource.
  */
 export interface GetStaticSitePrivateEndpointConnectionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Resource Id.
      */
@@ -75,9 +79,9 @@ export interface GetStaticSitePrivateEndpointConnectionResult {
 /**
  * Description for Gets a private endpoint connection
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStaticSitePrivateEndpointConnectionOutput(args: GetStaticSitePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSitePrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

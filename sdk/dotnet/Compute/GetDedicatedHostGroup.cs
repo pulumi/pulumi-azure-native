@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about a dedicated host group.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDedicatedHostGroupResult> InvokeAsync(GetDedicatedHostGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure-native:compute:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about a dedicated host group.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDedicatedHostGroupResult> Invoke(GetDedicatedHostGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostGroupResult>("azure-native:compute:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about a dedicated host group.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDedicatedHostGroupResult> Invoke(GetDedicatedHostGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostGroupResult>("azure-native:compute:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities? AdditionalCapabilities;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A list of references to all dedicated hosts in the dedicated host group.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponse> Hosts;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNative.Compute
         private GetDedicatedHostGroupResult(
             Outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities? additionalCapabilities,
 
+            string azureApiVersion,
+
             ImmutableArray<Outputs.SubResourceReadOnlyResponse> hosts,
 
             string id,
@@ -169,6 +175,7 @@ namespace Pulumi.AzureNative.Compute
             ImmutableArray<string> zones)
         {
             AdditionalCapabilities = additionalCapabilities;
+            AzureApiVersion = azureApiVersion;
             Hosts = hosts;
             Id = id;
             InstanceView = instanceView;

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.MixedReality
     /// <summary>
     /// RemoteRenderingAccount Response.
     /// 
-    /// Uses Azure REST API version 2021-01-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+    /// Uses Azure REST API version 2021-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
     /// 
-    /// Other available API versions: 2021-03-01-preview, 2025-01-01.
+    /// Other available API versions: 2021-01-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:mixedreality:RemoteRenderingAccount")]
     public partial class RemoteRenderingAccount : global::Pulumi.CustomResource
@@ -30,6 +30,12 @@ namespace Pulumi.AzureNative.MixedReality
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The identity associated with this account

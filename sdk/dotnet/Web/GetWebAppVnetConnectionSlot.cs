@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets a virtual network the app (or deployment slot) is connected to by name.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebAppVnetConnectionSlotResult> InvokeAsync(GetWebAppVnetConnectionSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionSlotResult>("azure-native:web:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets a virtual network the app (or deployment slot) is connected to by name.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppVnetConnectionSlotResult> Invoke(GetWebAppVnetConnectionSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppVnetConnectionSlotResult>("azure-native:web:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets a virtual network the app (or deployment slot) is connected to by name.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppVnetConnectionSlotResult> Invoke(GetWebAppVnetConnectionSlotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppVnetConnectionSlotResult>("azure-native:web:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.Web
     public sealed class GetWebAppVnetConnectionSlotResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
         /// Point-To-Site VPN connection.
         /// </summary>
@@ -159,6 +163,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetWebAppVnetConnectionSlotResult(
+            string azureApiVersion,
+
             string? certBlob,
 
             string certThumbprint,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.Web
 
             string? vnetResourceId)
         {
+            AzureApiVersion = azureApiVersion;
             CertBlob = certBlob;
             CertThumbprint = certThumbprint;
             DnsServers = dnsServers;

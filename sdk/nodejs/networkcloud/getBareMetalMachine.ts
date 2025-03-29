@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get properties of the provided bare metal machine.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBareMetalMachine(args: GetBareMetalMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +38,10 @@ export interface GetBareMetalMachineResult {
      * The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
      */
     readonly associatedResourceIds: string[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The connection string for the baseboard management controller including IP address and protocol.
      */
@@ -71,6 +75,10 @@ export interface GetBareMetalMachineResult {
      */
     readonly detailedStatusMessage: string;
     /**
+     * Resource ETag.
+     */
+    readonly etag: string;
+    /**
      * The extended location of the cluster associated with the resource.
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
@@ -102,6 +110,10 @@ export interface GetBareMetalMachineResult {
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * The cluster version that has been applied to this machine during deployment or a version update.
+     */
+    readonly machineClusterVersion?: string;
     /**
      * The custom details provided by the customer.
      */
@@ -159,6 +171,10 @@ export interface GetBareMetalMachineResult {
      */
     readonly runtimeProtectionStatus: outputs.networkcloud.RuntimeProtectionStatusResponse;
     /**
+     * The list of statuses that represent secret rotation activity.
+     */
+    readonly secretRotationStatus: outputs.networkcloud.SecretRotationStatusResponse[];
+    /**
      * The serial number of the bare metal machine.
      */
     readonly serialNumber: string;
@@ -186,9 +202,9 @@ export interface GetBareMetalMachineResult {
 /**
  * Get properties of the provided bare metal machine.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBareMetalMachineOutput(args: GetBareMetalMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBareMetalMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Workloads
     /// <summary>
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
     /// 
-    /// Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-12-01-preview.
+    /// Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
     /// 
-    /// Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
+    /// Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
@@ -26,16 +26,28 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string?> AppLocation { get; private set; } = null!;
 
         /// <summary>
+        /// App service plan configuration
+        /// </summary>
+        [Output("appServicePlanConfiguration")]
+        public Output<Outputs.AppServicePlanConfigurationResponse?> AppServicePlanConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Defines the SAP monitor errors.
         /// </summary>
         [Output("errors")]
-        public Output<Outputs.MonitorPropertiesResponseErrors> Errors { get; private set; } = null!;
+        public Output<Outputs.ErrorDetailResponse> Errors { get; private set; } = null!;
 
         /// <summary>
-        /// [currently not in use] Managed service identity(user assigned identities)
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.UserAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -53,7 +65,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Managed resource group configuration
         /// </summary>
         [Output("managedResourceGroupConfiguration")]
-        public Output<Outputs.ManagedRGConfigurationResponse?> ManagedResourceGroupConfiguration { get; private set; } = null!;
+        public Output<Outputs.ManagedResourceGroupConfigurationResponse?> ManagedResourceGroupConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The subnet which the SAP monitor will be deployed in
@@ -141,18 +153,11 @@ namespace Pulumi.AzureNative.Workloads
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:Monitor" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:Monitor" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:Monitor" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:Monitor" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231201preview:Monitor" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231201preview:monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20240201preview:Monitor" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240201preview:monitor" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads:monitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,10 +188,16 @@ namespace Pulumi.AzureNative.Workloads
         public Input<string>? AppLocation { get; set; }
 
         /// <summary>
-        /// [currently not in use] Managed service identity(user assigned identities)
+        /// App service plan configuration
+        /// </summary>
+        [Input("appServicePlanConfiguration")]
+        public Input<Inputs.AppServicePlanConfigurationArgs>? AppServicePlanConfiguration { get; set; }
+
+        /// <summary>
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.UserAssignedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -204,7 +215,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Managed resource group configuration
         /// </summary>
         [Input("managedResourceGroupConfiguration")]
-        public Input<Inputs.ManagedRGConfigurationArgs>? ManagedResourceGroupConfiguration { get; set; }
+        public Input<Inputs.ManagedResourceGroupConfigurationArgs>? ManagedResourceGroupConfiguration { get; set; }
 
         /// <summary>
         /// Name of the SAP monitor resource.

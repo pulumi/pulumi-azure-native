@@ -27,7 +27,10 @@ class GetAvailabilitySetResult:
     """
     Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
     """
-    def __init__(__self__, id=None, location=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, proximity_placement_group=None, sku=None, statuses=None, tags=None, type=None, virtual_machines=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, proximity_placement_group=None, scheduled_events_policy=None, sku=None, statuses=None, tags=None, type=None, virtual_machine_scale_set_migration_info=None, virtual_machines=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +49,9 @@ class GetAvailabilitySetResult:
         if proximity_placement_group and not isinstance(proximity_placement_group, dict):
             raise TypeError("Expected argument 'proximity_placement_group' to be a dict")
         pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+        if scheduled_events_policy and not isinstance(scheduled_events_policy, dict):
+            raise TypeError("Expected argument 'scheduled_events_policy' to be a dict")
+        pulumi.set(__self__, "scheduled_events_policy", scheduled_events_policy)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -58,9 +64,20 @@ class GetAvailabilitySetResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if virtual_machine_scale_set_migration_info and not isinstance(virtual_machine_scale_set_migration_info, dict):
+            raise TypeError("Expected argument 'virtual_machine_scale_set_migration_info' to be a dict")
+        pulumi.set(__self__, "virtual_machine_scale_set_migration_info", virtual_machine_scale_set_migration_info)
         if virtual_machines and not isinstance(virtual_machines, list):
             raise TypeError("Expected argument 'virtual_machines' to be a list")
         pulumi.set(__self__, "virtual_machines", virtual_machines)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -111,6 +128,14 @@ class GetAvailabilitySetResult:
         return pulumi.get(self, "proximity_placement_group")
 
     @property
+    @pulumi.getter(name="scheduledEventsPolicy")
+    def scheduled_events_policy(self) -> Optional['outputs.ScheduledEventsPolicyResponse']:
+        """
+        Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
+        """
+        return pulumi.get(self, "scheduled_events_policy")
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
@@ -143,6 +168,14 @@ class GetAvailabilitySetResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="virtualMachineScaleSetMigrationInfo")
+    def virtual_machine_scale_set_migration_info(self) -> 'outputs.VirtualMachineScaleSetMigrationInfoResponse':
+        """
+        Describes the migration properties on the Availability Set.
+        """
+        return pulumi.get(self, "virtual_machine_scale_set_migration_info")
+
+    @property
     @pulumi.getter(name="virtualMachines")
     def virtual_machines(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
@@ -157,16 +190,19 @@ class AwaitableGetAvailabilitySetResult(GetAvailabilitySetResult):
         if False:
             yield self
         return GetAvailabilitySetResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
             platform_fault_domain_count=self.platform_fault_domain_count,
             platform_update_domain_count=self.platform_update_domain_count,
             proximity_placement_group=self.proximity_placement_group,
+            scheduled_events_policy=self.scheduled_events_policy,
             sku=self.sku,
             statuses=self.statuses,
             tags=self.tags,
             type=self.type,
+            virtual_machine_scale_set_migration_info=self.virtual_machine_scale_set_migration_info,
             virtual_machines=self.virtual_machines)
 
 
@@ -176,9 +212,9 @@ def get_availability_set(availability_set_name: Optional[str] = None,
     """
     Retrieves information about an availability set.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str availability_set_name: The name of the availability set.
@@ -191,16 +227,19 @@ def get_availability_set(availability_set_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getAvailabilitySet', __args__, opts=opts, typ=GetAvailabilitySetResult).value
 
     return AwaitableGetAvailabilitySetResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         platform_fault_domain_count=pulumi.get(__ret__, 'platform_fault_domain_count'),
         platform_update_domain_count=pulumi.get(__ret__, 'platform_update_domain_count'),
         proximity_placement_group=pulumi.get(__ret__, 'proximity_placement_group'),
+        scheduled_events_policy=pulumi.get(__ret__, 'scheduled_events_policy'),
         sku=pulumi.get(__ret__, 'sku'),
         statuses=pulumi.get(__ret__, 'statuses'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
+        virtual_machine_scale_set_migration_info=pulumi.get(__ret__, 'virtual_machine_scale_set_migration_info'),
         virtual_machines=pulumi.get(__ret__, 'virtual_machines'))
 def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -208,9 +247,9 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str
     """
     Retrieves information about an availability set.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str availability_set_name: The name of the availability set.
@@ -222,14 +261,17 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getAvailabilitySet', __args__, opts=opts, typ=GetAvailabilitySetResult)
     return __ret__.apply(lambda __response__: GetAvailabilitySetResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         platform_fault_domain_count=pulumi.get(__response__, 'platform_fault_domain_count'),
         platform_update_domain_count=pulumi.get(__response__, 'platform_update_domain_count'),
         proximity_placement_group=pulumi.get(__response__, 'proximity_placement_group'),
+        scheduled_events_policy=pulumi.get(__response__, 'scheduled_events_policy'),
         sku=pulumi.get(__response__, 'sku'),
         statuses=pulumi.get(__response__, 'statuses'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
+        virtual_machine_scale_set_migration_info=pulumi.get(__response__, 'virtual_machine_scale_set_migration_info'),
         virtual_machines=pulumi.get(__response__, 'virtual_machines')))

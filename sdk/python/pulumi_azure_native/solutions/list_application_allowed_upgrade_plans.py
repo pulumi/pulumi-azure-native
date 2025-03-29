@@ -58,7 +58,7 @@ def list_application_allowed_upgrade_plans(application_name: Optional[str] = Non
 
     Uses Azure REST API version 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
+    Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str application_name: The name of the managed application.
@@ -80,7 +80,7 @@ def list_application_allowed_upgrade_plans_output(application_name: Optional[pul
 
     Uses Azure REST API version 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
+    Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str application_name: The name of the managed application.

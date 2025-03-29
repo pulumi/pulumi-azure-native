@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// <summary>
     /// Represents a ScalingPlanPersonalSchedule definition.
     /// 
-    /// Uses Azure REST API version 2024-11-01-preview.
+    /// Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
     /// 
-    /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+    /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ScalingPlanPersonalSchedule")]
     public partial class ScalingPlanPersonalSchedule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Set of days of the week on which this schedule is active.
         /// </summary>
@@ -59,7 +65,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Starting time for off-peak period.
         /// </summary>
         [Output("offPeakStartTime")]
-        public Output<Outputs.TimeResponse> OffPeakStartTime { get; private set; } = null!;
+        public Output<Outputs.TimeResponse?> OffPeakStartTime { get; private set; } = null!;
 
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the off-peak phase.
@@ -95,7 +101,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Starting time for peak period.
         /// </summary>
         [Output("peakStartTime")]
-        public Output<Outputs.TimeResponse> PeakStartTime { get; private set; } = null!;
+        public Output<Outputs.TimeResponse?> PeakStartTime { get; private set; } = null!;
 
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the peak phase.
@@ -131,7 +137,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Starting time for ramp down period.
         /// </summary>
         [Output("rampDownStartTime")]
-        public Output<Outputs.TimeResponse> RampDownStartTime { get; private set; } = null!;
+        public Output<Outputs.TimeResponse?> RampDownStartTime { get; private set; } = null!;
 
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the ramp down phase.
@@ -173,7 +179,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Starting time for ramp up period.
         /// </summary>
         [Output("rampUpStartTime")]
-        public Output<Outputs.TimeResponse> RampUpStartTime { get; private set; } = null!;
+        public Output<Outputs.TimeResponse?> RampUpStartTime { get; private set; } = null!;
 
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
@@ -250,7 +256,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
     public sealed class ScalingPlanPersonalScheduleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("daysOfWeek", required: true)]
+        [Input("daysOfWeek")]
         private InputList<Union<string, Pulumi.AzureNative.DesktopVirtualization.DayOfWeek>>? _daysOfWeek;
 
         /// <summary>
@@ -289,8 +295,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Starting time for off-peak period.
         /// </summary>
-        [Input("offPeakStartTime", required: true)]
-        public Input<Inputs.TimeArgs> OffPeakStartTime { get; set; } = null!;
+        [Input("offPeakStartTime")]
+        public Input<Inputs.TimeArgs>? OffPeakStartTime { get; set; }
 
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the off-peak phase.
@@ -325,8 +331,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Starting time for peak period.
         /// </summary>
-        [Input("peakStartTime", required: true)]
-        public Input<Inputs.TimeArgs> PeakStartTime { get; set; } = null!;
+        [Input("peakStartTime")]
+        public Input<Inputs.TimeArgs>? PeakStartTime { get; set; }
 
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the peak phase.
@@ -361,8 +367,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Starting time for ramp down period.
         /// </summary>
-        [Input("rampDownStartTime", required: true)]
-        public Input<Inputs.TimeArgs> RampDownStartTime { get; set; } = null!;
+        [Input("rampDownStartTime")]
+        public Input<Inputs.TimeArgs>? RampDownStartTime { get; set; }
 
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the ramp down phase.
@@ -403,8 +409,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Starting time for ramp up period.
         /// </summary>
-        [Input("rampUpStartTime", required: true)]
-        public Input<Inputs.TimeArgs> RampUpStartTime { get; set; } = null!;
+        [Input("rampUpStartTime")]
+        public Input<Inputs.TimeArgs>? RampUpStartTime { get; set; }
 
         /// <summary>
         /// The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.

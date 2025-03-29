@@ -136,7 +136,9 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         """
         The device security group resource
 
-        Uses Azure REST API version 2019-08-01. In version 1.x of the Azure Native provider, it used API version 2019-08-01.
+        Uses Azure REST API version 2019-08-01. In version 2.x of the Azure Native provider, it used API version 2019-08-01.
+
+        Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +158,9 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         """
         The device security group resource
 
-        Uses Azure REST API version 2019-08-01. In version 1.x of the Azure Native provider, it used API version 2019-08-01.
+        Uses Azure REST API version 2019-08-01. In version 2.x of the Azure Native provider, it used API version 2019-08-01.
+
+        Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DeviceSecurityGroupArgs args: The arguments to use to populate this resource's properties.
@@ -196,6 +200,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
             __props__.__dict__["resource_id"] = resource_id
             __props__.__dict__["threshold_rules"] = threshold_rules
             __props__.__dict__["time_window_rules"] = time_window_rules
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20170801preview:DeviceSecurityGroup"), pulumi.Alias(type_="azure-native:security/v20190801:DeviceSecurityGroup")])
@@ -223,6 +228,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         __props__ = DeviceSecurityGroupArgs.__new__(DeviceSecurityGroupArgs)
 
         __props__.__dict__["allowlist_rules"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["denylist_rules"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["threshold_rules"] = None
@@ -237,6 +243,14 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         The allow-list custom alert rules.
         """
         return pulumi.get(self, "allowlist_rules")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="denylistRules")

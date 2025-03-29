@@ -174,9 +174,9 @@ class ServerSitesController(pulumi.CustomResource):
         """
         A ServerSiteResource
 
-        Uses Azure REST API version 2023-06-06.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,9 +200,9 @@ class ServerSitesController(pulumi.CustomResource):
         """
         A ServerSiteResource
 
-        Uses Azure REST API version 2023-06-06.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ServerSitesControllerArgs args: The arguments to use to populate this resource's properties.
@@ -246,6 +246,7 @@ class ServerSitesController(pulumi.CustomResource):
             __props__.__dict__["service_principal_identity_details"] = service_principal_identity_details
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["master_site_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -278,6 +279,7 @@ class ServerSitesController(pulumi.CustomResource):
 
         __props__.__dict__["agent_details"] = None
         __props__.__dict__["appliance_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["discovery_solution_id"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["master_site_id"] = None
@@ -305,6 +307,14 @@ class ServerSitesController(pulumi.CustomResource):
         Gets or sets the Appliance Name.
         """
         return pulumi.get(self, "appliance_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="discoverySolutionId")

@@ -27,7 +27,10 @@ class GetMSIXPackageResult:
     """
     Schema for MSIX Package properties.
     """
-    def __init__(__self__, display_name=None, id=None, image_path=None, is_active=None, is_regular_registration=None, last_updated=None, name=None, package_applications=None, package_dependencies=None, package_family_name=None, package_name=None, package_relative_path=None, system_data=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, display_name=None, id=None, image_path=None, is_active=None, is_regular_registration=None, last_updated=None, name=None, package_applications=None, package_dependencies=None, package_family_name=None, package_name=None, package_relative_path=None, system_data=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -75,6 +78,14 @@ class GetMSIXPackageResult:
         pulumi.set(__self__, "version", version)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
         """
@@ -86,7 +97,7 @@ class GetMSIXPackageResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -174,7 +185,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -190,7 +201,7 @@ class GetMSIXPackageResult:
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml. 
         """
         return pulumi.get(self, "version")
 
@@ -201,6 +212,7 @@ class AwaitableGetMSIXPackageResult(GetMSIXPackageResult):
         if False:
             yield self
         return GetMSIXPackageResult(
+            azure_api_version=self.azure_api_version,
             display_name=self.display_name,
             id=self.id,
             image_path=self.image_path,
@@ -225,9 +237,9 @@ def get_msix_package(host_pool_name: Optional[str] = None,
     """
     Get a msixpackage.
 
-    Uses Azure REST API version 2022-09-09.
+    Uses Azure REST API version 2024-04-03.
 
-    Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+    Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -242,6 +254,7 @@ def get_msix_package(host_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:desktopvirtualization:getMSIXPackage', __args__, opts=opts, typ=GetMSIXPackageResult).value
 
     return AwaitableGetMSIXPackageResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         image_path=pulumi.get(__ret__, 'image_path'),
@@ -264,9 +277,9 @@ def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
     """
     Get a msixpackage.
 
-    Uses Azure REST API version 2022-09-09.
+    Uses Azure REST API version 2024-04-03.
 
-    Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+    Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -280,6 +293,7 @@ def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization:getMSIXPackage', __args__, opts=opts, typ=GetMSIXPackageResult)
     return __ret__.apply(lambda __response__: GetMSIXPackageResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
         image_path=pulumi.get(__response__, 'image_path'),

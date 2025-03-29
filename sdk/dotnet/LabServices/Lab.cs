@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.LabServices
     /// <summary>
     /// The lab resource.
     /// 
-    /// Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2018-10-15.
+    /// Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
-    /// Other available API versions: 2018-10-15, 2023-06-07.
+    /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:Lab")]
     public partial class Lab : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         [Output("autoShutdownProfile")]
         public Output<Outputs.AutoShutdownProfileResponse> AutoShutdownProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
@@ -66,6 +72,12 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Error details of last operation done on lab.
+        /// </summary>
+        [Output("resourceOperationError")]
+        public Output<Outputs.ResourceOperationErrorResponse> ResourceOperationError { get; private set; } = null!;
 
         /// <summary>
         /// The lab user list management profile.
@@ -140,6 +152,7 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20181015:Lab" },
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:Lab" },
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:Lab" },
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20220801:Lab" },

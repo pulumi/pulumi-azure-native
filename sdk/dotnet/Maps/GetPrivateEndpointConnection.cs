@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Maps
         /// <summary>
         /// Gets the specified private endpoint connection associated with the Maps Account.
         /// 
-        /// Uses Azure REST API version 2023-12-01-preview.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview.
+        /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:maps:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Maps
         /// <summary>
         /// Gets the specified private endpoint connection associated with the Maps Account.
         /// 
-        /// Uses Azure REST API version 2023-12-01-preview.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview.
+        /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:maps:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Maps
         /// <summary>
         /// Gets the specified private endpoint connection associated with the Maps Account.
         /// 
-        /// Uses Azure REST API version 2023-12-01-preview.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview.
+        /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:maps:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Maps
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The group ids for the private endpoint resource.
         /// </summary>
         public readonly ImmutableArray<string> GroupIds;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.Maps
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string azureApiVersion,
+
             ImmutableArray<string> groupIds,
 
             string id,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.Maps
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             GroupIds = groupIds;
             Id = id;
             Name = name;

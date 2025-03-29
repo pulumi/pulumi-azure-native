@@ -27,7 +27,7 @@ class GetKubeEnvironmentResult:
     """
     A Kubernetes cluster specialized for web workloads by Azure App Service
     """
-    def __init__(__self__, aks_resource_id=None, app_logs_configuration=None, arc_configuration=None, container_apps_configuration=None, default_domain=None, deployment_errors=None, environment_type=None, extended_location=None, id=None, internal_load_balancer_enabled=None, kind=None, location=None, name=None, provisioning_state=None, static_ip=None, tags=None, type=None):
+    def __init__(__self__, aks_resource_id=None, app_logs_configuration=None, arc_configuration=None, azure_api_version=None, container_apps_configuration=None, default_domain=None, deployment_errors=None, environment_type=None, extended_location=None, id=None, internal_load_balancer_enabled=None, kind=None, location=None, name=None, provisioning_state=None, static_ip=None, tags=None, type=None):
         if aks_resource_id and not isinstance(aks_resource_id, str):
             raise TypeError("Expected argument 'aks_resource_id' to be a str")
         pulumi.set(__self__, "aks_resource_id", aks_resource_id)
@@ -37,6 +37,9 @@ class GetKubeEnvironmentResult:
         if arc_configuration and not isinstance(arc_configuration, dict):
             raise TypeError("Expected argument 'arc_configuration' to be a dict")
         pulumi.set(__self__, "arc_configuration", arc_configuration)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if container_apps_configuration and not isinstance(container_apps_configuration, dict):
             raise TypeError("Expected argument 'container_apps_configuration' to be a dict")
         pulumi.set(__self__, "container_apps_configuration", container_apps_configuration)
@@ -106,6 +109,14 @@ class GetKubeEnvironmentResult:
         return pulumi.get(self, "arc_configuration")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="containerAppsConfiguration")
     def container_apps_configuration(self) -> Optional['outputs.ContainerAppsConfigurationResponse']:
         """
@@ -165,7 +176,7 @@ class GetKubeEnvironmentResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -227,6 +238,7 @@ class AwaitableGetKubeEnvironmentResult(GetKubeEnvironmentResult):
             aks_resource_id=self.aks_resource_id,
             app_logs_configuration=self.app_logs_configuration,
             arc_configuration=self.arc_configuration,
+            azure_api_version=self.azure_api_version,
             container_apps_configuration=self.container_apps_configuration,
             default_domain=self.default_domain,
             deployment_errors=self.deployment_errors,
@@ -249,9 +261,9 @@ def get_kube_environment(name: Optional[str] = None,
     """
     Description for Get the properties of a Kubernetes Environment.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the Kubernetes Environment.
@@ -267,6 +279,7 @@ def get_kube_environment(name: Optional[str] = None,
         aks_resource_id=pulumi.get(__ret__, 'aks_resource_id'),
         app_logs_configuration=pulumi.get(__ret__, 'app_logs_configuration'),
         arc_configuration=pulumi.get(__ret__, 'arc_configuration'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         container_apps_configuration=pulumi.get(__ret__, 'container_apps_configuration'),
         default_domain=pulumi.get(__ret__, 'default_domain'),
         deployment_errors=pulumi.get(__ret__, 'deployment_errors'),
@@ -287,9 +300,9 @@ def get_kube_environment_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Get the properties of a Kubernetes Environment.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the Kubernetes Environment.
@@ -304,6 +317,7 @@ def get_kube_environment_output(name: Optional[pulumi.Input[str]] = None,
         aks_resource_id=pulumi.get(__response__, 'aks_resource_id'),
         app_logs_configuration=pulumi.get(__response__, 'app_logs_configuration'),
         arc_configuration=pulumi.get(__response__, 'arc_configuration'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         container_apps_configuration=pulumi.get(__response__, 'container_apps_configuration'),
         default_domain=pulumi.get(__response__, 'default_domain'),
         deployment_errors=pulumi.get(__response__, 'deployment_errors'),

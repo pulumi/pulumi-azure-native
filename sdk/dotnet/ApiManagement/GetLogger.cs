@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the logger specified by its identifier.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2016-10-10, 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetLoggerResult> InvokeAsync(GetLoggerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoggerResult>("azure-native:apimanagement:getLogger", args ?? new GetLoggerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the logger specified by its identifier.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2016-10-10, 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLoggerResult> Invoke(GetLoggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoggerResult>("azure-native:apimanagement:getLogger", args ?? new GetLoggerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the logger specified by its identifier.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2016-10-10, 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLoggerResult> Invoke(GetLoggerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoggerResult>("azure-native:apimanagement:getLogger", args ?? new GetLoggerInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetLoggerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The name and SendRule connection string of the event hub for azureEventHub logger.
         /// Instrumentation key for applicationInsights logger.
         /// </summary>
@@ -135,6 +139,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetLoggerResult(
+            string azureApiVersion,
+
             ImmutableDictionary<string, string>? credentials,
 
             string? description,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Credentials = credentials;
             Description = description;
             Id = id;

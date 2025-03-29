@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets a specific role by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Task<GetCloudEdgeManagementRoleResult> InvokeAsync(GetCloudEdgeManagementRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudEdgeManagementRoleResult>("azure-native:databoxedge:getCloudEdgeManagementRole", args ?? new GetCloudEdgeManagementRoleArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets a specific role by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Output<GetCloudEdgeManagementRoleResult> Invoke(GetCloudEdgeManagementRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudEdgeManagementRoleResult>("azure-native:databoxedge:getCloudEdgeManagementRole", args ?? new GetCloudEdgeManagementRoleInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets a specific role by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Output<GetCloudEdgeManagementRoleResult> Invoke(GetCloudEdgeManagementRoleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudEdgeManagementRoleResult>("azure-native:databoxedge:getCloudEdgeManagementRole", args ?? new GetCloudEdgeManagementRoleInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetCloudEdgeManagementRoleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Edge Profile of the resource
         /// </summary>
         public readonly Outputs.EdgeProfileResponse EdgeProfile;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetCloudEdgeManagementRoleResult(
+            string azureApiVersion,
+
             Outputs.EdgeProfileResponse edgeProfile,
 
             string id,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EdgeProfile = edgeProfile;
             Id = id;
             Kind = kind;

@@ -12,16 +12,16 @@ namespace Pulumi.AzureNative.CostManagement
     /// <summary>
     /// Tag Inheritance Setting definition.
     /// 
-    /// Uses Azure REST API version 2022-10-05-preview.
+    /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-10-05-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:TagInheritanceSetting")]
     public partial class TagInheritanceSetting : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        /// The Azure API version of the resource.
         /// </summary>
-        [Output("eTag")]
-        public Output<string?> ETag { get; private set; } = null!;
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the kind of settings.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<Outputs.TagInheritancePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -110,12 +110,6 @@ namespace Pulumi.AzureNative.CostManagement
 
     public sealed class TagInheritanceSettingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-        /// </summary>
-        [Input("eTag")]
-        public Input<string>? ETag { get; set; }
-
         /// <summary>
         /// Specifies the kind of settings.
         /// Expected value is 'taginheritance'.

@@ -26,17 +26,6 @@ export const Suppression: typeof import("./suppression").Suppression = null as a
 utilities.lazyLoad(exports, ["Suppression"], () => require("./suppression"));
 
 
-// Export sub-modules:
-import * as v20230101 from "./v20230101";
-import * as v20230901preview from "./v20230901preview";
-import * as v20250101 from "./v20250101";
-
-export {
-    v20230101,
-    v20230901preview,
-    v20250101,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

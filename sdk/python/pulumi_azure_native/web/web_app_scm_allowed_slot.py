@@ -110,9 +110,9 @@ class WebAppScmAllowedSlot(pulumi.CustomResource):
         """
         Publishing Credentials Policies parameters.
 
-        Uses Azure REST API version 2023-12-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
-        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
+        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,9 +130,9 @@ class WebAppScmAllowedSlot(pulumi.CustomResource):
         """
         Publishing Credentials Policies parameters.
 
-        Uses Azure REST API version 2023-12-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
-        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
+        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WebAppScmAllowedSlotArgs args: The arguments to use to populate this resource's properties.
@@ -176,6 +176,7 @@ class WebAppScmAllowedSlot(pulumi.CustomResource):
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__.__dict__["slot"] = slot
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20201201:WebAppScmAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppScmAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppScmAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppScmAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppScmAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppScmAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppScmAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppScmAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppScmAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppScmAllowedSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -202,6 +203,7 @@ class WebAppScmAllowedSlot(pulumi.CustomResource):
         __props__ = WebAppScmAllowedSlotArgs.__new__(WebAppScmAllowedSlotArgs)
 
         __props__.__dict__["allow"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
@@ -214,6 +216,14 @@ class WebAppScmAllowedSlot(pulumi.CustomResource):
         <code>true</code> to allow access to a publishing method; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "allow")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

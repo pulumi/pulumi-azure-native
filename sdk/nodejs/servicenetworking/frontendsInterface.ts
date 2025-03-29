@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Frontend Subresource of Traffic Controller.
+ * Frontend Sub Resource of Traffic Controller.
  *
- * Uses Azure REST API version 2023-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-10-01-preview.
+ * Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
  *
- * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01, 2025-03-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-11-01, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FrontendsInterface extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class FrontendsInterface extends pulumi.CustomResource {
         return obj['__pulumiType'] === FrontendsInterface.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The Fully Qualified Domain Name of the DNS record associated to a Traffic Controller frontend.
      */
@@ -92,12 +96,14 @@ export class FrontendsInterface extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficControllerName"] = args ? args.trafficControllerName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

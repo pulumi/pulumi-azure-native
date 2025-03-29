@@ -26,7 +26,10 @@ class GetSyncMemberResult:
     """
     An Azure SQL Database sync member.
     """
-    def __init__(__self__, database_name=None, database_type=None, id=None, name=None, private_endpoint_name=None, server_name=None, sql_server_database_id=None, sync_agent_id=None, sync_direction=None, sync_member_azure_database_resource_id=None, sync_state=None, type=None, use_private_link_connection=None, user_name=None):
+    def __init__(__self__, azure_api_version=None, database_name=None, database_type=None, id=None, name=None, private_endpoint_name=None, server_name=None, sql_server_database_id=None, sync_agent_id=None, sync_direction=None, sync_member_azure_database_resource_id=None, sync_state=None, type=None, use_private_link_connection=None, user_name=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if database_name and not isinstance(database_name, str):
             raise TypeError("Expected argument 'database_name' to be a str")
         pulumi.set(__self__, "database_name", database_name)
@@ -69,6 +72,14 @@ class GetSyncMemberResult:
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="databaseName")
@@ -189,6 +200,7 @@ class AwaitableGetSyncMemberResult(GetSyncMemberResult):
         if False:
             yield self
         return GetSyncMemberResult(
+            azure_api_version=self.azure_api_version,
             database_name=self.database_name,
             database_type=self.database_type,
             id=self.id,
@@ -214,9 +226,9 @@ def get_sync_member(database_name: Optional[str] = None,
     """
     Gets a sync member.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2015-05-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str database_name: The name of the database on which the sync group is hosted.
@@ -235,6 +247,7 @@ def get_sync_member(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getSyncMember', __args__, opts=opts, typ=GetSyncMemberResult).value
 
     return AwaitableGetSyncMemberResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         database_name=pulumi.get(__ret__, 'database_name'),
         database_type=pulumi.get(__ret__, 'database_type'),
         id=pulumi.get(__ret__, 'id'),
@@ -258,9 +271,9 @@ def get_sync_member_output(database_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a sync member.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2015-05-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str database_name: The name of the database on which the sync group is hosted.
@@ -278,6 +291,7 @@ def get_sync_member_output(database_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getSyncMember', __args__, opts=opts, typ=GetSyncMemberResult)
     return __ret__.apply(lambda __response__: GetSyncMemberResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         database_name=pulumi.get(__response__, 'database_name'),
         database_type=pulumi.get(__response__, 'database_type'),
         id=pulumi.get(__response__, 'id'),

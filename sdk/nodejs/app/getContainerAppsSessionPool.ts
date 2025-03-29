@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Container App session pool.
  *
- * Uses Azure REST API version 2024-02-02-preview.
+ * Uses Azure REST API version 2024-10-02-preview.
  *
- * Other available API versions: 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+ * Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getContainerAppsSessionPool(args: GetContainerAppsSessionPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsSessionPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +38,10 @@ export interface GetContainerAppsSessionPoolArgs {
  */
 export interface GetContainerAppsSessionPoolResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The container type of the sessions.
      */
     readonly containerType?: string;
@@ -58,9 +62,17 @@ export interface GetContainerAppsSessionPoolResult {
      */
     readonly id: string;
     /**
+     * Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
+     */
+    readonly identity?: outputs.app.ManagedServiceIdentityResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * Optional settings for a Managed Identity that is assigned to the Session pool.
+     */
+    readonly managedIdentitySettings?: outputs.app.ManagedIdentitySettingResponse[];
     /**
      * The name of the resource
      */
@@ -109,9 +121,9 @@ export interface GetContainerAppsSessionPoolResult {
 /**
  * Container App session pool.
  *
- * Uses Azure REST API version 2024-02-02-preview.
+ * Uses Azure REST API version 2024-10-02-preview.
  *
- * Other available API versions: 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+ * Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getContainerAppsSessionPoolOutput(args: GetContainerAppsSessionPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerAppsSessionPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

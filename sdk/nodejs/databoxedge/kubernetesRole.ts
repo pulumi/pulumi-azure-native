@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
  *     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
  *
- * Uses Azure REST API version 2022-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+ * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
  */
 export class KubernetesRole extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class KubernetesRole extends pulumi.CustomResource {
         return obj['__pulumiType'] === KubernetesRole.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Host OS supported by the Kubernetes role.
      */
@@ -128,11 +132,13 @@ export class KubernetesRole extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roleStatus"] = args ? args.roleStatus : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostPlatform"] = undefined /*out*/;
             resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -145,7 +151,7 @@ export class KubernetesRole extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:KubernetesRole" }, { type: "azure-native:databoxedge/v20190701:KubernetesRole" }, { type: "azure-native:databoxedge/v20190801:KubernetesRole" }, { type: "azure-native:databoxedge/v20200501preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20200901:KubernetesRole" }, { type: "azure-native:databoxedge/v20200901preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20201201:KubernetesRole" }, { type: "azure-native:databoxedge/v20210201:KubernetesRole" }, { type: "azure-native:databoxedge/v20210201preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20210601:KubernetesRole" }, { type: "azure-native:databoxedge/v20210601preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20220301:KubernetesRole" }, { type: "azure-native:databoxedge/v20220401preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20221201preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20230101preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20230701:KubernetesRole" }, { type: "azure-native:databoxedge/v20231201:KubernetesRole" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:KubernetesRole" }, { type: "azure-native:databoxedge/v20190701:KubernetesRole" }, { type: "azure-native:databoxedge/v20190801:KubernetesRole" }, { type: "azure-native:databoxedge/v20200501preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20200901:KubernetesRole" }, { type: "azure-native:databoxedge/v20200901preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20201201:KubernetesRole" }, { type: "azure-native:databoxedge/v20210201:KubernetesRole" }, { type: "azure-native:databoxedge/v20210201preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20210601:KubernetesRole" }, { type: "azure-native:databoxedge/v20210601preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20220301:KubernetesRole" }, { type: "azure-native:databoxedge/v20220401preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20221201preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20230101preview:IoTRole" }, { type: "azure-native:databoxedge/v20230101preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20230101preview:MECRole" }, { type: "azure-native:databoxedge/v20230701:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20230701:IoTRole" }, { type: "azure-native:databoxedge/v20230701:KubernetesRole" }, { type: "azure-native:databoxedge/v20230701:MECRole" }, { type: "azure-native:databoxedge/v20231201:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20231201:IoTRole" }, { type: "azure-native:databoxedge/v20231201:KubernetesRole" }, { type: "azure-native:databoxedge/v20231201:MECRole" }, { type: "azure-native:databoxedge:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge:IoTRole" }, { type: "azure-native:databoxedge:MECRole" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KubernetesRole.__pulumiType, name, resourceInputs, opts);
     }

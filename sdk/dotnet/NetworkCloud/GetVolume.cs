@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided volume.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:networkcloud:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided volume.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:networkcloud:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided volume.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:networkcloud:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly ImmutableArray<string> AttachedTo;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The more detailed status of the volume.
         /// </summary>
         public readonly string DetailedStatus;
@@ -99,6 +103,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The descriptive message about the current detailed status.
         /// </summary>
         public readonly string DetailedStatusMessage;
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
@@ -144,9 +152,13 @@ namespace Pulumi.AzureNative.NetworkCloud
         private GetVolumeResult(
             ImmutableArray<string> attachedTo,
 
+            string azureApiVersion,
+
             string detailedStatus,
 
             string detailedStatusMessage,
+
+            string etag,
 
             Outputs.ExtendedLocationResponse extendedLocation,
 
@@ -169,8 +181,10 @@ namespace Pulumi.AzureNative.NetworkCloud
             string type)
         {
             AttachedTo = attachedTo;
+            AzureApiVersion = azureApiVersion;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
+            Etag = etag;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;

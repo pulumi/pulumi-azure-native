@@ -25,6 +25,7 @@ class AzureFirewallArgs:
                  resource_group_name: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleCollectionArgs']]]] = None,
+                 autoscale_configuration: Optional[pulumi.Input['AzureFirewallAutoscaleConfigurationArgs']] = None,
                  azure_firewall_name: Optional[pulumi.Input[str]] = None,
                  firewall_policy: Optional[pulumi.Input['SubResourceArgs']] = None,
                  hub_ip_addresses: Optional[pulumi.Input['HubIPAddressesArgs']] = None,
@@ -44,6 +45,7 @@ class AzureFirewallArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: The additional properties used to further config this azure firewall.
         :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleCollectionArgs']]] application_rule_collections: Collection of application rule collections used by Azure Firewall.
+        :param pulumi.Input['AzureFirewallAutoscaleConfigurationArgs'] autoscale_configuration: Properties to provide a custom autoscale configuration to this azure firewall.
         :param pulumi.Input[str] azure_firewall_name: The name of the Azure Firewall.
         :param pulumi.Input['SubResourceArgs'] firewall_policy: The firewallPolicy associated with this azure firewall.
         :param pulumi.Input['HubIPAddressesArgs'] hub_ip_addresses: IP addresses associated with AzureFirewall.
@@ -64,6 +66,8 @@ class AzureFirewallArgs:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if application_rule_collections is not None:
             pulumi.set(__self__, "application_rule_collections", application_rule_collections)
+        if autoscale_configuration is not None:
+            pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
         if azure_firewall_name is not None:
             pulumi.set(__self__, "azure_firewall_name", azure_firewall_name)
         if firewall_policy is not None:
@@ -128,6 +132,18 @@ class AzureFirewallArgs:
     @application_rule_collections.setter
     def application_rule_collections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleCollectionArgs']]]]):
         pulumi.set(self, "application_rule_collections", value)
+
+    @property
+    @pulumi.getter(name="autoscaleConfiguration")
+    def autoscale_configuration(self) -> Optional[pulumi.Input['AzureFirewallAutoscaleConfigurationArgs']]:
+        """
+        Properties to provide a custom autoscale configuration to this azure firewall.
+        """
+        return pulumi.get(self, "autoscale_configuration")
+
+    @autoscale_configuration.setter
+    def autoscale_configuration(self, value: Optional[pulumi.Input['AzureFirewallAutoscaleConfigurationArgs']]):
+        pulumi.set(self, "autoscale_configuration", value)
 
     @property
     @pulumi.getter(name="azureFirewallName")
@@ -305,6 +321,7 @@ class AzureFirewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallApplicationRuleCollectionArgs', 'AzureFirewallApplicationRuleCollectionArgsDict']]]]] = None,
+                 autoscale_configuration: Optional[pulumi.Input[Union['AzureFirewallAutoscaleConfigurationArgs', 'AzureFirewallAutoscaleConfigurationArgsDict']]] = None,
                  azure_firewall_name: Optional[pulumi.Input[str]] = None,
                  firewall_policy: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  hub_ip_addresses: Optional[pulumi.Input[Union['HubIPAddressesArgs', 'HubIPAddressesArgsDict']]] = None,
@@ -324,14 +341,15 @@ class AzureFirewall(pulumi.CustomResource):
         """
         Azure Firewall resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: The additional properties used to further config this azure firewall.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallApplicationRuleCollectionArgs', 'AzureFirewallApplicationRuleCollectionArgsDict']]]] application_rule_collections: Collection of application rule collections used by Azure Firewall.
+        :param pulumi.Input[Union['AzureFirewallAutoscaleConfigurationArgs', 'AzureFirewallAutoscaleConfigurationArgsDict']] autoscale_configuration: Properties to provide a custom autoscale configuration to this azure firewall.
         :param pulumi.Input[str] azure_firewall_name: The name of the Azure Firewall.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] firewall_policy: The firewallPolicy associated with this azure firewall.
         :param pulumi.Input[Union['HubIPAddressesArgs', 'HubIPAddressesArgsDict']] hub_ip_addresses: IP addresses associated with AzureFirewall.
@@ -357,9 +375,9 @@ class AzureFirewall(pulumi.CustomResource):
         """
         Azure Firewall resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AzureFirewallArgs args: The arguments to use to populate this resource's properties.
@@ -378,6 +396,7 @@ class AzureFirewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallApplicationRuleCollectionArgs', 'AzureFirewallApplicationRuleCollectionArgsDict']]]]] = None,
+                 autoscale_configuration: Optional[pulumi.Input[Union['AzureFirewallAutoscaleConfigurationArgs', 'AzureFirewallAutoscaleConfigurationArgsDict']]] = None,
                  azure_firewall_name: Optional[pulumi.Input[str]] = None,
                  firewall_policy: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  hub_ip_addresses: Optional[pulumi.Input[Union['HubIPAddressesArgs', 'HubIPAddressesArgsDict']]] = None,
@@ -404,6 +423,7 @@ class AzureFirewall(pulumi.CustomResource):
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["application_rule_collections"] = application_rule_collections
+            __props__.__dict__["autoscale_configuration"] = autoscale_configuration
             __props__.__dict__["azure_firewall_name"] = azure_firewall_name
             __props__.__dict__["firewall_policy"] = firewall_policy
             __props__.__dict__["hub_ip_addresses"] = hub_ip_addresses
@@ -421,6 +441,7 @@ class AzureFirewall(pulumi.CustomResource):
             __props__.__dict__["threat_intel_mode"] = threat_intel_mode
             __props__.__dict__["virtual_hub"] = virtual_hub
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["ip_groups"] = None
             __props__.__dict__["name"] = None
@@ -452,6 +473,8 @@ class AzureFirewall(pulumi.CustomResource):
 
         __props__.__dict__["additional_properties"] = None
         __props__.__dict__["application_rule_collections"] = None
+        __props__.__dict__["autoscale_configuration"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["firewall_policy"] = None
         __props__.__dict__["hub_ip_addresses"] = None
@@ -486,6 +509,22 @@ class AzureFirewall(pulumi.CustomResource):
         Collection of application rule collections used by Azure Firewall.
         """
         return pulumi.get(self, "application_rule_collections")
+
+    @property
+    @pulumi.getter(name="autoscaleConfiguration")
+    def autoscale_configuration(self) -> pulumi.Output[Optional['outputs.AzureFirewallAutoscaleConfigurationResponse']]:
+        """
+        Properties to provide a custom autoscale configuration to this azure firewall.
+        """
+        return pulumi.get(self, "autoscale_configuration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

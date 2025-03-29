@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// <summary>
         /// Get a single graph query by its resourceName.
         /// 
-        /// Uses Azure REST API version 2020-04-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+        /// Other available API versions: 2020-04-01-preview, 2021-03-01, 2022-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcegraph [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetGraphQueryResult> InvokeAsync(GetGraphQueryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGraphQueryResult>("azure-native:resourcegraph:getGraphQuery", args ?? new GetGraphQueryArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// <summary>
         /// Get a single graph query by its resourceName.
         /// 
-        /// Uses Azure REST API version 2020-04-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+        /// Other available API versions: 2020-04-01-preview, 2021-03-01, 2022-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcegraph [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGraphQueryResult> Invoke(GetGraphQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphQueryResult>("azure-native:resourcegraph:getGraphQuery", args ?? new GetGraphQueryInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// <summary>
         /// Get a single graph query by its resourceName.
         /// 
-        /// Uses Azure REST API version 2020-04-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+        /// Other available API versions: 2020-04-01-preview, 2021-03-01, 2022-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcegraph [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGraphQueryResult> Invoke(GetGraphQueryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphQueryResult>("azure-native:resourcegraph:getGraphQuery", args ?? new GetGraphQueryInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.ResourceGraph
     public sealed class GetGraphQueryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.ResourceGraph
     public sealed class GetGraphQueryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -88,11 +88,15 @@ namespace Pulumi.AzureNative.ResourceGraph
     public sealed class GetGraphQueryResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The description of a graph query.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// This will be used to handle Optimistic Concurrency.
+        /// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         /// </summary>
         public readonly string? Etag;
         /// <summary>
@@ -102,7 +106,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// <summary>
         /// The location of the resource
         /// </summary>
-        public readonly string Location;
+        public readonly string? Location;
         /// <summary>
         /// Azure resource name. This is GUID value. The display name should be assigned within properties field.
         /// </summary>
@@ -116,7 +120,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// </summary>
         public readonly string ResultKind;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// The system metadata relating to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -134,13 +138,15 @@ namespace Pulumi.AzureNative.ResourceGraph
 
         [OutputConstructor]
         private GetGraphQueryResult(
+            string azureApiVersion,
+
             string? description,
 
             string? etag,
 
             string id,
 
-            string location,
+            string? location,
 
             string name,
 
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.ResourceGraph
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Etag = etag;
             Id = id;

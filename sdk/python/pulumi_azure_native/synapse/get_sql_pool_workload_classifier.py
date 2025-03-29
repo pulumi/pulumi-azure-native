@@ -26,7 +26,10 @@ class GetSqlPoolWorkloadClassifierResult:
     """
     Workload classifier operations for a data warehouse
     """
-    def __init__(__self__, context=None, end_time=None, id=None, importance=None, label=None, member_name=None, name=None, start_time=None, type=None):
+    def __init__(__self__, azure_api_version=None, context=None, end_time=None, id=None, importance=None, label=None, member_name=None, name=None, start_time=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if context and not isinstance(context, str):
             raise TypeError("Expected argument 'context' to be a str")
         pulumi.set(__self__, "context", context)
@@ -54,6 +57,14 @@ class GetSqlPoolWorkloadClassifierResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -134,6 +145,7 @@ class AwaitableGetSqlPoolWorkloadClassifierResult(GetSqlPoolWorkloadClassifierRe
         if False:
             yield self
         return GetSqlPoolWorkloadClassifierResult(
+            azure_api_version=self.azure_api_version,
             context=self.context,
             end_time=self.end_time,
             id=self.id,
@@ -156,7 +168,7 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[str] = None,
 
     Uses Azure REST API version 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -175,6 +187,7 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse:getSqlPoolWorkloadClassifier', __args__, opts=opts, typ=GetSqlPoolWorkloadClassifierResult).value
 
     return AwaitableGetSqlPoolWorkloadClassifierResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         context=pulumi.get(__ret__, 'context'),
         end_time=pulumi.get(__ret__, 'end_time'),
         id=pulumi.get(__ret__, 'id'),
@@ -195,7 +208,7 @@ def get_sql_pool_workload_classifier_output(resource_group_name: Optional[pulumi
 
     Uses Azure REST API version 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -213,6 +226,7 @@ def get_sql_pool_workload_classifier_output(resource_group_name: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getSqlPoolWorkloadClassifier', __args__, opts=opts, typ=GetSqlPoolWorkloadClassifierResult)
     return __ret__.apply(lambda __response__: GetSqlPoolWorkloadClassifierResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         context=pulumi.get(__response__, 'context'),
         end_time=pulumi.get(__response__, 'end_time'),
         id=pulumi.get(__response__, 'id'),

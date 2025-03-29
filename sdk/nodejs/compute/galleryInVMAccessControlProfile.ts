@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Specifies information about the gallery inVMAccessControlProfile that you want to create or update.
  *
- * Uses Azure REST API version 2024-03-03.
+ * Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2024-03-03.
  */
 export class GalleryInVMAccessControlProfile extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class GalleryInVMAccessControlProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === GalleryInVMAccessControlProfile.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -83,9 +87,11 @@ export class GalleryInVMAccessControlProfile extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

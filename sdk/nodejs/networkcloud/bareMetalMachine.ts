@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+ * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class BareMetalMachine extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class BareMetalMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly associatedResourceIds!: pulumi.Output<string[]>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The connection string for the baseboard management controller including IP address and protocol.
      */
     public readonly bmcConnectionString!: pulumi.Output<string>;
@@ -76,6 +80,10 @@ export class BareMetalMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
     /**
+     * Resource ETag.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * The extended location of the cluster associated with the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
@@ -103,6 +111,10 @@ export class BareMetalMachine extends pulumi.CustomResource {
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The cluster version that has been applied to this machine during deployment or a version update.
+     */
+    public readonly machineClusterVersion!: pulumi.Output<string | undefined>;
     /**
      * The custom details provided by the customer.
      */
@@ -159,6 +171,10 @@ export class BareMetalMachine extends pulumi.CustomResource {
      * The runtime protection status of the bare metal machine.
      */
     public /*out*/ readonly runtimeProtectionStatus!: pulumi.Output<outputs.networkcloud.RuntimeProtectionStatusResponse>;
+    /**
+     * The list of statuses that represent secret rotation activity.
+     */
+    public /*out*/ readonly secretRotationStatus!: pulumi.Output<outputs.networkcloud.SecretRotationStatusResponse[]>;
     /**
      * The serial number of the bare metal machine.
      */
@@ -238,6 +254,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["bootMacAddress"] = args ? args.bootMacAddress : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["machineClusterVersion"] = args ? args.machineClusterVersion : undefined;
             resourceInputs["machineDetails"] = args ? args.machineDetails : undefined;
             resourceInputs["machineName"] = args ? args.machineName : undefined;
             resourceInputs["machineSkuId"] = args ? args.machineSkuId : undefined;
@@ -247,10 +264,12 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["cordonStatus"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hardwareInventory"] = undefined /*out*/;
             resourceInputs["hardwareValidationStatus"] = undefined /*out*/;
             resourceInputs["hybridAksClustersAssociatedIds"] = undefined /*out*/;
@@ -265,12 +284,14 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["readyState"] = undefined /*out*/;
             resourceInputs["runtimeProtectionStatus"] = undefined /*out*/;
+            resourceInputs["secretRotationStatus"] = undefined /*out*/;
             resourceInputs["serviceTag"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         } else {
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bmcConnectionString"] = undefined /*out*/;
             resourceInputs["bmcCredentials"] = undefined /*out*/;
             resourceInputs["bmcMacAddress"] = undefined /*out*/;
@@ -279,6 +300,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["cordonStatus"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hardwareInventory"] = undefined /*out*/;
             resourceInputs["hardwareValidationStatus"] = undefined /*out*/;
@@ -286,6 +308,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["kubernetesNodeName"] = undefined /*out*/;
             resourceInputs["kubernetesVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["machineClusterVersion"] = undefined /*out*/;
             resourceInputs["machineDetails"] = undefined /*out*/;
             resourceInputs["machineName"] = undefined /*out*/;
             resourceInputs["machineRoles"] = undefined /*out*/;
@@ -300,6 +323,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["rackSlot"] = undefined /*out*/;
             resourceInputs["readyState"] = undefined /*out*/;
             resourceInputs["runtimeProtectionStatus"] = undefined /*out*/;
+            resourceInputs["secretRotationStatus"] = undefined /*out*/;
             resourceInputs["serialNumber"] = undefined /*out*/;
             resourceInputs["serviceTag"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -346,6 +370,10 @@ export interface BareMetalMachineArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The cluster version that has been applied to this machine during deployment or a version update.
+     */
+    machineClusterVersion?: pulumi.Input<string>;
     /**
      * The custom details provided by the customer.
      */

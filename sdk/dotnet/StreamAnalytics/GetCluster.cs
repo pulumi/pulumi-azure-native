@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// Gets information about the specified cluster.
         /// 
         /// Uses Azure REST API version 2020-03-01.
-        /// 
-        /// Other available API versions: 2020-03-01-preview.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:streamanalytics:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// Gets information about the specified cluster.
         /// 
         /// Uses Azure REST API version 2020-03-01.
-        /// 
-        /// Other available API versions: 2020-03-01-preview.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:streamanalytics:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// Gets information about the specified cluster.
         /// 
         /// Uses Azure REST API version 2020-03-01.
-        /// 
-        /// Other available API versions: 2020-03-01-preview.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:streamanalytics:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Represents the number of streaming units currently being used on the cluster.
         /// </summary>
         public readonly int CapacityAllocated;
@@ -138,6 +136,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
         [OutputConstructor]
         private GetClusterResult(
+            string azureApiVersion,
+
             int capacityAllocated,
 
             int capacityAssigned,
@@ -162,6 +162,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CapacityAllocated = capacityAllocated;
             CapacityAssigned = capacityAssigned;
             ClusterId = clusterId;

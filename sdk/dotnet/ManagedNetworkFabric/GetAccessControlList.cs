@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements Access Control List GET method.
         /// 
-        /// Uses Azure REST API version 2023-02-01-preview.
+        /// Uses Azure REST API version 2023-06-15.
         /// 
-        /// Other available API versions: 2023-06-15.
+        /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAccessControlListResult> InvokeAsync(GetAccessControlListArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessControlListResult>("azure-native:managednetworkfabric:getAccessControlList", args ?? new GetAccessControlListArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements Access Control List GET method.
         /// 
-        /// Uses Azure REST API version 2023-02-01-preview.
+        /// Uses Azure REST API version 2023-06-15.
         /// 
-        /// Other available API versions: 2023-06-15.
+        /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccessControlListResult> Invoke(GetAccessControlListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessControlListResult>("azure-native:managednetworkfabric:getAccessControlList", args ?? new GetAccessControlListInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements Access Control List GET method.
         /// 
-        /// Uses Azure REST API version 2023-02-01-preview.
+        /// Uses Azure REST API version 2023-06-15.
         /// 
-        /// Other available API versions: 2023-06-15.
+        /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccessControlListResult> Invoke(GetAccessControlListInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessControlListResult>("azure-native:managednetworkfabric:getAccessControlList", args ?? new GetAccessControlListInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetAccessControlListArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Access Control List
+        /// Name of the Access Control List.
         /// </summary>
         [Input("accessControlListName", required: true)]
         public string AccessControlListName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetAccessControlListInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Access Control List
+        /// Name of the Access Control List.
         /// </summary>
         [Input("accessControlListName", required: true)]
         public Input<string> AccessControlListName { get; set; } = null!;
@@ -88,31 +88,59 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetAccessControlListResult
     {
         /// <summary>
-        /// IP address family. Example: ipv4 | ipv6.
+        /// Access Control List file URL.
         /// </summary>
-        public readonly string AddressFamily;
+        public readonly string? AclsUrl;
+        /// <summary>
+        /// Administrative state of the resource.
+        /// </summary>
+        public readonly string AdministrativeState;
         /// <summary>
         /// Switch configuration description.
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// Access Control List conditions.
+        /// The Azure API version of the resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AccessControlListConditionPropertiesResponse> Conditions;
+        public readonly string AzureApiVersion;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Configuration state of the resource.
+        /// </summary>
+        public readonly string ConfigurationState;
+        /// <summary>
+        /// Input method to configure Access Control List.
+        /// </summary>
+        public readonly string ConfigurationType;
+        /// <summary>
+        /// Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+        /// </summary>
+        public readonly string? DefaultAction;
+        /// <summary>
+        /// List of dynamic match configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CommonDynamicMatchConfigurationResponse> DynamicMatchConfigurations;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The last synced timestamp.
+        /// </summary>
+        public readonly string LastSyncedTime;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// List of match configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AccessControlListMatchConfigurationResponse> MatchConfigurations;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -130,15 +158,29 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
         [OutputConstructor]
         private GetAccessControlListResult(
-            string addressFamily,
+            string? aclsUrl,
+
+            string administrativeState,
 
             string? annotation,
 
-            ImmutableArray<Outputs.AccessControlListConditionPropertiesResponse> conditions,
+            string azureApiVersion,
+
+            string configurationState,
+
+            string configurationType,
+
+            string? defaultAction,
+
+            ImmutableArray<Outputs.CommonDynamicMatchConfigurationResponse> dynamicMatchConfigurations,
 
             string id,
 
+            string lastSyncedTime,
+
             string location,
+
+            ImmutableArray<Outputs.AccessControlListMatchConfigurationResponse> matchConfigurations,
 
             string name,
 
@@ -150,11 +192,18 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string type)
         {
-            AddressFamily = addressFamily;
+            AclsUrl = aclsUrl;
+            AdministrativeState = administrativeState;
             Annotation = annotation;
-            Conditions = conditions;
+            AzureApiVersion = azureApiVersion;
+            ConfigurationState = configurationState;
+            ConfigurationType = configurationType;
+            DefaultAction = defaultAction;
+            DynamicMatchConfigurations = dynamicMatchConfigurations;
             Id = id;
+            LastSyncedTime = lastSyncedTime;
             Location = location;
+            MatchConfigurations = matchConfigurations;
             Name = name;
             ProvisioningState = provisioningState;
             SystemData = systemData;

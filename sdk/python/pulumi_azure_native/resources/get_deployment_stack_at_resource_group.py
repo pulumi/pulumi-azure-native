@@ -27,10 +27,16 @@ class GetDeploymentStackAtResourceGroupResult:
     """
     Deployment stack object.
     """
-    def __init__(__self__, action_on_unmanage=None, debug_setting=None, deleted_resources=None, deny_settings=None, deployment_id=None, deployment_scope=None, description=None, detached_resources=None, duration=None, error=None, failed_resources=None, id=None, location=None, name=None, outputs=None, parameters=None, parameters_link=None, provisioning_state=None, resources=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, action_on_unmanage=None, azure_api_version=None, correlation_id=None, debug_setting=None, deleted_resources=None, deny_settings=None, deployment_id=None, deployment_scope=None, description=None, detached_resources=None, duration=None, error=None, failed_resources=None, id=None, location=None, name=None, outputs=None, parameters=None, parameters_link=None, provisioning_state=None, resources=None, system_data=None, tags=None, type=None):
         if action_on_unmanage and not isinstance(action_on_unmanage, dict):
             raise TypeError("Expected argument 'action_on_unmanage' to be a dict")
         pulumi.set(__self__, "action_on_unmanage", action_on_unmanage)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if correlation_id and not isinstance(correlation_id, str):
+            raise TypeError("Expected argument 'correlation_id' to be a str")
+        pulumi.set(__self__, "correlation_id", correlation_id)
         if debug_setting and not isinstance(debug_setting, dict):
             raise TypeError("Expected argument 'debug_setting' to be a dict")
         pulumi.set(__self__, "debug_setting", debug_setting)
@@ -97,11 +103,27 @@ class GetDeploymentStackAtResourceGroupResult:
 
     @property
     @pulumi.getter(name="actionOnUnmanage")
-    def action_on_unmanage(self) -> 'outputs.DeploymentStackPropertiesResponseActionOnUnmanage':
+    def action_on_unmanage(self) -> 'outputs.ActionOnUnmanageResponse':
         """
-        Defines the behavior of resources that are not managed immediately after the stack is updated.
+        Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         """
         return pulumi.get(self, "action_on_unmanage")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> str:
+        """
+        The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+        """
+        return pulumi.get(self, "correlation_id")
 
     @property
     @pulumi.getter(name="debugSetting")
@@ -115,7 +137,7 @@ class GetDeploymentStackAtResourceGroupResult:
     @pulumi.getter(name="deletedResources")
     def deleted_resources(self) -> Sequence['outputs.ResourceReferenceResponse']:
         """
-        An array of resources that were deleted during the most recent update.
+        An array of resources that were deleted during the most recent Deployment stack update. Deleted means that the resource was removed from the template and relevant deletion operations were specified.
         """
         return pulumi.get(self, "deleted_resources")
 
@@ -147,7 +169,7 @@ class GetDeploymentStackAtResourceGroupResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        Deployment stack description.
+        Deployment stack description. Max length of 4096 characters.
         """
         return pulumi.get(self, "description")
 
@@ -155,7 +177,7 @@ class GetDeploymentStackAtResourceGroupResult:
     @pulumi.getter(name="detachedResources")
     def detached_resources(self) -> Sequence['outputs.ResourceReferenceResponse']:
         """
-        An array of resources that were detached during the most recent update.
+        An array of resources that were detached during the most recent Deployment stack update. Detached means that the resource was removed from the template, but no relevant deletion operations were specified. So, the resource still exists while no longer being associated with the stack.
         """
         return pulumi.get(self, "detached_resources")
 
@@ -163,15 +185,15 @@ class GetDeploymentStackAtResourceGroupResult:
     @pulumi.getter
     def duration(self) -> str:
         """
-        The duration of the deployment stack update.
+        The duration of the last successful Deployment stack update.
         """
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.ErrorResponseResponse']:
+    def error(self) -> Optional['outputs.ErrorDetailResponse']:
         """
-        Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+        The error detail.
         """
         return pulumi.get(self, "error")
 
@@ -179,7 +201,7 @@ class GetDeploymentStackAtResourceGroupResult:
     @pulumi.getter(name="failedResources")
     def failed_resources(self) -> Sequence['outputs.ResourceReferenceExtendedResponse']:
         """
-        An array of resources that failed to reach goal state during the most recent update.
+        An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
         """
         return pulumi.get(self, "failed_resources")
 
@@ -195,7 +217,7 @@ class GetDeploymentStackAtResourceGroupResult:
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        The location of the deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
         """
         return pulumi.get(self, "location")
 
@@ -211,15 +233,15 @@ class GetDeploymentStackAtResourceGroupResult:
     @pulumi.getter
     def outputs(self) -> Any:
         """
-        The outputs of the underlying deployment.
+        The outputs of the deployment resource created by the deployment stack.
         """
         return pulumi.get(self, "outputs")
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.DeploymentParameterResponse']]:
         """
-        Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+        Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         """
         return pulumi.get(self, "parameters")
 
@@ -279,6 +301,8 @@ class AwaitableGetDeploymentStackAtResourceGroupResult(GetDeploymentStackAtResou
             yield self
         return GetDeploymentStackAtResourceGroupResult(
             action_on_unmanage=self.action_on_unmanage,
+            azure_api_version=self.azure_api_version,
+            correlation_id=self.correlation_id,
             debug_setting=self.debug_setting,
             deleted_resources=self.deleted_resources,
             deny_settings=self.deny_settings,
@@ -306,11 +330,11 @@ def get_deployment_stack_at_resource_group(deployment_stack_name: Optional[str] 
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentStackAtResourceGroupResult:
     """
-    Gets a Deployment Stack with a given name.
+    Gets a Deployment stack with a given name at Resource Group scope.
 
-    Uses Azure REST API version 2022-08-01-preview.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2024-03-01.
+    Other available API versions: 2022-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str deployment_stack_name: Name of the deployment stack.
@@ -324,6 +348,8 @@ def get_deployment_stack_at_resource_group(deployment_stack_name: Optional[str] 
 
     return AwaitableGetDeploymentStackAtResourceGroupResult(
         action_on_unmanage=pulumi.get(__ret__, 'action_on_unmanage'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        correlation_id=pulumi.get(__ret__, 'correlation_id'),
         debug_setting=pulumi.get(__ret__, 'debug_setting'),
         deleted_resources=pulumi.get(__ret__, 'deleted_resources'),
         deny_settings=pulumi.get(__ret__, 'deny_settings'),
@@ -349,11 +375,11 @@ def get_deployment_stack_at_resource_group_output(deployment_stack_name: Optiona
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStackAtResourceGroupResult]:
     """
-    Gets a Deployment Stack with a given name.
+    Gets a Deployment stack with a given name at Resource Group scope.
 
-    Uses Azure REST API version 2022-08-01-preview.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2024-03-01.
+    Other available API versions: 2022-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str deployment_stack_name: Name of the deployment stack.
@@ -366,6 +392,8 @@ def get_deployment_stack_at_resource_group_output(deployment_stack_name: Optiona
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources:getDeploymentStackAtResourceGroup', __args__, opts=opts, typ=GetDeploymentStackAtResourceGroupResult)
     return __ret__.apply(lambda __response__: GetDeploymentStackAtResourceGroupResult(
         action_on_unmanage=pulumi.get(__response__, 'action_on_unmanage'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        correlation_id=pulumi.get(__response__, 'correlation_id'),
         debug_setting=pulumi.get(__response__, 'debug_setting'),
         deleted_resources=pulumi.get(__response__, 'deleted_resources'),
         deny_settings=pulumi.get(__response__, 'deny_settings'),

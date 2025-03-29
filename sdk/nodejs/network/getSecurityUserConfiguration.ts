@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieves a network manager security user configuration.
  *
- * Uses Azure REST API version 2022-04-01-preview.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2021-02-01-preview, 2022-02-01-preview, 2022-04-01-preview, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSecurityUserConfiguration(args: GetSecurityUserConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityUserConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,7 +33,7 @@ export interface GetSecurityUserConfigurationArgs {
      */
     networkManagerName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -43,9 +43,9 @@ export interface GetSecurityUserConfigurationArgs {
  */
 export interface GetSecurityUserConfigurationResult {
     /**
-     * Flag if need to delete existing network security groups.
+     * The Azure API version of the resource.
      */
-    readonly deleteExistingNSGs?: string;
+    readonly azureApiVersion: string;
     /**
      * A description of the security user configuration.
      */
@@ -67,6 +67,10 @@ export interface GetSecurityUserConfigurationResult {
      */
     readonly provisioningState: string;
     /**
+     * Unique identifier for this resource.
+     */
+    readonly resourceGuid: string;
+    /**
      * The system metadata related to this resource.
      */
     readonly systemData: outputs.network.SystemDataResponse;
@@ -78,9 +82,9 @@ export interface GetSecurityUserConfigurationResult {
 /**
  * Retrieves a network manager security user configuration.
  *
- * Uses Azure REST API version 2022-04-01-preview.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2021-02-01-preview, 2022-02-01-preview, 2022-04-01-preview, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSecurityUserConfigurationOutput(args: GetSecurityUserConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityUserConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -101,7 +105,7 @@ export interface GetSecurityUserConfigurationOutputArgs {
      */
     networkManagerName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

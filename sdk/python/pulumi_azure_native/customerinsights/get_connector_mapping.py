@@ -27,7 +27,10 @@ class GetConnectorMappingResult:
     """
     The connector mapping resource format.
     """
-    def __init__(__self__, connector_mapping_name=None, connector_name=None, connector_type=None, created=None, data_format_id=None, description=None, display_name=None, entity_type=None, entity_type_name=None, id=None, last_modified=None, mapping_properties=None, name=None, next_run_time=None, run_id=None, state=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, connector_mapping_name=None, connector_name=None, connector_type=None, created=None, data_format_id=None, description=None, display_name=None, entity_type=None, entity_type_name=None, id=None, last_modified=None, mapping_properties=None, name=None, next_run_time=None, run_id=None, state=None, tenant_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connector_mapping_name and not isinstance(connector_mapping_name, str):
             raise TypeError("Expected argument 'connector_mapping_name' to be a str")
         pulumi.set(__self__, "connector_mapping_name", connector_mapping_name)
@@ -82,6 +85,14 @@ class GetConnectorMappingResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectorMappingName")
@@ -234,6 +245,7 @@ class AwaitableGetConnectorMappingResult(GetConnectorMappingResult):
         if False:
             yield self
         return GetConnectorMappingResult(
+            azure_api_version=self.azure_api_version,
             connector_mapping_name=self.connector_mapping_name,
             connector_name=self.connector_name,
             connector_type=self.connector_type,
@@ -279,6 +291,7 @@ def get_connector_mapping(connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights:getConnectorMapping', __args__, opts=opts, typ=GetConnectorMappingResult).value
 
     return AwaitableGetConnectorMappingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connector_mapping_name=pulumi.get(__ret__, 'connector_mapping_name'),
         connector_name=pulumi.get(__ret__, 'connector_name'),
         connector_type=pulumi.get(__ret__, 'connector_type'),
@@ -321,6 +334,7 @@ def get_connector_mapping_output(connector_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getConnectorMapping', __args__, opts=opts, typ=GetConnectorMappingResult)
     return __ret__.apply(lambda __response__: GetConnectorMappingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connector_mapping_name=pulumi.get(__response__, 'connector_mapping_name'),
         connector_name=pulumi.get(__response__, 'connector_name'),
         connector_type=pulumi.get(__response__, 'connector_type'),

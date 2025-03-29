@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets an instance pool.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetInstancePoolResult> InvokeAsync(GetInstancePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancePoolResult>("azure-native:sql:getInstancePool", args ?? new GetInstancePoolArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets an instance pool.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInstancePoolResult> Invoke(GetInstancePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancePoolResult>("azure-native:sql:getInstancePool", args ?? new GetInstancePoolInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets an instance pool.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInstancePoolResult> Invoke(GetInstancePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancePoolResult>("azure-native:sql:getInstancePool", args ?? new GetInstancePoolInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,14 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetInstancePoolResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// The Dns Zone that the managed instance pool is in.
+        /// </summary>
+        public readonly string DnsZone;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -99,6 +107,10 @@ namespace Pulumi.AzureNative.Sql
         /// Resource location.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Specifies maintenance configuration id to apply to this managed instance.
+        /// </summary>
+        public readonly string? MaintenanceConfigurationId;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -126,11 +138,17 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetInstancePoolResult(
+            string azureApiVersion,
+
+            string dnsZone,
+
             string id,
 
             string licenseType,
 
             string location,
+
+            string? maintenanceConfigurationId,
 
             string name,
 
@@ -144,9 +162,12 @@ namespace Pulumi.AzureNative.Sql
 
             int vCores)
         {
+            AzureApiVersion = azureApiVersion;
+            DnsZone = dnsZone;
             Id = id;
             LicenseType = licenseType;
             Location = location;
+            MaintenanceConfigurationId = maintenanceConfigurationId;
             Name = name;
             Sku = sku;
             SubnetId = subnetId;

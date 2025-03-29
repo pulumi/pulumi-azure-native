@@ -27,7 +27,10 @@ class GetLicenseResult:
     """
     Describes a license in a hybrid machine.
     """
-    def __init__(__self__, id=None, license_details=None, license_type=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, license_details=None, license_type=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, tenant_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -58,6 +61,14 @@ class GetLicenseResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetLicenseResult(GetLicenseResult):
         if False:
             yield self
         return GetLicenseResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             license_details=self.license_details,
             license_type=self.license_type,
@@ -164,9 +176,9 @@ def get_license(license_name: Optional[str] = None,
     """
     Retrieves information about the view of a license.
 
-    Uses Azure REST API version 2023-06-20-preview.
+    Uses Azure REST API version 2024-07-10.
 
-    Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+    Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str license_name: The name of the license.
@@ -179,6 +191,7 @@ def get_license(license_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridcompute:getLicense', __args__, opts=opts, typ=GetLicenseResult).value
 
     return AwaitableGetLicenseResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         license_details=pulumi.get(__ret__, 'license_details'),
         license_type=pulumi.get(__ret__, 'license_type'),
@@ -195,9 +208,9 @@ def get_license_output(license_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves information about the view of a license.
 
-    Uses Azure REST API version 2023-06-20-preview.
+    Uses Azure REST API version 2024-07-10.
 
-    Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+    Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str license_name: The name of the license.
@@ -209,6 +222,7 @@ def get_license_output(license_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcompute:getLicense', __args__, opts=opts, typ=GetLicenseResult)
     return __ret__.apply(lambda __response__: GetLicenseResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         license_details=pulumi.get(__response__, 'license_details'),
         license_type=pulumi.get(__response__, 'license_type'),

@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
     public sealed class GetGatewayResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Base URL of the Gateway resource. This is the URL that the users would use to make Open API Gateway requests to the Operators via Azure.
         /// </summary>
         public readonly string GatewayBaseUrl;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
 
         [OutputConstructor]
         private GetGatewayResult(
+            string azureApiVersion,
+
             string gatewayBaseUrl,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             GatewayBaseUrl = gatewayBaseUrl;
             Id = id;
             Location = location;

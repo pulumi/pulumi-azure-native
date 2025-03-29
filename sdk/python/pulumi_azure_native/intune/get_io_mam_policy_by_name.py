@@ -26,7 +26,7 @@ class GetIoMAMPolicyByNameResult:
     """
     iOS Policy entity for Intune MAM.
     """
-    def __init__(__self__, access_recheck_offline_timeout=None, access_recheck_online_timeout=None, app_sharing_from_level=None, app_sharing_to_level=None, authentication=None, clipboard_sharing_level=None, data_backup=None, description=None, device_compliance=None, file_encryption_level=None, file_sharing_save_as=None, friendly_name=None, group_status=None, id=None, last_modified_time=None, location=None, managed_browser=None, name=None, num_of_apps=None, offline_wipe_timeout=None, pin=None, pin_num_retry=None, tags=None, touch_id=None, type=None):
+    def __init__(__self__, access_recheck_offline_timeout=None, access_recheck_online_timeout=None, app_sharing_from_level=None, app_sharing_to_level=None, authentication=None, azure_api_version=None, clipboard_sharing_level=None, data_backup=None, description=None, device_compliance=None, file_encryption_level=None, file_sharing_save_as=None, friendly_name=None, group_status=None, id=None, last_modified_time=None, location=None, managed_browser=None, name=None, num_of_apps=None, offline_wipe_timeout=None, pin=None, pin_num_retry=None, tags=None, touch_id=None, type=None):
         if access_recheck_offline_timeout and not isinstance(access_recheck_offline_timeout, str):
             raise TypeError("Expected argument 'access_recheck_offline_timeout' to be a str")
         pulumi.set(__self__, "access_recheck_offline_timeout", access_recheck_offline_timeout)
@@ -42,6 +42,9 @@ class GetIoMAMPolicyByNameResult:
         if authentication and not isinstance(authentication, str):
             raise TypeError("Expected argument 'authentication' to be a str")
         pulumi.set(__self__, "authentication", authentication)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if clipboard_sharing_level and not isinstance(clipboard_sharing_level, str):
             raise TypeError("Expected argument 'clipboard_sharing_level' to be a str")
         pulumi.set(__self__, "clipboard_sharing_level", clipboard_sharing_level)
@@ -127,6 +130,14 @@ class GetIoMAMPolicyByNameResult:
     @pulumi.getter
     def authentication(self) -> Optional[str]:
         return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clipboardSharingLevel")
@@ -255,6 +266,7 @@ class AwaitableGetIoMAMPolicyByNameResult(GetIoMAMPolicyByNameResult):
             app_sharing_from_level=self.app_sharing_from_level,
             app_sharing_to_level=self.app_sharing_to_level,
             authentication=self.authentication,
+            azure_api_version=self.azure_api_version,
             clipboard_sharing_level=self.clipboard_sharing_level,
             data_backup=self.data_backup,
             description=self.description,
@@ -286,8 +298,6 @@ def get_io_mam_policy_by_name(host_name: Optional[str] = None,
 
     Uses Azure REST API version 2015-01-14-preview.
 
-    Other available API versions: 2015-01-14-privatepreview.
-
 
     :param str host_name: Location hostName for the tenant
     :param str policy_name: Unique name for the policy
@@ -306,6 +316,7 @@ def get_io_mam_policy_by_name(host_name: Optional[str] = None,
         app_sharing_from_level=pulumi.get(__ret__, 'app_sharing_from_level'),
         app_sharing_to_level=pulumi.get(__ret__, 'app_sharing_to_level'),
         authentication=pulumi.get(__ret__, 'authentication'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         clipboard_sharing_level=pulumi.get(__ret__, 'clipboard_sharing_level'),
         data_backup=pulumi.get(__ret__, 'data_backup'),
         description=pulumi.get(__ret__, 'description'),
@@ -335,8 +346,6 @@ def get_io_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]] = No
 
     Uses Azure REST API version 2015-01-14-preview.
 
-    Other available API versions: 2015-01-14-privatepreview.
-
 
     :param str host_name: Location hostName for the tenant
     :param str policy_name: Unique name for the policy
@@ -354,6 +363,7 @@ def get_io_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]] = No
         app_sharing_from_level=pulumi.get(__response__, 'app_sharing_from_level'),
         app_sharing_to_level=pulumi.get(__response__, 'app_sharing_to_level'),
         authentication=pulumi.get(__response__, 'authentication'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         clipboard_sharing_level=pulumi.get(__response__, 'clipboard_sharing_level'),
         data_backup=pulumi.get(__response__, 'data_backup'),
         description=pulumi.get(__response__, 'description'),

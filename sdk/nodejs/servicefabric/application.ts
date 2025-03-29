@@ -10,9 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The application resource.
  *
- * Uses Azure REST API version 2024-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
- *
- * Other available API versions: 2021-06-01.
+ * Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Describes the managed identities for an Azure resource.
      */
@@ -114,11 +116,13 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedIdentities"] = undefined /*out*/;
@@ -132,7 +136,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:Application" }, { type: "azure-native:servicefabric/v20210501:Application" }, { type: "azure-native:servicefabric/v20210701preview:Application" }, { type: "azure-native:servicefabric/v20210901privatepreview:Application" }, { type: "azure-native:servicefabric/v20211101preview:Application" }, { type: "azure-native:servicefabric/v20220101:Application" }, { type: "azure-native:servicefabric/v20220201preview:Application" }, { type: "azure-native:servicefabric/v20220601preview:Application" }, { type: "azure-native:servicefabric/v20220801preview:Application" }, { type: "azure-native:servicefabric/v20221001preview:Application" }, { type: "azure-native:servicefabric/v20230201preview:Application" }, { type: "azure-native:servicefabric/v20230301preview:Application" }, { type: "azure-native:servicefabric/v20230701preview:Application" }, { type: "azure-native:servicefabric/v20230901preview:Application" }, { type: "azure-native:servicefabric/v20231101preview:Application" }, { type: "azure-native:servicefabric/v20231201preview:Application" }, { type: "azure-native:servicefabric/v20240201preview:Application" }, { type: "azure-native:servicefabric/v20240401:Application" }, { type: "azure-native:servicefabric/v20240601preview:Application" }, { type: "azure-native:servicefabric/v20240901preview:Application" }, { type: "azure-native:servicefabric/v20241101preview:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:Application" }, { type: "azure-native:servicefabric/v20210501:Application" }, { type: "azure-native:servicefabric/v20210601:Application" }, { type: "azure-native:servicefabric/v20210701preview:Application" }, { type: "azure-native:servicefabric/v20210901privatepreview:Application" }, { type: "azure-native:servicefabric/v20211101preview:Application" }, { type: "azure-native:servicefabric/v20220101:Application" }, { type: "azure-native:servicefabric/v20220201preview:Application" }, { type: "azure-native:servicefabric/v20220601preview:Application" }, { type: "azure-native:servicefabric/v20220801preview:Application" }, { type: "azure-native:servicefabric/v20221001preview:Application" }, { type: "azure-native:servicefabric/v20230201preview:Application" }, { type: "azure-native:servicefabric/v20230301preview:Application" }, { type: "azure-native:servicefabric/v20230301preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20230701preview:Application" }, { type: "azure-native:servicefabric/v20230701preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20230901preview:Application" }, { type: "azure-native:servicefabric/v20230901preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20231101preview:Application" }, { type: "azure-native:servicefabric/v20231101preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20231201preview:Application" }, { type: "azure-native:servicefabric/v20231201preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20240201preview:Application" }, { type: "azure-native:servicefabric/v20240201preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20240401:Application" }, { type: "azure-native:servicefabric/v20240401:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20240601preview:Application" }, { type: "azure-native:servicefabric/v20240601preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20240901preview:Application" }, { type: "azure-native:servicefabric/v20240901preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20241101preview:Application" }, { type: "azure-native:servicefabric:ManagedClusterApplication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }

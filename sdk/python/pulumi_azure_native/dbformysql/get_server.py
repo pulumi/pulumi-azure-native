@@ -27,13 +27,16 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, availability_zone=None, backup=None, data_encryption=None, fully_qualified_domain_name=None, high_availability=None, id=None, identity=None, location=None, maintenance_window=None, name=None, network=None, replica_capacity=None, replication_role=None, sku=None, source_server_resource_id=None, state=None, storage=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, availability_zone=None, azure_api_version=None, backup=None, data_encryption=None, fully_qualified_domain_name=None, high_availability=None, id=None, identity=None, import_source_properties=None, location=None, maintenance_window=None, name=None, network=None, private_endpoint_connections=None, replica_capacity=None, replication_role=None, sku=None, source_server_resource_id=None, state=None, storage=None, system_data=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backup and not isinstance(backup, dict):
             raise TypeError("Expected argument 'backup' to be a dict")
         pulumi.set(__self__, "backup", backup)
@@ -52,6 +55,9 @@ class GetServerResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if import_source_properties and not isinstance(import_source_properties, dict):
+            raise TypeError("Expected argument 'import_source_properties' to be a dict")
+        pulumi.set(__self__, "import_source_properties", import_source_properties)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +70,9 @@ class GetServerResult:
         if network and not isinstance(network, dict):
             raise TypeError("Expected argument 'network' to be a dict")
         pulumi.set(__self__, "network", network)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if replica_capacity and not isinstance(replica_capacity, int):
             raise TypeError("Expected argument 'replica_capacity' to be a int")
         pulumi.set(__self__, "replica_capacity", replica_capacity)
@@ -112,6 +121,14 @@ class GetServerResult:
         return pulumi.get(self, "availability_zone")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def backup(self) -> Optional['outputs.BackupResponse']:
         """
@@ -147,17 +164,25 @@ class GetServerResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.MySQLServerIdentityResponse']:
         """
         The cmk identity for the server.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="importSourceProperties")
+    def import_source_properties(self) -> Optional['outputs.ImportSourcePropertiesResponse']:
+        """
+        Source properties for import from storage.
+        """
+        return pulumi.get(self, "import_source_properties")
 
     @property
     @pulumi.getter
@@ -192,6 +217,14 @@ class GetServerResult:
         return pulumi.get(self, "network")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        PrivateEndpointConnections related properties of a server.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="replicaCapacity")
     def replica_capacity(self) -> int:
         """
@@ -209,7 +242,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.MySQLServerSkuResponse']:
         """
         The SKU (pricing tier) of the server.
         """
@@ -243,7 +276,7 @@ class GetServerResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -280,16 +313,19 @@ class AwaitableGetServerResult(GetServerResult):
         return GetServerResult(
             administrator_login=self.administrator_login,
             availability_zone=self.availability_zone,
+            azure_api_version=self.azure_api_version,
             backup=self.backup,
             data_encryption=self.data_encryption,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             high_availability=self.high_availability,
             id=self.id,
             identity=self.identity,
+            import_source_properties=self.import_source_properties,
             location=self.location,
             maintenance_window=self.maintenance_window,
             name=self.name,
             network=self.network,
+            private_endpoint_connections=self.private_endpoint_connections,
             replica_capacity=self.replica_capacity,
             replication_role=self.replication_role,
             sku=self.sku,
@@ -308,9 +344,9 @@ def get_server(resource_group_name: Optional[str] = None,
     """
     Gets information about a server.
 
-    Uses Azure REST API version 2022-01-01.
+    Uses Azure REST API version 2024-02-01-preview.
 
-    Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
+    Other available API versions: 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-06-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -325,16 +361,19 @@ def get_server(resource_group_name: Optional[str] = None,
     return AwaitableGetServerResult(
         administrator_login=pulumi.get(__ret__, 'administrator_login'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backup=pulumi.get(__ret__, 'backup'),
         data_encryption=pulumi.get(__ret__, 'data_encryption'),
         fully_qualified_domain_name=pulumi.get(__ret__, 'fully_qualified_domain_name'),
         high_availability=pulumi.get(__ret__, 'high_availability'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
+        import_source_properties=pulumi.get(__ret__, 'import_source_properties'),
         location=pulumi.get(__ret__, 'location'),
         maintenance_window=pulumi.get(__ret__, 'maintenance_window'),
         name=pulumi.get(__ret__, 'name'),
         network=pulumi.get(__ret__, 'network'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         replica_capacity=pulumi.get(__ret__, 'replica_capacity'),
         replication_role=pulumi.get(__ret__, 'replication_role'),
         sku=pulumi.get(__ret__, 'sku'),
@@ -351,9 +390,9 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about a server.
 
-    Uses Azure REST API version 2022-01-01.
+    Uses Azure REST API version 2024-02-01-preview.
 
-    Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
+    Other available API versions: 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-06-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -367,16 +406,19 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetServerResult(
         administrator_login=pulumi.get(__response__, 'administrator_login'),
         availability_zone=pulumi.get(__response__, 'availability_zone'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backup=pulumi.get(__response__, 'backup'),
         data_encryption=pulumi.get(__response__, 'data_encryption'),
         fully_qualified_domain_name=pulumi.get(__response__, 'fully_qualified_domain_name'),
         high_availability=pulumi.get(__response__, 'high_availability'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
+        import_source_properties=pulumi.get(__response__, 'import_source_properties'),
         location=pulumi.get(__response__, 'location'),
         maintenance_window=pulumi.get(__response__, 'maintenance_window'),
         name=pulumi.get(__response__, 'name'),
         network=pulumi.get(__response__, 'network'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
         replica_capacity=pulumi.get(__response__, 'replica_capacity'),
         replication_role=pulumi.get(__response__, 'replication_role'),
         sku=pulumi.get(__response__, 'sku'),

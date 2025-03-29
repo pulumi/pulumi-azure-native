@@ -27,13 +27,16 @@ class GetSpatialAnchorsAccountResult:
     """
     SpatialAnchorsAccount Response.
     """
-    def __init__(__self__, account_domain=None, account_id=None, id=None, identity=None, kind=None, location=None, name=None, plan=None, sku=None, storage_account_name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_domain=None, account_id=None, azure_api_version=None, id=None, identity=None, kind=None, location=None, name=None, plan=None, sku=None, storage_account_name=None, system_data=None, tags=None, type=None):
         if account_domain and not isinstance(account_domain, str):
             raise TypeError("Expected argument 'account_domain' to be a str")
         pulumi.set(__self__, "account_domain", account_domain)
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -83,6 +86,14 @@ class GetSpatialAnchorsAccountResult:
         unique id of certain account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -181,6 +192,7 @@ class AwaitableGetSpatialAnchorsAccountResult(GetSpatialAnchorsAccountResult):
         return GetSpatialAnchorsAccountResult(
             account_domain=self.account_domain,
             account_id=self.account_id,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
@@ -206,9 +218,9 @@ def get_spatial_anchors_account(account_name: Optional[str] = None,
 
      Retrieve a Spatial Anchors Account.
 
-    Uses Azure REST API version 2021-01-01.
+    Uses Azure REST API version 2021-03-01-preview.
 
-    Other available API versions: 2021-03-01-preview.
+    Other available API versions: 2021-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -223,6 +235,7 @@ def get_spatial_anchors_account(account_name: Optional[str] = None,
     return AwaitableGetSpatialAnchorsAccountResult(
         account_domain=pulumi.get(__ret__, 'account_domain'),
         account_id=pulumi.get(__ret__, 'account_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -246,9 +259,9 @@ def get_spatial_anchors_account_output(account_name: Optional[pulumi.Input[str]]
 
      Retrieve a Spatial Anchors Account.
 
-    Uses Azure REST API version 2021-01-01.
+    Uses Azure REST API version 2021-03-01-preview.
 
-    Other available API versions: 2021-03-01-preview.
+    Other available API versions: 2021-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -262,6 +275,7 @@ def get_spatial_anchors_account_output(account_name: Optional[pulumi.Input[str]]
     return __ret__.apply(lambda __response__: GetSpatialAnchorsAccountResult(
         account_domain=pulumi.get(__response__, 'account_domain'),
         account_id=pulumi.get(__response__, 'account_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         kind=pulumi.get(__response__, 'kind'),

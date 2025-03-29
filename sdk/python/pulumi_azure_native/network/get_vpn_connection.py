@@ -27,7 +27,10 @@ class GetVpnConnectionResult:
     """
     VpnConnection Resource.
     """
-    def __init__(__self__, connection_bandwidth=None, connection_status=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, enable_internet_security=None, enable_rate_limiting=None, etag=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, name=None, provisioning_state=None, remote_vpn_site=None, routing_configuration=None, routing_weight=None, shared_key=None, traffic_selector_policies=None, use_local_azure_ip_address=None, use_policy_based_traffic_selectors=None, vpn_connection_protocol_type=None, vpn_link_connections=None):
+    def __init__(__self__, azure_api_version=None, connection_bandwidth=None, connection_status=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, enable_internet_security=None, enable_rate_limiting=None, etag=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, name=None, provisioning_state=None, remote_vpn_site=None, routing_configuration=None, routing_weight=None, shared_key=None, traffic_selector_policies=None, use_local_azure_ip_address=None, use_policy_based_traffic_selectors=None, vpn_connection_protocol_type=None, vpn_link_connections=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connection_bandwidth and not isinstance(connection_bandwidth, int):
             raise TypeError("Expected argument 'connection_bandwidth' to be a int")
         pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
@@ -94,6 +97,14 @@ class GetVpnConnectionResult:
         if vpn_link_connections and not isinstance(vpn_link_connections, list):
             raise TypeError("Expected argument 'vpn_link_connections' to be a list")
         pulumi.set(__self__, "vpn_link_connections", vpn_link_connections)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionBandwidth")
@@ -278,6 +289,7 @@ class AwaitableGetVpnConnectionResult(GetVpnConnectionResult):
         if False:
             yield self
         return GetVpnConnectionResult(
+            azure_api_version=self.azure_api_version,
             connection_bandwidth=self.connection_bandwidth,
             connection_status=self.connection_status,
             dpd_timeout_seconds=self.dpd_timeout_seconds,
@@ -309,9 +321,9 @@ def get_vpn_connection(connection_name: Optional[str] = None,
     """
     Retrieves the details of a vpn connection.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connection_name: The name of the vpn connection.
@@ -326,6 +338,7 @@ def get_vpn_connection(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getVpnConnection', __args__, opts=opts, typ=GetVpnConnectionResult).value
 
     return AwaitableGetVpnConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connection_bandwidth=pulumi.get(__ret__, 'connection_bandwidth'),
         connection_status=pulumi.get(__ret__, 'connection_status'),
         dpd_timeout_seconds=pulumi.get(__ret__, 'dpd_timeout_seconds'),
@@ -355,9 +368,9 @@ def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
     """
     Retrieves the details of a vpn connection.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connection_name: The name of the vpn connection.
@@ -371,6 +384,7 @@ def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVpnConnection', __args__, opts=opts, typ=GetVpnConnectionResult)
     return __ret__.apply(lambda __response__: GetVpnConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connection_bandwidth=pulumi.get(__response__, 'connection_bandwidth'),
         connection_status=pulumi.get(__response__, 'connection_status'),
         dpd_timeout_seconds=pulumi.get(__response__, 'dpd_timeout_seconds'),

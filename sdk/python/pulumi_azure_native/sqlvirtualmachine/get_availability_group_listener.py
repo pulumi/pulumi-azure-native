@@ -27,13 +27,16 @@ class GetAvailabilityGroupListenerResult:
     """
     A SQL Server availability group listener.
     """
-    def __init__(__self__, availability_group_configuration=None, availability_group_name=None, create_default_availability_group_if_not_exist=None, id=None, load_balancer_configurations=None, multi_subnet_ip_configurations=None, name=None, port=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, availability_group_configuration=None, availability_group_name=None, azure_api_version=None, create_default_availability_group_if_not_exist=None, id=None, load_balancer_configurations=None, multi_subnet_ip_configurations=None, name=None, port=None, provisioning_state=None, system_data=None, type=None):
         if availability_group_configuration and not isinstance(availability_group_configuration, dict):
             raise TypeError("Expected argument 'availability_group_configuration' to be a dict")
         pulumi.set(__self__, "availability_group_configuration", availability_group_configuration)
         if availability_group_name and not isinstance(availability_group_name, str):
             raise TypeError("Expected argument 'availability_group_name' to be a str")
         pulumi.set(__self__, "availability_group_name", availability_group_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if create_default_availability_group_if_not_exist and not isinstance(create_default_availability_group_if_not_exist, bool):
             raise TypeError("Expected argument 'create_default_availability_group_if_not_exist' to be a bool")
         pulumi.set(__self__, "create_default_availability_group_if_not_exist", create_default_availability_group_if_not_exist)
@@ -77,6 +80,14 @@ class GetAvailabilityGroupListenerResult:
         Name of the availability group.
         """
         return pulumi.get(self, "availability_group_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createDefaultAvailabilityGroupIfNotExist")
@@ -159,6 +170,7 @@ class AwaitableGetAvailabilityGroupListenerResult(GetAvailabilityGroupListenerRe
         return GetAvailabilityGroupListenerResult(
             availability_group_configuration=self.availability_group_configuration,
             availability_group_name=self.availability_group_name,
+            azure_api_version=self.azure_api_version,
             create_default_availability_group_if_not_exist=self.create_default_availability_group_if_not_exist,
             id=self.id,
             load_balancer_configurations=self.load_balancer_configurations,
@@ -178,9 +190,9 @@ def get_availability_group_listener(availability_group_listener_name: Optional[s
     """
     Gets an availability group listener.
 
-    Uses Azure REST API version 2022-02-01.
+    Uses Azure REST API version 2023-10-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-10-01.
+    Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str availability_group_listener_name: Name of the availability group listener.
@@ -199,6 +211,7 @@ def get_availability_group_listener(availability_group_listener_name: Optional[s
     return AwaitableGetAvailabilityGroupListenerResult(
         availability_group_configuration=pulumi.get(__ret__, 'availability_group_configuration'),
         availability_group_name=pulumi.get(__ret__, 'availability_group_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         create_default_availability_group_if_not_exist=pulumi.get(__ret__, 'create_default_availability_group_if_not_exist'),
         id=pulumi.get(__ret__, 'id'),
         load_balancer_configurations=pulumi.get(__ret__, 'load_balancer_configurations'),
@@ -216,9 +229,9 @@ def get_availability_group_listener_output(availability_group_listener_name: Opt
     """
     Gets an availability group listener.
 
-    Uses Azure REST API version 2022-02-01.
+    Uses Azure REST API version 2023-10-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-10-01.
+    Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str availability_group_listener_name: Name of the availability group listener.
@@ -236,6 +249,7 @@ def get_availability_group_listener_output(availability_group_listener_name: Opt
     return __ret__.apply(lambda __response__: GetAvailabilityGroupListenerResult(
         availability_group_configuration=pulumi.get(__response__, 'availability_group_configuration'),
         availability_group_name=pulumi.get(__response__, 'availability_group_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         create_default_availability_group_if_not_exist=pulumi.get(__response__, 'create_default_availability_group_if_not_exist'),
         id=pulumi.get(__response__, 'id'),
         load_balancer_configurations=pulumi.get(__response__, 'load_balancer_configurations'),

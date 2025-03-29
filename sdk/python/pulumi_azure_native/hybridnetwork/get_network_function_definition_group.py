@@ -27,7 +27,10 @@ class GetNetworkFunctionDefinitionGroupResult:
     """
     Network function definition group resource.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +52,14 @@ class GetNetworkFunctionDefinitionGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetNetworkFunctionDefinitionGroupResult(GetNetworkFunctionDefinit
         if False:
             yield self
         return GetNetworkFunctionDefinitionGroupResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -129,9 +141,9 @@ def get_network_function_definition_group(network_function_definition_group_name
     """
     Gets information about the specified networkFunctionDefinition group.
 
-    Uses Azure REST API version 2023-09-01.
+    Uses Azure REST API version 2024-04-15.
 
-    Other available API versions: 2024-04-15.
+    Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str network_function_definition_group_name: The name of the network function definition group.
@@ -146,6 +158,7 @@ def get_network_function_definition_group(network_function_definition_group_name
     __ret__ = pulumi.runtime.invoke('azure-native:hybridnetwork:getNetworkFunctionDefinitionGroup', __args__, opts=opts, typ=GetNetworkFunctionDefinitionGroupResult).value
 
     return AwaitableGetNetworkFunctionDefinitionGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -160,9 +173,9 @@ def get_network_function_definition_group_output(network_function_definition_gro
     """
     Gets information about the specified networkFunctionDefinition group.
 
-    Uses Azure REST API version 2023-09-01.
+    Uses Azure REST API version 2024-04-15.
 
-    Other available API versions: 2024-04-15.
+    Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str network_function_definition_group_name: The name of the network function definition group.
@@ -176,6 +189,7 @@ def get_network_function_definition_group_output(network_function_definition_gro
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:getNetworkFunctionDefinitionGroup', __args__, opts=opts, typ=GetNetworkFunctionDefinitionGroupResult)
     return __ret__.apply(lambda __response__: GetNetworkFunctionDefinitionGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

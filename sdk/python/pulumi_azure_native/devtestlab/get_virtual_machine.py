@@ -27,7 +27,7 @@ class GetVirtualMachineResult:
     """
     A virtual machine.
     """
-    def __init__(__self__, allow_claim=None, applicable_schedule=None, artifact_deployment_status=None, artifacts=None, compute_id=None, compute_vm=None, created_by_user=None, created_by_user_id=None, created_date=None, custom_image_id=None, data_disk_parameters=None, disallow_public_ip_address=None, environment_id=None, expiration_date=None, fqdn=None, gallery_image_reference=None, id=None, is_authentication_with_ssh_key=None, lab_subnet_name=None, lab_virtual_network_id=None, last_known_power_state=None, location=None, name=None, network_interface=None, notes=None, os_type=None, owner_object_id=None, owner_user_principal_name=None, password=None, plan_id=None, provisioning_state=None, schedule_parameters=None, size=None, ssh_key=None, storage_type=None, tags=None, type=None, unique_identifier=None, user_name=None, virtual_machine_creation_source=None):
+    def __init__(__self__, allow_claim=None, applicable_schedule=None, artifact_deployment_status=None, artifacts=None, azure_api_version=None, compute_id=None, compute_vm=None, created_by_user=None, created_by_user_id=None, created_date=None, custom_image_id=None, data_disk_parameters=None, disallow_public_ip_address=None, environment_id=None, expiration_date=None, fqdn=None, gallery_image_reference=None, id=None, is_authentication_with_ssh_key=None, lab_subnet_name=None, lab_virtual_network_id=None, last_known_power_state=None, location=None, name=None, network_interface=None, notes=None, os_type=None, owner_object_id=None, owner_user_principal_name=None, password=None, plan_id=None, provisioning_state=None, schedule_parameters=None, size=None, ssh_key=None, storage_type=None, tags=None, type=None, unique_identifier=None, user_name=None, virtual_machine_creation_source=None):
         if allow_claim and not isinstance(allow_claim, bool):
             raise TypeError("Expected argument 'allow_claim' to be a bool")
         pulumi.set(__self__, "allow_claim", allow_claim)
@@ -40,6 +40,9 @@ class GetVirtualMachineResult:
         if artifacts and not isinstance(artifacts, list):
             raise TypeError("Expected argument 'artifacts' to be a list")
         pulumi.set(__self__, "artifacts", artifacts)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if compute_id and not isinstance(compute_id, str):
             raise TypeError("Expected argument 'compute_id' to be a str")
         pulumi.set(__self__, "compute_id", compute_id)
@@ -180,6 +183,14 @@ class GetVirtualMachineResult:
         The artifacts to be installed on the virtual machine.
         """
         return pulumi.get(self, "artifacts")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="computeId")
@@ -480,6 +491,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             applicable_schedule=self.applicable_schedule,
             artifact_deployment_status=self.artifact_deployment_status,
             artifacts=self.artifacts,
+            azure_api_version=self.azure_api_version,
             compute_id=self.compute_id,
             compute_vm=self.compute_vm,
             created_by_user=self.created_by_user,
@@ -547,6 +559,7 @@ def get_virtual_machine(expand: Optional[str] = None,
         applicable_schedule=pulumi.get(__ret__, 'applicable_schedule'),
         artifact_deployment_status=pulumi.get(__ret__, 'artifact_deployment_status'),
         artifacts=pulumi.get(__ret__, 'artifacts'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         compute_id=pulumi.get(__ret__, 'compute_id'),
         compute_vm=pulumi.get(__ret__, 'compute_vm'),
         created_by_user=pulumi.get(__ret__, 'created_by_user'),
@@ -611,6 +624,7 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
         applicable_schedule=pulumi.get(__response__, 'applicable_schedule'),
         artifact_deployment_status=pulumi.get(__response__, 'artifact_deployment_status'),
         artifacts=pulumi.get(__response__, 'artifacts'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         compute_id=pulumi.get(__response__, 'compute_id'),
         compute_vm=pulumi.get(__response__, 'compute_vm'),
         created_by_user=pulumi.get(__response__, 'created_by_user'),

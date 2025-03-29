@@ -20,6 +20,8 @@ __all__ = [
     'DatabaseIdentityArgsDict',
     'DatabaseVulnerabilityAssessmentRuleBaselineItemArgs',
     'DatabaseVulnerabilityAssessmentRuleBaselineItemArgsDict',
+    'DistributedAvailabilityGroupDatabaseArgs',
+    'DistributedAvailabilityGroupDatabaseArgsDict',
     'ElasticPoolPerDatabaseSettingsArgs',
     'ElasticPoolPerDatabaseSettingsArgsDict',
     'FailoverGroupReadOnlyEndpointArgs',
@@ -30,6 +32,8 @@ __all__ = [
     'InstanceFailoverGroupReadOnlyEndpointArgsDict',
     'InstanceFailoverGroupReadWriteEndpointArgs',
     'InstanceFailoverGroupReadWriteEndpointArgsDict',
+    'JobAgentIdentityArgs',
+    'JobAgentIdentityArgsDict',
     'JobScheduleArgs',
     'JobScheduleArgsDict',
     'JobStepActionArgs',
@@ -172,9 +176,49 @@ class DatabaseVulnerabilityAssessmentRuleBaselineItemArgs:
 
 
 if not MYPY:
+    class DistributedAvailabilityGroupDatabaseArgsDict(TypedDict):
+        """
+        Database specific information
+        """
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the database in link
+        """
+elif False:
+    DistributedAvailabilityGroupDatabaseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributedAvailabilityGroupDatabaseArgs:
+    def __init__(__self__, *,
+                 database_name: Optional[pulumi.Input[str]] = None):
+        """
+        Database specific information
+        :param pulumi.Input[str] database_name: The name of the database in link
+        """
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database in link
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+
+if not MYPY:
     class ElasticPoolPerDatabaseSettingsArgsDict(TypedDict):
         """
         Per database settings of an elastic pool.
+        """
+        auto_pause_delay: NotRequired[pulumi.Input[int]]
+        """
+        Auto Pause Delay for per database within pool
         """
         max_capacity: NotRequired[pulumi.Input[float]]
         """
@@ -190,17 +234,33 @@ elif False:
 @pulumi.input_type
 class ElasticPoolPerDatabaseSettingsArgs:
     def __init__(__self__, *,
+                 auto_pause_delay: Optional[pulumi.Input[int]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None):
         """
         Per database settings of an elastic pool.
+        :param pulumi.Input[int] auto_pause_delay: Auto Pause Delay for per database within pool
         :param pulumi.Input[float] max_capacity: The maximum capacity any one database can consume.
         :param pulumi.Input[float] min_capacity: The minimum capacity all databases are guaranteed.
         """
+        if auto_pause_delay is not None:
+            pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if min_capacity is not None:
             pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @property
+    @pulumi.getter(name="autoPauseDelay")
+    def auto_pause_delay(self) -> Optional[pulumi.Input[int]]:
+        """
+        Auto Pause Delay for per database within pool
+        """
+        return pulumi.get(self, "auto_pause_delay")
+
+    @auto_pause_delay.setter
+    def auto_pause_delay(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "auto_pause_delay", value)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -236,19 +296,27 @@ if not MYPY:
         """
         Failover policy of the read-only endpoint for the failover group.
         """
+        target_server: NotRequired[pulumi.Input[str]]
+        """
+        The target partner server where the read-only endpoint points to.
+        """
 elif False:
     FailoverGroupReadOnlyEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FailoverGroupReadOnlyEndpointArgs:
     def __init__(__self__, *,
-                 failover_policy: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]] = None):
+                 failover_policy: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]] = None,
+                 target_server: Optional[pulumi.Input[str]] = None):
         """
         Read-only endpoint of the failover group instance.
         :param pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']] failover_policy: Failover policy of the read-only endpoint for the failover group.
+        :param pulumi.Input[str] target_server: The target partner server where the read-only endpoint points to.
         """
         if failover_policy is not None:
             pulumi.set(__self__, "failover_policy", failover_policy)
+        if target_server is not None:
+            pulumi.set(__self__, "target_server", target_server)
 
     @property
     @pulumi.getter(name="failoverPolicy")
@@ -261,6 +329,18 @@ class FailoverGroupReadOnlyEndpointArgs:
     @failover_policy.setter
     def failover_policy(self, value: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]]):
         pulumi.set(self, "failover_policy", value)
+
+    @property
+    @pulumi.getter(name="targetServer")
+    def target_server(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target partner server where the read-only endpoint points to.
+        """
+        return pulumi.get(self, "target_server")
+
+    @target_server.setter
+    def target_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_server", value)
 
 
 if not MYPY:
@@ -410,6 +490,81 @@ class InstanceFailoverGroupReadWriteEndpointArgs:
 
 
 if not MYPY:
+    class JobAgentIdentityArgsDict(TypedDict):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        type: pulumi.Input[Union[str, 'JobAgentIdentityType']]
+        """
+        The job agent identity type
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The job agent identity tenant id
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The resource ids of the user assigned identities to use
+        """
+elif False:
+    JobAgentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobAgentIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'JobAgentIdentityType']],
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Azure Active Directory identity configuration for a resource.
+        :param pulumi.Input[Union[str, 'JobAgentIdentityType']] type: The job agent identity type
+        :param pulumi.Input[str] tenant_id: The job agent identity tenant id
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The resource ids of the user assigned identities to use
+        """
+        pulumi.set(__self__, "type", type)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'JobAgentIdentityType']]:
+        """
+        The job agent identity type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'JobAgentIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The job agent identity tenant id
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The resource ids of the user assigned identities to use
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
     class JobScheduleArgsDict(TypedDict):
         """
         Scheduling properties of a job.
@@ -456,13 +611,13 @@ class JobScheduleArgs:
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if end_time is None:
-            end_time = '9999-12-31T11:59:59+00:00'
+            end_time = '9999-12-31T17:29:59+05:30'
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
         if start_time is None:
-            start_time = '0001-01-01T00:00:00+00:00'
+            start_time = '0001-01-01T05:30:00+05:30'
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
         if type is None:
@@ -741,10 +896,6 @@ if not MYPY:
         """
         The output configuration of a job step.
         """
-        credential: pulumi.Input[str]
-        """
-        The resource ID of the credential to use to connect to the output destination.
-        """
         database_name: pulumi.Input[str]
         """
         The output destination database.
@@ -756,6 +907,10 @@ if not MYPY:
         table_name: pulumi.Input[str]
         """
         The output destination table.
+        """
+        credential: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the credential to use to connect to the output destination.
         """
         resource_group_name: NotRequired[pulumi.Input[str]]
         """
@@ -779,29 +934,30 @@ elif False:
 @pulumi.input_type
 class JobStepOutputArgs:
     def __init__(__self__, *,
-                 credential: pulumi.Input[str],
                  database_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
                  table_name: pulumi.Input[str],
+                 credential: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'JobStepOutputType']]] = None):
         """
         The output configuration of a job step.
-        :param pulumi.Input[str] credential: The resource ID of the credential to use to connect to the output destination.
         :param pulumi.Input[str] database_name: The output destination database.
         :param pulumi.Input[str] server_name: The output destination server name.
         :param pulumi.Input[str] table_name: The output destination table.
+        :param pulumi.Input[str] credential: The resource ID of the credential to use to connect to the output destination.
         :param pulumi.Input[str] resource_group_name: The output destination resource group.
         :param pulumi.Input[str] schema_name: The output destination schema.
         :param pulumi.Input[str] subscription_id: The output destination subscription id.
         :param pulumi.Input[Union[str, 'JobStepOutputType']] type: The output destination type.
         """
-        pulumi.set(__self__, "credential", credential)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "table_name", table_name)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if schema_name is None:
@@ -814,18 +970,6 @@ class JobStepOutputArgs:
             type = 'SqlDatabase'
         if type is not None:
             pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def credential(self) -> pulumi.Input[str]:
-        """
-        The resource ID of the credential to use to connect to the output destination.
-        """
-        return pulumi.get(self, "credential")
-
-    @credential.setter
-    def credential(self, value: pulumi.Input[str]):
-        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -862,6 +1006,18 @@ class JobStepOutputArgs:
     @table_name.setter
     def table_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the credential to use to connect to the output destination.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")

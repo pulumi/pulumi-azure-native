@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Wrapper resource for tags API requests and responses.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-03-01.
  *
- * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetTagAtScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,6 +33,10 @@ export interface GetTagAtScopeArgs {
  */
 export interface GetTagAtScopeResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The ID of the tags wrapper resource.
      */
     readonly id: string;
@@ -52,9 +56,9 @@ export interface GetTagAtScopeResult {
 /**
  * Wrapper resource for tags API requests and responses.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-03-01.
  *
- * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getTagAtScopeOutput(args: GetTagAtScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagAtScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

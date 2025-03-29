@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Get the details of the specified Video Analyzer account
  *
  * Uses Azure REST API version 2021-11-01-preview.
- *
- * Other available API versions: 2021-05-01-preview.
  */
 export function getVideoAnalyzer(args: GetVideoAnalyzerArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoAnalyzerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +35,10 @@ export interface GetVideoAnalyzerArgs {
  * The Video Analyzer account.
  */
 export interface GetVideoAnalyzerResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The account encryption properties.
      */
@@ -102,8 +104,6 @@ export interface GetVideoAnalyzerResult {
  * Get the details of the specified Video Analyzer account
  *
  * Uses Azure REST API version 2021-11-01-preview.
- *
- * Other available API versions: 2021-05-01-preview.
  */
 export function getVideoAnalyzerOutput(args: GetVideoAnalyzerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVideoAnalyzerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

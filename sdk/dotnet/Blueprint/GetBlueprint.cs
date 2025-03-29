@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Blueprint
     public sealed class GetBlueprintResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Multi-line explain this resource.
         /// </summary>
         public readonly string? Description;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNative.Blueprint
 
         [OutputConstructor]
         private GetBlueprintResult(
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.Blueprint
 
             object? versions)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Id = id;

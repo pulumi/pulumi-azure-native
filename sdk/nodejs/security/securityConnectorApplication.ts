@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Security Application over a given scope
  *
- * Uses Azure REST API version 2022-07-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-07-01-preview.
+ * Uses Azure REST API version 2022-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-01-preview.
  */
 export class SecurityConnectorApplication extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityConnectorApplication.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * description of the application
      */
@@ -86,9 +90,11 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["securityConnectorName"] = args ? args.securityConnectorName : undefined;
             resourceInputs["sourceResourceType"] = args ? args.sourceResourceType : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

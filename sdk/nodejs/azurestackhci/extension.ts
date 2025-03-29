@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Details of a particular extension in HCI Cluster.
  *
- * Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01-preview.
+ * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Extension extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class Extension extends pulumi.CustomResource {
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
      */
@@ -131,6 +135,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             resourceInputs["aggregateState"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["perNodeExtensionDetails"] = undefined /*out*/;
@@ -139,6 +144,7 @@ export class Extension extends pulumi.CustomResource {
         } else {
             resourceInputs["aggregateState"] = undefined /*out*/;
             resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enableAutomaticUpgrade"] = undefined /*out*/;
             resourceInputs["forceUpdateTag"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;

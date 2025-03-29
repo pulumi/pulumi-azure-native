@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Kusto.Inputs
         public Input<string> EnginePublicIpId { get; set; } = null!;
 
         /// <summary>
+        /// When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.Kusto.VnetState>? State { get; set; }
+
+        /// <summary>
         /// The subnet resource id.
         /// </summary>
         [Input("subnetId", required: true)]
@@ -35,6 +41,7 @@ namespace Pulumi.AzureNative.Kusto.Inputs
 
         public VirtualNetworkConfigurationArgs()
         {
+            State = "Enabled";
         }
         public static new VirtualNetworkConfigurationArgs Empty => new VirtualNetworkConfigurationArgs();
     }

@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("serviceConfigurations")]
+        private InputList<Inputs.ServiceConfigurationArgs>? _serviceConfigurations;
+
+        /// <summary>
+        /// Service configurations associated with the connectivity resource. They are only processed by the server if 'enabled' property is set to 'true'.
+        /// </summary>
+        public InputList<Inputs.ServiceConfigurationArgs> ServiceConfigurations
+        {
+            get => _serviceConfigurations ?? (_serviceConfigurations = new InputList<Inputs.ServiceConfigurationArgs>());
+            set => _serviceConfigurations = value;
+        }
+
         public ArcConnectivityPropertiesArgs()
         {
         }

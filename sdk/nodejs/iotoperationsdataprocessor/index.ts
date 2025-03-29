@@ -36,13 +36,6 @@ export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
 utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
 
 
-// Export sub-modules:
-import * as v20231004preview from "./v20231004preview";
-
-export {
-    v20231004preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

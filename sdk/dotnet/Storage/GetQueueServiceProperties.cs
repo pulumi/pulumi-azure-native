@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetQueueServicePropertiesResult> InvokeAsync(GetQueueServicePropertiesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueServicePropertiesResult>("azure-native:storage:getQueueServiceProperties", args ?? new GetQueueServicePropertiesArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetQueueServicePropertiesResult> Invoke(GetQueueServicePropertiesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueServicePropertiesResult>("azure-native:storage:getQueueServiceProperties", args ?? new GetQueueServicePropertiesInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetQueueServicePropertiesResult> Invoke(GetQueueServicePropertiesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueServicePropertiesResult>("azure-native:storage:getQueueServiceProperties", args ?? new GetQueueServicePropertiesInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Storage
     public sealed class GetQueueServicePropertiesResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
         /// </summary>
         public readonly Outputs.CorsRulesResponse? Cors;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.Storage
 
         [OutputConstructor]
         private GetQueueServicePropertiesResult(
+            string azureApiVersion,
+
             Outputs.CorsRulesResponse? cors,
 
             string id,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.Storage
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Cors = cors;
             Id = id;
             Name = name;

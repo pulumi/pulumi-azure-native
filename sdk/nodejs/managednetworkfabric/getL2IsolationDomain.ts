@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Implements L2 Isolation Domain GET method.
  *
- * Uses Azure REST API version 2023-02-01-preview.
+ * Uses Azure REST API version 2023-06-15.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getL2IsolationDomain(args: GetL2IsolationDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetL2IsolationDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +24,7 @@ export function getL2IsolationDomain(args: GetL2IsolationDomainArgs, opts?: pulu
 
 export interface GetL2IsolationDomainArgs {
     /**
-     * Name of the L2 Isolation Domain
+     * Name of the L2 Isolation Domain.
      */
     l2IsolationDomainName: string;
     /**
@@ -34,11 +34,11 @@ export interface GetL2IsolationDomainArgs {
 }
 
 /**
- * The L2IsolationDomain resource definition.
+ * The L2 Isolation Domain resource definition.
  */
 export interface GetL2IsolationDomainResult {
     /**
-     * state. Example: Enabled | Disabled. It indicates administrative state of the isolationDomain, whether it is enabled or disabled. If enabled, the configuration is applied on the devices. If disabled, the configuration is removed from the devices
+     * Administrative state of the resource.
      */
     readonly administrativeState: string;
     /**
@@ -46,11 +46,15 @@ export interface GetL2IsolationDomainResult {
      */
     readonly annotation?: string;
     /**
-     * List of resources the L2 Isolation Domain is disabled on. Can be either entire NetworkFabric or NetworkRack.
+     * The Azure API version of the resource.
      */
-    readonly disabledOnResources: string[];
+    readonly azureApiVersion: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Configuration state of the resource.
+     */
+    readonly configurationState: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -58,7 +62,7 @@ export interface GetL2IsolationDomainResult {
      */
     readonly location: string;
     /**
-     * maximum transmission unit. Default value is 1500.
+     * Maximum transmission unit. Default value is 1500.
      */
     readonly mtu?: number;
     /**
@@ -66,11 +70,11 @@ export interface GetL2IsolationDomainResult {
      */
     readonly name: string;
     /**
-     * Network Fabric ARM resource id.
+     * ARM Resource ID of the Network Fabric.
      */
     readonly networkFabricId: string;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**
@@ -86,16 +90,16 @@ export interface GetL2IsolationDomainResult {
      */
     readonly type: string;
     /**
-     * vlanId. Example: 501.
+     * Vlan Identifier of the Network Fabric. Example: 501.
      */
     readonly vlanId: number;
 }
 /**
  * Implements L2 Isolation Domain GET method.
  *
- * Uses Azure REST API version 2023-02-01-preview.
+ * Uses Azure REST API version 2023-06-15.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getL2IsolationDomainOutput(args: GetL2IsolationDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL2IsolationDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,7 +111,7 @@ export function getL2IsolationDomainOutput(args: GetL2IsolationDomainOutputArgs,
 
 export interface GetL2IsolationDomainOutputArgs {
     /**
-     * Name of the L2 Isolation Domain
+     * Name of the L2 Isolation Domain.
      */
     l2IsolationDomainName: pulumi.Input<string>;
     /**

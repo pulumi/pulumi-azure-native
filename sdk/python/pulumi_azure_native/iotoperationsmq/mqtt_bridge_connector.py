@@ -268,7 +268,7 @@ class MqttBridgeConnector(pulumi.CustomResource):
         """
         MQ mqttBridgeConnector resource
 
-        Uses Azure REST API version 2023-10-04-preview.
+        Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -296,7 +296,7 @@ class MqttBridgeConnector(pulumi.CustomResource):
         """
         MQ mqttBridgeConnector resource
 
-        Uses Azure REST API version 2023-10-04-preview.
+        Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param MqttBridgeConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -362,6 +362,7 @@ class MqttBridgeConnector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -390,6 +391,7 @@ class MqttBridgeConnector(pulumi.CustomResource):
 
         __props__ = MqttBridgeConnectorArgs.__new__(MqttBridgeConnectorArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["bridge_instances"] = None
         __props__.__dict__["client_id_prefix"] = None
         __props__.__dict__["extended_location"] = None
@@ -406,6 +408,14 @@ class MqttBridgeConnector(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return MqttBridgeConnector(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bridgeInstances")

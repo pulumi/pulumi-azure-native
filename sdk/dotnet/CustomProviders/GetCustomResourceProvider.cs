@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.CustomProviders
         /// </summary>
         public readonly ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponse> Actions;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.CustomProviders
         private GetCustomResourceProviderResult(
             ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponse> actions,
 
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.CustomProviders
             ImmutableArray<Outputs.CustomRPValidationsResponse> validations)
         {
             Actions = actions;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
  *
- * Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+ * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
- * Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01.
+ * Other available API versions: 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
@@ -41,6 +41,14 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === MaintenanceConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Maintenance window for the maintenance configuration.
+     */
+    public readonly maintenanceWindow!: pulumi.Output<outputs.containerservice.MaintenanceWindowResponse | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -80,14 +88,18 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             resourceInputs["configName"] = args ? args.configName : undefined;
+            resourceInputs["maintenanceWindow"] = args ? (args.maintenanceWindow ? pulumi.output(args.maintenanceWindow).apply(inputs.containerservice.maintenanceWindowArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["notAllowedTime"] = args ? args.notAllowedTime : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["timeInWeek"] = args ? args.timeInWeek : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["maintenanceWindow"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notAllowedTime"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -109,6 +121,10 @@ export interface MaintenanceConfigurationArgs {
      * The name of the maintenance configuration.
      */
     configName?: pulumi.Input<string>;
+    /**
+     * Maintenance window for the maintenance configuration.
+     */
+    maintenanceWindow?: pulumi.Input<inputs.containerservice.MaintenanceWindowArgs>;
     /**
      * Time slots on which upgrade is not allowed.
      */

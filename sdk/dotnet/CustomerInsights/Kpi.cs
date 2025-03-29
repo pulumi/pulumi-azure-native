@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.CustomerInsights
     /// <summary>
     /// The KPI resource format.
     /// 
-    /// Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
+    /// Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:Kpi")]
     public partial class Kpi : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         [Output("aliases")]
         public Output<ImmutableArray<Outputs.KpiAliasResponse>> Aliases { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The calculation window.

@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+ * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly attachedTo!: pulumi.Output<string[]>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The more detailed status of the volume.
      */
     public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
@@ -51,6 +55,10 @@ export class Volume extends pulumi.CustomResource {
      * The descriptive message about the current detailed status.
      */
     public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
+    /**
+     * Resource ETag.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -115,8 +123,10 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
             resourceInputs["attachedTo"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serialNumber"] = undefined /*out*/;
@@ -124,8 +134,10 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["attachedTo"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

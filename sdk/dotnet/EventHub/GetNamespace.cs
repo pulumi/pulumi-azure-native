@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the description of the specified namespace.
         /// 
-        /// Uses Azure REST API version 2022-10-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:eventhub:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the description of the specified namespace.
         /// 
-        /// Uses Azure REST API version 2022-10-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:eventhub:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the description of the specified namespace.
         /// 
-        /// Uses Azure REST API version 2022-10-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:eventhub:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.EventHub
         /// Alternate name specified when alias and namespace names are same.
         /// </summary>
         public readonly string? AlternateName;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Cluster ARM ID of the Namespace.
         /// </summary>
@@ -192,6 +196,8 @@ namespace Pulumi.AzureNative.EventHub
         private GetNamespaceResult(
             string? alternateName,
 
+            string azureApiVersion,
+
             string? clusterArmId,
 
             string createdAt,
@@ -241,6 +247,7 @@ namespace Pulumi.AzureNative.EventHub
             bool? zoneRedundant)
         {
             AlternateName = alternateName;
+            AzureApiVersion = azureApiVersion;
             ClusterArmId = clusterArmId;
             CreatedAt = createdAt;
             DisableLocalAuth = disableLocalAuth;

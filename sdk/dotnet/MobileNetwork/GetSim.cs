@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified SIM.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSimResult> InvokeAsync(GetSimArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSimResult>("azure-native:mobilenetwork:getSim", args ?? new GetSimArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified SIM.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSimResult> Invoke(GetSimInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSimResult>("azure-native:mobilenetwork:getSim", args ?? new GetSimInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified SIM.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSimResult> Invoke(GetSimInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSimResult>("azure-native:mobilenetwork:getSim", args ?? new GetSimInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class GetSimResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
         /// </summary>
         public readonly string? DeviceType;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
         [OutputConstructor]
         private GetSimResult(
+            string azureApiVersion,
+
             string? deviceType,
 
             string id,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string vendorName)
         {
+            AzureApiVersion = azureApiVersion;
             DeviceType = deviceType;
             Id = id;
             IntegratedCircuitCardIdentifier = integratedCircuitCardIdentifier;

@@ -10,11 +10,3 @@ from .discount import *
 from .get_discount import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.billingbenefits.v20241101preview as __v20241101preview
-    v20241101preview = __v20241101preview
-else:
-    v20241101preview = _utilities.lazy_import('pulumi_azure_native.billingbenefits.v20241101preview')
-

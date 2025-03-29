@@ -26,10 +26,14 @@ class ManagedInstanceArgs:
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  administrators: Optional[pulumi.Input['ManagedInstanceExternalAdministratorArgs']] = None,
+                 authentication_metadata: Optional[pulumi.Input[Union[str, 'AuthMetadataLookupModes']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
+                 database_format: Optional[pulumi.Input[Union[str, 'ManagedInstanceDatabaseFormat']]] = None,
                  dns_zone_partner: Optional[pulumi.Input[str]] = None,
+                 hybrid_secondary_usage: Optional[pulumi.Input[Union[str, 'HybridSecondaryUsage']]] = None,
                  identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
                  instance_pool_id: Optional[pulumi.Input[str]] = None,
+                 is_general_purpose_v2: Optional[pulumi.Input[bool]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ManagedInstanceLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -37,6 +41,7 @@ class ManagedInstanceArgs:
                  managed_instance_create_mode: Optional[pulumi.Input[Union[str, 'ManagedServerCreateMode']]] = None,
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
+                 pricing_model: Optional[pulumi.Input[Union[str, 'PricingModel']]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  proxy_override: Optional[pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
@@ -45,7 +50,9 @@ class ManagedInstanceArgs:
                  service_principal: Optional[pulumi.Input['ServicePrincipalArgs']] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  source_managed_instance_id: Optional[pulumi.Input[str]] = None,
+                 storage_i_ops: Optional[pulumi.Input[int]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
+                 storage_throughput_m_bps: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone_id: Optional[pulumi.Input[str]] = None,
@@ -56,11 +63,15 @@ class ManagedInstanceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] administrator_login: Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for managed instance creation).
-        :param pulumi.Input['ManagedInstanceExternalAdministratorArgs'] administrators: The Azure Active Directory administrator of the server.
+        :param pulumi.Input['ManagedInstanceExternalAdministratorArgs'] administrators: The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
+        :param pulumi.Input[Union[str, 'AuthMetadataLookupModes']] authentication_metadata: The managed instance's authentication metadata lookup mode.
         :param pulumi.Input[str] collation: Collation of the managed instance.
+        :param pulumi.Input[Union[str, 'ManagedInstanceDatabaseFormat']] database_format: Specifies the internal format of instance databases specific to the SQL engine version.
         :param pulumi.Input[str] dns_zone_partner: The resource id of another managed instance whose DNS zone this managed instance will share after creation.
+        :param pulumi.Input[Union[str, 'HybridSecondaryUsage']] hybrid_secondary_usage: Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
         :param pulumi.Input['ResourceIdentityArgs'] identity: The Azure Active Directory identity of the managed instance.
         :param pulumi.Input[str] instance_pool_id: The Id of the instance pool this managed server belongs to.
+        :param pulumi.Input[bool] is_general_purpose_v2: Whether or not this is a GPv2 variant of General Purpose edition.
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[Union[str, 'ManagedInstanceLicenseType']] license_type: The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
         :param pulumi.Input[str] location: Resource location.
@@ -72,6 +83,7 @@ class ManagedInstanceArgs:
                Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
         :param pulumi.Input[str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+        :param pulumi.Input[Union[str, 'PricingModel']] pricing_model: Pricing model of Managed Instance.
         :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
         :param pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']] proxy_override: Connection type used for connecting to the instance.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Whether or not the public data endpoint is enabled.
@@ -80,7 +92,9 @@ class ManagedInstanceArgs:
         :param pulumi.Input['ServicePrincipalArgs'] service_principal: The managed instance's service principal.
         :param pulumi.Input['SkuArgs'] sku: Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         :param pulumi.Input[str] source_managed_instance_id: The resource identifier of the source managed instance associated with create operation of this instance.
+        :param pulumi.Input[int] storage_i_ops: Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
         :param pulumi.Input[int] storage_size_in_gb: Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        :param pulumi.Input[int] storage_throughput_m_bps: Storage throughput MBps parameter is not supported in the instance create/update operation.
         :param pulumi.Input[str] subnet_id: Subnet resource ID for the managed instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] timezone_id: Id of the timezone. Allowed values are timezones supported by Windows.
@@ -99,14 +113,22 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         if administrators is not None:
             pulumi.set(__self__, "administrators", administrators)
+        if authentication_metadata is not None:
+            pulumi.set(__self__, "authentication_metadata", authentication_metadata)
         if collation is not None:
             pulumi.set(__self__, "collation", collation)
+        if database_format is not None:
+            pulumi.set(__self__, "database_format", database_format)
         if dns_zone_partner is not None:
             pulumi.set(__self__, "dns_zone_partner", dns_zone_partner)
+        if hybrid_secondary_usage is not None:
+            pulumi.set(__self__, "hybrid_secondary_usage", hybrid_secondary_usage)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if instance_pool_id is not None:
             pulumi.set(__self__, "instance_pool_id", instance_pool_id)
+        if is_general_purpose_v2 is not None:
+            pulumi.set(__self__, "is_general_purpose_v2", is_general_purpose_v2)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
         if license_type is not None:
@@ -121,6 +143,8 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "managed_instance_name", managed_instance_name)
         if minimal_tls_version is not None:
             pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
+        if pricing_model is not None:
+            pulumi.set(__self__, "pricing_model", pricing_model)
         if primary_user_assigned_identity_id is not None:
             pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
         if proxy_override is not None:
@@ -137,8 +161,12 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "sku", sku)
         if source_managed_instance_id is not None:
             pulumi.set(__self__, "source_managed_instance_id", source_managed_instance_id)
+        if storage_i_ops is not None:
+            pulumi.set(__self__, "storage_i_ops", storage_i_ops)
         if storage_size_in_gb is not None:
             pulumi.set(__self__, "storage_size_in_gb", storage_size_in_gb)
+        if storage_throughput_m_bps is not None:
+            pulumi.set(__self__, "storage_throughput_m_bps", storage_throughput_m_bps)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
@@ -190,13 +218,25 @@ class ManagedInstanceArgs:
     @pulumi.getter
     def administrators(self) -> Optional[pulumi.Input['ManagedInstanceExternalAdministratorArgs']]:
         """
-        The Azure Active Directory administrator of the server.
+        The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         """
         return pulumi.get(self, "administrators")
 
     @administrators.setter
     def administrators(self, value: Optional[pulumi.Input['ManagedInstanceExternalAdministratorArgs']]):
         pulumi.set(self, "administrators", value)
+
+    @property
+    @pulumi.getter(name="authenticationMetadata")
+    def authentication_metadata(self) -> Optional[pulumi.Input[Union[str, 'AuthMetadataLookupModes']]]:
+        """
+        The managed instance's authentication metadata lookup mode.
+        """
+        return pulumi.get(self, "authentication_metadata")
+
+    @authentication_metadata.setter
+    def authentication_metadata(self, value: Optional[pulumi.Input[Union[str, 'AuthMetadataLookupModes']]]):
+        pulumi.set(self, "authentication_metadata", value)
 
     @property
     @pulumi.getter
@@ -211,6 +251,18 @@ class ManagedInstanceArgs:
         pulumi.set(self, "collation", value)
 
     @property
+    @pulumi.getter(name="databaseFormat")
+    def database_format(self) -> Optional[pulumi.Input[Union[str, 'ManagedInstanceDatabaseFormat']]]:
+        """
+        Specifies the internal format of instance databases specific to the SQL engine version.
+        """
+        return pulumi.get(self, "database_format")
+
+    @database_format.setter
+    def database_format(self, value: Optional[pulumi.Input[Union[str, 'ManagedInstanceDatabaseFormat']]]):
+        pulumi.set(self, "database_format", value)
+
+    @property
     @pulumi.getter(name="dnsZonePartner")
     def dns_zone_partner(self) -> Optional[pulumi.Input[str]]:
         """
@@ -221,6 +273,18 @@ class ManagedInstanceArgs:
     @dns_zone_partner.setter
     def dns_zone_partner(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_zone_partner", value)
+
+    @property
+    @pulumi.getter(name="hybridSecondaryUsage")
+    def hybrid_secondary_usage(self) -> Optional[pulumi.Input[Union[str, 'HybridSecondaryUsage']]]:
+        """
+        Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
+        """
+        return pulumi.get(self, "hybrid_secondary_usage")
+
+    @hybrid_secondary_usage.setter
+    def hybrid_secondary_usage(self, value: Optional[pulumi.Input[Union[str, 'HybridSecondaryUsage']]]):
+        pulumi.set(self, "hybrid_secondary_usage", value)
 
     @property
     @pulumi.getter
@@ -245,6 +309,18 @@ class ManagedInstanceArgs:
     @instance_pool_id.setter
     def instance_pool_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_pool_id", value)
+
+    @property
+    @pulumi.getter(name="isGeneralPurposeV2")
+    def is_general_purpose_v2(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not this is a GPv2 variant of General Purpose edition.
+        """
+        return pulumi.get(self, "is_general_purpose_v2")
+
+    @is_general_purpose_v2.setter
+    def is_general_purpose_v2(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_general_purpose_v2", value)
 
     @property
     @pulumi.getter(name="keyId")
@@ -333,6 +409,18 @@ class ManagedInstanceArgs:
     @minimal_tls_version.setter
     def minimal_tls_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "minimal_tls_version", value)
+
+    @property
+    @pulumi.getter(name="pricingModel")
+    def pricing_model(self) -> Optional[pulumi.Input[Union[str, 'PricingModel']]]:
+        """
+        Pricing model of Managed Instance.
+        """
+        return pulumi.get(self, "pricing_model")
+
+    @pricing_model.setter
+    def pricing_model(self, value: Optional[pulumi.Input[Union[str, 'PricingModel']]]):
+        pulumi.set(self, "pricing_model", value)
 
     @property
     @pulumi.getter(name="primaryUserAssignedIdentityId")
@@ -431,6 +519,18 @@ class ManagedInstanceArgs:
         pulumi.set(self, "source_managed_instance_id", value)
 
     @property
+    @pulumi.getter(name="storageIOps")
+    def storage_i_ops(self) -> Optional[pulumi.Input[int]]:
+        """
+        Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        """
+        return pulumi.get(self, "storage_i_ops")
+
+    @storage_i_ops.setter
+    def storage_i_ops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_i_ops", value)
+
+    @property
     @pulumi.getter(name="storageSizeInGB")
     def storage_size_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
@@ -441,6 +541,18 @@ class ManagedInstanceArgs:
     @storage_size_in_gb.setter
     def storage_size_in_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "storage_size_in_gb", value)
+
+    @property
+    @pulumi.getter(name="storageThroughputMBps")
+    def storage_throughput_m_bps(self) -> Optional[pulumi.Input[int]]:
+        """
+        Storage throughput MBps parameter is not supported in the instance create/update operation.
+        """
+        return pulumi.get(self, "storage_throughput_m_bps")
+
+    @storage_throughput_m_bps.setter
+    def storage_throughput_m_bps(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_throughput_m_bps", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -516,10 +628,14 @@ class ManagedInstance(pulumi.CustomResource):
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  administrators: Optional[pulumi.Input[Union['ManagedInstanceExternalAdministratorArgs', 'ManagedInstanceExternalAdministratorArgsDict']]] = None,
+                 authentication_metadata: Optional[pulumi.Input[Union[str, 'AuthMetadataLookupModes']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
+                 database_format: Optional[pulumi.Input[Union[str, 'ManagedInstanceDatabaseFormat']]] = None,
                  dns_zone_partner: Optional[pulumi.Input[str]] = None,
+                 hybrid_secondary_usage: Optional[pulumi.Input[Union[str, 'HybridSecondaryUsage']]] = None,
                  identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  instance_pool_id: Optional[pulumi.Input[str]] = None,
+                 is_general_purpose_v2: Optional[pulumi.Input[bool]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ManagedInstanceLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -527,6 +643,7 @@ class ManagedInstance(pulumi.CustomResource):
                  managed_instance_create_mode: Optional[pulumi.Input[Union[str, 'ManagedServerCreateMode']]] = None,
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
+                 pricing_model: Optional[pulumi.Input[Union[str, 'PricingModel']]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  proxy_override: Optional[pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
@@ -536,7 +653,9 @@ class ManagedInstance(pulumi.CustomResource):
                  service_principal: Optional[pulumi.Input[Union['ServicePrincipalArgs', 'ServicePrincipalArgsDict']]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_managed_instance_id: Optional[pulumi.Input[str]] = None,
+                 storage_i_ops: Optional[pulumi.Input[int]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
+                 storage_throughput_m_bps: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone_id: Optional[pulumi.Input[str]] = None,
@@ -546,19 +665,23 @@ class ManagedInstance(pulumi.CustomResource):
         """
         An Azure SQL managed instance.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2015-05-01-preview, 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for managed instance creation).
-        :param pulumi.Input[Union['ManagedInstanceExternalAdministratorArgs', 'ManagedInstanceExternalAdministratorArgsDict']] administrators: The Azure Active Directory administrator of the server.
+        :param pulumi.Input[Union['ManagedInstanceExternalAdministratorArgs', 'ManagedInstanceExternalAdministratorArgsDict']] administrators: The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
+        :param pulumi.Input[Union[str, 'AuthMetadataLookupModes']] authentication_metadata: The managed instance's authentication metadata lookup mode.
         :param pulumi.Input[str] collation: Collation of the managed instance.
+        :param pulumi.Input[Union[str, 'ManagedInstanceDatabaseFormat']] database_format: Specifies the internal format of instance databases specific to the SQL engine version.
         :param pulumi.Input[str] dns_zone_partner: The resource id of another managed instance whose DNS zone this managed instance will share after creation.
+        :param pulumi.Input[Union[str, 'HybridSecondaryUsage']] hybrid_secondary_usage: Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
         :param pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']] identity: The Azure Active Directory identity of the managed instance.
         :param pulumi.Input[str] instance_pool_id: The Id of the instance pool this managed server belongs to.
+        :param pulumi.Input[bool] is_general_purpose_v2: Whether or not this is a GPv2 variant of General Purpose edition.
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[Union[str, 'ManagedInstanceLicenseType']] license_type: The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
         :param pulumi.Input[str] location: Resource location.
@@ -570,6 +693,7 @@ class ManagedInstance(pulumi.CustomResource):
                Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
         :param pulumi.Input[str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+        :param pulumi.Input[Union[str, 'PricingModel']] pricing_model: Pricing model of Managed Instance.
         :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
         :param pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']] proxy_override: Connection type used for connecting to the instance.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Whether or not the public data endpoint is enabled.
@@ -579,7 +703,9 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[Union['ServicePrincipalArgs', 'ServicePrincipalArgsDict']] service_principal: The managed instance's service principal.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         :param pulumi.Input[str] source_managed_instance_id: The resource identifier of the source managed instance associated with create operation of this instance.
+        :param pulumi.Input[int] storage_i_ops: Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
         :param pulumi.Input[int] storage_size_in_gb: Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        :param pulumi.Input[int] storage_throughput_m_bps: Storage throughput MBps parameter is not supported in the instance create/update operation.
         :param pulumi.Input[str] subnet_id: Subnet resource ID for the managed instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] timezone_id: Id of the timezone. Allowed values are timezones supported by Windows.
@@ -600,9 +726,9 @@ class ManagedInstance(pulumi.CustomResource):
         """
         An Azure SQL managed instance.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2015-05-01-preview, 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -622,10 +748,14 @@ class ManagedInstance(pulumi.CustomResource):
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  administrators: Optional[pulumi.Input[Union['ManagedInstanceExternalAdministratorArgs', 'ManagedInstanceExternalAdministratorArgsDict']]] = None,
+                 authentication_metadata: Optional[pulumi.Input[Union[str, 'AuthMetadataLookupModes']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
+                 database_format: Optional[pulumi.Input[Union[str, 'ManagedInstanceDatabaseFormat']]] = None,
                  dns_zone_partner: Optional[pulumi.Input[str]] = None,
+                 hybrid_secondary_usage: Optional[pulumi.Input[Union[str, 'HybridSecondaryUsage']]] = None,
                  identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  instance_pool_id: Optional[pulumi.Input[str]] = None,
+                 is_general_purpose_v2: Optional[pulumi.Input[bool]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ManagedInstanceLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -633,6 +763,7 @@ class ManagedInstance(pulumi.CustomResource):
                  managed_instance_create_mode: Optional[pulumi.Input[Union[str, 'ManagedServerCreateMode']]] = None,
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
+                 pricing_model: Optional[pulumi.Input[Union[str, 'PricingModel']]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  proxy_override: Optional[pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
@@ -642,7 +773,9 @@ class ManagedInstance(pulumi.CustomResource):
                  service_principal: Optional[pulumi.Input[Union['ServicePrincipalArgs', 'ServicePrincipalArgsDict']]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_managed_instance_id: Optional[pulumi.Input[str]] = None,
+                 storage_i_ops: Optional[pulumi.Input[int]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
+                 storage_throughput_m_bps: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone_id: Optional[pulumi.Input[str]] = None,
@@ -660,10 +793,14 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_login_password"] = administrator_login_password
             __props__.__dict__["administrators"] = administrators
+            __props__.__dict__["authentication_metadata"] = authentication_metadata
             __props__.__dict__["collation"] = collation
+            __props__.__dict__["database_format"] = database_format
             __props__.__dict__["dns_zone_partner"] = dns_zone_partner
+            __props__.__dict__["hybrid_secondary_usage"] = hybrid_secondary_usage
             __props__.__dict__["identity"] = identity
             __props__.__dict__["instance_pool_id"] = instance_pool_id
+            __props__.__dict__["is_general_purpose_v2"] = is_general_purpose_v2
             __props__.__dict__["key_id"] = key_id
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
@@ -671,6 +808,7 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["managed_instance_create_mode"] = managed_instance_create_mode
             __props__.__dict__["managed_instance_name"] = managed_instance_name
             __props__.__dict__["minimal_tls_version"] = minimal_tls_version
+            __props__.__dict__["pricing_model"] = pricing_model
             __props__.__dict__["primary_user_assigned_identity_id"] = primary_user_assigned_identity_id
             __props__.__dict__["proxy_override"] = proxy_override
             __props__.__dict__["public_data_endpoint_enabled"] = public_data_endpoint_enabled
@@ -682,20 +820,27 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["service_principal"] = service_principal
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_managed_instance_id"] = source_managed_instance_id
+            __props__.__dict__["storage_i_ops"] = storage_i_ops
             __props__.__dict__["storage_size_in_gb"] = storage_size_in_gb
+            __props__.__dict__["storage_throughput_m_bps"] = storage_throughput_m_bps
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timezone_id"] = timezone_id
             __props__.__dict__["v_cores"] = v_cores
             __props__.__dict__["zone_redundant"] = zone_redundant
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["create_time"] = None
             __props__.__dict__["current_backup_storage_redundancy"] = None
             __props__.__dict__["dns_zone"] = None
+            __props__.__dict__["external_governance_status"] = None
             __props__.__dict__["fully_qualified_domain_name"] = None
+            __props__.__dict__["hybrid_secondary_usage_detected"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["virtual_cluster_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20150501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20230201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20230501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20230801:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20230801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20240501preview:ManagedInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstance, __self__).__init__(
@@ -722,18 +867,27 @@ class ManagedInstance(pulumi.CustomResource):
 
         __props__.__dict__["administrator_login"] = None
         __props__.__dict__["administrators"] = None
+        __props__.__dict__["authentication_metadata"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["collation"] = None
+        __props__.__dict__["create_time"] = None
         __props__.__dict__["current_backup_storage_redundancy"] = None
+        __props__.__dict__["database_format"] = None
         __props__.__dict__["dns_zone"] = None
+        __props__.__dict__["external_governance_status"] = None
         __props__.__dict__["fully_qualified_domain_name"] = None
+        __props__.__dict__["hybrid_secondary_usage"] = None
+        __props__.__dict__["hybrid_secondary_usage_detected"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["instance_pool_id"] = None
+        __props__.__dict__["is_general_purpose_v2"] = None
         __props__.__dict__["key_id"] = None
         __props__.__dict__["license_type"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["maintenance_configuration_id"] = None
         __props__.__dict__["minimal_tls_version"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["pricing_model"] = None
         __props__.__dict__["primary_user_assigned_identity_id"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -743,12 +897,15 @@ class ManagedInstance(pulumi.CustomResource):
         __props__.__dict__["service_principal"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["state"] = None
+        __props__.__dict__["storage_i_ops"] = None
         __props__.__dict__["storage_size_in_gb"] = None
+        __props__.__dict__["storage_throughput_m_bps"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["timezone_id"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["v_cores"] = None
+        __props__.__dict__["virtual_cluster_id"] = None
         __props__.__dict__["zone_redundant"] = None
         return ManagedInstance(resource_name, opts=opts, __props__=__props__)
 
@@ -764,9 +921,25 @@ class ManagedInstance(pulumi.CustomResource):
     @pulumi.getter
     def administrators(self) -> pulumi.Output[Optional['outputs.ManagedInstanceExternalAdministratorResponse']]:
         """
-        The Azure Active Directory administrator of the server.
+        The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         """
         return pulumi.get(self, "administrators")
+
+    @property
+    @pulumi.getter(name="authenticationMetadata")
+    def authentication_metadata(self) -> pulumi.Output[Optional[str]]:
+        """
+        The managed instance's authentication metadata lookup mode.
+        """
+        return pulumi.get(self, "authentication_metadata")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -777,12 +950,28 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "collation")
 
     @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> pulumi.Output[str]:
+        """
+        Specifies the point in time (ISO8601 format) of the Managed Instance creation.
+        """
+        return pulumi.get(self, "create_time")
+
+    @property
     @pulumi.getter(name="currentBackupStorageRedundancy")
     def current_backup_storage_redundancy(self) -> pulumi.Output[str]:
         """
         The storage account type used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
         """
         return pulumi.get(self, "current_backup_storage_redundancy")
+
+    @property
+    @pulumi.getter(name="databaseFormat")
+    def database_format(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the internal format of instance databases specific to the SQL engine version.
+        """
+        return pulumi.get(self, "database_format")
 
     @property
     @pulumi.getter(name="dnsZone")
@@ -793,12 +982,36 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "dns_zone")
 
     @property
+    @pulumi.getter(name="externalGovernanceStatus")
+    def external_governance_status(self) -> pulumi.Output[str]:
+        """
+        Status of external governance.
+        """
+        return pulumi.get(self, "external_governance_status")
+
+    @property
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> pulumi.Output[str]:
         """
         The fully qualified domain name of the managed instance.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
+
+    @property
+    @pulumi.getter(name="hybridSecondaryUsage")
+    def hybrid_secondary_usage(self) -> pulumi.Output[Optional[str]]:
+        """
+        Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
+        """
+        return pulumi.get(self, "hybrid_secondary_usage")
+
+    @property
+    @pulumi.getter(name="hybridSecondaryUsageDetected")
+    def hybrid_secondary_usage_detected(self) -> pulumi.Output[str]:
+        """
+        Hybrid secondary usage detected. Possible values are 'Active' (customer does not meet the requirements to use the secondary as Passive DR) and 'Passive' (customer meets the requirements to use the secondary as Passive DR).
+        """
+        return pulumi.get(self, "hybrid_secondary_usage_detected")
 
     @property
     @pulumi.getter
@@ -815,6 +1028,14 @@ class ManagedInstance(pulumi.CustomResource):
         The Id of the instance pool this managed server belongs to.
         """
         return pulumi.get(self, "instance_pool_id")
+
+    @property
+    @pulumi.getter(name="isGeneralPurposeV2")
+    def is_general_purpose_v2(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not this is a GPv2 variant of General Purpose edition.
+        """
+        return pulumi.get(self, "is_general_purpose_v2")
 
     @property
     @pulumi.getter(name="keyId")
@@ -865,6 +1086,14 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="pricingModel")
+    def pricing_model(self) -> pulumi.Output[Optional[str]]:
+        """
+        Pricing model of Managed Instance.
+        """
+        return pulumi.get(self, "pricing_model")
+
+    @property
     @pulumi.getter(name="primaryUserAssignedIdentityId")
     def primary_user_assigned_identity_id(self) -> pulumi.Output[Optional[str]]:
         """
@@ -883,6 +1112,9 @@ class ManagedInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        Provisioning state of managed instance.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -934,12 +1166,28 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "state")
 
     @property
+    @pulumi.getter(name="storageIOps")
+    def storage_i_ops(self) -> pulumi.Output[Optional[int]]:
+        """
+        Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        """
+        return pulumi.get(self, "storage_i_ops")
+
+    @property
     @pulumi.getter(name="storageSizeInGB")
     def storage_size_in_gb(self) -> pulumi.Output[Optional[int]]:
         """
         Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
         """
         return pulumi.get(self, "storage_size_in_gb")
+
+    @property
+    @pulumi.getter(name="storageThroughputMBps")
+    def storage_throughput_m_bps(self) -> pulumi.Output[Optional[int]]:
+        """
+        Storage throughput MBps parameter is not supported in the instance create/update operation.
+        """
+        return pulumi.get(self, "storage_throughput_m_bps")
 
     @property
     @pulumi.getter(name="subnetId")
@@ -985,6 +1233,14 @@ class ManagedInstance(pulumi.CustomResource):
         The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
         """
         return pulumi.get(self, "v_cores")
+
+    @property
+    @pulumi.getter(name="virtualClusterId")
+    def virtual_cluster_id(self) -> pulumi.Output[str]:
+        """
+        Virtual cluster resource id for the Managed Instance.
+        """
+        return pulumi.get(self, "virtual_cluster_id")
 
     @property
     @pulumi.getter(name="zoneRedundant")

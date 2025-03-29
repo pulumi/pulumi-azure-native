@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// Get details of the specified volume group
         /// 
-        /// Uses Azure REST API version 2022-11-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2021-10-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        /// Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVolumeGroupResult> InvokeAsync(GetVolumeGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupResult>("azure-native:netapp:getVolumeGroup", args ?? new GetVolumeGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// Get details of the specified volume group
         /// 
-        /// Uses Azure REST API version 2022-11-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2021-10-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        /// Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupResult>("azure-native:netapp:getVolumeGroup", args ?? new GetVolumeGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// Get details of the specified volume group
         /// 
-        /// Uses Azure REST API version 2022-11-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// 
-        /// Other available API versions: 2021-10-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        /// Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupResult>("azure-native:netapp:getVolumeGroup", args ?? new GetVolumeGroupInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.NetApp
     public sealed class GetVolumeGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Volume group details
         /// </summary>
         public readonly Outputs.VolumeGroupMetaDataResponse? GroupMetaData;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.NetApp
 
         [OutputConstructor]
         private GetVolumeGroupResult(
+            string azureApiVersion,
+
             Outputs.VolumeGroupMetaDataResponse? groupMetaData,
 
             string id,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.NetApp
 
             ImmutableArray<Outputs.VolumeGroupVolumePropertiesResponse> volumes)
         {
+            AzureApiVersion = azureApiVersion;
             GroupMetaData = groupMetaData;
             Id = id;
             Location = location;

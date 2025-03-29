@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Container App Job
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:app:getJob", args ?? new GetJobArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Container App Job
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:app:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Container App Job
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:app:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.App
     [OutputType]
     public sealed class GetJobResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Container Apps Job configuration properties.
         /// </summary>
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNative.App
 
         [OutputConstructor]
         private GetJobResult(
+            string azureApiVersion,
+
             Outputs.JobConfigurationResponse? configuration,
 
             string? environmentId,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.App
 
             string? workloadProfileName)
         {
+            AzureApiVersion = azureApiVersion;
             Configuration = configuration;
             EnvironmentId = environmentId;
             EventStreamEndpoint = eventStreamEndpoint;

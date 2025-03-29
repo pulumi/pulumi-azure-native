@@ -26,7 +26,10 @@ class GetOpenIdConnectProviderResult:
     """
     OpenId Connect Provider details.
     """
-    def __init__(__self__, client_id=None, client_secret=None, description=None, display_name=None, id=None, metadata_endpoint=None, name=None, type=None, use_in_api_documentation=None, use_in_test_console=None):
+    def __init__(__self__, azure_api_version=None, client_id=None, client_secret=None, description=None, display_name=None, id=None, metadata_endpoint=None, name=None, type=None, use_in_api_documentation=None, use_in_test_console=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         pulumi.set(__self__, "client_id", client_id)
@@ -57,6 +60,14 @@ class GetOpenIdConnectProviderResult:
         if use_in_test_console and not isinstance(use_in_test_console, bool):
             raise TypeError("Expected argument 'use_in_test_console' to be a bool")
         pulumi.set(__self__, "use_in_test_console", use_in_test_console)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientId")
@@ -145,6 +156,7 @@ class AwaitableGetOpenIdConnectProviderResult(GetOpenIdConnectProviderResult):
         if False:
             yield self
         return GetOpenIdConnectProviderResult(
+            azure_api_version=self.azure_api_version,
             client_id=self.client_id,
             client_secret=self.client_secret,
             description=self.description,
@@ -164,9 +176,9 @@ def get_open_id_connect_provider(opid: Optional[str] = None,
     """
     Gets specific OpenID Connect Provider without secrets.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.
@@ -181,6 +193,7 @@ def get_open_id_connect_provider(opid: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getOpenIdConnectProvider', __args__, opts=opts, typ=GetOpenIdConnectProviderResult).value
 
     return AwaitableGetOpenIdConnectProviderResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         client_id=pulumi.get(__ret__, 'client_id'),
         client_secret=pulumi.get(__ret__, 'client_secret'),
         description=pulumi.get(__ret__, 'description'),
@@ -198,9 +211,9 @@ def get_open_id_connect_provider_output(opid: Optional[pulumi.Input[str]] = None
     """
     Gets specific OpenID Connect Provider without secrets.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.
@@ -214,6 +227,7 @@ def get_open_id_connect_provider_output(opid: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getOpenIdConnectProvider', __args__, opts=opts, typ=GetOpenIdConnectProviderResult)
     return __ret__.apply(lambda __response__: GetOpenIdConnectProviderResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         client_id=pulumi.get(__response__, 'client_id'),
         client_secret=pulumi.get(__response__, 'client_secret'),
         description=pulumi.get(__response__, 'description'),

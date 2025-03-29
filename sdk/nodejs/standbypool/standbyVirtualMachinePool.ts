@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A StandbyVirtualMachinePoolResource.
  *
- * Uses Azure REST API version 2023-12-01-preview.
+ * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
  *
- * Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
+ * Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class StandbyVirtualMachinePool extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class StandbyVirtualMachinePool extends pulumi.CustomResource {
      * Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
      */
     public readonly attachedVirtualMachineScaleSetId!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies the elasticity profile of the standby virtual machine pools.
      */
@@ -102,12 +106,14 @@ export class StandbyVirtualMachinePool extends pulumi.CustomResource {
             resourceInputs["standbyVirtualMachinePoolName"] = args ? args.standbyVirtualMachinePoolName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualMachineState"] = args ? args.virtualMachineState : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["attachedVirtualMachineScaleSetId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["elasticityProfile"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class ManagedClusterUpdateResponse
     {
         /// <summary>
+        /// The node image upgrade to be applied to the target nodes in update run.
+        /// </summary>
+        public readonly Outputs.NodeImageSelectionResponse? NodeImageSelection;
+        /// <summary>
         /// The upgrade to apply to the ManagedClusters.
         /// </summary>
         public readonly Outputs.ManagedClusterUpgradeSpecResponse Upgrade;
 
         [OutputConstructor]
-        private ManagedClusterUpdateResponse(Outputs.ManagedClusterUpgradeSpecResponse upgrade)
+        private ManagedClusterUpdateResponse(
+            Outputs.NodeImageSelectionResponse? nodeImageSelection,
+
+            Outputs.ManagedClusterUpgradeSpecResponse upgrade)
         {
+            NodeImageSelection = nodeImageSelection;
             Upgrade = upgrade;
         }
     }

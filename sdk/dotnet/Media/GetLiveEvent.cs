@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Media
         /// 
         /// Uses Azure REST API version 2022-11-01.
         /// 
-        /// Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2019-05-01-preview, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetLiveEventResult> InvokeAsync(GetLiveEventArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLiveEventResult>("azure-native:media:getLiveEvent", args ?? new GetLiveEventArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Media
         /// 
         /// Uses Azure REST API version 2022-11-01.
         /// 
-        /// Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2019-05-01-preview, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLiveEventResult> Invoke(GetLiveEventInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveEventResult>("azure-native:media:getLiveEvent", args ?? new GetLiveEventInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Media
         /// 
         /// Uses Azure REST API version 2022-11-01.
         /// 
-        /// Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2019-05-01-preview, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLiveEventResult> Invoke(GetLiveEventInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveEventResult>("azure-native:media:getLiveEvent", args ?? new GetLiveEventInvokeArgs(), options.WithDefaults());
@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.Media
     [OutputType]
     public sealed class GetLiveEventResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The creation time for the live event
         /// </summary>
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetLiveEventResult(
+            string azureApiVersion,
+
             string created,
 
             Outputs.CrossSiteAccessPoliciesResponse? crossSiteAccessPolicies,
@@ -216,6 +222,7 @@ namespace Pulumi.AzureNative.Media
 
             bool? useStaticHostname)
         {
+            AzureApiVersion = azureApiVersion;
             Created = created;
             CrossSiteAccessPolicies = crossSiteAccessPolicies;
             Description = description;

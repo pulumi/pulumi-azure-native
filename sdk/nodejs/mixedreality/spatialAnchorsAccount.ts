@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * SpatialAnchorsAccount Response.
  *
- * Uses Azure REST API version 2021-01-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+ * Uses Azure REST API version 2021-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
  *
- * Other available API versions: 2021-03-01-preview.
+ * Other available API versions: 2021-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SpatialAnchorsAccount extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
      * unique id of certain account.
      */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The identity associated with this account
      */
@@ -115,12 +119,14 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountDomain"] = undefined /*out*/;
             resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accountDomain"] = undefined /*out*/;
             resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

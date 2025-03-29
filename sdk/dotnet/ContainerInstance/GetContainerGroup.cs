@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2023-05-01, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2023-05-01, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2023-05-01, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         public string ContainerGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Input<string> ContainerGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -88,9 +88,17 @@ namespace Pulumi.AzureNative.ContainerInstance
     public sealed class GetContainerGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The properties for confidential container group
         /// </summary>
         public readonly Outputs.ConfidentialComputePropertiesResponse? ConfidentialComputeProperties;
+        /// <summary>
+        /// The reference container group profile properties.
+        /// </summary>
+        public readonly Outputs.ContainerGroupProfileReferenceDefinitionResponse? ContainerGroupProfile;
         /// <summary>
         /// The containers within the container group.
         /// </summary>
@@ -136,6 +144,10 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         public readonly Outputs.IpAddressResponse? IpAddress;
         /// <summary>
+        /// The flag indicating whether the container group is created by standby pool.
+        /// </summary>
+        public readonly bool IsCreatedFromStandbyPool;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -146,7 +158,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// The operating system type required by the containers in the container group.
         /// </summary>
-        public readonly string OsType;
+        public readonly string? OsType;
         /// <summary>
         /// The priority of the container group.
         /// </summary>
@@ -166,6 +178,10 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// The SKU for a container group.
         /// </summary>
         public readonly string? Sku;
+        /// <summary>
+        /// The reference standby pool profile properties.
+        /// </summary>
+        public readonly Outputs.StandbyPoolProfileDefinitionResponse? StandbyPoolProfile;
         /// <summary>
         /// The subnet resource IDs for a container group.
         /// </summary>
@@ -189,7 +205,11 @@ namespace Pulumi.AzureNative.ContainerInstance
 
         [OutputConstructor]
         private GetContainerGroupResult(
+            string azureApiVersion,
+
             Outputs.ConfidentialComputePropertiesResponse? confidentialComputeProperties,
+
+            Outputs.ContainerGroupProfileReferenceDefinitionResponse? containerGroupProfile,
 
             ImmutableArray<Outputs.ContainerResponse> containers,
 
@@ -213,11 +233,13 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             Outputs.IpAddressResponse? ipAddress,
 
+            bool isCreatedFromStandbyPool,
+
             string? location,
 
             string name,
 
-            string osType,
+            string? osType,
 
             string? priority,
 
@@ -226,6 +248,8 @@ namespace Pulumi.AzureNative.ContainerInstance
             string? restartPolicy,
 
             string? sku,
+
+            Outputs.StandbyPoolProfileDefinitionResponse? standbyPoolProfile,
 
             ImmutableArray<Outputs.ContainerGroupSubnetIdResponse> subnetIds,
 
@@ -237,7 +261,9 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             ImmutableArray<string> zones)
         {
+            AzureApiVersion = azureApiVersion;
             ConfidentialComputeProperties = confidentialComputeProperties;
+            ContainerGroupProfile = containerGroupProfile;
             Containers = containers;
             Diagnostics = diagnostics;
             DnsConfig = dnsConfig;
@@ -249,6 +275,7 @@ namespace Pulumi.AzureNative.ContainerInstance
             InitContainers = initContainers;
             InstanceView = instanceView;
             IpAddress = ipAddress;
+            IsCreatedFromStandbyPool = isCreatedFromStandbyPool;
             Location = location;
             Name = name;
             OsType = osType;
@@ -256,6 +283,7 @@ namespace Pulumi.AzureNative.ContainerInstance
             ProvisioningState = provisioningState;
             RestartPolicy = restartPolicy;
             Sku = sku;
+            StandbyPoolProfile = standbyPoolProfile;
             SubnetIds = subnetIds;
             Tags = tags;
             Type = type;

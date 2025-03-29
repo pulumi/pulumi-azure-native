@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+    /// Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+    /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:StorageAppliance")]
     public partial class StorageAppliance : global::Pulumi.CustomResource
@@ -24,7 +24,13 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<Outputs.AdministrativeCredentialsResponse> AdministratorCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// The total capacity of the storage appliance.
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The total capacity of the storage appliance. Measured in GiB.
         /// </summary>
         [Output("capacity")]
         public Output<double> Capacity { get; private set; } = null!;
@@ -36,7 +42,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<double> CapacityUsed { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the cluster this storage appliance is associated with.
+        /// The resource ID of the cluster this storage appliance is associated with. Measured in GiB.
         /// </summary>
         [Output("clusterId")]
         public Output<string> ClusterId { get; private set; } = null!;
@@ -52,6 +58,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("detailedStatusMessage")]
         public Output<string> DetailedStatusMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
         /// The extended location of the cluster associated with the resource.
@@ -70,6 +82,18 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("managementIpv4Address")]
         public Output<string> ManagementIpv4Address { get; private set; } = null!;
+
+        /// <summary>
+        /// The manufacturer of the storage appliance.
+        /// </summary>
+        [Output("manufacturer")]
+        public Output<string> Manufacturer { get; private set; } = null!;
+
+        /// <summary>
+        /// The model of the storage appliance.
+        /// </summary>
+        [Output("model")]
+        public Output<string> Model { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -108,6 +132,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> RemoteVendorManagementStatus { get; private set; } = null!;
 
         /// <summary>
+        /// The list of statuses that represent secret rotation activity.
+        /// </summary>
+        [Output("secretRotationStatus")]
+        public Output<ImmutableArray<Outputs.SecretRotationStatusResponse>> SecretRotationStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The serial number for the storage appliance.
         /// </summary>
         [Output("serialNumber")]
@@ -136,6 +166,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the storage appliance.
+        /// </summary>
+        [Output("version")]
+        public Output<string> Version { get; private set; } = null!;
 
 
         /// <summary>

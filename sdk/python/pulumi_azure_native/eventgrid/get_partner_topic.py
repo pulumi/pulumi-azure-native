@@ -27,10 +27,13 @@ class GetPartnerTopicResult:
     """
     Event Grid Partner Topic.
     """
-    def __init__(__self__, activation_state=None, event_type_info=None, expiration_time_if_not_activated_utc=None, id=None, identity=None, location=None, message_for_activation=None, name=None, partner_registration_immutable_id=None, partner_topic_friendly_description=None, provisioning_state=None, source=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, activation_state=None, azure_api_version=None, event_type_info=None, expiration_time_if_not_activated_utc=None, id=None, identity=None, location=None, message_for_activation=None, name=None, partner_registration_immutable_id=None, partner_topic_friendly_description=None, provisioning_state=None, source=None, system_data=None, tags=None, type=None):
         if activation_state and not isinstance(activation_state, str):
             raise TypeError("Expected argument 'activation_state' to be a str")
         pulumi.set(__self__, "activation_state", activation_state)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if event_type_info and not isinstance(event_type_info, dict):
             raise TypeError("Expected argument 'event_type_info' to be a dict")
         pulumi.set(__self__, "event_type_info", event_type_info)
@@ -81,6 +84,14 @@ class GetPartnerTopicResult:
         Activation state of the partner topic.
         """
         return pulumi.get(self, "activation_state")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eventTypeInfo")
@@ -176,7 +187,7 @@ class GetPartnerTopicResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to Partner Topic resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -204,6 +215,7 @@ class AwaitableGetPartnerTopicResult(GetPartnerTopicResult):
             yield self
         return GetPartnerTopicResult(
             activation_state=self.activation_state,
+            azure_api_version=self.azure_api_version,
             event_type_info=self.event_type_info,
             expiration_time_if_not_activated_utc=self.expiration_time_if_not_activated_utc,
             id=self.id,
@@ -226,9 +238,9 @@ def get_partner_topic(partner_topic_name: Optional[str] = None,
     """
     Get properties of a partner topic.
 
-    Uses Azure REST API version 2022-06-15.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str partner_topic_name: Name of the partner topic.
@@ -242,6 +254,7 @@ def get_partner_topic(partner_topic_name: Optional[str] = None,
 
     return AwaitableGetPartnerTopicResult(
         activation_state=pulumi.get(__ret__, 'activation_state'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         event_type_info=pulumi.get(__ret__, 'event_type_info'),
         expiration_time_if_not_activated_utc=pulumi.get(__ret__, 'expiration_time_if_not_activated_utc'),
         id=pulumi.get(__ret__, 'id'),
@@ -262,9 +275,9 @@ def get_partner_topic_output(partner_topic_name: Optional[pulumi.Input[str]] = N
     """
     Get properties of a partner topic.
 
-    Uses Azure REST API version 2022-06-15.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str partner_topic_name: Name of the partner topic.
@@ -277,6 +290,7 @@ def get_partner_topic_output(partner_topic_name: Optional[pulumi.Input[str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getPartnerTopic', __args__, opts=opts, typ=GetPartnerTopicResult)
     return __ret__.apply(lambda __response__: GetPartnerTopicResult(
         activation_state=pulumi.get(__response__, 'activation_state'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         event_type_info=pulumi.get(__response__, 'event_type_info'),
         expiration_time_if_not_activated_utc=pulumi.get(__response__, 'expiration_time_if_not_activated_utc'),
         id=pulumi.get(__response__, 'id'),

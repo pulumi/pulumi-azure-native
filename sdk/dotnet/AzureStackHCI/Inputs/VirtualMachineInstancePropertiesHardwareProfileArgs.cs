@@ -15,8 +15,11 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
     /// </summary>
     public sealed class VirtualMachineInstancePropertiesHardwareProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Dynamic memory config
+        /// </summary>
         [Input("dynamicMemoryConfig")]
-        public Input<Inputs.VirtualMachineInstancePropertiesDynamicMemoryConfigArgs>? DynamicMemoryConfig { get; set; }
+        public Input<Inputs.VirtualMachineInstancePropertiesHardwareProfileDynamicMemoryConfigArgs>? DynamicMemoryConfig { get; set; }
 
         /// <summary>
         /// RAM in MB for the virtual machine instance
@@ -30,6 +33,21 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         [Input("processors")]
         public Input<int>? Processors { get; set; }
 
+        [Input("virtualMachineGPUs")]
+        private InputList<Inputs.VirtualMachineInstancePropertiesHardwareProfileVirtualMachineGPUArgs>? _virtualMachineGPUs;
+
+        /// <summary>
+        /// virtualMachineGPUs - list of gpus to be attached to the virtual machine instance
+        /// </summary>
+        public InputList<Inputs.VirtualMachineInstancePropertiesHardwareProfileVirtualMachineGPUArgs> VirtualMachineGPUs
+        {
+            get => _virtualMachineGPUs ?? (_virtualMachineGPUs = new InputList<Inputs.VirtualMachineInstancePropertiesHardwareProfileVirtualMachineGPUArgs>());
+            set => _virtualMachineGPUs = value;
+        }
+
+        /// <summary>
+        /// Enum of VM Sizes
+        /// </summary>
         [Input("vmSize")]
         public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.VmSizeEnum>? VmSize { get; set; }
 

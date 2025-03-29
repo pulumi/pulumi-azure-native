@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Security operator under a given subscription and pricing
  *
- * Uses Azure REST API version 2023-01-01-preview.
+ * Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
  */
 export class SecurityOperator extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class SecurityOperator extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Identity for the resource.
      */
     public /*out*/ readonly identity!: pulumi.Output<outputs.security.IdentityResponse | undefined>;
@@ -68,10 +72,12 @@ export class SecurityOperator extends pulumi.CustomResource {
             }
             resourceInputs["pricingName"] = args ? args.pricingName : undefined;
             resourceInputs["securityOperatorName"] = args ? args.securityOperatorName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("routes")]
         public Input<Inputs.LoginRoutesArgs>? Routes { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the token store.
+        /// </summary>
+        [Input("tokenStore")]
+        public Input<Inputs.TokenStoreArgs>? TokenStore { get; set; }
+
         public LoginArgs()
         {
         }

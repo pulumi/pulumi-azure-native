@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     /// <summary>
     /// Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
     /// 
-    /// Uses Azure REST API version 2021-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-11-01-preview.
+    /// Uses Azure REST API version 2021-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:LivePipeline")]
     public partial class LivePipeline : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Maximum bitrate capacity in Kbps reserved for the live pipeline. The allowed range is from 500 to 3000 Kbps in increments of 100 Kbps. If the RTSP camera exceeds this capacity, then the service will disconnect temporarily from the camera. It will retry to re-establish connection (with exponential backoff), checking to see if the camera bitrate is now below the reserved capacity. Doing so will ensure that one 'noisy neighbor' does not affect other live pipelines in your account.
         /// </summary>

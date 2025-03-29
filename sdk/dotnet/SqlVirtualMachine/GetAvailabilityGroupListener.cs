@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Gets an availability group listener.
         /// 
-        /// Uses Azure REST API version 2022-02-01.
+        /// Uses Azure REST API version 2023-10-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-10-01.
+        /// Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAvailabilityGroupListenerResult> InvokeAsync(GetAvailabilityGroupListenerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Gets an availability group listener.
         /// 
-        /// Uses Azure REST API version 2022-02-01.
+        /// Uses Azure REST API version 2023-10-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-10-01.
+        /// Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAvailabilityGroupListenerResult> Invoke(GetAvailabilityGroupListenerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Gets an availability group listener.
         /// 
-        /// Uses Azure REST API version 2022-02-01.
+        /// Uses Azure REST API version 2023-10-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-10-01.
+        /// Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAvailabilityGroupListenerResult> Invoke(GetAvailabilityGroupListenerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerInvokeArgs(), options.WithDefaults());
@@ -120,6 +120,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         public readonly string? AvailabilityGroupName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Create a default availability group if it does not exist.
         /// </summary>
         public readonly bool? CreateDefaultAvailabilityGroupIfNotExist;
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 
             string? availabilityGroupName,
 
+            string azureApiVersion,
+
             bool? createDefaultAvailabilityGroupIfNotExist,
 
             string id,
@@ -182,6 +188,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         {
             AvailabilityGroupConfiguration = availabilityGroupConfiguration;
             AvailabilityGroupName = availabilityGroupName;
+            AzureApiVersion = azureApiVersion;
             CreateDefaultAvailabilityGroupIfNotExist = createDefaultAvailabilityGroupIfNotExist;
             Id = id;
             LoadBalancerConfigurations = loadBalancerConfigurations;

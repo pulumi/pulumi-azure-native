@@ -29,7 +29,7 @@ class CleanupOptions(str, Enum):
 
 class DenySettingsMode(str, Enum):
     """
-    denySettings Mode.
+    denySettings Mode that defines denied actions.
     """
     DENY_DELETE = "denyDelete"
     """
@@ -37,7 +37,7 @@ class DenySettingsMode(str, Enum):
     """
     DENY_WRITE_AND_DELETE = "denyWriteAndDelete"
     """
-    Authorized users can only read from a resource, but cannot modify or delete it.
+    Authorized users can read from a resource, but cannot modify or delete it.
     """
     NONE = "none"
     """
@@ -55,7 +55,7 @@ class DeploymentMode(str, Enum):
 
 class DeploymentStacksDeleteDetachEnum(str, Enum):
     """
-    Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+    Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
     """
     DELETE = "delete"
     DETACH = "detach"

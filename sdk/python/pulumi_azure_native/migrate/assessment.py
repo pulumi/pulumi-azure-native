@@ -134,9 +134,7 @@ class Assessment(pulumi.CustomResource):
         """
         An assessment created for a group in the Migration project.
 
-        Uses Azure REST API version 2019-10-01. In version 1.x of the Azure Native provider, it used API version 2019-10-01.
-
-        Other available API versions: 2018-02-02.
+        Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,9 +154,7 @@ class Assessment(pulumi.CustomResource):
         """
         An assessment created for a group in the Migration project.
 
-        Uses Azure REST API version 2019-10-01. In version 1.x of the Azure Native provider, it used API version 2019-10-01.
-
-        Other available API versions: 2018-02-02.
+        Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.
@@ -204,9 +200,10 @@ class Assessment(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230315:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:Assessment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20180202:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20191001:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230315:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate:AssessmentsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Assessment, __self__).__init__(
             'azure-native:migrate:Assessment',
@@ -230,11 +227,20 @@ class Assessment(pulumi.CustomResource):
 
         __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return Assessment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")

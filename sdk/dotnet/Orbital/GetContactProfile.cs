@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.Orbital
         /// Gets the specified contact Profile in a specified resource group.
         /// 
         /// Uses Azure REST API version 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-03-01.
         /// </summary>
         public static Task<GetContactProfileResult> InvokeAsync(GetContactProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactProfileResult>("azure-native:orbital:getContactProfile", args ?? new GetContactProfileArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.Orbital
         /// Gets the specified contact Profile in a specified resource group.
         /// 
         /// Uses Azure REST API version 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-03-01.
         /// </summary>
         public static Output<GetContactProfileResult> Invoke(GetContactProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactProfileResult>("azure-native:orbital:getContactProfile", args ?? new GetContactProfileInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.Orbital
         /// Gets the specified contact Profile in a specified resource group.
         /// 
         /// Uses Azure REST API version 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-03-01.
         /// </summary>
         public static Output<GetContactProfileResult> Invoke(GetContactProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactProfileResult>("azure-native:orbital:getContactProfile", args ?? new GetContactProfileInvokeArgs(), options.WithDefaults());
@@ -92,6 +86,10 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public readonly string? AutoTrackingConfiguration;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         /// </summary>
         public readonly string? EventHubUri;
@@ -144,6 +142,8 @@ namespace Pulumi.AzureNative.Orbital
         private GetContactProfileResult(
             string? autoTrackingConfiguration,
 
+            string azureApiVersion,
+
             string? eventHubUri,
 
             string id,
@@ -169,6 +169,7 @@ namespace Pulumi.AzureNative.Orbital
             string type)
         {
             AutoTrackingConfiguration = autoTrackingConfiguration;
+            AzureApiVersion = azureApiVersion;
             EventHubUri = eventHubUri;
             Id = id;
             Links = links;

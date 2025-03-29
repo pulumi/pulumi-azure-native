@@ -27,7 +27,10 @@ class GetImportJobResult:
     """
     An import job instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     """
-    def __init__(__self__, blobs_imported_per_second=None, blobs_walked_per_second=None, conflict_resolution_mode=None, id=None, import_prefixes=None, last_completion_time=None, last_started_time=None, location=None, maximum_errors=None, name=None, provisioning_state=None, state=None, status_message=None, system_data=None, tags=None, total_blobs_imported=None, total_blobs_walked=None, total_conflicts=None, total_errors=None, type=None):
+    def __init__(__self__, azure_api_version=None, blobs_imported_per_second=None, blobs_walked_per_second=None, conflict_resolution_mode=None, id=None, import_prefixes=None, last_completion_time=None, last_started_time=None, location=None, maximum_errors=None, name=None, provisioning_state=None, state=None, status_message=None, system_data=None, tags=None, total_blobs_imported=None, total_blobs_walked=None, total_conflicts=None, total_errors=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if blobs_imported_per_second and not isinstance(blobs_imported_per_second, float):
             raise TypeError("Expected argument 'blobs_imported_per_second' to be a float")
         pulumi.set(__self__, "blobs_imported_per_second", blobs_imported_per_second)
@@ -88,6 +91,14 @@ class GetImportJobResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="blobsImportedPerSecond")
@@ -256,6 +267,7 @@ class AwaitableGetImportJobResult(GetImportJobResult):
         if False:
             yield self
         return GetImportJobResult(
+            azure_api_version=self.azure_api_version,
             blobs_imported_per_second=self.blobs_imported_per_second,
             blobs_walked_per_second=self.blobs_walked_per_second,
             conflict_resolution_mode=self.conflict_resolution_mode,
@@ -287,6 +299,8 @@ def get_import_job(aml_filesystem_name: Optional[str] = None,
 
     Uses Azure REST API version 2024-03-01.
 
+    Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
     :param str import_job_name: Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
@@ -300,6 +314,7 @@ def get_import_job(aml_filesystem_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagecache:getImportJob', __args__, opts=opts, typ=GetImportJobResult).value
 
     return AwaitableGetImportJobResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         blobs_imported_per_second=pulumi.get(__ret__, 'blobs_imported_per_second'),
         blobs_walked_per_second=pulumi.get(__ret__, 'blobs_walked_per_second'),
         conflict_resolution_mode=pulumi.get(__ret__, 'conflict_resolution_mode'),
@@ -329,6 +344,8 @@ def get_import_job_output(aml_filesystem_name: Optional[pulumi.Input[str]] = Non
 
     Uses Azure REST API version 2024-03-01.
 
+    Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
     :param str import_job_name: Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
@@ -341,6 +358,7 @@ def get_import_job_output(aml_filesystem_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagecache:getImportJob', __args__, opts=opts, typ=GetImportJobResult)
     return __ret__.apply(lambda __response__: GetImportJobResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         blobs_imported_per_second=pulumi.get(__response__, 'blobs_imported_per_second'),
         blobs_walked_per_second=pulumi.get(__response__, 'blobs_walked_per_second'),
         conflict_resolution_mode=pulumi.get(__response__, 'conflict_resolution_mode'),

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Backend details.
  *
- * Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+ * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
- * Other available API versions: 2016-10-10, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Backend extends pulumi.CustomResource {
     /**
@@ -41,6 +41,14 @@ export class Backend extends pulumi.CustomResource {
         return obj['__pulumiType'] === Backend.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Backend Circuit Breaker Configuration
+     */
+    public readonly circuitBreaker!: pulumi.Output<outputs.apimanagement.BackendCircuitBreakerResponse | undefined>;
     /**
      * Backend Credentials Contract Properties
      */
@@ -110,6 +118,7 @@ export class Backend extends pulumi.CustomResource {
                 throw new Error("Missing required property 'url'");
             }
             resourceInputs["backendId"] = args ? args.backendId : undefined;
+            resourceInputs["circuitBreaker"] = args ? args.circuitBreaker : undefined;
             resourceInputs["credentials"] = args ? args.credentials : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
@@ -121,9 +130,12 @@ export class Backend extends pulumi.CustomResource {
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.apimanagement.backendTlsPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["circuitBreaker"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -151,6 +163,10 @@ export interface BackendArgs {
      * Identifier of the Backend entity. Must be unique in the current API Management service instance.
      */
     backendId?: pulumi.Input<string>;
+    /**
+     * Backend Circuit Breaker Configuration
+     */
+    circuitBreaker?: pulumi.Input<inputs.apimanagement.BackendCircuitBreakerArgs>;
     /**
      * Backend Credentials Contract Properties
      */

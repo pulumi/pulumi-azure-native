@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Customization Task error details
         /// 
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCustomizationTaskErrorDetailsResult> InvokeAsync(GetCustomizationTaskErrorDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomizationTaskErrorDetailsResult>("azure-native:devcenter:getCustomizationTaskErrorDetails", args ?? new GetCustomizationTaskErrorDetailsArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Customization Task error details
         /// 
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCustomizationTaskErrorDetailsResult> Invoke(GetCustomizationTaskErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomizationTaskErrorDetailsResult>("azure-native:devcenter:getCustomizationTaskErrorDetails", args ?? new GetCustomizationTaskErrorDetailsInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Customization Task error details
         /// 
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCustomizationTaskErrorDetailsResult> Invoke(GetCustomizationTaskErrorDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomizationTaskErrorDetailsResult>("azure-native:devcenter:getCustomizationTaskErrorDetails", args ?? new GetCustomizationTaskErrorDetailsInvokeArgs(), options.WithDefaults());

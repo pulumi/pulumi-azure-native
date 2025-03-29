@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Media
         /// Gets a Job.
         /// 
         /// Uses Azure REST API version 2022-07-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:media:getJob", args ?? new GetJobArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Media
         /// Gets a Job.
         /// 
         /// Uses Azure REST API version 2022-07-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:media:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Media
         /// Gets a Job.
         /// 
         /// Uses Azure REST API version 2022-07-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:media:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
@@ -106,6 +112,10 @@ namespace Pulumi.AzureNative.Media
     public sealed class GetJobResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CorrelationData;
@@ -164,6 +174,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetJobResult(
+            string azureApiVersion,
+
             ImmutableDictionary<string, string>? correlationData,
 
             string created,
@@ -192,6 +204,7 @@ namespace Pulumi.AzureNative.Media
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CorrelationData = correlationData;
             Created = created;
             Description = description;

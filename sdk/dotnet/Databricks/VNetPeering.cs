@@ -12,7 +12,9 @@ namespace Pulumi.AzureNative.Databricks
     /// <summary>
     /// Peerings in a VirtualNetwork resource
     /// 
-    /// Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2018-04-01.
+    /// Uses Azure REST API version 2024-05-01.
+    /// 
+    /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:VNetPeering")]
     public partial class VNetPeering : global::Pulumi.CustomResource
@@ -34,6 +36,12 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         [Output("allowVirtualNetworkAccess")]
         public Output<bool?> AllowVirtualNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The reference to the databricks virtual network address space.
@@ -115,22 +123,13 @@ namespace Pulumi.AzureNative.Databricks
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20180401:VNetPeering" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20180401:vNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:VNetPeering" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:vNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:VNetPeering" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:vNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230201:VNetPeering" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20230201:vNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230915preview:VNetPeering" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20230915preview:vNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240501:VNetPeering" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20240501:vNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240901preview:VNetPeering" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20240901preview:vNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20250301preview:VNetPeering" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20250301preview:vNetPeering" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks:vNetPeering" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

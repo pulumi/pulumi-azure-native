@@ -21,9 +21,17 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
         /// </summary>
         public readonly Outputs.BfdConfigurationResponse? BfdConfiguration;
         /// <summary>
+        /// Egress Acl. ARM resource ID of Access Control Lists.
+        /// </summary>
+        public readonly string? EgressAclId;
+        /// <summary>
         /// Fabric ASN number. Example 65001 
         /// </summary>
-        public readonly int FabricASN;
+        public readonly double FabricASN;
+        /// <summary>
+        /// Ingress Acl. ARM resource ID of Access Control Lists.
+        /// </summary>
+        public readonly string? IngressAclId;
         /// <summary>
         /// MTU to use for option A peering.
         /// </summary>
@@ -31,21 +39,21 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
         /// <summary>
         /// Peer ASN number.Example : 28
         /// </summary>
-        public readonly int PeerASN;
+        public readonly double PeerASN;
         /// <summary>
-        /// IPv4 Address Prefix of CE-PE interconnect links. Example: 172.31.0.0/31. The values can be specified at the time of creation or can be updated afterwards. Any update to the values post-provisioning may disrupt traffic. The 1st and 3rd IPs are to be configured on CE1 and CE2 for Option B interfaces. The 2nd and 4th IPs are to be configured on PE1 and PE2 for Option B interfaces.
+        /// IPv4 Address Prefix.
         /// </summary>
         public readonly string? PrimaryIpv4Prefix;
         /// <summary>
-        /// IPv6 Address Prefix of CE-PE interconnect links. Example: 3FFE:FFFF:0:CD30::a0/126. The values can be specified at the time of creation or can be updated afterwards. Any update to the values post-provisioning may disrupt traffic. The 1st and 3rd IPs are to be configured on CE1 and CE2 for Option B interfaces. The 2nd and 4th IPs are to be configured on PE1 and PE2 for Option B interfaces.
+        /// IPv6 Address Prefix.
         /// </summary>
         public readonly string? PrimaryIpv6Prefix;
         /// <summary>
-        /// Secondary IPv4 Address Prefix of CE-PE interconnect links. Example: 172.31.0.20/31. The values can be specified at the time of creation or can be updated afterwards. Any update to the values post-provisioning may disrupt traffic. The 1st and 3rd IPs are to be configured on CE1 and CE2 for Option B interfaces. The 2nd and 4th IPs are to be configured on PE1 and PE2 for Option B interfaces.
+        /// Secondary IPv4 Address Prefix.
         /// </summary>
         public readonly string? SecondaryIpv4Prefix;
         /// <summary>
-        /// Secondary IPv6 Address Prefix of CE-PE interconnect links. Example: 3FFE:FFFF:0:CD30::a4/126. The values can be specified at the time of creation or can be updated afterwards. Any update to the values post-provisioning may disrupt traffic. The 1st and 3rd IPs are to be configured on CE1 and CE2 for Option B interfaces. The 2nd and 4th IPs are to be configured on PE1 and PE2 for Option B interfaces.
+        /// Secondary IPv6 Address Prefix.
         /// </summary>
         public readonly string? SecondaryIpv6Prefix;
         /// <summary>
@@ -57,11 +65,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
         private ExternalNetworkPropertiesResponseOptionAProperties(
             Outputs.BfdConfigurationResponse? bfdConfiguration,
 
-            int fabricASN,
+            string? egressAclId,
+
+            double fabricASN,
+
+            string? ingressAclId,
 
             int? mtu,
 
-            int peerASN,
+            double peerASN,
 
             string? primaryIpv4Prefix,
 
@@ -74,7 +86,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
             int vlanId)
         {
             BfdConfiguration = bfdConfiguration;
+            EgressAclId = egressAclId;
             FabricASN = fabricASN;
+            IngressAclId = ingressAclId;
             Mtu = mtu;
             PeerASN = peerASN;
             PrimaryIpv4Prefix = primaryIpv4Prefix;

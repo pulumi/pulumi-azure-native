@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Class representing a cluster principal assignment.
  *
- * Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+ * Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
  *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Other available API versions: 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ClusterPrincipalAssignment extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
      * The service principal object id in AAD (Azure active directory)
      */
     public /*out*/ readonly aadObjectId!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -116,6 +120,7 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["aadObjectId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -123,6 +128,7 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["aadObjectId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
@@ -161,7 +167,7 @@ export interface ClusterPrincipalAssignmentArgs {
      */
     principalType: pulumi.Input<string | enums.kusto.PrincipalType>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

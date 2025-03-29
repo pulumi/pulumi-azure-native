@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// 
         /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWorkspaceGroupResult> InvokeAsync(GetWorkspaceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceGroupResult>("azure-native:apimanagement:getWorkspaceGroup", args ?? new GetWorkspaceGroupArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// 
         /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceGroupResult> Invoke(GetWorkspaceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceGroupResult>("azure-native:apimanagement:getWorkspaceGroup", args ?? new GetWorkspaceGroupInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// 
         /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceGroupResult> Invoke(GetWorkspaceGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceGroupResult>("azure-native:apimanagement:getWorkspaceGroup", args ?? new GetWorkspaceGroupInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetWorkspaceGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
         /// </summary>
         public readonly bool BuiltIn;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetWorkspaceGroupResult(
+            string azureApiVersion,
+
             bool builtIn,
 
             string? description,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BuiltIn = builtIn;
             Description = description;
             DisplayName = displayName;

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a CA certificate.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2025-02-15.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCaCertificateResult> InvokeAsync(GetCaCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCaCertificateResult>("azure-native:eventgrid:getCaCertificate", args ?? new GetCaCertificateArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a CA certificate.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2025-02-15.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCaCertificateResult> Invoke(GetCaCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCaCertificateResult>("azure-native:eventgrid:getCaCertificate", args ?? new GetCaCertificateInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a CA certificate.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2025-02-15.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCaCertificateResult> Invoke(GetCaCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCaCertificateResult>("azure-native:eventgrid:getCaCertificate", args ?? new GetCaCertificateInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetCaCertificateResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Description for the CA Certificate resource.
         /// </summary>
         public readonly string? Description;
@@ -128,7 +132,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system metadata relating to the CaCertificate resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.EventGrid
 
         [OutputConstructor]
         private GetCaCertificateResult(
+            string azureApiVersion,
+
             string? description,
 
             string? encodedCertificate,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.EventGrid
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             EncodedCertificate = encodedCertificate;
             ExpiryTimeInUtc = expiryTimeInUtc;

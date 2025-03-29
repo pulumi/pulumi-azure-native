@@ -27,10 +27,13 @@ class GetAccountResult:
     """
     NetApp account resource
     """
-    def __init__(__self__, active_directories=None, disable_showmount=None, encryption=None, etag=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, active_directories=None, azure_api_version=None, disable_showmount=None, encryption=None, etag=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if active_directories and not isinstance(active_directories, list):
             raise TypeError("Expected argument 'active_directories' to be a list")
         pulumi.set(__self__, "active_directories", active_directories)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if disable_showmount and not isinstance(disable_showmount, bool):
             raise TypeError("Expected argument 'disable_showmount' to be a bool")
         pulumi.set(__self__, "disable_showmount", disable_showmount)
@@ -74,6 +77,14 @@ class GetAccountResult:
         return pulumi.get(self, "active_directories")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="disableShowmount")
     def disable_showmount(self) -> bool:
         """
@@ -101,7 +112,7 @@ class GetAccountResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -169,6 +180,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             active_directories=self.active_directories,
+            azure_api_version=self.azure_api_version,
             disable_showmount=self.disable_showmount,
             encryption=self.encryption,
             etag=self.etag,
@@ -188,9 +200,9 @@ def get_account(account_name: Optional[str] = None,
     """
     Get the NetApp account
 
-    Uses Azure REST API version 2022-11-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2022-05-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+    Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the NetApp account
@@ -204,6 +216,7 @@ def get_account(account_name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         active_directories=pulumi.get(__ret__, 'active_directories'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         disable_showmount=pulumi.get(__ret__, 'disable_showmount'),
         encryption=pulumi.get(__ret__, 'encryption'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -221,9 +234,9 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Get the NetApp account
 
-    Uses Azure REST API version 2022-11-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2022-05-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+    Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the NetApp account
@@ -236,6 +249,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:netapp:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
         active_directories=pulumi.get(__response__, 'active_directories'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         disable_showmount=pulumi.get(__response__, 'disable_showmount'),
         encryption=pulumi.get(__response__, 'encryption'),
         etag=pulumi.get(__response__, 'etag'),

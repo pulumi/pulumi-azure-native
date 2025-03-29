@@ -218,9 +218,9 @@ class StorageAccountCredential(pulumi.CustomResource):
         """
         The storage account credential.
 
-        Uses Azure REST API version 2022-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
-        Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,9 +245,9 @@ class StorageAccountCredential(pulumi.CustomResource):
         """
         The storage account credential.
 
-        Uses Azure REST API version 2022-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
-        Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param StorageAccountCredentialArgs args: The arguments to use to populate this resource's properties.
@@ -305,6 +305,7 @@ class StorageAccountCredential(pulumi.CustomResource):
             __props__.__dict__["ssl_status"] = ssl_status
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["user_name"] = user_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:StorageAccountCredential")])
@@ -334,6 +335,7 @@ class StorageAccountCredential(pulumi.CustomResource):
         __props__.__dict__["account_key"] = None
         __props__.__dict__["account_type"] = None
         __props__.__dict__["alias"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["blob_domain_name"] = None
         __props__.__dict__["connection_string"] = None
         __props__.__dict__["name"] = None
@@ -367,6 +369,14 @@ class StorageAccountCredential(pulumi.CustomResource):
         Alias for the storage account.
         """
         return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="blobDomainName")

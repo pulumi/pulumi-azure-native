@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.AVS
     public static class GetAddon
     {
         /// <summary>
-        /// An addon resource
+        /// Get a Addon
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:avs:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An addon resource
+        /// Get a Addon
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:avs:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An addon resource
+        /// Get a Addon
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:avs:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetAddonArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the addon for the private cloud
+        /// Name of the addon.
         /// </summary>
         [Input("addonName", required: true)]
         public string AddonName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetAddonInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the addon for the private cloud
+        /// Name of the addon.
         /// </summary>
         [Input("addonName", required: true)]
         public Input<string> AddonName { get; set; } = null!;
@@ -100,35 +100,56 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetAddonResult
     {
         /// <summary>
-        /// Resource ID.
+        /// Addon type
+        /// </summary>
+        public readonly string AddonType;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of an addon resource
+        /// The state of the addon provisioning
         /// </summary>
-        public readonly object Properties;
+        public readonly string ProvisioningState;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetAddonResult(
+            string addonType,
+
+            string azureApiVersion,
+
             string id,
 
             string name,
 
-            object properties,
+            string provisioningState,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            AddonType = addonType;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Automanage
         /// Get information about a configuration profile
         /// 
         /// Uses Azure REST API version 2022-05-04.
+        /// 
+        /// Other available API versions: 2021-04-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automanage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("azure-native:automanage:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Automanage
         /// Get information about a configuration profile
         /// 
         /// Uses Azure REST API version 2022-05-04.
+        /// 
+        /// Other available API versions: 2021-04-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automanage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("azure-native:automanage:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Automanage
         /// Get information about a configuration profile
         /// 
         /// Uses Azure REST API version 2022-05-04.
+        /// 
+        /// Other available API versions: 2021-04-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automanage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("azure-native:automanage:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
@@ -82,6 +88,10 @@ namespace Pulumi.AzureNative.Automanage
     public sealed class GetConfigurationProfileResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -112,6 +122,8 @@ namespace Pulumi.AzureNative.Automanage
 
         [OutputConstructor]
         private GetConfigurationProfileResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -126,6 +138,7 @@ namespace Pulumi.AzureNative.Automanage
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

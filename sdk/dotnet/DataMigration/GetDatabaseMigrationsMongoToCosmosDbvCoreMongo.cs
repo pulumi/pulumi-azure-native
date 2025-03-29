@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DataMigration
     public sealed class GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// List of Mongo Collections to be migrated.
         /// </summary>
         public readonly ImmutableArray<Outputs.MongoMigrationCollectionResponse> CollectionList;
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNative.DataMigration
 
         [OutputConstructor]
         private GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.MongoMigrationCollectionResponse> collectionList,
 
             string endedOn,
@@ -199,6 +205,7 @@ namespace Pulumi.AzureNative.DataMigration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CollectionList = collectionList;
             EndedOn = endedOn;
             Id = id;

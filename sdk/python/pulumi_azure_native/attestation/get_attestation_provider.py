@@ -27,10 +27,13 @@ class GetAttestationProviderResult:
     """
     Attestation service response message.
     """
-    def __init__(__self__, attest_uri=None, id=None, location=None, name=None, private_endpoint_connections=None, public_network_access=None, status=None, system_data=None, tags=None, tpm_attestation_authentication=None, trust_model=None, type=None):
+    def __init__(__self__, attest_uri=None, azure_api_version=None, id=None, location=None, name=None, private_endpoint_connections=None, public_network_access=None, status=None, system_data=None, tags=None, tpm_attestation_authentication=None, trust_model=None, type=None):
         if attest_uri and not isinstance(attest_uri, str):
             raise TypeError("Expected argument 'attest_uri' to be a str")
         pulumi.set(__self__, "attest_uri", attest_uri)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -72,6 +75,14 @@ class GetAttestationProviderResult:
         Gets the uri of attestation service
         """
         return pulumi.get(self, "attest_uri")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -169,6 +180,7 @@ class AwaitableGetAttestationProviderResult(GetAttestationProviderResult):
             yield self
         return GetAttestationProviderResult(
             attest_uri=self.attest_uri,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -190,8 +202,6 @@ def get_attestation_provider(provider_name: Optional[str] = None,
 
     Uses Azure REST API version 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
-
 
     :param str provider_name: Name of the attestation provider.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -204,6 +214,7 @@ def get_attestation_provider(provider_name: Optional[str] = None,
 
     return AwaitableGetAttestationProviderResult(
         attest_uri=pulumi.get(__ret__, 'attest_uri'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -223,8 +234,6 @@ def get_attestation_provider_output(provider_name: Optional[pulumi.Input[str]] =
 
     Uses Azure REST API version 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
-
 
     :param str provider_name: Name of the attestation provider.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -236,6 +245,7 @@ def get_attestation_provider_output(provider_name: Optional[pulumi.Input[str]] =
     __ret__ = pulumi.runtime.invoke_output('azure-native:attestation:getAttestationProvider', __args__, opts=opts, typ=GetAttestationProviderResult)
     return __ret__.apply(lambda __response__: GetAttestationProviderResult(
         attest_uri=pulumi.get(__response__, 'attest_uri'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

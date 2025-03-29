@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * An device group resource belonging to a product resource.
  *
- * Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+ * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DeviceGroup extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class DeviceGroup extends pulumi.CustomResource {
      * Flag to define if the user allows for crash dump collection.
      */
     public readonly allowCrashDumpsCollection!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Description of the device group.
      */
@@ -111,6 +115,7 @@ export class DeviceGroup extends pulumi.CustomResource {
             resourceInputs["regionalDataBoundary"] = args ? args.regionalDataBoundary : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["updatePolicy"] = args ? args.updatePolicy : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hasDeployment"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -118,6 +123,7 @@ export class DeviceGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowCrashDumpsCollection"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["hasDeployment"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

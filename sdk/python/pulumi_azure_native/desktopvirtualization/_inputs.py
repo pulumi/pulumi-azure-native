@@ -211,7 +211,7 @@ if not MYPY:
         """
         version: NotRequired[pulumi.Input[str]]
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml. 
         """
 elif False:
     AppAttachPackageInfoPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -252,7 +252,7 @@ class AppAttachPackageInfoPropertiesArgs:
         :param pulumi.Input[str] package_full_name: Package Full Name from appxmanifest.xml. 
         :param pulumi.Input[str] package_name: Package Name from appxmanifest.xml. 
         :param pulumi.Input[str] package_relative_path: Relative Path to the package inside the image. 
-        :param pulumi.Input[str] version: Package Version found in the appxmanifest.xml. 
+        :param pulumi.Input[str] version: Package version found in the appxmanifest.xml. 
         """
         if certificate_expiry is not None:
             pulumi.set(__self__, "certificate_expiry", certificate_expiry)
@@ -471,7 +471,7 @@ class AppAttachPackageInfoPropertiesArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml. 
         """
         return pulumi.get(self, "version")
 
@@ -499,7 +499,7 @@ if not MYPY:
         """
         key_vault_url: NotRequired[pulumi.Input[str]]
         """
-        URL of keyvault location to store certificate
+        URL path to certificate name located in keyVault
         """
 elif False:
     AppAttachPackagePropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -516,7 +516,7 @@ class AppAttachPackagePropertiesArgs:
         :param pulumi.Input[Union[str, 'FailHealthCheckOnStagingFailure']] fail_health_check_on_staging_failure: Parameter indicating how the health check should behave if this package fails staging
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_pool_references: List of Hostpool resource Ids.
         :param pulumi.Input['AppAttachPackageInfoPropertiesArgs'] image: Detailed properties for App Attach Package
-        :param pulumi.Input[str] key_vault_url: URL of keyvault location to store certificate
+        :param pulumi.Input[str] key_vault_url: URL path to certificate name located in keyVault
         """
         if fail_health_check_on_staging_failure is not None:
             pulumi.set(__self__, "fail_health_check_on_staging_failure", fail_health_check_on_staging_failure)
@@ -567,7 +567,7 @@ class AppAttachPackagePropertiesArgs:
     @pulumi.getter(name="keyVaultURL")
     def key_vault_url(self) -> Optional[pulumi.Input[str]]:
         """
-        URL of keyvault location to store certificate
+        URL path to certificate name located in keyVault
         """
         return pulumi.get(self, "key_vault_url")
 
@@ -1161,7 +1161,7 @@ if not MYPY:
     class ResourceModelWithAllowedPropertySetSkuArgsDict(TypedDict):
         name: pulumi.Input[str]
         """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
+        The name of the SKU. E.g. P3. It is typically a letter+number code
         """
         capacity: NotRequired[pulumi.Input[int]]
         """
@@ -1191,7 +1191,7 @@ class ResourceModelWithAllowedPropertySetSkuArgs:
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input['SkuTier']] = None):
         """
-        :param pulumi.Input[str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
+        :param pulumi.Input[str] name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
@@ -1211,7 +1211,7 @@ class ResourceModelWithAllowedPropertySetSkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
+        The name of the SKU. E.g. P3. It is typically a letter+number code
         """
         return pulumi.get(self, "name")
 

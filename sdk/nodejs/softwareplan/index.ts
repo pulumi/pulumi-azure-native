@@ -16,13 +16,6 @@ export const HybridUseBenefit: typeof import("./hybridUseBenefit").HybridUseBene
 utilities.lazyLoad(exports, ["HybridUseBenefit"], () => require("./hybridUseBenefit"));
 
 
-// Export sub-modules:
-import * as v20191201 from "./v20191201";
-
-export {
-    v20191201,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

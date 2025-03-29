@@ -66,9 +66,9 @@ def list_ipam_pool_associated_resources(network_manager_name: Optional[str] = No
     """
     List of PoolAssociation
 
-    Uses Azure REST API version 2024-01-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -92,9 +92,9 @@ def list_ipam_pool_associated_resources_output(network_manager_name: Optional[pu
     """
     List of PoolAssociation
 
-    Uses Azure REST API version 2024-01-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str network_manager_name: The name of the network manager.

@@ -33,6 +33,24 @@ namespace Pulumi.AzureNative.ServiceLinker.Inputs
             set => _additionalConfigurations = value;
         }
 
+        [Input("additionalConnectionStringProperties")]
+        private InputMap<string>? _additionalConnectionStringProperties;
+
+        /// <summary>
+        /// A dictionary of additional properties to be added in the end of connection string.
+        /// </summary>
+        public InputMap<string> AdditionalConnectionStringProperties
+        {
+            get => _additionalConnectionStringProperties ?? (_additionalConnectionStringProperties = new InputMap<string>());
+            set => _additionalConnectionStringProperties = value;
+        }
+
+        /// <summary>
+        /// An option to store configuration into different place
+        /// </summary>
+        [Input("configurationStore")]
+        public Input<Inputs.ConfigurationStoreArgs>? ConfigurationStore { get; set; }
+
         [Input("customizedKeys")]
         private InputMap<string>? _customizedKeys;
 

@@ -14,11 +14,3 @@ from .managed_gateway import *
 from .monitored_resource import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.scom.v20230707preview as __v20230707preview
-    v20230707preview = __v20230707preview
-else:
-    v20230707preview = _utilities.lazy_import('pulumi_azure_native.scom.v20230707preview')
-

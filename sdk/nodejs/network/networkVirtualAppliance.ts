@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * NetworkVirtualAppliance Resource.
  *
- * Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+ * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
- * Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class NetworkVirtualAppliance extends pulumi.CustomResource {
     /**
@@ -50,6 +50,10 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      */
     public /*out*/ readonly addressPrefix!: pulumi.Output<string>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * BootStrapConfigurationBlobs storage URLs.
      */
     public readonly bootStrapConfigurationBlobs!: pulumi.Output<string[] | undefined>;
@@ -82,6 +86,10 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      */
     public /*out*/ readonly inboundSecurityRules!: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
+     * List of Resource Uri of Public IPs for Internet Ingress Scenario.
+     */
+    public readonly internetIngressPublicIps!: pulumi.Output<outputs.network.InternetIngressPublicIpsPropertiesResponse[] | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -89,6 +97,10 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Network Profile containing configurations for Public and Private NIC.
+     */
+    public readonly networkProfile!: pulumi.Output<outputs.network.NetworkVirtualAppliancePropertiesFormatResponseNetworkProfile | undefined>;
     /**
      * Network Virtual Appliance SKU.
      */
@@ -117,6 +129,10 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      * VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
      */
     public readonly virtualApplianceAsn!: pulumi.Output<number | undefined>;
+    /**
+     * List of references to VirtualApplianceConnections.
+     */
+    public /*out*/ readonly virtualApplianceConnections!: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * List of Virtual Appliance Network Interfaces.
      */
@@ -151,7 +167,9 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             resourceInputs["delegation"] = args ? args.delegation : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["internetIngressPublicIps"] = args ? args.internetIngressPublicIps : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
             resourceInputs["nvaSku"] = args ? args.nvaSku : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -160,6 +178,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             resourceInputs["virtualApplianceAsn"] = args ? args.virtualApplianceAsn : undefined;
             resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
             resourceInputs["addressPrefix"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentType"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["inboundSecurityRules"] = undefined /*out*/;
@@ -167,11 +186,13 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             resourceInputs["partnerManagedResource"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualApplianceConnections"] = undefined /*out*/;
             resourceInputs["virtualApplianceNics"] = undefined /*out*/;
             resourceInputs["virtualApplianceSites"] = undefined /*out*/;
         } else {
             resourceInputs["additionalNics"] = undefined /*out*/;
             resourceInputs["addressPrefix"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bootStrapConfigurationBlobs"] = undefined /*out*/;
             resourceInputs["cloudInitConfiguration"] = undefined /*out*/;
             resourceInputs["cloudInitConfigurationBlobs"] = undefined /*out*/;
@@ -180,8 +201,10 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["inboundSecurityRules"] = undefined /*out*/;
+            resourceInputs["internetIngressPublicIps"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
             resourceInputs["nvaSku"] = undefined /*out*/;
             resourceInputs["partnerManagedResource"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -189,6 +212,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualApplianceAsn"] = undefined /*out*/;
+            resourceInputs["virtualApplianceConnections"] = undefined /*out*/;
             resourceInputs["virtualApplianceNics"] = undefined /*out*/;
             resourceInputs["virtualApplianceSites"] = undefined /*out*/;
             resourceInputs["virtualHub"] = undefined /*out*/;
@@ -233,9 +257,17 @@ export interface NetworkVirtualApplianceArgs {
      */
     identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs>;
     /**
+     * List of Resource Uri of Public IPs for Internet Ingress Scenario.
+     */
+    internetIngressPublicIps?: pulumi.Input<pulumi.Input<inputs.network.InternetIngressPublicIpsPropertiesArgs>[]>;
+    /**
      * Resource location.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Network Profile containing configurations for Public and Private NIC.
+     */
+    networkProfile?: pulumi.Input<inputs.network.NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs>;
     /**
      * The name of Network Virtual Appliance.
      */

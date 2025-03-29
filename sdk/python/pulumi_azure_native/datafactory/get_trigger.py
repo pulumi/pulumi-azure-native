@@ -27,7 +27,10 @@ class GetTriggerResult:
     """
     Trigger resource type.
     """
-    def __init__(__self__, etag=None, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, name=None, properties=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -43,6 +46,14 @@ class GetTriggerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -91,6 +102,7 @@ class AwaitableGetTriggerResult(GetTriggerResult):
         if False:
             yield self
         return GetTriggerResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             name=self.name,
@@ -120,6 +132,7 @@ def get_trigger(factory_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datafactory:getTrigger', __args__, opts=opts, typ=GetTriggerResult).value
 
     return AwaitableGetTriggerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -146,6 +159,7 @@ def get_trigger_output(factory_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory:getTrigger', __args__, opts=opts, typ=GetTriggerResult)
     return __ret__.apply(lambda __response__: GetTriggerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Get the detail of a linked workspace.
         /// 
         /// Uses Azure REST API version 2020-05-15-preview.
+        /// 
+        /// Other available API versions: 2020-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetLinkedWorkspaceResult> InvokeAsync(GetLinkedWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedWorkspaceResult>("azure-native:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Get the detail of a linked workspace.
         /// 
         /// Uses Azure REST API version 2020-05-15-preview.
+        /// 
+        /// Other available API versions: 2020-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLinkedWorkspaceResult> Invoke(GetLinkedWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedWorkspaceResult>("azure-native:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Get the detail of a linked workspace.
         /// 
         /// Uses Azure REST API version 2020-05-15-preview.
+        /// 
+        /// Other available API versions: 2020-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLinkedWorkspaceResult> Invoke(GetLinkedWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedWorkspaceResult>("azure-native:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceInvokeArgs(), options.WithDefaults());
@@ -94,6 +100,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetLinkedWorkspaceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// ResourceId of the link of the linked workspace.
         /// </summary>
         public readonly string Id;
@@ -112,6 +122,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetLinkedWorkspaceResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -120,6 +132,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

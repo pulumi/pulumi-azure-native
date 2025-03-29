@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Private endpoint resource.
     /// 
-    /// Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
-    /// Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Other available API versions: 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateEndpoint")]
     public partial class PrivateEndpoint : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("applicationSecurityGroups")]
         public Output<ImmutableArray<Outputs.ApplicationSecurityGroupResponse>> ApplicationSecurityGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// An array of custom dns configurations.
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181001:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181101:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181201:PrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:InterfaceEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190201:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190401:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190601:PrivateEndpoint" },
@@ -171,6 +178,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:PrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:InterfaceEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -47,7 +47,7 @@ class StaticSiteArgs:
         :param pulumi.Input['StaticSiteBuildPropertiesArgs'] build_properties: Build properties to configure on the repository.
         :param pulumi.Input[Union[str, 'EnterpriseGradeCdnStatus']] enterprise_grade_cdn_status: State indicating the status of the enterprise grade CDN serving traffic to the static web app.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the static site to create or update.
         :param pulumi.Input[str] provider: The provider that submitted the last deployment to the primary environment of the static site.
@@ -169,7 +169,7 @@ class StaticSiteArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -324,9 +324,9 @@ class StaticSite(pulumi.CustomResource):
         """
         Static Site ARM resource.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -335,7 +335,7 @@ class StaticSite(pulumi.CustomResource):
         :param pulumi.Input[Union['StaticSiteBuildPropertiesArgs', 'StaticSiteBuildPropertiesArgsDict']] build_properties: Build properties to configure on the repository.
         :param pulumi.Input[Union[str, 'EnterpriseGradeCdnStatus']] enterprise_grade_cdn_status: State indicating the status of the enterprise grade CDN serving traffic to the static web app.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the static site to create or update.
         :param pulumi.Input[str] provider: The provider that submitted the last deployment to the primary environment of the static site.
@@ -357,9 +357,9 @@ class StaticSite(pulumi.CustomResource):
         """
         Static Site ARM resource.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param StaticSiteArgs args: The arguments to use to populate this resource's properties.
@@ -421,6 +421,7 @@ class StaticSite(pulumi.CustomResource):
             __props__.__dict__["staging_environment_policy"] = staging_environment_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_properties"] = template_properties
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["content_distribution_endpoint"] = None
             __props__.__dict__["custom_domains"] = None
             __props__.__dict__["database_connections"] = None
@@ -455,6 +456,7 @@ class StaticSite(pulumi.CustomResource):
         __props__ = StaticSiteArgs.__new__(StaticSiteArgs)
 
         __props__.__dict__["allow_config_file_updates"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["branch"] = None
         __props__.__dict__["build_properties"] = None
         __props__.__dict__["content_distribution_endpoint"] = None
@@ -488,6 +490,14 @@ class StaticSite(pulumi.CustomResource):
         <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "allow_config_file_updates")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -565,7 +575,7 @@ class StaticSite(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 

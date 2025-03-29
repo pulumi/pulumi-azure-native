@@ -26,10 +26,13 @@ class GetWorkspaceProductResult:
     """
     Product details.
     """
-    def __init__(__self__, approval_required=None, description=None, display_name=None, id=None, name=None, state=None, subscription_required=None, subscriptions_limit=None, terms=None, type=None):
+    def __init__(__self__, approval_required=None, azure_api_version=None, description=None, display_name=None, id=None, name=None, state=None, subscription_required=None, subscriptions_limit=None, terms=None, type=None):
         if approval_required and not isinstance(approval_required, bool):
             raise TypeError("Expected argument 'approval_required' to be a bool")
         pulumi.set(__self__, "approval_required", approval_required)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -65,6 +68,14 @@ class GetWorkspaceProductResult:
         whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
         """
         return pulumi.get(self, "approval_required")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetWorkspaceProductResult(GetWorkspaceProductResult):
             yield self
         return GetWorkspaceProductResult(
             approval_required=self.approval_required,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
@@ -167,7 +179,7 @@ def get_workspace_product(product_id: Optional[str] = None,
 
     Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
@@ -185,6 +197,7 @@ def get_workspace_product(product_id: Optional[str] = None,
 
     return AwaitableGetWorkspaceProductResult(
         approval_required=pulumi.get(__ret__, 'approval_required'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -204,7 +217,7 @@ def get_workspace_product_output(product_id: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
@@ -221,6 +234,7 @@ def get_workspace_product_output(product_id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspaceProduct', __args__, opts=opts, typ=GetWorkspaceProductResult)
     return __ret__.apply(lambda __response__: GetWorkspaceProductResult(
         approval_required=pulumi.get(__response__, 'approval_required'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),

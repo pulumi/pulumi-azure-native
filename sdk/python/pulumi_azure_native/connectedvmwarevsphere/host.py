@@ -187,9 +187,9 @@ class Host(pulumi.CustomResource):
         """
         Define the host.
 
-        Uses Azure REST API version 2022-07-15-preview. In version 1.x of the Azure Native provider, it used API version 2020-10-01-preview.
+        Uses Azure REST API version 2023-12-01. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,9 +212,9 @@ class Host(pulumi.CustomResource):
         """
         Define the host.
 
-        Uses Azure REST API version 2022-07-15-preview. In version 1.x of the Azure Native provider, it used API version 2020-10-01-preview.
+        Uses Azure REST API version 2023-12-01. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param HostArgs args: The arguments to use to populate this resource's properties.
@@ -260,11 +260,16 @@ class Host(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v_center_id"] = v_center_id
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["cpu_mhz"] = None
             __props__.__dict__["custom_resource_name"] = None
             __props__.__dict__["datastore_ids"] = None
+            __props__.__dict__["memory_size_gb"] = None
             __props__.__dict__["mo_name"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["network_ids"] = None
+            __props__.__dict__["overall_cpu_usage_m_hz"] = None
+            __props__.__dict__["overall_memory_usage_gb"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["statuses"] = None
             __props__.__dict__["system_data"] = None
@@ -294,16 +299,21 @@ class Host(pulumi.CustomResource):
 
         __props__ = HostArgs.__new__(HostArgs)
 
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["cpu_mhz"] = None
         __props__.__dict__["custom_resource_name"] = None
         __props__.__dict__["datastore_ids"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["inventory_item_id"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["memory_size_gb"] = None
         __props__.__dict__["mo_name"] = None
         __props__.__dict__["mo_ref_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_ids"] = None
+        __props__.__dict__["overall_cpu_usage_m_hz"] = None
+        __props__.__dict__["overall_memory_usage_gb"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["statuses"] = None
         __props__.__dict__["system_data"] = None
@@ -312,6 +322,22 @@ class Host(pulumi.CustomResource):
         __props__.__dict__["uuid"] = None
         __props__.__dict__["v_center_id"] = None
         return Host(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="cpuMhz")
+    def cpu_mhz(self) -> pulumi.Output[float]:
+        """
+        Gets the max CPU usage across all cores in MHz.
+        """
+        return pulumi.get(self, "cpu_mhz")
 
     @property
     @pulumi.getter(name="customResourceName")
@@ -325,7 +351,7 @@ class Host(pulumi.CustomResource):
     @pulumi.getter(name="datastoreIds")
     def datastore_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        Gets or sets the datastore ARM ids.
+        Gets the datastore ARM ids.
         """
         return pulumi.get(self, "datastore_ids")
 
@@ -362,6 +388,14 @@ class Host(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="memorySizeGB")
+    def memory_size_gb(self) -> pulumi.Output[float]:
+        """
+        Gets the total amount of physical memory on the host in GB.
+        """
+        return pulumi.get(self, "memory_size_gb")
+
+    @property
     @pulumi.getter(name="moName")
     def mo_name(self) -> pulumi.Output[str]:
         """
@@ -389,15 +423,31 @@ class Host(pulumi.CustomResource):
     @pulumi.getter(name="networkIds")
     def network_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        Gets or sets the network ARM ids.
+        Gets the network ARM ids.
         """
         return pulumi.get(self, "network_ids")
+
+    @property
+    @pulumi.getter(name="overallCpuUsageMHz")
+    def overall_cpu_usage_m_hz(self) -> pulumi.Output[float]:
+        """
+        Gets the used CPU usage across all cores in MHz.
+        """
+        return pulumi.get(self, "overall_cpu_usage_m_hz")
+
+    @property
+    @pulumi.getter(name="overallMemoryUsageGB")
+    def overall_memory_usage_gb(self) -> pulumi.Output[float]:
+        """
+        Gets the used physical memory on the host in GB.
+        """
+        return pulumi.get(self, "overall_memory_usage_gb")
 
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 

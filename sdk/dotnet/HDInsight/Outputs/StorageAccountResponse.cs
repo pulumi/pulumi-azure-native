@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
         /// </summary>
         public readonly string? Container;
         /// <summary>
+        /// Enable secure channel or not, it's an optional field. Default value is false when cluster version &lt; 5.1 and true when cluster version &gt;= 5.1 , 
+        /// </summary>
+        public readonly bool? EnableSecureChannel;
+        /// <summary>
         /// The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
         /// </summary>
         public readonly string? FileSystem;
@@ -57,6 +61,8 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
         private StorageAccountResponse(
             string? container,
 
+            bool? enableSecureChannel,
+
             string? fileSystem,
 
             string? fileshare,
@@ -74,6 +80,7 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
             string? saskey)
         {
             Container = container;
+            EnableSecureChannel = enableSecureChannel;
             FileSystem = fileSystem;
             Fileshare = fileshare;
             IsDefault = isDefault;

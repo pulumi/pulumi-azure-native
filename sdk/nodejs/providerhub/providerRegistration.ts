@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2021-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-11-20.
+ * Uses Azure REST API version 2021-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
  */
 export class ProviderRegistration extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ProviderRegistration extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -64,10 +68,12 @@ export class ProviderRegistration extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

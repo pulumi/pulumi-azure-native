@@ -27,7 +27,7 @@ class GetPoolResult:
     """
     Contains information about a pool.
     """
-    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, application_licenses=None, application_packages=None, auto_scale_run=None, certificates=None, creation_time=None, current_dedicated_nodes=None, current_low_priority_nodes=None, current_node_communication_mode=None, deployment_configuration=None, display_name=None, etag=None, id=None, identity=None, inter_node_communication=None, last_modified=None, metadata=None, mount_configuration=None, name=None, network_configuration=None, provisioning_state=None, provisioning_state_transition_time=None, resize_operation_status=None, scale_settings=None, start_task=None, target_node_communication_mode=None, task_scheduling_policy=None, task_slots_per_node=None, type=None, user_accounts=None, vm_size=None):
+    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, application_licenses=None, application_packages=None, auto_scale_run=None, azure_api_version=None, certificates=None, creation_time=None, current_dedicated_nodes=None, current_low_priority_nodes=None, current_node_communication_mode=None, deployment_configuration=None, display_name=None, etag=None, id=None, identity=None, inter_node_communication=None, last_modified=None, metadata=None, mount_configuration=None, name=None, network_configuration=None, provisioning_state=None, provisioning_state_transition_time=None, resize_operation_status=None, resource_tags=None, scale_settings=None, start_task=None, tags=None, target_node_communication_mode=None, task_scheduling_policy=None, task_slots_per_node=None, type=None, upgrade_policy=None, user_accounts=None, vm_size=None):
         if allocation_state and not isinstance(allocation_state, str):
             raise TypeError("Expected argument 'allocation_state' to be a str")
         pulumi.set(__self__, "allocation_state", allocation_state)
@@ -43,6 +43,9 @@ class GetPoolResult:
         if auto_scale_run and not isinstance(auto_scale_run, dict):
             raise TypeError("Expected argument 'auto_scale_run' to be a dict")
         pulumi.set(__self__, "auto_scale_run", auto_scale_run)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if certificates and not isinstance(certificates, list):
             raise TypeError("Expected argument 'certificates' to be a list")
         pulumi.set(__self__, "certificates", certificates)
@@ -100,12 +103,18 @@ class GetPoolResult:
         if resize_operation_status and not isinstance(resize_operation_status, dict):
             raise TypeError("Expected argument 'resize_operation_status' to be a dict")
         pulumi.set(__self__, "resize_operation_status", resize_operation_status)
+        if resource_tags and not isinstance(resource_tags, dict):
+            raise TypeError("Expected argument 'resource_tags' to be a dict")
+        pulumi.set(__self__, "resource_tags", resource_tags)
         if scale_settings and not isinstance(scale_settings, dict):
             raise TypeError("Expected argument 'scale_settings' to be a dict")
         pulumi.set(__self__, "scale_settings", scale_settings)
         if start_task and not isinstance(start_task, dict):
             raise TypeError("Expected argument 'start_task' to be a dict")
         pulumi.set(__self__, "start_task", start_task)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if target_node_communication_mode and not isinstance(target_node_communication_mode, str):
             raise TypeError("Expected argument 'target_node_communication_mode' to be a str")
         pulumi.set(__self__, "target_node_communication_mode", target_node_communication_mode)
@@ -118,6 +127,9 @@ class GetPoolResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if upgrade_policy and not isinstance(upgrade_policy, dict):
+            raise TypeError("Expected argument 'upgrade_policy' to be a dict")
+        pulumi.set(__self__, "upgrade_policy", upgrade_policy)
         if user_accounts and not isinstance(user_accounts, list):
             raise TypeError("Expected argument 'user_accounts' to be a list")
         pulumi.set(__self__, "user_accounts", user_accounts)
@@ -160,6 +172,14 @@ class GetPoolResult:
         return pulumi.get(self, "auto_scale_run")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def certificates(self) -> Optional[Sequence['outputs.CertificateReferenceResponse']]:
         """
@@ -192,9 +212,6 @@ class GetPoolResult:
     @property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> Optional['outputs.DeploymentConfigurationResponse']:
-        """
-        Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
-        """
         return pulumi.get(self, "deployment_configuration")
 
     @property
@@ -296,6 +313,14 @@ class GetPoolResult:
         return pulumi.get(self, "resize_operation_status")
 
     @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The user-defined tags to be associated with the Azure Batch Pool. When specified, these tags are propagated to the backing Azure resources associated with the pool. This property can only be specified when the Batch account was created with the poolAllocationMode property set to 'UserSubscription'.
+        """
+        return pulumi.get(self, "resource_tags")
+
+    @property
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> Optional['outputs.ScaleSettingsResponse']:
         """
@@ -310,6 +335,14 @@ class GetPoolResult:
         In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
         """
         return pulumi.get(self, "start_task")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetNodeCommunicationMode")
@@ -344,6 +377,14 @@ class GetPoolResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="upgradePolicy")
+    def upgrade_policy(self) -> Optional['outputs.UpgradePolicyResponse']:
+        """
+        Describes an upgrade policy - automatic, manual, or rolling.
+        """
+        return pulumi.get(self, "upgrade_policy")
+
+    @property
     @pulumi.getter(name="userAccounts")
     def user_accounts(self) -> Optional[Sequence['outputs.UserAccountResponse']]:
         return pulumi.get(self, "user_accounts")
@@ -352,7 +393,7 @@ class GetPoolResult:
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[str]:
         """
-        For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
         return pulumi.get(self, "vm_size")
 
@@ -368,6 +409,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             application_licenses=self.application_licenses,
             application_packages=self.application_packages,
             auto_scale_run=self.auto_scale_run,
+            azure_api_version=self.azure_api_version,
             certificates=self.certificates,
             creation_time=self.creation_time,
             current_dedicated_nodes=self.current_dedicated_nodes,
@@ -387,12 +429,15 @@ class AwaitableGetPoolResult(GetPoolResult):
             provisioning_state=self.provisioning_state,
             provisioning_state_transition_time=self.provisioning_state_transition_time,
             resize_operation_status=self.resize_operation_status,
+            resource_tags=self.resource_tags,
             scale_settings=self.scale_settings,
             start_task=self.start_task,
+            tags=self.tags,
             target_node_communication_mode=self.target_node_communication_mode,
             task_scheduling_policy=self.task_scheduling_policy,
             task_slots_per_node=self.task_slots_per_node,
             type=self.type,
+            upgrade_policy=self.upgrade_policy,
             user_accounts=self.user_accounts,
             vm_size=self.vm_size)
 
@@ -404,9 +449,9 @@ def get_pool(account_name: Optional[str] = None,
     """
     Gets information about the specified pool.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the Batch account.
@@ -426,6 +471,7 @@ def get_pool(account_name: Optional[str] = None,
         application_licenses=pulumi.get(__ret__, 'application_licenses'),
         application_packages=pulumi.get(__ret__, 'application_packages'),
         auto_scale_run=pulumi.get(__ret__, 'auto_scale_run'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         certificates=pulumi.get(__ret__, 'certificates'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         current_dedicated_nodes=pulumi.get(__ret__, 'current_dedicated_nodes'),
@@ -445,12 +491,15 @@ def get_pool(account_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         provisioning_state_transition_time=pulumi.get(__ret__, 'provisioning_state_transition_time'),
         resize_operation_status=pulumi.get(__ret__, 'resize_operation_status'),
+        resource_tags=pulumi.get(__ret__, 'resource_tags'),
         scale_settings=pulumi.get(__ret__, 'scale_settings'),
         start_task=pulumi.get(__ret__, 'start_task'),
+        tags=pulumi.get(__ret__, 'tags'),
         target_node_communication_mode=pulumi.get(__ret__, 'target_node_communication_mode'),
         task_scheduling_policy=pulumi.get(__ret__, 'task_scheduling_policy'),
         task_slots_per_node=pulumi.get(__ret__, 'task_slots_per_node'),
         type=pulumi.get(__ret__, 'type'),
+        upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'),
         user_accounts=pulumi.get(__ret__, 'user_accounts'),
         vm_size=pulumi.get(__ret__, 'vm_size'))
 def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
@@ -460,9 +509,9 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified pool.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the Batch account.
@@ -481,6 +530,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
         application_licenses=pulumi.get(__response__, 'application_licenses'),
         application_packages=pulumi.get(__response__, 'application_packages'),
         auto_scale_run=pulumi.get(__response__, 'auto_scale_run'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         certificates=pulumi.get(__response__, 'certificates'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         current_dedicated_nodes=pulumi.get(__response__, 'current_dedicated_nodes'),
@@ -500,11 +550,14 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         provisioning_state_transition_time=pulumi.get(__response__, 'provisioning_state_transition_time'),
         resize_operation_status=pulumi.get(__response__, 'resize_operation_status'),
+        resource_tags=pulumi.get(__response__, 'resource_tags'),
         scale_settings=pulumi.get(__response__, 'scale_settings'),
         start_task=pulumi.get(__response__, 'start_task'),
+        tags=pulumi.get(__response__, 'tags'),
         target_node_communication_mode=pulumi.get(__response__, 'target_node_communication_mode'),
         task_scheduling_policy=pulumi.get(__response__, 'task_scheduling_policy'),
         task_slots_per_node=pulumi.get(__response__, 'task_slots_per_node'),
         type=pulumi.get(__response__, 'type'),
+        upgrade_policy=pulumi.get(__response__, 'upgrade_policy'),
         user_accounts=pulumi.get(__response__, 'user_accounts'),
         vm_size=pulumi.get(__response__, 'vm_size')))

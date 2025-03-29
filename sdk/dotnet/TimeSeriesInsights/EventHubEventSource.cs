@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     /// <summary>
     /// An event source that receives its data from an Azure EventHub.
     /// 
-    /// Uses Azure REST API version 2020-05-15. In version 1.x of the Azure Native provider, it used API version 2020-05-15.
+    /// Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights:EventHubEventSource")]
     public partial class EventHubEventSource : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the event hub's consumer group that holds the partitions from which events will be read.
         /// </summary>
@@ -146,6 +152,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:EventHubEventSource" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:EventHubEventSource" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:EventHubEventSource" },
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource" },
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:IoTHubEventSource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

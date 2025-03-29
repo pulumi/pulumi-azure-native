@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Get a given StorageSyncService.
         /// 
-        /// Uses Azure REST API version 2022-06-01.
+        /// Uses Azure REST API version 2022-09-01.
         /// 
-        /// Other available API versions: 2022-09-01.
+        /// Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStorageSyncServiceResult> InvokeAsync(GetStorageSyncServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageSyncServiceResult>("azure-native:storagesync:getStorageSyncService", args ?? new GetStorageSyncServiceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Get a given StorageSyncService.
         /// 
-        /// Uses Azure REST API version 2022-06-01.
+        /// Uses Azure REST API version 2022-09-01.
         /// 
-        /// Other available API versions: 2022-09-01.
+        /// Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStorageSyncServiceResult> Invoke(GetStorageSyncServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageSyncServiceResult>("azure-native:storagesync:getStorageSyncService", args ?? new GetStorageSyncServiceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Get a given StorageSyncService.
         /// 
-        /// Uses Azure REST API version 2022-06-01.
+        /// Uses Azure REST API version 2022-09-01.
         /// 
-        /// Other available API versions: 2022-09-01.
+        /// Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStorageSyncServiceResult> Invoke(GetStorageSyncServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageSyncServiceResult>("azure-native:storagesync:getStorageSyncService", args ?? new GetStorageSyncServiceInvokeArgs(), options.WithDefaults());
@@ -88,9 +88,17 @@ namespace Pulumi.AzureNative.StorageSync
     public sealed class GetStorageSyncServiceResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// managed identities for the Storage Sync service to interact with other Azure services without maintaining any secrets or credentials in code.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Incoming Traffic Policy
         /// </summary>
@@ -139,10 +147,18 @@ namespace Pulumi.AzureNative.StorageSync
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Use Identity authorization when customer have finished setup RBAC permissions.
+        /// </summary>
+        public readonly bool UseIdentity;
 
         [OutputConstructor]
         private GetStorageSyncServiceResult(
+            string azureApiVersion,
+
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? incomingTrafficPolicy,
 
@@ -166,9 +182,13 @@ namespace Pulumi.AzureNative.StorageSync
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            bool useIdentity)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
+            Identity = identity;
             IncomingTrafficPolicy = incomingTrafficPolicy;
             LastOperationName = lastOperationName;
             LastWorkflowId = lastWorkflowId;
@@ -181,6 +201,7 @@ namespace Pulumi.AzureNative.StorageSync
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            UseIdentity = useIdentity;
         }
     }
 }

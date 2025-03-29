@@ -25,6 +25,7 @@ class ContainerAppsAuthConfigArgs:
                  container_app_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  auth_config_name: Optional[pulumi.Input[str]] = None,
+                 encryption_settings: Optional[pulumi.Input['EncryptionSettingsArgs']] = None,
                  global_validation: Optional[pulumi.Input['GlobalValidationArgs']] = None,
                  http_settings: Optional[pulumi.Input['HttpSettingsArgs']] = None,
                  identity_providers: Optional[pulumi.Input['IdentityProvidersArgs']] = None,
@@ -35,6 +36,7 @@ class ContainerAppsAuthConfigArgs:
         :param pulumi.Input[str] container_app_name: Name of the Container App.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] auth_config_name: Name of the Container App AuthConfig.
+        :param pulumi.Input['EncryptionSettingsArgs'] encryption_settings: The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
         :param pulumi.Input['GlobalValidationArgs'] global_validation: The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         :param pulumi.Input['HttpSettingsArgs'] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
         :param pulumi.Input['IdentityProvidersArgs'] identity_providers: The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
@@ -45,6 +47,8 @@ class ContainerAppsAuthConfigArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auth_config_name is not None:
             pulumi.set(__self__, "auth_config_name", auth_config_name)
+        if encryption_settings is not None:
+            pulumi.set(__self__, "encryption_settings", encryption_settings)
         if global_validation is not None:
             pulumi.set(__self__, "global_validation", global_validation)
         if http_settings is not None:
@@ -91,6 +95,18 @@ class ContainerAppsAuthConfigArgs:
     @auth_config_name.setter
     def auth_config_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auth_config_name", value)
+
+    @property
+    @pulumi.getter(name="encryptionSettings")
+    def encryption_settings(self) -> Optional[pulumi.Input['EncryptionSettingsArgs']]:
+        """
+        The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
+        """
+        return pulumi.get(self, "encryption_settings")
+
+    @encryption_settings.setter
+    def encryption_settings(self, value: Optional[pulumi.Input['EncryptionSettingsArgs']]):
+        pulumi.set(self, "encryption_settings", value)
 
     @property
     @pulumi.getter(name="globalValidation")
@@ -160,6 +176,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_config_name: Optional[pulumi.Input[str]] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
+                 encryption_settings: Optional[pulumi.Input[Union['EncryptionSettingsArgs', 'EncryptionSettingsArgsDict']]] = None,
                  global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
                  http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
                  identity_providers: Optional[pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
@@ -170,14 +187,15 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
         """
         Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
 
-        Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2022-03-01.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_config_name: Name of the Container App AuthConfig.
         :param pulumi.Input[str] container_app_name: Name of the Container App.
+        :param pulumi.Input[Union['EncryptionSettingsArgs', 'EncryptionSettingsArgsDict']] encryption_settings: The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
         :param pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']] global_validation: The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         :param pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
         :param pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']] identity_providers: The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
@@ -194,9 +212,9 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
         """
         Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
 
-        Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2022-03-01.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ContainerAppsAuthConfigArgs args: The arguments to use to populate this resource's properties.
@@ -215,6 +233,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_config_name: Optional[pulumi.Input[str]] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
+                 encryption_settings: Optional[pulumi.Input[Union['EncryptionSettingsArgs', 'EncryptionSettingsArgsDict']]] = None,
                  global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
                  http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
                  identity_providers: Optional[pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
@@ -234,6 +253,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
             if container_app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_app_name'")
             __props__.__dict__["container_app_name"] = container_app_name
+            __props__.__dict__["encryption_settings"] = encryption_settings
             __props__.__dict__["global_validation"] = global_validation
             __props__.__dict__["http_settings"] = http_settings
             __props__.__dict__["identity_providers"] = identity_providers
@@ -242,6 +262,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -269,6 +290,8 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
 
         __props__ = ContainerAppsAuthConfigArgs.__new__(ContainerAppsAuthConfigArgs)
 
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["encryption_settings"] = None
         __props__.__dict__["global_validation"] = None
         __props__.__dict__["http_settings"] = None
         __props__.__dict__["identity_providers"] = None
@@ -278,6 +301,22 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ContainerAppsAuthConfig(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="encryptionSettings")
+    def encryption_settings(self) -> pulumi.Output[Optional['outputs.EncryptionSettingsResponse']]:
+        """
+        The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
+        """
+        return pulumi.get(self, "encryption_settings")
 
     @property
     @pulumi.getter(name="globalValidation")

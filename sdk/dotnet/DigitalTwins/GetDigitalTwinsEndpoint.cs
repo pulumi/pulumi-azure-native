@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DigitalTwins
     public sealed class GetDigitalTwinsEndpointResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource identifier.
         /// </summary>
         public readonly string Id;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.DigitalTwins
 
         [OutputConstructor]
         private GetDigitalTwinsEndpointResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.DigitalTwins
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

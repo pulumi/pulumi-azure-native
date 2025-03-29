@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements vCenter GET method.
         /// 
-        /// Uses Azure REST API version 2022-07-15-preview.
+        /// Uses Azure REST API version 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVCenterResult> InvokeAsync(GetVCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements vCenter GET method.
         /// 
-        /// Uses Azure REST API version 2022-07-15-preview.
+        /// Uses Azure REST API version 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVCenterResult> Invoke(GetVCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements vCenter GET method.
         /// 
-        /// Uses Azure REST API version 2022-07-15-preview.
+        /// Uses Azure REST API version 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVCenterResult> Invoke(GetVCenterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public sealed class GetVCenterResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the connection status to the vCenter.
         /// </summary>
         public readonly string ConnectionStatus;
@@ -132,7 +136,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
         [OutputConstructor]
         private GetVCenterResult(
+            string azureApiVersion,
+
             string connectionStatus,
 
             Outputs.VICredentialResponse? credentials,
@@ -198,6 +204,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string version)
         {
+            AzureApiVersion = azureApiVersion;
             ConnectionStatus = connectionStatus;
             Credentials = credentials;
             CustomResourceName = customResourceName;

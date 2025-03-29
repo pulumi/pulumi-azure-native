@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Web
         /// Gets the send key name and value for a Hybrid Connection.
         /// 
         /// Uses Azure REST API version 2018-11-01.
+        /// 
+        /// Other available API versions: 2016-08-01, 2018-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListWebAppHybridConnectionKeysSlotResult> InvokeAsync(ListWebAppHybridConnectionKeysSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHybridConnectionKeysSlotResult>("azure-native:web:listWebAppHybridConnectionKeysSlot", args ?? new ListWebAppHybridConnectionKeysSlotArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Web
         /// Gets the send key name and value for a Hybrid Connection.
         /// 
         /// Uses Azure REST API version 2018-11-01.
+        /// 
+        /// Other available API versions: 2016-08-01, 2018-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListWebAppHybridConnectionKeysSlotResult> Invoke(ListWebAppHybridConnectionKeysSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppHybridConnectionKeysSlotResult>("azure-native:web:listWebAppHybridConnectionKeysSlot", args ?? new ListWebAppHybridConnectionKeysSlotInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Web
         /// Gets the send key name and value for a Hybrid Connection.
         /// 
         /// Uses Azure REST API version 2018-11-01.
+        /// 
+        /// Other available API versions: 2016-08-01, 2018-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListWebAppHybridConnectionKeysSlotResult> Invoke(ListWebAppHybridConnectionKeysSlotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppHybridConnectionKeysSlotResult>("azure-native:web:listWebAppHybridConnectionKeysSlot", args ?? new ListWebAppHybridConnectionKeysSlotInvokeArgs(), options.WithDefaults());

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// Returns RecommendationsService Account resource for a given name.
         /// 
-        /// Uses Azure REST API version 2022-02-01.
+        /// Uses Azure REST API version 2022-03-01-preview.
         /// 
-        /// Other available API versions: 2022-03-01-preview.
+        /// Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:recommendationsservice:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// Returns RecommendationsService Account resource for a given name.
         /// 
-        /// Uses Azure REST API version 2022-02-01.
+        /// Uses Azure REST API version 2022-03-01-preview.
         /// 
-        /// Other available API versions: 2022-03-01-preview.
+        /// Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:recommendationsservice:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// Returns RecommendationsService Account resource for a given name.
         /// 
-        /// Uses Azure REST API version 2022-02-01.
+        /// Uses Azure REST API version 2022-03-01-preview.
         /// 
-        /// Other available API versions: 2022-03-01-preview.
+        /// Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:recommendationsservice:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -88,9 +88,17 @@ namespace Pulumi.AzureNative.RecommendationsService
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identity used for the resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -118,7 +126,11 @@ namespace Pulumi.AzureNative.RecommendationsService
 
         [OutputConstructor]
         private GetAccountResult(
+            string azureApiVersion,
+
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -132,7 +144,9 @@ namespace Pulumi.AzureNative.RecommendationsService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;

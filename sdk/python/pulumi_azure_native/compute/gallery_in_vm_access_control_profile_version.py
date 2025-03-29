@@ -218,7 +218,7 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
         """
         Specifies information about the gallery inVMAccessControlProfile version that you want to create or update.
 
-        Uses Azure REST API version 2024-03-03.
+        Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2024-03-03.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,7 +243,7 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
         """
         Specifies information about the gallery inVMAccessControlProfile version that you want to create or update.
 
-        Uses Azure REST API version 2024-03-03.
+        Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2024-03-03.
 
         :param str resource_name: The name of the resource.
         :param GalleryInVMAccessControlProfileVersionArgs args: The arguments to use to populate this resource's properties.
@@ -301,6 +301,7 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
             __props__.__dict__["rules"] = rules
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_locations"] = target_locations
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["published_date"] = None
@@ -330,6 +331,7 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
 
         __props__ = GalleryInVMAccessControlProfileVersionArgs.__new__(GalleryInVMAccessControlProfileVersionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["default_access"] = None
         __props__.__dict__["exclude_from_latest"] = None
         __props__.__dict__["location"] = None
@@ -343,6 +345,14 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
         __props__.__dict__["target_locations"] = None
         __props__.__dict__["type"] = None
         return GalleryInVMAccessControlProfileVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultAccess")

@@ -26,7 +26,10 @@ class GetBackupShortTermRetentionPolicyResult:
     """
     A short term retention policy.
     """
-    def __init__(__self__, diff_backup_interval_in_hours=None, id=None, name=None, retention_days=None, type=None):
+    def __init__(__self__, azure_api_version=None, diff_backup_interval_in_hours=None, id=None, name=None, retention_days=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if diff_backup_interval_in_hours and not isinstance(diff_backup_interval_in_hours, int):
             raise TypeError("Expected argument 'diff_backup_interval_in_hours' to be a int")
         pulumi.set(__self__, "diff_backup_interval_in_hours", diff_backup_interval_in_hours)
@@ -42,6 +45,14 @@ class GetBackupShortTermRetentionPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="diffBackupIntervalInHours")
@@ -90,6 +101,7 @@ class AwaitableGetBackupShortTermRetentionPolicyResult(GetBackupShortTermRetenti
         if False:
             yield self
         return GetBackupShortTermRetentionPolicyResult(
+            azure_api_version=self.azure_api_version,
             diff_backup_interval_in_hours=self.diff_backup_interval_in_hours,
             id=self.id,
             name=self.name,
@@ -105,9 +117,9 @@ def get_backup_short_term_retention_policy(database_name: Optional[str] = None,
     """
     Gets a database's short term retention policy.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str database_name: The name of the database.
@@ -124,6 +136,7 @@ def get_backup_short_term_retention_policy(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getBackupShortTermRetentionPolicy', __args__, opts=opts, typ=GetBackupShortTermRetentionPolicyResult).value
 
     return AwaitableGetBackupShortTermRetentionPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         diff_backup_interval_in_hours=pulumi.get(__ret__, 'diff_backup_interval_in_hours'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -137,9 +150,9 @@ def get_backup_short_term_retention_policy_output(database_name: Optional[pulumi
     """
     Gets a database's short term retention policy.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str database_name: The name of the database.
@@ -155,6 +168,7 @@ def get_backup_short_term_retention_policy_output(database_name: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getBackupShortTermRetentionPolicy', __args__, opts=opts, typ=GetBackupShortTermRetentionPolicyResult)
     return __ret__.apply(lambda __response__: GetBackupShortTermRetentionPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         diff_backup_interval_in_hours=pulumi.get(__response__, 'diff_backup_interval_in_hours'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

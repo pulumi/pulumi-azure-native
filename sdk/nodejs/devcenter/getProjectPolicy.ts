@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-10-01-preview.
  *
- * Other available API versions: 2025-02-01.
+ * Other available API versions: 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getProjectPolicy(args: GetProjectPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetProjectPolicyArgs {
  * Represents an project policy resource.
  */
 export interface GetProjectPolicyResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -76,7 +80,7 @@ export interface GetProjectPolicyResult {
  *
  * Uses Azure REST API version 2024-10-01-preview.
  *
- * Other available API versions: 2025-02-01.
+ * Other available API versions: 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getProjectPolicyOutput(args: GetProjectPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// .NET Component.
         /// 
-        /// Uses Azure REST API version 2023-11-02-preview.
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// 
-        /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDotNetComponentResult> InvokeAsync(GetDotNetComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDotNetComponentResult>("azure-native:app:getDotNetComponent", args ?? new GetDotNetComponentArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// .NET Component.
         /// 
-        /// Uses Azure REST API version 2023-11-02-preview.
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// 
-        /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDotNetComponentResult> Invoke(GetDotNetComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDotNetComponentResult>("azure-native:app:getDotNetComponent", args ?? new GetDotNetComponentInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// .NET Component.
         /// 
-        /// Uses Azure REST API version 2023-11-02-preview.
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// 
-        /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDotNetComponentResult> Invoke(GetDotNetComponentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDotNetComponentResult>("azure-native:app:getDotNetComponent", args ?? new GetDotNetComponentInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.App
     public sealed class GetDotNetComponentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Type of the .NET Component.
         /// </summary>
         public readonly string? ComponentType;
@@ -108,7 +112,7 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly ImmutableArray<Outputs.DotNetComponentConfigurationPropertyResponse> Configurations;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.App
 
         [OutputConstructor]
         private GetDotNetComponentResult(
+            string azureApiVersion,
+
             string? componentType,
 
             ImmutableArray<Outputs.DotNetComponentConfigurationPropertyResponse> configurations,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.App
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ComponentType = componentType;
             Configurations = configurations;
             Id = id;

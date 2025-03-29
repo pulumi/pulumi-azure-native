@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.DevCenter
     /// <summary>
     /// Represents a definition for a Developer Machine.
     /// 
-    /// Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+    /// Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
-    /// Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+    /// Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:DevBoxDefinition")]
     public partial class DevBoxDefinition : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("activeImageReference")]
         public Output<Outputs.ImageReferenceResponse> ActiveImageReference { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
@@ -96,6 +102,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Validation status for the Dev Box Definition.
+        /// </summary>
+        [Output("validationStatus")]
+        public Output<string> ValidationStatus { get; private set; } = null!;
 
 
         /// <summary>

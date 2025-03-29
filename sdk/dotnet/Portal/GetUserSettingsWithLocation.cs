@@ -82,13 +82,21 @@ namespace Pulumi.AzureNative.Portal
     public sealed class GetUserSettingsWithLocationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The cloud shell user settings properties.
         /// </summary>
         public readonly Outputs.UserPropertiesResponse Properties;
 
         [OutputConstructor]
-        private GetUserSettingsWithLocationResult(Outputs.UserPropertiesResponse properties)
+        private GetUserSettingsWithLocationResult(
+            string azureApiVersion,
+
+            Outputs.UserPropertiesResponse properties)
         {
+            AzureApiVersion = azureApiVersion;
             Properties = properties;
         }
     }

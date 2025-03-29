@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
     /// </summary>
     public sealed class FeatureSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("crossRegionRestoreSettings")]
+        public Input<Inputs.CrossRegionRestoreSettingsArgs>? CrossRegionRestoreSettings { get; set; }
+
         /// <summary>
         /// CrossSubscriptionRestore Settings
         /// </summary>

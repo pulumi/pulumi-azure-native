@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified saved search for a given workspace.
  *
- * Uses Azure REST API version 2020-08-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-09-01, 2025-02-01.
+ * Other available API versions: 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOptions): Promise<GetSavedSearchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetSavedSearchArgs {
  * Value object for saved search results.
  */
 export interface GetSavedSearchResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The category of the saved search. This helps the user to find a saved search faster. 
      */
@@ -90,9 +94,9 @@ export interface GetSavedSearchResult {
 /**
  * Gets the specified saved search for a given workspace.
  *
- * Uses Azure REST API version 2020-08-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-09-01, 2025-02-01.
+ * Other available API versions: 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSavedSearchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

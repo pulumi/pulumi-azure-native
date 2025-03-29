@@ -32,7 +32,7 @@ class NamespaceNetworkRuleSetArgs:
         """
         The set of arguments for constructing a NamespaceNetworkRuleSet resource.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'DefaultAction']] default_action: Default Action for Network Rule Set
         :param pulumi.Input[Sequence[pulumi.Input['NWRuleSetIpRulesArgs']]] ip_rules: List of IpRules
         :param pulumi.Input[Union[str, 'PublicNetworkAccessFlag']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
@@ -70,7 +70,7 @@ class NamespaceNetworkRuleSetArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -155,9 +155,9 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         """
         Description of NetworkRuleSet resource.
 
-        Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetIpRulesArgs', 'NWRuleSetIpRulesArgsDict']]]] ip_rules: List of IpRules
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[Union[str, 'PublicNetworkAccessFlag']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] trusted_service_access_enabled: Value that indicates whether Trusted Service Access is Enabled or not.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetVirtualNetworkRulesArgs', 'NWRuleSetVirtualNetworkRulesArgsDict']]]] virtual_network_rules: List VirtualNetwork Rules
         """
@@ -178,9 +178,9 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         """
         Description of NetworkRuleSet resource.
 
-        Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param NamespaceNetworkRuleSetArgs args: The arguments to use to populate this resource's properties.
@@ -226,6 +226,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["trusted_service_access_enabled"] = trusted_service_access_enabled
             __props__.__dict__["virtual_network_rules"] = virtual_network_rules
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -254,6 +255,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
         __props__ = NamespaceNetworkRuleSetArgs.__new__(NamespaceNetworkRuleSetArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["default_action"] = None
         __props__.__dict__["ip_rules"] = None
         __props__.__dict__["location"] = None
@@ -264,6 +266,14 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_network_rules"] = None
         return NamespaceNetworkRuleSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultAction")

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of an event subscription.
         /// 
-        /// Uses Azure REST API version 2022-06-15.
+        /// Uses Azure REST API version 2025-02-15.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetEventSubscriptionResult> InvokeAsync(GetEventSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("azure-native:eventgrid:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of an event subscription.
         /// 
-        /// Uses Azure REST API version 2022-06-15.
+        /// Uses Azure REST API version 2025-02-15.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("azure-native:eventgrid:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of an event subscription.
         /// 
-        /// Uses Azure REST API version 2022-06-15.
+        /// Uses Azure REST API version 2025-02-15.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("azure-native:eventgrid:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetEventSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the event subscription.
+        /// Name of the event subscription to be found.
         /// </summary>
         [Input("eventSubscriptionName", required: true)]
         public string EventSubscriptionName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetEventSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the event subscription.
+        /// Name of the event subscription to be found.
         /// </summary>
         [Input("eventSubscriptionName", required: true)]
         public Input<string> EventSubscriptionName { get; set; } = null!;
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.EventGrid
     [OutputType]
     public sealed class GetEventSubscriptionResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
         /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -140,7 +144,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly Outputs.RetryPolicyResponse? RetryPolicy;
         /// <summary>
-        /// The system metadata relating to Event Subscription resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.EventGrid
 
         [OutputConstructor]
         private GetEventSubscriptionResult(
+            string azureApiVersion,
+
             Outputs.StorageBlobDeadLetterDestinationResponse? deadLetterDestination,
 
             Outputs.DeadLetterWithResourceIdentityResponse? deadLetterWithResourceIdentity,
@@ -184,6 +190,7 @@ namespace Pulumi.AzureNative.EventGrid
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DeadLetterDestination = deadLetterDestination;
             DeadLetterWithResourceIdentity = deadLetterWithResourceIdentity;
             DeliveryWithResourceIdentity = deliveryWithResourceIdentity;

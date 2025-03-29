@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     public sealed class RaiPolicyContentFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Level at which content is filtered.
-        /// </summary>
-        [Input("allowedContentLevel")]
-        public InputUnion<string, Pulumi.AzureNative.CognitiveServices.AllowedContentLevel>? AllowedContentLevel { get; set; }
-
-        /// <summary>
         /// If blocking would occur.
         /// </summary>
         [Input("blocking")]
@@ -38,6 +32,12 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Level at which content is filtered.
+        /// </summary>
+        [Input("severityThreshold")]
+        public InputUnion<string, Pulumi.AzureNative.CognitiveServices.ContentLevel>? SeverityThreshold { get; set; }
 
         /// <summary>
         /// Content source to apply the Content Filters.

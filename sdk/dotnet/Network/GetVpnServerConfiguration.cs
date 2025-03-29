@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the details of a VpnServerConfiguration.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVpnServerConfigurationResult> InvokeAsync(GetVpnServerConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnServerConfigurationResult>("azure-native:network:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the details of a VpnServerConfiguration.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVpnServerConfigurationResult> Invoke(GetVpnServerConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnServerConfigurationResult>("azure-native:network:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Retrieves the details of a VpnServerConfiguration.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVpnServerConfigurationResult> Invoke(GetVpnServerConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnServerConfigurationResult>("azure-native:network:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationInvokeArgs(), options.WithDefaults());
@@ -88,13 +88,9 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetVpnServerConfigurationResult
     {
         /// <summary>
-        /// The set of aad vpn authentication parameters.
+        /// The Azure API version of the resource.
         /// </summary>
-        public readonly Outputs.AadAuthenticationParametersResponse? AadAuthenticationParameters;
-        /// <summary>
-        /// List of all VpnServerConfigurationPolicyGroups.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VpnServerConfigurationPolicyGroupResponse> ConfigurationPolicyGroups;
+        public readonly string AzureApiVersion;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -112,33 +108,9 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of references to P2SVpnGateways.
+        /// Properties of the P2SVpnServer configuration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.P2SVpnGatewayResponse> P2SVpnGateways;
-        /// <summary>
-        /// The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Radius client root certificate of VpnServerConfiguration.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VpnServerConfigRadiusClientRootCertificateResponse> RadiusClientRootCertificates;
-        /// <summary>
-        /// The radius server address property of the VpnServerConfiguration resource for point to site client connection.
-        /// </summary>
-        public readonly string? RadiusServerAddress;
-        /// <summary>
-        /// Radius Server root certificate of VpnServerConfiguration.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VpnServerConfigRadiusServerRootCertificateResponse> RadiusServerRootCertificates;
-        /// <summary>
-        /// The radius secret property of the VpnServerConfiguration resource for point to site client connection.
-        /// </summary>
-        public readonly string? RadiusServerSecret;
-        /// <summary>
-        /// Multiple Radius Server configuration for VpnServerConfiguration.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.RadiusServerResponse> RadiusServers;
+        public readonly Outputs.VpnServerConfigurationPropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -147,32 +119,10 @@ namespace Pulumi.AzureNative.Network
         /// Resource type.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// VPN authentication types for the VpnServerConfiguration.
-        /// </summary>
-        public readonly ImmutableArray<string> VpnAuthenticationTypes;
-        /// <summary>
-        /// VpnClientIpsecPolicies for VpnServerConfiguration.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.IpsecPolicyResponse> VpnClientIpsecPolicies;
-        /// <summary>
-        /// VPN client revoked certificate of VpnServerConfiguration.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VpnServerConfigVpnClientRevokedCertificateResponse> VpnClientRevokedCertificates;
-        /// <summary>
-        /// VPN client root certificate of VpnServerConfiguration.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VpnServerConfigVpnClientRootCertificateResponse> VpnClientRootCertificates;
-        /// <summary>
-        /// VPN protocols for the VpnServerConfiguration.
-        /// </summary>
-        public readonly ImmutableArray<string> VpnProtocols;
 
         [OutputConstructor]
         private GetVpnServerConfigurationResult(
-            Outputs.AadAuthenticationParametersResponse? aadAuthenticationParameters,
-
-            ImmutableArray<Outputs.VpnServerConfigurationPolicyGroupResponse> configurationPolicyGroups,
+            string azureApiVersion,
 
             string etag,
 
@@ -182,54 +132,20 @@ namespace Pulumi.AzureNative.Network
 
             string name,
 
-            ImmutableArray<Outputs.P2SVpnGatewayResponse> p2SVpnGateways,
-
-            string provisioningState,
-
-            ImmutableArray<Outputs.VpnServerConfigRadiusClientRootCertificateResponse> radiusClientRootCertificates,
-
-            string? radiusServerAddress,
-
-            ImmutableArray<Outputs.VpnServerConfigRadiusServerRootCertificateResponse> radiusServerRootCertificates,
-
-            string? radiusServerSecret,
-
-            ImmutableArray<Outputs.RadiusServerResponse> radiusServers,
+            Outputs.VpnServerConfigurationPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            ImmutableArray<string> vpnAuthenticationTypes,
-
-            ImmutableArray<Outputs.IpsecPolicyResponse> vpnClientIpsecPolicies,
-
-            ImmutableArray<Outputs.VpnServerConfigVpnClientRevokedCertificateResponse> vpnClientRevokedCertificates,
-
-            ImmutableArray<Outputs.VpnServerConfigVpnClientRootCertificateResponse> vpnClientRootCertificates,
-
-            ImmutableArray<string> vpnProtocols)
+            string type)
         {
-            AadAuthenticationParameters = aadAuthenticationParameters;
-            ConfigurationPolicyGroups = configurationPolicyGroups;
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Location = location;
             Name = name;
-            P2SVpnGateways = p2SVpnGateways;
-            ProvisioningState = provisioningState;
-            RadiusClientRootCertificates = radiusClientRootCertificates;
-            RadiusServerAddress = radiusServerAddress;
-            RadiusServerRootCertificates = radiusServerRootCertificates;
-            RadiusServerSecret = radiusServerSecret;
-            RadiusServers = radiusServers;
+            Properties = properties;
             Tags = tags;
             Type = type;
-            VpnAuthenticationTypes = vpnAuthenticationTypes;
-            VpnClientIpsecPolicies = vpnClientIpsecPolicies;
-            VpnClientRevokedCertificates = vpnClientRevokedCertificates;
-            VpnClientRootCertificates = vpnClientRootCertificates;
-            VpnProtocols = vpnProtocols;
         }
     }
 }

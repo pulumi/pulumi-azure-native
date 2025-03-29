@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     public sealed class KeyVaultCertificatePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether to automatically synchronize certificate from key vault or not.
+        /// </summary>
+        [Input("autoSync")]
+        public InputUnion<string, Pulumi.AzureNative.AppPlatform.KeyVaultCertificateAutoSync>? AutoSync { get; set; }
+
+        /// <summary>
         /// The certificate version of key vault.
         /// </summary>
         [Input("certVersion")]
@@ -48,6 +54,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
 
         public KeyVaultCertificatePropertiesArgs()
         {
+            AutoSync = "Disabled";
             ExcludePrivateKey = false;
         }
         public static new KeyVaultCertificatePropertiesArgs Empty => new KeyVaultCertificatePropertiesArgs();

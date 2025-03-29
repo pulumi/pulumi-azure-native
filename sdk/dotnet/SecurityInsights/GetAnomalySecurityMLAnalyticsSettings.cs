@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets the Security ML Analytics Settings.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Task<GetAnomalySecurityMLAnalyticsSettingsResult> InvokeAsync(GetAnomalySecurityMLAnalyticsSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAnomalySecurityMLAnalyticsSettingsResult>("azure-native:securityinsights:getAnomalySecurityMLAnalyticsSettings", args ?? new GetAnomalySecurityMLAnalyticsSettingsArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets the Security ML Analytics Settings.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetAnomalySecurityMLAnalyticsSettingsResult> Invoke(GetAnomalySecurityMLAnalyticsSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnomalySecurityMLAnalyticsSettingsResult>("azure-native:securityinsights:getAnomalySecurityMLAnalyticsSettings", args ?? new GetAnomalySecurityMLAnalyticsSettingsInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets the Security ML Analytics Settings.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetAnomalySecurityMLAnalyticsSettingsResult> Invoke(GetAnomalySecurityMLAnalyticsSettingsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnomalySecurityMLAnalyticsSettingsResult>("azure-native:securityinsights:getAnomalySecurityMLAnalyticsSettings", args ?? new GetAnomalySecurityMLAnalyticsSettingsInvokeArgs(), options.WithDefaults());
@@ -101,6 +101,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The anomaly version of the AnomalySecurityMLAnalyticsSettings.
         /// </summary>
         public readonly string AnomalyVersion;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The customizable observations of the AnomalySecurityMLAnalyticsSettings.
         /// </summary>
@@ -181,6 +185,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string anomalyVersion,
 
+            string azureApiVersion,
+
             object? customizableObservations,
 
             string? description,
@@ -219,6 +225,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         {
             AnomalySettingsVersion = anomalySettingsVersion;
             AnomalyVersion = anomalyVersion;
+            AzureApiVersion = azureApiVersion;
             CustomizableObservations = customizableObservations;
             Description = description;
             DisplayName = displayName;

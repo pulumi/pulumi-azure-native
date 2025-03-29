@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Gets all linked storage account of a specific data source type associated with the specified workspace.
  *
- * Uses Azure REST API version 2020-08-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-09-01, 2025-02-01.
+ * Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLinkedStorageAccount(args: GetLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedStorageAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +40,10 @@ export interface GetLinkedStorageAccountArgs {
  */
 export interface GetLinkedStorageAccountResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Linked storage accounts type.
      */
     readonly dataSourceType: string;
@@ -63,9 +67,9 @@ export interface GetLinkedStorageAccountResult {
 /**
  * Gets all linked storage account of a specific data source type associated with the specified workspace.
  *
- * Uses Azure REST API version 2020-08-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-09-01, 2025-02-01.
+ * Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedStorageAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

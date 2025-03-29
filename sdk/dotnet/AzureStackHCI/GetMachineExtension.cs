@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.
         /// </summary>
         public readonly string? ForceUpdateTag;
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         private GetMachineExtensionResult(
             bool? autoUpgradeMinorVersion,
 
+            string azureApiVersion,
+
             string? forceUpdateTag,
 
             string id,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
             string? typeHandlerVersion)
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            AzureApiVersion = azureApiVersion;
             ForceUpdateTag = forceUpdateTag;
             Id = id;
             InstanceView = instanceView;

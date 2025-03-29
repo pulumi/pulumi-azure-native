@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
         /// 
-        /// Uses Azure REST API version 2023-01-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01, 2025-02-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDppResourceGuardProxyResult> InvokeAsync(GetDppResourceGuardProxyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDppResourceGuardProxyResult>("azure-native:dataprotection:getDppResourceGuardProxy", args ?? new GetDppResourceGuardProxyArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
         /// 
-        /// Uses Azure REST API version 2023-01-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01, 2025-02-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDppResourceGuardProxyResult> Invoke(GetDppResourceGuardProxyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDppResourceGuardProxyResult>("azure-native:dataprotection:getDppResourceGuardProxy", args ?? new GetDppResourceGuardProxyInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
         /// 
-        /// Uses Azure REST API version 2023-01-01.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01, 2025-02-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDppResourceGuardProxyResult> Invoke(GetDppResourceGuardProxyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDppResourceGuardProxyResult>("azure-native:dataprotection:getDppResourceGuardProxy", args ?? new GetDppResourceGuardProxyInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.DataProtection
     public sealed class GetDppResourceGuardProxyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id represents the complete path to the resource.
         /// </summary>
         public readonly string Id;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.DataProtection
 
         [OutputConstructor]
         private GetDppResourceGuardProxyResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.DataProtection
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

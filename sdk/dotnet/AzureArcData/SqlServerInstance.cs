@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.AzureArcData
     /// <summary>
     /// A SqlServerInstance.
     /// 
-    /// Uses Azure REST API version 2023-01-15-preview. In version 1.x of the Azure Native provider, it used API version 2021-06-01-preview.
+    /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-15-preview.
     /// 
-    /// Other available API versions: 2024-01-01, 2024-05-01-preview, 2025-03-01-preview.
+    /// Other available API versions: 2023-01-15-preview, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlServerInstance")]
     public partial class SqlServerInstance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

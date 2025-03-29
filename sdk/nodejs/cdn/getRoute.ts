@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
  *
- * Uses Azure REST API version 2023-05-01.
+ * Uses Azure REST API version 2024-09-01.
  *
- * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +47,10 @@ export interface GetRouteArgs {
  * Friendly Routes name mapping to the any Routes or secret related information.
  */
 export interface GetRouteResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
      */
@@ -120,9 +124,9 @@ export interface GetRouteResult {
 /**
  * Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
  *
- * Uses Azure REST API version 2023-05-01.
+ * Uses Azure REST API version 2024-09-01.
  *
- * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

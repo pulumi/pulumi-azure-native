@@ -27,10 +27,13 @@ class GetExpressRouteCircuitPeeringResult:
     """
     Peering in an ExpressRouteCircuit resource.
     """
-    def __init__(__self__, azure_asn=None, connections=None, etag=None, express_route_connection=None, gateway_manager_etag=None, id=None, ipv6_peering_config=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peered_connections=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, route_filter=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, type=None, vlan_id=None):
+    def __init__(__self__, azure_asn=None, azure_api_version=None, connections=None, etag=None, express_route_connection=None, gateway_manager_etag=None, id=None, ipv6_peering_config=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peered_connections=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, route_filter=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, type=None, vlan_id=None):
         if azure_asn and not isinstance(azure_asn, int):
             raise TypeError("Expected argument 'azure_asn' to be a int")
         pulumi.set(__self__, "azure_asn", azure_asn)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connections and not isinstance(connections, list):
             raise TypeError("Expected argument 'connections' to be a list")
         pulumi.set(__self__, "connections", connections)
@@ -108,6 +111,14 @@ class GetExpressRouteCircuitPeeringResult:
         The Azure ASN.
         """
         return pulumi.get(self, "azure_asn")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -301,6 +312,7 @@ class AwaitableGetExpressRouteCircuitPeeringResult(GetExpressRouteCircuitPeering
             yield self
         return GetExpressRouteCircuitPeeringResult(
             azure_asn=self.azure_asn,
+            azure_api_version=self.azure_api_version,
             connections=self.connections,
             etag=self.etag,
             express_route_connection=self.express_route_connection,
@@ -333,9 +345,9 @@ def get_express_route_circuit_peering(circuit_name: Optional[str] = None,
     """
     Gets the specified peering for the express route circuit.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str circuit_name: The name of the express route circuit.
@@ -351,6 +363,7 @@ def get_express_route_circuit_peering(circuit_name: Optional[str] = None,
 
     return AwaitableGetExpressRouteCircuitPeeringResult(
         azure_asn=pulumi.get(__ret__, 'azure_asn'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connections=pulumi.get(__ret__, 'connections'),
         etag=pulumi.get(__ret__, 'etag'),
         express_route_connection=pulumi.get(__ret__, 'express_route_connection'),
@@ -381,9 +394,9 @@ def get_express_route_circuit_peering_output(circuit_name: Optional[pulumi.Input
     """
     Gets the specified peering for the express route circuit.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str circuit_name: The name of the express route circuit.
@@ -398,6 +411,7 @@ def get_express_route_circuit_peering_output(circuit_name: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getExpressRouteCircuitPeering', __args__, opts=opts, typ=GetExpressRouteCircuitPeeringResult)
     return __ret__.apply(lambda __response__: GetExpressRouteCircuitPeeringResult(
         azure_asn=pulumi.get(__response__, 'azure_asn'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connections=pulumi.get(__response__, 'connections'),
         etag=pulumi.get(__response__, 'etag'),
         express_route_connection=pulumi.get(__response__, 'express_route_connection'),

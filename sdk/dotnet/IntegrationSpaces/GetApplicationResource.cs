@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     public sealed class GetApplicationResourceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
 
         [OutputConstructor]
         private GetApplicationResourceResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.IntegrationSpaces
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Retrieve the Database Migration resource.
         /// 
-        /// Uses Azure REST API version 2022-03-30-preview.
+        /// Uses Azure REST API version 2023-07-15-preview.
         /// 
-        /// Other available API versions: 2023-07-15-preview.
+        /// Other available API versions: 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDatabaseMigrationsSqlDbResult> InvokeAsync(GetDatabaseMigrationsSqlDbArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseMigrationsSqlDbResult>("azure-native:datamigration:getDatabaseMigrationsSqlDb", args ?? new GetDatabaseMigrationsSqlDbArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Retrieve the Database Migration resource.
         /// 
-        /// Uses Azure REST API version 2022-03-30-preview.
+        /// Uses Azure REST API version 2023-07-15-preview.
         /// 
-        /// Other available API versions: 2023-07-15-preview.
+        /// Other available API versions: 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDatabaseMigrationsSqlDbResult> Invoke(GetDatabaseMigrationsSqlDbInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationsSqlDbResult>("azure-native:datamigration:getDatabaseMigrationsSqlDb", args ?? new GetDatabaseMigrationsSqlDbInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Retrieve the Database Migration resource.
         /// 
-        /// Uses Azure REST API version 2022-03-30-preview.
+        /// Uses Azure REST API version 2023-07-15-preview.
         /// 
-        /// Other available API versions: 2023-07-15-preview.
+        /// Other available API versions: 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDatabaseMigrationsSqlDbResult> Invoke(GetDatabaseMigrationsSqlDbInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationsSqlDbResult>("azure-native:datamigration:getDatabaseMigrationsSqlDb", args ?? new GetDatabaseMigrationsSqlDbInvokeArgs(), options.WithDefaults());
@@ -117,6 +117,10 @@ namespace Pulumi.AzureNative.DataMigration
     [OutputType]
     public sealed class GetDatabaseMigrationsSqlDbResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         public readonly string Id;
         public readonly string Name;
         /// <summary>
@@ -131,6 +135,8 @@ namespace Pulumi.AzureNative.DataMigration
 
         [OutputConstructor]
         private GetDatabaseMigrationsSqlDbResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNative.DataMigration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a managed instance.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2015-05-01-preview, 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetManagedInstanceResult> InvokeAsync(GetManagedInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a managed instance.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2015-05-01-preview, 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a managed instance.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2015-05-01-preview, 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());
@@ -104,25 +104,53 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// The Azure Active Directory administrator of the server.
+        /// The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         /// </summary>
         public readonly Outputs.ManagedInstanceExternalAdministratorResponse? Administrators;
+        /// <summary>
+        /// The managed instance's authentication metadata lookup mode.
+        /// </summary>
+        public readonly string? AuthenticationMetadata;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Collation of the managed instance.
         /// </summary>
         public readonly string? Collation;
         /// <summary>
+        /// Specifies the point in time (ISO8601 format) of the Managed Instance creation.
+        /// </summary>
+        public readonly string CreateTime;
+        /// <summary>
         /// The storage account type used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
         /// </summary>
         public readonly string CurrentBackupStorageRedundancy;
+        /// <summary>
+        /// Specifies the internal format of instance databases specific to the SQL engine version.
+        /// </summary>
+        public readonly string? DatabaseFormat;
         /// <summary>
         /// The Dns Zone that the managed instance is in.
         /// </summary>
         public readonly string DnsZone;
         /// <summary>
+        /// Status of external governance.
+        /// </summary>
+        public readonly string ExternalGovernanceStatus;
+        /// <summary>
         /// The fully qualified domain name of the managed instance.
         /// </summary>
         public readonly string FullyQualifiedDomainName;
+        /// <summary>
+        /// Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
+        /// </summary>
+        public readonly string? HybridSecondaryUsage;
+        /// <summary>
+        /// Hybrid secondary usage detected. Possible values are 'Active' (customer does not meet the requirements to use the secondary as Passive DR) and 'Passive' (customer meets the requirements to use the secondary as Passive DR).
+        /// </summary>
+        public readonly string HybridSecondaryUsageDetected;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -135,6 +163,10 @@ namespace Pulumi.AzureNative.Sql
         /// The Id of the instance pool this managed server belongs to.
         /// </summary>
         public readonly string? InstancePoolId;
+        /// <summary>
+        /// Whether or not this is a GPv2 variant of General Purpose edition.
+        /// </summary>
+        public readonly bool? IsGeneralPurposeV2;
         /// <summary>
         /// A CMK URI of the key to use for encryption.
         /// </summary>
@@ -160,6 +192,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Pricing model of Managed Instance.
+        /// </summary>
+        public readonly string? PricingModel;
+        /// <summary>
         /// The resource id of a user assigned identity to be used by default.
         /// </summary>
         public readonly string? PrimaryUserAssignedIdentityId;
@@ -167,6 +203,9 @@ namespace Pulumi.AzureNative.Sql
         /// List of private endpoint connections on a managed instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagedInstancePecPropertyResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Provisioning state of managed instance.
+        /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
         /// Connection type used for connecting to the instance.
@@ -193,9 +232,17 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string State;
         /// <summary>
+        /// Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        /// </summary>
+        public readonly int? StorageIOps;
+        /// <summary>
         /// Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
         /// </summary>
         public readonly int? StorageSizeInGB;
+        /// <summary>
+        /// Storage throughput MBps parameter is not supported in the instance create/update operation.
+        /// </summary>
+        public readonly int? StorageThroughputMBps;
         /// <summary>
         /// Subnet resource ID for the managed instance.
         /// </summary>
@@ -222,6 +269,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly int? VCores;
         /// <summary>
+        /// Virtual cluster resource id for the Managed Instance.
+        /// </summary>
+        public readonly string VirtualClusterId;
+        /// <summary>
         /// Whether or not the multi-az is enabled.
         /// </summary>
         public readonly bool? ZoneRedundant;
@@ -232,19 +283,35 @@ namespace Pulumi.AzureNative.Sql
 
             Outputs.ManagedInstanceExternalAdministratorResponse? administrators,
 
+            string? authenticationMetadata,
+
+            string azureApiVersion,
+
             string? collation,
+
+            string createTime,
 
             string currentBackupStorageRedundancy,
 
+            string? databaseFormat,
+
             string dnsZone,
 
+            string externalGovernanceStatus,
+
             string fullyQualifiedDomainName,
+
+            string? hybridSecondaryUsage,
+
+            string hybridSecondaryUsageDetected,
 
             string id,
 
             Outputs.ResourceIdentityResponse? identity,
 
             string? instancePoolId,
+
+            bool? isGeneralPurposeV2,
 
             string? keyId,
 
@@ -257,6 +324,8 @@ namespace Pulumi.AzureNative.Sql
             string? minimalTlsVersion,
 
             string name,
+
+            string? pricingModel,
 
             string? primaryUserAssignedIdentityId,
 
@@ -276,7 +345,11 @@ namespace Pulumi.AzureNative.Sql
 
             string state,
 
+            int? storageIOps,
+
             int? storageSizeInGB,
+
+            int? storageThroughputMBps,
 
             string? subnetId,
 
@@ -288,23 +361,34 @@ namespace Pulumi.AzureNative.Sql
 
             int? vCores,
 
+            string virtualClusterId,
+
             bool? zoneRedundant)
         {
             AdministratorLogin = administratorLogin;
             Administrators = administrators;
+            AuthenticationMetadata = authenticationMetadata;
+            AzureApiVersion = azureApiVersion;
             Collation = collation;
+            CreateTime = createTime;
             CurrentBackupStorageRedundancy = currentBackupStorageRedundancy;
+            DatabaseFormat = databaseFormat;
             DnsZone = dnsZone;
+            ExternalGovernanceStatus = externalGovernanceStatus;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            HybridSecondaryUsage = hybridSecondaryUsage;
+            HybridSecondaryUsageDetected = hybridSecondaryUsageDetected;
             Id = id;
             Identity = identity;
             InstancePoolId = instancePoolId;
+            IsGeneralPurposeV2 = isGeneralPurposeV2;
             KeyId = keyId;
             LicenseType = licenseType;
             Location = location;
             MaintenanceConfigurationId = maintenanceConfigurationId;
             MinimalTlsVersion = minimalTlsVersion;
             Name = name;
+            PricingModel = pricingModel;
             PrimaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
@@ -314,12 +398,15 @@ namespace Pulumi.AzureNative.Sql
             ServicePrincipal = servicePrincipal;
             Sku = sku;
             State = state;
+            StorageIOps = storageIOps;
             StorageSizeInGB = storageSizeInGB;
+            StorageThroughputMBps = storageThroughputMBps;
             SubnetId = subnetId;
             Tags = tags;
             TimezoneId = timezoneId;
             Type = type;
             VCores = vCores;
+            VirtualClusterId = virtualClusterId;
             ZoneRedundant = zoneRedundant;
         }
     }

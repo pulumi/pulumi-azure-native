@@ -30,20 +30,3 @@ from .sql_migration_service import *
 from .task import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.datamigration.v20210630 as __v20210630
-    v20210630 = __v20210630
-    import pulumi_azure_native.datamigration.v20211030preview as __v20211030preview
-    v20211030preview = __v20211030preview
-    import pulumi_azure_native.datamigration.v20220330preview as __v20220330preview
-    v20220330preview = __v20220330preview
-    import pulumi_azure_native.datamigration.v20230715preview as __v20230715preview
-    v20230715preview = __v20230715preview
-else:
-    v20210630 = _utilities.lazy_import('pulumi_azure_native.datamigration.v20210630')
-    v20211030preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20211030preview')
-    v20220330preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20220330preview')
-    v20230715preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20230715preview')
-

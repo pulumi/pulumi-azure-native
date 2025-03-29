@@ -90,6 +90,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the configurations state of the resource.
         /// </summary>
         public readonly string ConfigurationState;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string? annotation,
 
+            string azureApiVersion,
+
             string configurationState,
 
             ImmutableArray<Outputs.NetworkTapPropertiesResponseDestinations> destinations,
@@ -170,6 +176,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         {
             AdministrativeState = administrativeState;
             Annotation = annotation;
+            AzureApiVersion = azureApiVersion;
             ConfigurationState = configurationState;
             Destinations = destinations;
             Id = id;

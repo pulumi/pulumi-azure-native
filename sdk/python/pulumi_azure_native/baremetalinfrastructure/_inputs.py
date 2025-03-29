@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AzureBareMetalStorageInstanceIdentityArgs',
+    'AzureBareMetalStorageInstanceIdentityArgsDict',
     'DiskArgs',
     'DiskArgsDict',
     'HardwareProfileArgs',
@@ -35,6 +37,42 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AzureBareMetalStorageInstanceIdentityArgsDict(TypedDict):
+        """
+        Identity for Azure Bare Metal Storage Instance.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ResourceIdentityType']]]
+        """
+        The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
+        """
+elif False:
+    AzureBareMetalStorageInstanceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureBareMetalStorageInstanceIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]] = None):
+        """
+        Identity for Azure Bare Metal Storage Instance.
+        :param pulumi.Input[Union[str, 'ResourceIdentityType']] type: The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]:
+        """
+        The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]):
+        pulumi.set(self, "type", value)
+
 
 if not MYPY:
     class DiskArgsDict(TypedDict):
@@ -451,7 +489,7 @@ class StorageProfileArgs:
 if not MYPY:
     class StoragePropertiesArgsDict(TypedDict):
         """
-        described the storage properties of the azure baremetalstorage instance
+        described the storage properties of the azure bare metal storage instance
         """
         generation: NotRequired[pulumi.Input[str]]
         """
@@ -495,7 +533,7 @@ class StoragePropertiesArgs:
                  storage_type: Optional[pulumi.Input[str]] = None,
                  workload_type: Optional[pulumi.Input[str]] = None):
         """
-        described the storage properties of the azure baremetalstorage instance
+        described the storage properties of the azure bare metal storage instance
         :param pulumi.Input[str] generation: the kind of storage instance
         :param pulumi.Input[str] hardware_type: the hardware type of the storage instance
         :param pulumi.Input[str] offering_type: the offering type for which the resource is getting provisioned

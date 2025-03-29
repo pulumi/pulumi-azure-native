@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * PrivateAccesses tracked resource.
  *
- * Uses Azure REST API version 2023-10-27-preview.
+ * Uses Azure REST API version 2024-03-22-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-27-preview.
  *
- * Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-10-27-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PrivateAccess extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class PrivateAccess extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -53,6 +57,14 @@ export class PrivateAccess extends pulumi.CustomResource {
      * A readonly collection of private endpoint connection. Currently only one endpoint connection is supported.
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.chaos.PrivateEndpointConnectionResponse[]>;
+    /**
+     * Most recent provisioning state for the given privateAccess resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Public Network Access Control for PrivateAccess resource.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -82,16 +94,22 @@ export class PrivateAccess extends pulumi.CustomResource {
             }
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["privateAccessName"] = args ? args.privateAccessName : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -115,6 +133,10 @@ export interface PrivateAccessArgs {
      * The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
     privateAccessName?: pulumi.Input<string>;
+    /**
+     * Public Network Access Control for PrivateAccess resource.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.chaos.PublicNetworkAccessOption>;
     /**
      * String that represents an Azure resource group.
      */

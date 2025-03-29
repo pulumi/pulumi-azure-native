@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a data connection.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// </summary>
         public static Task<GetEventGridDataConnectionResult> InvokeAsync(GetEventGridDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventGridDataConnectionResult>("azure-native:kusto:getEventGridDataConnection", args ?? new GetEventGridDataConnectionArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a data connection.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// </summary>
         public static Output<GetEventGridDataConnectionResult> Invoke(GetEventGridDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventGridDataConnectionResult>("azure-native:kusto:getEventGridDataConnection", args ?? new GetEventGridDataConnectionInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a data connection.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// </summary>
         public static Output<GetEventGridDataConnectionResult> Invoke(GetEventGridDataConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventGridDataConnectionResult>("azure-native:kusto:getEventGridDataConnection", args ?? new GetEventGridDataConnectionInvokeArgs(), options.WithDefaults());
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Kusto
         public string DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -105,6 +105,10 @@ namespace Pulumi.AzureNative.Kusto
     [OutputType]
     public sealed class GetEventGridDataConnectionResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The name of blob storage event type to process.
         /// </summary>
@@ -181,6 +185,8 @@ namespace Pulumi.AzureNative.Kusto
 
         [OutputConstructor]
         private GetEventGridDataConnectionResult(
+            string azureApiVersion,
+
             string? blobStorageEventType,
 
             string consumerGroup,
@@ -217,6 +223,7 @@ namespace Pulumi.AzureNative.Kusto
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BlobStorageEventType = blobStorageEventType;
             ConsumerGroup = consumerGroup;
             DataFormat = dataFormat;

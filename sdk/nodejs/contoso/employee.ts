@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Employee resource
  *
- * Uses Azure REST API version 2021-10-01-preview.
+ * Uses Azure REST API version 2021-11-01. In version 2.x of the Azure Native provider, it used API version 2021-10-01-preview.
  *
- * Other available API versions: 2021-11-01.
+ * Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native contoso [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Employee extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Employee extends pulumi.CustomResource {
         return obj['__pulumiType'] === Employee.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -85,10 +89,12 @@ export class Employee extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

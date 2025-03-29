@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets the alert rule.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Task<GetMicrosoftSecurityIncidentCreationAlertRuleResult> InvokeAsync(GetMicrosoftSecurityIncidentCreationAlertRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets the alert rule.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> Invoke(GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets the alert rule.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> Invoke(GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs(), options.WithDefaults());
@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? AlertRuleTemplateName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The description of the alert rule.
         /// </summary>
         public readonly string? Description;
@@ -159,6 +163,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         private GetMicrosoftSecurityIncidentCreationAlertRuleResult(
             string? alertRuleTemplateName,
 
+            string azureApiVersion,
+
             string? description,
 
             string displayName,
@@ -188,6 +194,7 @@ namespace Pulumi.AzureNative.SecurityInsights
             string type)
         {
             AlertRuleTemplateName = alertRuleTemplateName;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             DisplayNamesExcludeFilter = displayNamesExcludeFilter;

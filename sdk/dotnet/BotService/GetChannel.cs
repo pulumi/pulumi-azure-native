@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// Returns a BotService Channel registration specified by the parameters.
         /// 
-        /// Uses Azure REST API version 2022-09-15.
+        /// Uses Azure REST API version 2023-09-15-preview.
         /// 
-        /// Other available API versions: 2023-09-15-preview.
+        /// Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-native:botservice:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// Returns a BotService Channel registration specified by the parameters.
         /// 
-        /// Uses Azure REST API version 2022-09-15.
+        /// Uses Azure REST API version 2023-09-15-preview.
         /// 
-        /// Other available API versions: 2023-09-15-preview.
+        /// Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:botservice:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// Returns a BotService Channel registration specified by the parameters.
         /// 
-        /// Uses Azure REST API version 2022-09-15.
+        /// Uses Azure REST API version 2023-09-15-preview.
         /// 
-        /// Other available API versions: 2023-09-15-preview.
+        /// Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:botservice:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.BotService
     public sealed class GetChannelResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Entity Tag.
         /// </summary>
         public readonly string? Etag;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.BotService
 
         [OutputConstructor]
         private GetChannelResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.BotService
 
             ImmutableArray<string> zones)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Kind = kind;

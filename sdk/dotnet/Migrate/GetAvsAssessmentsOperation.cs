@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a AvsAssessment
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAvsAssessmentsOperationResult> InvokeAsync(GetAvsAssessmentsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvsAssessmentsOperationResult>("azure-native:migrate:getAvsAssessmentsOperation", args ?? new GetAvsAssessmentsOperationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a AvsAssessment
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAvsAssessmentsOperationResult> Invoke(GetAvsAssessmentsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvsAssessmentsOperationResult>("azure-native:migrate:getAvsAssessmentsOperation", args ?? new GetAvsAssessmentsOperationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a AvsAssessment
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAvsAssessmentsOperationResult> Invoke(GetAvsAssessmentsOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvsAssessmentsOperationResult>("azure-native:migrate:getAvsAssessmentsOperation", args ?? new GetAvsAssessmentsOperationInvokeArgs(), options.WithDefaults());
@@ -122,6 +122,26 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public readonly string AssessmentType;
         /// <summary>
+        /// AVS Assessment Scenario.
+        /// </summary>
+        public readonly string? AvsAssessmentScenario;
+        /// <summary>
+        /// Estimated External Storage for Assessment.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AvsEstimatedExternalStorageResponse> AvsEstimatedExternalStorages;
+        /// <summary>
+        /// Estimated External Storage for Assessment.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AvsEstimatedNetworkResponse> AvsEstimatedNetworks;
+        /// <summary>
+        /// Estimated AVS SKU for Assessment.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AvsEstimatedNodeResponse> AvsEstimatedNodes;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Azure Location or Azure region where to which the machines will be migrated.
         /// </summary>
         public readonly string? AzureLocation;
@@ -133,6 +153,14 @@ namespace Pulumi.AzureNative.Migrate
         /// Confidence Rating in Percentage.
         /// </summary>
         public readonly double ConfidenceRatingInPercentage;
+        /// <summary>
+        /// collection of cost components.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CostComponentResponse> CostComponents;
+        /// <summary>
+        /// Percentage of CPU capacity reserved for processing additional workloads.
+        /// </summary>
+        public readonly double? CpuHeadroom;
         /// <summary>
         /// Predicted CPU utilization.
         /// </summary>
@@ -154,21 +182,33 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public readonly double? DiscountPercentage;
         /// <summary>
+        /// List of AVS external storage types.
+        /// </summary>
+        public readonly ImmutableArray<string> ExternalStorageTypes;
+        /// <summary>
         /// Failures to tolerate and RAID level in a common property.
         /// </summary>
         public readonly string? FailuresToTolerateAndRaidLevel;
+        /// <summary>
+        /// List of Failures to tolerate and RAID levels in a common property.
+        /// </summary>
+        public readonly ImmutableArray<string> FailuresToTolerateAndRaidLevelList;
         /// <summary>
         /// Gets the group type for the assessment.
         /// </summary>
         public readonly string GroupType;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// Is Stretch Cluster Enabled.
         /// </summary>
         public readonly bool? IsStretchClusterEnabled;
+        /// <summary>
+        /// Is VCF license applied
+        /// </summary>
+        public readonly bool? IsVcfByolEnabled;
         /// <summary>
         /// Limiting factor.
         /// </summary>
@@ -185,6 +225,10 @@ namespace Pulumi.AzureNative.Migrate
         /// AVS node type.
         /// </summary>
         public readonly string? NodeType;
+        /// <summary>
+        /// AVS node types.
+        /// </summary>
+        public readonly ImmutableArray<string> NodeTypes;
         /// <summary>
         /// Number of machines part of the assessment.
         /// </summary>
@@ -304,11 +348,25 @@ namespace Pulumi.AzureNative.Migrate
 
             string assessmentType,
 
+            string? avsAssessmentScenario,
+
+            ImmutableArray<Outputs.AvsEstimatedExternalStorageResponse> avsEstimatedExternalStorages,
+
+            ImmutableArray<Outputs.AvsEstimatedNetworkResponse> avsEstimatedNetworks,
+
+            ImmutableArray<Outputs.AvsEstimatedNodeResponse> avsEstimatedNodes,
+
+            string azureApiVersion,
+
             string? azureLocation,
 
             string? azureOfferCode,
 
             double confidenceRatingInPercentage,
+
+            ImmutableArray<Outputs.CostComponentResponse> costComponents,
+
+            double? cpuHeadroom,
 
             double cpuUtilization,
 
@@ -320,13 +378,19 @@ namespace Pulumi.AzureNative.Migrate
 
             double? discountPercentage,
 
+            ImmutableArray<string> externalStorageTypes,
+
             string? failuresToTolerateAndRaidLevel,
+
+            ImmutableArray<string> failuresToTolerateAndRaidLevelList,
 
             string groupType,
 
             string id,
 
             bool? isStretchClusterEnabled,
+
+            bool? isVcfByolEnabled,
 
             string limitingFactor,
 
@@ -335,6 +399,8 @@ namespace Pulumi.AzureNative.Migrate
             string name,
 
             string? nodeType,
+
+            ImmutableArray<string> nodeTypes,
 
             int numberOfMachines,
 
@@ -392,22 +458,33 @@ namespace Pulumi.AzureNative.Migrate
         {
             AssessmentErrorSummary = assessmentErrorSummary;
             AssessmentType = assessmentType;
+            AvsAssessmentScenario = avsAssessmentScenario;
+            AvsEstimatedExternalStorages = avsEstimatedExternalStorages;
+            AvsEstimatedNetworks = avsEstimatedNetworks;
+            AvsEstimatedNodes = avsEstimatedNodes;
+            AzureApiVersion = azureApiVersion;
             AzureLocation = azureLocation;
             AzureOfferCode = azureOfferCode;
             ConfidenceRatingInPercentage = confidenceRatingInPercentage;
+            CostComponents = costComponents;
+            CpuHeadroom = cpuHeadroom;
             CpuUtilization = cpuUtilization;
             CreatedTimestamp = createdTimestamp;
             Currency = currency;
             DedupeCompression = dedupeCompression;
             DiscountPercentage = discountPercentage;
+            ExternalStorageTypes = externalStorageTypes;
             FailuresToTolerateAndRaidLevel = failuresToTolerateAndRaidLevel;
+            FailuresToTolerateAndRaidLevelList = failuresToTolerateAndRaidLevelList;
             GroupType = groupType;
             Id = id;
             IsStretchClusterEnabled = isStretchClusterEnabled;
+            IsVcfByolEnabled = isVcfByolEnabled;
             LimitingFactor = limitingFactor;
             MemOvercommit = memOvercommit;
             Name = name;
             NodeType = nodeType;
+            NodeTypes = nodeTypes;
             NumberOfMachines = numberOfMachines;
             NumberOfNodes = numberOfNodes;
             Percentile = percentile;

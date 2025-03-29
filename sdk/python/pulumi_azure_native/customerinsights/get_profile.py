@@ -27,13 +27,16 @@ class GetProfileResult:
     """
     The profile resource format.
     """
-    def __init__(__self__, api_entity_set_name=None, attributes=None, description=None, display_name=None, entity_type=None, fields=None, id=None, instances_count=None, large_image=None, last_changed_utc=None, localized_attributes=None, medium_image=None, name=None, provisioning_state=None, schema_item_type_link=None, small_image=None, strong_ids=None, tenant_id=None, timestamp_field_name=None, type=None, type_name=None):
+    def __init__(__self__, api_entity_set_name=None, attributes=None, azure_api_version=None, description=None, display_name=None, entity_type=None, fields=None, id=None, instances_count=None, large_image=None, last_changed_utc=None, localized_attributes=None, medium_image=None, name=None, provisioning_state=None, schema_item_type_link=None, small_image=None, strong_ids=None, tenant_id=None, timestamp_field_name=None, type=None, type_name=None):
         if api_entity_set_name and not isinstance(api_entity_set_name, str):
             raise TypeError("Expected argument 'api_entity_set_name' to be a str")
         pulumi.set(__self__, "api_entity_set_name", api_entity_set_name)
         if attributes and not isinstance(attributes, dict):
             raise TypeError("Expected argument 'attributes' to be a dict")
         pulumi.set(__self__, "attributes", attributes)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, dict):
             raise TypeError("Expected argument 'description' to be a dict")
         pulumi.set(__self__, "description", description)
@@ -107,6 +110,14 @@ class GetProfileResult:
         The attributes for the Type.
         """
         return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -269,6 +280,7 @@ class AwaitableGetProfileResult(GetProfileResult):
         return GetProfileResult(
             api_entity_set_name=self.api_entity_set_name,
             attributes=self.attributes,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             entity_type=self.entity_type,
@@ -317,6 +329,7 @@ def get_profile(hub_name: Optional[str] = None,
     return AwaitableGetProfileResult(
         api_entity_set_name=pulumi.get(__ret__, 'api_entity_set_name'),
         attributes=pulumi.get(__ret__, 'attributes'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         entity_type=pulumi.get(__ret__, 'entity_type'),
@@ -362,6 +375,7 @@ def get_profile_output(hub_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetProfileResult(
         api_entity_set_name=pulumi.get(__response__, 'api_entity_set_name'),
         attributes=pulumi.get(__response__, 'attributes'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         entity_type=pulumi.get(__response__, 'entity_type'),

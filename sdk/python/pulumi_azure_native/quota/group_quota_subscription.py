@@ -66,9 +66,9 @@ class GroupQuotaSubscription(pulumi.CustomResource):
         """
         This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
 
-        Uses Azure REST API version 2023-06-01-preview.
+        Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
+        Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,9 +84,9 @@ class GroupQuotaSubscription(pulumi.CustomResource):
         """
         This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
 
-        Uses Azure REST API version 2023-06-01-preview.
+        Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
+        Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param GroupQuotaSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -120,6 +120,7 @@ class GroupQuotaSubscription(pulumi.CustomResource):
             if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")
             __props__.__dict__["management_group_id"] = management_group_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
@@ -148,11 +149,20 @@ class GroupQuotaSubscription(pulumi.CustomResource):
 
         __props__ = GroupQuotaSubscriptionArgs.__new__(GroupQuotaSubscriptionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return GroupQuotaSubscription(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

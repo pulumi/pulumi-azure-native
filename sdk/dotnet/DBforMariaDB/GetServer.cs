@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// Gets information about a server.
         /// 
         /// Uses Azure REST API version 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbformariadb:getServer", args ?? new GetServerArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// Gets information about a server.
         /// 
         /// Uses Azure REST API version 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbformariadb:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// Gets information about a server.
         /// 
         /// Uses Azure REST API version 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbformariadb:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -91,6 +85,10 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
         /// </summary>
         public readonly string? AdministratorLogin;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Earliest restore point creation time (ISO8601 format)
         /// </summary>
@@ -168,6 +166,8 @@ namespace Pulumi.AzureNative.DBforMariaDB
         private GetServerResult(
             string? administratorLogin,
 
+            string azureApiVersion,
+
             string? earliestRestoreDate,
 
             string? fullyQualifiedDomainName,
@@ -205,6 +205,7 @@ namespace Pulumi.AzureNative.DBforMariaDB
             string? version)
         {
             AdministratorLogin = administratorLogin;
+            AzureApiVersion = azureApiVersion;
             EarliestRestoreDate = earliestRestoreDate;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Id = id;

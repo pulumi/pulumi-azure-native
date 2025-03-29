@@ -40,6 +40,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Product type.
         /// </summary>
         public readonly string? ProductType;
+        /// <summary>
+        /// The OS name selected by user.
+        /// </summary>
+        public readonly string? UserSelectedOSName;
 
         [OutputConstructor]
         private OSDetailsResponse(
@@ -53,7 +57,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? osType,
 
-            string? productType)
+            string? productType,
+
+            string? userSelectedOSName)
         {
             OSMajorVersion = oSMajorVersion;
             OSMinorVersion = oSMinorVersion;
@@ -61,6 +67,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             OsEdition = osEdition;
             OsType = osType;
             ProductType = productType;
+            UserSelectedOSName = userSelectedOSName;
         }
     }
 }

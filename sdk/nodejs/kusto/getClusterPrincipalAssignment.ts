@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Gets a Kusto cluster principalAssignment.
  *
- * Uses Azure REST API version 2022-12-29.
+ * Uses Azure REST API version 2024-04-13.
  *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Other available API versions: 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPrincipalAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,7 +30,7 @@ export interface GetClusterPrincipalAssignmentArgs {
      */
     principalAssignmentName: string;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -43,6 +43,10 @@ export interface GetClusterPrincipalAssignmentResult {
      * The service principal object id in AAD (Azure active directory)
      */
     readonly aadObjectId: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -87,9 +91,9 @@ export interface GetClusterPrincipalAssignmentResult {
 /**
  * Gets a Kusto cluster principalAssignment.
  *
- * Uses Azure REST API version 2022-12-29.
+ * Uses Azure REST API version 2024-04-13.
  *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Other available API versions: 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getClusterPrincipalAssignmentOutput(args: GetClusterPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterPrincipalAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -110,7 +114,7 @@ export interface GetClusterPrincipalAssignmentOutputArgs {
      */
     principalAssignmentName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

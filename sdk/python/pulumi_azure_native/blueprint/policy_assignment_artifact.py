@@ -202,7 +202,7 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
         """
         Blueprint artifact that applies a Policy assignment.
 
-        Uses Azure REST API version 2018-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-11-01-preview.
+        Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,7 +227,7 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
         """
         Blueprint artifact that applies a Policy assignment.
 
-        Uses Azure REST API version 2018-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-11-01-preview.
+        Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PolicyAssignmentArtifactArgs args: The arguments to use to populate this resource's properties.
@@ -283,9 +283,10 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
             if resource_scope is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_scope'")
             __props__.__dict__["resource_scope"] = resource_scope
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint/v20181101preview:RoleAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint/v20181101preview:TemplateArtifact"), pulumi.Alias(type_="azure-native:blueprint:RoleAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint:TemplateArtifact")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyAssignmentArtifact, __self__).__init__(
             'azure-native:blueprint:PolicyAssignmentArtifact',
@@ -309,6 +310,7 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
 
         __props__ = PolicyAssignmentArtifactArgs.__new__(PolicyAssignmentArtifactArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["depends_on"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -319,6 +321,14 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
         __props__.__dict__["resource_group"] = None
         __props__.__dict__["type"] = None
         return PolicyAssignmentArtifact(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dependsOn")

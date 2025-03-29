@@ -28,7 +28,7 @@ class DisasterRecoveryConfigArgs:
         """
         The set of arguments for constructing a DisasterRecoveryConfig resource.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] alias: The Disaster Recovery configuration name
         :param pulumi.Input[str] alternate_name: Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         :param pulumi.Input[str] partner_namespace: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
@@ -58,7 +58,7 @@ class DisasterRecoveryConfigArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -117,9 +117,9 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
 
-        Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +127,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         :param pulumi.Input[str] alternate_name: Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] partner_namespace: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -138,9 +138,9 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
 
-        Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DisasterRecoveryConfigArgs args: The arguments to use to populate this resource's properties.
@@ -180,6 +180,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["pending_replication_operations_count"] = None
@@ -212,6 +213,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         __props__ = DisasterRecoveryConfigArgs.__new__(DisasterRecoveryConfigArgs)
 
         __props__.__dict__["alternate_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["partner_namespace"] = None
@@ -229,6 +231,14 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         """
         return pulumi.get(self, "alternate_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

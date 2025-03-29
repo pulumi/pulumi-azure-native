@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
     public sealed class GetDatasetResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Detailed description of the Dataset.
         /// </summary>
         public readonly string? Description;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
 
         [OutputConstructor]
         private GetDatasetResult(
+            string azureApiVersion,
+
             string? description,
 
             Outputs.ExtendedLocationResponse extendedLocation,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             ExtendedLocation = extendedLocation;
             Id = id;

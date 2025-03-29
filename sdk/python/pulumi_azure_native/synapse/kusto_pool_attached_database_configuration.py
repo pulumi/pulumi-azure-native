@@ -183,7 +183,7 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
         """
         Class representing an attached database configuration.
 
-        Uses Azure REST API version 2021-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-06-01-preview.
+        Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,7 +206,7 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
         """
         Class representing an attached database configuration.
 
-        Uses Azure REST API version 2021-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-06-01-preview.
+        Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param KustoPoolAttachedDatabaseConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -263,6 +263,7 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["attached_database_names"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -292,6 +293,7 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
         __props__ = KustoPoolAttachedDatabaseConfigurationArgs.__new__(KustoPoolAttachedDatabaseConfigurationArgs)
 
         __props__.__dict__["attached_database_names"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["database_name"] = None
         __props__.__dict__["default_principals_modification_kind"] = None
         __props__.__dict__["kusto_pool_resource_id"] = None
@@ -310,6 +312,14 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
         The list of databases from the clusterResourceId which are currently attached to the kusto pool.
         """
         return pulumi.get(self, "attached_database_names")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="databaseName")

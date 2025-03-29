@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataCatalog
     /// <summary>
     /// Azure Data Catalog.
     /// 
-    /// Uses Azure REST API version 2016-03-30. In version 1.x of the Azure Native provider, it used API version 2016-03-30.
+    /// Uses Azure REST API version 2016-03-30. In version 2.x of the Azure Native provider, it used API version 2016-03-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:datacatalog:ADCCatalog")]
     public partial class ADCCatalog : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataCatalog
         /// </summary>
         [Output("admins")]
         public Output<ImmutableArray<Outputs.PrincipalsResponse>> Admins { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Automatic unit adjustment enabled or not.

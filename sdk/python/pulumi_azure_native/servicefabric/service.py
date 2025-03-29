@@ -152,9 +152,7 @@ class Service(pulumi.CustomResource):
         """
         The service resource.
 
-        Uses Azure REST API version 2024-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
-
-        Other available API versions: 2021-06-01.
+        Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,9 +173,7 @@ class Service(pulumi.CustomResource):
         """
         The service resource.
 
-        Uses Azure REST API version 2024-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
-
-        Other available API versions: 2021-06-01.
+        Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -223,10 +219,11 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20220601preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20221001preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20230301preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20230701preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20230901preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20231101preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20231201preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20240201preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20240401:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20240601preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20240901preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20241101preview:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20210601:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20220601preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20221001preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20230301preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20230301preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20230701preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20230701preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20230901preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20230901preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20231101preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20231101preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20231201preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20231201preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20240201preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20240201preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20240401:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20240401:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20240601preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20240601preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20240901preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20240901preview:Service"), pulumi.Alias(type_="azure-native:servicefabric/v20241101preview:Service"), pulumi.Alias(type_="azure-native:servicefabric:ManagedClusterService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-native:servicefabric:Service',
@@ -250,6 +247,7 @@ class Service(pulumi.CustomResource):
 
         __props__ = ServiceArgs.__new__(ServiceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -257,6 +255,14 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

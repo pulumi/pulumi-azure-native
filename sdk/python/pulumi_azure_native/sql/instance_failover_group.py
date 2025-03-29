@@ -28,7 +28,8 @@ class InstanceFailoverGroupArgs:
                  read_write_endpoint: pulumi.Input['InstanceFailoverGroupReadWriteEndpointArgs'],
                  resource_group_name: pulumi.Input[str],
                  failover_group_name: Optional[pulumi.Input[str]] = None,
-                 read_only_endpoint: Optional[pulumi.Input['InstanceFailoverGroupReadOnlyEndpointArgs']] = None):
+                 read_only_endpoint: Optional[pulumi.Input['InstanceFailoverGroupReadOnlyEndpointArgs']] = None,
+                 secondary_type: Optional[pulumi.Input[Union[str, 'SecondaryInstanceType']]] = None):
         """
         The set of arguments for constructing a InstanceFailoverGroup resource.
         :param pulumi.Input[str] location_name: The name of the region where the resource is located.
@@ -38,6 +39,7 @@ class InstanceFailoverGroupArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] failover_group_name: The name of the failover group.
         :param pulumi.Input['InstanceFailoverGroupReadOnlyEndpointArgs'] read_only_endpoint: Read-only endpoint of the failover group instance.
+        :param pulumi.Input[Union[str, 'SecondaryInstanceType']] secondary_type: Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
         """
         pulumi.set(__self__, "location_name", location_name)
         pulumi.set(__self__, "managed_instance_pairs", managed_instance_pairs)
@@ -48,6 +50,8 @@ class InstanceFailoverGroupArgs:
             pulumi.set(__self__, "failover_group_name", failover_group_name)
         if read_only_endpoint is not None:
             pulumi.set(__self__, "read_only_endpoint", read_only_endpoint)
+        if secondary_type is not None:
+            pulumi.set(__self__, "secondary_type", secondary_type)
 
     @property
     @pulumi.getter(name="locationName")
@@ -133,6 +137,18 @@ class InstanceFailoverGroupArgs:
     def read_only_endpoint(self, value: Optional[pulumi.Input['InstanceFailoverGroupReadOnlyEndpointArgs']]):
         pulumi.set(self, "read_only_endpoint", value)
 
+    @property
+    @pulumi.getter(name="secondaryType")
+    def secondary_type(self) -> Optional[pulumi.Input[Union[str, 'SecondaryInstanceType']]]:
+        """
+        Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+        """
+        return pulumi.get(self, "secondary_type")
+
+    @secondary_type.setter
+    def secondary_type(self, value: Optional[pulumi.Input[Union[str, 'SecondaryInstanceType']]]):
+        pulumi.set(self, "secondary_type", value)
+
 
 class InstanceFailoverGroup(pulumi.CustomResource):
     @overload
@@ -146,13 +162,14 @@ class InstanceFailoverGroup(pulumi.CustomResource):
                  read_only_endpoint: Optional[pulumi.Input[Union['InstanceFailoverGroupReadOnlyEndpointArgs', 'InstanceFailoverGroupReadOnlyEndpointArgsDict']]] = None,
                  read_write_endpoint: Optional[pulumi.Input[Union['InstanceFailoverGroupReadWriteEndpointArgs', 'InstanceFailoverGroupReadWriteEndpointArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_type: Optional[pulumi.Input[Union[str, 'SecondaryInstanceType']]] = None,
                  __props__=None):
         """
         An instance failover group.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,6 +180,7 @@ class InstanceFailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['InstanceFailoverGroupReadOnlyEndpointArgs', 'InstanceFailoverGroupReadOnlyEndpointArgsDict']] read_only_endpoint: Read-only endpoint of the failover group instance.
         :param pulumi.Input[Union['InstanceFailoverGroupReadWriteEndpointArgs', 'InstanceFailoverGroupReadWriteEndpointArgsDict']] read_write_endpoint: Read-write endpoint of the failover group instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[Union[str, 'SecondaryInstanceType']] secondary_type: Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
         """
         ...
     @overload
@@ -173,9 +191,9 @@ class InstanceFailoverGroup(pulumi.CustomResource):
         """
         An instance failover group.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param InstanceFailoverGroupArgs args: The arguments to use to populate this resource's properties.
@@ -199,6 +217,7 @@ class InstanceFailoverGroup(pulumi.CustomResource):
                  read_only_endpoint: Optional[pulumi.Input[Union['InstanceFailoverGroupReadOnlyEndpointArgs', 'InstanceFailoverGroupReadOnlyEndpointArgsDict']]] = None,
                  read_write_endpoint: Optional[pulumi.Input[Union['InstanceFailoverGroupReadWriteEndpointArgs', 'InstanceFailoverGroupReadWriteEndpointArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_type: Optional[pulumi.Input[Union[str, 'SecondaryInstanceType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -225,6 +244,8 @@ class InstanceFailoverGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["secondary_type"] = secondary_type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["replication_role"] = None
             __props__.__dict__["replication_state"] = None
@@ -253,6 +274,7 @@ class InstanceFailoverGroup(pulumi.CustomResource):
 
         __props__ = InstanceFailoverGroupArgs.__new__(InstanceFailoverGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["managed_instance_pairs"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["partner_regions"] = None
@@ -260,8 +282,17 @@ class InstanceFailoverGroup(pulumi.CustomResource):
         __props__.__dict__["read_write_endpoint"] = None
         __props__.__dict__["replication_role"] = None
         __props__.__dict__["replication_state"] = None
+        __props__.__dict__["secondary_type"] = None
         __props__.__dict__["type"] = None
         return InstanceFailoverGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="managedInstancePairs")
@@ -318,6 +349,14 @@ class InstanceFailoverGroup(pulumi.CustomResource):
         Replication state of the failover group instance.
         """
         return pulumi.get(self, "replication_state")
+
+    @property
+    @pulumi.getter(name="secondaryType")
+    def secondary_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+        """
+        return pulumi.get(self, "secondary_type")
 
     @property
     @pulumi.getter

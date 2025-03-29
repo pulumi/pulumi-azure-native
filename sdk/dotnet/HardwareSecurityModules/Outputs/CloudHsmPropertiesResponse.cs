@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.Outputs
         /// </summary>
         public readonly string? Fqdn;
         /// <summary>
-        /// The Cloud HSM State
+        /// The Cloud HSM State. Values are: Deploying, ConfiguringSlb, Starting, Starting, Failed, Failed, Deleting, DeletingSlbEntry, InitialProvisioning, Updating
         /// </summary>
         public readonly string? State;
         /// <summary>

@@ -12,7 +12,9 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// The device security group resource
     /// 
-    /// Uses Azure REST API version 2019-08-01. In version 1.x of the Azure Native provider, it used API version 2019-08-01.
+    /// Uses Azure REST API version 2019-08-01. In version 2.x of the Azure Native provider, it used API version 2019-08-01.
+    /// 
+    /// Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:DeviceSecurityGroup")]
     public partial class DeviceSecurityGroup : global::Pulumi.CustomResource
@@ -22,6 +24,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("allowlistRules")]
         public Output<ImmutableArray<Outputs.AllowlistCustomAlertRuleResponse>> AllowlistRules { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The deny-list custom alert rules.

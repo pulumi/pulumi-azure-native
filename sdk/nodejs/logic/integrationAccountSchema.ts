@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The integration account schema.
  *
- * Uses Azure REST API version 2019-05-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
+ * Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
  *
- * Other available API versions: 2015-08-01-preview.
+ * Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class IntegrationAccountSchema extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
         return obj['__pulumiType'] === IntegrationAccountSchema.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The changed time.
      */
@@ -130,12 +134,14 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
             resourceInputs["schemaType"] = args ? args.schemaType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetNamespace"] = args ? args.targetNamespace : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["contentLink"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["content"] = undefined /*out*/;
             resourceInputs["contentLink"] = undefined /*out*/;
@@ -152,7 +158,7 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:IntegrationAccountSchema" }, { type: "azure-native:logic/v20160601:IntegrationAccountSchema" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountSchema" }, { type: "azure-native:logic/v20190501:IntegrationAccountSchema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:IntegrationAccountSchema" }, { type: "azure-native:logic/v20160601:IntegrationAccountSchema" }, { type: "azure-native:logic/v20160601:Schema" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountSchema" }, { type: "azure-native:logic/v20190501:IntegrationAccountSchema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountSchema.__pulumiType, name, resourceInputs, opts);
     }

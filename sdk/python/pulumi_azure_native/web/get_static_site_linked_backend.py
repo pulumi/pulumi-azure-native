@@ -26,7 +26,10 @@ class GetStaticSiteLinkedBackendResult:
     """
     Static Site Linked Backend ARM resource.
     """
-    def __init__(__self__, backend_resource_id=None, created_on=None, id=None, kind=None, name=None, provisioning_state=None, region=None, type=None):
+    def __init__(__self__, azure_api_version=None, backend_resource_id=None, created_on=None, id=None, kind=None, name=None, provisioning_state=None, region=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backend_resource_id and not isinstance(backend_resource_id, str):
             raise TypeError("Expected argument 'backend_resource_id' to be a str")
         pulumi.set(__self__, "backend_resource_id", backend_resource_id)
@@ -51,6 +54,14 @@ class GetStaticSiteLinkedBackendResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backendResourceId")
@@ -123,6 +134,7 @@ class AwaitableGetStaticSiteLinkedBackendResult(GetStaticSiteLinkedBackendResult
         if False:
             yield self
         return GetStaticSiteLinkedBackendResult(
+            azure_api_version=self.azure_api_version,
             backend_resource_id=self.backend_resource_id,
             created_on=self.created_on,
             id=self.id,
@@ -140,9 +152,9 @@ def get_static_site_linked_backend(linked_backend_name: Optional[str] = None,
     """
     Static Site Linked Backend ARM resource.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str linked_backend_name: Name of the linked backend that should be retrieved
@@ -157,6 +169,7 @@ def get_static_site_linked_backend(linked_backend_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getStaticSiteLinkedBackend', __args__, opts=opts, typ=GetStaticSiteLinkedBackendResult).value
 
     return AwaitableGetStaticSiteLinkedBackendResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backend_resource_id=pulumi.get(__ret__, 'backend_resource_id'),
         created_on=pulumi.get(__ret__, 'created_on'),
         id=pulumi.get(__ret__, 'id'),
@@ -172,9 +185,9 @@ def get_static_site_linked_backend_output(linked_backend_name: Optional[pulumi.I
     """
     Static Site Linked Backend ARM resource.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str linked_backend_name: Name of the linked backend that should be retrieved
@@ -188,6 +201,7 @@ def get_static_site_linked_backend_output(linked_backend_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getStaticSiteLinkedBackend', __args__, opts=opts, typ=GetStaticSiteLinkedBackendResult)
     return __ret__.apply(lambda __response__: GetStaticSiteLinkedBackendResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backend_resource_id=pulumi.get(__response__, 'backend_resource_id'),
         created_on=pulumi.get(__response__, 'created_on'),
         id=pulumi.get(__response__, 'id'),

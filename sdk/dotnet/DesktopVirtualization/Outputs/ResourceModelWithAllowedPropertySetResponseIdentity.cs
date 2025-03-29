@@ -14,11 +14,11 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
     public sealed class ResourceModelWithAllowedPropertySetResponseIdentity
     {
         /// <summary>
-        /// The principal ID of resource identity.
+        /// The principal ID of resource identity. The value must be an UUID.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The tenant ID of resource.
+        /// The tenant ID of resource. The value must be an UUID.
         /// </summary>
         public readonly string TenantId;
         /// <summary>

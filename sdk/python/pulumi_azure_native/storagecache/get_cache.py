@@ -27,7 +27,10 @@ class GetCacheResult:
     """
     A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     """
-    def __init__(__self__, cache_size_gb=None, directory_services_settings=None, encryption_settings=None, health=None, id=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, priming_jobs=None, provisioning_state=None, security_settings=None, sku=None, space_allocation=None, subnet=None, system_data=None, tags=None, type=None, upgrade_settings=None, upgrade_status=None, zones=None):
+    def __init__(__self__, azure_api_version=None, cache_size_gb=None, directory_services_settings=None, encryption_settings=None, health=None, id=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, priming_jobs=None, provisioning_state=None, security_settings=None, sku=None, space_allocation=None, subnet=None, system_data=None, tags=None, type=None, upgrade_settings=None, upgrade_status=None, zones=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cache_size_gb and not isinstance(cache_size_gb, int):
             raise TypeError("Expected argument 'cache_size_gb' to be a int")
         pulumi.set(__self__, "cache_size_gb", cache_size_gb)
@@ -94,6 +97,14 @@ class GetCacheResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cacheSizeGB")
@@ -278,6 +289,7 @@ class AwaitableGetCacheResult(GetCacheResult):
         if False:
             yield self
         return GetCacheResult(
+            azure_api_version=self.azure_api_version,
             cache_size_gb=self.cache_size_gb,
             directory_services_settings=self.directory_services_settings,
             encryption_settings=self.encryption_settings,
@@ -308,9 +320,9 @@ def get_cache(cache_name: Optional[str] = None,
     """
     Returns a cache.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
@@ -323,6 +335,7 @@ def get_cache(cache_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagecache:getCache', __args__, opts=opts, typ=GetCacheResult).value
 
     return AwaitableGetCacheResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cache_size_gb=pulumi.get(__ret__, 'cache_size_gb'),
         directory_services_settings=pulumi.get(__ret__, 'directory_services_settings'),
         encryption_settings=pulumi.get(__ret__, 'encryption_settings'),
@@ -351,9 +364,9 @@ def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
     """
     Returns a cache.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
@@ -365,6 +378,7 @@ def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagecache:getCache', __args__, opts=opts, typ=GetCacheResult)
     return __ret__.apply(lambda __response__: GetCacheResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cache_size_gb=pulumi.get(__response__, 'cache_size_gb'),
         directory_services_settings=pulumi.get(__response__, 'directory_services_settings'),
         encryption_settings=pulumi.get(__response__, 'encryption_settings'),

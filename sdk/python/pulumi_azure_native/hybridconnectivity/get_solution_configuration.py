@@ -27,7 +27,10 @@ class GetSolutionConfigurationResult:
     """
     Solution Configuration
     """
-    def __init__(__self__, id=None, last_sync_time=None, name=None, provisioning_state=None, solution_settings=None, solution_type=None, status=None, status_details=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, last_sync_time=None, name=None, provisioning_state=None, solution_settings=None, solution_type=None, status=None, status_details=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -58,6 +61,14 @@ class GetSolutionConfigurationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetSolutionConfigurationResult(GetSolutionConfigurationResult):
         if False:
             yield self
         return GetSolutionConfigurationResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             last_sync_time=self.last_sync_time,
             name=self.name,
@@ -177,6 +189,7 @@ def get_solution_configuration(resource_uri: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridconnectivity:getSolutionConfiguration', __args__, opts=opts, typ=GetSolutionConfigurationResult).value
 
     return AwaitableGetSolutionConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         last_sync_time=pulumi.get(__ret__, 'last_sync_time'),
         name=pulumi.get(__ret__, 'name'),
@@ -205,6 +218,7 @@ def get_solution_configuration_output(resource_uri: Optional[pulumi.Input[str]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity:getSolutionConfiguration', __args__, opts=opts, typ=GetSolutionConfigurationResult)
     return __ret__.apply(lambda __response__: GetSolutionConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         last_sync_time=pulumi.get(__response__, 'last_sync_time'),
         name=pulumi.get(__response__, 'name'),

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Returns the specific pipeline group instance.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPipelineGroupResult> InvokeAsync(GetPipelineGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipelineGroupResult>("azure-native:monitor:getPipelineGroup", args ?? new GetPipelineGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Returns the specific pipeline group instance.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPipelineGroupResult> Invoke(GetPipelineGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineGroupResult>("azure-native:monitor:getPipelineGroup", args ?? new GetPipelineGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Returns the specific pipeline group instance.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPipelineGroupResult> Invoke(GetPipelineGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineGroupResult>("azure-native:monitor:getPipelineGroup", args ?? new GetPipelineGroupInvokeArgs(), options.WithDefaults());
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class GetPipelineGroupResult
     {
         /// <summary>
-        /// The exporters specified for a pipeline group instance.
+        /// The Azure API version of the resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExporterResponse> Exporters;
+        public readonly string AzureApiVersion;
         /// <summary>
-        /// The extended location for given pipeline group.
+        /// The complex type of the extended location.
         /// </summary>
         public readonly Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse? ExtendedLocation;
         /// <summary>
@@ -108,29 +108,9 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Networking configurations for the pipeline group instance.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkingConfigurationResponse> NetworkingConfigurations;
-        /// <summary>
-        /// The processors specified for a pipeline group instance.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ProcessorResponse> Processors;
-        /// <summary>
-        /// The provisioning state of a pipeline group instance. Set to Succeeded if everything is healthy.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The receivers specified for a pipeline group instance.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ReceiverResponse> Receivers;
-        /// <summary>
-        /// Defines the amount of replicas of the pipeline group instance.
-        /// </summary>
-        public readonly int? Replicas;
-        /// <summary>
-        /// The service section for a given pipeline group instance.
-        /// </summary>
-        public readonly Outputs.ServiceResponse Service;
+        public readonly Outputs.PipelineGroupPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -146,7 +126,7 @@ namespace Pulumi.AzureNative.Monitor
 
         [OutputConstructor]
         private GetPipelineGroupResult(
-            ImmutableArray<Outputs.ExporterResponse> exporters,
+            string azureApiVersion,
 
             Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse? extendedLocation,
 
@@ -156,17 +136,7 @@ namespace Pulumi.AzureNative.Monitor
 
             string name,
 
-            ImmutableArray<Outputs.NetworkingConfigurationResponse> networkingConfigurations,
-
-            ImmutableArray<Outputs.ProcessorResponse> processors,
-
-            string provisioningState,
-
-            ImmutableArray<Outputs.ReceiverResponse> receivers,
-
-            int? replicas,
-
-            Outputs.ServiceResponse service,
+            Outputs.PipelineGroupPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -174,17 +144,12 @@ namespace Pulumi.AzureNative.Monitor
 
             string type)
         {
-            Exporters = exporters;
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;
             Name = name;
-            NetworkingConfigurations = networkingConfigurations;
-            Processors = processors;
-            ProvisioningState = provisioningState;
-            Receivers = receivers;
-            Replicas = replicas;
-            Service = service;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

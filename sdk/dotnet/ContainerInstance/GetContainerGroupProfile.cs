@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.ContainerInstance
     public sealed class GetContainerGroupProfileResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The properties for confidential container group
         /// </summary>
         public readonly Outputs.ConfidentialComputePropertiesResponse? ConfidentialComputeProperties;
@@ -167,6 +171,8 @@ namespace Pulumi.AzureNative.ContainerInstance
 
         [OutputConstructor]
         private GetContainerGroupProfileResult(
+            string azureApiVersion,
+
             Outputs.ConfidentialComputePropertiesResponse? confidentialComputeProperties,
 
             ImmutableArray<Outputs.ContainerResponse> containers,
@@ -207,6 +213,7 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             ImmutableArray<string> zones)
         {
+            AzureApiVersion = azureApiVersion;
             ConfidentialComputeProperties = confidentialComputeProperties;
             Containers = containers;
             Diagnostics = diagnostics;

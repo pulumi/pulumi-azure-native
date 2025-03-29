@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? AgentVersion;
         /// <summary>
+        /// A value indicating all available inplace OS Upgrade configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OSUpgradeSupportedVersionsResponse> AllAvailableOSUpgradeConfigurations;
+        /// <summary>
         /// Azure VM Disk details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AzureVmDiskDetailsResponse> AzureVMDiskDetails;
@@ -122,6 +126,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? OsDiskId;
         /// <summary>
+        /// The name of the OS on the VM.
+        /// </summary>
+        public readonly string OsName;
+        /// <summary>
         /// The type of the OS on the VM.
         /// </summary>
         public readonly string? OsType;
@@ -214,6 +222,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? SqlServerLicenseType;
         /// <summary>
+        /// A value indicating the inplace OS Upgrade version.
+        /// </summary>
+        public readonly ImmutableArray<string> SupportedOSVersions;
+        /// <summary>
         /// The switch provider blocking error information.
         /// </summary>
         public readonly ImmutableArray<Outputs.InMageAzureV2SwitchProviderBlockingErrorDetailsResponse> SwitchProviderBlockingErrorDetails;
@@ -296,6 +308,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? agentVersion,
 
+            ImmutableArray<Outputs.OSUpgradeSupportedVersionsResponse> allAvailableOSUpgradeConfigurations,
+
             ImmutableArray<Outputs.AzureVmDiskDetailsResponse> azureVMDiskDetails,
 
             string? azureVmGeneration,
@@ -344,6 +358,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? osDiskId,
 
+            string osName,
+
             string? osType,
 
             string? osVersion,
@@ -390,6 +406,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? sqlServerLicenseType,
 
+            ImmutableArray<string> supportedOSVersions,
+
             ImmutableArray<Outputs.InMageAzureV2SwitchProviderBlockingErrorDetailsResponse> switchProviderBlockingErrorDetails,
 
             Outputs.InMageAzureV2SwitchProviderDetailsResponse? switchProviderDetails,
@@ -430,6 +448,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         {
             AgentExpiryDate = agentExpiryDate;
             AgentVersion = agentVersion;
+            AllAvailableOSUpgradeConfigurations = allAvailableOSUpgradeConfigurations;
             AzureVMDiskDetails = azureVMDiskDetails;
             AzureVmGeneration = azureVmGeneration;
             CompressedDataRateInMB = compressedDataRateInMB;
@@ -454,6 +473,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             MultiVmGroupName = multiVmGroupName;
             MultiVmSyncStatus = multiVmSyncStatus;
             OsDiskId = osDiskId;
+            OsName = osName;
             OsType = osType;
             OsVersion = osVersion;
             ProcessServerId = processServerId;
@@ -477,6 +497,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             SourceVmCpuCount = sourceVmCpuCount;
             SourceVmRamSizeInMB = sourceVmRamSizeInMB;
             SqlServerLicenseType = sqlServerLicenseType;
+            SupportedOSVersions = supportedOSVersions;
             SwitchProviderBlockingErrorDetails = switchProviderBlockingErrorDetails;
             SwitchProviderDetails = switchProviderDetails;
             TargetAvailabilityZone = targetAvailabilityZone;

@@ -149,7 +149,7 @@ class KustoTableDataSetMapping(pulumi.CustomResource):
         """
         A Kusto database data set mapping
 
-        Uses Azure REST API version 2021-08-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+        Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +171,7 @@ class KustoTableDataSetMapping(pulumi.CustomResource):
         """
         A Kusto database data set mapping
 
-        Uses Azure REST API version 2021-08-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+        Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param KustoTableDataSetMappingArgs args: The arguments to use to populate this resource's properties.
@@ -223,13 +223,14 @@ class KustoTableDataSetMapping(pulumi.CustomResource):
             if share_subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_subscription_name'")
             __props__.__dict__["share_subscription_name"] = share_subscription_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["data_set_mapping_status"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20181101preview:KustoTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20191101:KustoTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:KustoTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:KustoTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoTableDataSetMapping")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20181101preview:KustoTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20191101:KustoTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:KustoTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:BlobStorageAccountDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:KustoTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen2FileDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:BlobContainerDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:BlobDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:BlobFolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoClusterDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoDatabaseDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:SqlDBTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:SqlDWTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:ADLSGen2FileDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:ADLSGen2FileSystemDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:ADLSGen2FolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:BlobContainerDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:BlobDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:BlobFolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:KustoClusterDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:KustoDatabaseDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:SqlDBTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:SqlDWTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KustoTableDataSetMapping, __self__).__init__(
             'azure-native:datashare:KustoTableDataSetMapping',
@@ -253,6 +254,7 @@ class KustoTableDataSetMapping(pulumi.CustomResource):
 
         __props__ = KustoTableDataSetMappingArgs.__new__(KustoTableDataSetMappingArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["data_set_id"] = None
         __props__.__dict__["data_set_mapping_status"] = None
         __props__.__dict__["kind"] = None
@@ -263,6 +265,14 @@ class KustoTableDataSetMapping(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return KustoTableDataSetMapping(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataSetId")

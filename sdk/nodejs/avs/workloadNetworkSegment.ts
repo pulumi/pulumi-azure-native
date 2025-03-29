@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * NSX Segment
  *
- * Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2020-07-17-preview.
+ * Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WorkloadNetworkSegment extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Gateway which to connect segment to.
      */
     public readonly connectedGateway!: pulumi.Output<string | undefined>;
@@ -50,7 +54,7 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -74,7 +78,11 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
      */
     public readonly subnet!: pulumi.Output<outputs.avs.WorkloadNetworkSegmentSubnetResponse | undefined>;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -102,12 +110,15 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
             resourceInputs["revision"] = args ? args.revision : undefined;
             resourceInputs["segmentId"] = args ? args.segmentId : undefined;
             resourceInputs["subnet"] = args ? args.subnet : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["portVif"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectedGateway"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -116,6 +127,7 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
             resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subnet"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -150,7 +162,7 @@ export interface WorkloadNetworkSegmentArgs {
      */
     revision?: pulumi.Input<number>;
     /**
-     * NSX Segment identifier. Generally the same as the Segment's display name
+     * The ID of the NSX Segment
      */
     segmentId?: pulumi.Input<string>;
     /**

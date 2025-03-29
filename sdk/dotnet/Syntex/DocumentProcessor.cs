@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Syntex
     /// <summary>
     /// Document processor details
     /// 
-    /// Uses Azure REST API version 2022-09-15-preview. In version 1.x of the Azure Native provider, it used API version 2022-09-15-preview.
+    /// Uses Azure REST API version 2022-09-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:syntex:DocumentProcessor")]
     public partial class DocumentProcessor : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

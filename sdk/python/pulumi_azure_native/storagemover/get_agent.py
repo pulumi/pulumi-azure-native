@@ -27,7 +27,7 @@ class GetAgentResult:
     """
     The Agent resource.
     """
-    def __init__(__self__, agent_status=None, agent_version=None, arc_resource_id=None, arc_vm_uuid=None, description=None, error_details=None, id=None, last_status_update=None, local_ip_address=None, memory_in_mb=None, name=None, number_of_cores=None, provisioning_state=None, system_data=None, type=None, uptime_in_seconds=None):
+    def __init__(__self__, agent_status=None, agent_version=None, arc_resource_id=None, arc_vm_uuid=None, azure_api_version=None, description=None, error_details=None, id=None, last_status_update=None, local_ip_address=None, memory_in_mb=None, name=None, number_of_cores=None, provisioning_state=None, system_data=None, time_zone=None, type=None, upload_limit_schedule=None, uptime_in_seconds=None):
         if agent_status and not isinstance(agent_status, str):
             raise TypeError("Expected argument 'agent_status' to be a str")
         pulumi.set(__self__, "agent_status", agent_status)
@@ -40,6 +40,9 @@ class GetAgentResult:
         if arc_vm_uuid and not isinstance(arc_vm_uuid, str):
             raise TypeError("Expected argument 'arc_vm_uuid' to be a str")
         pulumi.set(__self__, "arc_vm_uuid", arc_vm_uuid)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -70,9 +73,15 @@ class GetAgentResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if time_zone and not isinstance(time_zone, str):
+            raise TypeError("Expected argument 'time_zone' to be a str")
+        pulumi.set(__self__, "time_zone", time_zone)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if upload_limit_schedule and not isinstance(upload_limit_schedule, dict):
+            raise TypeError("Expected argument 'upload_limit_schedule' to be a dict")
+        pulumi.set(__self__, "upload_limit_schedule", upload_limit_schedule)
         if uptime_in_seconds and not isinstance(uptime_in_seconds, float):
             raise TypeError("Expected argument 'uptime_in_seconds' to be a float")
         pulumi.set(__self__, "uptime_in_seconds", uptime_in_seconds)
@@ -108,6 +117,14 @@ class GetAgentResult:
         The VM UUID of the Hybrid Compute resource for the Agent.
         """
         return pulumi.get(self, "arc_vm_uuid")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -182,9 +199,17 @@ class GetAgentResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Resource system metadata.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> str:
+        """
+        The agent's local time zone represented in Windows format.
+        """
+        return pulumi.get(self, "time_zone")
 
     @property
     @pulumi.getter
@@ -193,6 +218,14 @@ class GetAgentResult:
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uploadLimitSchedule")
+    def upload_limit_schedule(self) -> Optional['outputs.UploadLimitScheduleResponse']:
+        """
+        The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
+        """
+        return pulumi.get(self, "upload_limit_schedule")
 
     @property
     @pulumi.getter(name="uptimeInSeconds")
@@ -213,6 +246,7 @@ class AwaitableGetAgentResult(GetAgentResult):
             agent_version=self.agent_version,
             arc_resource_id=self.arc_resource_id,
             arc_vm_uuid=self.arc_vm_uuid,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             error_details=self.error_details,
             id=self.id,
@@ -223,7 +257,9 @@ class AwaitableGetAgentResult(GetAgentResult):
             number_of_cores=self.number_of_cores,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
+            time_zone=self.time_zone,
             type=self.type,
+            upload_limit_schedule=self.upload_limit_schedule,
             uptime_in_seconds=self.uptime_in_seconds)
 
 
@@ -234,9 +270,9 @@ def get_agent(agent_name: Optional[str] = None,
     """
     Gets an Agent resource.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+    Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str agent_name: The name of the Agent resource.
@@ -255,6 +291,7 @@ def get_agent(agent_name: Optional[str] = None,
         agent_version=pulumi.get(__ret__, 'agent_version'),
         arc_resource_id=pulumi.get(__ret__, 'arc_resource_id'),
         arc_vm_uuid=pulumi.get(__ret__, 'arc_vm_uuid'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         error_details=pulumi.get(__ret__, 'error_details'),
         id=pulumi.get(__ret__, 'id'),
@@ -265,7 +302,9 @@ def get_agent(agent_name: Optional[str] = None,
         number_of_cores=pulumi.get(__ret__, 'number_of_cores'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
+        time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'),
+        upload_limit_schedule=pulumi.get(__ret__, 'upload_limit_schedule'),
         uptime_in_seconds=pulumi.get(__ret__, 'uptime_in_seconds'))
 def get_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -274,9 +313,9 @@ def get_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
     """
     Gets an Agent resource.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+    Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str agent_name: The name of the Agent resource.
@@ -294,6 +333,7 @@ def get_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
         agent_version=pulumi.get(__response__, 'agent_version'),
         arc_resource_id=pulumi.get(__response__, 'arc_resource_id'),
         arc_vm_uuid=pulumi.get(__response__, 'arc_vm_uuid'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         error_details=pulumi.get(__response__, 'error_details'),
         id=pulumi.get(__response__, 'id'),
@@ -304,5 +344,7 @@ def get_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
         number_of_cores=pulumi.get(__response__, 'number_of_cores'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         system_data=pulumi.get(__response__, 'system_data'),
+        time_zone=pulumi.get(__response__, 'time_zone'),
         type=pulumi.get(__response__, 'type'),
+        upload_limit_schedule=pulumi.get(__response__, 'upload_limit_schedule'),
         uptime_in_seconds=pulumi.get(__response__, 'uptime_in_seconds')))

@@ -203,9 +203,9 @@ class StorageTarget(pulumi.CustomResource):
         """
         Type of the Storage Target.
 
-        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,9 +229,9 @@ class StorageTarget(pulumi.CustomResource):
         """
         Type of the Storage Target.
 
-        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+        Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param StorageTargetArgs args: The arguments to use to populate this resource's properties.
@@ -284,6 +284,7 @@ class StorageTarget(pulumi.CustomResource):
             __props__.__dict__["target_type"] = target_type
             __props__.__dict__["unknown"] = unknown
             __props__.__dict__["allocation_percentage"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -314,6 +315,7 @@ class StorageTarget(pulumi.CustomResource):
         __props__ = StorageTargetArgs.__new__(StorageTargetArgs)
 
         __props__.__dict__["allocation_percentage"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["blob_nfs"] = None
         __props__.__dict__["clfs"] = None
         __props__.__dict__["junctions"] = None
@@ -335,6 +337,14 @@ class StorageTarget(pulumi.CustomResource):
         The percentage of cache space allocated for this storage target
         """
         return pulumi.get(self, "allocation_percentage")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="blobNfs")

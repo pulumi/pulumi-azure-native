@@ -27,10 +27,13 @@ class GetFormulaResult:
     """
     A formula for creating a VM, specifying an image base and other parameters
     """
-    def __init__(__self__, author=None, creation_date=None, description=None, formula_content=None, id=None, location=None, name=None, os_type=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vm=None):
+    def __init__(__self__, author=None, azure_api_version=None, creation_date=None, description=None, formula_content=None, id=None, location=None, name=None, os_type=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vm=None):
         if author and not isinstance(author, str):
             raise TypeError("Expected argument 'author' to be a str")
         pulumi.set(__self__, "author", author)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -75,6 +78,14 @@ class GetFormulaResult:
         The author of the formula.
         """
         return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -180,6 +191,7 @@ class AwaitableGetFormulaResult(GetFormulaResult):
             yield self
         return GetFormulaResult(
             author=self.author,
+            azure_api_version=self.azure_api_version,
             creation_date=self.creation_date,
             description=self.description,
             formula_content=self.formula_content,
@@ -220,6 +232,7 @@ def get_formula(expand: Optional[str] = None,
 
     return AwaitableGetFormulaResult(
         author=pulumi.get(__ret__, 'author'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         description=pulumi.get(__ret__, 'description'),
         formula_content=pulumi.get(__ret__, 'formula_content'),
@@ -257,6 +270,7 @@ def get_formula_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getFormula', __args__, opts=opts, typ=GetFormulaResult)
     return __ret__.apply(lambda __response__: GetFormulaResult(
         author=pulumi.get(__response__, 'author'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         description=pulumi.get(__response__, 'description'),
         formula_content=pulumi.get(__response__, 'formula_content'),

@@ -27,10 +27,13 @@ class GetDefaultAdminRuleResult:
     """
     Network default admin rule.
     """
-    def __init__(__self__, access=None, description=None, destination_port_ranges=None, destinations=None, direction=None, etag=None, flag=None, id=None, kind=None, name=None, priority=None, protocol=None, provisioning_state=None, resource_guid=None, source_port_ranges=None, sources=None, system_data=None, type=None):
+    def __init__(__self__, access=None, azure_api_version=None, description=None, destination_port_ranges=None, destinations=None, direction=None, etag=None, flag=None, id=None, kind=None, name=None, priority=None, protocol=None, provisioning_state=None, resource_guid=None, source_port_ranges=None, sources=None, system_data=None, type=None):
         if access and not isinstance(access, str):
             raise TypeError("Expected argument 'access' to be a str")
         pulumi.set(__self__, "access", access)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -90,6 +93,14 @@ class GetDefaultAdminRuleResult:
         Indicates the access allowed for this particular rule
         """
         return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -236,6 +247,7 @@ class AwaitableGetDefaultAdminRuleResult(GetDefaultAdminRuleResult):
             yield self
         return GetDefaultAdminRuleResult(
             access=self.access,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             destination_port_ranges=self.destination_port_ranges,
             destinations=self.destinations,
@@ -264,7 +276,7 @@ def get_default_admin_rule(configuration_name: Optional[str] = None,
     """
     Gets a network manager security configuration admin rule.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -284,6 +296,7 @@ def get_default_admin_rule(configuration_name: Optional[str] = None,
 
     return AwaitableGetDefaultAdminRuleResult(
         access=pulumi.get(__ret__, 'access'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         destination_port_ranges=pulumi.get(__ret__, 'destination_port_ranges'),
         destinations=pulumi.get(__ret__, 'destinations'),
@@ -310,7 +323,7 @@ def get_default_admin_rule_output(configuration_name: Optional[pulumi.Input[str]
     """
     Gets a network manager security configuration admin rule.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -329,6 +342,7 @@ def get_default_admin_rule_output(configuration_name: Optional[pulumi.Input[str]
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getDefaultAdminRule', __args__, opts=opts, typ=GetDefaultAdminRuleResult)
     return __ret__.apply(lambda __response__: GetDefaultAdminRuleResult(
         access=pulumi.get(__response__, 'access'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         destination_port_ranges=pulumi.get(__response__, 'destination_port_ranges'),
         destinations=pulumi.get(__response__, 'destinations'),

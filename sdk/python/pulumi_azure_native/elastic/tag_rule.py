@@ -29,7 +29,7 @@ class TagRuleArgs:
         """
         The set of arguments for constructing a TagRule resource.
         :param pulumi.Input[str] monitor_name: Monitor resource name
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the Elastic resource belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['MonitoringTagRulesPropertiesArgs'] properties: Properties of the monitoring tag rules.
         :param pulumi.Input[str] rule_set_name: Tag Rule Set resource name
         """
@@ -56,7 +56,7 @@ class TagRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group to which the Elastic resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -102,15 +102,15 @@ class TagRule(pulumi.CustomResource):
         """
         Capture logs and metrics of Azure resources based on ARM tags.
 
-        Uses Azure REST API version 2023-06-01. In version 1.x of the Azure Native provider, it used API version 2020-07-01.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
 
-        Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
+        Other available API versions: 2023-06-01, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] monitor_name: Monitor resource name
         :param pulumi.Input[Union['MonitoringTagRulesPropertiesArgs', 'MonitoringTagRulesPropertiesArgsDict']] properties: Properties of the monitoring tag rules.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the Elastic resource belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_set_name: Tag Rule Set resource name
         """
         ...
@@ -122,9 +122,9 @@ class TagRule(pulumi.CustomResource):
         """
         Capture logs and metrics of Azure resources based on ARM tags.
 
-        Uses Azure REST API version 2023-06-01. In version 1.x of the Azure Native provider, it used API version 2020-07-01.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
 
-        Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
+        Other available API versions: 2023-06-01, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param TagRuleArgs args: The arguments to use to populate this resource's properties.
@@ -162,6 +162,7 @@ class TagRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rule_set_name"] = rule_set_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -189,11 +190,20 @@ class TagRule(pulumi.CustomResource):
 
         __props__ = TagRuleArgs.__new__(TagRuleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return TagRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

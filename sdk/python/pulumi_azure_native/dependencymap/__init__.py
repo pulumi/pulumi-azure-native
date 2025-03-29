@@ -11,11 +11,3 @@ from .get_discovery_source import *
 from .get_map import *
 from .map import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.dependencymap.v20250131preview as __v20250131preview
-    v20250131preview = __v20250131preview
-else:
-    v20250131preview = _utilities.lazy_import('pulumi_azure_native.dependencymap.v20250131preview')
-

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * IoT Security solution configuration and resource information.
  *
- * Uses Azure REST API version 2019-08-01. In version 1.x of the Azure Native provider, it used API version 2019-08-01.
+ * Uses Azure REST API version 2019-08-01. In version 2.x of the Azure Native provider, it used API version 2019-08-01.
  *
- * Other available API versions: 2017-08-01-preview.
+ * Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class IotSecuritySolution extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class IotSecuritySolution extends pulumi.CustomResource {
      * List of resources that were automatically discovered as relevant to the security solution.
      */
     public /*out*/ readonly autoDiscoveredResources!: pulumi.Output<string[]>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */
@@ -141,12 +145,14 @@ export class IotSecuritySolution extends pulumi.CustomResource {
             resourceInputs["userDefinedResources"] = args ? args.userDefinedResources : undefined;
             resourceInputs["workspace"] = args ? args.workspace : undefined;
             resourceInputs["autoDiscoveredResources"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["additionalWorkspaces"] = undefined /*out*/;
             resourceInputs["autoDiscoveredResources"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["disabledDataSources"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["export"] = undefined /*out*/;

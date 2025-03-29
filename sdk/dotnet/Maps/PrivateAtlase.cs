@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Maps
     /// <summary>
     /// An Azure resource which represents which will provision the ability to create private location data.
     /// 
-    /// Uses Azure REST API version 2020-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-02-01-preview.
+    /// Uses Azure REST API version 2020-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:maps:PrivateAtlase")]
     public partial class PrivateAtlase : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

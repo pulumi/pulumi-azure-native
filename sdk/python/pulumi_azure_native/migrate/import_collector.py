@@ -108,7 +108,7 @@ class ImportCollector(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Uses Azure REST API version 2019-10-01. In version 1.x of the Azure Native provider, it used API version 2019-10-01.
+        Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +123,7 @@ class ImportCollector(pulumi.CustomResource):
                  args: ImportCollectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Uses Azure REST API version 2019-10-01. In version 1.x of the Azure Native provider, it used API version 2019-10-01.
+        Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
 
         :param str resource_name: The name of the resource.
         :param ImportCollectorArgs args: The arguments to use to populate this resource's properties.
@@ -163,9 +163,10 @@ class ImportCollector(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230315:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:ImportCollector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230315:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230315:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate:ImportCollectorsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ImportCollector, __self__).__init__(
             'azure-native:migrate:ImportCollector',
@@ -189,11 +190,20 @@ class ImportCollector(pulumi.CustomResource):
 
         __props__ = ImportCollectorArgs.__new__(ImportCollectorArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return ImportCollector(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")

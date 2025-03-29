@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Easm
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Data plane endpoint.
         /// </summary>
         public readonly string DataPlaneEndpoint;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.Easm
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string azureApiVersion,
+
             string dataPlaneEndpoint,
 
             string id,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.Easm
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataPlaneEndpoint = dataPlaneEndpoint;
             Id = id;
             Location = location;

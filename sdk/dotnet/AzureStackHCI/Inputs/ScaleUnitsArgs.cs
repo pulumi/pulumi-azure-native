@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         [Input("deploymentData", required: true)]
         public Input<Inputs.DeploymentDataArgs> DeploymentData { get; set; } = null!;
 
+        /// <summary>
+        /// Solution builder extension (SBE) partner properties
+        /// </summary>
+        [Input("sbePartnerInfo")]
+        public Input<Inputs.SbePartnerInfoArgs>? SbePartnerInfo { get; set; }
+
         public ScaleUnitsArgs()
         {
         }

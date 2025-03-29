@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly string? BackupMode;
         /// <summary>
+        /// encrypted key for secure fields
+        /// </summary>
+        public readonly string? EncryptedKeyForSecureFields;
+        /// <summary>
         /// Agent Jobs to migrate.
         /// </summary>
         public readonly ImmutableArray<string> SelectedAgentJobs;
@@ -49,6 +53,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly Outputs.SqlConnectionInfoResponse SourceConnectionInfo;
         /// <summary>
+        /// Date and time relative to UTC when the migration was started on
+        /// </summary>
+        public readonly string? StartedOn;
+        /// <summary>
         /// Information for connecting to target
         /// </summary>
         public readonly Outputs.SqlConnectionInfoResponse TargetConnectionInfo;
@@ -63,6 +71,8 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string? backupMode,
 
+            string? encryptedKeyForSecureFields,
+
             ImmutableArray<string> selectedAgentJobs,
 
             ImmutableArray<Outputs.MigrateSqlServerSqlMIDatabaseInputResponse> selectedDatabases,
@@ -71,16 +81,20 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             Outputs.SqlConnectionInfoResponse sourceConnectionInfo,
 
+            string? startedOn,
+
             Outputs.SqlConnectionInfoResponse targetConnectionInfo)
         {
             AadDomainName = aadDomainName;
             BackupBlobShare = backupBlobShare;
             BackupFileShare = backupFileShare;
             BackupMode = backupMode;
+            EncryptedKeyForSecureFields = encryptedKeyForSecureFields;
             SelectedAgentJobs = selectedAgentJobs;
             SelectedDatabases = selectedDatabases;
             SelectedLogins = selectedLogins;
             SourceConnectionInfo = sourceConnectionInfo;
+            StartedOn = startedOn;
             TargetConnectionInfo = targetConnectionInfo;
         }
     }

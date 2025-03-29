@@ -46,6 +46,10 @@ export interface GetScheduledTriggerArgs {
  */
 export interface GetScheduledTriggerResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Time at which the trigger was created.
      */
     readonly createdAt: string;

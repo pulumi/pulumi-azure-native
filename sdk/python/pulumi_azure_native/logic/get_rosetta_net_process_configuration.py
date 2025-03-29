@@ -27,10 +27,13 @@ class GetRosettaNetProcessConfigurationResult:
     """
     The integration account RosettaNet process configuration.
     """
-    def __init__(__self__, activity_settings=None, changed_time=None, created_time=None, description=None, id=None, initiator_role_settings=None, location=None, metadata=None, name=None, process_code=None, process_name=None, process_version=None, responder_role_settings=None, tags=None, type=None):
+    def __init__(__self__, activity_settings=None, azure_api_version=None, changed_time=None, created_time=None, description=None, id=None, initiator_role_settings=None, location=None, metadata=None, name=None, process_code=None, process_name=None, process_version=None, responder_role_settings=None, tags=None, type=None):
         if activity_settings and not isinstance(activity_settings, dict):
             raise TypeError("Expected argument 'activity_settings' to be a dict")
         pulumi.set(__self__, "activity_settings", activity_settings)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if changed_time and not isinstance(changed_time, str):
             raise TypeError("Expected argument 'changed_time' to be a str")
         pulumi.set(__self__, "changed_time", changed_time)
@@ -81,6 +84,14 @@ class GetRosettaNetProcessConfigurationResult:
         The RosettaNet process configuration activity settings.
         """
         return pulumi.get(self, "activity_settings")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="changedTime")
@@ -202,6 +213,7 @@ class AwaitableGetRosettaNetProcessConfigurationResult(GetRosettaNetProcessConfi
             yield self
         return GetRosettaNetProcessConfigurationResult(
             activity_settings=self.activity_settings,
+            azure_api_version=self.azure_api_version,
             changed_time=self.changed_time,
             created_time=self.created_time,
             description=self.description,
@@ -241,6 +253,7 @@ def get_rosetta_net_process_configuration(integration_account_name: Optional[str
 
     return AwaitableGetRosettaNetProcessConfigurationResult(
         activity_settings=pulumi.get(__ret__, 'activity_settings'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         changed_time=pulumi.get(__ret__, 'changed_time'),
         created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
@@ -277,6 +290,7 @@ def get_rosetta_net_process_configuration_output(integration_account_name: Optio
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getRosettaNetProcessConfiguration', __args__, opts=opts, typ=GetRosettaNetProcessConfigurationResult)
     return __ret__.apply(lambda __response__: GetRosettaNetProcessConfigurationResult(
         activity_settings=pulumi.get(__response__, 'activity_settings'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         changed_time=pulumi.get(__response__, 'changed_time'),
         created_time=pulumi.get(__response__, 'created_time'),
         description=pulumi.get(__response__, 'description'),

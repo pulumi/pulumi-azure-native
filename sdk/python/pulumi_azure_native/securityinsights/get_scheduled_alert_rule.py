@@ -27,13 +27,16 @@ class GetScheduledAlertRuleResult:
     """
     Represents scheduled alert rule.
     """
-    def __init__(__self__, alert_details_override=None, alert_rule_template_name=None, custom_details=None, description=None, display_name=None, enabled=None, entity_mappings=None, etag=None, event_grouping_settings=None, id=None, incident_configuration=None, kind=None, last_modified_utc=None, name=None, query=None, query_frequency=None, query_period=None, severity=None, suppression_duration=None, suppression_enabled=None, system_data=None, tactics=None, techniques=None, template_version=None, trigger_operator=None, trigger_threshold=None, type=None):
+    def __init__(__self__, alert_details_override=None, alert_rule_template_name=None, azure_api_version=None, custom_details=None, description=None, display_name=None, enabled=None, entity_mappings=None, etag=None, event_grouping_settings=None, id=None, incident_configuration=None, kind=None, last_modified_utc=None, name=None, query=None, query_frequency=None, query_period=None, severity=None, suppression_duration=None, suppression_enabled=None, system_data=None, tactics=None, techniques=None, template_version=None, trigger_operator=None, trigger_threshold=None, type=None):
         if alert_details_override and not isinstance(alert_details_override, dict):
             raise TypeError("Expected argument 'alert_details_override' to be a dict")
         pulumi.set(__self__, "alert_details_override", alert_details_override)
         if alert_rule_template_name and not isinstance(alert_rule_template_name, str):
             raise TypeError("Expected argument 'alert_rule_template_name' to be a str")
         pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_details and not isinstance(custom_details, dict):
             raise TypeError("Expected argument 'custom_details' to be a dict")
         pulumi.set(__self__, "custom_details", custom_details)
@@ -125,6 +128,14 @@ class GetScheduledAlertRuleResult:
         The Name of the alert rule template used to create this rule.
         """
         return pulumi.get(self, "alert_rule_template_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customDetails")
@@ -336,6 +347,7 @@ class AwaitableGetScheduledAlertRuleResult(GetScheduledAlertRuleResult):
         return GetScheduledAlertRuleResult(
             alert_details_override=self.alert_details_override,
             alert_rule_template_name=self.alert_rule_template_name,
+            azure_api_version=self.azure_api_version,
             custom_details=self.custom_details,
             description=self.description,
             display_name=self.display_name,
@@ -370,7 +382,7 @@ def get_scheduled_alert_rule(resource_group_name: Optional[str] = None,
     """
     Gets the alert rule.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -387,6 +399,7 @@ def get_scheduled_alert_rule(resource_group_name: Optional[str] = None,
     return AwaitableGetScheduledAlertRuleResult(
         alert_details_override=pulumi.get(__ret__, 'alert_details_override'),
         alert_rule_template_name=pulumi.get(__ret__, 'alert_rule_template_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_details=pulumi.get(__ret__, 'custom_details'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -419,7 +432,7 @@ def get_scheduled_alert_rule_output(resource_group_name: Optional[pulumi.Input[s
     """
     Gets the alert rule.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -435,6 +448,7 @@ def get_scheduled_alert_rule_output(resource_group_name: Optional[pulumi.Input[s
     return __ret__.apply(lambda __response__: GetScheduledAlertRuleResult(
         alert_details_override=pulumi.get(__response__, 'alert_details_override'),
         alert_rule_template_name=pulumi.get(__response__, 'alert_rule_template_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_details=pulumi.get(__response__, 'custom_details'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

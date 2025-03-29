@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets an elastic pool.
  *
- * Uses Azure REST API version 2021-11-01.
+ * Uses Azure REST API version 2023-08-01.
  *
- * Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,11 +43,23 @@ export interface GetElasticPoolArgs {
  */
 export interface GetElasticPoolResult {
     /**
+     * Time in minutes after which elastic pool is automatically paused. A value of -1 means that automatic pause is disabled
+     */
+    readonly autoPauseDelay?: number;
+    /**
+     * Specifies the availability zone the pool's primary replica is pinned to.
+     */
+    readonly availabilityZone?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creation date of the elastic pool (ISO8601 format).
      */
     readonly creationDate: string;
     /**
-     * The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+     * The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
      */
     readonly highAvailabilityReplicaCount?: number;
     /**
@@ -87,6 +99,10 @@ export interface GetElasticPoolResult {
      */
     readonly perDatabaseSettings?: outputs.sql.ElasticPoolPerDatabaseSettingsResponse;
     /**
+     * Type of enclave requested on the elastic pool.
+     */
+    readonly preferredEnclaveType?: string;
+    /**
      * The elastic pool SKU.
      * 
      * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
@@ -116,9 +132,9 @@ export interface GetElasticPoolResult {
 /**
  * Gets an elastic pool.
  *
- * Uses Azure REST API version 2021-11-01.
+ * Uses Azure REST API version 2023-08-01.
  *
- * Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

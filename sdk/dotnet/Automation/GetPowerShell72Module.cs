@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly int? ActivityCount;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the creation time.
         /// </summary>
         public readonly string? CreationTime;
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNative.Automation
         private GetPowerShell72ModuleResult(
             int? activityCount,
 
+            string azureApiVersion,
+
             string? creationTime,
 
             string? description,
@@ -193,6 +199,7 @@ namespace Pulumi.AzureNative.Automation
             string? version)
         {
             ActivityCount = activityCount;
+            AzureApiVersion = azureApiVersion;
             CreationTime = creationTime;
             Description = description;
             Error = error;

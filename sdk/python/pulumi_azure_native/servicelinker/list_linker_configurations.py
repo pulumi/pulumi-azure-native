@@ -56,9 +56,9 @@ def list_linker_configurations(linker_name: Optional[str] = None,
     """
     list source configurations for a Linker.
 
-    Uses Azure REST API version 2022-11-01-preview.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+    Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str linker_name: The name Linker resource.
@@ -78,9 +78,9 @@ def list_linker_configurations_output(linker_name: Optional[pulumi.Input[str]] =
     """
     list source configurations for a Linker.
 
-    Uses Azure REST API version 2022-11-01-preview.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+    Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str linker_name: The name Linker resource.

@@ -16,13 +16,6 @@ export const SupportPlanType: typeof import("./supportPlanType").SupportPlanType
 utilities.lazyLoad(exports, ["SupportPlanType"], () => require("./supportPlanType"));
 
 
-// Export sub-modules:
-import * as v20180301 from "./v20180301";
-
-export {
-    v20180301,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

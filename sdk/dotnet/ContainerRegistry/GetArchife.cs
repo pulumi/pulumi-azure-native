@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the archive.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetArchifeResult> InvokeAsync(GetArchifeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArchifeResult>("azure-native:containerregistry:getArchife", args ?? new GetArchifeArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the archive.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetArchifeResult> Invoke(GetArchifeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArchifeResult>("azure-native:containerregistry:getArchife", args ?? new GetArchifeInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the archive.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2024-11-01-preview.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetArchifeResult> Invoke(GetArchifeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetArchifeResult>("azure-native:containerregistry:getArchife", args ?? new GetArchifeInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public sealed class GetArchifeResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource ID.
         /// </summary>
         public readonly string Id;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
         [OutputConstructor]
         private GetArchifeResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             PackageSource = packageSource;

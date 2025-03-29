@@ -45,7 +45,7 @@ class BatchAccountArgs:
         :param pulumi.Input['KeyVaultReferenceArgs'] key_vault_reference: A reference to the Azure key vault associated with the Batch account.
         :param pulumi.Input[str] location: The region in which to create the account.
         :param pulumi.Input['NetworkProfileArgs'] network_profile: The network profile only takes effect when publicNetworkAccess is enabled.
-        :param pulumi.Input['PoolAllocationMode'] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+        :param pulumi.Input['PoolAllocationMode'] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Microsoft Entra ID. If the mode is UserSubscription, clients must use Microsoft Entra ID. The default is BatchService.
         :param pulumi.Input['PublicNetworkAccessType'] public_network_access: If not specified, the default value is 'enabled'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The user-specified tags associated with the account.
         """
@@ -185,7 +185,7 @@ class BatchAccountArgs:
     @pulumi.getter(name="poolAllocationMode")
     def pool_allocation_mode(self) -> Optional[pulumi.Input['PoolAllocationMode']]:
         """
-        The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+        The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Microsoft Entra ID. If the mode is UserSubscription, clients must use Microsoft Entra ID. The default is BatchService.
         """
         return pulumi.get(self, "pool_allocation_mode")
 
@@ -239,9 +239,9 @@ class BatchAccount(pulumi.CustomResource):
         """
         Contains information about an Azure Batch account.
 
-        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+        Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,7 +253,7 @@ class BatchAccount(pulumi.CustomResource):
         :param pulumi.Input[Union['KeyVaultReferenceArgs', 'KeyVaultReferenceArgsDict']] key_vault_reference: A reference to the Azure key vault associated with the Batch account.
         :param pulumi.Input[str] location: The region in which to create the account.
         :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: The network profile only takes effect when publicNetworkAccess is enabled.
-        :param pulumi.Input['PoolAllocationMode'] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+        :param pulumi.Input['PoolAllocationMode'] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Microsoft Entra ID. If the mode is UserSubscription, clients must use Microsoft Entra ID. The default is BatchService.
         :param pulumi.Input['PublicNetworkAccessType'] public_network_access: If not specified, the default value is 'enabled'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The user-specified tags associated with the account.
@@ -267,9 +267,9 @@ class BatchAccount(pulumi.CustomResource):
         """
         Contains information about an Azure Batch account.
 
-        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+        Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param BatchAccountArgs args: The arguments to use to populate this resource's properties.
@@ -323,6 +323,7 @@ class BatchAccount(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["account_endpoint"] = None
             __props__.__dict__["active_job_and_job_schedule_quota"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["dedicated_core_quota"] = None
             __props__.__dict__["dedicated_core_quota_per_vm_family"] = None
             __props__.__dict__["dedicated_core_quota_per_vm_family_enforced"] = None
@@ -361,6 +362,7 @@ class BatchAccount(pulumi.CustomResource):
         __props__.__dict__["active_job_and_job_schedule_quota"] = None
         __props__.__dict__["allowed_authentication_modes"] = None
         __props__.__dict__["auto_storage"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["dedicated_core_quota"] = None
         __props__.__dict__["dedicated_core_quota_per_vm_family"] = None
         __props__.__dict__["dedicated_core_quota_per_vm_family_enforced"] = None
@@ -409,6 +411,14 @@ class BatchAccount(pulumi.CustomResource):
         Contains information about the auto-storage account associated with a Batch account.
         """
         return pulumi.get(self, "auto_storage")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dedicatedCoreQuota")

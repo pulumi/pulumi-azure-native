@@ -26,10 +26,13 @@ class GetExtendedServerBlobAuditingPolicyResult:
     """
     An extended server blob auditing policy.
     """
-    def __init__(__self__, audit_actions_and_groups=None, id=None, is_azure_monitor_target_enabled=None, is_devops_audit_enabled=None, is_managed_identity_in_use=None, is_storage_secondary_key_in_use=None, name=None, predicate_expression=None, queue_delay_ms=None, retention_days=None, state=None, storage_account_subscription_id=None, storage_endpoint=None, type=None):
+    def __init__(__self__, audit_actions_and_groups=None, azure_api_version=None, id=None, is_azure_monitor_target_enabled=None, is_devops_audit_enabled=None, is_managed_identity_in_use=None, is_storage_secondary_key_in_use=None, name=None, predicate_expression=None, queue_delay_ms=None, retention_days=None, state=None, storage_account_subscription_id=None, storage_endpoint=None, type=None):
         if audit_actions_and_groups and not isinstance(audit_actions_and_groups, list):
             raise TypeError("Expected argument 'audit_actions_and_groups' to be a list")
         pulumi.set(__self__, "audit_actions_and_groups", audit_actions_and_groups)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -137,6 +140,14 @@ class GetExtendedServerBlobAuditingPolicyResult:
         For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
         """
         return pulumi.get(self, "audit_actions_and_groups")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -270,6 +281,7 @@ class AwaitableGetExtendedServerBlobAuditingPolicyResult(GetExtendedServerBlobAu
             yield self
         return GetExtendedServerBlobAuditingPolicyResult(
             audit_actions_and_groups=self.audit_actions_and_groups,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             is_azure_monitor_target_enabled=self.is_azure_monitor_target_enabled,
             is_devops_audit_enabled=self.is_devops_audit_enabled,
@@ -292,9 +304,9 @@ def get_extended_server_blob_auditing_policy(blob_auditing_policy_name: Optional
     """
     Gets an extended server's blob auditing policy.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.
@@ -310,6 +322,7 @@ def get_extended_server_blob_auditing_policy(blob_auditing_policy_name: Optional
 
     return AwaitableGetExtendedServerBlobAuditingPolicyResult(
         audit_actions_and_groups=pulumi.get(__ret__, 'audit_actions_and_groups'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         is_azure_monitor_target_enabled=pulumi.get(__ret__, 'is_azure_monitor_target_enabled'),
         is_devops_audit_enabled=pulumi.get(__ret__, 'is_devops_audit_enabled'),
@@ -330,9 +343,9 @@ def get_extended_server_blob_auditing_policy_output(blob_auditing_policy_name: O
     """
     Gets an extended server's blob auditing policy.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.
@@ -347,6 +360,7 @@ def get_extended_server_blob_auditing_policy_output(blob_auditing_policy_name: O
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getExtendedServerBlobAuditingPolicy', __args__, opts=opts, typ=GetExtendedServerBlobAuditingPolicyResult)
     return __ret__.apply(lambda __response__: GetExtendedServerBlobAuditingPolicyResult(
         audit_actions_and_groups=pulumi.get(__response__, 'audit_actions_and_groups'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         is_azure_monitor_target_enabled=pulumi.get(__response__, 'is_azure_monitor_target_enabled'),
         is_devops_audit_enabled=pulumi.get(__response__, 'is_devops_audit_enabled'),

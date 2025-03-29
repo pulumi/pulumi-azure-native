@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Aad
     public sealed class GetDomainServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Configuration diagnostics data containing latest execution from client.
         /// </summary>
         public readonly Outputs.ConfigDiagnosticsResponse? ConfigDiagnostics;
@@ -184,6 +188,8 @@ namespace Pulumi.AzureNative.Aad
 
         [OutputConstructor]
         private GetDomainServiceResult(
+            string azureApiVersion,
+
             Outputs.ConfigDiagnosticsResponse? configDiagnostics,
 
             string deploymentId,
@@ -234,6 +240,7 @@ namespace Pulumi.AzureNative.Aad
 
             int version)
         {
+            AzureApiVersion = azureApiVersion;
             ConfigDiagnostics = configDiagnostics;
             DeploymentId = deploymentId;
             DomainConfigurationType = domainConfigurationType;

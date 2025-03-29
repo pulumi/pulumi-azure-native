@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a blueprint assignment.
  *
- * Uses Azure REST API version 2018-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-11-01-preview.
+ * Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
  */
 export class Assignment extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Assignment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Assignment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * ID of the published version of a blueprint definition.
      */
@@ -126,11 +130,13 @@ export class Assignment extends pulumi.CustomResource {
             resourceInputs["resourceGroups"] = args ? args.resourceGroups : undefined;
             resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blueprintId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;

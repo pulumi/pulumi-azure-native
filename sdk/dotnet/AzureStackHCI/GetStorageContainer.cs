@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a storage container
         /// 
-        /// Uses Azure REST API version 2022-12-15-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStorageContainerResult> InvokeAsync(GetStorageContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageContainerResult>("azure-native:azurestackhci:getStorageContainer", args ?? new GetStorageContainerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a storage container
         /// 
-        /// Uses Azure REST API version 2022-12-15-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStorageContainerResult> Invoke(GetStorageContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageContainerResult>("azure-native:azurestackhci:getStorageContainer", args ?? new GetStorageContainerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a storage container
         /// 
-        /// Uses Azure REST API version 2022-12-15-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStorageContainerResult> Invoke(GetStorageContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageContainerResult>("azure-native:azurestackhci:getStorageContainer", args ?? new GetStorageContainerInvokeArgs(), options.WithDefaults());
@@ -88,11 +88,15 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetStorageContainerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The extendedLocation of the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -106,7 +110,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Path of the storage container on the disk
         /// </summary>
-        public readonly string? Path;
+        public readonly string Path;
         /// <summary>
         /// Provisioning state of the storage container.
         /// </summary>
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetStorageContainerResult(
+            string azureApiVersion,
+
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             string id,
@@ -138,7 +144,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string name,
 
-            string? path,
+            string path,
 
             string provisioningState,
 
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;

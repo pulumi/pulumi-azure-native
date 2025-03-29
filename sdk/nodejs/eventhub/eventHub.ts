@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Single item in List or Get Event Hub operation
  *
- * Uses Azure REST API version 2022-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+ * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
  *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class EventHub extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class EventHub extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventHub.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Properties of capture description
      */
@@ -89,6 +93,10 @@ export class EventHub extends pulumi.CustomResource {
      * The exact time the message was updated.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * Gets and Sets Metadata of User.
+     */
+    public readonly userMetadata!: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventHub resource with the given unique name, arguments, and options.
@@ -115,6 +123,8 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["retentionDescription"] = args ? args.retentionDescription : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -123,6 +133,7 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["captureDescription"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -135,6 +146,7 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["userMetadata"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20140901:EventHub" }, { type: "azure-native:eventhub/v20150801:EventHub" }, { type: "azure-native:eventhub/v20170401:EventHub" }, { type: "azure-native:eventhub/v20180101preview:EventHub" }, { type: "azure-native:eventhub/v20210101preview:EventHub" }, { type: "azure-native:eventhub/v20210601preview:EventHub" }, { type: "azure-native:eventhub/v20211101:EventHub" }, { type: "azure-native:eventhub/v20220101preview:EventHub" }, { type: "azure-native:eventhub/v20221001preview:EventHub" }, { type: "azure-native:eventhub/v20230101preview:EventHub" }, { type: "azure-native:eventhub/v20240101:EventHub" }, { type: "azure-native:eventhub/v20240501preview:EventHub" }] };
@@ -179,4 +191,8 @@ export interface EventHubArgs {
      * Enumerates the possible values for the status of the Event Hub.
      */
     status?: pulumi.Input<enums.eventhub.EntityStatus>;
+    /**
+     * Gets and Sets Metadata of User.
+     */
+    userMetadata?: pulumi.Input<string>;
 }

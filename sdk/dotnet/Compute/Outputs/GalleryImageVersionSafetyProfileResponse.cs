@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly bool? AllowDeletionOfReplicatedLocations;
         /// <summary>
+        /// Indicates whether or not the deletion is blocked for this Gallery Image Version if its End Of Life has not expired.
+        /// </summary>
+        public readonly bool? BlockDeletionBeforeEndOfLife;
+        /// <summary>
         /// A list of Policy Violations that have been reported for this Gallery Image Version.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyViolationResponse> PolicyViolations;
@@ -33,11 +37,14 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private GalleryImageVersionSafetyProfileResponse(
             bool? allowDeletionOfReplicatedLocations,
 
+            bool? blockDeletionBeforeEndOfLife,
+
             ImmutableArray<Outputs.PolicyViolationResponse> policyViolations,
 
             bool reportedForPolicyViolation)
         {
             AllowDeletionOfReplicatedLocations = allowDeletionOfReplicatedLocations;
+            BlockDeletionBeforeEndOfLife = blockDeletionBeforeEndOfLife;
             PolicyViolations = policyViolations;
             ReportedForPolicyViolation = reportedForPolicyViolation;
         }

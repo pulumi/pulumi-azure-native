@@ -303,14 +303,35 @@ class RemediationFiltersResponse(dict):
     """
     The filters that will be applied to determine which resources to remediate.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceIds":
+            suggest = "resource_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemediationFiltersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemediationFiltersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemediationFiltersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 locations: Optional[Sequence[str]] = None):
+                 locations: Optional[Sequence[str]] = None,
+                 resource_ids: Optional[Sequence[str]] = None):
         """
         The filters that will be applied to determine which resources to remediate.
         :param Sequence[str] locations: The resource locations that will be remediated.
+        :param Sequence[str] resource_ids: The IDs of the resources that will be remediated. Can specify at most 100 IDs. This filter cannot be used when ReEvaluateCompliance is set to ReEvaluateCompliance, and cannot be empty if provided.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
+        if resource_ids is not None:
+            pulumi.set(__self__, "resource_ids", resource_ids)
 
     @property
     @pulumi.getter
@@ -319,6 +340,14 @@ class RemediationFiltersResponse(dict):
         The resource locations that will be remediated.
         """
         return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter(name="resourceIds")
+    def resource_ids(self) -> Optional[Sequence[str]]:
+        """
+        The IDs of the resources that will be remediated. Can specify at most 100 IDs. This filter cannot be used when ReEvaluateCompliance is set to ReEvaluateCompliance, and cannot be empty if provided.
+        """
+        return pulumi.get(self, "resource_ids")
 
 
 @pulumi.output_type

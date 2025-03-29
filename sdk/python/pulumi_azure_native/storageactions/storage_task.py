@@ -167,7 +167,7 @@ class StorageTask(pulumi.CustomResource):
         """
         Represents Storage Task.
 
-        Uses Azure REST API version 2023-01-01.
+        Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,7 +189,7 @@ class StorageTask(pulumi.CustomResource):
         """
         Represents Storage Task.
 
-        Uses Azure REST API version 2023-01-01.
+        Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param StorageTaskArgs args: The arguments to use to populate this resource's properties.
@@ -241,6 +241,7 @@ class StorageTask(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["storage_task_name"] = storage_task_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time_in_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -272,6 +273,7 @@ class StorageTask(pulumi.CustomResource):
         __props__ = StorageTaskArgs.__new__(StorageTaskArgs)
 
         __props__.__dict__["action"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_time_in_utc"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["enabled"] = None
@@ -292,6 +294,14 @@ class StorageTask(pulumi.CustomResource):
         The storage task action that is executed
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTimeInUtc")

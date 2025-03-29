@@ -27,10 +27,13 @@ class GetPublicCloudConnectorResult:
     """
     Public Cloud Connector
     """
-    def __init__(__self__, aws_cloud_profile=None, connector_primary_identifier=None, host_type=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, aws_cloud_profile=None, azure_api_version=None, connector_primary_identifier=None, host_type=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if aws_cloud_profile and not isinstance(aws_cloud_profile, dict):
             raise TypeError("Expected argument 'aws_cloud_profile' to be a dict")
         pulumi.set(__self__, "aws_cloud_profile", aws_cloud_profile)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connector_primary_identifier and not isinstance(connector_primary_identifier, str):
             raise TypeError("Expected argument 'connector_primary_identifier' to be a str")
         pulumi.set(__self__, "connector_primary_identifier", connector_primary_identifier)
@@ -66,6 +69,14 @@ class GetPublicCloudConnectorResult:
         Cloud profile for AWS.
         """
         return pulumi.get(self, "aws_cloud_profile")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectorPrimaryIdentifier")
@@ -147,6 +158,7 @@ class AwaitableGetPublicCloudConnectorResult(GetPublicCloudConnectorResult):
             yield self
         return GetPublicCloudConnectorResult(
             aws_cloud_profile=self.aws_cloud_profile,
+            azure_api_version=self.azure_api_version,
             connector_primary_identifier=self.connector_primary_identifier,
             host_type=self.host_type,
             id=self.id,
@@ -178,6 +190,7 @@ def get_public_cloud_connector(public_cloud_connector: Optional[str] = None,
 
     return AwaitableGetPublicCloudConnectorResult(
         aws_cloud_profile=pulumi.get(__ret__, 'aws_cloud_profile'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connector_primary_identifier=pulumi.get(__ret__, 'connector_primary_identifier'),
         host_type=pulumi.get(__ret__, 'host_type'),
         id=pulumi.get(__ret__, 'id'),
@@ -206,6 +219,7 @@ def get_public_cloud_connector_output(public_cloud_connector: Optional[pulumi.In
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity:getPublicCloudConnector', __args__, opts=opts, typ=GetPublicCloudConnectorResult)
     return __ret__.apply(lambda __response__: GetPublicCloudConnectorResult(
         aws_cloud_profile=pulumi.get(__response__, 'aws_cloud_profile'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connector_primary_identifier=pulumi.get(__response__, 'connector_primary_identifier'),
         host_type=pulumi.get(__response__, 'host_type'),
         id=pulumi.get(__response__, 'id'),

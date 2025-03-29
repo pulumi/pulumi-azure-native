@@ -27,13 +27,16 @@ class GetAssessmentsOperationResult:
     """
     Machine assessment resource.
     """
-    def __init__(__self__, assessment_error_summary=None, assessment_type=None, azure_disk_types=None, azure_hybrid_use_benefit=None, azure_location=None, azure_offer_code=None, azure_pricing_tier=None, azure_storage_redundancy=None, azure_vm_families=None, confidence_rating_in_percentage=None, cost_components=None, created_timestamp=None, currency=None, discount_percentage=None, distribution_by_os_name=None, distribution_by_service_pack_insight=None, distribution_by_support_status=None, ea_subscription_id=None, group_type=None, id=None, linux_azure_hybrid_use_benefit=None, monthly_bandwidth_cost=None, monthly_compute_cost=None, monthly_premium_storage_cost=None, monthly_standard_ssd_storage_cost=None, monthly_storage_cost=None, monthly_ultra_storage_cost=None, name=None, number_of_machines=None, percentile=None, perf_data_end_time=None, perf_data_start_time=None, prices_timestamp=None, provisioning_state=None, reserved_instance=None, scaling_factor=None, schema_version=None, sizing_criterion=None, stage=None, status=None, suitability_summary=None, system_data=None, time_range=None, type=None, updated_timestamp=None, vm_uptime=None):
+    def __init__(__self__, assessment_error_summary=None, assessment_type=None, azure_api_version=None, azure_disk_types=None, azure_hybrid_use_benefit=None, azure_location=None, azure_offer_code=None, azure_pricing_tier=None, azure_storage_redundancy=None, azure_vm_families=None, confidence_rating_in_percentage=None, cost_components=None, created_timestamp=None, currency=None, discount_percentage=None, distribution_by_os_name=None, distribution_by_service_pack_insight=None, distribution_by_support_status=None, ea_subscription_id=None, group_type=None, id=None, linux_azure_hybrid_use_benefit=None, monthly_bandwidth_cost=None, monthly_compute_cost=None, monthly_premium_storage_cost=None, monthly_standard_ssd_storage_cost=None, monthly_storage_cost=None, monthly_ultra_storage_cost=None, name=None, number_of_machines=None, percentile=None, perf_data_end_time=None, perf_data_start_time=None, prices_timestamp=None, provisioning_state=None, reserved_instance=None, scaling_factor=None, schema_version=None, sizing_criterion=None, stage=None, status=None, suitability_summary=None, system_data=None, time_range=None, type=None, updated_timestamp=None, vm_uptime=None):
         if assessment_error_summary and not isinstance(assessment_error_summary, dict):
             raise TypeError("Expected argument 'assessment_error_summary' to be a dict")
         pulumi.set(__self__, "assessment_error_summary", assessment_error_summary)
         if assessment_type and not isinstance(assessment_type, str):
             raise TypeError("Expected argument 'assessment_type' to be a str")
         pulumi.set(__self__, "assessment_type", assessment_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_disk_types and not isinstance(azure_disk_types, list):
             raise TypeError("Expected argument 'azure_disk_types' to be a list")
         pulumi.set(__self__, "azure_disk_types", azure_disk_types)
@@ -184,6 +187,14 @@ class GetAssessmentsOperationResult:
         Assessment type of the assessment.
         """
         return pulumi.get(self, "assessment_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureDiskTypes")
@@ -556,6 +567,7 @@ class AwaitableGetAssessmentsOperationResult(GetAssessmentsOperationResult):
         return GetAssessmentsOperationResult(
             assessment_error_summary=self.assessment_error_summary,
             assessment_type=self.assessment_type,
+            azure_api_version=self.azure_api_version,
             azure_disk_types=self.azure_disk_types,
             azure_hybrid_use_benefit=self.azure_hybrid_use_benefit,
             azure_location=self.azure_location,
@@ -610,9 +622,9 @@ def get_assessments_operation(assessment_name: Optional[str] = None,
     """
     Get a Assessment
 
-    Uses Azure REST API version 2023-04-01-preview.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assessment_name: Machine Assessment ARM name
@@ -631,6 +643,7 @@ def get_assessments_operation(assessment_name: Optional[str] = None,
     return AwaitableGetAssessmentsOperationResult(
         assessment_error_summary=pulumi.get(__ret__, 'assessment_error_summary'),
         assessment_type=pulumi.get(__ret__, 'assessment_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_disk_types=pulumi.get(__ret__, 'azure_disk_types'),
         azure_hybrid_use_benefit=pulumi.get(__ret__, 'azure_hybrid_use_benefit'),
         azure_location=pulumi.get(__ret__, 'azure_location'),
@@ -683,9 +696,9 @@ def get_assessments_operation_output(assessment_name: Optional[pulumi.Input[str]
     """
     Get a Assessment
 
-    Uses Azure REST API version 2023-04-01-preview.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assessment_name: Machine Assessment ARM name
@@ -703,6 +716,7 @@ def get_assessments_operation_output(assessment_name: Optional[pulumi.Input[str]
     return __ret__.apply(lambda __response__: GetAssessmentsOperationResult(
         assessment_error_summary=pulumi.get(__response__, 'assessment_error_summary'),
         assessment_type=pulumi.get(__response__, 'assessment_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_disk_types=pulumi.get(__response__, 'azure_disk_types'),
         azure_hybrid_use_benefit=pulumi.get(__response__, 'azure_hybrid_use_benefit'),
         azure_location=pulumi.get(__response__, 'azure_location'),

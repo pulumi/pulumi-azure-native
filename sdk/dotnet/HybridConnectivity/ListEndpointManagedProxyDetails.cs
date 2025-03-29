@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// Fetches the managed proxy details 
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-12-01.
         /// 
-        /// Other available API versions: 2022-05-01-preview, 2024-12-01.
+        /// Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListEndpointManagedProxyDetailsResult> InvokeAsync(ListEndpointManagedProxyDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEndpointManagedProxyDetailsResult>("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", args ?? new ListEndpointManagedProxyDetailsArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// Fetches the managed proxy details 
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-12-01.
         /// 
-        /// Other available API versions: 2022-05-01-preview, 2024-12-01.
+        /// Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListEndpointManagedProxyDetailsResult> Invoke(ListEndpointManagedProxyDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointManagedProxyDetailsResult>("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", args ?? new ListEndpointManagedProxyDetailsInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// Fetches the managed proxy details 
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-12-01.
         /// 
-        /// Other available API versions: 2022-05-01-preview, 2024-12-01.
+        /// Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListEndpointManagedProxyDetailsResult> Invoke(ListEndpointManagedProxyDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointManagedProxyDetailsResult>("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", args ?? new ListEndpointManagedProxyDetailsInvokeArgs(), options.WithDefaults());
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public string? Hostname { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;

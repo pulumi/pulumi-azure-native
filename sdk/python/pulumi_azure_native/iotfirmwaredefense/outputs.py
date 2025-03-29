@@ -16,8 +16,61 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'StatusMessageResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class StatusMessageResponse(dict):
+    """
+    Error and status message
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StatusMessageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StatusMessageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StatusMessageResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: Optional[float] = None,
+                 message: Optional[str] = None):
+        """
+        Error and status message
+        :param float error_code: The error code
+        :param str message: The error or status message
+        """
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[float]:
+        """
+        The error code
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The error or status message
+        """
+        return pulumi.get(self, "message")
+
 
 @pulumi.output_type
 class SystemDataResponse(dict):

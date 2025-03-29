@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Automation
         /// 
         /// Uses Azure REST API version 2023-05-15-preview.
         /// 
-        /// Other available API versions: 2024-10-23.
+        /// Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListAutomationAccountDeletedRunbooksResult> InvokeAsync(ListAutomationAccountDeletedRunbooksArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAutomationAccountDeletedRunbooksResult>("azure-native:automation:listAutomationAccountDeletedRunbooks", args ?? new ListAutomationAccountDeletedRunbooksArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Automation
         /// 
         /// Uses Azure REST API version 2023-05-15-preview.
         /// 
-        /// Other available API versions: 2024-10-23.
+        /// Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListAutomationAccountDeletedRunbooksResult> Invoke(ListAutomationAccountDeletedRunbooksInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAutomationAccountDeletedRunbooksResult>("azure-native:automation:listAutomationAccountDeletedRunbooks", args ?? new ListAutomationAccountDeletedRunbooksInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Automation
         /// 
         /// Uses Azure REST API version 2023-05-15-preview.
         /// 
-        /// Other available API versions: 2024-10-23.
+        /// Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListAutomationAccountDeletedRunbooksResult> Invoke(ListAutomationAccountDeletedRunbooksInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAutomationAccountDeletedRunbooksResult>("azure-native:automation:listAutomationAccountDeletedRunbooks", args ?? new ListAutomationAccountDeletedRunbooksInvokeArgs(), options.WithDefaults());

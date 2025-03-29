@@ -149,9 +149,9 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         """
         The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,9 +172,9 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         """
         The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param BlobContainerImmutabilityPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -220,6 +220,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["state"] = None
@@ -250,6 +251,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
 
         __props__.__dict__["allow_protected_append_writes"] = None
         __props__.__dict__["allow_protected_append_writes_all"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["immutability_period_since_creation_in_days"] = None
         __props__.__dict__["name"] = None
@@ -272,6 +274,14 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
         """
         return pulumi.get(self, "allow_protected_append_writes_all")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

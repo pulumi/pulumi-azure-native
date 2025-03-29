@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Resource information.
  *
- * Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
+ * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Resource extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Resource extends pulumi.CustomResource {
         return obj['__pulumiType'] === Resource.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource extended location.
      */
@@ -127,9 +131,11 @@ export class Resource extends pulumi.CustomResource {
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;

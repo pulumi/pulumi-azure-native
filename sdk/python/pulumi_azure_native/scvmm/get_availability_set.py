@@ -27,10 +27,13 @@ class GetAvailabilitySetResult:
     """
     The AvailabilitySets resource definition.
     """
-    def __init__(__self__, availability_set_name=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, vmm_server_id=None):
+    def __init__(__self__, availability_set_name=None, azure_api_version=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, vmm_server_id=None):
         if availability_set_name and not isinstance(availability_set_name, str):
             raise TypeError("Expected argument 'availability_set_name' to be a str")
         pulumi.set(__self__, "availability_set_name", availability_set_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -66,6 +69,14 @@ class GetAvailabilitySetResult:
         Name of the availability set.
         """
         return pulumi.get(self, "availability_set_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -147,6 +158,7 @@ class AwaitableGetAvailabilitySetResult(GetAvailabilitySetResult):
             yield self
         return GetAvailabilitySetResult(
             availability_set_name=self.availability_set_name,
+            azure_api_version=self.azure_api_version,
             extended_location=self.extended_location,
             id=self.id,
             location=self.location,
@@ -164,9 +176,9 @@ def get_availability_set(availability_set_name: Optional[str] = None,
     """
     Implements AvailabilitySet GET method.
 
-    Uses Azure REST API version 2022-05-21-preview.
+    Uses Azure REST API version 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str availability_set_name: Name of the AvailabilitySet.
@@ -180,6 +192,7 @@ def get_availability_set(availability_set_name: Optional[str] = None,
 
     return AwaitableGetAvailabilitySetResult(
         availability_set_name=pulumi.get(__ret__, 'availability_set_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -195,9 +208,9 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str
     """
     Implements AvailabilitySet GET method.
 
-    Uses Azure REST API version 2022-05-21-preview.
+    Uses Azure REST API version 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str availability_set_name: Name of the AvailabilitySet.
@@ -210,6 +223,7 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str
     __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm:getAvailabilitySet', __args__, opts=opts, typ=GetAvailabilitySetResult)
     return __ret__.apply(lambda __response__: GetAvailabilitySetResult(
         availability_set_name=pulumi.get(__response__, 'availability_set_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

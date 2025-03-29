@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string> ApprovalId { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         /// </summary>
         [Output("condition")]

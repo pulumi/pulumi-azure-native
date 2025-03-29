@@ -27,7 +27,10 @@ class GetProvisionedClusterResult:
     """
     The provisionedClusters resource definition.
     """
-    def __init__(__self__, extended_location=None, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, extended_location=None, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -55,6 +58,14 @@ class GetProvisionedClusterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -129,6 +140,7 @@ class AwaitableGetProvisionedClusterResult(GetProvisionedClusterResult):
         if False:
             yield self
         return GetProvisionedClusterResult(
+            azure_api_version=self.azure_api_version,
             extended_location=self.extended_location,
             id=self.id,
             identity=self.identity,
@@ -148,8 +160,6 @@ def get_provisioned_cluster(resource_group_name: Optional[str] = None,
 
     Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2022-05-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Parameter for the name of the provisioned cluster
@@ -161,6 +171,7 @@ def get_provisioned_cluster(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridcontainerservice:getProvisionedCluster', __args__, opts=opts, typ=GetProvisionedClusterResult).value
 
     return AwaitableGetProvisionedClusterResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -178,8 +189,6 @@ def get_provisioned_cluster_output(resource_group_name: Optional[pulumi.Input[st
 
     Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2022-05-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Parameter for the name of the provisioned cluster
@@ -190,6 +199,7 @@ def get_provisioned_cluster_output(resource_group_name: Optional[pulumi.Input[st
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice:getProvisionedCluster', __args__, opts=opts, typ=GetProvisionedClusterResult)
     return __ret__.apply(lambda __response__: GetProvisionedClusterResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

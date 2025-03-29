@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Kubernetes
     /// <summary>
     /// Represents a connected cluster.
     /// 
-    /// Uses Azure REST API version 2022-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+    /// Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
     /// 
-    /// Other available API versions: 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview.
+    /// Other available API versions: 2021-04-01-preview, 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetes [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetes:ConnectedCluster")]
     public partial class ConnectedCluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// AAD profile for the connected cluster.
+        /// </summary>
+        [Output("aadProfile")]
+        public Output<Outputs.AadProfileResponse?> AadProfile { get; private set; } = null!;
+
         /// <summary>
         /// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
         /// </summary>
@@ -30,6 +36,24 @@ namespace Pulumi.AzureNative.Kubernetes
         /// </summary>
         [Output("agentVersion")]
         public Output<string> AgentVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Arc agentry configuration for the provisioned cluster.
+        /// </summary>
+        [Output("arcAgentProfile")]
+        public Output<Outputs.ArcAgentProfileResponse?> ArcAgentProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether Azure Hybrid Benefit is opted in
+        /// </summary>
+        [Output("azureHybridBenefit")]
+        public Output<string?> AzureHybridBenefit { get; private set; } = null!;
 
         /// <summary>
         /// Represents the connectivity status of the connected cluster.
@@ -44,6 +68,12 @@ namespace Pulumi.AzureNative.Kubernetes
         public Output<string?> Distribution { get; private set; } = null!;
 
         /// <summary>
+        /// The Kubernetes distribution version on this connected cluster.
+        /// </summary>
+        [Output("distributionVersion")]
+        public Output<string?> DistributionVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the connected cluster.
         /// </summary>
         [Output("identity")]
@@ -54,6 +84,12 @@ namespace Pulumi.AzureNative.Kubernetes
         /// </summary>
         [Output("infrastructure")]
         public Output<string?> Infrastructure { get; private set; } = null!;
+
+        /// <summary>
+        /// The kind of connected cluster.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
         /// The Kubernetes version of the connected cluster resource
@@ -78,6 +114,12 @@ namespace Pulumi.AzureNative.Kubernetes
         /// </summary>
         [Output("managedIdentityCertificateExpirationTime")]
         public Output<string> ManagedIdentityCertificateExpirationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// More properties related to the Connected Cluster
+        /// </summary>
+        [Output("miscellaneousProperties")]
+        public Output<ImmutableDictionary<string, string>> MiscellaneousProperties { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -201,10 +243,28 @@ namespace Pulumi.AzureNative.Kubernetes
     public sealed class ConnectedClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// AAD profile for the connected cluster.
+        /// </summary>
+        [Input("aadProfile")]
+        public Input<Inputs.AadProfileArgs>? AadProfile { get; set; }
+
+        /// <summary>
         /// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
         /// </summary>
         [Input("agentPublicKeyCertificate", required: true)]
         public Input<string> AgentPublicKeyCertificate { get; set; } = null!;
+
+        /// <summary>
+        /// Arc agentry configuration for the provisioned cluster.
+        /// </summary>
+        [Input("arcAgentProfile")]
+        public Input<Inputs.ArcAgentProfileArgs>? ArcAgentProfile { get; set; }
+
+        /// <summary>
+        /// Indicates whether Azure Hybrid Benefit is opted in
+        /// </summary>
+        [Input("azureHybridBenefit")]
+        public InputUnion<string, Pulumi.AzureNative.Kubernetes.AzureHybridBenefit>? AzureHybridBenefit { get; set; }
 
         /// <summary>
         /// The name of the Kubernetes cluster on which get is called.
@@ -219,6 +279,12 @@ namespace Pulumi.AzureNative.Kubernetes
         public Input<string>? Distribution { get; set; }
 
         /// <summary>
+        /// The Kubernetes distribution version on this connected cluster.
+        /// </summary>
+        [Input("distributionVersion")]
+        public Input<string>? DistributionVersion { get; set; }
+
+        /// <summary>
         /// The identity of the connected cluster.
         /// </summary>
         [Input("identity", required: true)]
@@ -229,6 +295,12 @@ namespace Pulumi.AzureNative.Kubernetes
         /// </summary>
         [Input("infrastructure")]
         public Input<string>? Infrastructure { get; set; }
+
+        /// <summary>
+        /// The kind of connected cluster.
+        /// </summary>
+        [Input("kind")]
+        public InputUnion<string, Pulumi.AzureNative.Kubernetes.ConnectedClusterKind>? Kind { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -274,6 +346,7 @@ namespace Pulumi.AzureNative.Kubernetes
 
         public ConnectedClusterArgs()
         {
+            AzureHybridBenefit = "NotApplicable";
             PrivateLinkState = "Disabled";
         }
         public static new ConnectedClusterArgs Empty => new ConnectedClusterArgs();

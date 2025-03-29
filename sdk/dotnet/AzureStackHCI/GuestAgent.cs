@@ -12,24 +12,24 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// Defines the GuestAgent.
     /// 
-    /// Uses Azure REST API version 2022-12-15-preview.
+    /// Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+    /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:GuestAgent")]
     public partial class GuestAgent : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Username / Password Credentials to provision guest agent.
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.GuestCredentialResponse?> Credentials { get; private set; } = null!;
-
-        /// <summary>
-        /// HTTP Proxy configuration for the VM.
-        /// </summary>
-        [Output("httpProxyConfig")]
-        public Output<Outputs.HttpProxyConfigurationResponse?> HttpProxyConfig { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<string?> ProvisioningAction { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state.
+        /// Provisioning state of the virtual machine instance.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -92,8 +92,17 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:GuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240201preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240501preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250401preview:GuestAgent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,34 +133,16 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Input<Inputs.GuestCredentialArgs>? Credentials { get; set; }
 
         /// <summary>
-        /// HTTP Proxy configuration for the VM.
-        /// </summary>
-        [Input("httpProxyConfig")]
-        public Input<Inputs.HttpProxyConfigurationArgs>? HttpProxyConfig { get; set; }
-
-        /// <summary>
-        /// Name of the guestAgents.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// The guest agent provisioning action.
         /// </summary>
         [Input("provisioningAction")]
         public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.ProvisioningAction>? ProvisioningAction { get; set; }
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the vm.
-        /// </summary>
-        [Input("virtualMachineName", required: true)]
-        public Input<string> VirtualMachineName { get; set; } = null!;
+        [Input("resourceUri", required: true)]
+        public Input<string> ResourceUri { get; set; } = null!;
 
         public GuestAgentArgs()
         {

@@ -29,6 +29,7 @@ class ElasticSanArgs:
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ElasticSan resource.
@@ -38,8 +39,9 @@ class ElasticSanArgs:
         :param pulumi.Input['SkuArgs'] sku: resource sku
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Logical zone for Elastic San resource; example: ["1"].
         :param pulumi.Input[str] elastic_san_name: The name of the ElasticSan.
-        :param pulumi.Input[str] location: The geo-location where the resource lives.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "base_size_ti_b", base_size_ti_b)
         pulumi.set(__self__, "extended_capacity_size_ti_b", extended_capacity_size_ti_b)
@@ -51,6 +53,8 @@ class ElasticSanArgs:
             pulumi.set(__self__, "elastic_san_name", elastic_san_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -130,7 +134,7 @@ class ElasticSanArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The geo-location where the resource lives.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -139,10 +143,22 @@ class ElasticSanArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Azure resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -161,6 +177,7 @@ class ElasticSan(pulumi.CustomResource):
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
                  extended_capacity_size_ti_b: Optional[pulumi.Input[float]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -168,9 +185,9 @@ class ElasticSan(pulumi.CustomResource):
         """
         Response for ElasticSan request.
 
-        Uses Azure REST API version 2021-11-20-preview. In version 1.x of the Azure Native provider, it used API version 2021-11-20-preview.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2021-11-20-preview.
 
-        Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,10 +195,11 @@ class ElasticSan(pulumi.CustomResource):
         :param pulumi.Input[float] base_size_ti_b: Base size of the Elastic San appliance in TiB.
         :param pulumi.Input[str] elastic_san_name: The name of the ElasticSan.
         :param pulumi.Input[float] extended_capacity_size_ti_b: Extended size of the Elastic San appliance in TiB.
-        :param pulumi.Input[str] location: The geo-location where the resource lives.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: resource sku
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -192,9 +210,9 @@ class ElasticSan(pulumi.CustomResource):
         """
         Response for ElasticSan request.
 
-        Uses Azure REST API version 2021-11-20-preview. In version 1.x of the Azure Native provider, it used API version 2021-11-20-preview.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2021-11-20-preview.
 
-        Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ElasticSanArgs args: The arguments to use to populate this resource's properties.
@@ -216,6 +234,7 @@ class ElasticSan(pulumi.CustomResource):
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
                  extended_capacity_size_ti_b: Optional[pulumi.Input[float]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -237,6 +256,7 @@ class ElasticSan(pulumi.CustomResource):
                 raise TypeError("Missing required property 'extended_capacity_size_ti_b'")
             __props__.__dict__["extended_capacity_size_ti_b"] = extended_capacity_size_ti_b
             __props__.__dict__["location"] = location
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -244,7 +264,9 @@ class ElasticSan(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["total_iops"] = None
@@ -278,11 +300,14 @@ class ElasticSan(pulumi.CustomResource):
         __props__ = ElasticSanArgs.__new__(ElasticSanArgs)
 
         __props__.__dict__["availability_zones"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["base_size_ti_b"] = None
         __props__.__dict__["extended_capacity_size_ti_b"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -303,6 +328,14 @@ class ElasticSan(pulumi.CustomResource):
         return pulumi.get(self, "availability_zones")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="baseSizeTiB")
     def base_size_ti_b(self) -> pulumi.Output[float]:
         """
@@ -320,9 +353,9 @@ class ElasticSan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
-        The geo-location where the resource lives.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -330,9 +363,17 @@ class ElasticSan(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        The list of Private Endpoint Connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -341,6 +382,14 @@ class ElasticSan(pulumi.CustomResource):
         State of the operation on the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter
@@ -354,7 +403,7 @@ class ElasticSan(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Resource metadata required by ARM RPC
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -362,7 +411,7 @@ class ElasticSan(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Azure resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -402,7 +451,7 @@ class ElasticSan(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

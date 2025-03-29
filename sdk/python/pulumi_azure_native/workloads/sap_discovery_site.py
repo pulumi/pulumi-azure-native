@@ -153,7 +153,7 @@ class SapDiscoverySite(pulumi.CustomResource):
         """
         Define the SAP Migration discovery site resource.
 
-        Uses Azure REST API version 2023-10-01-preview.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,7 +174,7 @@ class SapDiscoverySite(pulumi.CustomResource):
         """
         Define the SAP Migration discovery site resource.
 
-        Uses Azure REST API version 2023-10-01-preview.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SapDiscoverySiteArgs args: The arguments to use to populate this resource's properties.
@@ -216,6 +216,7 @@ class SapDiscoverySite(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sap_discovery_site_name"] = sap_discovery_site_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["errors"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -245,6 +246,7 @@ class SapDiscoverySite(pulumi.CustomResource):
 
         __props__ = SapDiscoverySiteArgs.__new__(SapDiscoverySiteArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["errors"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["location"] = None
@@ -256,6 +258,14 @@ class SapDiscoverySite(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return SapDiscoverySite(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

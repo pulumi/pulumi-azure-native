@@ -69,8 +69,6 @@ def list_registry_build_source_upload_url(registry_name: Optional[str] = None,
 
     Uses Azure REST API version 2019-06-01-preview.
 
-    Other available API versions: 2018-09-01, 2019-04-01.
-
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
@@ -91,8 +89,6 @@ def list_registry_build_source_upload_url_output(registry_name: Optional[pulumi.
     Get the upload location for the user to be able to upload the source.
 
     Uses Azure REST API version 2019-06-01-preview.
-
-    Other available API versions: 2018-09-01, 2019-04-01.
 
 
     :param str registry_name: The name of the container registry.

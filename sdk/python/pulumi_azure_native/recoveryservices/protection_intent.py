@@ -169,9 +169,9 @@ class ProtectionIntent(pulumi.CustomResource):
         """
         Base class for backup ProtectionIntent.
 
-        Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
+        Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,9 +193,9 @@ class ProtectionIntent(pulumi.CustomResource):
         """
         Base class for backup ProtectionIntent.
 
-        Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
+        Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ProtectionIntentArgs args: The arguments to use to populate this resource's properties.
@@ -243,6 +243,7 @@ class ProtectionIntent(pulumi.CustomResource):
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20170701:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220601preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220901preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220930preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20230401:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20230601:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20230801:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20240101:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20240201:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20240401:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20240430preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20240730preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20241001:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20241101preview:ProtectionIntent")])
@@ -269,6 +270,7 @@ class ProtectionIntent(pulumi.CustomResource):
 
         __props__ = ProtectionIntentArgs.__new__(ProtectionIntentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -276,6 +278,14 @@ class ProtectionIntent(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ProtectionIntent(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")

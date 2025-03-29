@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
  *
- * Uses Azure REST API version 2020-05-15. In version 1.x of the Azure Native provider, it used API version 2020-05-15.
+ * Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
  *
- * Other available API versions: 2021-06-30-preview.
+ * Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AccessPolicy extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class AccessPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPolicy.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * An description of the access policy.
      */
@@ -85,9 +89,11 @@ export class AccessPolicy extends pulumi.CustomResource {
             resourceInputs["principalObjectId"] = args ? args.principalObjectId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalObjectId"] = undefined /*out*/;

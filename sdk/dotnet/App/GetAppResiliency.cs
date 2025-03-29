@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Get container app resiliency policy.
         /// 
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// 
-        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAppResiliencyResult> InvokeAsync(GetAppResiliencyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResiliencyResult>("azure-native:app:getAppResiliency", args ?? new GetAppResiliencyArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Get container app resiliency policy.
         /// 
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// 
-        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAppResiliencyResult> Invoke(GetAppResiliencyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResiliencyResult>("azure-native:app:getAppResiliency", args ?? new GetAppResiliencyInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Get container app resiliency policy.
         /// 
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// 
-        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAppResiliencyResult> Invoke(GetAppResiliencyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResiliencyResult>("azure-native:app:getAppResiliency", args ?? new GetAppResiliencyInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.App
     public sealed class GetAppResiliencyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Policy that defines circuit breaker conditions
         /// </summary>
         public readonly Outputs.CircuitBreakerPolicyResponse? CircuitBreakerPolicy;
@@ -112,7 +116,7 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly Outputs.HttpRetryPolicyResponse? HttpRetryPolicy;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.App
 
         [OutputConstructor]
         private GetAppResiliencyResult(
+            string azureApiVersion,
+
             Outputs.CircuitBreakerPolicyResponse? circuitBreakerPolicy,
 
             Outputs.HttpConnectionPoolResponse? httpConnectionPool,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.App
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CircuitBreakerPolicy = circuitBreakerPolicy;
             HttpConnectionPool = httpConnectionPool;
             HttpRetryPolicy = httpRetryPolicy;

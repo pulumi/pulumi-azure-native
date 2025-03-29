@@ -135,7 +135,7 @@ class PublicCloudConnector(pulumi.CustomResource):
         """
         Public Cloud Connector
 
-        Uses Azure REST API version 2024-12-01.
+        Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +155,7 @@ class PublicCloudConnector(pulumi.CustomResource):
         """
         Public Cloud Connector
 
-        Uses Azure REST API version 2024-12-01.
+        Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
         :param str resource_name: The name of the resource.
         :param PublicCloudConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -199,6 +199,7 @@ class PublicCloudConnector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["connector_primary_identifier"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -229,6 +230,7 @@ class PublicCloudConnector(pulumi.CustomResource):
         __props__ = PublicCloudConnectorArgs.__new__(PublicCloudConnectorArgs)
 
         __props__.__dict__["aws_cloud_profile"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["connector_primary_identifier"] = None
         __props__.__dict__["host_type"] = None
         __props__.__dict__["location"] = None
@@ -246,6 +248,14 @@ class PublicCloudConnector(pulumi.CustomResource):
         Cloud profile for AWS.
         """
         return pulumi.get(self, "aws_cloud_profile")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectorPrimaryIdentifier")

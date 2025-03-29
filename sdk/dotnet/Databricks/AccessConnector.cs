@@ -10,15 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
-    /// Information about azure databricks accessConnector.
+    /// Information about Azure Databricks Access Connector.
     /// 
-    /// Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview.
+    /// Other available API versions: 2023-05-01, 2024-09-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:AccessConnector")]
     public partial class AccessConnector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
@@ -38,7 +44,7 @@ namespace Pulumi.AzureNative.Databricks
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Databricks accessConnector properties
+        /// Azure Databricks Access Connector properties
         /// </summary>
         [Output("properties")]
         public Output<Outputs.AccessConnectorPropertiesResponse> Properties { get; private set; } = null!;
@@ -116,7 +122,7 @@ namespace Pulumi.AzureNative.Databricks
     public sealed class AccessConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the azure databricks accessConnector.
+        /// The name of the Azure Databricks Access Connector.
         /// </summary>
         [Input("connectorName")]
         public Input<string>? ConnectorName { get; set; }

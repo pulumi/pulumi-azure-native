@@ -27,7 +27,7 @@ class GetVNetPeeringResult:
     """
     Peerings in a VirtualNetwork resource
     """
-    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, databricks_address_space=None, databricks_virtual_network=None, id=None, name=None, peering_state=None, provisioning_state=None, remote_address_space=None, remote_virtual_network=None, type=None, use_remote_gateways=None):
+    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, azure_api_version=None, databricks_address_space=None, databricks_virtual_network=None, id=None, name=None, peering_state=None, provisioning_state=None, remote_address_space=None, remote_virtual_network=None, type=None, use_remote_gateways=None):
         if allow_forwarded_traffic and not isinstance(allow_forwarded_traffic, bool):
             raise TypeError("Expected argument 'allow_forwarded_traffic' to be a bool")
         pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
@@ -37,6 +37,9 @@ class GetVNetPeeringResult:
         if allow_virtual_network_access and not isinstance(allow_virtual_network_access, bool):
             raise TypeError("Expected argument 'allow_virtual_network_access' to be a bool")
         pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if databricks_address_space and not isinstance(databricks_address_space, dict):
             raise TypeError("Expected argument 'databricks_address_space' to be a dict")
         pulumi.set(__self__, "databricks_address_space", databricks_address_space)
@@ -91,6 +94,14 @@ class GetVNetPeeringResult:
         Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
         """
         return pulumi.get(self, "allow_virtual_network_access")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="databricksAddressSpace")
@@ -182,6 +193,7 @@ class AwaitableGetVNetPeeringResult(GetVNetPeeringResult):
             allow_forwarded_traffic=self.allow_forwarded_traffic,
             allow_gateway_transit=self.allow_gateway_transit,
             allow_virtual_network_access=self.allow_virtual_network_access,
+            azure_api_version=self.azure_api_version,
             databricks_address_space=self.databricks_address_space,
             databricks_virtual_network=self.databricks_virtual_network,
             id=self.id,
@@ -201,7 +213,9 @@ def get_v_net_peering(peering_name: Optional[str] = None,
     """
     Gets the workspace vNet Peering.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
+
+    Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str peering_name: The name of the workspace vNet peering.
@@ -219,6 +233,7 @@ def get_v_net_peering(peering_name: Optional[str] = None,
         allow_forwarded_traffic=pulumi.get(__ret__, 'allow_forwarded_traffic'),
         allow_gateway_transit=pulumi.get(__ret__, 'allow_gateway_transit'),
         allow_virtual_network_access=pulumi.get(__ret__, 'allow_virtual_network_access'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         databricks_address_space=pulumi.get(__ret__, 'databricks_address_space'),
         databricks_virtual_network=pulumi.get(__ret__, 'databricks_virtual_network'),
         id=pulumi.get(__ret__, 'id'),
@@ -236,7 +251,9 @@ def get_v_net_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the workspace vNet Peering.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
+
+    Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str peering_name: The name of the workspace vNet peering.
@@ -253,6 +270,7 @@ def get_v_net_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
         allow_forwarded_traffic=pulumi.get(__response__, 'allow_forwarded_traffic'),
         allow_gateway_transit=pulumi.get(__response__, 'allow_gateway_transit'),
         allow_virtual_network_access=pulumi.get(__response__, 'allow_virtual_network_access'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         databricks_address_space=pulumi.get(__response__, 'databricks_address_space'),
         databricks_virtual_network=pulumi.get(__response__, 'databricks_virtual_network'),
         id=pulumi.get(__response__, 'id'),

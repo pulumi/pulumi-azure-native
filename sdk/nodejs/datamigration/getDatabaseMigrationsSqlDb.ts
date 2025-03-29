@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieve the Database Migration resource.
  *
- * Uses Azure REST API version 2022-03-30-preview.
+ * Uses Azure REST API version 2023-07-15-preview.
  *
- * Other available API versions: 2023-07-15-preview.
+ * Other available API versions: 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDatabaseMigrationsSqlDb(args: GetDatabaseMigrationsSqlDbArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseMigrationsSqlDbResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,6 +49,10 @@ export interface GetDatabaseMigrationsSqlDbArgs {
  * Database Migration Resource for SQL Database.
  */
 export interface GetDatabaseMigrationsSqlDbResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     readonly id: string;
     readonly name: string;
     /**
@@ -64,9 +68,9 @@ export interface GetDatabaseMigrationsSqlDbResult {
 /**
  * Retrieve the Database Migration resource.
  *
- * Uses Azure REST API version 2022-03-30-preview.
+ * Uses Azure REST API version 2023-07-15-preview.
  *
- * Other available API versions: 2023-07-15-preview.
+ * Other available API versions: 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDatabaseMigrationsSqlDbOutput(args: GetDatabaseMigrationsSqlDbOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseMigrationsSqlDbResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

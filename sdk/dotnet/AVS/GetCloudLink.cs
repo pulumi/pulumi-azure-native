@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.AVS
     public static class GetCloudLink
     {
         /// <summary>
-        /// A cloud link resource
+        /// Get a CloudLink
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCloudLinkResult> InvokeAsync(GetCloudLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudLinkResult>("azure-native:avs:getCloudLink", args ?? new GetCloudLinkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A cloud link resource
+        /// Get a CloudLink
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCloudLinkResult> Invoke(GetCloudLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudLinkResult>("azure-native:avs:getCloudLink", args ?? new GetCloudLinkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A cloud link resource
+        /// Get a CloudLink
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCloudLinkResult> Invoke(GetCloudLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudLinkResult>("azure-native:avs:getCloudLink", args ?? new GetCloudLinkInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetCloudLinkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the cloud link resource
+        /// Name of the cloud link.
         /// </summary>
         [Input("cloudLinkName", required: true)]
         public string CloudLinkName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetCloudLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the cloud link resource
+        /// Name of the cloud link.
         /// </summary>
         [Input("cloudLinkName", required: true)]
         public Input<string> CloudLinkName { get; set; } = null!;
@@ -100,7 +100,11 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetCloudLinkResult
     {
         /// <summary>
-        /// Resource ID.
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -108,34 +112,51 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string? LinkedCloud;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The state of the cloud link.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetCloudLinkResult(
+            string azureApiVersion,
+
             string id,
 
             string? linkedCloud,
 
             string name,
 
+            string provisioningState,
+
             string status,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             LinkedCloud = linkedCloud;
             Name = name;
+            ProvisioningState = provisioningState;
             Status = status;
+            SystemData = systemData;
             Type = type;
         }
     }

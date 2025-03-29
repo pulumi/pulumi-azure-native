@@ -10,9 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The provisionedClusters resource definition.
  *
- * Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-05-01-preview.
- *
- * Other available API versions: 2022-05-01-preview.
+ * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
  */
 export class ProvisionedCluster extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class ProvisionedCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProvisionedCluster.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     public readonly extendedLocation!: pulumi.Output<outputs.hybridcontainerservice.ProvisionedClustersResponseResponseExtendedLocation | undefined>;
     /**
      * Identity for the Provisioned cluster.
@@ -89,10 +91,12 @@ export class ProvisionedCluster extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

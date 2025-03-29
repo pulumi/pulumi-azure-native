@@ -82,7 +82,7 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
         """
         Subscription feature registration details
 
-        Uses Azure REST API version 2021-07-01. In version 1.x of the Azure Native provider, it used API version 2021-07-01.
+        Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,7 +98,7 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
         """
         Subscription feature registration details
 
-        Uses Azure REST API version 2021-07-01. In version 1.x of the Azure Native provider, it used API version 2021-07-01.
+        Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
 
         :param str resource_name: The name of the resource.
         :param SubscriptionFeatureRegistrationArgs args: The arguments to use to populate this resource's properties.
@@ -132,6 +132,7 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__.__dict__["provider_namespace"] = provider_namespace
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:features/v20210701:SubscriptionFeatureRegistration")])
@@ -158,10 +159,19 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
 
         __props__ = SubscriptionFeatureRegistrationArgs.__new__(SubscriptionFeatureRegistrationArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return SubscriptionFeatureRegistration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

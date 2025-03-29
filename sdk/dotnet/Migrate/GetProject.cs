@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.Migrate
         /// Get the project with the specified name.
         /// 
         /// Uses Azure REST API version 2019-10-01.
-        /// 
-        /// Other available API versions: 2018-02-02.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:migrate:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.Migrate
         /// Get the project with the specified name.
         /// 
         /// Uses Azure REST API version 2019-10-01.
-        /// 
-        /// Other available API versions: 2018-02-02.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:migrate:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.Migrate
         /// Get the project with the specified name.
         /// 
         /// Uses Azure REST API version 2019-10-01.
-        /// 
-        /// Other available API versions: 2018-02-02.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:migrate:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.Migrate
     public sealed class GetProjectResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// For optimistic concurrency control.
         /// </summary>
         public readonly string? ETag;
@@ -118,6 +116,8 @@ namespace Pulumi.AzureNative.Migrate
 
         [OutputConstructor]
         private GetProjectResult(
+            string azureApiVersion,
+
             string? eTag,
 
             string id,
@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.Migrate
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             Location = location;

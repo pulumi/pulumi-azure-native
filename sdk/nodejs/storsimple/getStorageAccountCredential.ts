@@ -45,6 +45,10 @@ export interface GetStorageAccountCredentialResult {
      */
     readonly accessKey?: outputs.storsimple.AsymmetricEncryptedSecretResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The storage endpoint
      */
     readonly endPoint: string;

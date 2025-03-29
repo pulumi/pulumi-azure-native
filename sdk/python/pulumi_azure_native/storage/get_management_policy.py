@@ -27,7 +27,10 @@ class GetManagementPolicyResult:
     """
     The Get Storage Account ManagementPolicies operation response.
     """
-    def __init__(__self__, id=None, last_modified_time=None, name=None, policy=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, last_modified_time=None, name=None, policy=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetManagementPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -72,7 +83,7 @@ class GetManagementPolicyResult:
     @pulumi.getter
     def policy(self) -> 'outputs.ManagementPolicySchemaResponse':
         """
-        The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         """
         return pulumi.get(self, "policy")
 
@@ -91,6 +102,7 @@ class AwaitableGetManagementPolicyResult(GetManagementPolicyResult):
         if False:
             yield self
         return GetManagementPolicyResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             last_modified_time=self.last_modified_time,
             name=self.name,
@@ -105,9 +117,9 @@ def get_management_policy(account_name: Optional[str] = None,
     """
     Gets the managementpolicy associated with the specified storage account.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -122,6 +134,7 @@ def get_management_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage:getManagementPolicy', __args__, opts=opts, typ=GetManagementPolicyResult).value
 
     return AwaitableGetManagementPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         name=pulumi.get(__ret__, 'name'),
@@ -134,9 +147,9 @@ def get_management_policy_output(account_name: Optional[pulumi.Input[str]] = Non
     """
     Gets the managementpolicy associated with the specified storage account.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -150,6 +163,7 @@ def get_management_policy_output(account_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getManagementPolicy', __args__, opts=opts, typ=GetManagementPolicyResult)
     return __ret__.apply(lambda __response__: GetManagementPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         name=pulumi.get(__response__, 'name'),

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Custom Assessment Automation
  *
- * Uses Azure REST API version 2021-07-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-07-01-preview.
+ * Uses Azure REST API version 2021-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-07-01-preview.
  */
 export class CustomAssessmentAutomation extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class CustomAssessmentAutomation extends pulumi.CustomResource {
      * The assessment metadata key used when an assessment is generated for this assessment automation.
      */
     public /*out*/ readonly assessmentKey!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * GZip encoded KQL query representing the assessment automation results required.
      */
@@ -103,11 +107,13 @@ export class CustomAssessmentAutomation extends pulumi.CustomResource {
             resourceInputs["severity"] = args ? args.severity : undefined;
             resourceInputs["supportedCloud"] = args ? args.supportedCloud : undefined;
             resourceInputs["assessmentKey"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["assessmentKey"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["compressedQuery"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;

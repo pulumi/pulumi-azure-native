@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets a Job.
  *
  * Uses Azure REST API version 2022-07-01.
+ *
+ * Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +47,10 @@ export interface GetJobArgs {
  * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
  */
 export interface GetJobResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Customer provided key, value pairs that will be returned in Job and JobOutput state events.
      */
@@ -106,6 +112,8 @@ export interface GetJobResult {
  * Gets a Job.
  *
  * Uses Azure REST API version 2022-07-01.
+ *
+ * Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

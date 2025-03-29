@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The Private Endpoint Connection resource.
  *
- * Uses Azure REST API version 2022-10-14-preview. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
+ * Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-10-14-preview.
  *
- * Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+ * Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PrivateEndpointConnectionByWorkspace extends pulumi.CustomResource {
     /**
@@ -42,11 +42,19 @@ export class PrivateEndpointConnectionByWorkspace extends pulumi.CustomResource 
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * The group ids for the private endpoint resource.
+     */
+    public /*out*/ readonly groupIds!: pulumi.Output<string[]>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource of private end point.
+     * The private endpoint resource.
      */
     public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.desktopvirtualization.PrivateEndpointResponse | undefined>;
     /**
@@ -58,7 +66,7 @@ export class PrivateEndpointConnectionByWorkspace extends pulumi.CustomResource 
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
@@ -90,12 +98,16 @@ export class PrivateEndpointConnectionByWorkspace extends pulumi.CustomResource 
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
@@ -104,7 +116,7 @@ export class PrivateEndpointConnectionByWorkspace extends pulumi.CustomResource 
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20230905:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20231004preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20231101preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20240116preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20240306preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20240403:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20240408preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20240808preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20241101preview:PrivateEndpointConnectionByWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20230707preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20230905:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20231004preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20231101preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20240116preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20240306preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20240403:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20240408preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20240808preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20241101preview:PrivateEndpointConnectionByWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionByWorkspace.__pulumiType, name, resourceInputs, opts);
     }
@@ -115,7 +127,7 @@ export class PrivateEndpointConnectionByWorkspace extends pulumi.CustomResource 
  */
 export interface PrivateEndpointConnectionByWorkspaceArgs {
     /**
-     * The name of the private endpoint connection associated with the Azure resource
+     * The name of the private endpoint connection associated with the Azure resource.
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**

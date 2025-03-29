@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the logger specified by its identifier.
  *
- * Uses Azure REST API version 2022-08-01.
+ * Uses Azure REST API version 2022-09-01-preview.
  *
- * Other available API versions: 2016-10-10, 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +39,10 @@ export interface GetLoggerArgs {
  * Logger details.
  */
 export interface GetLoggerResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The name and SendRule connection string of the event hub for azureEventHub logger.
      * Instrumentation key for applicationInsights logger.
@@ -76,9 +80,9 @@ export interface GetLoggerResult {
 /**
  * Gets the details of the logger specified by its identifier.
  *
- * Uses Azure REST API version 2022-08-01.
+ * Uses Azure REST API version 2022-09-01-preview.
  *
- * Other available API versions: 2016-10-10, 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLoggerOutput(args: GetLoggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

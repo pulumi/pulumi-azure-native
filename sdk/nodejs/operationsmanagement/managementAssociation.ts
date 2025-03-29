@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The container for solution.
  *
- * Uses Azure REST API version 2015-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2015-11-01-preview.
+ * Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
  */
 export class ManagementAssociation extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class ManagementAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagementAssociation.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -86,9 +90,11 @@ export class ManagementAssociation extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

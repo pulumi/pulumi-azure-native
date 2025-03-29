@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// List invitations success response
         /// 
-        /// Uses Azure REST API version 2023-08-22.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Other available API versions: 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListAccessInvitationsResult> InvokeAsync(ListAccessInvitationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessInvitationsResult>("azure-native:confluent:listAccessInvitations", args ?? new ListAccessInvitationsArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// List invitations success response
         /// 
-        /// Uses Azure REST API version 2023-08-22.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Other available API versions: 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListAccessInvitationsResult> Invoke(ListAccessInvitationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessInvitationsResult>("azure-native:confluent:listAccessInvitations", args ?? new ListAccessInvitationsInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// List invitations success response
         /// 
-        /// Uses Azure REST API version 2023-08-22.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Other available API versions: 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListAccessInvitationsResult> Invoke(ListAccessInvitationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessInvitationsResult>("azure-native:confluent:listAccessInvitations", args ?? new ListAccessInvitationsInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Confluent
         public string OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// Resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Confluent
         public Input<string> OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// Resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -27,7 +27,10 @@ class GetPolicyResult:
     """
     Defines web application firewall policy for Azure CDN.
     """
-    def __init__(__self__, custom_rules=None, endpoint_links=None, etag=None, extended_properties=None, id=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, rate_limit_rules=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, custom_rules=None, endpoint_links=None, etag=None, extended_properties=None, id=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, rate_limit_rules=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_rules and not isinstance(custom_rules, dict):
             raise TypeError("Expected argument 'custom_rules' to be a dict")
         pulumi.set(__self__, "custom_rules", custom_rules)
@@ -76,6 +79,14 @@ class GetPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customRules")
@@ -209,6 +220,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
         if False:
             yield self
         return GetPolicyResult(
+            azure_api_version=self.azure_api_version,
             custom_rules=self.custom_rules,
             endpoint_links=self.endpoint_links,
             etag=self.etag,
@@ -233,9 +245,9 @@ def get_policy(policy_name: Optional[str] = None,
     """
     Retrieve protection policy with specified name within a resource group.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.
@@ -248,6 +260,7 @@ def get_policy(policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_rules=pulumi.get(__ret__, 'custom_rules'),
         endpoint_links=pulumi.get(__ret__, 'endpoint_links'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -270,9 +283,9 @@ def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieve protection policy with specified name within a resource group.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.
@@ -284,6 +297,7 @@ def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
     return __ret__.apply(lambda __response__: GetPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_rules=pulumi.get(__response__, 'custom_rules'),
         endpoint_links=pulumi.get(__response__, 'endpoint_links'),
         etag=pulumi.get(__response__, 'etag'),

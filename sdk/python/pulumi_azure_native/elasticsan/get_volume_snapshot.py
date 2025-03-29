@@ -27,7 +27,10 @@ class GetVolumeSnapshotResult:
     """
     Response for Volume Snapshot request.
     """
-    def __init__(__self__, creation_data=None, id=None, name=None, provisioning_state=None, source_volume_size_gi_b=None, system_data=None, type=None, volume_name=None):
+    def __init__(__self__, azure_api_version=None, creation_data=None, id=None, name=None, provisioning_state=None, source_volume_size_gi_b=None, system_data=None, type=None, volume_name=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
@@ -52,6 +55,14 @@ class GetVolumeSnapshotResult:
         if volume_name and not isinstance(volume_name, str):
             raise TypeError("Expected argument 'volume_name' to be a str")
         pulumi.set(__self__, "volume_name", volume_name)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationData")
@@ -124,6 +135,7 @@ class AwaitableGetVolumeSnapshotResult(GetVolumeSnapshotResult):
         if False:
             yield self
         return GetVolumeSnapshotResult(
+            azure_api_version=self.azure_api_version,
             creation_data=self.creation_data,
             id=self.id,
             name=self.name,
@@ -142,9 +154,9 @@ def get_volume_snapshot(elastic_san_name: Optional[str] = None,
     """
     Get a Volume Snapshot.
 
-    Uses Azure REST API version 2023-01-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -161,6 +173,7 @@ def get_volume_snapshot(elastic_san_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elasticsan:getVolumeSnapshot', __args__, opts=opts, typ=GetVolumeSnapshotResult).value
 
     return AwaitableGetVolumeSnapshotResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_data=pulumi.get(__ret__, 'creation_data'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -177,9 +190,9 @@ def get_volume_snapshot_output(elastic_san_name: Optional[pulumi.Input[str]] = N
     """
     Get a Volume Snapshot.
 
-    Uses Azure REST API version 2023-01-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -195,6 +208,7 @@ def get_volume_snapshot_output(elastic_san_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:elasticsan:getVolumeSnapshot', __args__, opts=opts, typ=GetVolumeSnapshotResult)
     return __ret__.apply(lambda __response__: GetVolumeSnapshotResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_data=pulumi.get(__response__, 'creation_data'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

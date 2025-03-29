@@ -540,11 +540,6 @@ export const listServerlessEndpointKeys: typeof import("./listServerlessEndpoint
 export const listServerlessEndpointKeysOutput: typeof import("./listServerlessEndpointKeys").listServerlessEndpointKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listServerlessEndpointKeys","listServerlessEndpointKeysOutput"], () => require("./listServerlessEndpointKeys"));
 
-export { ListWorkspaceConnectionModelsArgs, ListWorkspaceConnectionModelsResult, ListWorkspaceConnectionModelsOutputArgs } from "./listWorkspaceConnectionModels";
-export const listWorkspaceConnectionModels: typeof import("./listWorkspaceConnectionModels").listWorkspaceConnectionModels = null as any;
-export const listWorkspaceConnectionModelsOutput: typeof import("./listWorkspaceConnectionModels").listWorkspaceConnectionModelsOutput = null as any;
-utilities.lazyLoad(exports, ["listWorkspaceConnectionModels","listWorkspaceConnectionModelsOutput"], () => require("./listWorkspaceConnectionModels"));
-
 export { ListWorkspaceConnectionSecretsArgs, ListWorkspaceConnectionSecretsResult, ListWorkspaceConnectionSecretsOutputArgs } from "./listWorkspaceConnectionSecrets";
 export const listWorkspaceConnectionSecrets: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecrets = null as any;
 export const listWorkspaceConnectionSecretsOutput: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecretsOutput = null as any;
@@ -698,53 +693,6 @@ utilities.lazyLoad(exports, ["WorkspaceConnection"], () => require("./workspaceC
 
 // Export enums:
 export * from "../types/enums/machinelearningservices";
-
-// Export sub-modules:
-import * as v20200501preview from "./v20200501preview";
-import * as v20200515preview from "./v20200515preview";
-import * as v20200801 from "./v20200801";
-import * as v20200901preview from "./v20200901preview";
-import * as v20210301preview from "./v20210301preview";
-import * as v20210401 from "./v20210401";
-import * as v20220101preview from "./v20220101preview";
-import * as v20220201preview from "./v20220201preview";
-import * as v20230201preview from "./v20230201preview";
-import * as v20230401 from "./v20230401";
-import * as v20230401preview from "./v20230401preview";
-import * as v20230601preview from "./v20230601preview";
-import * as v20230801preview from "./v20230801preview";
-import * as v20231001 from "./v20231001";
-import * as v20240101preview from "./v20240101preview";
-import * as v20240401 from "./v20240401";
-import * as v20240401preview from "./v20240401preview";
-import * as v20240701preview from "./v20240701preview";
-import * as v20241001 from "./v20241001";
-import * as v20241001preview from "./v20241001preview";
-import * as v20250101preview from "./v20250101preview";
-
-export {
-    v20200501preview,
-    v20200515preview,
-    v20200801,
-    v20200901preview,
-    v20210301preview,
-    v20210401,
-    v20220101preview,
-    v20220201preview,
-    v20230201preview,
-    v20230401,
-    v20230401preview,
-    v20230601preview,
-    v20230801preview,
-    v20231001,
-    v20240101preview,
-    v20240401,
-    v20240401preview,
-    v20240701preview,
-    v20241001,
-    v20241001preview,
-    v20250101preview,
-};
 
 const _module = {
     version: utilities.getVersion(),

@@ -689,41 +689,6 @@ utilities.lazyLoad(exports, ["WorkloadGroup"], () => require("./workloadGroup"))
 // Export enums:
 export * from "../types/enums/sql";
 
-// Export sub-modules:
-import * as v20140401 from "./v20140401";
-import * as v20150501preview from "./v20150501preview";
-import * as v20170301preview from "./v20170301preview";
-import * as v20180601preview from "./v20180601preview";
-import * as v20190601preview from "./v20190601preview";
-import * as v20200202preview from "./v20200202preview";
-import * as v20200801preview from "./v20200801preview";
-import * as v20210201preview from "./v20210201preview";
-import * as v20211101 from "./v20211101";
-import * as v20221101preview from "./v20221101preview";
-import * as v20230201preview from "./v20230201preview";
-import * as v20230501preview from "./v20230501preview";
-import * as v20230801 from "./v20230801";
-import * as v20230801preview from "./v20230801preview";
-import * as v20240501preview from "./v20240501preview";
-
-export {
-    v20140401,
-    v20150501preview,
-    v20170301preview,
-    v20180601preview,
-    v20190601preview,
-    v20200202preview,
-    v20200801preview,
-    v20210201preview,
-    v20211101,
-    v20221101preview,
-    v20230201preview,
-    v20230501preview,
-    v20230801,
-    v20230801preview,
-    v20240501preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

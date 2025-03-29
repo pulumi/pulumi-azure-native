@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The storage account credential.
  *
- * Uses Azure REST API version 2017-06-01. In version 1.x of the Azure Native provider, it used API version 2017-06-01.
+ * Uses Azure REST API version 2017-06-01. In version 2.x of the Azure Native provider, it used API version 2017-06-01.
  */
 export class StorageAccountCredential extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class StorageAccountCredential extends pulumi.CustomResource {
      * The details of the storage account password.
      */
     public readonly accessKey!: pulumi.Output<outputs.storsimple.AsymmetricEncryptedSecretResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The storage endpoint
      */
@@ -98,11 +102,13 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sslStatus"] = args ? args.sslStatus : undefined;
             resourceInputs["storageAccountCredentialName"] = args ? args.storageAccountCredentialName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumesCount"] = undefined /*out*/;
         } else {
             resourceInputs["accessKey"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endPoint"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

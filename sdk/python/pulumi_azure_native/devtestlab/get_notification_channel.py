@@ -27,7 +27,10 @@ class GetNotificationChannelResult:
     """
     A notification.
     """
-    def __init__(__self__, created_date=None, description=None, email_recipient=None, events=None, id=None, location=None, name=None, notification_locale=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, web_hook_url=None):
+    def __init__(__self__, azure_api_version=None, created_date=None, description=None, email_recipient=None, events=None, id=None, location=None, name=None, notification_locale=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, web_hook_url=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -67,6 +70,14 @@ class GetNotificationChannelResult:
         if web_hook_url and not isinstance(web_hook_url, str):
             raise TypeError("Expected argument 'web_hook_url' to be a str")
         pulumi.set(__self__, "web_hook_url", web_hook_url)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -179,6 +190,7 @@ class AwaitableGetNotificationChannelResult(GetNotificationChannelResult):
         if False:
             yield self
         return GetNotificationChannelResult(
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             description=self.description,
             email_recipient=self.email_recipient,
@@ -219,6 +231,7 @@ def get_notification_channel(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult).value
 
     return AwaitableGetNotificationChannelResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         description=pulumi.get(__ret__, 'description'),
         email_recipient=pulumi.get(__ret__, 'email_recipient'),
@@ -256,6 +269,7 @@ def get_notification_channel_output(expand: Optional[pulumi.Input[Optional[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult)
     return __ret__.apply(lambda __response__: GetNotificationChannelResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         description=pulumi.get(__response__, 'description'),
         email_recipient=pulumi.get(__response__, 'email_recipient'),

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// NetworkVirtualAppliance Resource.
     /// 
-    /// Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
-    /// Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Other available API versions: 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkVirtualAppliance")]
     public partial class NetworkVirtualAppliance : global::Pulumi.CustomResource
@@ -30,6 +30,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("addressPrefix")]
         public Output<string> AddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// BootStrapConfigurationBlobs storage URLs.
@@ -80,6 +86,12 @@ namespace Pulumi.AzureNative.Network
         public Output<ImmutableArray<Outputs.SubResourceResponse>> InboundSecurityRules { get; private set; } = null!;
 
         /// <summary>
+        /// List of Resource Uri of Public IPs for Internet Ingress Scenario.
+        /// </summary>
+        [Output("internetIngressPublicIps")]
+        public Output<ImmutableArray<Outputs.InternetIngressPublicIpsPropertiesResponse>> InternetIngressPublicIps { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -90,6 +102,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Network Profile containing configurations for Public and Private NIC.
+        /// </summary>
+        [Output("networkProfile")]
+        public Output<Outputs.NetworkVirtualAppliancePropertiesFormatResponseNetworkProfile?> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
         /// Network Virtual Appliance SKU.
@@ -132,6 +150,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("virtualApplianceAsn")]
         public Output<double?> VirtualApplianceAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// List of references to VirtualApplianceConnections.
+        /// </summary>
+        [Output("virtualApplianceConnections")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualApplianceConnections { get; private set; } = null!;
 
         /// <summary>
         /// List of Virtual Appliance Network Interfaces.
@@ -285,11 +309,29 @@ namespace Pulumi.AzureNative.Network
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
+        [Input("internetIngressPublicIps")]
+        private InputList<Inputs.InternetIngressPublicIpsPropertiesArgs>? _internetIngressPublicIps;
+
+        /// <summary>
+        /// List of Resource Uri of Public IPs for Internet Ingress Scenario.
+        /// </summary>
+        public InputList<Inputs.InternetIngressPublicIpsPropertiesArgs> InternetIngressPublicIps
+        {
+            get => _internetIngressPublicIps ?? (_internetIngressPublicIps = new InputList<Inputs.InternetIngressPublicIpsPropertiesArgs>());
+            set => _internetIngressPublicIps = value;
+        }
+
         /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Network Profile containing configurations for Public and Private NIC.
+        /// </summary>
+        [Input("networkProfile")]
+        public Input<Inputs.NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs>? NetworkProfile { get; set; }
 
         /// <summary>
         /// The name of Network Virtual Appliance.

@@ -13,11 +13,17 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// The task run that has the ARM resource and properties.
     /// The task run will have the information of request and result of a run.
     /// 
-    /// Uses Azure REST API version 2019-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-06-01-preview.
+    /// Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:TaskRun")]
     public partial class TaskRun : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// How the run should be forced to rerun even if the run request configuration has not changed
         /// </summary>

@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  *
  * Uses Azure REST API version 2019-10-01.
- *
- * Other available API versions: 2018-02-02.
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +46,10 @@ export interface GetAssessmentArgs {
  */
 export interface GetAssessmentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * For optimistic concurrency control.
      */
     readonly eTag?: string;
@@ -72,8 +74,6 @@ export interface GetAssessmentResult {
  * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  *
  * Uses Azure REST API version 2019-10-01.
- *
- * Other available API versions: 2018-02-02.
  */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

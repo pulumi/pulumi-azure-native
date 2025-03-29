@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.CostManagement
     /// <summary>
     /// A budget resource.
     /// 
-    /// Uses Azure REST API version 2023-04-01-preview.
+    /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
     /// 
-    /// Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+    /// Other available API versions: 2019-04-01-preview, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Budget")]
     public partial class Budget : global::Pulumi.CustomResource
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         [Output("amount")]
         public Output<double?> Amount { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The category of the budget.
@@ -68,7 +74,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<Outputs.ForecastSpendResponse> ForecastSpend { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -120,7 +126,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<Outputs.BudgetTimePeriodResponse> TimePeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

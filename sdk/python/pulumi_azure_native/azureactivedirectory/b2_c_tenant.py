@@ -26,6 +26,7 @@ class B2CTenantArgs:
                  sku: pulumi.Input['B2CResourceSKUArgs'],
                  country_code: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 is_go_local_tenant: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -35,6 +36,7 @@ class B2CTenantArgs:
         :param pulumi.Input['B2CResourceSKUArgs'] sku: SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
         :param pulumi.Input[str] country_code: Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
         :param pulumi.Input[str] display_name: The display name of the Azure AD B2C tenant.
+        :param pulumi.Input[bool] is_go_local_tenant: Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
         :param pulumi.Input[str] location: The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         :param pulumi.Input[str] resource_name: The initial domain name of the Azure AD B2C tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource Tags
@@ -45,6 +47,8 @@ class B2CTenantArgs:
             pulumi.set(__self__, "country_code", country_code)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if is_go_local_tenant is not None:
+            pulumi.set(__self__, "is_go_local_tenant", is_go_local_tenant)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if resource_name is not None:
@@ -101,6 +105,18 @@ class B2CTenantArgs:
         pulumi.set(self, "display_name", value)
 
     @property
+    @pulumi.getter(name="isGoLocalTenant")
+    def is_go_local_tenant(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
+        """
+        return pulumi.get(self, "is_go_local_tenant")
+
+    @is_go_local_tenant.setter
+    def is_go_local_tenant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_go_local_tenant", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -144,6 +160,7 @@ class B2CTenant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 is_go_local_tenant: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -151,14 +168,15 @@ class B2CTenant(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Uses Azure REST API version 2021-04-01. In version 1.x of the Azure Native provider, it used API version 2019-01-01-preview.
+        Uses Azure REST API version 2023-05-17-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
 
-        Other available API versions: 2019-01-01-preview, 2023-01-18-preview, 2023-05-17-preview.
+        Other available API versions: 2021-04-01, 2023-01-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureactivedirectory [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] country_code: Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
         :param pulumi.Input[str] display_name: The display name of the Azure AD B2C tenant.
+        :param pulumi.Input[bool] is_go_local_tenant: Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
         :param pulumi.Input[str] location: The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_name_: The initial domain name of the Azure AD B2C tenant.
@@ -172,9 +190,9 @@ class B2CTenant(pulumi.CustomResource):
                  args: B2CTenantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Uses Azure REST API version 2021-04-01. In version 1.x of the Azure Native provider, it used API version 2019-01-01-preview.
+        Uses Azure REST API version 2023-05-17-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
 
-        Other available API versions: 2019-01-01-preview, 2023-01-18-preview, 2023-05-17-preview.
+        Other available API versions: 2021-04-01, 2023-01-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureactivedirectory [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param B2CTenantArgs args: The arguments to use to populate this resource's properties.
@@ -193,6 +211,7 @@ class B2CTenant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 is_go_local_tenant: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -209,6 +228,7 @@ class B2CTenant(pulumi.CustomResource):
 
             __props__.__dict__["country_code"] = country_code
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["is_go_local_tenant"] = is_go_local_tenant
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -218,6 +238,7 @@ class B2CTenant(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["billing_config"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -247,7 +268,9 @@ class B2CTenant(pulumi.CustomResource):
 
         __props__ = B2CTenantArgs.__new__(B2CTenantArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["billing_config"] = None
+        __props__.__dict__["is_go_local_tenant"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sku"] = None
@@ -258,12 +281,28 @@ class B2CTenant(pulumi.CustomResource):
         return B2CTenant(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="billingConfig")
     def billing_config(self) -> pulumi.Output[Optional['outputs.B2CTenantResourcePropertiesResponseBillingConfig']]:
         """
         The billing configuration for the tenant.
         """
         return pulumi.get(self, "billing_config")
+
+    @property
+    @pulumi.getter(name="isGoLocalTenant")
+    def is_go_local_tenant(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
+        """
+        return pulumi.get(self, "is_go_local_tenant")
 
     @property
     @pulumi.getter

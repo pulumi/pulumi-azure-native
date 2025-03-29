@@ -132,7 +132,7 @@ class View(pulumi.CustomResource):
         """
         The view resource format.
 
-        Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
+        Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class View(pulumi.CustomResource):
         """
         The view resource format.
 
-        Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
+        Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param ViewArgs args: The arguments to use to populate this resource's properties.
@@ -196,6 +196,7 @@ class View(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["user_id"] = user_id
             __props__.__dict__["view_name"] = view_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["changed"] = None
             __props__.__dict__["created"] = None
             __props__.__dict__["name"] = None
@@ -225,6 +226,7 @@ class View(pulumi.CustomResource):
 
         __props__ = ViewArgs.__new__(ViewArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["changed"] = None
         __props__.__dict__["created"] = None
         __props__.__dict__["definition"] = None
@@ -235,6 +237,14 @@ class View(pulumi.CustomResource):
         __props__.__dict__["user_id"] = None
         __props__.__dict__["view_name"] = None
         return View(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

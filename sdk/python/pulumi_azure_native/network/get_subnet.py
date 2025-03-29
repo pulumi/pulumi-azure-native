@@ -27,7 +27,7 @@ class GetSubnetResult:
     """
     Subnet in a virtual network resource.
     """
-    def __init__(__self__, address_prefix=None, address_prefixes=None, application_gateway_ip_configurations=None, delegations=None, etag=None, id=None, ip_allocations=None, ip_configuration_profiles=None, ip_configurations=None, name=None, nat_gateway=None, network_security_group=None, private_endpoint_network_policies=None, private_endpoints=None, private_link_service_network_policies=None, provisioning_state=None, purpose=None, resource_navigation_links=None, route_table=None, service_association_links=None, service_endpoint_policies=None, service_endpoints=None, type=None):
+    def __init__(__self__, address_prefix=None, address_prefixes=None, application_gateway_ip_configurations=None, azure_api_version=None, default_outbound_access=None, delegations=None, etag=None, id=None, ip_allocations=None, ip_configuration_profiles=None, ip_configurations=None, ipam_pool_prefix_allocations=None, name=None, nat_gateway=None, network_security_group=None, private_endpoint_network_policies=None, private_endpoints=None, private_link_service_network_policies=None, provisioning_state=None, purpose=None, resource_navigation_links=None, route_table=None, service_association_links=None, service_endpoint_policies=None, service_endpoints=None, sharing_scope=None, type=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -37,6 +37,12 @@ class GetSubnetResult:
         if application_gateway_ip_configurations and not isinstance(application_gateway_ip_configurations, list):
             raise TypeError("Expected argument 'application_gateway_ip_configurations' to be a list")
         pulumi.set(__self__, "application_gateway_ip_configurations", application_gateway_ip_configurations)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if default_outbound_access and not isinstance(default_outbound_access, bool):
+            raise TypeError("Expected argument 'default_outbound_access' to be a bool")
+        pulumi.set(__self__, "default_outbound_access", default_outbound_access)
         if delegations and not isinstance(delegations, list):
             raise TypeError("Expected argument 'delegations' to be a list")
         pulumi.set(__self__, "delegations", delegations)
@@ -55,6 +61,9 @@ class GetSubnetResult:
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
         pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if ipam_pool_prefix_allocations and not isinstance(ipam_pool_prefix_allocations, list):
+            raise TypeError("Expected argument 'ipam_pool_prefix_allocations' to be a list")
+        pulumi.set(__self__, "ipam_pool_prefix_allocations", ipam_pool_prefix_allocations)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -94,6 +103,9 @@ class GetSubnetResult:
         if service_endpoints and not isinstance(service_endpoints, list):
             raise TypeError("Expected argument 'service_endpoints' to be a list")
         pulumi.set(__self__, "service_endpoints", service_endpoints)
+        if sharing_scope and not isinstance(sharing_scope, str):
+            raise TypeError("Expected argument 'sharing_scope' to be a str")
+        pulumi.set(__self__, "sharing_scope", sharing_scope)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -121,6 +133,22 @@ class GetSubnetResult:
         Application gateway IP configurations of virtual network resource.
         """
         return pulumi.get(self, "application_gateway_ip_configurations")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="defaultOutboundAccess")
+    def default_outbound_access(self) -> Optional[bool]:
+        """
+        Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
+        """
+        return pulumi.get(self, "default_outbound_access")
 
     @property
     @pulumi.getter
@@ -169,6 +197,14 @@ class GetSubnetResult:
         An array of references to the network interface IP configurations using subnet.
         """
         return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter(name="ipamPoolPrefixAllocations")
+    def ipam_pool_prefix_allocations(self) -> Optional[Sequence['outputs.IpamPoolPrefixAllocationResponse']]:
+        """
+        A list of IPAM Pools for allocating IP address prefixes.
+        """
+        return pulumi.get(self, "ipam_pool_prefix_allocations")
 
     @property
     @pulumi.getter
@@ -275,6 +311,14 @@ class GetSubnetResult:
         return pulumi.get(self, "service_endpoints")
 
     @property
+    @pulumi.getter(name="sharingScope")
+    def sharing_scope(self) -> Optional[str]:
+        """
+        Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+        """
+        return pulumi.get(self, "sharing_scope")
+
+    @property
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
@@ -292,12 +336,15 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             address_prefix=self.address_prefix,
             address_prefixes=self.address_prefixes,
             application_gateway_ip_configurations=self.application_gateway_ip_configurations,
+            azure_api_version=self.azure_api_version,
+            default_outbound_access=self.default_outbound_access,
             delegations=self.delegations,
             etag=self.etag,
             id=self.id,
             ip_allocations=self.ip_allocations,
             ip_configuration_profiles=self.ip_configuration_profiles,
             ip_configurations=self.ip_configurations,
+            ipam_pool_prefix_allocations=self.ipam_pool_prefix_allocations,
             name=self.name,
             nat_gateway=self.nat_gateway,
             network_security_group=self.network_security_group,
@@ -311,6 +358,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             service_association_links=self.service_association_links,
             service_endpoint_policies=self.service_endpoint_policies,
             service_endpoints=self.service_endpoints,
+            sharing_scope=self.sharing_scope,
             type=self.type)
 
 
@@ -322,9 +370,9 @@ def get_subnet(expand: Optional[str] = None,
     """
     Gets the specified subnet by virtual network and resource group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: Expands referenced resources.
@@ -344,12 +392,15 @@ def get_subnet(expand: Optional[str] = None,
         address_prefix=pulumi.get(__ret__, 'address_prefix'),
         address_prefixes=pulumi.get(__ret__, 'address_prefixes'),
         application_gateway_ip_configurations=pulumi.get(__ret__, 'application_gateway_ip_configurations'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        default_outbound_access=pulumi.get(__ret__, 'default_outbound_access'),
         delegations=pulumi.get(__ret__, 'delegations'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         ip_allocations=pulumi.get(__ret__, 'ip_allocations'),
         ip_configuration_profiles=pulumi.get(__ret__, 'ip_configuration_profiles'),
         ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
+        ipam_pool_prefix_allocations=pulumi.get(__ret__, 'ipam_pool_prefix_allocations'),
         name=pulumi.get(__ret__, 'name'),
         nat_gateway=pulumi.get(__ret__, 'nat_gateway'),
         network_security_group=pulumi.get(__ret__, 'network_security_group'),
@@ -363,6 +414,7 @@ def get_subnet(expand: Optional[str] = None,
         service_association_links=pulumi.get(__ret__, 'service_association_links'),
         service_endpoint_policies=pulumi.get(__ret__, 'service_endpoint_policies'),
         service_endpoints=pulumi.get(__ret__, 'service_endpoints'),
+        sharing_scope=pulumi.get(__ret__, 'sharing_scope'),
         type=pulumi.get(__ret__, 'type'))
 def get_subnet_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -372,9 +424,9 @@ def get_subnet_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Gets the specified subnet by virtual network and resource group.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: Expands referenced resources.
@@ -393,12 +445,15 @@ def get_subnet_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
         address_prefix=pulumi.get(__response__, 'address_prefix'),
         address_prefixes=pulumi.get(__response__, 'address_prefixes'),
         application_gateway_ip_configurations=pulumi.get(__response__, 'application_gateway_ip_configurations'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        default_outbound_access=pulumi.get(__response__, 'default_outbound_access'),
         delegations=pulumi.get(__response__, 'delegations'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         ip_allocations=pulumi.get(__response__, 'ip_allocations'),
         ip_configuration_profiles=pulumi.get(__response__, 'ip_configuration_profiles'),
         ip_configurations=pulumi.get(__response__, 'ip_configurations'),
+        ipam_pool_prefix_allocations=pulumi.get(__response__, 'ipam_pool_prefix_allocations'),
         name=pulumi.get(__response__, 'name'),
         nat_gateway=pulumi.get(__response__, 'nat_gateway'),
         network_security_group=pulumi.get(__response__, 'network_security_group'),
@@ -412,4 +467,5 @@ def get_subnet_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
         service_association_links=pulumi.get(__response__, 'service_association_links'),
         service_endpoint_policies=pulumi.get(__response__, 'service_endpoint_policies'),
         service_endpoints=pulumi.get(__response__, 'service_endpoints'),
+        sharing_scope=pulumi.get(__response__, 'sharing_scope'),
         type=pulumi.get(__response__, 'type')))

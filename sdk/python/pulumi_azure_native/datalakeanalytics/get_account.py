@@ -27,10 +27,13 @@ class GetAccountResult:
     """
     A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     """
-    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, debug_data_access_level=None, default_data_lake_store_account=None, default_data_lake_store_account_type=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, hive_metastores=None, id=None, last_modified_time=None, location=None, max_active_job_count_per_user=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, max_job_running_time_in_min=None, max_queued_job_count_per_user=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, public_data_lake_store_accounts=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None, virtual_network_rules=None):
+    def __init__(__self__, account_id=None, azure_api_version=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, debug_data_access_level=None, default_data_lake_store_account=None, default_data_lake_store_account_type=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, hive_metastores=None, id=None, last_modified_time=None, location=None, max_active_job_count_per_user=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, max_job_running_time_in_min=None, max_queued_job_count_per_user=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, public_data_lake_store_accounts=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None, virtual_network_rules=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if compute_policies and not isinstance(compute_policies, list):
             raise TypeError("Expected argument 'compute_policies' to be a list")
         pulumi.set(__self__, "compute_policies", compute_policies)
@@ -141,6 +144,14 @@ class GetAccountResult:
         The unique identifier associated with this Data Lake Analytics account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="computePolicies")
@@ -422,6 +433,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             account_id=self.account_id,
+            azure_api_version=self.azure_api_version,
             compute_policies=self.compute_policies,
             creation_time=self.creation_time,
             current_tier=self.current_tier,
@@ -478,6 +490,7 @@ def get_account(account_name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         account_id=pulumi.get(__ret__, 'account_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         compute_policies=pulumi.get(__ret__, 'compute_policies'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         current_tier=pulumi.get(__ret__, 'current_tier'),
@@ -531,6 +544,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:datalakeanalytics:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
         account_id=pulumi.get(__response__, 'account_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         compute_policies=pulumi.get(__response__, 'compute_policies'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         current_tier=pulumi.get(__response__, 'current_tier'),

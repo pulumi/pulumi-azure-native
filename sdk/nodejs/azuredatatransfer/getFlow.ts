@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets flow resource.
  *
- * Uses Azure REST API version 2023-10-11-preview.
+ * Uses Azure REST API version 2024-09-27.
  *
- * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
+ * Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFlow(args: GetFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetFlowArgs {
  * The flow resource definition.
  */
 export interface GetFlowResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -82,9 +86,9 @@ export interface GetFlowResult {
 /**
  * Gets flow resource.
  *
- * Uses Azure REST API version 2023-10-11-preview.
+ * Uses Azure REST API version 2024-09-27.
  *
- * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
+ * Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFlowOutput(args: GetFlowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

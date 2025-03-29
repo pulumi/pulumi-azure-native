@@ -171,7 +171,9 @@ class InterfaceEndpoint(pulumi.CustomResource):
         """
         Interface endpoint resource.
 
-        Uses Azure REST API version 2019-02-01.
+        Uses Azure REST API version 2019-02-01. In version 2.x of the Azure Native provider, it used API version 2019-02-01.
+
+        Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +195,9 @@ class InterfaceEndpoint(pulumi.CustomResource):
         """
         Interface endpoint resource.
 
-        Uses Azure REST API version 2019-02-01.
+        Uses Azure REST API version 2019-02-01. In version 2.x of the Azure Native provider, it used API version 2019-02-01.
+
+        Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param InterfaceEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -237,13 +241,14 @@ class InterfaceEndpoint(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["network_interfaces"] = None
             __props__.__dict__["owner"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180801:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20181001:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20181101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20181201:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20190201:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20190401:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20190601:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20190701:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20190801:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20190901:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20191101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20191201:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20200301:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20200401:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20200501:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20200601:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20200701:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20200801:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20201101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20210201:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20210301:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20210501:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20210801:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20220101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20220501:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20220701:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20220901:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20221101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20230201:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20230401:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20230501:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20230601:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20230901:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20231101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20240101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20240301:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20240501:InterfaceEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180801:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20181001:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20181101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20181201:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20190201:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20190401:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20190601:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20190701:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20190801:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20190901:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20191101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20191201:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20200301:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20200401:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20200501:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20200601:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20200701:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20200801:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20201101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20210201:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20210201:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20210301:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20210501:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20210801:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20220101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20220501:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20220701:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20220901:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20221101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20230201:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20230201:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20230401:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20230401:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20230501:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20230501:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20230601:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20230601:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20230901:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20230901:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20231101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20231101:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20240101:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20240101:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20240301:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20240301:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20240501:InterfaceEndpoint"), pulumi.Alias(type_="azure-native:network/v20240501:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network:PrivateEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InterfaceEndpoint, __self__).__init__(
             'azure-native:network:InterfaceEndpoint',
@@ -267,6 +272,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
         __props__ = InterfaceEndpointArgs.__new__(InterfaceEndpointArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["endpoint_service"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["fqdn"] = None
@@ -279,6 +285,14 @@ class InterfaceEndpoint(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return InterfaceEndpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="endpointService")

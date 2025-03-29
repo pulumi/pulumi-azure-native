@@ -27,7 +27,10 @@ class GetSnapshotResult:
     """
     Snapshot resource.
     """
-    def __init__(__self__, completion_percent=None, copy_completion_error=None, creation_data=None, data_access_auth_mode=None, disk_access_id=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, incremental=None, incremental_snapshot_family_id=None, location=None, managed_by=None, name=None, network_access_policy=None, os_type=None, provisioning_state=None, public_network_access=None, purchase_plan=None, security_profile=None, sku=None, supported_capabilities=None, supports_hibernation=None, tags=None, time_created=None, type=None, unique_id=None):
+    def __init__(__self__, azure_api_version=None, completion_percent=None, copy_completion_error=None, creation_data=None, data_access_auth_mode=None, disk_access_id=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, incremental=None, incremental_snapshot_family_id=None, location=None, managed_by=None, name=None, network_access_policy=None, os_type=None, provisioning_state=None, public_network_access=None, purchase_plan=None, security_profile=None, sku=None, supported_capabilities=None, supports_hibernation=None, tags=None, time_created=None, type=None, unique_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if completion_percent and not isinstance(completion_percent, float):
             raise TypeError("Expected argument 'completion_percent' to be a float")
         pulumi.set(__self__, "completion_percent", completion_percent)
@@ -121,6 +124,14 @@ class GetSnapshotResult:
         if unique_id and not isinstance(unique_id, str):
             raise TypeError("Expected argument 'unique_id' to be a str")
         pulumi.set(__self__, "unique_id", unique_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="completionPercent")
@@ -377,6 +388,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
         if False:
             yield self
         return GetSnapshotResult(
+            azure_api_version=self.azure_api_version,
             completion_percent=self.completion_percent,
             copy_completion_error=self.copy_completion_error,
             creation_data=self.creation_data,
@@ -416,9 +428,9 @@ def get_snapshot(resource_group_name: Optional[str] = None,
     """
     Gets information about a snapshot.
 
-    Uses Azure REST API version 2022-07-02.
+    Uses Azure REST API version 2024-03-02.
 
-    Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+    Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -431,6 +443,7 @@ def get_snapshot(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         completion_percent=pulumi.get(__ret__, 'completion_percent'),
         copy_completion_error=pulumi.get(__ret__, 'copy_completion_error'),
         creation_data=pulumi.get(__ret__, 'creation_data'),
@@ -468,9 +481,9 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about a snapshot.
 
-    Uses Azure REST API version 2022-07-02.
+    Uses Azure REST API version 2024-03-02.
 
-    Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+    Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -482,6 +495,7 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
     return __ret__.apply(lambda __response__: GetSnapshotResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         completion_percent=pulumi.get(__response__, 'completion_percent'),
         copy_completion_error=pulumi.get(__response__, 'copy_completion_error'),
         creation_data=pulumi.get(__response__, 'creation_data'),

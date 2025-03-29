@@ -27,7 +27,10 @@ class GetCustomEntityStoreAssignmentResult:
     """
     Custom entity store assignment
     """
-    def __init__(__self__, entity_store_database_link=None, id=None, name=None, principal=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, entity_store_database_link=None, id=None, name=None, principal=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if entity_store_database_link and not isinstance(entity_store_database_link, str):
             raise TypeError("Expected argument 'entity_store_database_link' to be a str")
         pulumi.set(__self__, "entity_store_database_link", entity_store_database_link)
@@ -46,6 +49,14 @@ class GetCustomEntityStoreAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="entityStoreDatabaseLink")
@@ -102,6 +113,7 @@ class AwaitableGetCustomEntityStoreAssignmentResult(GetCustomEntityStoreAssignme
         if False:
             yield self
         return GetCustomEntityStoreAssignmentResult(
+            azure_api_version=self.azure_api_version,
             entity_store_database_link=self.entity_store_database_link,
             id=self.id,
             name=self.name,
@@ -129,6 +141,7 @@ def get_custom_entity_store_assignment(custom_entity_store_assignment_name: Opti
     __ret__ = pulumi.runtime.invoke('azure-native:security:getCustomEntityStoreAssignment', __args__, opts=opts, typ=GetCustomEntityStoreAssignmentResult).value
 
     return AwaitableGetCustomEntityStoreAssignmentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         entity_store_database_link=pulumi.get(__ret__, 'entity_store_database_link'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -153,6 +166,7 @@ def get_custom_entity_store_assignment_output(custom_entity_store_assignment_nam
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getCustomEntityStoreAssignment', __args__, opts=opts, typ=GetCustomEntityStoreAssignmentResult)
     return __ret__.apply(lambda __response__: GetCustomEntityStoreAssignmentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         entity_store_database_link=pulumi.get(__response__, 'entity_store_database_link'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

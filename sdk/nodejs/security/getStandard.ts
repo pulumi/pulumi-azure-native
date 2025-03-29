@@ -36,6 +36,10 @@ export interface GetStandardArgs {
  */
 export interface GetStandardResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * category of the standard provided
      */
     readonly category?: string;

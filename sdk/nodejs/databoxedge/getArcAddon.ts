@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a specific addon by name.
  *
- * Uses Azure REST API version 2022-03-01.
+ * Uses Azure REST API version 2023-07-01.
  */
 export function getArcAddon(args: GetArcAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetArcAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +45,10 @@ export interface GetArcAddonArgs {
  * Arc Addon.
  */
 export interface GetArcAddonResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Host OS supported by the Arc addon.
      */
@@ -102,7 +106,7 @@ export interface GetArcAddonResult {
 /**
  * Gets a specific addon by name.
  *
- * Uses Azure REST API version 2022-03-01.
+ * Uses Azure REST API version 2023-07-01.
  */
 export function getArcAddonOutput(args: GetArcAddonOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArcAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Notification Hubs Namespace Resource.
  *
- * Uses Azure REST API version 2023-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+ * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
  *
- * Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -42,21 +42,91 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Time when the namespace was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Gets or sets whether or not the namespace is set as Critical.
+     */
+    public /*out*/ readonly critical!: pulumi.Output<boolean>;
+    /**
+     * Deprecated.
+     */
+    public readonly dataCenter!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets whether or not the namespace is currently enabled.
+     */
+    public /*out*/ readonly enabled!: pulumi.Output<boolean>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Azure Insights Metrics id.
+     */
+    public /*out*/ readonly metricId!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Represents namespace properties.
+     * Defines values for NamespaceType.
      */
-    public readonly properties!: pulumi.Output<outputs.notificationhubs.NamespacePropertiesResponse>;
+    public readonly namespaceType!: pulumi.Output<string | undefined>;
+    /**
+     * A collection of network authorization rules.
+     */
+    public readonly networkAcls!: pulumi.Output<outputs.notificationhubs.NetworkAclsResponse | undefined>;
+    /**
+     * Collection of Notification Hub or Notification Hub Namespace PNS credentials.
+     */
+    public readonly pnsCredentials!: pulumi.Output<outputs.notificationhubs.PnsCredentialsResponse | undefined>;
+    /**
+     * Private Endpoint Connections for namespace
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.notificationhubs.PrivateEndpointConnectionResourceResponse[]>;
+    /**
+     * Defines values for OperationProvisioningState.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Type of public network access.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
+     * Region. The value is always set to the same value as Namespace.Location, so we are deprecating
+     * this property.
+     */
+    public /*out*/ readonly region!: pulumi.Output<string>;
+    /**
+     * Allowed replication region
+     */
+    public readonly replicationRegion!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets scaleUnit where the namespace gets created
+     */
+    public readonly scaleUnit!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets endpoint you can use to perform NotificationHub
+     * operations.
+     */
+    public /*out*/ readonly serviceBusEndpoint!: pulumi.Output<string>;
     /**
      * The Sku description for a namespace
      */
     public readonly sku!: pulumi.Output<outputs.notificationhubs.SkuResponse>;
+    /**
+     * Namespace status.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * Namespace subscription id.
+     */
+    public /*out*/ readonly subscriptionId!: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -69,6 +139,14 @@ export class Namespace extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Time when the namespace was updated.
+     */
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * Namespace SKU name.
+     */
+    public readonly zoneRedundancy!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -87,23 +165,61 @@ export class Namespace extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["dataCenter"] = args ? args.dataCenter : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["namespaceType"] = args ? args.namespaceType : undefined;
+            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
+            resourceInputs["pnsCredentials"] = args ? args.pnsCredentials : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            resourceInputs["replicationRegion"] = args ? args.replicationRegion : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scaleUnit"] = args ? args.scaleUnit : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundancy"] = args ? args.zoneRedundancy : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["critical"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["serviceBusEndpoint"] = undefined /*out*/;
+            resourceInputs["subscriptionId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["critical"] = undefined /*out*/;
+            resourceInputs["dataCenter"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["namespaceType"] = undefined /*out*/;
+            resourceInputs["networkAcls"] = undefined /*out*/;
+            resourceInputs["pnsCredentials"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["replicationRegion"] = undefined /*out*/;
+            resourceInputs["scaleUnit"] = undefined /*out*/;
+            resourceInputs["serviceBusEndpoint"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subscriptionId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["zoneRedundancy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20140901:Namespace" }, { type: "azure-native:notificationhubs/v20160301:Namespace" }, { type: "azure-native:notificationhubs/v20170401:Namespace" }, { type: "azure-native:notificationhubs/v20230101preview:Namespace" }, { type: "azure-native:notificationhubs/v20230901:Namespace" }, { type: "azure-native:notificationhubs/v20231001preview:Namespace" }] };
@@ -117,6 +233,10 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceArgs {
     /**
+     * Deprecated.
+     */
+    dataCenter?: pulumi.Input<string>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -125,19 +245,51 @@ export interface NamespaceArgs {
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * Represents namespace properties.
+     * Defines values for NamespaceType.
      */
-    properties?: pulumi.Input<inputs.notificationhubs.NamespacePropertiesArgs>;
+    namespaceType?: pulumi.Input<string | enums.notificationhubs.NamespaceType>;
+    /**
+     * A collection of network authorization rules.
+     */
+    networkAcls?: pulumi.Input<inputs.notificationhubs.NetworkAclsArgs>;
+    /**
+     * Collection of Notification Hub or Notification Hub Namespace PNS credentials.
+     */
+    pnsCredentials?: pulumi.Input<inputs.notificationhubs.PnsCredentialsArgs>;
+    /**
+     * Defines values for OperationProvisioningState.
+     */
+    provisioningState?: pulumi.Input<string | enums.notificationhubs.OperationProvisioningState>;
+    /**
+     * Type of public network access.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.notificationhubs.PublicNetworkAccess>;
+    /**
+     * Allowed replication region
+     */
+    replicationRegion?: pulumi.Input<string | enums.notificationhubs.ReplicationRegion>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * Gets or sets scaleUnit where the namespace gets created
+     */
+    scaleUnit?: pulumi.Input<string>;
+    /**
      * The Sku description for a namespace
      */
     sku: pulumi.Input<inputs.notificationhubs.SkuArgs>;
     /**
+     * Namespace status.
+     */
+    status?: pulumi.Input<string | enums.notificationhubs.NamespaceStatus>;
+    /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Namespace SKU name.
+     */
+    zoneRedundancy?: pulumi.Input<string | enums.notificationhubs.ZoneRedundancyPreference>;
 }

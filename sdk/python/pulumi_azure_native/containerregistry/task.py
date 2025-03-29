@@ -311,9 +311,7 @@ class Task(pulumi.CustomResource):
         The task that has the ARM resource and task properties.
         The task will have all information to schedule a run against it.
 
-        Uses Azure REST API version 2019-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-06-01-preview.
-
-        Other available API versions: 2018-09-01, 2019-04-01.
+        Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -344,9 +342,7 @@ class Task(pulumi.CustomResource):
         The task that has the ARM resource and task properties.
         The task will have all information to schedule a run against it.
 
-        Uses Azure REST API version 2019-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-06-01-preview.
-
-        Other available API versions: 2018-09-01, 2019-04-01.
+        Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.
@@ -412,6 +408,7 @@ class Task(pulumi.CustomResource):
                 timeout = 3600
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["trigger"] = trigger
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -443,6 +440,7 @@ class Task(pulumi.CustomResource):
 
         __props__.__dict__["agent_configuration"] = None
         __props__.__dict__["agent_pool_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["credentials"] = None
         __props__.__dict__["identity"] = None
@@ -476,6 +474,14 @@ class Task(pulumi.CustomResource):
         The dedicated agent pool for the task.
         """
         return pulumi.get(self, "agent_pool_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")

@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// ModernizeProject model.
     /// 
-    /// Uses Azure REST API version 2022-05-01-preview.
+    /// Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:ModernizeProject")]
     public partial class ModernizeProject : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         [Output("identity")]
         public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 

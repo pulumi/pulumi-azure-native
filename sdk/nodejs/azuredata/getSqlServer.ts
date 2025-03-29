@@ -43,6 +43,10 @@ export interface GetSqlServerArgs {
  */
 export interface GetSqlServerResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Cores of the Sql Server.
      */
     readonly cores?: number;

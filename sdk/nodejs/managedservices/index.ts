@@ -29,13 +29,6 @@ utilities.lazyLoad(exports, ["RegistrationDefinition"], () => require("./registr
 // Export enums:
 export * from "../types/enums/managedservices";
 
-// Export sub-modules:
-import * as v20221001 from "./v20221001";
-
-export {
-    v20221001,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

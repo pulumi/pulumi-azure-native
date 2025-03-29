@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class ManagedClusterIdentityResponse
     {
         /// <summary>
+        /// The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.DelegatedResourceResponse>? DelegatedResources;
+        /// <summary>
         /// The principal id of the system assigned identity which is used by master components.
         /// </summary>
         public readonly string PrincipalId;
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
         [OutputConstructor]
         private ManagedClusterIdentityResponse(
+            ImmutableDictionary<string, Outputs.DelegatedResourceResponse>? delegatedResources,
+
             string principalId,
 
             string tenantId,
@@ -43,6 +49,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             ImmutableDictionary<string, Outputs.ManagedClusterIdentityResponseUserAssignedIdentities>? userAssignedIdentities)
         {
+            DelegatedResources = delegatedResources;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

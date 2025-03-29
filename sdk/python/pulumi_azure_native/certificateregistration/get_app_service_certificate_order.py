@@ -27,13 +27,16 @@ class GetAppServiceCertificateOrderResult:
     """
     SSL certificate purchase order.
     """
-    def __init__(__self__, app_service_certificate_not_renewable_reasons=None, auto_renew=None, certificates=None, contact=None, csr=None, distinguished_name=None, domain_verification_token=None, expiration_time=None, id=None, intermediate=None, is_private_key_external=None, key_size=None, kind=None, last_certificate_issuance_time=None, location=None, name=None, next_auto_renewal_time_stamp=None, product_type=None, provisioning_state=None, root=None, serial_number=None, signed_certificate=None, status=None, tags=None, type=None, validity_in_years=None):
+    def __init__(__self__, app_service_certificate_not_renewable_reasons=None, auto_renew=None, azure_api_version=None, certificates=None, contact=None, csr=None, distinguished_name=None, domain_verification_token=None, expiration_time=None, id=None, intermediate=None, is_private_key_external=None, key_size=None, kind=None, last_certificate_issuance_time=None, location=None, name=None, next_auto_renewal_time_stamp=None, product_type=None, provisioning_state=None, root=None, serial_number=None, signed_certificate=None, status=None, tags=None, type=None, validity_in_years=None):
         if app_service_certificate_not_renewable_reasons and not isinstance(app_service_certificate_not_renewable_reasons, list):
             raise TypeError("Expected argument 'app_service_certificate_not_renewable_reasons' to be a list")
         pulumi.set(__self__, "app_service_certificate_not_renewable_reasons", app_service_certificate_not_renewable_reasons)
         if auto_renew and not isinstance(auto_renew, bool):
             raise TypeError("Expected argument 'auto_renew' to be a bool")
         pulumi.set(__self__, "auto_renew", auto_renew)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if certificates and not isinstance(certificates, dict):
             raise TypeError("Expected argument 'certificates' to be a dict")
         pulumi.set(__self__, "certificates", certificates)
@@ -124,6 +127,14 @@ class GetAppServiceCertificateOrderResult:
         return pulumi.get(self, "auto_renew")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def certificates(self) -> Optional[Mapping[str, 'outputs.AppServiceCertificateResponse']]:
         """
@@ -207,7 +218,7 @@ class GetAppServiceCertificateOrderResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -324,6 +335,7 @@ class AwaitableGetAppServiceCertificateOrderResult(GetAppServiceCertificateOrder
         return GetAppServiceCertificateOrderResult(
             app_service_certificate_not_renewable_reasons=self.app_service_certificate_not_renewable_reasons,
             auto_renew=self.auto_renew,
+            azure_api_version=self.azure_api_version,
             certificates=self.certificates,
             contact=self.contact,
             csr=self.csr,
@@ -356,9 +368,9 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
     """
     Description for Get a certificate order.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str certificate_order_name: Name of the certificate order..
@@ -373,6 +385,7 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
     return AwaitableGetAppServiceCertificateOrderResult(
         app_service_certificate_not_renewable_reasons=pulumi.get(__ret__, 'app_service_certificate_not_renewable_reasons'),
         auto_renew=pulumi.get(__ret__, 'auto_renew'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         certificates=pulumi.get(__ret__, 'certificates'),
         contact=pulumi.get(__ret__, 'contact'),
         csr=pulumi.get(__ret__, 'csr'),
@@ -403,9 +416,9 @@ def get_app_service_certificate_order_output(certificate_order_name: Optional[pu
     """
     Description for Get a certificate order.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str certificate_order_name: Name of the certificate order..
@@ -419,6 +432,7 @@ def get_app_service_certificate_order_output(certificate_order_name: Optional[pu
     return __ret__.apply(lambda __response__: GetAppServiceCertificateOrderResult(
         app_service_certificate_not_renewable_reasons=pulumi.get(__response__, 'app_service_certificate_not_renewable_reasons'),
         auto_renew=pulumi.get(__response__, 'auto_renew'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         certificates=pulumi.get(__response__, 'certificates'),
         contact=pulumi.get(__response__, 'contact'),
         csr=pulumi.get(__response__, 'csr'),

@@ -27,7 +27,10 @@ class GetSentinelOnboardingStateResult:
     """
     Sentinel onboarding state
     """
-    def __init__(__self__, customer_managed_key=None, etag=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, customer_managed_key=None, etag=None, id=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if customer_managed_key and not isinstance(customer_managed_key, bool):
             raise TypeError("Expected argument 'customer_managed_key' to be a bool")
         pulumi.set(__self__, "customer_managed_key", customer_managed_key)
@@ -46,6 +49,14 @@ class GetSentinelOnboardingStateResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customerManagedKey")
@@ -102,6 +113,7 @@ class AwaitableGetSentinelOnboardingStateResult(GetSentinelOnboardingStateResult
         if False:
             yield self
         return GetSentinelOnboardingStateResult(
+            azure_api_version=self.azure_api_version,
             customer_managed_key=self.customer_managed_key,
             etag=self.etag,
             id=self.id,
@@ -117,9 +129,9 @@ def get_sentinel_onboarding_state(resource_group_name: Optional[str] = None,
     """
     Get Sentinel onboarding state
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+    Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -134,6 +146,7 @@ def get_sentinel_onboarding_state(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getSentinelOnboardingState', __args__, opts=opts, typ=GetSentinelOnboardingStateResult).value
 
     return AwaitableGetSentinelOnboardingStateResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         customer_managed_key=pulumi.get(__ret__, 'customer_managed_key'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -147,9 +160,9 @@ def get_sentinel_onboarding_state_output(resource_group_name: Optional[pulumi.In
     """
     Get Sentinel onboarding state
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+    Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -163,6 +176,7 @@ def get_sentinel_onboarding_state_output(resource_group_name: Optional[pulumi.In
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getSentinelOnboardingState', __args__, opts=opts, typ=GetSentinelOnboardingStateResult)
     return __ret__.apply(lambda __response__: GetSentinelOnboardingStateResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         customer_managed_key=pulumi.get(__response__, 'customer_managed_key'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

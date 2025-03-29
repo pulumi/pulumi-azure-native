@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Orbital
     /// <summary>
     /// Connects an edge site to an orbital gateway and describes what layer 2 traffic to forward between them.
     /// 
-    /// Uses Azure REST API version 2024-03-01-preview.
+    /// Uses Azure REST API version 2024-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01-preview.
     /// 
-    /// Other available API versions: 2024-03-01.
+    /// Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:L2Connection")]
     public partial class L2Connection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Globally-unique identifier for this connection that is to be used as a circuit ID.
         /// </summary>
@@ -36,6 +42,12 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         [Output("groundStation")]
         public Output<Outputs.L2ConnectionsPropertiesResponseGroundStation> GroundStation { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the partner router to establish a connection to within the ground station.
+        /// </summary>
+        [Output("groundStationPartnerRouter")]
+        public Output<Outputs.L2ConnectionsPropertiesResponseGroundStationPartnerRouter> GroundStationPartnerRouter { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -136,6 +148,12 @@ namespace Pulumi.AzureNative.Orbital
         public Input<Inputs.L2ConnectionsPropertiesGroundStationArgs> GroundStation { get; set; } = null!;
 
         /// <summary>
+        /// The name of the partner router to establish a connection to within the ground station.
+        /// </summary>
+        [Input("groundStationPartnerRouter", required: true)]
+        public Input<Inputs.L2ConnectionsPropertiesGroundStationPartnerRouterArgs> GroundStationPartnerRouter { get; set; } = null!;
+
+        /// <summary>
         /// L2 Connection name.
         /// </summary>
         [Input("l2ConnectionName")]
@@ -148,7 +166,7 @@ namespace Pulumi.AzureNative.Orbital
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+        /// The unique name of the partner router that cross-connects with the Orbital Edge Router at the edge site.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

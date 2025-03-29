@@ -27,7 +27,7 @@ class GetFileShareResult:
     """
     Properties of the file share, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, access_tier=None, access_tier_change_time=None, access_tier_status=None, deleted=None, deleted_time=None, enabled_protocols=None, etag=None, id=None, last_modified_time=None, lease_duration=None, lease_state=None, lease_status=None, metadata=None, name=None, remaining_retention_days=None, root_squash=None, share_quota=None, share_usage_bytes=None, signed_identifiers=None, snapshot_time=None, type=None, version=None):
+    def __init__(__self__, access_tier=None, access_tier_change_time=None, access_tier_status=None, azure_api_version=None, deleted=None, deleted_time=None, enabled_protocols=None, etag=None, file_share_paid_bursting=None, id=None, included_burst_iops=None, last_modified_time=None, lease_duration=None, lease_state=None, lease_status=None, max_burst_credits_for_iops=None, metadata=None, name=None, next_allowed_provisioned_bandwidth_downgrade_time=None, next_allowed_provisioned_iops_downgrade_time=None, next_allowed_quota_downgrade_time=None, provisioned_bandwidth_mibps=None, provisioned_iops=None, remaining_retention_days=None, root_squash=None, share_quota=None, share_usage_bytes=None, signed_identifiers=None, snapshot_time=None, type=None, version=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -37,6 +37,9 @@ class GetFileShareResult:
         if access_tier_status and not isinstance(access_tier_status, str):
             raise TypeError("Expected argument 'access_tier_status' to be a str")
         pulumi.set(__self__, "access_tier_status", access_tier_status)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if deleted and not isinstance(deleted, bool):
             raise TypeError("Expected argument 'deleted' to be a bool")
         pulumi.set(__self__, "deleted", deleted)
@@ -49,9 +52,15 @@ class GetFileShareResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if file_share_paid_bursting and not isinstance(file_share_paid_bursting, dict):
+            raise TypeError("Expected argument 'file_share_paid_bursting' to be a dict")
+        pulumi.set(__self__, "file_share_paid_bursting", file_share_paid_bursting)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if included_burst_iops and not isinstance(included_burst_iops, int):
+            raise TypeError("Expected argument 'included_burst_iops' to be a int")
+        pulumi.set(__self__, "included_burst_iops", included_burst_iops)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -64,12 +73,30 @@ class GetFileShareResult:
         if lease_status and not isinstance(lease_status, str):
             raise TypeError("Expected argument 'lease_status' to be a str")
         pulumi.set(__self__, "lease_status", lease_status)
+        if max_burst_credits_for_iops and not isinstance(max_burst_credits_for_iops, float):
+            raise TypeError("Expected argument 'max_burst_credits_for_iops' to be a float")
+        pulumi.set(__self__, "max_burst_credits_for_iops", max_burst_credits_for_iops)
         if metadata and not isinstance(metadata, dict):
             raise TypeError("Expected argument 'metadata' to be a dict")
         pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if next_allowed_provisioned_bandwidth_downgrade_time and not isinstance(next_allowed_provisioned_bandwidth_downgrade_time, str):
+            raise TypeError("Expected argument 'next_allowed_provisioned_bandwidth_downgrade_time' to be a str")
+        pulumi.set(__self__, "next_allowed_provisioned_bandwidth_downgrade_time", next_allowed_provisioned_bandwidth_downgrade_time)
+        if next_allowed_provisioned_iops_downgrade_time and not isinstance(next_allowed_provisioned_iops_downgrade_time, str):
+            raise TypeError("Expected argument 'next_allowed_provisioned_iops_downgrade_time' to be a str")
+        pulumi.set(__self__, "next_allowed_provisioned_iops_downgrade_time", next_allowed_provisioned_iops_downgrade_time)
+        if next_allowed_quota_downgrade_time and not isinstance(next_allowed_quota_downgrade_time, str):
+            raise TypeError("Expected argument 'next_allowed_quota_downgrade_time' to be a str")
+        pulumi.set(__self__, "next_allowed_quota_downgrade_time", next_allowed_quota_downgrade_time)
+        if provisioned_bandwidth_mibps and not isinstance(provisioned_bandwidth_mibps, int):
+            raise TypeError("Expected argument 'provisioned_bandwidth_mibps' to be a int")
+        pulumi.set(__self__, "provisioned_bandwidth_mibps", provisioned_bandwidth_mibps)
+        if provisioned_iops and not isinstance(provisioned_iops, int):
+            raise TypeError("Expected argument 'provisioned_iops' to be a int")
+        pulumi.set(__self__, "provisioned_iops", provisioned_iops)
         if remaining_retention_days and not isinstance(remaining_retention_days, int):
             raise TypeError("Expected argument 'remaining_retention_days' to be a int")
         pulumi.set(__self__, "remaining_retention_days", remaining_retention_days)
@@ -120,6 +147,14 @@ class GetFileShareResult:
         return pulumi.get(self, "access_tier_status")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def deleted(self) -> bool:
         """
@@ -152,12 +187,28 @@ class GetFileShareResult:
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="fileSharePaidBursting")
+    def file_share_paid_bursting(self) -> Optional['outputs.FileSharePropertiesResponseFileSharePaidBursting']:
+        """
+        File Share Paid Bursting properties.
+        """
+        return pulumi.get(self, "file_share_paid_bursting")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includedBurstIops")
+    def included_burst_iops(self) -> int:
+        """
+        The calculated burst IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type.
+        """
+        return pulumi.get(self, "included_burst_iops")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -192,6 +243,14 @@ class GetFileShareResult:
         return pulumi.get(self, "lease_status")
 
     @property
+    @pulumi.getter(name="maxBurstCreditsForIops")
+    def max_burst_credits_for_iops(self) -> float:
+        """
+        The calculated maximum burst credits for the share. This property is only for file shares created under Files Provisioned v2 account type.
+        """
+        return pulumi.get(self, "max_burst_credits_for_iops")
+
+    @property
     @pulumi.getter
     def metadata(self) -> Optional[Mapping[str, str]]:
         """
@@ -206,6 +265,46 @@ class GetFileShareResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextAllowedProvisionedBandwidthDowngradeTime")
+    def next_allowed_provisioned_bandwidth_downgrade_time(self) -> str:
+        """
+        Returns the next allowed provisioned bandwidth downgrade time for the share. This property is only for file shares created under Files Provisioned v2 account type.
+        """
+        return pulumi.get(self, "next_allowed_provisioned_bandwidth_downgrade_time")
+
+    @property
+    @pulumi.getter(name="nextAllowedProvisionedIopsDowngradeTime")
+    def next_allowed_provisioned_iops_downgrade_time(self) -> str:
+        """
+        Returns the next allowed provisioned IOPS downgrade time for the share. This property is only for file shares created under Files Provisioned v2 account type.
+        """
+        return pulumi.get(self, "next_allowed_provisioned_iops_downgrade_time")
+
+    @property
+    @pulumi.getter(name="nextAllowedQuotaDowngradeTime")
+    def next_allowed_quota_downgrade_time(self) -> str:
+        """
+        Returns the next allowed provisioned storage size downgrade time for the share. This property is only for file shares created under Files Provisioned v1 SSD and Files Provisioned v2 account type
+        """
+        return pulumi.get(self, "next_allowed_quota_downgrade_time")
+
+    @property
+    @pulumi.getter(name="provisionedBandwidthMibps")
+    def provisioned_bandwidth_mibps(self) -> Optional[int]:
+        """
+        The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
+        """
+        return pulumi.get(self, "provisioned_bandwidth_mibps")
+
+    @property
+    @pulumi.getter(name="provisionedIops")
+    def provisioned_iops(self) -> Optional[int]:
+        """
+        The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
+        """
+        return pulumi.get(self, "provisioned_iops")
 
     @property
     @pulumi.getter(name="remainingRetentionDays")
@@ -227,7 +326,7 @@ class GetFileShareResult:
     @pulumi.getter(name="shareQuota")
     def share_quota(self) -> Optional[int]:
         """
-        The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
         """
         return pulumi.get(self, "share_quota")
 
@@ -281,17 +380,26 @@ class AwaitableGetFileShareResult(GetFileShareResult):
             access_tier=self.access_tier,
             access_tier_change_time=self.access_tier_change_time,
             access_tier_status=self.access_tier_status,
+            azure_api_version=self.azure_api_version,
             deleted=self.deleted,
             deleted_time=self.deleted_time,
             enabled_protocols=self.enabled_protocols,
             etag=self.etag,
+            file_share_paid_bursting=self.file_share_paid_bursting,
             id=self.id,
+            included_burst_iops=self.included_burst_iops,
             last_modified_time=self.last_modified_time,
             lease_duration=self.lease_duration,
             lease_state=self.lease_state,
             lease_status=self.lease_status,
+            max_burst_credits_for_iops=self.max_burst_credits_for_iops,
             metadata=self.metadata,
             name=self.name,
+            next_allowed_provisioned_bandwidth_downgrade_time=self.next_allowed_provisioned_bandwidth_downgrade_time,
+            next_allowed_provisioned_iops_downgrade_time=self.next_allowed_provisioned_iops_downgrade_time,
+            next_allowed_quota_downgrade_time=self.next_allowed_quota_downgrade_time,
+            provisioned_bandwidth_mibps=self.provisioned_bandwidth_mibps,
+            provisioned_iops=self.provisioned_iops,
             remaining_retention_days=self.remaining_retention_days,
             root_squash=self.root_squash,
             share_quota=self.share_quota,
@@ -310,9 +418,9 @@ def get_file_share(account_name: Optional[str] = None,
     """
     Gets properties of a specified share.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -332,17 +440,26 @@ def get_file_share(account_name: Optional[str] = None,
         access_tier=pulumi.get(__ret__, 'access_tier'),
         access_tier_change_time=pulumi.get(__ret__, 'access_tier_change_time'),
         access_tier_status=pulumi.get(__ret__, 'access_tier_status'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         deleted=pulumi.get(__ret__, 'deleted'),
         deleted_time=pulumi.get(__ret__, 'deleted_time'),
         enabled_protocols=pulumi.get(__ret__, 'enabled_protocols'),
         etag=pulumi.get(__ret__, 'etag'),
+        file_share_paid_bursting=pulumi.get(__ret__, 'file_share_paid_bursting'),
         id=pulumi.get(__ret__, 'id'),
+        included_burst_iops=pulumi.get(__ret__, 'included_burst_iops'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         lease_duration=pulumi.get(__ret__, 'lease_duration'),
         lease_state=pulumi.get(__ret__, 'lease_state'),
         lease_status=pulumi.get(__ret__, 'lease_status'),
+        max_burst_credits_for_iops=pulumi.get(__ret__, 'max_burst_credits_for_iops'),
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
+        next_allowed_provisioned_bandwidth_downgrade_time=pulumi.get(__ret__, 'next_allowed_provisioned_bandwidth_downgrade_time'),
+        next_allowed_provisioned_iops_downgrade_time=pulumi.get(__ret__, 'next_allowed_provisioned_iops_downgrade_time'),
+        next_allowed_quota_downgrade_time=pulumi.get(__ret__, 'next_allowed_quota_downgrade_time'),
+        provisioned_bandwidth_mibps=pulumi.get(__ret__, 'provisioned_bandwidth_mibps'),
+        provisioned_iops=pulumi.get(__ret__, 'provisioned_iops'),
         remaining_retention_days=pulumi.get(__ret__, 'remaining_retention_days'),
         root_squash=pulumi.get(__ret__, 'root_squash'),
         share_quota=pulumi.get(__ret__, 'share_quota'),
@@ -359,9 +476,9 @@ def get_file_share_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets properties of a specified share.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -380,17 +497,26 @@ def get_file_share_output(account_name: Optional[pulumi.Input[str]] = None,
         access_tier=pulumi.get(__response__, 'access_tier'),
         access_tier_change_time=pulumi.get(__response__, 'access_tier_change_time'),
         access_tier_status=pulumi.get(__response__, 'access_tier_status'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         deleted=pulumi.get(__response__, 'deleted'),
         deleted_time=pulumi.get(__response__, 'deleted_time'),
         enabled_protocols=pulumi.get(__response__, 'enabled_protocols'),
         etag=pulumi.get(__response__, 'etag'),
+        file_share_paid_bursting=pulumi.get(__response__, 'file_share_paid_bursting'),
         id=pulumi.get(__response__, 'id'),
+        included_burst_iops=pulumi.get(__response__, 'included_burst_iops'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         lease_duration=pulumi.get(__response__, 'lease_duration'),
         lease_state=pulumi.get(__response__, 'lease_state'),
         lease_status=pulumi.get(__response__, 'lease_status'),
+        max_burst_credits_for_iops=pulumi.get(__response__, 'max_burst_credits_for_iops'),
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),
+        next_allowed_provisioned_bandwidth_downgrade_time=pulumi.get(__response__, 'next_allowed_provisioned_bandwidth_downgrade_time'),
+        next_allowed_provisioned_iops_downgrade_time=pulumi.get(__response__, 'next_allowed_provisioned_iops_downgrade_time'),
+        next_allowed_quota_downgrade_time=pulumi.get(__response__, 'next_allowed_quota_downgrade_time'),
+        provisioned_bandwidth_mibps=pulumi.get(__response__, 'provisioned_bandwidth_mibps'),
+        provisioned_iops=pulumi.get(__response__, 'provisioned_iops'),
         remaining_retention_days=pulumi.get(__response__, 'remaining_retention_days'),
         root_squash=pulumi.get(__response__, 'root_squash'),
         share_quota=pulumi.get(__response__, 'share_quota'),

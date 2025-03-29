@@ -41,6 +41,10 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The group ids for the private endpoint resource.
      */
     readonly groupIds: string[];

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2016-06-01.
  *
- * Other available API versions: 2015-08-01-preview.
+ * Other available API versions: 2015-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listConnectionConsentLinks(args: ListConnectionConsentLinksArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionConsentLinksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,7 +57,7 @@ export interface ListConnectionConsentLinksResult {
  *
  * Uses Azure REST API version 2016-06-01.
  *
- * Other available API versions: 2015-08-01-preview.
+ * Other available API versions: 2015-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listConnectionConsentLinksOutput(args: ListConnectionConsentLinksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConnectionConsentLinksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -29,29 +29,3 @@ from .rai_policy import *
 from .shared_commitment_plan import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.cognitiveservices.v20170418 as __v20170418
-    v20170418 = __v20170418
-    import pulumi_azure_native.cognitiveservices.v20230501 as __v20230501
-    v20230501 = __v20230501
-    import pulumi_azure_native.cognitiveservices.v20231001preview as __v20231001preview
-    v20231001preview = __v20231001preview
-    import pulumi_azure_native.cognitiveservices.v20240401preview as __v20240401preview
-    v20240401preview = __v20240401preview
-    import pulumi_azure_native.cognitiveservices.v20240601preview as __v20240601preview
-    v20240601preview = __v20240601preview
-    import pulumi_azure_native.cognitiveservices.v20241001 as __v20241001
-    v20241001 = __v20241001
-    import pulumi_azure_native.cognitiveservices.v20250401preview as __v20250401preview
-    v20250401preview = __v20250401preview
-else:
-    v20170418 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20170418')
-    v20230501 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20230501')
-    v20231001preview = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20231001preview')
-    v20240401preview = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20240401preview')
-    v20240601preview = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20240601preview')
-    v20241001 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20241001')
-    v20250401preview = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20250401preview')
-

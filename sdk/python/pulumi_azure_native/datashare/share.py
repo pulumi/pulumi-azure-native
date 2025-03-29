@@ -135,7 +135,7 @@ class Share(pulumi.CustomResource):
         """
         A share data transfer object.
 
-        Uses Azure REST API version 2021-08-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+        Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +155,7 @@ class Share(pulumi.CustomResource):
         """
         A share data transfer object.
 
-        Uses Azure REST API version 2021-08-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+        Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param ShareArgs args: The arguments to use to populate this resource's properties.
@@ -197,6 +197,7 @@ class Share(pulumi.CustomResource):
             __props__.__dict__["share_kind"] = share_kind
             __props__.__dict__["share_name"] = share_name
             __props__.__dict__["terms"] = terms
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -228,6 +229,7 @@ class Share(pulumi.CustomResource):
 
         __props__ = ShareArgs.__new__(ShareArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
@@ -239,6 +241,14 @@ class Share(pulumi.CustomResource):
         __props__.__dict__["user_email"] = None
         __props__.__dict__["user_name"] = None
         return Share(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAt")

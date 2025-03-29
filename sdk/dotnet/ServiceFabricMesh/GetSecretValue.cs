@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     public sealed class GetSecretValueResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 
         [OutputConstructor]
         private GetSecretValueResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 
             string? value)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

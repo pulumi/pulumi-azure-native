@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.ContainerService
     /// <summary>
     /// The AutoUpgradeProfile resource.
     /// 
-    /// Uses Azure REST API version 2024-05-02-preview.
+    /// Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:AutoUpgradeProfile")]
     public partial class AutoUpgradeProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Configures how auto-upgrade will be run.
         /// </summary>

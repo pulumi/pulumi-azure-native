@@ -102,6 +102,10 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The max number of concurrent runs for the pipeline.
         /// </summary>
         public readonly int? Concurrency;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.DataFactory
 
             ImmutableArray<object> annotations,
 
+            string azureApiVersion,
+
             int? concurrency,
 
             string? description,
@@ -176,6 +182,7 @@ namespace Pulumi.AzureNative.DataFactory
         {
             Activities = activities;
             Annotations = annotations;
+            AzureApiVersion = azureApiVersion;
             Concurrency = concurrency;
             Description = description;
             Etag = etag;

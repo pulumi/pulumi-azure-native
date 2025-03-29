@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Schema for MSIX Package properties.
  *
- * Uses Azure REST API version 2022-09-09. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+ * Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
  *
- * Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+ * Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class MSIXPackage extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class MSIXPackage extends pulumi.CustomResource {
         return obj['__pulumiType'] === MSIXPackage.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * User friendly Name to be displayed in the portal. 
      */
@@ -86,7 +90,7 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     public readonly packageRelativePath!: pulumi.Output<string | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
@@ -94,7 +98,7 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Package Version found in the appxmanifest.xml. 
+     * Package version found in the appxmanifest.xml. 
      */
     public readonly version!: pulumi.Output<string | undefined>;
 
@@ -129,10 +133,12 @@ export class MSIXPackage extends pulumi.CustomResource {
             resourceInputs["packageRelativePath"] = args ? args.packageRelativePath : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["imagePath"] = undefined /*out*/;
             resourceInputs["isActive"] = undefined /*out*/;
@@ -149,7 +155,7 @@ export class MSIXPackage extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20200921preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201019preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201102preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201110preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210114preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210201preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210309preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210712:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210903preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220210preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220909:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20221014preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20230905:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20231004preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20231101preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240116preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240306preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240403:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240408preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240808preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20241101preview:MSIXPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20200921preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201019preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201102preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201110preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210114preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210201preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210309preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210712:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210903preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220210preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220909:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20221014preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20230707preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20230905:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20231004preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20231101preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240116preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240306preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240403:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240408preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20240808preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20241101preview:MSIXPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MSIXPackage.__pulumiType, name, resourceInputs, opts);
     }
@@ -212,7 +218,7 @@ export interface MSIXPackageArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Package Version found in the appxmanifest.xml. 
+     * Package version found in the appxmanifest.xml. 
      */
     version?: pulumi.Input<string>;
 }

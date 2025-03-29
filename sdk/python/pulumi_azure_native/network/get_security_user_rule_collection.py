@@ -27,10 +27,13 @@ class GetSecurityUserRuleCollectionResult:
     """
     Defines the security user rule collection.
     """
-    def __init__(__self__, applies_to_groups=None, description=None, etag=None, id=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
+    def __init__(__self__, applies_to_groups=None, azure_api_version=None, description=None, etag=None, id=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
         if applies_to_groups and not isinstance(applies_to_groups, list):
             raise TypeError("Expected argument 'applies_to_groups' to be a list")
         pulumi.set(__self__, "applies_to_groups", applies_to_groups)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -63,6 +66,14 @@ class GetSecurityUserRuleCollectionResult:
         Groups for configuration
         """
         return pulumi.get(self, "applies_to_groups")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -136,6 +147,7 @@ class AwaitableGetSecurityUserRuleCollectionResult(GetSecurityUserRuleCollection
             yield self
         return GetSecurityUserRuleCollectionResult(
             applies_to_groups=self.applies_to_groups,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             etag=self.etag,
             id=self.id,
@@ -154,9 +166,9 @@ def get_security_user_rule_collection(configuration_name: Optional[str] = None,
     """
     Gets a network manager security user configuration rule collection.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -174,6 +186,7 @@ def get_security_user_rule_collection(configuration_name: Optional[str] = None,
 
     return AwaitableGetSecurityUserRuleCollectionResult(
         applies_to_groups=pulumi.get(__ret__, 'applies_to_groups'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -190,9 +203,9 @@ def get_security_user_rule_collection_output(configuration_name: Optional[pulumi
     """
     Gets a network manager security user configuration rule collection.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -209,6 +222,7 @@ def get_security_user_rule_collection_output(configuration_name: Optional[pulumi
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getSecurityUserRuleCollection', __args__, opts=opts, typ=GetSecurityUserRuleCollectionResult)
     return __ret__.apply(lambda __response__: GetSecurityUserRuleCollectionResult(
         applies_to_groups=pulumi.get(__response__, 'applies_to_groups'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

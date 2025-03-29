@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * MQ kafkaConnector/topicMap resource
  *
- * Uses Azure REST API version 2023-10-04-preview.
+ * Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
  */
 export class KafkaConnectorTopicMap extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class KafkaConnectorTopicMap extends pulumi.CustomResource {
         return obj['__pulumiType'] === KafkaConnectorTopicMap.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The batching settings for kafka messages.
      */
@@ -139,11 +143,13 @@ export class KafkaConnectorTopicMap extends pulumi.CustomResource {
             resourceInputs["routes"] = args ? args.routes : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["topicMapName"] = args ? args.topicMapName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["batching"] = undefined /*out*/;
             resourceInputs["compression"] = undefined /*out*/;
             resourceInputs["copyMqttProperties"] = undefined /*out*/;

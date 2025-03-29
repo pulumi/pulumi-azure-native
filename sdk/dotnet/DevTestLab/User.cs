@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.DevTestLab
     /// <summary>
     /// Profile of a lab user.
     /// 
-    /// Uses Azure REST API version 2018-09-15. In version 1.x of the Azure Native provider, it used API version 2018-09-15.
+    /// Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:User")]
     public partial class User : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The creation date of the user profile.
         /// </summary>

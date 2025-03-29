@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A ManufacturingPlatformProviderHub resource
  *
- * Uses Azure REST API version 2025-03-01.
+ * Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2025-03-01.
  */
 export class ManufacturingDataService extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class ManufacturingDataService extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManufacturingDataService.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The managed service identities assigned to this resource.
      */
@@ -93,10 +97,12 @@ export class ManufacturingDataService extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

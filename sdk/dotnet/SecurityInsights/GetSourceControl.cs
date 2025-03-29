@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// 
         /// Uses Azure REST API version 2023-05-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// 
         /// Uses Azure REST API version 2023-05-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// 
         /// Uses Azure REST API version 2023-05-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetSourceControlResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Array of source control content types.
         /// </summary>
         public readonly ImmutableArray<string> ContentTypes;
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
         [OutputConstructor]
         private GetSourceControlResult(
+            string azureApiVersion,
+
             ImmutableArray<string> contentTypes,
 
             string? description,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             ContentTypes = contentTypes;
             Description = description;
             DisplayName = displayName;

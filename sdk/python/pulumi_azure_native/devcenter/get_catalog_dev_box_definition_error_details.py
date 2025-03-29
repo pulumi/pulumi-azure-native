@@ -58,9 +58,9 @@ def get_catalog_dev_box_definition_error_details(catalog_name: Optional[str] = N
     """
     Gets Catalog Devbox Definition error details
 
-    Uses Azure REST API version 2023-08-01-preview.
+    Uses Azure REST API version 2023-10-01-preview.
 
-    Other available API versions: 2023-10-01-preview.
+    Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str catalog_name: The name of the Catalog.
@@ -86,9 +86,9 @@ def get_catalog_dev_box_definition_error_details_output(catalog_name: Optional[p
     """
     Gets Catalog Devbox Definition error details
 
-    Uses Azure REST API version 2023-08-01-preview.
+    Uses Azure REST API version 2023-10-01-preview.
 
-    Other available API versions: 2023-10-01-preview.
+    Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str catalog_name: The name of the Catalog.

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Use this method to get the device security group for the specified IoT Hub resource.
  *
  * Uses Azure REST API version 2019-08-01.
+ *
+ * Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDeviceSecurityGroup(args: GetDeviceSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceSecurityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +42,10 @@ export interface GetDeviceSecurityGroupResult {
      */
     readonly allowlistRules?: outputs.security.AllowlistCustomAlertRuleResponse[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The deny-list custom alert rules.
      */
     readonly denylistRules?: outputs.security.DenylistCustomAlertRuleResponse[];
@@ -68,6 +74,8 @@ export interface GetDeviceSecurityGroupResult {
  * Use this method to get the device security group for the specified IoT Hub resource.
  *
  * Uses Azure REST API version 2019-08-01.
+ *
+ * Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDeviceSecurityGroupOutput(args: GetDeviceSecurityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceSecurityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

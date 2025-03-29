@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets an API Management gateway resource description.
         /// 
-        /// Uses Azure REST API version 2023-09-01-preview.
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetApiGatewayResult> InvokeAsync(GetApiGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiGatewayResult>("azure-native:apimanagement:getApiGateway", args ?? new GetApiGatewayArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets an API Management gateway resource description.
         /// 
-        /// Uses Azure REST API version 2023-09-01-preview.
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetApiGatewayResult> Invoke(GetApiGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayResult>("azure-native:apimanagement:getApiGateway", args ?? new GetApiGatewayInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets an API Management gateway resource description.
         /// 
-        /// Uses Azure REST API version 2023-09-01-preview.
+        /// Uses Azure REST API version 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetApiGatewayResult> Invoke(GetApiGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayResult>("azure-native:apimanagement:getApiGateway", args ?? new GetApiGatewayInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.ApiManagement
     [OutputType]
     public sealed class GetApiGatewayResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Information regarding how the gateway should integrate with backend systems.
         /// </summary>
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetApiGatewayResult(
+            string azureApiVersion,
+
             Outputs.BackendConfigurationResponse? backend,
 
             Outputs.GatewayConfigurationApiResponse? configurationApi,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string? virtualNetworkType)
         {
+            AzureApiVersion = azureApiVersion;
             Backend = backend;
             ConfigurationApi = configurationApi;
             CreatedAtUtc = createdAtUtc;

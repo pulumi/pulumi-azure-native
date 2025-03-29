@@ -86,9 +86,9 @@ def get_monitor_default_key(monitor_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorDefaultKeyResult:
     """
-    Uses Azure REST API version 2022-06-01.
+    Uses Azure REST API version 2023-10-20.
 
-    Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+    Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str monitor_name: Monitor resource name
@@ -109,9 +109,9 @@ def get_monitor_default_key_output(monitor_name: Optional[pulumi.Input[str]] = N
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorDefaultKeyResult]:
     """
-    Uses Azure REST API version 2022-06-01.
+    Uses Azure REST API version 2023-10-20.
 
-    Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+    Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str monitor_name: Monitor resource name

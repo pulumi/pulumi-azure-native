@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Returns the properties of a lab resource.
  *
- * Uses Azure REST API version 2022-08-01.
+ * Uses Azure REST API version 2023-06-07.
  *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +41,10 @@ export interface GetLabResult {
      * The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
      */
     readonly autoShutdownProfile: outputs.labservices.AutoShutdownProfileResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
      */
@@ -73,6 +77,10 @@ export interface GetLabResult {
      * Current provisioning state of the lab.
      */
     readonly provisioningState: string;
+    /**
+     * Error details of last operation done on lab.
+     */
+    readonly resourceOperationError: outputs.labservices.ResourceOperationErrorResponse;
     /**
      * The lab user list management profile.
      */
@@ -109,9 +117,9 @@ export interface GetLabResult {
 /**
  * Returns the properties of a lab resource.
  *
- * Uses Azure REST API version 2022-08-01.
+ * Uses Azure REST API version 2023-06-07.
  *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

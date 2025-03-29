@@ -186,9 +186,9 @@ class RoleAssignment(pulumi.CustomResource):
         """
         Role Assignments
 
-        Uses Azure REST API version 2022-04-01. In version 1.x of the Azure Native provider, it used API version 2020-10-01-preview.
+        Uses Azure REST API version 2022-04-01. In version 2.x of the Azure Native provider, it used API version 2022-04-01.
 
-        Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
+        Other available API versions: 2020-08-01-preview, 2020-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,9 +211,9 @@ class RoleAssignment(pulumi.CustomResource):
         """
         Role Assignments
 
-        Uses Azure REST API version 2022-04-01. In version 1.x of the Azure Native provider, it used API version 2020-10-01-preview.
+        Uses Azure REST API version 2022-04-01. In version 2.x of the Azure Native provider, it used API version 2022-04-01.
 
-        Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
+        Other available API versions: 2020-08-01-preview, 2020-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -265,6 +265,7 @@ class RoleAssignment(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["created_on"] = None
             __props__.__dict__["name"] = None
@@ -295,6 +296,7 @@ class RoleAssignment(pulumi.CustomResource):
 
         __props__ = RoleAssignmentArgs.__new__(RoleAssignmentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["condition"] = None
         __props__.__dict__["condition_version"] = None
         __props__.__dict__["created_by"] = None
@@ -310,6 +312,14 @@ class RoleAssignment(pulumi.CustomResource):
         __props__.__dict__["updated_by"] = None
         __props__.__dict__["updated_on"] = None
         return RoleAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

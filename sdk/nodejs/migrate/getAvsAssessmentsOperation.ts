@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a AvsAssessment
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAvsAssessmentsOperation(args: GetAvsAssessmentsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetAvsAssessmentsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,6 +58,26 @@ export interface GetAvsAssessmentsOperationResult {
      */
     readonly assessmentType: string;
     /**
+     * AVS Assessment Scenario.
+     */
+    readonly avsAssessmentScenario?: string;
+    /**
+     * Estimated External Storage for Assessment.
+     */
+    readonly avsEstimatedExternalStorages: outputs.migrate.AvsEstimatedExternalStorageResponse[];
+    /**
+     * Estimated External Storage for Assessment.
+     */
+    readonly avsEstimatedNetworks: outputs.migrate.AvsEstimatedNetworkResponse[];
+    /**
+     * Estimated AVS SKU for Assessment.
+     */
+    readonly avsEstimatedNodes: outputs.migrate.AvsEstimatedNodeResponse[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
     readonly azureLocation?: string;
@@ -69,6 +89,14 @@ export interface GetAvsAssessmentsOperationResult {
      * Confidence Rating in Percentage.
      */
     readonly confidenceRatingInPercentage: number;
+    /**
+     * collection of cost components.
+     */
+    readonly costComponents: outputs.migrate.CostComponentResponse[];
+    /**
+     * Percentage of CPU capacity reserved for processing additional workloads.
+     */
+    readonly cpuHeadroom?: number;
     /**
      * Predicted CPU utilization.
      */
@@ -90,21 +118,33 @@ export interface GetAvsAssessmentsOperationResult {
      */
     readonly discountPercentage?: number;
     /**
+     * List of AVS external storage types.
+     */
+    readonly externalStorageTypes?: string[];
+    /**
      * Failures to tolerate and RAID level in a common property.
      */
     readonly failuresToTolerateAndRaidLevel?: string;
+    /**
+     * List of Failures to tolerate and RAID levels in a common property.
+     */
+    readonly failuresToTolerateAndRaidLevelList?: string[];
     /**
      * Gets the group type for the assessment.
      */
     readonly groupType: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
      * Is Stretch Cluster Enabled.
      */
     readonly isStretchClusterEnabled?: boolean;
+    /**
+     * Is VCF license applied
+     */
+    readonly isVcfByolEnabled?: boolean;
     /**
      * Limiting factor.
      */
@@ -121,6 +161,10 @@ export interface GetAvsAssessmentsOperationResult {
      * AVS node type.
      */
     readonly nodeType?: string;
+    /**
+     * AVS node types.
+     */
+    readonly nodeTypes?: string[];
     /**
      * Number of machines part of the assessment.
      */
@@ -237,9 +281,9 @@ export interface GetAvsAssessmentsOperationResult {
 /**
  * Get a AvsAssessment
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAvsAssessmentsOperationOutput(args: GetAvsAssessmentsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAvsAssessmentsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

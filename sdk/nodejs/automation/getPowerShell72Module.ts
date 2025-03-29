@@ -45,6 +45,10 @@ export interface GetPowerShell72ModuleResult {
      */
     readonly activityCount?: number;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Gets the creation time.
      */
     readonly creationTime?: string;

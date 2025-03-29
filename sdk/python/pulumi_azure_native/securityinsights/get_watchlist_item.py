@@ -27,7 +27,10 @@ class GetWatchlistItemResult:
     """
     Represents a Watchlist Item in Azure Security Insights.
     """
-    def __init__(__self__, created=None, created_by=None, entity_mapping=None, etag=None, id=None, is_deleted=None, items_key_value=None, name=None, system_data=None, tenant_id=None, type=None, updated=None, updated_by=None, watchlist_item_id=None, watchlist_item_type=None):
+    def __init__(__self__, azure_api_version=None, created=None, created_by=None, entity_mapping=None, etag=None, id=None, is_deleted=None, items_key_value=None, name=None, system_data=None, tenant_id=None, type=None, updated=None, updated_by=None, watchlist_item_id=None, watchlist_item_type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -73,6 +76,14 @@ class GetWatchlistItemResult:
         if watchlist_item_type and not isinstance(watchlist_item_type, str):
             raise TypeError("Expected argument 'watchlist_item_type' to be a str")
         pulumi.set(__self__, "watchlist_item_type", watchlist_item_type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -201,6 +212,7 @@ class AwaitableGetWatchlistItemResult(GetWatchlistItemResult):
         if False:
             yield self
         return GetWatchlistItemResult(
+            azure_api_version=self.azure_api_version,
             created=self.created,
             created_by=self.created_by,
             entity_mapping=self.entity_mapping,
@@ -226,9 +238,9 @@ def get_watchlist_item(resource_group_name: Optional[str] = None,
     """
     Get a watchlist item.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2021-04-01, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+    Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -245,6 +257,7 @@ def get_watchlist_item(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getWatchlistItem', __args__, opts=opts, typ=GetWatchlistItemResult).value
 
     return AwaitableGetWatchlistItemResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created=pulumi.get(__ret__, 'created'),
         created_by=pulumi.get(__ret__, 'created_by'),
         entity_mapping=pulumi.get(__ret__, 'entity_mapping'),
@@ -268,9 +281,9 @@ def get_watchlist_item_output(resource_group_name: Optional[pulumi.Input[str]] =
     """
     Get a watchlist item.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2021-04-01, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+    Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -286,6 +299,7 @@ def get_watchlist_item_output(resource_group_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getWatchlistItem', __args__, opts=opts, typ=GetWatchlistItemResult)
     return __ret__.apply(lambda __response__: GetWatchlistItemResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created=pulumi.get(__response__, 'created'),
         created_by=pulumi.get(__response__, 'created_by'),
         entity_mapping=pulumi.get(__response__, 'entity_mapping'),

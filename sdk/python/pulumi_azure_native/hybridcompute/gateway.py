@@ -136,9 +136,9 @@ class Gateway(pulumi.CustomResource):
         """
         Describes an Arc Gateway.
 
-        Uses Azure REST API version 2024-03-31-preview.
+        Uses Azure REST API version 2024-07-31-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-31-preview.
 
-        Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+        Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,9 +158,9 @@ class Gateway(pulumi.CustomResource):
         """
         Describes an Arc Gateway.
 
-        Uses Azure REST API version 2024-03-31-preview.
+        Uses Azure REST API version 2024-07-31-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-31-preview.
 
-        Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+        Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
@@ -200,6 +200,7 @@ class Gateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["gateway_endpoint"] = None
             __props__.__dict__["gateway_id"] = None
             __props__.__dict__["name"] = None
@@ -231,6 +232,7 @@ class Gateway(pulumi.CustomResource):
         __props__ = GatewayArgs.__new__(GatewayArgs)
 
         __props__.__dict__["allowed_features"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["gateway_endpoint"] = None
         __props__.__dict__["gateway_id"] = None
         __props__.__dict__["gateway_type"] = None
@@ -249,6 +251,14 @@ class Gateway(pulumi.CustomResource):
         Specifies the list of features that are enabled for this Gateway.
         """
         return pulumi.get(self, "allowed_features")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="gatewayEndpoint")

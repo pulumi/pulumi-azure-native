@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
  *
- * Uses Azure REST API version 2023-01-01. In version 1.x of the Azure Native provider, it used API version 2020-01-01.
+ * Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
  *
- * Other available API versions: 2023-09-01-preview, 2025-01-01.
+ * Other available API versions: 2023-01-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Suppression extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Suppression extends pulumi.CustomResource {
         return obj['__pulumiType'] === Suppression.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the expiration time stamp.
      */
@@ -88,10 +92,12 @@ export class Suppression extends pulumi.CustomResource {
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["suppressionId"] = args ? args.suppressionId : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["expirationTimeStamp"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["expirationTimeStamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["suppressionId"] = undefined /*out*/;

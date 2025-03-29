@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Marketplace
     public sealed class GetPrivateStoreCollectionOfferResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Private store offer creation date
         /// </summary>
         public readonly string CreatedAt;
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNative.Marketplace
 
         [OutputConstructor]
         private GetPrivateStoreCollectionOfferResult(
+            string azureApiVersion,
+
             string createdAt,
 
             string? eTag,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.Marketplace
 
             bool? updateSuppressedDueIdempotence)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedAt = createdAt;
             ETag = eTag;
             IconFileUris = iconFileUris;

@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.AVS
     /// <summary>
     /// A cluster resource
     /// 
-    /// Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2020-03-20.
+    /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
     /// 
-    /// Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01, 2023-09-01.
+    /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The identity
         /// </summary>
@@ -38,7 +44,7 @@ namespace Pulumi.AzureNative.AVS
         public Output<ImmutableArray<string>> Hosts { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -50,16 +56,28 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster SKU
+        /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the vsan datastore associated with the cluster
+        /// </summary>
+        [Output("vsanDatastoreName")]
+        public Output<string?> VsanDatastoreName { get; private set; } = null!;
 
 
         /// <summary>
@@ -118,7 +136,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the cluster in the private cloud
+        /// Name of the cluster
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
@@ -142,7 +160,7 @@ namespace Pulumi.AzureNative.AVS
         }
 
         /// <summary>
-        /// The name of the private cloud.
+        /// Name of the private cloud
         /// </summary>
         [Input("privateCloudName", required: true)]
         public Input<string> PrivateCloudName { get; set; } = null!;
@@ -154,10 +172,16 @@ namespace Pulumi.AzureNative.AVS
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The cluster SKU
+        /// The SKU (Stock Keeping Unit) assigned to this resource.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the vsan datastore associated with the cluster
+        /// </summary>
+        [Input("vsanDatastoreName")]
+        public Input<string>? VsanDatastoreName { get; set; }
 
         public ClusterArgs()
         {

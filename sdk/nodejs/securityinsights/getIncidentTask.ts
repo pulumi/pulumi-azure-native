@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets an incident task.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2024-09-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+ * Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getIncidentTask(args: GetIncidentTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +43,14 @@ export interface GetIncidentTaskArgs {
     workspaceName: string;
 }
 
+/**
+ * Describes incident task properties
+ */
 export interface GetIncidentTaskResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Information on the client (user or application) that made some action
      */
@@ -76,6 +83,9 @@ export interface GetIncidentTaskResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * The status of the task
+     */
     readonly status: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -93,9 +103,9 @@ export interface GetIncidentTaskResult {
 /**
  * Gets an incident task.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2024-09-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+ * Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getIncidentTaskOutput(args: GetIncidentTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIncidentTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

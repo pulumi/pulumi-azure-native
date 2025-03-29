@@ -188,7 +188,7 @@ class MultipleActivationKey(pulumi.CustomResource):
         """
         MAK key details.
 
-        Uses Azure REST API version 2019-09-16-preview. In version 1.x of the Azure Native provider, it used API version 2019-09-16-preview.
+        Uses Azure REST API version 2019-09-16-preview. In version 2.x of the Azure Native provider, it used API version 2019-09-16-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +211,7 @@ class MultipleActivationKey(pulumi.CustomResource):
         """
         MAK key details.
 
-        Uses Azure REST API version 2019-09-16-preview. In version 1.x of the Azure Native provider, it used API version 2019-09-16-preview.
+        Uses Azure REST API version 2019-09-16-preview. In version 2.x of the Azure Native provider, it used API version 2019-09-16-preview.
 
         :param str resource_name: The name of the resource.
         :param MultipleActivationKeyArgs args: The arguments to use to populate this resource's properties.
@@ -259,6 +259,7 @@ class MultipleActivationKey(pulumi.CustomResource):
                 support_type = 'SupplementalServicing'
             __props__.__dict__["support_type"] = support_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["expiration_date"] = None
             __props__.__dict__["multiple_activation_key"] = None
             __props__.__dict__["name"] = None
@@ -289,6 +290,7 @@ class MultipleActivationKey(pulumi.CustomResource):
         __props__ = MultipleActivationKeyArgs.__new__(MultipleActivationKeyArgs)
 
         __props__.__dict__["agreement_number"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["expiration_date"] = None
         __props__.__dict__["installed_server_number"] = None
         __props__.__dict__["is_eligible"] = None
@@ -309,6 +311,14 @@ class MultipleActivationKey(pulumi.CustomResource):
         Agreement number under which the key is requested.
         """
         return pulumi.get(self, "agreement_number")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="expirationDate")

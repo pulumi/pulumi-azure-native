@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.Search
     public static class ListQueryKeyBySearchService
     {
         /// <summary>
-        /// Returns the list of query API keys for the given Azure Cognitive Search service.
+        /// Returns the list of query API keys for the given search service.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+        /// Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListQueryKeyBySearchServiceResult> InvokeAsync(ListQueryKeyBySearchServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListQueryKeyBySearchServiceResult>("azure-native:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns the list of query API keys for the given Azure Cognitive Search service.
+        /// Returns the list of query API keys for the given search service.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+        /// Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListQueryKeyBySearchServiceResult> Invoke(ListQueryKeyBySearchServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListQueryKeyBySearchServiceResult>("azure-native:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns the list of query API keys for the given Azure Cognitive Search service.
+        /// Returns the list of query API keys for the given search service.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+        /// Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListQueryKeyBySearchServiceResult> Invoke(ListQueryKeyBySearchServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListQueryKeyBySearchServiceResult>("azure-native:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Search
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// The name of the search service associated with the specified resource group.
         /// </summary>
         [Input("searchServiceName", required: true)]
         public string SearchServiceName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Search
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// The name of the search service associated with the specified resource group.
         /// </summary>
         [Input("searchServiceName", required: true)]
         public Input<string> SearchServiceName { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Search
         /// </summary>
         public readonly string NextLink;
         /// <summary>
-        /// The query keys for the Azure Cognitive Search service.
+        /// The query keys for the search service.
         /// </summary>
         public readonly ImmutableArray<Outputs.QueryKeyResponse> Value;
 

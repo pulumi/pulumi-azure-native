@@ -11,21 +11,15 @@ namespace Pulumi.AzureNative.Security.Inputs
 {
 
     /// <summary>
-    /// Configuration for servers Arc auto provisioning
+    /// configuration for Vulnerability Assessment autoprovisioning
     /// </summary>
     public sealed class DefenderForServersGcpOfferingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Optional Arc private link scope resource id to link the Arc agent
+        /// The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
         /// </summary>
-        [Input("privateLinkScope")]
-        public Input<string>? PrivateLinkScope { get; set; }
-
-        /// <summary>
-        /// Optional HTTP proxy endpoint to use for the Arc agent
-        /// </summary>
-        [Input("proxy")]
-        public Input<string>? Proxy { get; set; }
+        [Input("type")]
+        public InputUnion<string, Pulumi.AzureNative.Security.Type>? Type { get; set; }
 
         public DefenderForServersGcpOfferingConfigurationArgs()
         {

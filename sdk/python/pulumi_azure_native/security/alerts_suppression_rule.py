@@ -152,7 +152,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         """
         Describes the suppression rule
 
-        Uses Azure REST API version 2019-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-01-01-preview.
+        Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,7 +173,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         """
         Describes the suppression rule
 
-        Uses Azure REST API version 2019-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-01-01-preview.
+        Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AlertsSuppressionRuleArgs args: The arguments to use to populate this resource's properties.
@@ -219,6 +219,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'state'")
             __props__.__dict__["state"] = state
             __props__.__dict__["suppression_alerts_scope"] = suppression_alerts_scope
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["last_modified_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
@@ -247,6 +248,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         __props__ = AlertsSuppressionRuleArgs.__new__(AlertsSuppressionRuleArgs)
 
         __props__.__dict__["alert_type"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["comment"] = None
         __props__.__dict__["expiration_date_utc"] = None
         __props__.__dict__["last_modified_utc"] = None
@@ -264,6 +266,14 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         Type of the alert to automatically suppress. For all alert types, use '*'
         """
         return pulumi.get(self, "alert_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

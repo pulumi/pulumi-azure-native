@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Full view of the custom domain suffix configuration for ASEv3.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> InvokeAsync(GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult>("azure-native:web:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", args ?? new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Full view of the custom domain suffix configuration for ASEv3.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> Invoke(GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult>("azure-native:web:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", args ?? new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Full view of the custom domain suffix configuration for ASEv3.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> Invoke(GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult>("azure-native:web:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", args ?? new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Web
     public sealed class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
         /// </summary>
         public readonly string? CertificateUrl;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult(
+            string azureApiVersion,
+
             string? certificateUrl,
 
             string? dnsSuffix,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.Web
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CertificateUrl = certificateUrl;
             DnsSuffix = dnsSuffix;
             Id = id;

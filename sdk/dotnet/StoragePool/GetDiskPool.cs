@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.StoragePool
         /// Get a Disk pool.
         /// 
         /// Uses Azure REST API version 2021-08-01.
-        /// 
-        /// Other available API versions: 2020-03-15-preview.
         /// </summary>
         public static Task<GetDiskPoolResult> InvokeAsync(GetDiskPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskPoolResult>("azure-native:storagepool:getDiskPool", args ?? new GetDiskPoolArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.StoragePool
         /// Get a Disk pool.
         /// 
         /// Uses Azure REST API version 2021-08-01.
-        /// 
-        /// Other available API versions: 2020-03-15-preview.
         /// </summary>
         public static Output<GetDiskPoolResult> Invoke(GetDiskPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskPoolResult>("azure-native:storagepool:getDiskPool", args ?? new GetDiskPoolInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.StoragePool
         /// Get a Disk pool.
         /// 
         /// Uses Azure REST API version 2021-08-01.
-        /// 
-        /// Other available API versions: 2020-03-15-preview.
         /// </summary>
         public static Output<GetDiskPoolResult> Invoke(GetDiskPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskPoolResult>("azure-native:storagepool:getDiskPool", args ?? new GetDiskPoolInvokeArgs(), options.WithDefaults());
@@ -96,6 +90,10 @@ namespace Pulumi.AzureNative.StoragePool
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// List of Azure Managed Disks to attach to a Disk Pool.
         /// </summary>
         public readonly ImmutableArray<Outputs.DiskResponse> Disks;
@@ -154,6 +152,8 @@ namespace Pulumi.AzureNative.StoragePool
 
             ImmutableArray<string> availabilityZones,
 
+            string azureApiVersion,
+
             ImmutableArray<Outputs.DiskResponse> disks,
 
             string id,
@@ -182,6 +182,7 @@ namespace Pulumi.AzureNative.StoragePool
         {
             AdditionalCapabilities = additionalCapabilities;
             AvailabilityZones = availabilityZones;
+            AzureApiVersion = azureApiVersion;
             Disks = disks;
             Id = id;
             Location = location;

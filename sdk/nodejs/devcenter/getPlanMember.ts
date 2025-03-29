@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets a devcenter plan member.
  *
- * Uses Azure REST API version 2024-05-01-preview.
+ * Uses Azure REST API version 2024-10-01-preview.
  *
- * Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPlanMember(args: GetPlanMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanMemberResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetPlanMemberArgs {
  */
 export interface GetPlanMemberResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -63,6 +67,10 @@ export interface GetPlanMemberResult {
      */
     readonly provisioningState: string;
     /**
+     * The sync status of the member.
+     */
+    readonly syncStatus: outputs.devcenter.PlanMemberSyncStatusResponse;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.devcenter.SystemDataResponse;
@@ -71,6 +79,10 @@ export interface GetPlanMemberResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The tier of the member.
+     */
+    readonly tier?: string;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
@@ -78,9 +90,9 @@ export interface GetPlanMemberResult {
 /**
  * Gets a devcenter plan member.
  *
- * Uses Azure REST API version 2024-05-01-preview.
+ * Uses Azure REST API version 2024-10-01-preview.
  *
- * Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPlanMemberOutput(args: GetPlanMemberOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlanMemberResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

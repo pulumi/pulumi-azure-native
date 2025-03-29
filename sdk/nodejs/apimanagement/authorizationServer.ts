@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * External OAuth authorization server settings.
  *
- * Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+ * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
- * Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AuthorizationServer extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class AuthorizationServer extends pulumi.CustomResource {
      * HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
      */
     public readonly authorizationMethods!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies the mechanism by which access token is passed to the API. 
      */
@@ -175,11 +179,13 @@ export class AuthorizationServer extends pulumi.CustomResource {
             resourceInputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
             resourceInputs["useInApiDocumentation"] = args ? args.useInApiDocumentation : undefined;
             resourceInputs["useInTestConsole"] = args ? args.useInTestConsole : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authorizationEndpoint"] = undefined /*out*/;
             resourceInputs["authorizationMethods"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bearerTokenSendingMethods"] = undefined /*out*/;
             resourceInputs["clientAuthenticationMethod"] = undefined /*out*/;
             resourceInputs["clientId"] = undefined /*out*/;

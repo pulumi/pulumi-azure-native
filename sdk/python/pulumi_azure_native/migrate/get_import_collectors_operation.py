@@ -27,7 +27,10 @@ class GetImportCollectorsOperationResult:
     """
     Import collector resource.
     """
-    def __init__(__self__, created_timestamp=None, discovery_site_id=None, id=None, name=None, provisioning_state=None, system_data=None, type=None, updated_timestamp=None):
+    def __init__(__self__, azure_api_version=None, created_timestamp=None, discovery_site_id=None, id=None, name=None, provisioning_state=None, system_data=None, type=None, updated_timestamp=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_timestamp and not isinstance(created_timestamp, str):
             raise TypeError("Expected argument 'created_timestamp' to be a str")
         pulumi.set(__self__, "created_timestamp", created_timestamp)
@@ -54,6 +57,14 @@ class GetImportCollectorsOperationResult:
         pulumi.set(__self__, "updated_timestamp", updated_timestamp)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="createdTimestamp")
     def created_timestamp(self) -> str:
         """
@@ -73,7 +84,7 @@ class GetImportCollectorsOperationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -124,6 +135,7 @@ class AwaitableGetImportCollectorsOperationResult(GetImportCollectorsOperationRe
         if False:
             yield self
         return GetImportCollectorsOperationResult(
+            azure_api_version=self.azure_api_version,
             created_timestamp=self.created_timestamp,
             discovery_site_id=self.discovery_site_id,
             id=self.id,
@@ -141,9 +153,9 @@ def get_import_collectors_operation(import_collector_name: Optional[str] = None,
     """
     Get a ImportCollector
 
-    Uses Azure REST API version 2023-03-15.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str import_collector_name: Import collector ARM name
@@ -158,6 +170,7 @@ def get_import_collectors_operation(import_collector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:migrate:getImportCollectorsOperation', __args__, opts=opts, typ=GetImportCollectorsOperationResult).value
 
     return AwaitableGetImportCollectorsOperationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
         discovery_site_id=pulumi.get(__ret__, 'discovery_site_id'),
         id=pulumi.get(__ret__, 'id'),
@@ -173,9 +186,9 @@ def get_import_collectors_operation_output(import_collector_name: Optional[pulum
     """
     Get a ImportCollector
 
-    Uses Azure REST API version 2023-03-15.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str import_collector_name: Import collector ARM name
@@ -189,6 +202,7 @@ def get_import_collectors_operation_output(import_collector_name: Optional[pulum
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getImportCollectorsOperation', __args__, opts=opts, typ=GetImportCollectorsOperationResult)
     return __ret__.apply(lambda __response__: GetImportCollectorsOperationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_timestamp=pulumi.get(__response__, 'created_timestamp'),
         discovery_site_id=pulumi.get(__response__, 'discovery_site_id'),
         id=pulumi.get(__response__, 'id'),

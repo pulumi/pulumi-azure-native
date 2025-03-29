@@ -199,38 +199,6 @@ namespace Pulumi.AzureNative.Workloads
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The type of file share config.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConfigurationType : IEquatable<ConfigurationType>
-    {
-        private readonly string _value;
-
-        private ConfigurationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConfigurationType Skip { get; } = new ConfigurationType("Skip");
-        public static ConfigurationType CreateAndMount { get; } = new ConfigurationType("CreateAndMount");
-        public static ConfigurationType Mount { get; } = new ConfigurationType("Mount");
-
-        public static bool operator ==(ConfigurationType left, ConfigurationType right) => left.Equals(right);
-        public static bool operator !=(ConfigurationType left, ConfigurationType right) => !left.Equals(right);
-
-        public static explicit operator string(ConfigurationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConfigurationType other && Equals(other);
-        public bool Equals(ConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     [EnumType]
     public readonly struct DayOfWeek : IEquatable<DayOfWeek>
     {
@@ -277,12 +245,33 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Standard LRS Disk SKU.
+        /// </summary>
         public static DiskSkuName Standard_LRS { get; } = new DiskSkuName("Standard_LRS");
+        /// <summary>
+        /// Premium_LRS Disk SKU.
+        /// </summary>
         public static DiskSkuName Premium_LRS { get; } = new DiskSkuName("Premium_LRS");
+        /// <summary>
+        /// StandardSSD_LRS Disk SKU.
+        /// </summary>
         public static DiskSkuName StandardSSD_LRS { get; } = new DiskSkuName("StandardSSD_LRS");
+        /// <summary>
+        /// UltraSSD_LRS Disk SKU.
+        /// </summary>
         public static DiskSkuName UltraSSD_LRS { get; } = new DiskSkuName("UltraSSD_LRS");
+        /// <summary>
+        /// Premium_ZRS Disk SKU.
+        /// </summary>
         public static DiskSkuName Premium_ZRS { get; } = new DiskSkuName("Premium_ZRS");
+        /// <summary>
+        /// StandardSSD_ZRS Disk SKU.
+        /// </summary>
         public static DiskSkuName StandardSSD_ZRS { get; } = new DiskSkuName("StandardSSD_ZRS");
+        /// <summary>
+        /// PremiumV2_LRS Disk SKU.
+        /// </summary>
         public static DiskSkuName PremiumV2_LRS { get; } = new DiskSkuName("PremiumV2_LRS");
 
         public static bool operator ==(DiskSkuName left, DiskSkuName right) => left.Equals(right);
@@ -293,6 +282,47 @@ namespace Pulumi.AzureNative.Workloads
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DiskSkuName other && Equals(other);
         public bool Equals(DiskSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of file share config, eg: Mount/CreateAndMount/Skip.
+    /// </summary>
+    [EnumType]
+    public readonly struct FileShareConfigurationType : IEquatable<FileShareConfigurationType>
+    {
+        private readonly string _value;
+
+        private FileShareConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Skip creating the file share.
+        /// </summary>
+        public static FileShareConfigurationType Skip { get; } = new FileShareConfigurationType("Skip");
+        /// <summary>
+        /// Fileshare will be created and mounted by service.
+        /// </summary>
+        public static FileShareConfigurationType CreateAndMount { get; } = new FileShareConfigurationType("CreateAndMount");
+        /// <summary>
+        /// Existing fileshare provided will be mounted by service.
+        /// </summary>
+        public static FileShareConfigurationType Mount { get; } = new FileShareConfigurationType("Mount");
+
+        public static bool operator ==(FileShareConfigurationType left, FileShareConfigurationType right) => left.Equals(right);
+        public static bool operator !=(FileShareConfigurationType left, FileShareConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(FileShareConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FileShareConfigurationType other && Equals(other);
+        public bool Equals(FileShareConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -333,7 +363,44 @@ namespace Pulumi.AzureNative.Workloads
     }
 
     /// <summary>
-    /// Type of manage identity
+    /// Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedResourcesNetworkAccessType : IEquatable<ManagedResourcesNetworkAccessType>
+    {
+        private readonly string _value;
+
+        private ManagedResourcesNetworkAccessType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Managed resources will be deployed with public network access enabled.
+        /// </summary>
+        public static ManagedResourcesNetworkAccessType Public { get; } = new ManagedResourcesNetworkAccessType("Public");
+        /// <summary>
+        /// Managed resources will be deployed with public network access disabled.
+        /// </summary>
+        public static ManagedResourcesNetworkAccessType Private { get; } = new ManagedResourcesNetworkAccessType("Private");
+
+        public static bool operator ==(ManagedResourcesNetworkAccessType left, ManagedResourcesNetworkAccessType right) => left.Equals(right);
+        public static bool operator !=(ManagedResourcesNetworkAccessType left, ManagedResourcesNetworkAccessType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedResourcesNetworkAccessType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedResourcesNetworkAccessType other && Equals(other);
+        public bool Equals(ManagedResourcesNetworkAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     /// </summary>
     [EnumType]
     public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
@@ -346,7 +413,9 @@ namespace Pulumi.AzureNative.Workloads
         }
 
         public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
         public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
         public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
@@ -415,6 +484,9 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Full resource names that will be created by service.
+        /// </summary>
         public static NamingPatternType FullResourceName { get; } = new NamingPatternType("FullResourceName");
 
         public static bool operator ==(NamingPatternType left, NamingPatternType right) => left.Equals(right);
@@ -445,7 +517,13 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Linux OS Type.
+        /// </summary>
         public static OSType Linux { get; } = new OSType("Linux");
+        /// <summary>
+        /// Windows OS Type.
+        /// </summary>
         public static OSType Windows { get; } = new OSType("Windows");
 
         public static bool operator ==(OSType left, OSType right) => left.Equals(right);
@@ -580,7 +658,13 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Default routing preference. Only RFC1918 traffic is routed to the customer VNET.
+        /// </summary>
         public static RoutingPreference Default { get; } = new RoutingPreference("Default");
+        /// <summary>
+        /// Route all traffic to the customer VNET.
+        /// </summary>
         public static RoutingPreference RouteAll { get; } = new RoutingPreference("RouteAll");
 
         public static bool operator ==(RoutingPreference left, RoutingPreference right) => left.Equals(right);
@@ -599,7 +683,7 @@ namespace Pulumi.AzureNative.Workloads
     }
 
     /// <summary>
-    /// The configuration Type.
+    /// The configuration type. Eg: Deployment/Discovery
     /// </summary>
     [EnumType]
     public readonly struct SAPConfigurationType : IEquatable<SAPConfigurationType>
@@ -611,8 +695,17 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SAP system will be deployed by service. No OS configurations will be done.
+        /// </summary>
         public static SAPConfigurationType Deployment { get; } = new SAPConfigurationType("Deployment");
+        /// <summary>
+        /// Existing SAP system will be registered.
+        /// </summary>
         public static SAPConfigurationType Discovery { get; } = new SAPConfigurationType("Discovery");
+        /// <summary>
+        /// SAP system will be deployed by service. OS configurations will be done.
+        /// </summary>
         public static SAPConfigurationType DeploymentWithOSConfig { get; } = new SAPConfigurationType("DeploymentWithOSConfig");
 
         public static bool operator ==(SAPConfigurationType left, SAPConfigurationType right) => left.Equals(right);
@@ -853,7 +946,7 @@ namespace Pulumi.AzureNative.Workloads
     }
 
     /// <summary>
-    /// The SAP software installation Type.
+    /// The SAP software installation type.
     /// </summary>
     [EnumType]
     public readonly struct SAPSoftwareInstallationType : IEquatable<SAPSoftwareInstallationType>
@@ -865,8 +958,17 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SAP Install managed by service.
+        /// </summary>
         public static SAPSoftwareInstallationType ServiceInitiated { get; } = new SAPSoftwareInstallationType("ServiceInitiated");
+        /// <summary>
+        /// SAP Install without OS Config.
+        /// </summary>
         public static SAPSoftwareInstallationType SAPInstallWithoutOSConfig { get; } = new SAPSoftwareInstallationType("SAPInstallWithoutOSConfig");
+        /// <summary>
+        /// External software installation type.
+        /// </summary>
         public static SAPSoftwareInstallationType External { get; } = new SAPSoftwareInstallationType("External");
 
         public static bool operator ==(SAPSoftwareInstallationType left, SAPSoftwareInstallationType right) => left.Equals(right);
@@ -877,6 +979,43 @@ namespace Pulumi.AzureNative.Workloads
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SAPSoftwareInstallationType other && Equals(other);
         public bool Equals(SAPSoftwareInstallationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of managed identity assigned to this resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct SAPVirtualInstanceIdentityType : IEquatable<SAPVirtualInstanceIdentityType>
+    {
+        private readonly string _value;
+
+        private SAPVirtualInstanceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// No managed identity.
+        /// </summary>
+        public static SAPVirtualInstanceIdentityType None { get; } = new SAPVirtualInstanceIdentityType("None");
+        /// <summary>
+        /// User assigned managed identity.
+        /// </summary>
+        public static SAPVirtualInstanceIdentityType UserAssigned { get; } = new SAPVirtualInstanceIdentityType("UserAssigned");
+
+        public static bool operator ==(SAPVirtualInstanceIdentityType left, SAPVirtualInstanceIdentityType right) => left.Equals(right);
+        public static bool operator !=(SAPVirtualInstanceIdentityType left, SAPVirtualInstanceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(SAPVirtualInstanceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SAPVirtualInstanceIdentityType other && Equals(other);
+        public bool Equals(SAPVirtualInstanceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -961,8 +1100,17 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Secure communication is disabled.
+        /// </summary>
         public static SslPreference Disabled { get; } = new SslPreference("Disabled");
+        /// <summary>
+        /// Secure communication is enabled with root certificate.
+        /// </summary>
         public static SslPreference RootCertificate { get; } = new SslPreference("RootCertificate");
+        /// <summary>
+        /// Secure communication is enabled with server certificate.
+        /// </summary>
         public static SslPreference ServerCertificate { get; } = new SslPreference("ServerCertificate");
 
         public static bool operator ==(SslPreference left, SslPreference right) => left.Equals(right);

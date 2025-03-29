@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified subnet by virtual network and resource group.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,6 +60,14 @@ export interface GetSubnetResult {
      */
     readonly applicationGatewayIPConfigurations?: outputs.network.ApplicationGatewayIPConfigurationResponse[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
+     */
+    readonly defaultOutboundAccess?: boolean;
+    /**
      * An array of references to the delegations on the subnet.
      */
     readonly delegations?: outputs.network.DelegationResponse[];
@@ -83,6 +91,10 @@ export interface GetSubnetResult {
      * An array of references to the network interface IP configurations using subnet.
      */
     readonly ipConfigurations: outputs.network.IPConfigurationResponse[];
+    /**
+     * A list of IPAM Pools for allocating IP address prefixes.
+     */
+    readonly ipamPoolPrefixAllocations?: outputs.network.IpamPoolPrefixAllocationResponse[];
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -136,6 +148,10 @@ export interface GetSubnetResult {
      */
     readonly serviceEndpoints?: outputs.network.ServiceEndpointPropertiesFormatResponse[];
     /**
+     * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+     */
+    readonly sharingScope?: string;
+    /**
      * Resource type.
      */
     readonly type?: string;
@@ -143,9 +159,9 @@ export interface GetSubnetResult {
 /**
  * Gets the specified subnet by virtual network and resource group.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubnetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The test base custom image resource.
  *
- * Uses Azure REST API version 2023-11-01-preview.
+ * Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
  */
 export class CustomImage extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class CustomImage extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomImage.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The UTC timestamp when the custom image was published.
      */
@@ -137,6 +141,7 @@ export class CustomImage extends pulumi.CustomResource {
             resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
             resourceInputs["versionName"] = args ? args.versionName : undefined;
             resourceInputs["vhdId"] = args ? args.vhdId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["osDiskImageSizeInGB"] = undefined /*out*/;
@@ -150,6 +155,7 @@ export class CustomImage extends pulumi.CustomResource {
             resourceInputs["validationResults"] = undefined /*out*/;
             resourceInputs["vhdFileName"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["definitionName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

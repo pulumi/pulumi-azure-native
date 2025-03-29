@@ -27,7 +27,10 @@ class GetConnectionGatewayResult:
     """
     The gateway definition
     """
-    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, location=None, name=None, properties=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -49,6 +52,14 @@ class GetConnectionGatewayResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -110,6 +121,7 @@ class AwaitableGetConnectionGatewayResult(GetConnectionGatewayResult):
         if False:
             yield self
         return GetConnectionGatewayResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             location=self.location,
@@ -141,6 +153,7 @@ def get_connection_gateway(connection_gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getConnectionGateway', __args__, opts=opts, typ=GetConnectionGatewayResult).value
 
     return AwaitableGetConnectionGatewayResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -169,6 +182,7 @@ def get_connection_gateway_output(connection_gateway_name: Optional[pulumi.Input
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getConnectionGateway', __args__, opts=opts, typ=GetConnectionGatewayResult)
     return __ret__.apply(lambda __response__: GetConnectionGatewayResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ContainerStorage
     /// <summary>
     /// Pool resource
     /// 
-    /// Uses Azure REST API version 2023-07-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-03-01-preview.
+    /// Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerstorage:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerStorage
         /// </summary>
         [Output("assignments")]
         public Output<ImmutableArray<Outputs.AssignmentResponse>> Assignments { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

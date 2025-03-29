@@ -15,9 +15,9 @@ namespace Pulumi.AzureNative.Management
         /// Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
         /// 
         /// 
-        /// Uses Azure REST API version 2021-04-01.
+        /// Uses Azure REST API version 2023-04-01.
         /// 
-        /// Other available API versions: 2023-04-01.
+        /// Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetHierarchySettingResult> InvokeAsync(GetHierarchySettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHierarchySettingResult>("azure-native:management:getHierarchySetting", args ?? new GetHierarchySettingArgs(), options.WithDefaults());
@@ -26,9 +26,9 @@ namespace Pulumi.AzureNative.Management
         /// Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
         /// 
         /// 
-        /// Uses Azure REST API version 2021-04-01.
+        /// Uses Azure REST API version 2023-04-01.
         /// 
-        /// Other available API versions: 2023-04-01.
+        /// Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetHierarchySettingResult> Invoke(GetHierarchySettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHierarchySettingResult>("azure-native:management:getHierarchySetting", args ?? new GetHierarchySettingInvokeArgs(), options.WithDefaults());
@@ -37,9 +37,9 @@ namespace Pulumi.AzureNative.Management
         /// Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
         /// 
         /// 
-        /// Uses Azure REST API version 2021-04-01.
+        /// Uses Azure REST API version 2023-04-01.
         /// 
-        /// Other available API versions: 2023-04-01.
+        /// Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetHierarchySettingResult> Invoke(GetHierarchySettingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHierarchySettingResult>("azure-native:management:getHierarchySetting", args ?? new GetHierarchySettingInvokeArgs(), options.WithDefaults());
@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Management
     public sealed class GetHierarchySettingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
         /// </summary>
         public readonly string? DefaultManagementGroup;
@@ -105,6 +109,8 @@ namespace Pulumi.AzureNative.Management
 
         [OutputConstructor]
         private GetHierarchySettingResult(
+            string azureApiVersion,
+
             string? defaultManagementGroup,
 
             string id,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNative.Management
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DefaultManagementGroup = defaultManagementGroup;
             Id = id;
             Name = name;

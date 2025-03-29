@@ -27,7 +27,10 @@ class GetAccountResult:
     """
     Definition of the account.
     """
-    def __init__(__self__, description=None, id=None, location=None, name=None, system_data=None, system_id=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, id=None, location=None, name=None, system_data=None, system_id=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -52,6 +55,14 @@ class GetAccountResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -124,6 +135,7 @@ class AwaitableGetAccountResult(GetAccountResult):
         if False:
             yield self
         return GetAccountResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             id=self.id,
             location=self.location,
@@ -153,6 +165,7 @@ def get_account(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:powerplatform:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -179,6 +192,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:powerplatform:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

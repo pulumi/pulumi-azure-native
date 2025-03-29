@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Method to get a site.
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebAppSitesControllerResult> InvokeAsync(GetWebAppSitesControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSitesControllerResult>("azure-native:offazure:getWebAppSitesController", args ?? new GetWebAppSitesControllerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Method to get a site.
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppSitesControllerResult> Invoke(GetWebAppSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSitesControllerResult>("azure-native:offazure:getWebAppSitesController", args ?? new GetWebAppSitesControllerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Method to get a site.
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppSitesControllerResult> Invoke(GetWebAppSitesControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSitesControllerResult>("azure-native:offazure:getWebAppSitesController", args ?? new GetWebAppSitesControllerInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.OffAzure
     public sealed class GetWebAppSitesControllerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the discovery scenario.
         /// </summary>
         public readonly string? DiscoveryScenario;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.OffAzure
 
         [OutputConstructor]
         private GetWebAppSitesControllerResult(
+            string azureApiVersion,
+
             string? discoveryScenario,
 
             string id,
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNative.OffAzure
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DiscoveryScenario = discoveryScenario;
             Id = id;
             Name = name;

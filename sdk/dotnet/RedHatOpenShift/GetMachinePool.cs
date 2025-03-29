@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// <summary>
         /// The operation returns properties of a MachinePool.
         /// 
-        /// Uses Azure REST API version 2022-09-04.
+        /// Uses Azure REST API version 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMachinePoolResult> InvokeAsync(GetMachinePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachinePoolResult>("azure-native:redhatopenshift:getMachinePool", args ?? new GetMachinePoolArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// <summary>
         /// The operation returns properties of a MachinePool.
         /// 
-        /// Uses Azure REST API version 2022-09-04.
+        /// Uses Azure REST API version 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMachinePoolResult> Invoke(GetMachinePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachinePoolResult>("azure-native:redhatopenshift:getMachinePool", args ?? new GetMachinePoolInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// <summary>
         /// The operation returns properties of a MachinePool.
         /// 
-        /// Uses Azure REST API version 2022-09-04.
+        /// Uses Azure REST API version 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMachinePoolResult> Invoke(GetMachinePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachinePoolResult>("azure-native:redhatopenshift:getMachinePool", args ?? new GetMachinePoolInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     public sealed class GetMachinePoolResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -119,6 +123,8 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 
         [OutputConstructor]
         private GetMachinePoolResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Resources = resources;

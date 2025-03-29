@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Defines the HybridIdentityMetadata.
  *
- * Uses Azure REST API version 2022-12-15-preview.
+ * Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
  */
 export class HybridIdentityMetadatum extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
         return obj['__pulumiType'] === HybridIdentityMetadatum.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Identity for the resource.
      */
@@ -90,12 +94,14 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceUid"] = args ? args.resourceUid : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

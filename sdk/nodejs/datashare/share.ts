@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A share data transfer object.
  *
- * Uses Azure REST API version 2021-08-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+ * Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
  */
 export class Share extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Share extends pulumi.CustomResource {
         return obj['__pulumiType'] === Share.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Time at which the share was created.
      */
@@ -103,6 +107,7 @@ export class Share extends pulumi.CustomResource {
             resourceInputs["shareKind"] = args ? args.shareKind : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
             resourceInputs["terms"] = args ? args.terms : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -111,6 +116,7 @@ export class Share extends pulumi.CustomResource {
             resourceInputs["userEmail"] = undefined /*out*/;
             resourceInputs["userName"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

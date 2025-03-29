@@ -2,7 +2,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-import * as insights from "@pulumi/azure-native/insights";
+import * as insights from "@pulumi/azure-native/applicationinsights";
 import * as resources from "@pulumi/azure-native/resources";
 import * as sql from "@pulumi/azure-native/sql";
 import * as storage from "@pulumi/azure-native/storage";

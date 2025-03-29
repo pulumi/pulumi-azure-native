@@ -27,7 +27,10 @@ class GetScalingPlanPersonalScheduleResult:
     """
     Represents a ScalingPlanPersonalSchedule definition.
     """
-    def __init__(__self__, days_of_week=None, id=None, name=None, off_peak_action_on_disconnect=None, off_peak_action_on_logoff=None, off_peak_minutes_to_wait_on_disconnect=None, off_peak_minutes_to_wait_on_logoff=None, off_peak_start_time=None, off_peak_start_vm_on_connect=None, peak_action_on_disconnect=None, peak_action_on_logoff=None, peak_minutes_to_wait_on_disconnect=None, peak_minutes_to_wait_on_logoff=None, peak_start_time=None, peak_start_vm_on_connect=None, ramp_down_action_on_disconnect=None, ramp_down_action_on_logoff=None, ramp_down_minutes_to_wait_on_disconnect=None, ramp_down_minutes_to_wait_on_logoff=None, ramp_down_start_time=None, ramp_down_start_vm_on_connect=None, ramp_up_action_on_disconnect=None, ramp_up_action_on_logoff=None, ramp_up_auto_start_hosts=None, ramp_up_minutes_to_wait_on_disconnect=None, ramp_up_minutes_to_wait_on_logoff=None, ramp_up_start_time=None, ramp_up_start_vm_on_connect=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, days_of_week=None, id=None, name=None, off_peak_action_on_disconnect=None, off_peak_action_on_logoff=None, off_peak_minutes_to_wait_on_disconnect=None, off_peak_minutes_to_wait_on_logoff=None, off_peak_start_time=None, off_peak_start_vm_on_connect=None, peak_action_on_disconnect=None, peak_action_on_logoff=None, peak_minutes_to_wait_on_disconnect=None, peak_minutes_to_wait_on_logoff=None, peak_start_time=None, peak_start_vm_on_connect=None, ramp_down_action_on_disconnect=None, ramp_down_action_on_logoff=None, ramp_down_minutes_to_wait_on_disconnect=None, ramp_down_minutes_to_wait_on_logoff=None, ramp_down_start_time=None, ramp_down_start_vm_on_connect=None, ramp_up_action_on_disconnect=None, ramp_up_action_on_logoff=None, ramp_up_auto_start_hosts=None, ramp_up_minutes_to_wait_on_disconnect=None, ramp_up_minutes_to_wait_on_logoff=None, ramp_up_start_time=None, ramp_up_start_vm_on_connect=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if days_of_week and not isinstance(days_of_week, list):
             raise TypeError("Expected argument 'days_of_week' to be a list")
         pulumi.set(__self__, "days_of_week", days_of_week)
@@ -120,8 +123,16 @@ class GetScalingPlanPersonalScheduleResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Sequence[str]:
+    def days_of_week(self) -> Optional[Sequence[str]]:
         """
         Set of days of the week on which this schedule is active.
         """
@@ -177,7 +188,7 @@ class GetScalingPlanPersonalScheduleResult:
 
     @property
     @pulumi.getter(name="offPeakStartTime")
-    def off_peak_start_time(self) -> 'outputs.TimeResponse':
+    def off_peak_start_time(self) -> Optional['outputs.TimeResponse']:
         """
         Starting time for off-peak period.
         """
@@ -225,7 +236,7 @@ class GetScalingPlanPersonalScheduleResult:
 
     @property
     @pulumi.getter(name="peakStartTime")
-    def peak_start_time(self) -> 'outputs.TimeResponse':
+    def peak_start_time(self) -> Optional['outputs.TimeResponse']:
         """
         Starting time for peak period.
         """
@@ -273,7 +284,7 @@ class GetScalingPlanPersonalScheduleResult:
 
     @property
     @pulumi.getter(name="rampDownStartTime")
-    def ramp_down_start_time(self) -> 'outputs.TimeResponse':
+    def ramp_down_start_time(self) -> Optional['outputs.TimeResponse']:
         """
         Starting time for ramp down period.
         """
@@ -329,7 +340,7 @@ class GetScalingPlanPersonalScheduleResult:
 
     @property
     @pulumi.getter(name="rampUpStartTime")
-    def ramp_up_start_time(self) -> 'outputs.TimeResponse':
+    def ramp_up_start_time(self) -> Optional['outputs.TimeResponse']:
         """
         Starting time for ramp up period.
         """
@@ -366,6 +377,7 @@ class AwaitableGetScalingPlanPersonalScheduleResult(GetScalingPlanPersonalSchedu
         if False:
             yield self
         return GetScalingPlanPersonalScheduleResult(
+            azure_api_version=self.azure_api_version,
             days_of_week=self.days_of_week,
             id=self.id,
             name=self.name,
@@ -405,9 +417,9 @@ def get_scaling_plan_personal_schedule(resource_group_name: Optional[str] = None
     """
     Get a ScalingPlanPersonalSchedule.
 
-    Uses Azure REST API version 2024-11-01-preview.
+    Uses Azure REST API version 2024-04-03.
 
-    Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+    Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -422,6 +434,7 @@ def get_scaling_plan_personal_schedule(resource_group_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:desktopvirtualization:getScalingPlanPersonalSchedule', __args__, opts=opts, typ=GetScalingPlanPersonalScheduleResult).value
 
     return AwaitableGetScalingPlanPersonalScheduleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         days_of_week=pulumi.get(__ret__, 'days_of_week'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -459,9 +472,9 @@ def get_scaling_plan_personal_schedule_output(resource_group_name: Optional[pulu
     """
     Get a ScalingPlanPersonalSchedule.
 
-    Uses Azure REST API version 2024-11-01-preview.
+    Uses Azure REST API version 2024-04-03.
 
-    Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+    Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -475,6 +488,7 @@ def get_scaling_plan_personal_schedule_output(resource_group_name: Optional[pulu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization:getScalingPlanPersonalSchedule', __args__, opts=opts, typ=GetScalingPlanPersonalScheduleResult)
     return __ret__.apply(lambda __response__: GetScalingPlanPersonalScheduleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         days_of_week=pulumi.get(__response__, 'days_of_week'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

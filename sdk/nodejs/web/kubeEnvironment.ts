@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A Kubernetes cluster specialized for web workloads by Azure App Service
  *
- * Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+ * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class KubeEnvironment extends pulumi.CustomResource {
     /**
@@ -55,6 +55,10 @@ export class KubeEnvironment extends pulumi.CustomResource {
      */
     public readonly arcConfiguration!: pulumi.Output<outputs.web.ArcConfigurationResponse | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
      */
     public readonly containerAppsConfiguration!: pulumi.Output<outputs.web.ContainerAppsConfigurationResponse | undefined>;
@@ -79,7 +83,7 @@ export class KubeEnvironment extends pulumi.CustomResource {
      */
     public readonly internalLoadBalancerEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -134,6 +138,7 @@ export class KubeEnvironment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["staticIp"] = args ? args.staticIp : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -142,6 +147,7 @@ export class KubeEnvironment extends pulumi.CustomResource {
             resourceInputs["aksResourceID"] = undefined /*out*/;
             resourceInputs["appLogsConfiguration"] = undefined /*out*/;
             resourceInputs["arcConfiguration"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["containerAppsConfiguration"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;
@@ -197,7 +203,7 @@ export interface KubeEnvironmentArgs {
      */
     internalLoadBalancerEnabled?: pulumi.Input<boolean>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     kind?: pulumi.Input<string>;
     /**

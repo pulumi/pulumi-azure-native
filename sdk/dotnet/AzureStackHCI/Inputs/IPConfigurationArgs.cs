@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
 {
 
     /// <summary>
-    /// InterfaceIPConfiguration iPConfiguration in a network interface.
+    /// InterfaceIPConfiguration IPConfiguration in a network interface.
     /// </summary>
     public sealed class IPConfigurationArgs : global::Pulumi.ResourceArgs
     {

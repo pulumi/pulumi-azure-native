@@ -26,7 +26,10 @@ class GetFirewallRuleResult:
     """
     Represents a server firewall rule.
     """
-    def __init__(__self__, end_ip_address=None, id=None, name=None, start_ip_address=None, type=None):
+    def __init__(__self__, azure_api_version=None, end_ip_address=None, id=None, name=None, start_ip_address=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if end_ip_address and not isinstance(end_ip_address, str):
             raise TypeError("Expected argument 'end_ip_address' to be a str")
         pulumi.set(__self__, "end_ip_address", end_ip_address)
@@ -42,6 +45,14 @@ class GetFirewallRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -90,6 +101,7 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
         if False:
             yield self
         return GetFirewallRuleResult(
+            azure_api_version=self.azure_api_version,
             end_ip_address=self.end_ip_address,
             id=self.id,
             name=self.name,
@@ -106,8 +118,6 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
 
     Uses Azure REST API version 2018-06-01.
 
-    Other available API versions: 2018-06-01-preview.
-
 
     :param str firewall_rule_name: The name of the server firewall rule.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -121,6 +131,7 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dbformariadb:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult).value
 
     return AwaitableGetFirewallRuleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         end_ip_address=pulumi.get(__ret__, 'end_ip_address'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -135,8 +146,6 @@ def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str]] = N
 
     Uses Azure REST API version 2018-06-01.
 
-    Other available API versions: 2018-06-01-preview.
-
 
     :param str firewall_rule_name: The name of the server firewall rule.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -149,6 +158,7 @@ def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbformariadb:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult)
     return __ret__.apply(lambda __response__: GetFirewallRuleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         end_ip_address=pulumi.get(__response__, 'end_ip_address'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

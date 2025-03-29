@@ -5,11 +5,14 @@
 from enum import Enum
 
 __all__ = [
+    'CatalogItemSyncEnableStatus',
+    'CatalogItemType',
     'CatalogSyncType',
     'DevboxDisksEncryptionEnableStatus',
     'DomainJoinType',
     'EnvironmentTypeEnableStatus',
     'HibernateSupport',
+    'IdentityType',
     'LicenseType',
     'LocalAdminStatus',
     'ManagedServiceIdentityType',
@@ -17,9 +20,26 @@ __all__ = [
     'ScheduleEnableStatus',
     'ScheduledFrequency',
     'ScheduledType',
+    'SingleSignOnStatus',
     'SkuTier',
     'StopOnDisconnectEnableStatus',
+    'VirtualNetworkType',
 ]
+
+
+class CatalogItemSyncEnableStatus(str, Enum):
+    """
+    Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class CatalogItemType(str, Enum):
+    """
+    Indicates catalog item types.
+    """
+    ENVIRONMENT_DEFINITION = "EnvironmentDefinition"
 
 
 class CatalogSyncType(str, Enum):
@@ -60,6 +80,15 @@ class HibernateSupport(str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
+
+
+class IdentityType(str, Enum):
+    """
+    Values can be systemAssignedIdentity or userAssignedIdentity
+    """
+    SYSTEM_ASSIGNED_IDENTITY = "systemAssignedIdentity"
+    USER_ASSIGNED_IDENTITY = "userAssignedIdentity"
+    DELEGATED_RESOURCE_IDENTITY = "delegatedResourceIdentity"
 
 
 class LicenseType(str, Enum):
@@ -117,6 +146,14 @@ class ScheduledType(str, Enum):
     STOP_DEV_BOX = "StopDevBox"
 
 
+class SingleSignOnStatus(str, Enum):
+    """
+    Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
 class SkuTier(str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
@@ -133,3 +170,11 @@ class StopOnDisconnectEnableStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class VirtualNetworkType(str, Enum):
+    """
+    Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
+    """
+    MANAGED = "Managed"
+    UNMANAGED = "Unmanaged"

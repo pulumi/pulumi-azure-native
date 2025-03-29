@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets properties of a specified container. 
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBlobContainerResult> InvokeAsync(GetBlobContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-native:storage:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets properties of a specified container. 
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBlobContainerResult> Invoke(GetBlobContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerResult>("azure-native:storage:getBlobContainer", args ?? new GetBlobContainerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// Gets properties of a specified container. 
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBlobContainerResult> Invoke(GetBlobContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerResult>("azure-native:storage:getBlobContainer", args ?? new GetBlobContainerInvokeArgs(), options.WithDefaults());
@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.Storage
     [OutputType]
     public sealed class GetBlobContainerResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Default the container to use specified encryption scope for all writes.
         /// </summary>
@@ -194,6 +198,8 @@ namespace Pulumi.AzureNative.Storage
 
         [OutputConstructor]
         private GetBlobContainerResult(
+            string azureApiVersion,
+
             string? defaultEncryptionScope,
 
             bool deleted,
@@ -240,6 +246,7 @@ namespace Pulumi.AzureNative.Storage
 
             string version)
         {
+            AzureApiVersion = azureApiVersion;
             DefaultEncryptionScope = defaultEncryptionScope;
             Deleted = deleted;
             DeletedTime = deletedTime;

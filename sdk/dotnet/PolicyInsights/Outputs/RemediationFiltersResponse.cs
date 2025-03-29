@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.PolicyInsights.Outputs
         /// The resource locations that will be remediated.
         /// </summary>
         public readonly ImmutableArray<string> Locations;
+        /// <summary>
+        /// The IDs of the resources that will be remediated. Can specify at most 100 IDs. This filter cannot be used when ReEvaluateCompliance is set to ReEvaluateCompliance, and cannot be empty if provided.
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceIds;
 
         [OutputConstructor]
-        private RemediationFiltersResponse(ImmutableArray<string> locations)
+        private RemediationFiltersResponse(
+            ImmutableArray<string> locations,
+
+            ImmutableArray<string> resourceIds)
         {
             Locations = locations;
+            ResourceIds = resourceIds;
         }
     }
 }

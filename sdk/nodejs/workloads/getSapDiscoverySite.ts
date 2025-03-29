@@ -36,6 +36,10 @@ export interface GetSapDiscoverySiteArgs {
  */
 export interface GetSapDiscoverySiteResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Indicates any errors on the SAP Migration discovery site resource.
      */
     readonly errors: outputs.workloads.SAPMigrateErrorResponse;

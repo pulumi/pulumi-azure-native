@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Java Component.
         /// 
-        /// Uses Azure REST API version 2023-11-02-preview.
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// 
-        /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetJavaComponentResult> InvokeAsync(GetJavaComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJavaComponentResult>("azure-native:app:getJavaComponent", args ?? new GetJavaComponentArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Java Component.
         /// 
-        /// Uses Azure REST API version 2023-11-02-preview.
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// 
-        /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetJavaComponentResult> Invoke(GetJavaComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJavaComponentResult>("azure-native:app:getJavaComponent", args ?? new GetJavaComponentInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Java Component.
         /// 
-        /// Uses Azure REST API version 2023-11-02-preview.
+        /// Uses Azure REST API version 2024-10-02-preview.
         /// 
-        /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetJavaComponentResult> Invoke(GetJavaComponentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJavaComponentResult>("azure-native:app:getJavaComponent", args ?? new GetJavaComponentInvokeArgs(), options.WithDefaults());
@@ -100,15 +100,11 @@ namespace Pulumi.AzureNative.App
     public sealed class GetJavaComponentResult
     {
         /// <summary>
-        /// Type of the Java Component.
+        /// The Azure API version of the resource.
         /// </summary>
-        public readonly string? ComponentType;
+        public readonly string AzureApiVersion;
         /// <summary>
-        /// List of Java Components configuration properties
-        /// </summary>
-        public readonly ImmutableArray<Outputs.JavaComponentConfigurationPropertyResponse> Configurations;
-        /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -116,13 +112,9 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the Java Component.
+        /// Java Component resource specific properties
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// List of Java Components that are bound to the Java component
-        /// </summary>
-        public readonly ImmutableArray<Outputs.JavaComponentServiceBindResponse> ServiceBinds;
+        public readonly object Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -134,28 +126,22 @@ namespace Pulumi.AzureNative.App
 
         [OutputConstructor]
         private GetJavaComponentResult(
-            string? componentType,
-
-            ImmutableArray<Outputs.JavaComponentConfigurationPropertyResponse> configurations,
+            string azureApiVersion,
 
             string id,
 
             string name,
 
-            string provisioningState,
-
-            ImmutableArray<Outputs.JavaComponentServiceBindResponse> serviceBinds,
+            object properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            ComponentType = componentType;
-            Configurations = configurations;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
-            ServiceBinds = serviceBinds;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

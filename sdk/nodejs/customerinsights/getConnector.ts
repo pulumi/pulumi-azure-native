@@ -38,6 +38,10 @@ export interface GetConnectorArgs {
  */
 export interface GetConnectorResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * ID of the connector.
      */
     readonly connectorId: number;

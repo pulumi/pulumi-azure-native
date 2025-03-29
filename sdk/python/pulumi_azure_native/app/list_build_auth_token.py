@@ -68,9 +68,9 @@ def list_build_auth_token(build_name: Optional[str] = None,
     """
     Gets the token used to connect to the endpoint where source code can be uploaded for a build.
 
-    Uses Azure REST API version 2023-08-01-preview.
+    Uses Azure REST API version 2024-10-02-preview.
 
-    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str build_name: The name of a build.
@@ -94,9 +94,9 @@ def list_build_auth_token_output(build_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the token used to connect to the endpoint where source code can be uploaded for a build.
 
-    Uses Azure REST API version 2023-08-01-preview.
+    Uses Azure REST API version 2024-10-02-preview.
 
-    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str build_name: The name of a build.

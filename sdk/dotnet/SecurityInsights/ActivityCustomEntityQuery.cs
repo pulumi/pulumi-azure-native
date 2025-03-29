@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// <summary>
     /// Represents Activity entity query.
     /// 
-    /// Uses Azure REST API version 2023-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-03-01-preview.
+    /// Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:ActivityCustomEntityQuery")]
     public partial class ActivityCustomEntityQuery : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The entity query content to display in timeline
         /// </summary>

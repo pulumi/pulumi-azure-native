@@ -23,12 +23,12 @@ __all__ = ['JobStepArgs', 'JobStep']
 class JobStepArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['JobStepActionArgs'],
-                 credential: pulumi.Input[str],
                  job_agent_name: pulumi.Input[str],
                  job_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
                  target_group: pulumi.Input[str],
+                 credential: Optional[pulumi.Input[str]] = None,
                  execution_options: Optional[pulumi.Input['JobStepExecutionOptionsArgs']] = None,
                  output: Optional[pulumi.Input['JobStepOutputArgs']] = None,
                  step_id: Optional[pulumi.Input[int]] = None,
@@ -36,24 +36,25 @@ class JobStepArgs:
         """
         The set of arguments for constructing a JobStep resource.
         :param pulumi.Input['JobStepActionArgs'] action: The action payload of the job step.
-        :param pulumi.Input[str] credential: The resource ID of the job credential that will be used to connect to the targets.
         :param pulumi.Input[str] job_agent_name: The name of the job agent.
         :param pulumi.Input[str] job_name: The name of the job.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] target_group: The resource ID of the target group that the job step will be executed on.
+        :param pulumi.Input[str] credential: The resource ID of the job credential that will be used to connect to the targets.
         :param pulumi.Input['JobStepExecutionOptionsArgs'] execution_options: Execution options for the job step.
         :param pulumi.Input['JobStepOutputArgs'] output: Output destination properties of the job step.
         :param pulumi.Input[int] step_id: The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
         :param pulumi.Input[str] step_name: The name of the job step.
         """
         pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "credential", credential)
         pulumi.set(__self__, "job_agent_name", job_agent_name)
         pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "target_group", target_group)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if execution_options is not None:
             pulumi.set(__self__, "execution_options", execution_options)
         if output is not None:
@@ -74,18 +75,6 @@ class JobStepArgs:
     @action.setter
     def action(self, value: pulumi.Input['JobStepActionArgs']):
         pulumi.set(self, "action", value)
-
-    @property
-    @pulumi.getter
-    def credential(self) -> pulumi.Input[str]:
-        """
-        The resource ID of the job credential that will be used to connect to the targets.
-        """
-        return pulumi.get(self, "credential")
-
-    @credential.setter
-    def credential(self, value: pulumi.Input[str]):
-        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter(name="jobAgentName")
@@ -146,6 +135,18 @@ class JobStepArgs:
     @target_group.setter
     def target_group(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_group", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the job credential that will be used to connect to the targets.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter(name="executionOptions")
@@ -216,9 +217,9 @@ class JobStep(pulumi.CustomResource):
         """
         A job step.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,9 +244,9 @@ class JobStep(pulumi.CustomResource):
         """
         A job step.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param JobStepArgs args: The arguments to use to populate this resource's properties.
@@ -285,8 +286,6 @@ class JobStep(pulumi.CustomResource):
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
-            if credential is None and not opts.urn:
-                raise TypeError("Missing required property 'credential'")
             __props__.__dict__["credential"] = credential
             __props__.__dict__["execution_options"] = execution_options
             if job_agent_name is None and not opts.urn:
@@ -307,6 +306,7 @@ class JobStep(pulumi.CustomResource):
             if target_group is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group'")
             __props__.__dict__["target_group"] = target_group
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20170301preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20200202preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20200801preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20201101preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20210201preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20210501preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20210801preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20211101:JobStep"), pulumi.Alias(type_="azure-native:sql/v20211101preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20220201preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20220501preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20220801preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20221101preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20230201preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20230501preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20230801:JobStep"), pulumi.Alias(type_="azure-native:sql/v20230801preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20240501preview:JobStep")])
@@ -334,6 +334,7 @@ class JobStep(pulumi.CustomResource):
         __props__ = JobStepArgs.__new__(JobStepArgs)
 
         __props__.__dict__["action"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["credential"] = None
         __props__.__dict__["execution_options"] = None
         __props__.__dict__["name"] = None
@@ -352,8 +353,16 @@ class JobStep(pulumi.CustomResource):
         return pulumi.get(self, "action")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
-    def credential(self) -> pulumi.Output[str]:
+    def credential(self) -> pulumi.Output[Optional[str]]:
         """
         The resource ID of the job credential that will be used to connect to the targets.
         """

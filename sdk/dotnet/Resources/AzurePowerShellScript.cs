@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Resources
     /// <summary>
     /// Object model for the Azure PowerShell script.
     /// 
-    /// Uses Azure REST API version 2020-10-01. In version 1.x of the Azure Native provider, it used API version 2020-10-01.
+    /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:AzurePowerShellScript")]
     public partial class AzurePowerShellScript : global::Pulumi.CustomResource
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         [Output("azPowerShellVersion")]
         public Output<string> AzPowerShellVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
@@ -182,9 +188,13 @@ namespace Pulumi.AzureNative.Resources
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001preview:AzureCliScript" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20191001preview:AzurePowerShellScript" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:AzureCliScript" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:AzurePowerShellScript" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20230801:AzureCliScript" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20230801:AzurePowerShellScript" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources:AzureCliScript" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

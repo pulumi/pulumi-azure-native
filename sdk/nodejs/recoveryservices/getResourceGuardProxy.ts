@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Returns ResourceGuardProxy under vault and with the name referenced in request
  *
- * Uses Azure REST API version 2023-04-01.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
+ * Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getResourceGuardProxy(args: GetResourceGuardProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardProxyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +36,10 @@ export interface GetResourceGuardProxyArgs {
 }
 
 export interface GetResourceGuardProxyResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Optional ETag.
      */
@@ -68,9 +72,9 @@ export interface GetResourceGuardProxyResult {
 /**
  * Returns ResourceGuardProxy under vault and with the name referenced in request
  *
- * Uses Azure REST API version 2023-04-01.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
+ * Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getResourceGuardProxyOutput(args: GetResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceGuardProxyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

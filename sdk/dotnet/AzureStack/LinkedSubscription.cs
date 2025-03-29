@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.AzureStack
     /// <summary>
     /// Linked Subscription information.
     /// 
-    /// Uses Azure REST API version 2020-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-06-01-preview.
+    /// Uses Azure REST API version 2020-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestack:LinkedSubscription")]
     public partial class LinkedSubscription : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The status of the remote management connection of the Azure Stack device.
         /// </summary>

@@ -12,11 +12,19 @@ namespace Pulumi.AzureNative.AlertsManagement
     /// <summary>
     /// Alert processing rule object containing target scopes, conditions and scheduling logic.
     /// 
-    /// Uses Azure REST API version 2021-08-08.
+    /// Uses Azure REST API version 2021-08-08. In version 2.x of the Azure Native provider, it used API version 2021-08-08.
+    /// 
+    /// Other available API versions: 2021-08-08-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement:AlertProcessingRuleByName")]
     public partial class AlertProcessingRuleByName : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Resource location
         /// </summary>
@@ -79,9 +87,11 @@ namespace Pulumi.AzureNative.AlertsManagement
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:ActionRuleByName" },
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName" },
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName" },
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement:ActionRuleByName" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

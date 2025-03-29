@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Aad
     /// <summary>
     /// Resource for OuContainer.
     /// 
-    /// Uses Azure REST API version 2022-12-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+    /// Uses Azure REST API version 2022-12-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:aad:OuContainer")]
     public partial class OuContainer : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Aad
         /// </summary>
         [Output("accounts")]
         public Output<ImmutableArray<Outputs.ContainerAccountResponse>> Accounts { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The OuContainer name

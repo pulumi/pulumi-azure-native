@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Obtains the details of a suppression.
  *
- * Uses Azure REST API version 2023-01-01.
+ * Uses Azure REST API version 2023-09-01-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2025-01-01.
+ * Other available API versions: 2023-01-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetSuppressionArgs {
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
  */
 export interface GetSuppressionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets or sets the expiration time stamp.
      */
@@ -74,9 +78,9 @@ export interface GetSuppressionResult {
 /**
  * Obtains the details of a suppression.
  *
- * Uses Azure REST API version 2023-01-01.
+ * Uses Azure REST API version 2023-09-01-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2025-01-01.
+ * Other available API versions: 2023-01-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSuppressionOutput(args: GetSuppressionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSuppressionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

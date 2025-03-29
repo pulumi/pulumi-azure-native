@@ -10,20 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// The IpCommunity resource definition.
+    /// The IP Community resource definition.
     /// 
-    /// Uses Azure REST API version 2023-02-01-preview.
+    /// Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
     /// 
-    /// Other available API versions: 2023-06-15.
+    /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:IpCommunity")]
     public partial class IpCommunity : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Action to be taken on the configuration. Example: Permit | Deny.
+        /// Administrative state of the resource.
         /// </summary>
-        [Output("action")]
-        public Output<string> Action { get; private set; } = null!;
+        [Output("administrativeState")]
+        public Output<string> AdministrativeState { get; private set; } = null!;
 
         /// <summary>
         /// Switch configuration description.
@@ -32,10 +32,22 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string?> Annotation { get; private set; } = null!;
 
         /// <summary>
-        /// List the communityMembers of IP Community .
+        /// The Azure API version of the resource.
         /// </summary>
-        [Output("communityMembers")]
-        public Output<ImmutableArray<string>> CommunityMembers { get; private set; } = null!;
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
+
+        /// <summary>
+        /// List of IP Community Rules.
+        /// </summary>
+        [Output("ipCommunityRules")]
+        public Output<ImmutableArray<Outputs.IpCommunityRuleResponse>> IpCommunityRules { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -50,7 +62,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -72,12 +84,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Supported well known Community List.
-        /// </summary>
-        [Output("wellKnownCommunities")]
-        public Output<ImmutableArray<string>> WellKnownCommunities { get; private set; } = null!;
 
 
         /// <summary>
@@ -130,34 +136,28 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class IpCommunityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action to be taken on the configuration. Example: Permit | Deny.
-        /// </summary>
-        [Input("action", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.CommunityActionTypes> Action { get; set; } = null!;
-
-        /// <summary>
         /// Switch configuration description.
         /// </summary>
         [Input("annotation")]
         public Input<string>? Annotation { get; set; }
 
-        [Input("communityMembers", required: true)]
-        private InputList<string>? _communityMembers;
-
         /// <summary>
-        /// List the communityMembers of IP Community .
-        /// </summary>
-        public InputList<string> CommunityMembers
-        {
-            get => _communityMembers ?? (_communityMembers = new InputList<string>());
-            set => _communityMembers = value;
-        }
-
-        /// <summary>
-        /// Name of the IP Community
+        /// Name of the IP Community.
         /// </summary>
         [Input("ipCommunityName")]
         public Input<string>? IpCommunityName { get; set; }
+
+        [Input("ipCommunityRules", required: true)]
+        private InputList<Inputs.IpCommunityRuleArgs>? _ipCommunityRules;
+
+        /// <summary>
+        /// List of IP Community Rules.
+        /// </summary>
+        public InputList<Inputs.IpCommunityRuleArgs> IpCommunityRules
+        {
+            get => _ipCommunityRules ?? (_ipCommunityRules = new InputList<Inputs.IpCommunityRuleArgs>());
+            set => _ipCommunityRules = value;
+        }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -181,18 +181,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("wellKnownCommunities")]
-        private InputList<Union<string, Pulumi.AzureNative.ManagedNetworkFabric.WellKnownCommunities>>? _wellKnownCommunities;
-
-        /// <summary>
-        /// Supported well known Community List.
-        /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.ManagedNetworkFabric.WellKnownCommunities>> WellKnownCommunities
-        {
-            get => _wellKnownCommunities ?? (_wellKnownCommunities = new InputList<Union<string, Pulumi.AzureNative.ManagedNetworkFabric.WellKnownCommunities>>());
-            set => _wellKnownCommunities = value;
         }
 
         public IpCommunityArgs()

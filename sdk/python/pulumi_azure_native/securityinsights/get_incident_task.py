@@ -24,7 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetIncidentTaskResult:
-    def __init__(__self__, created_by=None, created_time_utc=None, description=None, etag=None, id=None, last_modified_by=None, last_modified_time_utc=None, name=None, status=None, system_data=None, title=None, type=None):
+    """
+    Describes incident task properties
+    """
+    def __init__(__self__, azure_api_version=None, created_by=None, created_time_utc=None, description=None, etag=None, id=None, last_modified_by=None, last_modified_time_utc=None, name=None, status=None, system_data=None, title=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_by and not isinstance(created_by, dict):
             raise TypeError("Expected argument 'created_by' to be a dict")
         pulumi.set(__self__, "created_by", created_by)
@@ -61,6 +67,14 @@ class GetIncidentTaskResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdBy")
@@ -129,6 +143,9 @@ class GetIncidentTaskResult:
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        The status of the task
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -162,6 +179,7 @@ class AwaitableGetIncidentTaskResult(GetIncidentTaskResult):
         if False:
             yield self
         return GetIncidentTaskResult(
+            azure_api_version=self.azure_api_version,
             created_by=self.created_by,
             created_time_utc=self.created_time_utc,
             description=self.description,
@@ -184,9 +202,9 @@ def get_incident_task(incident_id: Optional[str] = None,
     """
     Gets an incident task.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+    Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str incident_id: Incident ID
@@ -203,6 +221,7 @@ def get_incident_task(incident_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getIncidentTask', __args__, opts=opts, typ=GetIncidentTaskResult).value
 
     return AwaitableGetIncidentTaskResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_by=pulumi.get(__ret__, 'created_by'),
         created_time_utc=pulumi.get(__ret__, 'created_time_utc'),
         description=pulumi.get(__ret__, 'description'),
@@ -223,9 +242,9 @@ def get_incident_task_output(incident_id: Optional[pulumi.Input[str]] = None,
     """
     Gets an incident task.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+    Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str incident_id: Incident ID
@@ -241,6 +260,7 @@ def get_incident_task_output(incident_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getIncidentTask', __args__, opts=opts, typ=GetIncidentTaskResult)
     return __ret__.apply(lambda __response__: GetIncidentTaskResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_by=pulumi.get(__response__, 'created_by'),
         created_time_utc=pulumi.get(__response__, 'created_time_utc'),
         description=pulumi.get(__response__, 'description'),

@@ -169,9 +169,9 @@ class VcenterController(pulumi.CustomResource):
         """
         A vcenter resource belonging to a site resource.
 
-        Uses Azure REST API version 2023-06-06.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,9 +193,9 @@ class VcenterController(pulumi.CustomResource):
         """
         A vcenter resource belonging to a site resource.
 
-        Uses Azure REST API version 2023-06-06.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param VcenterControllerArgs args: The arguments to use to populate this resource's properties.
@@ -241,6 +241,7 @@ class VcenterController(pulumi.CustomResource):
                 raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["vcenter_name"] = vcenter_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_timestamp"] = None
             __props__.__dict__["errors"] = None
             __props__.__dict__["instance_uuid"] = None
@@ -274,6 +275,7 @@ class VcenterController(pulumi.CustomResource):
 
         __props__ = VcenterControllerArgs.__new__(VcenterControllerArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_timestamp"] = None
         __props__.__dict__["errors"] = None
         __props__.__dict__["fqdn"] = None
@@ -289,6 +291,14 @@ class VcenterController(pulumi.CustomResource):
         __props__.__dict__["updated_timestamp"] = None
         __props__.__dict__["version"] = None
         return VcenterController(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTimestamp")

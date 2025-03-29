@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.StorSimple
     /// <summary>
     /// The volume.
     /// 
-    /// Uses Azure REST API version 2017-06-01. In version 1.x of the Azure Native provider, it used API version 2017-06-01.
+    /// Uses Azure REST API version 2017-06-01. In version 2.x of the Azure Native provider, it used API version 2017-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:Volume")]
     public partial class Volume : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StorSimple
         /// </summary>
         [Output("accessControlRecordIds")]
         public Output<ImmutableArray<string>> AccessControlRecordIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The IDs of the backup policies, in which this volume is part of.

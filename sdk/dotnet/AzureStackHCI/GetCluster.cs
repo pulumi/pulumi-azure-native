@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Get HCI cluster.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:azurestackhci:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Get HCI cluster.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:azurestackhci:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Get HCI cluster.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:azurestackhci:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string? AadTenantId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Type of billing applied to the resource.
         /// </summary>
         public readonly string BillingModel;
@@ -116,13 +120,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string? CloudManagementEndpoint;
         /// <summary>
+        /// Overall connectivity status for the cluster resource.
+        /// </summary>
+        public readonly string ConnectivityStatus;
+        /// <summary>
         /// Desired properties of the cluster.
         /// </summary>
         public readonly Outputs.ClusterDesiredPropertiesResponse? DesiredProperties;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Attestation configurations for isolated VM (e.g. TVM, CVM) of the cluster.
+        /// </summary>
+        public readonly Outputs.IsolatedVmAttestationConfigurationResponse IsolatedVmAttestationConfiguration;
         /// <summary>
         /// Most recent billing meter timestamp.
         /// </summary>
@@ -135,6 +147,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Log Collection properties of the cluster.
+        /// </summary>
+        public readonly Outputs.LogCollectionPropertiesResponse? LogCollectionProperties;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -151,6 +167,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// First cluster sync timestamp.
         /// </summary>
         public readonly string RegistrationTimestamp;
+        /// <summary>
+        /// RemoteSupport properties of the cluster.
+        /// </summary>
+        public readonly Outputs.RemoteSupportPropertiesResponse? RemoteSupportProperties;
         /// <summary>
         /// Properties reported by cluster agent.
         /// </summary>
@@ -206,21 +226,29 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string? aadTenantId,
 
+            string azureApiVersion,
+
             string billingModel,
 
             string cloudId,
 
             string? cloudManagementEndpoint,
 
+            string connectivityStatus,
+
             Outputs.ClusterDesiredPropertiesResponse? desiredProperties,
 
             string id,
+
+            Outputs.IsolatedVmAttestationConfigurationResponse isolatedVmAttestationConfiguration,
 
             string lastBillingTimestamp,
 
             string lastSyncTimestamp,
 
             string location,
+
+            Outputs.LogCollectionPropertiesResponse? logCollectionProperties,
 
             string name,
 
@@ -229,6 +257,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
             string provisioningState,
 
             string registrationTimestamp,
+
+            Outputs.RemoteSupportPropertiesResponse? remoteSupportProperties,
 
             Outputs.ClusterReportedPropertiesResponse reportedProperties,
 
@@ -256,18 +286,23 @@ namespace Pulumi.AzureNative.AzureStackHCI
             AadClientId = aadClientId;
             AadServicePrincipalObjectId = aadServicePrincipalObjectId;
             AadTenantId = aadTenantId;
+            AzureApiVersion = azureApiVersion;
             BillingModel = billingModel;
             CloudId = cloudId;
             CloudManagementEndpoint = cloudManagementEndpoint;
+            ConnectivityStatus = connectivityStatus;
             DesiredProperties = desiredProperties;
             Id = id;
+            IsolatedVmAttestationConfiguration = isolatedVmAttestationConfiguration;
             LastBillingTimestamp = lastBillingTimestamp;
             LastSyncTimestamp = lastSyncTimestamp;
             Location = location;
+            LogCollectionProperties = logCollectionProperties;
             Name = name;
             PrincipalId = principalId;
             ProvisioningState = provisioningState;
             RegistrationTimestamp = registrationTimestamp;
+            RemoteSupportProperties = remoteSupportProperties;
             ReportedProperties = reportedProperties;
             ResourceProviderObjectId = resourceProviderObjectId;
             ServiceEndpoint = serviceEndpoint;

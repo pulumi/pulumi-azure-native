@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the product specified by its identifier.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:apimanagement:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the product specified by its identifier.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:apimanagement:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the product specified by its identifier.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:apimanagement:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly bool? ApprovalRequired;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Product description. May include HTML formatting tags.
         /// </summary>
         public readonly string? Description;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.ApiManagement
         private GetProductResult(
             bool? approvalRequired,
 
+            string azureApiVersion,
+
             string? description,
 
             string displayName,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNative.ApiManagement
             string type)
         {
             ApprovalRequired = approvalRequired;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Id = id;

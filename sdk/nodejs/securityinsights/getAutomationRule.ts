@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the automation rule.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-09-01.
  *
- * Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+ * Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAutomationRule(args: GetAutomationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,7 +42,11 @@ export interface GetAutomationRuleResult {
     /**
      * The actions to execute when the automation rule is triggered.
      */
-    readonly actions: (outputs.securityinsights.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.AutomationRuleRunPlaybookActionResponse)[];
+    readonly actions: (outputs.securityinsights.AutomationRuleAddIncidentTaskActionResponse | outputs.securityinsights.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.AutomationRuleRunPlaybookActionResponse)[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Information on the client (user or application) that made some action
      */
@@ -95,9 +99,9 @@ export interface GetAutomationRuleResult {
 /**
  * Gets the automation rule.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-09-01.
  *
- * Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+ * Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAutomationRuleOutput(args: GetAutomationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutomationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

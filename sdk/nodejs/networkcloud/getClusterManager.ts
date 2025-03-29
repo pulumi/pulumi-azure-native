@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get the properties of the provided cluster manager.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getClusterManager(args: GetClusterManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetClusterManagerResult {
      */
     readonly availabilityZones?: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The list of the cluster versions the manager supports. It is used as input in clusterVersion property of a cluster resource.
      */
     readonly clusterVersions: outputs.networkcloud.ClusterAvailableVersionResponse[];
@@ -55,6 +59,10 @@ export interface GetClusterManagerResult {
      */
     readonly detailedStatusMessage: string;
     /**
+     * Resource ETag.
+     */
+    readonly etag: string;
+    /**
      * The resource ID of the fabric controller that has one to one mapping with the cluster manager.
      */
     readonly fabricControllerId: string;
@@ -62,6 +70,10 @@ export interface GetClusterManagerResult {
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * The identity of the cluster manager.
+     */
+    readonly identity?: outputs.networkcloud.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -102,9 +114,9 @@ export interface GetClusterManagerResult {
 /**
  * Get the properties of the provided cluster manager.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getClusterManagerOutput(args: GetClusterManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

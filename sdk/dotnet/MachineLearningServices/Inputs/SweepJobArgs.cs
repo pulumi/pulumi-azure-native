@@ -90,6 +90,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<Inputs.SweepJobLimitsArgs>? Limits { get; set; }
 
         /// <summary>
+        /// Notification setting for the job
+        /// </summary>
+        [Input("notificationSetting")]
+        public Input<Inputs.NotificationSettingArgs>? NotificationSetting { get; set; }
+
+        /// <summary>
         /// [Required] Optimization objective.
         /// </summary>
         [Input("objective", required: true)]
@@ -118,6 +124,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
             get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
         }
+
+        /// <summary>
+        /// Queue settings for the job
+        /// </summary>
+        [Input("queueSettings")]
+        public Input<Inputs.QueueSettingsArgs>? QueueSettings { get; set; }
 
         /// <summary>
         /// [Required] The hyperparameter sampling algorithm

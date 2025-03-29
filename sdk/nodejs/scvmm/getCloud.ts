@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Implements Cloud GET method.
  *
- * Uses Azure REST API version 2022-05-21-preview.
+ * Uses Azure REST API version 2023-04-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+ * Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCloud(args: GetCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetCloudArgs {
  * The Clouds resource definition.
  */
 export interface GetCloudResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Capacity of the cloud.
      */
@@ -97,9 +101,9 @@ export interface GetCloudResult {
 /**
  * Implements Cloud GET method.
  *
- * Uses Azure REST API version 2022-05-21-preview.
+ * Uses Azure REST API version 2023-04-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+ * Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCloudOutput(args: GetCloudOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Distributed availability group between box and Sql Managed Instance.
  *
- * Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2021-05-01-preview.
+ * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DistributedAvailabilityGroup extends pulumi.CustomResource {
     /**
@@ -42,49 +42,57 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The distributed availability group id
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Databases in the distributed availability group
+     */
+    public readonly databases!: pulumi.Output<outputs.sql.DistributedAvailabilityGroupDatabaseResponse[] | undefined>;
+    /**
+     * ID of the distributed availability group
      */
     public /*out*/ readonly distributedAvailabilityGroupId!: pulumi.Output<string>;
     /**
-     * The last hardened lsn
+     * Name of the distributed availability group
      */
-    public /*out*/ readonly lastHardenedLsn!: pulumi.Output<string>;
+    public readonly distributedAvailabilityGroupName!: pulumi.Output<string>;
     /**
-     * The link state
+     * The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
      */
-    public /*out*/ readonly linkState!: pulumi.Output<string>;
+    public readonly failoverMode!: pulumi.Output<string | undefined>;
+    /**
+     * Managed instance side availability group name
+     */
+    public readonly instanceAvailabilityGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * Managed instance side link role
+     */
+    public readonly instanceLinkRole!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The primary availability group name
+     * SQL server side availability group name
      */
-    public readonly primaryAvailabilityGroupName!: pulumi.Output<string | undefined>;
+    public readonly partnerAvailabilityGroupName!: pulumi.Output<string | undefined>;
     /**
-     * The replication mode of a distributed availability group. Parameter will be ignored during link creation.
+     * SQL server side endpoint - IP or DNS resolvable name
+     */
+    public readonly partnerEndpoint!: pulumi.Output<string | undefined>;
+    /**
+     * SQL server side link role
+     */
+    public /*out*/ readonly partnerLinkRole!: pulumi.Output<string>;
+    /**
+     * Replication mode of the link
      */
     public readonly replicationMode!: pulumi.Output<string | undefined>;
     /**
-     * The secondary availability group name
+     * Database seeding mode – can be Automatic (default), or Manual for supported scenarios.
      */
-    public readonly secondaryAvailabilityGroupName!: pulumi.Output<string | undefined>;
-    /**
-     * The source endpoint
-     */
-    public readonly sourceEndpoint!: pulumi.Output<string | undefined>;
-    /**
-     * The source replica id
-     */
-    public /*out*/ readonly sourceReplicaId!: pulumi.Output<string>;
-    /**
-     * The name of the target database
-     */
-    public readonly targetDatabase!: pulumi.Output<string | undefined>;
-    /**
-     * The target replica id
-     */
-    public /*out*/ readonly targetReplicaId!: pulumi.Output<string>;
+    public readonly seedingMode!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -107,33 +115,36 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["databases"] = args ? args.databases : undefined;
             resourceInputs["distributedAvailabilityGroupName"] = args ? args.distributedAvailabilityGroupName : undefined;
+            resourceInputs["failoverMode"] = args ? args.failoverMode : undefined;
+            resourceInputs["instanceAvailabilityGroupName"] = args ? args.instanceAvailabilityGroupName : undefined;
+            resourceInputs["instanceLinkRole"] = args ? args.instanceLinkRole : undefined;
             resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["primaryAvailabilityGroupName"] = args ? args.primaryAvailabilityGroupName : undefined;
+            resourceInputs["partnerAvailabilityGroupName"] = args ? args.partnerAvailabilityGroupName : undefined;
+            resourceInputs["partnerEndpoint"] = args ? args.partnerEndpoint : undefined;
             resourceInputs["replicationMode"] = args ? args.replicationMode : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secondaryAvailabilityGroupName"] = args ? args.secondaryAvailabilityGroupName : undefined;
-            resourceInputs["sourceEndpoint"] = args ? args.sourceEndpoint : undefined;
-            resourceInputs["targetDatabase"] = args ? args.targetDatabase : undefined;
+            resourceInputs["seedingMode"] = args ? args.seedingMode : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["distributedAvailabilityGroupId"] = undefined /*out*/;
-            resourceInputs["lastHardenedLsn"] = undefined /*out*/;
-            resourceInputs["linkState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["sourceReplicaId"] = undefined /*out*/;
-            resourceInputs["targetReplicaId"] = undefined /*out*/;
+            resourceInputs["partnerLinkRole"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["databases"] = undefined /*out*/;
             resourceInputs["distributedAvailabilityGroupId"] = undefined /*out*/;
-            resourceInputs["lastHardenedLsn"] = undefined /*out*/;
-            resourceInputs["linkState"] = undefined /*out*/;
+            resourceInputs["distributedAvailabilityGroupName"] = undefined /*out*/;
+            resourceInputs["failoverMode"] = undefined /*out*/;
+            resourceInputs["instanceAvailabilityGroupName"] = undefined /*out*/;
+            resourceInputs["instanceLinkRole"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["primaryAvailabilityGroupName"] = undefined /*out*/;
+            resourceInputs["partnerAvailabilityGroupName"] = undefined /*out*/;
+            resourceInputs["partnerEndpoint"] = undefined /*out*/;
+            resourceInputs["partnerLinkRole"] = undefined /*out*/;
             resourceInputs["replicationMode"] = undefined /*out*/;
-            resourceInputs["secondaryAvailabilityGroupName"] = undefined /*out*/;
-            resourceInputs["sourceEndpoint"] = undefined /*out*/;
-            resourceInputs["sourceReplicaId"] = undefined /*out*/;
-            resourceInputs["targetDatabase"] = undefined /*out*/;
-            resourceInputs["targetReplicaId"] = undefined /*out*/;
+            resourceInputs["seedingMode"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -148,35 +159,47 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
  */
 export interface DistributedAvailabilityGroupArgs {
     /**
+     * Databases in the distributed availability group
+     */
+    databases?: pulumi.Input<pulumi.Input<inputs.sql.DistributedAvailabilityGroupDatabaseArgs>[]>;
+    /**
      * The distributed availability group name.
      */
     distributedAvailabilityGroupName?: pulumi.Input<string>;
+    /**
+     * The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
+     */
+    failoverMode?: pulumi.Input<string | enums.sql.FailoverModeType>;
+    /**
+     * Managed instance side availability group name
+     */
+    instanceAvailabilityGroupName?: pulumi.Input<string>;
+    /**
+     * Managed instance side link role
+     */
+    instanceLinkRole?: pulumi.Input<string | enums.sql.LinkRole>;
     /**
      * The name of the managed instance.
      */
     managedInstanceName: pulumi.Input<string>;
     /**
-     * The primary availability group name
+     * SQL server side availability group name
      */
-    primaryAvailabilityGroupName?: pulumi.Input<string>;
+    partnerAvailabilityGroupName?: pulumi.Input<string>;
     /**
-     * The replication mode of a distributed availability group. Parameter will be ignored during link creation.
+     * SQL server side endpoint - IP or DNS resolvable name
      */
-    replicationMode?: pulumi.Input<string | enums.sql.ReplicationMode>;
+    partnerEndpoint?: pulumi.Input<string>;
+    /**
+     * Replication mode of the link
+     */
+    replicationMode?: pulumi.Input<string | enums.sql.ReplicationModeType>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The secondary availability group name
+     * Database seeding mode – can be Automatic (default), or Manual for supported scenarios.
      */
-    secondaryAvailabilityGroupName?: pulumi.Input<string>;
-    /**
-     * The source endpoint
-     */
-    sourceEndpoint?: pulumi.Input<string>;
-    /**
-     * The name of the target database
-     */
-    targetDatabase?: pulumi.Input<string>;
+    seedingMode?: pulumi.Input<string | enums.sql.SeedingModeType>;
 }

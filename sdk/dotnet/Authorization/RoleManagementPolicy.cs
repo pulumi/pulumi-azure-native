@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Authorization
     /// <summary>
     /// Role management policy
     /// 
-    /// Uses Azure REST API version 2024-09-01-preview.
+    /// Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
     /// 
-    /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
+    /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleManagementPolicy")]
     public partial class RoleManagementPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The role management policy description.
         /// </summary>

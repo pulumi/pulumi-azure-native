@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Synapse
         /// 
         /// Uses Azure REST API version 2021-06-01.
         /// 
-        /// Other available API versions: 2021-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetIntegrationRuntimeResult> InvokeAsync(GetIntegrationRuntimeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-native:synapse:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Synapse
         /// 
         /// Uses Azure REST API version 2021-06-01.
         /// 
-        /// Other available API versions: 2021-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIntegrationRuntimeResult> Invoke(GetIntegrationRuntimeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeResult>("azure-native:synapse:getIntegrationRuntime", args ?? new GetIntegrationRuntimeInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Synapse
         /// 
         /// Uses Azure REST API version 2021-06-01.
         /// 
-        /// Other available API versions: 2021-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIntegrationRuntimeResult> Invoke(GetIntegrationRuntimeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeResult>("azure-native:synapse:getIntegrationRuntime", args ?? new GetIntegrationRuntimeInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetIntegrationRuntimeResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Etag.
         /// </summary>
         public readonly string Etag;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetIntegrationRuntimeResult(
+            string azureApiVersion,
+
             string etag,
 
             string id,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Name = name;

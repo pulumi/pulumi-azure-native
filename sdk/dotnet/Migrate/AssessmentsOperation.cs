@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// Machine assessment resource.
     /// 
-    /// Uses Azure REST API version 2023-04-01-preview.
+    /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
     /// 
-    /// Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AssessmentsOperation")]
     public partial class AssessmentsOperation : global::Pulumi.CustomResource
@@ -32,6 +32,12 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         [Output("assessmentType")]
         public Output<string> AssessmentType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the azure storage type. Premium, Standard etc.
@@ -326,12 +332,14 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:Assessment" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:Assessment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

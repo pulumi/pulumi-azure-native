@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the Dsc node configurations by node configuration.
         /// 
-        /// Uses Azure REST API version 2022-08-08.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2018-01-15, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDscNodeConfigurationResult> InvokeAsync(GetDscNodeConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDscNodeConfigurationResult>("azure-native:automation:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the Dsc node configurations by node configuration.
         /// 
-        /// Uses Azure REST API version 2022-08-08.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2018-01-15, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDscNodeConfigurationResult> Invoke(GetDscNodeConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDscNodeConfigurationResult>("azure-native:automation:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the Dsc node configurations by node configuration.
         /// 
-        /// Uses Azure REST API version 2022-08-08.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2018-01-15, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDscNodeConfigurationResult> Invoke(GetDscNodeConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDscNodeConfigurationResult>("azure-native:automation:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Automation
     public sealed class GetDscNodeConfigurationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the configuration of the node.
         /// </summary>
         public readonly Outputs.DscConfigurationAssociationPropertyResponse? Configuration;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.Automation
 
         [OutputConstructor]
         private GetDscNodeConfigurationResult(
+            string azureApiVersion,
+
             Outputs.DscConfigurationAssociationPropertyResponse? configuration,
 
             string? creationTime,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.Automation
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Configuration = configuration;
             CreationTime = creationTime;
             Id = id;

@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string? BaseOs;
         /// <summary>
-        /// List of environment variables to be passed to the build.
+        /// List of environment variables to be passed to the build, secrets should not be used in environment variable.
         /// </summary>
         public readonly ImmutableArray<Outputs.EnvironmentVariableResponse> EnvironmentVariables;
         /// <summary>

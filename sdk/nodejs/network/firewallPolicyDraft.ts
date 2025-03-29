@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * FirewallPolicy Resource.
  *
- * Uses Azure REST API version 2023-11-01.
+ * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
  *
- * Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FirewallPolicyDraft extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class FirewallPolicyDraft extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallPolicyDraft.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The parent firewall policy from which rules are inherited.
      */
@@ -125,9 +129,11 @@ export class FirewallPolicyDraft extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
             resourceInputs["threatIntelWhitelist"] = args ? args.threatIntelWhitelist : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["basePolicy"] = undefined /*out*/;
             resourceInputs["dnsSettings"] = undefined /*out*/;
             resourceInputs["explicitProxy"] = undefined /*out*/;

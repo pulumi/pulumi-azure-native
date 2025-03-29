@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get all delivery attributes for an event subscription for topic.
  *
- * Uses Azure REST API version 2022-06-15.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getTopicEventSubscriptionDeliveryAttributes(args: GetTopicEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicEventSubscriptionDeliveryAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,7 +33,7 @@ export interface GetTopicEventSubscriptionDeliveryAttributesArgs {
      */
     resourceGroupName: string;
     /**
-     * Name of the domain topic.
+     * Name of the topic.
      */
     topicName: string;
 }
@@ -50,9 +50,9 @@ export interface GetTopicEventSubscriptionDeliveryAttributesResult {
 /**
  * Get all delivery attributes for an event subscription for topic.
  *
- * Uses Azure REST API version 2022-06-15.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getTopicEventSubscriptionDeliveryAttributesOutput(args: GetTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicEventSubscriptionDeliveryAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,7 +73,7 @@ export interface GetTopicEventSubscriptionDeliveryAttributesOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the domain topic.
+     * Name of the topic.
      */
     topicName: pulumi.Input<string>;
 }

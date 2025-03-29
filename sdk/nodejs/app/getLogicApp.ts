@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A logic app extension resource
  *
- * Uses Azure REST API version 2024-02-02-preview.
+ * Uses Azure REST API version 2024-10-02-preview.
  *
- * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+ * Other available API versions: 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLogicApp(args: GetLogicAppArgs, opts?: pulumi.InvokeOptions): Promise<GetLogicAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetLogicAppArgs {
  */
 export interface GetLogicAppResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -62,9 +66,9 @@ export interface GetLogicAppResult {
 /**
  * A logic app extension resource
  *
- * Uses Azure REST API version 2024-02-02-preview.
+ * Uses Azure REST API version 2024-10-02-preview.
  *
- * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+ * Other available API versions: 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLogicAppOutput(args: GetLogicAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogicAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

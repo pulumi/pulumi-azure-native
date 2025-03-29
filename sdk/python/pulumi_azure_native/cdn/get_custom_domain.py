@@ -27,7 +27,10 @@ class GetCustomDomainResult:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     """
-    def __init__(__self__, custom_https_parameters=None, custom_https_provisioning_state=None, custom_https_provisioning_substate=None, host_name=None, id=None, name=None, provisioning_state=None, resource_state=None, system_data=None, type=None, validation_data=None):
+    def __init__(__self__, azure_api_version=None, custom_https_parameters=None, custom_https_provisioning_state=None, custom_https_provisioning_substate=None, host_name=None, id=None, name=None, provisioning_state=None, resource_state=None, system_data=None, type=None, validation_data=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_https_parameters and not isinstance(custom_https_parameters, dict):
             raise TypeError("Expected argument 'custom_https_parameters' to be a dict")
         pulumi.set(__self__, "custom_https_parameters", custom_https_parameters)
@@ -61,6 +64,14 @@ class GetCustomDomainResult:
         if validation_data and not isinstance(validation_data, str):
             raise TypeError("Expected argument 'validation_data' to be a str")
         pulumi.set(__self__, "validation_data", validation_data)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customHttpsParameters")
@@ -157,6 +168,7 @@ class AwaitableGetCustomDomainResult(GetCustomDomainResult):
         if False:
             yield self
         return GetCustomDomainResult(
+            azure_api_version=self.azure_api_version,
             custom_https_parameters=self.custom_https_parameters,
             custom_https_provisioning_state=self.custom_https_provisioning_state,
             custom_https_provisioning_substate=self.custom_https_provisioning_substate,
@@ -178,9 +190,9 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
     """
     Gets an existing custom domain within an endpoint.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.
@@ -197,6 +209,7 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getCustomDomain', __args__, opts=opts, typ=GetCustomDomainResult).value
 
     return AwaitableGetCustomDomainResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_https_parameters=pulumi.get(__ret__, 'custom_https_parameters'),
         custom_https_provisioning_state=pulumi.get(__ret__, 'custom_https_provisioning_state'),
         custom_https_provisioning_substate=pulumi.get(__ret__, 'custom_https_provisioning_substate'),
@@ -216,9 +229,9 @@ def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = N
     """
     Gets an existing custom domain within an endpoint.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.
@@ -234,6 +247,7 @@ def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getCustomDomain', __args__, opts=opts, typ=GetCustomDomainResult)
     return __ret__.apply(lambda __response__: GetCustomDomainResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_https_parameters=pulumi.get(__response__, 'custom_https_parameters'),
         custom_https_provisioning_state=pulumi.get(__response__, 'custom_https_provisioning_state'),
         custom_https_provisioning_substate=pulumi.get(__response__, 'custom_https_provisioning_substate'),

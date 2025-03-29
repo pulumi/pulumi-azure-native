@@ -100,7 +100,7 @@ class AFDTargetGroup(pulumi.CustomResource):
         """
         AFDTargetGroup comprises a list of Endpoints that is used for tunnelling protocols to allow certain traffic.
 
-        Uses Azure REST API version 2024-06-01-preview.
+        Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +118,7 @@ class AFDTargetGroup(pulumi.CustomResource):
         """
         AFDTargetGroup comprises a list of Endpoints that is used for tunnelling protocols to allow certain traffic.
 
-        Uses Azure REST API version 2024-06-01-preview.
+        Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AFDTargetGroupArgs args: The arguments to use to populate this resource's properties.
@@ -158,6 +158,7 @@ class AFDTargetGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_endpoints'")
             __props__.__dict__["target_endpoints"] = target_endpoints
             __props__.__dict__["target_group_name"] = target_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["deployment_status"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -187,6 +188,7 @@ class AFDTargetGroup(pulumi.CustomResource):
 
         __props__ = AFDTargetGroupArgs.__new__(AFDTargetGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["deployment_status"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -194,6 +196,14 @@ class AFDTargetGroup(pulumi.CustomResource):
         __props__.__dict__["target_endpoints"] = None
         __props__.__dict__["type"] = None
         return AFDTargetGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deploymentStatus")

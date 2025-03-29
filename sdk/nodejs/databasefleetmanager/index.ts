@@ -59,13 +59,6 @@ utilities.lazyLoad(exports, ["getFleetspace","getFleetspaceOutput"], () => requi
 // Export enums:
 export * from "../types/enums/databasefleetmanager";
 
-// Export sub-modules:
-import * as v20250201preview from "./v20250201preview";
-
-export {
-    v20250201preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

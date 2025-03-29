@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * API Operation details.
  *
- * Uses Azure REST API version 2022-09-01-preview.
+ * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WorkspaceApiOperation extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class WorkspaceApiOperation extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceApiOperation.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Description of the operation. May include HTML formatting tags.
      */
@@ -127,9 +131,11 @@ export class WorkspaceApiOperation extends pulumi.CustomResource {
             resourceInputs["templateParameters"] = args ? args.templateParameters : undefined;
             resourceInputs["urlTemplate"] = args ? args.urlTemplate : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["method"] = undefined /*out*/;

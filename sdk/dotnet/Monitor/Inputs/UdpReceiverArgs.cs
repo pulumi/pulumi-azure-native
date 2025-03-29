@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Monitor.Inputs
         public Input<string> Endpoint { get; set; } = null!;
 
         /// <summary>
+        /// Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
+        /// </summary>
+        [Input("jsonArrayMapper")]
+        public Input<Inputs.JsonArrayMapperArgs>? JsonArrayMapper { get; set; }
+
+        /// <summary>
         /// Max read queue length.
         /// </summary>
         [Input("readQueueLength")]

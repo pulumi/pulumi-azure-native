@@ -10,11 +10,3 @@ from .adc_catalog import *
 from .get_adc_catalog import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.datacatalog.v20160330 as __v20160330
-    v20160330 = __v20160330
-else:
-    v20160330 = _utilities.lazy_import('pulumi_azure_native.datacatalog.v20160330')
-

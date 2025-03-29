@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the ACS and SAS connection strings for the Event Hub.
         /// 
-        /// Uses Azure REST API version 2022-10-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListEventHubKeysResult> InvokeAsync(ListEventHubKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEventHubKeysResult>("azure-native:eventhub:listEventHubKeys", args ?? new ListEventHubKeysArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the ACS and SAS connection strings for the Event Hub.
         /// 
-        /// Uses Azure REST API version 2022-10-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListEventHubKeysResult> Invoke(ListEventHubKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEventHubKeysResult>("azure-native:eventhub:listEventHubKeys", args ?? new ListEventHubKeysInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// Gets the ACS and SAS connection strings for the Event Hub.
         /// 
-        /// Uses Azure REST API version 2022-10-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListEventHubKeysResult> Invoke(ListEventHubKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListEventHubKeysResult>("azure-native:eventhub:listEventHubKeys", args ?? new ListEventHubKeysInvokeArgs(), options.WithDefaults());

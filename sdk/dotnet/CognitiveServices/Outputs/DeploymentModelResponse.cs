@@ -29,9 +29,17 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// Deployment model publisher.
+        /// </summary>
+        public readonly string? Publisher;
+        /// <summary>
         /// Optional. Deployment model source ARM resource ID.
         /// </summary>
         public readonly string? Source;
+        /// <summary>
+        /// Optional. Source of the model, another Microsoft.CognitiveServices accounts ARM resource ID.
+        /// </summary>
+        public readonly string? SourceAccount;
         /// <summary>
         /// Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
         /// </summary>
@@ -45,14 +53,20 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             string? name,
 
+            string? publisher,
+
             string? source,
+
+            string? sourceAccount,
 
             string? version)
         {
             CallRateLimit = callRateLimit;
             Format = format;
             Name = name;
+            Publisher = publisher;
             Source = source;
+            SourceAccount = sourceAccount;
             Version = version;
         }
     }

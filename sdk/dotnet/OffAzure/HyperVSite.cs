@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.OffAzure
     /// <summary>
     /// Site REST Resource.
     /// 
-    /// Uses Azure REST API version 2020-07-07. In version 1.x of the Azure Native provider, it used API version 2020-01-01.
+    /// Uses Azure REST API version 2020-07-07. In version 2.x of the Azure Native provider, it used API version 2020-07-07.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:HyperVSite")]
     public partial class HyperVSite : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// eTag for concurrency control.
         /// </summary>
@@ -84,8 +90,12 @@ namespace Pulumi.AzureNative.OffAzure
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:HyperVSite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:HyperVSite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:HyperVSite" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:HypervSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:HyperVSite" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:HypervSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:HyperVSite" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:HypervSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:HypervSitesController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

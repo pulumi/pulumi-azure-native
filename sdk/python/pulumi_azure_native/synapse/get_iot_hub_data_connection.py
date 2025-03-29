@@ -27,7 +27,10 @@ class GetIotHubDataConnectionResult:
     """
     Class representing an iot hub data connection.
     """
-    def __init__(__self__, consumer_group=None, data_format=None, event_system_properties=None, id=None, iot_hub_resource_id=None, kind=None, location=None, mapping_rule_name=None, name=None, provisioning_state=None, shared_access_policy_name=None, system_data=None, table_name=None, type=None):
+    def __init__(__self__, azure_api_version=None, consumer_group=None, data_format=None, event_system_properties=None, id=None, iot_hub_resource_id=None, kind=None, location=None, mapping_rule_name=None, name=None, provisioning_state=None, shared_access_policy_name=None, system_data=None, table_name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if consumer_group and not isinstance(consumer_group, str):
             raise TypeError("Expected argument 'consumer_group' to be a str")
         pulumi.set(__self__, "consumer_group", consumer_group)
@@ -70,6 +73,14 @@ class GetIotHubDataConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="consumerGroup")
@@ -191,6 +202,7 @@ class AwaitableGetIotHubDataConnectionResult(GetIotHubDataConnectionResult):
         if False:
             yield self
         return GetIotHubDataConnectionResult(
+            azure_api_version=self.azure_api_version,
             consumer_group=self.consumer_group,
             data_format=self.data_format,
             event_system_properties=self.event_system_properties,
@@ -235,6 +247,7 @@ def get_iot_hub_data_connection(data_connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse:getIotHubDataConnection', __args__, opts=opts, typ=GetIotHubDataConnectionResult).value
 
     return AwaitableGetIotHubDataConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         consumer_group=pulumi.get(__ret__, 'consumer_group'),
         data_format=pulumi.get(__ret__, 'data_format'),
         event_system_properties=pulumi.get(__ret__, 'event_system_properties'),
@@ -276,6 +289,7 @@ def get_iot_hub_data_connection_output(data_connection_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getIotHubDataConnection', __args__, opts=opts, typ=GetIotHubDataConnectionResult)
     return __ret__.apply(lambda __response__: GetIotHubDataConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         consumer_group=pulumi.get(__response__, 'consumer_group'),
         data_format=pulumi.get(__response__, 'data_format'),
         event_system_properties=pulumi.get(__response__, 'event_system_properties'),

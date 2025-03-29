@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a Log Analytics cluster instance.
         /// 
-        /// Uses Azure REST API version 2021-06-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:operationalinsights:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a Log Analytics cluster instance.
         /// 
-        /// Uses Azure REST API version 2021-06-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:operationalinsights:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a Log Analytics cluster instance.
         /// 
-        /// Uses Azure REST API version 2021-06-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:operationalinsights:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly ImmutableArray<Outputs.AssociatedWorkspaceResponse> AssociatedWorkspaces;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The cluster's billing type.
         /// </summary>
         public readonly string? BillingType;
@@ -112,9 +116,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identity of the resource.
+        /// Resource's identity.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
         /// </summary>
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         private GetClusterResult(
             ImmutableArray<Outputs.AssociatedWorkspaceResponse> associatedWorkspaces,
 
+            string azureApiVersion,
+
             string? billingType,
 
             Outputs.CapacityReservationPropertiesResponse? capacityReservationProperties,
@@ -170,7 +176,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             bool? isAvailabilityZonesEnabled,
 
@@ -193,6 +199,7 @@ namespace Pulumi.AzureNative.OperationalInsights
             string type)
         {
             AssociatedWorkspaces = associatedWorkspaces;
+            AzureApiVersion = azureApiVersion;
             BillingType = billingType;
             CapacityReservationProperties = capacityReservationProperties;
             ClusterId = clusterId;

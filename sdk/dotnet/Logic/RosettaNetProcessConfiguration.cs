@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Logic
     /// <summary>
     /// The integration account RosettaNet process configuration.
     /// 
-    /// Uses Azure REST API version 2016-06-01. In version 1.x of the Azure Native provider, it used API version 2016-06-01.
+    /// Uses Azure REST API version 2016-06-01. In version 2.x of the Azure Native provider, it used API version 2016-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:RosettaNetProcessConfiguration")]
     public partial class RosettaNetProcessConfiguration : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         [Output("activitySettings")]
         public Output<Outputs.RosettaNetPipActivitySettingsResponse> ActivitySettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The changed time.

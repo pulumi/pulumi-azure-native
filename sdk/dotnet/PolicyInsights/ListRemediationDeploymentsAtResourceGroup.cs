@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets all deployments for a remediation at resource group scope.
         /// 
-        /// Uses Azure REST API version 2021-10-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2024-10-01.
+        /// Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtResourceGroupResult> InvokeAsync(ListRemediationDeploymentsAtResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtResourceGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtResourceGroup", args ?? new ListRemediationDeploymentsAtResourceGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets all deployments for a remediation at resource group scope.
         /// 
-        /// Uses Azure REST API version 2021-10-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2024-10-01.
+        /// Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtResourceGroupResult> Invoke(ListRemediationDeploymentsAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtResourceGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtResourceGroup", args ?? new ListRemediationDeploymentsAtResourceGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets all deployments for a remediation at resource group scope.
         /// 
-        /// Uses Azure REST API version 2021-10-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2024-10-01.
+        /// Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtResourceGroupResult> Invoke(ListRemediationDeploymentsAtResourceGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtResourceGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtResourceGroup", args ?? new ListRemediationDeploymentsAtResourceGroupInvokeArgs(), options.WithDefaults());

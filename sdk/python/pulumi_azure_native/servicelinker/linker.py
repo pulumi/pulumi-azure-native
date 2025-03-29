@@ -23,7 +23,7 @@ __all__ = ['LinkerArgs', 'Linker']
 class LinkerArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[str],
-                 auth_info: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]] = None,
+                 auth_info: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]] = None,
                  client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
                  configuration_info: Optional[pulumi.Input['ConfigurationInfoArgs']] = None,
                  linker_name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class LinkerArgs:
         """
         The set of arguments for constructing a Linker resource.
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
-        :param pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']] auth_info: The authentication type.
+        :param pulumi.Input[Union['AccessKeyInfoBaseArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']] auth_info: The authentication type.
         :param pulumi.Input[Union[str, 'ClientType']] client_type: The application client type
         :param pulumi.Input['ConfigurationInfoArgs'] configuration_info: The connection information consumed by applications, including secrets, connection strings.
         :param pulumi.Input[str] linker_name: The name Linker resource.
@@ -79,14 +79,14 @@ class LinkerArgs:
 
     @property
     @pulumi.getter(name="authInfo")
-    def auth_info(self) -> Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]:
+    def auth_info(self) -> Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]:
         """
         The authentication type.
         """
         return pulumi.get(self, "auth_info")
 
     @auth_info.setter
-    def auth_info(self, value: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]):
+    def auth_info(self, value: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]):
         pulumi.set(self, "auth_info", value)
 
     @property
@@ -191,7 +191,7 @@ class Linker(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_info: Optional[pulumi.Input[Union[Union['AccessKeyInfoBaseArgs', 'AccessKeyInfoBaseArgsDict'], Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAccountAuthInfoArgs', 'UserAccountAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]]] = None,
+                 auth_info: Optional[pulumi.Input[Union[Union['AccessKeyInfoBaseArgs', 'AccessKeyInfoBaseArgsDict'], Union['EasyAuthMicrosoftEntraIDAuthInfoArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgsDict'], Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAccountAuthInfoArgs', 'UserAccountAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]]] = None,
                  client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
                  configuration_info: Optional[pulumi.Input[Union['ConfigurationInfoArgs', 'ConfigurationInfoArgsDict']]] = None,
                  linker_name: Optional[pulumi.Input[str]] = None,
@@ -205,13 +205,13 @@ class Linker(pulumi.CustomResource):
         """
         Linker of source and target resource
 
-        Uses Azure REST API version 2022-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-11-01-preview.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
 
-        Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+        Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Union['AccessKeyInfoBaseArgs', 'AccessKeyInfoBaseArgsDict'], Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAccountAuthInfoArgs', 'UserAccountAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]] auth_info: The authentication type.
+        :param pulumi.Input[Union[Union['AccessKeyInfoBaseArgs', 'AccessKeyInfoBaseArgsDict'], Union['EasyAuthMicrosoftEntraIDAuthInfoArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgsDict'], Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAccountAuthInfoArgs', 'UserAccountAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]] auth_info: The authentication type.
         :param pulumi.Input[Union[str, 'ClientType']] client_type: The application client type
         :param pulumi.Input[Union['ConfigurationInfoArgs', 'ConfigurationInfoArgsDict']] configuration_info: The connection information consumed by applications, including secrets, connection strings.
         :param pulumi.Input[str] linker_name: The name Linker resource.
@@ -231,9 +231,9 @@ class Linker(pulumi.CustomResource):
         """
         Linker of source and target resource
 
-        Uses Azure REST API version 2022-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-11-01-preview.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
 
-        Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+        Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param LinkerArgs args: The arguments to use to populate this resource's properties.
@@ -250,7 +250,7 @@ class Linker(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_info: Optional[pulumi.Input[Union[Union['AccessKeyInfoBaseArgs', 'AccessKeyInfoBaseArgsDict'], Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAccountAuthInfoArgs', 'UserAccountAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]]] = None,
+                 auth_info: Optional[pulumi.Input[Union[Union['AccessKeyInfoBaseArgs', 'AccessKeyInfoBaseArgsDict'], Union['EasyAuthMicrosoftEntraIDAuthInfoArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgsDict'], Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAccountAuthInfoArgs', 'UserAccountAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]]] = None,
                  client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
                  configuration_info: Optional[pulumi.Input[Union['ConfigurationInfoArgs', 'ConfigurationInfoArgsDict']]] = None,
                  linker_name: Optional[pulumi.Input[str]] = None,
@@ -281,6 +281,7 @@ class Linker(pulumi.CustomResource):
             __props__.__dict__["secret_store"] = secret_store
             __props__.__dict__["target_service"] = target_service
             __props__.__dict__["v_net_solution"] = v_net_solution
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -310,6 +311,7 @@ class Linker(pulumi.CustomResource):
         __props__ = LinkerArgs.__new__(LinkerArgs)
 
         __props__.__dict__["auth_info"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["client_type"] = None
         __props__.__dict__["configuration_info"] = None
         __props__.__dict__["name"] = None
@@ -330,6 +332,14 @@ class Linker(pulumi.CustomResource):
         The authentication type.
         """
         return pulumi.get(self, "auth_info")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientType")

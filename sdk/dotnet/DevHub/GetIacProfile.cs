@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DevHub
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2024-08-01-preview, 2025-03-01-preview.
+        /// Other available API versions: 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetIacProfileResult> InvokeAsync(GetIacProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIacProfileResult>("azure-native:devhub:getIacProfile", args ?? new GetIacProfileArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevHub
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2024-08-01-preview, 2025-03-01-preview.
+        /// Other available API versions: 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIacProfileResult> Invoke(GetIacProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIacProfileResult>("azure-native:devhub:getIacProfile", args ?? new GetIacProfileInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.DevHub
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2024-08-01-preview, 2025-03-01-preview.
+        /// Other available API versions: 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIacProfileResult> Invoke(GetIacProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIacProfileResult>("azure-native:devhub:getIacProfile", args ?? new GetIacProfileInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.DevHub
         /// Determines the authorization status of requests.
         /// </summary>
         public readonly string AuthStatus;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Repository Branch Name
         /// </summary>
@@ -166,6 +170,8 @@ namespace Pulumi.AzureNative.DevHub
         private GetIacProfileResult(
             string authStatus,
 
+            string azureApiVersion,
+
             string? branchName,
 
             string etag,
@@ -205,6 +211,7 @@ namespace Pulumi.AzureNative.DevHub
             string type)
         {
             AuthStatus = authStatus;
+            AzureApiVersion = azureApiVersion;
             BranchName = branchName;
             Etag = etag;
             Id = id;

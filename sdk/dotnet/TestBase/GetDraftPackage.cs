@@ -102,6 +102,10 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public readonly string? ApplicationName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Comments added by user.
         /// </summary>
         public readonly string? Comments;
@@ -224,6 +228,8 @@ namespace Pulumi.AzureNative.TestBase
 
             string? applicationName,
 
+            string azureApiVersion,
+
             string? comments,
 
             string draftPackagePath,
@@ -284,6 +290,7 @@ namespace Pulumi.AzureNative.TestBase
         {
             AppFileName = appFileName;
             ApplicationName = applicationName;
+            AzureApiVersion = azureApiVersion;
             Comments = comments;
             DraftPackagePath = draftPackagePath;
             EditPackage = editPackage;

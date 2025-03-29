@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.HybridCompute
     public sealed class GetPrivateLinkScopedResourceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.HybridCompute
 
         [OutputConstructor]
         private GetPrivateLinkScopedResourceResult(
+            string azureApiVersion,
+
             string id,
 
             string? linkedResourceId,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             LinkedResourceId = linkedResourceId;
             Name = name;

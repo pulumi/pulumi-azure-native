@@ -100,6 +100,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public Input<Inputs.TemporaryDiskArgs>? TemporaryDisk { get; set; }
 
         /// <summary>
+        /// State of test endpoint auth.
+        /// </summary>
+        [Input("testEndpointAuthState")]
+        public InputUnion<string, Pulumi.AzureNative.AppPlatform.TestEndpointAuthState>? TestEndpointAuthState { get; set; }
+
+        /// <summary>
         /// Additional App settings in vnet injection instance
         /// </summary>
         [Input("vnetAddons")]
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         {
             EnableEndToEndTLS = false;
             HttpsOnly = false;
+            TestEndpointAuthState = "Enabled";
         }
         public static new AppResourcePropertiesArgs Empty => new AppResourcePropertiesArgs();
     }

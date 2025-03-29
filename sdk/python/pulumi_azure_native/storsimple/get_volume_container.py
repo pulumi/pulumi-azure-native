@@ -27,7 +27,10 @@ class GetVolumeContainerResult:
     """
     The volume container.
     """
-    def __init__(__self__, band_width_rate_in_mbps=None, bandwidth_setting_id=None, encryption_key=None, encryption_status=None, id=None, kind=None, name=None, owner_ship_status=None, storage_account_credential_id=None, total_cloud_storage_usage_in_bytes=None, type=None, volume_count=None):
+    def __init__(__self__, azure_api_version=None, band_width_rate_in_mbps=None, bandwidth_setting_id=None, encryption_key=None, encryption_status=None, id=None, kind=None, name=None, owner_ship_status=None, storage_account_credential_id=None, total_cloud_storage_usage_in_bytes=None, type=None, volume_count=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if band_width_rate_in_mbps and not isinstance(band_width_rate_in_mbps, int):
             raise TypeError("Expected argument 'band_width_rate_in_mbps' to be a int")
         pulumi.set(__self__, "band_width_rate_in_mbps", band_width_rate_in_mbps)
@@ -64,6 +67,14 @@ class GetVolumeContainerResult:
         if volume_count and not isinstance(volume_count, int):
             raise TypeError("Expected argument 'volume_count' to be a int")
         pulumi.set(__self__, "volume_count", volume_count)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bandWidthRateInMbps")
@@ -168,6 +179,7 @@ class AwaitableGetVolumeContainerResult(GetVolumeContainerResult):
         if False:
             yield self
         return GetVolumeContainerResult(
+            azure_api_version=self.azure_api_version,
             band_width_rate_in_mbps=self.band_width_rate_in_mbps,
             bandwidth_setting_id=self.bandwidth_setting_id,
             encryption_key=self.encryption_key,
@@ -207,6 +219,7 @@ def get_volume_container(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:getVolumeContainer', __args__, opts=opts, typ=GetVolumeContainerResult).value
 
     return AwaitableGetVolumeContainerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         band_width_rate_in_mbps=pulumi.get(__ret__, 'band_width_rate_in_mbps'),
         bandwidth_setting_id=pulumi.get(__ret__, 'bandwidth_setting_id'),
         encryption_key=pulumi.get(__ret__, 'encryption_key'),
@@ -243,6 +256,7 @@ def get_volume_container_output(device_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getVolumeContainer', __args__, opts=opts, typ=GetVolumeContainerResult)
     return __ret__.apply(lambda __response__: GetVolumeContainerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         band_width_rate_in_mbps=pulumi.get(__response__, 'band_width_rate_in_mbps'),
         bandwidth_setting_id=pulumi.get(__response__, 'bandwidth_setting_id'),
         encryption_key=pulumi.get(__response__, 'encryption_key'),

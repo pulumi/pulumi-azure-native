@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.App
     /// <summary>
     /// Container App session pool.
     /// 
-    /// Uses Azure REST API version 2024-02-02-preview.
+    /// Uses Azure REST API version 2024-10-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-02-preview.
     /// 
-    /// Other available API versions: 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+    /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerAppsSessionPool")]
     public partial class ContainerAppsSessionPool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The container type of the sessions.
         /// </summary>
@@ -44,10 +50,22 @@ namespace Pulumi.AzureNative.App
         public Output<string?> EnvironmentId { get; private set; } = null!;
 
         /// <summary>
+        /// Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional settings for a Managed Identity that is assigned to the Session pool.
+        /// </summary>
+        [Output("managedIdentitySettings")]
+        public Output<ImmutableArray<Outputs.ManagedIdentitySettingResponse>> ManagedIdentitySettings { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -192,10 +210,28 @@ namespace Pulumi.AzureNative.App
         public Input<string>? EnvironmentId { get; set; }
 
         /// <summary>
+        /// Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("managedIdentitySettings")]
+        private InputList<Inputs.ManagedIdentitySettingArgs>? _managedIdentitySettings;
+
+        /// <summary>
+        /// Optional settings for a Managed Identity that is assigned to the Session pool.
+        /// </summary>
+        public InputList<Inputs.ManagedIdentitySettingArgs> ManagedIdentitySettings
+        {
+            get => _managedIdentitySettings ?? (_managedIdentitySettings = new InputList<Inputs.ManagedIdentitySettingArgs>());
+            set => _managedIdentitySettings = value;
+        }
 
         /// <summary>
         /// The pool management type of the session pool.

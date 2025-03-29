@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Role management policy
  *
- * Uses Azure REST API version 2020-10-01. In version 1.x of the Azure Native provider, it used API version 2020-10-01.
+ * Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
  *
- * Other available API versions: 2020-10-01-preview, 2024-02-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
     /**
@@ -42,9 +42,13 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The readonly computed rule applied to the policy.
      */
-    public /*out*/ readonly effectiveRules!: pulumi.Output<(outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse)[]>;
+    public /*out*/ readonly effectiveRules!: pulumi.Output<(outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse | outputs.authorization.RoleManagementPolicyPimOnlyModeRuleResponse)[]>;
     /**
      * The role management policy name.
      */
@@ -88,11 +92,13 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             resourceInputs["roleManagementPolicyAssignmentName"] = args ? args.roleManagementPolicyAssignmentName : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveRules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyAssignmentProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveRules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyAssignmentProperties"] = undefined /*out*/;

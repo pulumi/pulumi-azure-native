@@ -26,10 +26,13 @@ class GetArtifactSourceResult:
     """
     Properties of an artifact source.
     """
-    def __init__(__self__, arm_template_folder_path=None, branch_ref=None, created_date=None, display_name=None, folder_path=None, id=None, location=None, name=None, provisioning_state=None, security_token=None, source_type=None, status=None, tags=None, type=None, unique_identifier=None, uri=None):
+    def __init__(__self__, arm_template_folder_path=None, azure_api_version=None, branch_ref=None, created_date=None, display_name=None, folder_path=None, id=None, location=None, name=None, provisioning_state=None, security_token=None, source_type=None, status=None, tags=None, type=None, unique_identifier=None, uri=None):
         if arm_template_folder_path and not isinstance(arm_template_folder_path, str):
             raise TypeError("Expected argument 'arm_template_folder_path' to be a str")
         pulumi.set(__self__, "arm_template_folder_path", arm_template_folder_path)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if branch_ref and not isinstance(branch_ref, str):
             raise TypeError("Expected argument 'branch_ref' to be a str")
         pulumi.set(__self__, "branch_ref", branch_ref)
@@ -83,6 +86,14 @@ class GetArtifactSourceResult:
         The folder containing Azure Resource Manager templates.
         """
         return pulumi.get(self, "arm_template_folder_path")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="branchRef")
@@ -212,6 +223,7 @@ class AwaitableGetArtifactSourceResult(GetArtifactSourceResult):
             yield self
         return GetArtifactSourceResult(
             arm_template_folder_path=self.arm_template_folder_path,
+            azure_api_version=self.azure_api_version,
             branch_ref=self.branch_ref,
             created_date=self.created_date,
             display_name=self.display_name,
@@ -255,6 +267,7 @@ def get_artifact_source(expand: Optional[str] = None,
 
     return AwaitableGetArtifactSourceResult(
         arm_template_folder_path=pulumi.get(__ret__, 'arm_template_folder_path'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         branch_ref=pulumi.get(__ret__, 'branch_ref'),
         created_date=pulumi.get(__ret__, 'created_date'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -295,6 +308,7 @@ def get_artifact_source_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getArtifactSource', __args__, opts=opts, typ=GetArtifactSourceResult)
     return __ret__.apply(lambda __response__: GetArtifactSourceResult(
         arm_template_folder_path=pulumi.get(__response__, 'arm_template_folder_path'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         branch_ref=pulumi.get(__response__, 'branch_ref'),
         created_date=pulumi.get(__response__, 'created_date'),
         display_name=pulumi.get(__response__, 'display_name'),

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the managed instance's Start/Stop schedule.
  *
- * Uses Azure REST API version 2022-11-01-preview.
+ * Uses Azure REST API version 2023-08-01.
  *
- * Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStartStopManagedInstanceSchedule(args: GetStartStopManagedInstanceScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetStartStopManagedInstanceScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetStartStopManagedInstanceScheduleArgs {
  * Managed instance's Start/Stop schedule.
  */
 export interface GetStartStopManagedInstanceScheduleResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The description of the schedule.
      */
@@ -82,9 +86,9 @@ export interface GetStartStopManagedInstanceScheduleResult {
 /**
  * Gets the managed instance's Start/Stop schedule.
  *
- * Uses Azure REST API version 2022-11-01-preview.
+ * Uses Azure REST API version 2023-08-01.
  *
- * Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStartStopManagedInstanceScheduleOutput(args: GetStartStopManagedInstanceScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStartStopManagedInstanceScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -439,9 +439,9 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
         """
         A server blob auditing policy.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -554,9 +554,9 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
         """
         A server blob auditing policy.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ServerBlobAuditingPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -616,6 +616,7 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
             __props__.__dict__["storage_account_access_key"] = storage_account_access_key
             __props__.__dict__["storage_account_subscription_id"] = storage_account_subscription_id
             __props__.__dict__["storage_endpoint"] = storage_endpoint
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20170301preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20230201preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20230501preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20240501preview:ServerBlobAuditingPolicy")])
@@ -643,6 +644,7 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
         __props__ = ServerBlobAuditingPolicyArgs.__new__(ServerBlobAuditingPolicyArgs)
 
         __props__.__dict__["audit_actions_and_groups"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["is_azure_monitor_target_enabled"] = None
         __props__.__dict__["is_devops_audit_enabled"] = None
         __props__.__dict__["is_managed_identity_in_use"] = None
@@ -723,6 +725,14 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
         For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
         """
         return pulumi.get(self, "audit_actions_and_groups")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="isAzureMonitorTargetEnabled")

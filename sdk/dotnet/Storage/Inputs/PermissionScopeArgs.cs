@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.Inputs
     public sealed class PermissionScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+        /// The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), Create (c), Modify Ownership (o), and Modify Permissions (p).
         /// </summary>
         [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// <summary>
         /// Gets the specified Azure dedicated HSM.
         /// 
-        /// Uses Azure REST API version 2021-11-30.
+        /// Uses Azure REST API version 2024-06-30-preview.
         /// 
-        /// Other available API versions: 2024-06-30-preview.
+        /// Other available API versions: 2021-11-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDedicatedHsmResult> InvokeAsync(GetDedicatedHsmArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules:getDedicatedHsm", args ?? new GetDedicatedHsmArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// <summary>
         /// Gets the specified Azure dedicated HSM.
         /// 
-        /// Uses Azure REST API version 2021-11-30.
+        /// Uses Azure REST API version 2024-06-30-preview.
         /// 
-        /// Other available API versions: 2024-06-30-preview.
+        /// Other available API versions: 2021-11-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDedicatedHsmResult> Invoke(GetDedicatedHsmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules:getDedicatedHsm", args ?? new GetDedicatedHsmInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// <summary>
         /// Gets the specified Azure dedicated HSM.
         /// 
-        /// Uses Azure REST API version 2021-11-30.
+        /// Uses Azure REST API version 2024-06-30-preview.
         /// 
-        /// Other available API versions: 2024-06-30-preview.
+        /// Other available API versions: 2021-11-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDedicatedHsmResult> Invoke(GetDedicatedHsmInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules:getDedicatedHsm", args ?? new GetDedicatedHsmInvokeArgs(), options.WithDefaults());
@@ -46,13 +46,13 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     public sealed class GetDedicatedHsmArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the dedicated HSM.
+        /// Name of the dedicated Hsm
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group to which the dedicated hsm belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -66,13 +66,13 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     public sealed class GetDedicatedHsmInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the dedicated HSM.
+        /// Name of the dedicated Hsm
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group to which the dedicated hsm belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -88,11 +88,15 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     public sealed class GetDedicatedHsmResult
     {
         /// <summary>
-        /// The Azure Resource Manager resource ID for the dedicated HSM.
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The supported Azure location where the dedicated HSM should be created.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -100,7 +104,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// </summary>
         public readonly Outputs.NetworkProfileResponse? ManagementNetworkProfile;
         /// <summary>
-        /// The name of the dedicated HSM.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -124,15 +128,15 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// </summary>
         public readonly string StatusMessage;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The resource type of the dedicated HSM.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
 
         [OutputConstructor]
         private GetDedicatedHsmResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
 
             ImmutableArray<string> zones)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             ManagementNetworkProfile = managementNetworkProfile;

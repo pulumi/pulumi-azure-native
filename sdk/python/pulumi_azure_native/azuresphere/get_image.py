@@ -27,7 +27,10 @@ class GetImageResult:
     """
     An image resource belonging to a catalog resource.
     """
-    def __init__(__self__, component_id=None, description=None, id=None, image=None, image_id=None, image_name=None, image_type=None, name=None, provisioning_state=None, regional_data_boundary=None, system_data=None, type=None, uri=None):
+    def __init__(__self__, azure_api_version=None, component_id=None, description=None, id=None, image=None, image_id=None, image_name=None, image_type=None, name=None, provisioning_state=None, regional_data_boundary=None, system_data=None, type=None, uri=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if component_id and not isinstance(component_id, str):
             raise TypeError("Expected argument 'component_id' to be a str")
         pulumi.set(__self__, "component_id", component_id)
@@ -67,6 +70,14 @@ class GetImageResult:
         if uri and not isinstance(uri, str):
             raise TypeError("Expected argument 'uri' to be a str")
         pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="componentId")
@@ -179,6 +190,7 @@ class AwaitableGetImageResult(GetImageResult):
         if False:
             yield self
         return GetImageResult(
+            azure_api_version=self.azure_api_version,
             component_id=self.component_id,
             description=self.description,
             id=self.id,
@@ -201,9 +213,9 @@ def get_image(catalog_name: Optional[str] = None,
     """
     Get a Image
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str catalog_name: Name of catalog
@@ -218,6 +230,7 @@ def get_image(catalog_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azuresphere:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         component_id=pulumi.get(__ret__, 'component_id'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -238,9 +251,9 @@ def get_image_output(catalog_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Image
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str catalog_name: Name of catalog
@@ -254,6 +267,7 @@ def get_image_output(catalog_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuresphere:getImage', __args__, opts=opts, typ=GetImageResult)
     return __ret__.apply(lambda __response__: GetImageResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         component_id=pulumi.get(__response__, 'component_id'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),

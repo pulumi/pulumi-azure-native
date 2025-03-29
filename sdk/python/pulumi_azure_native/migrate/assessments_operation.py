@@ -453,9 +453,9 @@ class AssessmentsOperation(pulumi.CustomResource):
         """
         Machine assessment resource.
 
-        Uses Azure REST API version 2023-04-01-preview.
+        Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -499,9 +499,9 @@ class AssessmentsOperation(pulumi.CustomResource):
         """
         Machine assessment resource.
 
-        Uses Azure REST API version 2023-04-01-preview.
+        Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AssessmentsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -583,6 +583,7 @@ class AssessmentsOperation(pulumi.CustomResource):
             __props__.__dict__["vm_uptime"] = vm_uptime
             __props__.__dict__["assessment_error_summary"] = None
             __props__.__dict__["assessment_type"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["confidence_rating_in_percentage"] = None
             __props__.__dict__["cost_components"] = None
             __props__.__dict__["created_timestamp"] = None
@@ -606,7 +607,7 @@ class AssessmentsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate:Assessment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentsOperation, __self__).__init__(
             'azure-native:migrate:AssessmentsOperation',
@@ -632,6 +633,7 @@ class AssessmentsOperation(pulumi.CustomResource):
 
         __props__.__dict__["assessment_error_summary"] = None
         __props__.__dict__["assessment_type"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["azure_disk_types"] = None
         __props__.__dict__["azure_hybrid_use_benefit"] = None
         __props__.__dict__["azure_location"] = None
@@ -694,6 +696,14 @@ class AssessmentsOperation(pulumi.CustomResource):
         Assessment type of the assessment.
         """
         return pulumi.get(self, "assessment_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureDiskTypes")

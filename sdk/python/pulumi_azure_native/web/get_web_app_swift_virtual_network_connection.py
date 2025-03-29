@@ -26,7 +26,10 @@ class GetWebAppSwiftVirtualNetworkConnectionResult:
     """
     Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
     """
-    def __init__(__self__, id=None, kind=None, name=None, subnet_resource_id=None, swift_supported=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, kind=None, name=None, subnet_resource_id=None, swift_supported=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -45,6 +48,14 @@ class GetWebAppSwiftVirtualNetworkConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -101,6 +112,7 @@ class AwaitableGetWebAppSwiftVirtualNetworkConnectionResult(GetWebAppSwiftVirtua
         if False:
             yield self
         return GetWebAppSwiftVirtualNetworkConnectionResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             kind=self.kind,
             name=self.name,
@@ -115,9 +127,9 @@ def get_web_app_swift_virtual_network_connection(name: Optional[str] = None,
     """
     Description for Gets a Swift Virtual Network connection.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the app.
@@ -130,6 +142,7 @@ def get_web_app_swift_virtual_network_connection(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppSwiftVirtualNetworkConnection', __args__, opts=opts, typ=GetWebAppSwiftVirtualNetworkConnectionResult).value
 
     return AwaitableGetWebAppSwiftVirtualNetworkConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
@@ -142,9 +155,9 @@ def get_web_app_swift_virtual_network_connection_output(name: Optional[pulumi.In
     """
     Description for Gets a Swift Virtual Network connection.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the app.
@@ -156,6 +169,7 @@ def get_web_app_swift_virtual_network_connection_output(name: Optional[pulumi.In
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppSwiftVirtualNetworkConnection', __args__, opts=opts, typ=GetWebAppSwiftVirtualNetworkConnectionResult)
     return __ret__.apply(lambda __response__: GetWebAppSwiftVirtualNetworkConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),
         name=pulumi.get(__response__, 'name'),

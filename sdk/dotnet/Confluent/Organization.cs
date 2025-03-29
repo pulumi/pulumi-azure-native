@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Confluent
     /// <summary>
     /// Organization resource.
     /// 
-    /// Uses Azure REST API version 2021-12-01. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
+    /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2021-12-01.
     /// 
-    /// Other available API versions: 2020-03-01-preview, 2023-08-22, 2024-02-13, 2024-07-01.
+    /// Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:confluent:Organization")]
     public partial class Organization : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The creation time of the resource.
         /// </summary>
@@ -141,6 +147,12 @@ namespace Pulumi.AzureNative.Confluent
 
     public sealed class OrganizationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Link an existing Confluent organization
+        /// </summary>
+        [Input("linkOrganization")]
+        public Input<Inputs.LinkOrganizationArgs>? LinkOrganization { get; set; }
+
         /// <summary>
         /// Location of Organization resource
         /// </summary>

@@ -120,9 +120,9 @@ class CodeSigningAccount(pulumi.CustomResource):
         """
         Trusted signing account resource.
 
-        Uses Azure REST API version 2024-02-05-preview.
+        Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-05-preview.
 
-        Other available API versions: 2024-09-30-preview.
+        Other available API versions: 2024-02-05-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,9 +141,9 @@ class CodeSigningAccount(pulumi.CustomResource):
         """
         Trusted signing account resource.
 
-        Uses Azure REST API version 2024-02-05-preview.
+        Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-05-preview.
 
-        Other available API versions: 2024-09-30-preview.
+        Other available API versions: 2024-02-05-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param CodeSigningAccountArgs args: The arguments to use to populate this resource's properties.
@@ -182,6 +182,7 @@ class CodeSigningAccount(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["account_uri"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -211,6 +212,7 @@ class CodeSigningAccount(pulumi.CustomResource):
         __props__ = CodeSigningAccountArgs.__new__(CodeSigningAccountArgs)
 
         __props__.__dict__["account_uri"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -227,6 +229,14 @@ class CodeSigningAccount(pulumi.CustomResource):
         The URI of the trusted signing account which is used during signing files.
         """
         return pulumi.get(self, "account_uri")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

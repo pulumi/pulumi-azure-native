@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2019-08-01.
  *
- * Other available API versions: 2017-08-01-preview.
+ * Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getIotSecuritySolution(args: GetIotSecuritySolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotSecuritySolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +45,10 @@ export interface GetIotSecuritySolutionResult {
      * List of resources that were automatically discovered as relevant to the security solution.
      */
     readonly autoDiscoveredResources: string[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */
@@ -111,7 +115,7 @@ export interface GetIotSecuritySolutionResult {
  *
  * Uses Azure REST API version 2019-08-01.
  *
- * Other available API versions: 2017-08-01-preview.
+ * Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getIotSecuritySolutionOutput(args: GetIotSecuritySolutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotSecuritySolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

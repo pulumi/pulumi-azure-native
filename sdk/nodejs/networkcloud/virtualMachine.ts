@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+ * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -48,6 +48,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The resource ID of the bare metal machine that hosts the virtual machine.
      */
     public /*out*/ readonly bareMetalMachineId!: pulumi.Output<string>;
@@ -64,6 +68,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
     /**
+     * The extended location to use for creation of a VM console resource.
+     */
+    public readonly consoleExtendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse | undefined>;
+    /**
      * The number of CPU cores in the virtual machine.
      */
     public readonly cpuCores!: pulumi.Output<number>;
@@ -75,6 +83,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      * The descriptive message about the current detailed status.
      */
     public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
+    /**
+     * Resource ETag.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -88,7 +100,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The memory size of the virtual machine in GB.
+     * The memory size of the virtual machine. Allocations are measured in gibibytes.
      */
     public readonly memorySizeGB!: pulumi.Output<number>;
     /**
@@ -198,6 +210,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["adminUsername"] = args ? args.adminUsername : undefined;
             resourceInputs["bootMethod"] = (args ? args.bootMethod : undefined) ?? "UEFI";
             resourceInputs["cloudServicesNetworkAttachment"] = args ? args.cloudServicesNetworkAttachment : undefined;
+            resourceInputs["consoleExtendedLocation"] = args ? args.consoleExtendedLocation : undefined;
             resourceInputs["cpuCores"] = args ? args.cpuCores : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["isolateEmulatorThread"] = (args ? args.isolateEmulatorThread : undefined) ?? "True";
@@ -217,10 +230,12 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["vmImage"] = args ? args.vmImage : undefined;
             resourceInputs["vmImageRepositoryCredentials"] = args ? args.vmImageRepositoryCredentials : undefined;
             resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bareMetalMachineId"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["powerState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -230,13 +245,16 @@ export class VirtualMachine extends pulumi.CustomResource {
         } else {
             resourceInputs["adminUsername"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bareMetalMachineId"] = undefined /*out*/;
             resourceInputs["bootMethod"] = undefined /*out*/;
             resourceInputs["cloudServicesNetworkAttachment"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["consoleExtendedLocation"] = undefined /*out*/;
             resourceInputs["cpuCores"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["isolateEmulatorThread"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -283,6 +301,10 @@ export interface VirtualMachineArgs {
      */
     cloudServicesNetworkAttachment: pulumi.Input<inputs.networkcloud.NetworkAttachmentArgs>;
     /**
+     * The extended location to use for creation of a VM console resource.
+     */
+    consoleExtendedLocation?: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs>;
+    /**
      * The number of CPU cores in the virtual machine.
      */
     cpuCores: pulumi.Input<number>;
@@ -299,7 +321,7 @@ export interface VirtualMachineArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The memory size of the virtual machine in GB.
+     * The memory size of the virtual machine. Allocations are measured in gibibytes.
      */
     memorySizeGB: pulumi.Input<number>;
     /**

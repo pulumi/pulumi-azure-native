@@ -45,6 +45,10 @@ export interface GetNetworkSecurityPerimeterAssociationResult {
      */
     readonly accessMode?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Specifies if there are provisioning issues
      */
     readonly hasProvisioningIssues: string;

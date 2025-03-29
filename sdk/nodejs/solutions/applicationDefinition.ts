@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Information about managed application definition.
  *
- * Uses Azure REST API version 2021-07-01. In version 1.x of the Azure Native provider, it used API version 2019-07-01.
+ * Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
  *
- * Other available API versions: 2023-12-01-preview.
+ * Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ApplicationDefinition extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * The managed application provider authorizations.
      */
     public readonly authorizations!: pulumi.Output<outputs.solutions.ApplicationAuthorizationResponse[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
@@ -168,12 +172,14 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["artifacts"] = undefined /*out*/;
             resourceInputs["authorizations"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createUiDefinition"] = undefined /*out*/;
             resourceInputs["deploymentPolicy"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

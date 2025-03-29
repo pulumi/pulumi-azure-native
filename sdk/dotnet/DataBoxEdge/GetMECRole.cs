@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets a specific role by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Task<GetMECRoleResult> InvokeAsync(GetMECRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMECRoleResult>("azure-native:databoxedge:getMECRole", args ?? new GetMECRoleArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets a specific role by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Output<GetMECRoleResult> Invoke(GetMECRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMECRoleResult>("azure-native:databoxedge:getMECRole", args ?? new GetMECRoleInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets a specific role by name.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// </summary>
         public static Output<GetMECRoleResult> Invoke(GetMECRoleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMECRoleResult>("azure-native:databoxedge:getMECRole", args ?? new GetMECRoleInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetMECRoleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Activation key of the MEC.
         /// </summary>
         public readonly Outputs.AsymmetricEncryptedSecretResponse? ConnectionString;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetMECRoleResult(
+            string azureApiVersion,
+
             Outputs.AsymmetricEncryptedSecretResponse? connectionString,
 
             string? controllerEndpoint,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ConnectionString = connectionString;
             ControllerEndpoint = controllerEndpoint;
             Id = id;

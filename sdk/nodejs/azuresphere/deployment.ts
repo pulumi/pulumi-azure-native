@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * An deployment resource belonging to a device group resource.
  *
- * Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+ * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Deployment extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Deployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Deployment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Images deployed
      */
@@ -100,12 +104,14 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["deviceGroupName"] = args ? args.deviceGroupName : undefined;
             resourceInputs["productName"] = args ? args.productName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentDateUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deployedImages"] = undefined /*out*/;
             resourceInputs["deploymentDateUtc"] = undefined /*out*/;
             resourceInputs["deploymentId"] = undefined /*out*/;

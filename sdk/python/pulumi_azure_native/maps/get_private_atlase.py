@@ -27,7 +27,10 @@ class GetPrivateAtlaseResult:
     """
     An Azure resource which represents which will provision the ability to create private location data.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +49,14 @@ class GetPrivateAtlaseResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetPrivateAtlaseResult(GetPrivateAtlaseResult):
         if False:
             yield self
         return GetPrivateAtlaseResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -132,6 +144,7 @@ def get_private_atlase(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:maps:getPrivateAtlase', __args__, opts=opts, typ=GetPrivateAtlaseResult).value
 
     return AwaitableGetPrivateAtlaseResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -159,6 +172,7 @@ def get_private_atlase_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:maps:getPrivateAtlase', __args__, opts=opts, typ=GetPrivateAtlaseResult)
     return __ret__.apply(lambda __response__: GetPrivateAtlaseResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

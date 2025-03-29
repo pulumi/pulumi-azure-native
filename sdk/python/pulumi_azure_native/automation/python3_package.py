@@ -117,9 +117,9 @@ class Python3Package(pulumi.CustomResource):
         """
         Definition of the module type.
 
-        Uses Azure REST API version 2022-08-08.
+        Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
-        Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        Other available API versions: 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,9 +138,9 @@ class Python3Package(pulumi.CustomResource):
         """
         Definition of the module type.
 
-        Uses Azure REST API version 2022-08-08.
+        Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
-        Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        Other available API versions: 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param Python3PackageArgs args: The arguments to use to populate this resource's properties.
@@ -183,6 +183,7 @@ class Python3Package(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["activity_count"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["description"] = None
             __props__.__dict__["error"] = None
@@ -221,7 +222,7 @@ class Python3Package(pulumi.CustomResource):
         __props__ = Python3PackageArgs.__new__(Python3PackageArgs)
 
         __props__.__dict__["activity_count"] = None
-        __props__.__dict__["content_link"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["error"] = None
@@ -242,23 +243,23 @@ class Python3Package(pulumi.CustomResource):
     @pulumi.getter(name="activityCount")
     def activity_count(self) -> pulumi.Output[Optional[int]]:
         """
-        Gets or sets the activity count of the module.
+        Gets the activity count of the module.
         """
         return pulumi.get(self, "activity_count")
 
     @property
-    @pulumi.getter(name="contentLink")
-    def content_link(self) -> pulumi.Output[Optional['outputs.ContentLinkResponse']]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
         """
-        Gets or sets the contentLink of the module.
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "content_link")
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
-        Gets or sets the creation time.
+        Gets the creation time.
         """
         return pulumi.get(self, "creation_time")
 
@@ -274,7 +275,7 @@ class Python3Package(pulumi.CustomResource):
     @pulumi.getter
     def error(self) -> pulumi.Output[Optional['outputs.ModuleErrorInfoResponse']]:
         """
-        Gets or sets the error info of the module.
+        Gets the error info of the module.
         """
         return pulumi.get(self, "error")
 
@@ -282,7 +283,7 @@ class Python3Package(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[str]]:
         """
-        Gets or sets the etag of the resource.
+        Gets the etag of the resource.
         """
         return pulumi.get(self, "etag")
 
@@ -290,7 +291,7 @@ class Python3Package(pulumi.CustomResource):
     @pulumi.getter(name="isComposite")
     def is_composite(self) -> pulumi.Output[Optional[bool]]:
         """
-        Gets or sets type of module, if its composite or not.
+        Gets type of module, if its composite or not.
         """
         return pulumi.get(self, "is_composite")
 
@@ -298,7 +299,7 @@ class Python3Package(pulumi.CustomResource):
     @pulumi.getter(name="isGlobal")
     def is_global(self) -> pulumi.Output[Optional[bool]]:
         """
-        Gets or sets the isGlobal flag of the module.
+        Gets the isGlobal flag of the module.
         """
         return pulumi.get(self, "is_global")
 
@@ -306,7 +307,7 @@ class Python3Package(pulumi.CustomResource):
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
-        Gets or sets the last modified time.
+        Gets the last modified time.
         """
         return pulumi.get(self, "last_modified_time")
 
@@ -330,7 +331,7 @@ class Python3Package(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
-        Gets or sets the provisioning state of the module.
+        Gets the provisioning state of the module.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -338,7 +339,7 @@ class Python3Package(pulumi.CustomResource):
     @pulumi.getter(name="sizeInBytes")
     def size_in_bytes(self) -> pulumi.Output[Optional[float]]:
         """
-        Gets or sets the size in bytes of the module.
+        Gets the size in bytes of the module.
         """
         return pulumi.get(self, "size_in_bytes")
 
@@ -362,7 +363,7 @@ class Python3Package(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[str]]:
         """
-        Gets or sets the version of the module.
+        Gets the version of the module.
         """
         return pulumi.get(self, "version")
 

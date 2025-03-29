@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Machine Learning dataset object wrapped into ARM resource envelope.
     /// 
-    /// Uses Azure REST API version 2020-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-05-01-preview.
+    /// Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:MachineLearningDataset")]
     public partial class MachineLearningDataset : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The identity of the resource.
         /// </summary>

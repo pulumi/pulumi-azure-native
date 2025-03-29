@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a data connector.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Task<GetMCASDataConnectorResult> InvokeAsync(GetMCASDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMCASDataConnectorResult>("azure-native:securityinsights:getMCASDataConnector", args ?? new GetMCASDataConnectorArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a data connector.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetMCASDataConnectorResult> Invoke(GetMCASDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMCASDataConnectorResult>("azure-native:securityinsights:getMCASDataConnector", args ?? new GetMCASDataConnectorInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a data connector.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetMCASDataConnectorResult> Invoke(GetMCASDataConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMCASDataConnectorResult>("azure-native:securityinsights:getMCASDataConnector", args ?? new GetMCASDataConnectorInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetMCASDataConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The available data types for the connector.
         /// </summary>
         public readonly Outputs.MCASDataConnectorDataTypesResponse? DataTypes;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
         [OutputConstructor]
         private GetMCASDataConnectorResult(
+            string azureApiVersion,
+
             Outputs.MCASDataConnectorDataTypesResponse? dataTypes,
 
             string? etag,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataTypes = dataTypes;
             Etag = etag;
             Id = id;

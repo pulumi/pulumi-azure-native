@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly bool? CollectTdeCertificateInfo;
         /// <summary>
+        /// encrypted key for secure fields
+        /// </summary>
+        public readonly string? EncryptedKeyForSecureFields;
+        /// <summary>
         /// Connection information for Source SQL Server
         /// </summary>
         public readonly Outputs.SqlConnectionInfoResponse SourceConnectionInfo;
@@ -57,6 +61,8 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             bool? collectTdeCertificateInfo,
 
+            string? encryptedKeyForSecureFields,
+
             Outputs.SqlConnectionInfoResponse sourceConnectionInfo,
 
             bool? validateSsisCatalogOnly)
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
             CollectDatabases = collectDatabases;
             CollectLogins = collectLogins;
             CollectTdeCertificateInfo = collectTdeCertificateInfo;
+            EncryptedKeyForSecureFields = encryptedKeyForSecureFields;
             SourceConnectionInfo = sourceConnectionInfo;
             ValidateSsisCatalogOnly = validateSsisCatalogOnly;
         }

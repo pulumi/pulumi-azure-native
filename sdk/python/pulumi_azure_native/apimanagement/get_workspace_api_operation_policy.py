@@ -26,7 +26,10 @@ class GetWorkspaceApiOperationPolicyResult:
     """
     Policy Contract details.
     """
-    def __init__(__self__, format=None, id=None, name=None, type=None, value=None):
+    def __init__(__self__, azure_api_version=None, format=None, id=None, name=None, type=None, value=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if format and not isinstance(format, str):
             raise TypeError("Expected argument 'format' to be a str")
         pulumi.set(__self__, "format", format)
@@ -42,6 +45,14 @@ class GetWorkspaceApiOperationPolicyResult:
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -90,6 +101,7 @@ class AwaitableGetWorkspaceApiOperationPolicyResult(GetWorkspaceApiOperationPoli
         if False:
             yield self
         return GetWorkspaceApiOperationPolicyResult(
+            azure_api_version=self.azure_api_version,
             format=self.format,
             id=self.id,
             name=self.name,
@@ -110,7 +122,7 @@ def get_workspace_api_operation_policy(api_id: Optional[str] = None,
 
     Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -133,6 +145,7 @@ def get_workspace_api_operation_policy(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getWorkspaceApiOperationPolicy', __args__, opts=opts, typ=GetWorkspaceApiOperationPolicyResult).value
 
     return AwaitableGetWorkspaceApiOperationPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         format=pulumi.get(__ret__, 'format'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -151,7 +164,7 @@ def get_workspace_api_operation_policy_output(api_id: Optional[pulumi.Input[str]
 
     Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -173,6 +186,7 @@ def get_workspace_api_operation_policy_output(api_id: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspaceApiOperationPolicy', __args__, opts=opts, typ=GetWorkspaceApiOperationPolicyResult)
     return __ret__.apply(lambda __response__: GetWorkspaceApiOperationPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         format=pulumi.get(__response__, 'format'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

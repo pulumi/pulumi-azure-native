@@ -36,6 +36,10 @@ export interface GetVirtualMachineArgs {
  */
 export interface GetVirtualMachineResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The extendedLocation of the resource.
      */
     readonly extendedLocation?: outputs.azurestackhci.ExtendedLocationResponse;

@@ -49,6 +49,10 @@ export interface GetLabResult {
      */
     readonly artifactsStorageAccount: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creation date of the lab.
      */
     readonly createdDate: string;

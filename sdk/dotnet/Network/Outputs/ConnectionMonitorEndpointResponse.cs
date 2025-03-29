@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class ConnectionMonitorEndpointResponse
     {
         /// <summary>
-        /// Address of the connection monitor endpoint (IP or domain name).
+        /// Address of the connection monitor endpoint. Supported for AzureVM, ExternalAddress, ArcMachine, MMAWorkspaceMachine endpoint type.
         /// </summary>
         public readonly string? Address;
         /// <summary>
@@ -25,21 +25,29 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? CoverageLevel;
         /// <summary>
-        /// Filter for sub-items within the endpoint.
+        /// Filter field is getting deprecated and should not be used. Instead use Include/Exclude scope fields for it.
         /// </summary>
         public readonly Outputs.ConnectionMonitorEndpointFilterResponse? Filter;
+        /// <summary>
+        /// Location details is optional and only being used for 'AzureArcNetwork' type endpoints, which contains region details.
+        /// </summary>
+        public readonly Outputs.ConnectionMonitorEndpointLocationDetailsResponse? LocationDetails;
         /// <summary>
         /// The name of the connection monitor endpoint.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource ID of the connection monitor endpoint.
+        /// Resource ID of the connection monitor endpoint are supported for AzureVM, AzureVMSS, AzureVNet, AzureSubnet, MMAWorkspaceMachine, MMAWorkspaceNetwork, AzureArcVM endpoint type.
         /// </summary>
         public readonly string? ResourceId;
         /// <summary>
-        /// Endpoint scope.
+        /// Endpoint scope defines which target resource to monitor in case of compound resource endpoints like VMSS, AzureSubnet, AzureVNet, MMAWorkspaceNetwork, AzureArcNetwork.
         /// </summary>
         public readonly Outputs.ConnectionMonitorEndpointScopeResponse? Scope;
+        /// <summary>
+        /// Subscription ID for connection monitor endpoint. It's an optional parameter which is being used for 'AzureArcNetwork' type endpoint.
+        /// </summary>
+        public readonly string? SubscriptionId;
         /// <summary>
         /// The endpoint type.
         /// </summary>
@@ -53,20 +61,26 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             Outputs.ConnectionMonitorEndpointFilterResponse? filter,
 
+            Outputs.ConnectionMonitorEndpointLocationDetailsResponse? locationDetails,
+
             string name,
 
             string? resourceId,
 
             Outputs.ConnectionMonitorEndpointScopeResponse? scope,
 
+            string? subscriptionId,
+
             string? type)
         {
             Address = address;
             CoverageLevel = coverageLevel;
             Filter = filter;
+            LocationDetails = locationDetails;
             Name = name;
             ResourceId = resourceId;
             Scope = scope;
+            SubscriptionId = subscriptionId;
             Type = type;
         }
     }

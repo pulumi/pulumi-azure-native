@@ -73,9 +73,9 @@ def list_remote_rendering_account_keys(account_name: Optional[str] = None,
 
      List Both of the 2 Keys of a Remote Rendering Account
 
-    Uses Azure REST API version 2021-01-01.
+    Uses Azure REST API version 2021-03-01-preview.
 
-    Other available API versions: 2021-03-01-preview, 2025-01-01.
+    Other available API versions: 2021-01-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -102,9 +102,9 @@ def list_remote_rendering_account_keys_output(account_name: Optional[pulumi.Inpu
 
      List Both of the 2 Keys of a Remote Rendering Account
 
-    Uses Azure REST API version 2021-01-01.
+    Uses Azure REST API version 2021-03-01-preview.
 
-    Other available API versions: 2021-03-01-preview, 2025-01-01.
+    Other available API versions: 2021-01-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: Name of an Mixed Reality Account.

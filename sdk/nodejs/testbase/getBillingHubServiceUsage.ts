@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2022-04-01-preview.
+ * Uses Azure REST API version 2023-11-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBillingHubServiceUsage(args: GetBillingHubServiceUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingHubServiceUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -29,7 +29,7 @@ export interface GetBillingHubServiceUsageArgs {
     pageIndex?: number;
     pageSize?: number;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     startTimeStamp: string;
@@ -47,9 +47,9 @@ export interface GetBillingHubServiceUsageResult {
     readonly totalUsedFreeHours?: number;
 }
 /**
- * Uses Azure REST API version 2022-04-01-preview.
+ * Uses Azure REST API version 2023-11-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBillingHubServiceUsageOutput(args: GetBillingHubServiceUsageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingHubServiceUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,7 +68,7 @@ export interface GetBillingHubServiceUsageOutputArgs {
     pageIndex?: pulumi.Input<number>;
     pageSize?: pulumi.Input<number>;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     startTimeStamp: pulumi.Input<string>;

@@ -104,9 +104,7 @@ class PeerAsn(pulumi.CustomResource):
         """
         The essential information related to the peer's ASN.
 
-        Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
-
-        Other available API versions: 2021-01-01.
+        Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,9 +122,7 @@ class PeerAsn(pulumi.CustomResource):
         """
         The essential information related to the peer's ASN.
 
-        Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
-
-        Other available API versions: 2021-01-01.
+        Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param PeerAsnArgs args: The arguments to use to populate this resource's properties.
@@ -160,6 +156,7 @@ class PeerAsn(pulumi.CustomResource):
             __props__.__dict__["peer_asn_name"] = peer_asn_name
             __props__.__dict__["peer_contact_detail"] = peer_contact_detail
             __props__.__dict__["peer_name"] = peer_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["error_message"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
@@ -188,6 +185,7 @@ class PeerAsn(pulumi.CustomResource):
 
         __props__ = PeerAsnArgs.__new__(PeerAsnArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["error_message"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["peer_asn"] = None
@@ -196,6 +194,14 @@ class PeerAsn(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["validation_state"] = None
         return PeerAsn(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="errorMessage")

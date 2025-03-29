@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get details of a certificate profile.
  *
- * Uses Azure REST API version 2024-02-05-preview.
+ * Uses Azure REST API version 2024-09-30-preview.
  *
- * Other available API versions: 2024-09-30-preview.
+ * Other available API versions: 2024-02-05-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCertificateProfile(args: GetCertificateProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,21 +43,9 @@ export interface GetCertificateProfileArgs {
  */
 export interface GetCertificateProfileResult {
     /**
-     * Used as L in the certificate subject name.
+     * The Azure API version of the resource.
      */
-    readonly city: string;
-    /**
-     * Used as CN in the certificate subject name.
-     */
-    readonly commonName: string;
-    /**
-     * Used as C in the certificate subject name.
-     */
-    readonly country: string;
-    /**
-     * Enhanced key usage of the certificate.
-     */
-    readonly enhancedKeyUsage: string;
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -65,7 +53,7 @@ export interface GetCertificateProfileResult {
     /**
      * Identity validation id used for the certificate subject name.
      */
-    readonly identityValidationId?: string;
+    readonly identityValidationId: string;
     /**
      * Whether to include L in the certificate subject name. Applicable only for private trust, private trust ci profile types
      */
@@ -91,18 +79,6 @@ export interface GetCertificateProfileResult {
      */
     readonly name: string;
     /**
-     * Used as O in the certificate subject name.
-     */
-    readonly organization: string;
-    /**
-     * Used as OU in the private trust certificate subject name.
-     */
-    readonly organizationUnit: string;
-    /**
-     * Used as PC in the certificate subject name.
-     */
-    readonly postalCode: string;
-    /**
      * Profile type of the certificate.
      */
     readonly profileType: string;
@@ -111,17 +87,9 @@ export interface GetCertificateProfileResult {
      */
     readonly provisioningState: string;
     /**
-     * Used as S in the certificate subject name.
-     */
-    readonly state: string;
-    /**
      * Status of the certificate profile.
      */
     readonly status: string;
-    /**
-     * Used as STREET in the certificate subject name.
-     */
-    readonly streetAddress: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -134,9 +102,9 @@ export interface GetCertificateProfileResult {
 /**
  * Get details of a certificate profile.
  *
- * Uses Azure REST API version 2024-02-05-preview.
+ * Uses Azure REST API version 2024-09-30-preview.
  *
- * Other available API versions: 2024-09-30-preview.
+ * Other available API versions: 2024-02-05-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCertificateProfileOutput(args: GetCertificateProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

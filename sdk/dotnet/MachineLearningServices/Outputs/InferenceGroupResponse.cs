@@ -17,51 +17,57 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class InferenceGroupResponse
     {
         /// <summary>
-        /// Capacity to be used from the pool's reserved capacity.
-        /// optional
-        /// </summary>
-        public readonly int? BonusExtraCapacity;
-        /// <summary>
         /// Description of the resource.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Metadata for the inference group.
+        /// Gets or sets environment configuration for the inference group. Used if PoolType=ScaleUnit.
         /// </summary>
-        public readonly string? Metadata;
+        public readonly Outputs.GroupEnvironmentConfigurationResponse? EnvironmentConfiguration;
         /// <summary>
-        /// Priority of the group within the N:Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20230801Preview.Pools.InferencePools.
+        /// Gets or sets model configuration for the inference group. Used if PoolType=ScaleUnit.
         /// </summary>
-        public readonly int? Priority;
+        public readonly Outputs.GroupModelConfigurationResponse? ModelConfiguration;
+        /// <summary>
+        /// Gets or sets compute instance type.
+        /// </summary>
+        public readonly string? NodeSkuType;
         /// <summary>
         /// Property dictionary. Properties can be added, but not removed or altered.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Properties;
+        public readonly ImmutableArray<Outputs.StringStringKeyValuePairResponse> Properties;
         /// <summary>
         /// Provisioning state for the inference group.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Gets or sets Scale Unit size.
+        /// </summary>
+        public readonly int? ScaleUnitSize;
 
         [OutputConstructor]
         private InferenceGroupResponse(
-            int? bonusExtraCapacity,
-
             string? description,
 
-            string? metadata,
+            Outputs.GroupEnvironmentConfigurationResponse? environmentConfiguration,
 
-            int? priority,
+            Outputs.GroupModelConfigurationResponse? modelConfiguration,
 
-            ImmutableDictionary<string, string>? properties,
+            string? nodeSkuType,
 
-            string provisioningState)
+            ImmutableArray<Outputs.StringStringKeyValuePairResponse> properties,
+
+            string provisioningState,
+
+            int? scaleUnitSize)
         {
-            BonusExtraCapacity = bonusExtraCapacity;
             Description = description;
-            Metadata = metadata;
-            Priority = priority;
+            EnvironmentConfiguration = environmentConfiguration;
+            ModelConfiguration = modelConfiguration;
+            NodeSkuType = nodeSkuType;
             Properties = properties;
             ProvisioningState = provisioningState;
+            ScaleUnitSize = scaleUnitSize;
         }
     }
 }

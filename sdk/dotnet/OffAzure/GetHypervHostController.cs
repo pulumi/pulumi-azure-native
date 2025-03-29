@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Get a HypervHost
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetHypervHostControllerResult> InvokeAsync(GetHypervHostControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHypervHostControllerResult>("azure-native:offazure:getHypervHostController", args ?? new GetHypervHostControllerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Get a HypervHost
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetHypervHostControllerResult> Invoke(GetHypervHostControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervHostControllerResult>("azure-native:offazure:getHypervHostController", args ?? new GetHypervHostControllerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Get a HypervHost
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetHypervHostControllerResult> Invoke(GetHypervHostControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervHostControllerResult>("azure-native:offazure:getHypervHostController", args ?? new GetHypervHostControllerInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.OffAzure
     public sealed class GetHypervHostControllerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the timestamp marking Hyper-V host creation.
         /// </summary>
         public readonly string CreatedTimestamp;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNative.OffAzure
 
         [OutputConstructor]
         private GetHypervHostControllerResult(
+            string azureApiVersion,
+
             string createdTimestamp,
 
             ImmutableArray<Outputs.HealthErrorDetailsResponse> errors,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.OffAzure
 
             string version)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedTimestamp = createdTimestamp;
             Errors = errors;
             Fqdn = fqdn;

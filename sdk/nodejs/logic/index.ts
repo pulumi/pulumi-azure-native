@@ -219,21 +219,6 @@ utilities.lazyLoad(exports, ["WorkflowAccessKey"], () => require("./workflowAcce
 // Export enums:
 export * from "../types/enums/logic";
 
-// Export sub-modules:
-import * as v20150201preview from "./v20150201preview";
-import * as v20150801preview from "./v20150801preview";
-import * as v20160601 from "./v20160601";
-import * as v20180701preview from "./v20180701preview";
-import * as v20190501 from "./v20190501";
-
-export {
-    v20150201preview,
-    v20150801preview,
-    v20160601,
-    v20180701preview,
-    v20190501,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

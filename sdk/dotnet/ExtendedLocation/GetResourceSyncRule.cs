@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.ExtendedLocation
     public sealed class GetResourceSyncRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.ExtendedLocation
 
         [OutputConstructor]
         private GetResourceSyncRuleResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.ExtendedLocation
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

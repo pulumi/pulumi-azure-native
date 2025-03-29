@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// Security assessment on a resource - response format
     /// 
-    /// Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2020-01-01.
+    /// Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
-    /// Other available API versions: 2020-01-01.
+    /// Other available API versions: 2019-01-01-preview, 2020-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("additionalData")]
         public Output<ImmutableDictionary<string, string>?> AdditionalData { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// User friendly display name of the assessment

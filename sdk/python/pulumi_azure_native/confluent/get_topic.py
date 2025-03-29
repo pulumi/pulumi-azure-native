@@ -27,7 +27,10 @@ class GetTopicResult:
     """
     Details of topic record
     """
-    def __init__(__self__, configs=None, id=None, input_configs=None, kind=None, metadata=None, name=None, partitions=None, partitions_count=None, partitions_reassignments=None, replication_factor=None, topic_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, configs=None, id=None, input_configs=None, kind=None, metadata=None, name=None, partitions=None, partitions_count=None, partitions_reassignments=None, replication_factor=None, topic_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if configs and not isinstance(configs, dict):
             raise TypeError("Expected argument 'configs' to be a dict")
         pulumi.set(__self__, "configs", configs)
@@ -64,6 +67,14 @@ class GetTopicResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -168,6 +179,7 @@ class AwaitableGetTopicResult(GetTopicResult):
         if False:
             yield self
         return GetTopicResult(
+            azure_api_version=self.azure_api_version,
             configs=self.configs,
             id=self.id,
             input_configs=self.input_configs,
@@ -210,6 +222,7 @@ def get_topic(cluster_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:confluent:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
     return AwaitableGetTopicResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         configs=pulumi.get(__ret__, 'configs'),
         id=pulumi.get(__ret__, 'id'),
         input_configs=pulumi.get(__ret__, 'input_configs'),
@@ -249,6 +262,7 @@ def get_topic_output(cluster_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:confluent:getTopic', __args__, opts=opts, typ=GetTopicResult)
     return __ret__.apply(lambda __response__: GetTopicResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         configs=pulumi.get(__response__, 'configs'),
         id=pulumi.get(__response__, 'id'),
         input_configs=pulumi.get(__response__, 'input_configs'),

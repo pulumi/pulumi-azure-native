@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// AVS assessment resource.
     /// 
-    /// Uses Azure REST API version 2023-03-15.
+    /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
     /// 
-    /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AvsAssessmentsOperation")]
     public partial class AvsAssessmentsOperation : global::Pulumi.CustomResource
@@ -34,6 +34,36 @@ namespace Pulumi.AzureNative.Migrate
         public Output<string> AssessmentType { get; private set; } = null!;
 
         /// <summary>
+        /// AVS Assessment Scenario.
+        /// </summary>
+        [Output("avsAssessmentScenario")]
+        public Output<string?> AvsAssessmentScenario { get; private set; } = null!;
+
+        /// <summary>
+        /// Estimated External Storage for Assessment.
+        /// </summary>
+        [Output("avsEstimatedExternalStorages")]
+        public Output<ImmutableArray<Outputs.AvsEstimatedExternalStorageResponse>> AvsEstimatedExternalStorages { get; private set; } = null!;
+
+        /// <summary>
+        /// Estimated External Storage for Assessment.
+        /// </summary>
+        [Output("avsEstimatedNetworks")]
+        public Output<ImmutableArray<Outputs.AvsEstimatedNetworkResponse>> AvsEstimatedNetworks { get; private set; } = null!;
+
+        /// <summary>
+        /// Estimated AVS SKU for Assessment.
+        /// </summary>
+        [Output("avsEstimatedNodes")]
+        public Output<ImmutableArray<Outputs.AvsEstimatedNodeResponse>> AvsEstimatedNodes { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Location or Azure region where to which the machines will be migrated.
         /// </summary>
         [Output("azureLocation")]
@@ -50,6 +80,18 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         [Output("confidenceRatingInPercentage")]
         public Output<double> ConfidenceRatingInPercentage { get; private set; } = null!;
+
+        /// <summary>
+        /// collection of cost components.
+        /// </summary>
+        [Output("costComponents")]
+        public Output<ImmutableArray<Outputs.CostComponentResponse>> CostComponents { get; private set; } = null!;
+
+        /// <summary>
+        /// Percentage of CPU capacity reserved for processing additional workloads.
+        /// </summary>
+        [Output("cpuHeadroom")]
+        public Output<double?> CpuHeadroom { get; private set; } = null!;
 
         /// <summary>
         /// Predicted CPU utilization.
@@ -82,10 +124,22 @@ namespace Pulumi.AzureNative.Migrate
         public Output<double?> DiscountPercentage { get; private set; } = null!;
 
         /// <summary>
+        /// List of AVS external storage types.
+        /// </summary>
+        [Output("externalStorageTypes")]
+        public Output<ImmutableArray<string>> ExternalStorageTypes { get; private set; } = null!;
+
+        /// <summary>
         /// Failures to tolerate and RAID level in a common property.
         /// </summary>
         [Output("failuresToTolerateAndRaidLevel")]
         public Output<string?> FailuresToTolerateAndRaidLevel { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Failures to tolerate and RAID levels in a common property.
+        /// </summary>
+        [Output("failuresToTolerateAndRaidLevelList")]
+        public Output<ImmutableArray<string>> FailuresToTolerateAndRaidLevelList { get; private set; } = null!;
 
         /// <summary>
         /// Gets the group type for the assessment.
@@ -98,6 +152,12 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         [Output("isStretchClusterEnabled")]
         public Output<bool?> IsStretchClusterEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Is VCF license applied
+        /// </summary>
+        [Output("isVcfByolEnabled")]
+        public Output<bool?> IsVcfByolEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Limiting factor.
@@ -122,6 +182,12 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         [Output("nodeType")]
         public Output<string?> NodeType { get; private set; } = null!;
+
+        /// <summary>
+        /// AVS node types.
+        /// </summary>
+        [Output("nodeTypes")]
+        public Output<ImmutableArray<string>> NodeTypes { get; private set; } = null!;
 
         /// <summary>
         /// Number of machines part of the assessment.
@@ -349,6 +415,12 @@ namespace Pulumi.AzureNative.Migrate
         public Input<string>? AssessmentName { get; set; }
 
         /// <summary>
+        /// AVS Assessment Scenario.
+        /// </summary>
+        [Input("avsAssessmentScenario")]
+        public InputUnion<string, Pulumi.AzureNative.Migrate.AvsAssessmentScenario>? AvsAssessmentScenario { get; set; }
+
+        /// <summary>
         /// Azure Location or Azure region where to which the machines will be migrated.
         /// </summary>
         [Input("azureLocation")]
@@ -359,6 +431,12 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         [Input("azureOfferCode")]
         public InputUnion<string, Pulumi.AzureNative.Migrate.AzureOfferCode>? AzureOfferCode { get; set; }
+
+        /// <summary>
+        /// Percentage of CPU capacity reserved for processing additional workloads.
+        /// </summary>
+        [Input("cpuHeadroom")]
+        public Input<double>? CpuHeadroom { get; set; }
 
         /// <summary>
         /// Currency in which prices should be reported.
@@ -378,11 +456,35 @@ namespace Pulumi.AzureNative.Migrate
         [Input("discountPercentage")]
         public Input<double>? DiscountPercentage { get; set; }
 
+        [Input("externalStorageTypes")]
+        private InputList<Union<string, Pulumi.AzureNative.Migrate.ExternalStorageType>>? _externalStorageTypes;
+
+        /// <summary>
+        /// List of AVS external storage types.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.Migrate.ExternalStorageType>> ExternalStorageTypes
+        {
+            get => _externalStorageTypes ?? (_externalStorageTypes = new InputList<Union<string, Pulumi.AzureNative.Migrate.ExternalStorageType>>());
+            set => _externalStorageTypes = value;
+        }
+
         /// <summary>
         /// Failures to tolerate and RAID level in a common property.
         /// </summary>
         [Input("failuresToTolerateAndRaidLevel")]
         public InputUnion<string, Pulumi.AzureNative.Migrate.FttAndRaidLevel>? FailuresToTolerateAndRaidLevel { get; set; }
+
+        [Input("failuresToTolerateAndRaidLevelList")]
+        private InputList<Union<string, Pulumi.AzureNative.Migrate.FttAndRaidLevel>>? _failuresToTolerateAndRaidLevelList;
+
+        /// <summary>
+        /// List of Failures to tolerate and RAID levels in a common property.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.Migrate.FttAndRaidLevel>> FailuresToTolerateAndRaidLevelList
+        {
+            get => _failuresToTolerateAndRaidLevelList ?? (_failuresToTolerateAndRaidLevelList = new InputList<Union<string, Pulumi.AzureNative.Migrate.FttAndRaidLevel>>());
+            set => _failuresToTolerateAndRaidLevelList = value;
+        }
 
         /// <summary>
         /// Group ARM name
@@ -397,6 +499,12 @@ namespace Pulumi.AzureNative.Migrate
         public Input<bool>? IsStretchClusterEnabled { get; set; }
 
         /// <summary>
+        /// Is VCF license applied
+        /// </summary>
+        [Input("isVcfByolEnabled")]
+        public Input<bool>? IsVcfByolEnabled { get; set; }
+
+        /// <summary>
         /// Memory overcommit.
         /// </summary>
         [Input("memOvercommit")]
@@ -407,6 +515,18 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         [Input("nodeType")]
         public InputUnion<string, Pulumi.AzureNative.Migrate.AzureAvsNodeType>? NodeType { get; set; }
+
+        [Input("nodeTypes")]
+        private InputList<Union<string, Pulumi.AzureNative.Migrate.AzureAvsNodeType>>? _nodeTypes;
+
+        /// <summary>
+        /// AVS node types.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.Migrate.AzureAvsNodeType>> NodeTypes
+        {
+            get => _nodeTypes ?? (_nodeTypes = new InputList<Union<string, Pulumi.AzureNative.Migrate.AzureAvsNodeType>>());
+            set => _nodeTypes = value;
+        }
 
         /// <summary>
         /// Percentile of the utilization data values to be considered while assessing

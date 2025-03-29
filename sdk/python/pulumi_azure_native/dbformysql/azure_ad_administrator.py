@@ -169,9 +169,9 @@ class AzureADAdministrator(pulumi.CustomResource):
         """
         Represents a Administrator.
 
-        Uses Azure REST API version 2022-01-01.
+        Uses Azure REST API version 2023-12-30. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
 
-        Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,9 +193,9 @@ class AzureADAdministrator(pulumi.CustomResource):
         """
         Represents a Administrator.
 
-        Uses Azure REST API version 2022-01-01.
+        Uses Azure REST API version 2023-12-30. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
 
-        Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AzureADAdministratorArgs args: The arguments to use to populate this resource's properties.
@@ -241,6 +241,7 @@ class AzureADAdministrator(pulumi.CustomResource):
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["sid"] = sid
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -269,6 +270,7 @@ class AzureADAdministrator(pulumi.CustomResource):
         __props__ = AzureADAdministratorArgs.__new__(AzureADAdministratorArgs)
 
         __props__.__dict__["administrator_type"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity_resource_id"] = None
         __props__.__dict__["login"] = None
         __props__.__dict__["name"] = None
@@ -285,6 +287,14 @@ class AzureADAdministrator(pulumi.CustomResource):
         Type of the sever administrator.
         """
         return pulumi.get(self, "administrator_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="identityResourceId")
@@ -322,7 +332,7 @@ class AzureADAdministrator(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

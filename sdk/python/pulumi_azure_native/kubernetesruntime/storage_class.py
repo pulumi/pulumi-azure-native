@@ -255,9 +255,7 @@ class StorageClass(pulumi.CustomResource):
         """
         A StorageClass resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
 
-        Uses Azure REST API version 2024-03-01.
-
-        Other available API versions: 2023-10-01-preview.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,9 +282,7 @@ class StorageClass(pulumi.CustomResource):
         """
         A StorageClass resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
 
-        Uses Azure REST API version 2024-03-01.
-
-        Other available API versions: 2023-10-01-preview.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param StorageClassArgs args: The arguments to use to populate this resource's properties.
@@ -342,6 +338,7 @@ class StorageClass(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type_properties'")
             __props__.__dict__["type_properties"] = type_properties
             __props__.__dict__["volume_binding_mode"] = volume_binding_mode
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -372,6 +369,7 @@ class StorageClass(pulumi.CustomResource):
 
         __props__.__dict__["access_modes"] = None
         __props__.__dict__["allow_volume_expansion"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["data_resilience"] = None
         __props__.__dict__["failover_speed"] = None
         __props__.__dict__["limitations"] = None
@@ -402,6 +400,14 @@ class StorageClass(pulumi.CustomResource):
         Volume can be expanded or not
         """
         return pulumi.get(self, "allow_volume_expansion")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataResilience")

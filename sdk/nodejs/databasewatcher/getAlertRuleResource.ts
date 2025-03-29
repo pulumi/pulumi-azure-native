@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a AlertRuleResource
  *
- * Uses Azure REST API version 2024-07-19-preview.
+ * Uses Azure REST API version 2024-10-01-preview.
  *
- * Other available API versions: 2024-10-01-preview, 2025-01-02.
+ * Other available API versions: 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAlertRuleResource(args: GetAlertRuleResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,6 +55,10 @@ export interface GetAlertRuleResourceResult {
      */
     readonly alertRuleTemplateVersion: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The properties with which the alert rule resource was created.
      */
     readonly createdWithProperties: string;
@@ -86,9 +90,9 @@ export interface GetAlertRuleResourceResult {
 /**
  * Get a AlertRuleResource
  *
- * Uses Azure REST API version 2024-07-19-preview.
+ * Uses Azure REST API version 2024-10-01-preview.
  *
- * Other available API versions: 2024-10-01-preview, 2025-01-02.
+ * Other available API versions: 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAlertRuleResourceOutput(args: GetAlertRuleResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertRuleResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

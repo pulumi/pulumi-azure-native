@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * List product families for the given subscription.
  *
- * Uses Azure REST API version 2022-05-01-preview.
+ * Uses Azure REST API version 2024-02-01.
  *
- * Other available API versions: 2024-02-01.
+ * Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listProductsAndConfigurationProductFamilies(args: ListProductsAndConfigurationProductFamiliesArgs, opts?: pulumi.InvokeOptions): Promise<ListProductsAndConfigurationProductFamiliesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,9 +59,9 @@ export interface ListProductsAndConfigurationProductFamiliesResult {
 /**
  * List product families for the given subscription.
  *
- * Uses Azure REST API version 2022-05-01-preview.
+ * Uses Azure REST API version 2024-02-01.
  *
- * Other available API versions: 2024-02-01.
+ * Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listProductsAndConfigurationProductFamiliesOutput(args: ListProductsAndConfigurationProductFamiliesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListProductsAndConfigurationProductFamiliesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

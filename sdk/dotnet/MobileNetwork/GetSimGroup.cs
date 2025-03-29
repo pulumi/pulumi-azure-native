@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified SIM group.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSimGroupResult> InvokeAsync(GetSimGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSimGroupResult>("azure-native:mobilenetwork:getSimGroup", args ?? new GetSimGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified SIM group.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSimGroupResult> Invoke(GetSimGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSimGroupResult>("azure-native:mobilenetwork:getSimGroup", args ?? new GetSimGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// Gets information about the specified SIM group.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSimGroupResult> Invoke(GetSimGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSimGroupResult>("azure-native:mobilenetwork:getSimGroup", args ?? new GetSimGroupInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class GetSimGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A key to encrypt the SIM data that belongs to this SIM group.
         /// </summary>
         public readonly Outputs.KeyVaultKeyResponse? EncryptionKey;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
         [OutputConstructor]
         private GetSimGroupResult(
+            string azureApiVersion,
+
             Outputs.KeyVaultKeyResponse? encryptionKey,
 
             string id,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EncryptionKey = encryptionKey;
             Id = id;
             Identity = identity;

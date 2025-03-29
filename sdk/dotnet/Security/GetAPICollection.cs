@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly ImmutableDictionary<string, string>? AdditionalData;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The display name of the Azure API Management API.
         /// </summary>
         public readonly string? DisplayName;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.Security
         private GetAPICollectionResult(
             ImmutableDictionary<string, string>? additionalData,
 
+            string azureApiVersion,
+
             string? displayName,
 
             string id,
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNative.Security
             string type)
         {
             AdditionalData = additionalData;
+            AzureApiVersion = azureApiVersion;
             DisplayName = displayName;
             Id = id;
             Name = name;

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ElasticSan.Inputs
         /// The action of virtual network rule.
         /// </summary>
         [Input("action")]
-        public Input<Pulumi.AzureNative.ElasticSan.Action>? Action { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ElasticSan.Action>? Action { get; set; }
 
         /// <summary>
         /// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.ElasticSan.Inputs
 
         public VirtualNetworkRuleArgs()
         {
-            Action = Pulumi.AzureNative.ElasticSan.Action.Allow;
+            Action = "Allow";
         }
         public static new VirtualNetworkRuleArgs Empty => new VirtualNetworkRuleArgs();
     }

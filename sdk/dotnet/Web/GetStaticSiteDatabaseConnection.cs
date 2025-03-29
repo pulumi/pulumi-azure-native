@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Static Site Database Connection resource.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStaticSiteDatabaseConnectionResult> InvokeAsync(GetStaticSiteDatabaseConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteDatabaseConnectionResult>("azure-native:web:getStaticSiteDatabaseConnection", args ?? new GetStaticSiteDatabaseConnectionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Static Site Database Connection resource.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStaticSiteDatabaseConnectionResult> Invoke(GetStaticSiteDatabaseConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteDatabaseConnectionResult>("azure-native:web:getStaticSiteDatabaseConnection", args ?? new GetStaticSiteDatabaseConnectionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Static Site Database Connection resource.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStaticSiteDatabaseConnectionResult> Invoke(GetStaticSiteDatabaseConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteDatabaseConnectionResult>("azure-native:web:getStaticSiteDatabaseConnection", args ?? new GetStaticSiteDatabaseConnectionInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Web
     public sealed class GetStaticSiteDatabaseConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A list of configuration files associated with this database connection.
         /// </summary>
         public readonly ImmutableArray<Outputs.StaticSiteDatabaseConnectionConfigurationFileOverviewResponse> ConfigurationFiles;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetStaticSiteDatabaseConnectionResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.StaticSiteDatabaseConnectionConfigurationFileOverviewResponse> configurationFiles,
 
             string? connectionIdentity,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.Web
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ConfigurationFiles = configurationFiles;
             ConnectionIdentity = connectionIdentity;
             ConnectionString = connectionString;

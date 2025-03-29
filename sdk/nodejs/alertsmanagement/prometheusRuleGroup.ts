@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The Prometheus rule group resource.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2023-03-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
+ *
+ * Other available API versions: 2021-07-22-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PrometheusRuleGroup extends pulumi.CustomResource {
     /**
@@ -39,6 +41,10 @@ export class PrometheusRuleGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrometheusRuleGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Apply rule to data from a specific cluster.
      */
@@ -114,10 +120,12 @@ export class PrometheusRuleGroup extends pulumi.CustomResource {
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;

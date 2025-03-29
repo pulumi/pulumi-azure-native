@@ -26,10 +26,13 @@ class GetApplicationResult:
     """
     Contains information about an application in a Batch account.
     """
-    def __init__(__self__, allow_updates=None, default_version=None, display_name=None, etag=None, id=None, name=None, type=None):
+    def __init__(__self__, allow_updates=None, azure_api_version=None, default_version=None, display_name=None, etag=None, id=None, name=None, tags=None, type=None):
         if allow_updates and not isinstance(allow_updates, bool):
             raise TypeError("Expected argument 'allow_updates' to be a bool")
         pulumi.set(__self__, "allow_updates", allow_updates)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if default_version and not isinstance(default_version, str):
             raise TypeError("Expected argument 'default_version' to be a str")
         pulumi.set(__self__, "default_version", default_version)
@@ -45,6 +48,9 @@ class GetApplicationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -56,6 +62,14 @@ class GetApplicationResult:
         A value indicating whether packages within the application may be overwritten using the same version string.
         """
         return pulumi.get(self, "allow_updates")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultVersion")
@@ -99,6 +113,14 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource.
@@ -113,11 +135,13 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             yield self
         return GetApplicationResult(
             allow_updates=self.allow_updates,
+            azure_api_version=self.azure_api_version,
             default_version=self.default_version,
             display_name=self.display_name,
             etag=self.etag,
             id=self.id,
             name=self.name,
+            tags=self.tags,
             type=self.type)
 
 
@@ -128,9 +152,9 @@ def get_application(account_name: Optional[str] = None,
     """
     Gets information about the specified application.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the Batch account.
@@ -146,11 +170,13 @@ def get_application(account_name: Optional[str] = None,
 
     return AwaitableGetApplicationResult(
         allow_updates=pulumi.get(__ret__, 'allow_updates'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         default_version=pulumi.get(__ret__, 'default_version'),
         display_name=pulumi.get(__ret__, 'display_name'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
                            application_name: Optional[pulumi.Input[str]] = None,
@@ -159,9 +185,9 @@ def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified application.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the Batch account.
@@ -176,9 +202,11 @@ def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:batch:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         allow_updates=pulumi.get(__response__, 'allow_updates'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         default_version=pulumi.get(__response__, 'default_version'),
         display_name=pulumi.get(__response__, 'display_name'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

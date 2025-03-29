@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// Get a StorageClassResource
         /// 
         /// Uses Azure REST API version 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<GetStorageClassResult> InvokeAsync(GetStorageClassArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageClassResult>("azure-native:kubernetesruntime:getStorageClass", args ?? new GetStorageClassArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// Get a StorageClassResource
         /// 
         /// Uses Azure REST API version 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetStorageClassResult> Invoke(GetStorageClassInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageClassResult>("azure-native:kubernetesruntime:getStorageClass", args ?? new GetStorageClassInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// Get a StorageClassResource
         /// 
         /// Uses Azure REST API version 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetStorageClassResult> Invoke(GetStorageClassInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageClassResult>("azure-native:kubernetesruntime:getStorageClass", args ?? new GetStorageClassInvokeArgs(), options.WithDefaults());
@@ -95,6 +89,10 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// Volume can be expanded or not
         /// </summary>
         public readonly string? AllowVolumeExpansion;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Allow single data node failure
         /// </summary>
@@ -158,6 +156,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
 
             string? allowVolumeExpansion,
 
+            string azureApiVersion,
+
             string? dataResilience,
 
             string? failoverSpeed,
@@ -188,6 +188,7 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         {
             AccessModes = accessModes;
             AllowVolumeExpansion = allowVolumeExpansion;
+            AzureApiVersion = azureApiVersion;
             DataResilience = dataResilience;
             FailoverSpeed = failoverSpeed;
             Id = id;

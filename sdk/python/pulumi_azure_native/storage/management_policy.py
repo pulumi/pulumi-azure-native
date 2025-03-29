@@ -29,7 +29,7 @@ class ManagementPolicyArgs:
         """
         The set of arguments for constructing a ManagementPolicy resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input['ManagementPolicySchemaArgs'] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        :param pulumi.Input['ManagementPolicySchemaArgs'] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
         """
@@ -55,7 +55,7 @@ class ManagementPolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input['ManagementPolicySchemaArgs']:
         """
-        The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         """
         return pulumi.get(self, "policy")
 
@@ -101,15 +101,15 @@ class ManagementPolicy(pulumi.CustomResource):
         """
         The Get Storage Account ManagementPolicies operation response.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
-        :param pulumi.Input[Union['ManagementPolicySchemaArgs', 'ManagementPolicySchemaArgsDict']] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        :param pulumi.Input[Union['ManagementPolicySchemaArgs', 'ManagementPolicySchemaArgsDict']] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
         ...
@@ -121,9 +121,9 @@ class ManagementPolicy(pulumi.CustomResource):
         """
         The Get Storage Account ManagementPolicies operation response.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ManagementPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -163,6 +163,7 @@ class ManagementPolicy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
@@ -190,11 +191,20 @@ class ManagementPolicy(pulumi.CustomResource):
 
         __props__ = ManagementPolicyArgs.__new__(ManagementPolicyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["policy"] = None
         __props__.__dict__["type"] = None
         return ManagementPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -216,7 +226,7 @@ class ManagementPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output['outputs.ManagementPolicySchemaResponse']:
         """
-        The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         """
         return pulumi.get(self, "policy")
 

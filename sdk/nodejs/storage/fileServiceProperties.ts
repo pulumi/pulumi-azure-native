@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The properties of File services in storage account.
  *
- * Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+ * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FileServiceProperties extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class FileServiceProperties extends pulumi.CustomResource {
         return obj['__pulumiType'] === FileServiceProperties.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
      */
@@ -89,10 +93,12 @@ export class FileServiceProperties extends pulumi.CustomResource {
             resourceInputs["protocolSettings"] = args ? args.protocolSettings : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shareDeleteRetentionPolicy"] = args ? args.shareDeleteRetentionPolicy : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protocolSettings"] = undefined /*out*/;

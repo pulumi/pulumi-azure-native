@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Site REST Resource.
  *
- * Uses Azure REST API version 2020-07-07. In version 1.x of the Azure Native provider, it used API version 2020-01-01.
+ * Uses Azure REST API version 2020-07-07. In version 2.x of the Azure Native provider, it used API version 2020-07-07.
  */
 export class HyperVSite extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class HyperVSite extends pulumi.CustomResource {
         return obj['__pulumiType'] === HyperVSite.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * eTag for concurrency control.
      */
@@ -86,9 +90,11 @@ export class HyperVSite extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -98,7 +104,7 @@ export class HyperVSite extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:HyperVSite" }, { type: "azure-native:offazure/v20200707:HyperVSite" }, { type: "azure-native:offazure/v20230606:HyperVSite" }, { type: "azure-native:offazure/v20231001preview:HyperVSite" }, { type: "azure-native:offazure/v20240501preview:HyperVSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:HyperVSite" }, { type: "azure-native:offazure/v20200707:HyperVSite" }, { type: "azure-native:offazure/v20230606:HyperVSite" }, { type: "azure-native:offazure/v20230606:HypervSitesController" }, { type: "azure-native:offazure/v20231001preview:HyperVSite" }, { type: "azure-native:offazure/v20231001preview:HypervSitesController" }, { type: "azure-native:offazure/v20240501preview:HyperVSite" }, { type: "azure-native:offazure/v20240501preview:HypervSitesController" }, { type: "azure-native:offazure:HypervSitesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HyperVSite.__pulumiType, name, resourceInputs, opts);
     }

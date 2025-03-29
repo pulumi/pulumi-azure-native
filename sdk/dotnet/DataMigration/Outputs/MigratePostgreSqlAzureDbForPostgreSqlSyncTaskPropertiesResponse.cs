@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly ImmutableArray<Union<Outputs.MigrateMISyncCompleteCommandPropertiesResponse, Outputs.MigrateSyncCompleteCommandPropertiesResponse>> Commands;
         /// <summary>
+        /// DateTime in UTC when the task was created
+        /// </summary>
+        public readonly string? CreatedOn;
+        /// <summary>
         /// Array of errors. This is ignored if submitted.
         /// </summary>
         public readonly ImmutableArray<Outputs.ODataErrorResponse> Errors;
@@ -33,6 +37,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly Outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse? Input;
         /// <summary>
+        /// whether the task can be cloned or not
+        /// </summary>
+        public readonly bool? IsCloneable;
+        /// <summary>
         /// Task output. This is ignored if submitted.
         /// </summary>
         public readonly ImmutableArray<object> Output;
@@ -40,6 +48,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// The state of the task. This is ignored if submitted.
         /// </summary>
         public readonly string State;
+        /// <summary>
+        /// task id
+        /// </summary>
+        public readonly string? TaskId;
         /// <summary>
         /// Task type.
         /// Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2'.
@@ -52,22 +64,31 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             ImmutableArray<Union<Outputs.MigrateMISyncCompleteCommandPropertiesResponse, Outputs.MigrateSyncCompleteCommandPropertiesResponse>> commands,
 
+            string? createdOn,
+
             ImmutableArray<Outputs.ODataErrorResponse> errors,
 
             Outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse? input,
+
+            bool? isCloneable,
 
             ImmutableArray<object> output,
 
             string state,
 
+            string? taskId,
+
             string taskType)
         {
             ClientData = clientData;
             Commands = commands;
+            CreatedOn = createdOn;
             Errors = errors;
             Input = input;
+            IsCloneable = isCloneable;
             Output = output;
             State = state;
+            TaskId = taskId;
             TaskType = taskType;
         }
     }

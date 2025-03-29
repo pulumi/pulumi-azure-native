@@ -35,6 +35,7 @@ class IncidentTaskArgs:
         The set of arguments for constructing a IncidentTask resource.
         :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union[str, 'IncidentTaskStatus']] status: The status of the task
         :param pulumi.Input[str] title: The title of the task
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input['ClientInfoArgs'] created_by: Information on the client (user or application) that made some action
@@ -83,6 +84,9 @@ class IncidentTaskArgs:
     @property
     @pulumi.getter
     def status(self) -> pulumi.Input[Union[str, 'IncidentTaskStatus']]:
+        """
+        The status of the task
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -178,9 +182,11 @@ class IncidentTask(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Uses Azure REST API version 2023-06-01-preview.
+        Describes incident task properties
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+
+        Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,6 +196,7 @@ class IncidentTask(pulumi.CustomResource):
         :param pulumi.Input[str] incident_task_id: Incident task ID
         :param pulumi.Input[Union['ClientInfoArgs', 'ClientInfoArgsDict']] last_modified_by: Information on the client (user or application) that made some action
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union[str, 'IncidentTaskStatus']] status: The status of the task
         :param pulumi.Input[str] title: The title of the task
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -200,9 +207,11 @@ class IncidentTask(pulumi.CustomResource):
                  args: IncidentTaskArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Uses Azure REST API version 2023-06-01-preview.
+        Describes incident task properties
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01.
+        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+
+        Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param IncidentTaskArgs args: The arguments to use to populate this resource's properties.
@@ -256,6 +265,7 @@ class IncidentTask(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_time_utc"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_time_utc"] = None
@@ -286,6 +296,7 @@ class IncidentTask(pulumi.CustomResource):
 
         __props__ = IncidentTaskArgs.__new__(IncidentTaskArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["created_time_utc"] = None
         __props__.__dict__["description"] = None
@@ -298,6 +309,14 @@ class IncidentTask(pulumi.CustomResource):
         __props__.__dict__["title"] = None
         __props__.__dict__["type"] = None
         return IncidentTask(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdBy")
@@ -358,6 +377,9 @@ class IncidentTask(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The status of the task
+        """
         return pulumi.get(self, "status")
 
     @property

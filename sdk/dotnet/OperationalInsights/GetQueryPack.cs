@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Returns a Log Analytics QueryPack.
         /// 
-        /// Uses Azure REST API version 2019-09-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetQueryPackResult> InvokeAsync(GetQueryPackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueryPackResult>("azure-native:operationalinsights:getQueryPack", args ?? new GetQueryPackArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Returns a Log Analytics QueryPack.
         /// 
-        /// Uses Azure REST API version 2019-09-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetQueryPackResult> Invoke(GetQueryPackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueryPackResult>("azure-native:operationalinsights:getQueryPack", args ?? new GetQueryPackInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Returns a Log Analytics QueryPack.
         /// 
-        /// Uses Azure REST API version 2019-09-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2019-09-01-preview, 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetQueryPackResult> Invoke(GetQueryPackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueryPackResult>("azure-native:operationalinsights:getQueryPack", args ?? new GetQueryPackInvokeArgs(), options.WithDefaults());
@@ -88,15 +88,19 @@ namespace Pulumi.AzureNative.OperationalInsights
     public sealed class GetQueryPackResult
     {
         /// <summary>
-        /// Azure resource Id
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -108,7 +112,11 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly string QueryPackId;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -120,12 +128,14 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly string TimeModified;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetQueryPackResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -136,6 +146,8 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             string queryPackId,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string timeCreated,
@@ -144,11 +156,13 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             QueryPackId = queryPackId;
+            SystemData = systemData;
             Tags = tags;
             TimeCreated = timeCreated;
             TimeModified = timeModified;

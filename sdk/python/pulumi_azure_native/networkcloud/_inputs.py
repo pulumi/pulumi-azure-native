@@ -26,6 +26,8 @@ __all__ = [
     'AgentOptionsArgsDict',
     'AgentPoolUpgradeSettingsArgs',
     'AgentPoolUpgradeSettingsArgsDict',
+    'AnalyticsOutputSettingsArgs',
+    'AnalyticsOutputSettingsArgsDict',
     'AttachedNetworkConfigurationArgs',
     'AttachedNetworkConfigurationArgsDict',
     'BareMetalMachineConfigurationDataArgs',
@@ -38,6 +40,8 @@ __all__ = [
     'ClusterSecretArchiveArgsDict',
     'ClusterUpdateStrategyArgs',
     'ClusterUpdateStrategyArgsDict',
+    'CommandOutputSettingsArgs',
+    'CommandOutputSettingsArgsDict',
     'ControlPlaneNodeConfigurationArgs',
     'ControlPlaneNodeConfigurationArgsDict',
     'EgressEndpointArgs',
@@ -46,6 +50,8 @@ __all__ = [
     'EndpointDependencyArgsDict',
     'ExtendedLocationArgs',
     'ExtendedLocationArgsDict',
+    'IdentitySelectorArgs',
+    'IdentitySelectorArgsDict',
     'ImageRepositoryCredentialsArgs',
     'ImageRepositoryCredentialsArgsDict',
     'InitialAgentPoolConfigurationArgs',
@@ -58,10 +64,14 @@ __all__ = [
     'KubernetesLabelArgsDict',
     'L2NetworkAttachmentConfigurationArgs',
     'L2NetworkAttachmentConfigurationArgsDict',
+    'L2ServiceLoadBalancerConfigurationArgs',
+    'L2ServiceLoadBalancerConfigurationArgsDict',
     'L3NetworkAttachmentConfigurationArgs',
     'L3NetworkAttachmentConfigurationArgsDict',
     'ManagedResourceGroupConfigurationArgs',
     'ManagedResourceGroupConfigurationArgsDict',
+    'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'NetworkAttachmentArgs',
     'NetworkAttachmentArgsDict',
     'NetworkConfigurationArgs',
@@ -72,6 +82,8 @@ __all__ = [
     'RackDefinitionArgsDict',
     'RuntimeProtectionConfigurationArgs',
     'RuntimeProtectionConfigurationArgsDict',
+    'SecretArchiveSettingsArgs',
+    'SecretArchiveSettingsArgsDict',
     'ServiceLoadBalancerBgpPeerArgs',
     'ServiceLoadBalancerBgpPeerArgsDict',
     'ServicePrincipalInformationArgs',
@@ -90,6 +102,8 @@ __all__ = [
     'ValidationThresholdArgsDict',
     'VirtualMachinePlacementHintArgs',
     'VirtualMachinePlacementHintArgsDict',
+    'VulnerabilityScanningSettingsArgs',
+    'VulnerabilityScanningSettingsArgsDict',
 ]
 
 MYPY = False
@@ -282,9 +296,17 @@ class AgentOptionsArgs:
 
 if not MYPY:
     class AgentPoolUpgradeSettingsArgsDict(TypedDict):
+        drain_timeout: NotRequired[pulumi.Input[float]]
+        """
+        The maximum time in seconds that is allowed for a node drain to complete before proceeding with the upgrade of the agent pool. If not specified during creation, a value of 1800 seconds is used.
+        """
         max_surge: NotRequired[pulumi.Input[str]]
         """
-        The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1.
+        The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified during creation, a value of 1 is used. One of MaxSurge and MaxUnavailable must be greater than 0.
+        """
+        max_unavailable: NotRequired[pulumi.Input[str]]
+        """
+        The maximum number or percentage of nodes that can be unavailable during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified during creation, a value of 0 is used. One of MaxSurge and MaxUnavailable must be greater than 0.
         """
 elif False:
     AgentPoolUpgradeSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -292,26 +314,108 @@ elif False:
 @pulumi.input_type
 class AgentPoolUpgradeSettingsArgs:
     def __init__(__self__, *,
-                 max_surge: Optional[pulumi.Input[str]] = None):
+                 drain_timeout: Optional[pulumi.Input[float]] = None,
+                 max_surge: Optional[pulumi.Input[str]] = None,
+                 max_unavailable: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] max_surge: The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1.
+        :param pulumi.Input[float] drain_timeout: The maximum time in seconds that is allowed for a node drain to complete before proceeding with the upgrade of the agent pool. If not specified during creation, a value of 1800 seconds is used.
+        :param pulumi.Input[str] max_surge: The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified during creation, a value of 1 is used. One of MaxSurge and MaxUnavailable must be greater than 0.
+        :param pulumi.Input[str] max_unavailable: The maximum number or percentage of nodes that can be unavailable during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified during creation, a value of 0 is used. One of MaxSurge and MaxUnavailable must be greater than 0.
         """
-        if max_surge is None:
-            max_surge = '1'
+        if drain_timeout is not None:
+            pulumi.set(__self__, "drain_timeout", drain_timeout)
         if max_surge is not None:
             pulumi.set(__self__, "max_surge", max_surge)
+        if max_unavailable is not None:
+            pulumi.set(__self__, "max_unavailable", max_unavailable)
+
+    @property
+    @pulumi.getter(name="drainTimeout")
+    def drain_timeout(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum time in seconds that is allowed for a node drain to complete before proceeding with the upgrade of the agent pool. If not specified during creation, a value of 1800 seconds is used.
+        """
+        return pulumi.get(self, "drain_timeout")
+
+    @drain_timeout.setter
+    def drain_timeout(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "drain_timeout", value)
 
     @property
     @pulumi.getter(name="maxSurge")
     def max_surge(self) -> Optional[pulumi.Input[str]]:
         """
-        The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1.
+        The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified during creation, a value of 1 is used. One of MaxSurge and MaxUnavailable must be greater than 0.
         """
         return pulumi.get(self, "max_surge")
 
     @max_surge.setter
     def max_surge(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "max_surge", value)
+
+    @property
+    @pulumi.getter(name="maxUnavailable")
+    def max_unavailable(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum number or percentage of nodes that can be unavailable during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified during creation, a value of 0 is used. One of MaxSurge and MaxUnavailable must be greater than 0.
+        """
+        return pulumi.get(self, "max_unavailable")
+
+    @max_unavailable.setter
+    def max_unavailable(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_unavailable", value)
+
+
+if not MYPY:
+    class AnalyticsOutputSettingsArgsDict(TypedDict):
+        analytics_workspace_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the analytics workspace that is to be used by the specified identity.
+        """
+        associated_identity: NotRequired[pulumi.Input['IdentitySelectorArgsDict']]
+        """
+        The selection of the managed identity to use with this analytics workspace. The identity type must be either system assigned or user assigned.
+        """
+elif False:
+    AnalyticsOutputSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalyticsOutputSettingsArgs:
+    def __init__(__self__, *,
+                 analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 associated_identity: Optional[pulumi.Input['IdentitySelectorArgs']] = None):
+        """
+        :param pulumi.Input[str] analytics_workspace_id: The resource ID of the analytics workspace that is to be used by the specified identity.
+        :param pulumi.Input['IdentitySelectorArgs'] associated_identity: The selection of the managed identity to use with this analytics workspace. The identity type must be either system assigned or user assigned.
+        """
+        if analytics_workspace_id is not None:
+            pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
+        if associated_identity is not None:
+            pulumi.set(__self__, "associated_identity", associated_identity)
+
+    @property
+    @pulumi.getter(name="analyticsWorkspaceId")
+    def analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the analytics workspace that is to be used by the specified identity.
+        """
+        return pulumi.get(self, "analytics_workspace_id")
+
+    @analytics_workspace_id.setter
+    def analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="associatedIdentity")
+    def associated_identity(self) -> Optional[pulumi.Input['IdentitySelectorArgs']]:
+        """
+        The selection of the managed identity to use with this analytics workspace. The identity type must be either system assigned or user assigned.
+        """
+        return pulumi.get(self, "associated_identity")
+
+    @associated_identity.setter
+    def associated_identity(self, value: Optional[pulumi.Input['IdentitySelectorArgs']]):
+        pulumi.set(self, "associated_identity", value)
 
 
 if not MYPY:
@@ -390,7 +494,7 @@ if not MYPY:
     class BareMetalMachineConfigurationDataArgsDict(TypedDict):
         bmc_credentials: pulumi.Input['AdministrativeCredentialsArgsDict']
         """
-        The credentials of the baseboard management controller on this bare metal machine.
+        The credentials of the baseboard management controller on this bare metal machine. The password field is expected to be an Azure Key Vault key URL. Until the cluster is converted to utilize managed identity by setting the secret archive settings, the actual password value should be provided instead.
         """
         bmc_mac_address: pulumi.Input[str]
         """
@@ -431,7 +535,7 @@ class BareMetalMachineConfigurationDataArgs:
                  machine_details: Optional[pulumi.Input[str]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['AdministrativeCredentialsArgs'] bmc_credentials: The credentials of the baseboard management controller on this bare metal machine.
+        :param pulumi.Input['AdministrativeCredentialsArgs'] bmc_credentials: The credentials of the baseboard management controller on this bare metal machine. The password field is expected to be an Azure Key Vault key URL. Until the cluster is converted to utilize managed identity by setting the secret archive settings, the actual password value should be provided instead.
         :param pulumi.Input[str] bmc_mac_address: The MAC address of the BMC for this machine.
         :param pulumi.Input[str] boot_mac_address: The MAC address associated with the PXE NIC card.
         :param pulumi.Input[float] rack_slot: The slot the physical machine is in the rack based on the BOM configuration.
@@ -454,7 +558,7 @@ class BareMetalMachineConfigurationDataArgs:
     @pulumi.getter(name="bmcCredentials")
     def bmc_credentials(self) -> pulumi.Input['AdministrativeCredentialsArgs']:
         """
-        The credentials of the baseboard management controller on this bare metal machine.
+        The credentials of the baseboard management controller on this bare metal machine. The password field is expected to be an Azure Key Vault key URL. Until the cluster is converted to utilize managed identity by setting the secret archive settings, the actual password value should be provided instead.
         """
         return pulumi.get(self, "bmc_credentials")
 
@@ -645,7 +749,7 @@ if not MYPY:
         """
         ip_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgsDict']]]]
         """
-        The list of pools of IP addresses that can be allocated to Load Balancer services.
+        The list of pools of IP addresses that can be allocated to load balancer services.
         """
 elif False:
     BgpServiceLoadBalancerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -661,7 +765,7 @@ class BgpServiceLoadBalancerConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BgpAdvertisementArgs']]] bgp_advertisements: The association of IP address pools to the communities and peers, allowing for announcement of IPs.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerBgpPeerArgs']]] bgp_peers: The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined.
         :param pulumi.Input[Union[str, 'FabricPeeringEnabled']] fabric_peering_enabled: The indicator to specify if the load balancer peers with the network fabric.
-        :param pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]] ip_address_pools: The list of pools of IP addresses that can be allocated to Load Balancer services.
+        :param pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]] ip_address_pools: The list of pools of IP addresses that can be allocated to load balancer services.
         """
         if bgp_advertisements is not None:
             pulumi.set(__self__, "bgp_advertisements", bgp_advertisements)
@@ -714,7 +818,7 @@ class BgpServiceLoadBalancerConfigurationArgs:
     @pulumi.getter(name="ipAddressPools")
     def ip_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]]]:
         """
-        The list of pools of IP addresses that can be allocated to Load Balancer services.
+        The list of pools of IP addresses that can be allocated to load balancer services.
         """
         return pulumi.get(self, "ip_address_pools")
 
@@ -888,6 +992,58 @@ class ClusterUpdateStrategyArgs:
     @wait_time_minutes.setter
     def wait_time_minutes(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "wait_time_minutes", value)
+
+
+if not MYPY:
+    class CommandOutputSettingsArgsDict(TypedDict):
+        associated_identity: NotRequired[pulumi.Input['IdentitySelectorArgsDict']]
+        """
+        The selection of the managed identity to use with this storage account container. The identity type must be either system assigned or user assigned.
+        """
+        container_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the storage account container that is to be used by the specified identities.
+        """
+elif False:
+    CommandOutputSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CommandOutputSettingsArgs:
+    def __init__(__self__, *,
+                 associated_identity: Optional[pulumi.Input['IdentitySelectorArgs']] = None,
+                 container_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['IdentitySelectorArgs'] associated_identity: The selection of the managed identity to use with this storage account container. The identity type must be either system assigned or user assigned.
+        :param pulumi.Input[str] container_url: The URL of the storage account container that is to be used by the specified identities.
+        """
+        if associated_identity is not None:
+            pulumi.set(__self__, "associated_identity", associated_identity)
+        if container_url is not None:
+            pulumi.set(__self__, "container_url", container_url)
+
+    @property
+    @pulumi.getter(name="associatedIdentity")
+    def associated_identity(self) -> Optional[pulumi.Input['IdentitySelectorArgs']]:
+        """
+        The selection of the managed identity to use with this storage account container. The identity type must be either system assigned or user assigned.
+        """
+        return pulumi.get(self, "associated_identity")
+
+    @associated_identity.setter
+    def associated_identity(self, value: Optional[pulumi.Input['IdentitySelectorArgs']]):
+        pulumi.set(self, "associated_identity", value)
+
+    @property
+    @pulumi.getter(name="containerUrl")
+    def container_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the storage account container that is to be used by the specified identities.
+        """
+        return pulumi.get(self, "container_url")
+
+    @container_url.setter
+    def container_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_url", value)
 
 
 if not MYPY:
@@ -1129,6 +1285,58 @@ class ExtendedLocationArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class IdentitySelectorArgsDict(TypedDict):
+        identity_type: NotRequired[pulumi.Input[Union[str, 'ManagedServiceIdentitySelectorType']]]
+        """
+        The type of managed identity that is being selected.
+        """
+        user_assigned_identity_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The user assigned managed identity resource ID to use. Mutually exclusive with a system assigned identity type.
+        """
+elif False:
+    IdentitySelectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentitySelectorArgs:
+    def __init__(__self__, *,
+                 identity_type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentitySelectorType']]] = None,
+                 user_assigned_identity_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentitySelectorType']] identity_type: The type of managed identity that is being selected.
+        :param pulumi.Input[str] user_assigned_identity_resource_id: The user assigned managed identity resource ID to use. Mutually exclusive with a system assigned identity type.
+        """
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[pulumi.Input[Union[str, 'ManagedServiceIdentitySelectorType']]]:
+        """
+        The type of managed identity that is being selected.
+        """
+        return pulumi.get(self, "identity_type")
+
+    @identity_type.setter
+    def identity_type(self, value: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentitySelectorType']]]):
+        pulumi.set(self, "identity_type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user assigned managed identity resource ID to use. Mutually exclusive with a system assigned identity type.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+    @user_assigned_identity_resource_id.setter
+    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_resource_id", value)
 
 
 if not MYPY:
@@ -1432,7 +1640,7 @@ if not MYPY:
     class IpAddressPoolArgsDict(TypedDict):
         addresses: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
-        The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses.
+        The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses. For a BGP service load balancer configuration, only CIDR format is supported and excludes /32 (IPv4) and /128 (IPv6) prefixes.
         """
         name: pulumi.Input[str]
         """
@@ -1457,7 +1665,7 @@ class IpAddressPoolArgs:
                  auto_assign: Optional[pulumi.Input[Union[str, 'BfdEnabled']]] = None,
                  only_use_host_ips: Optional[pulumi.Input[Union[str, 'BfdEnabled']]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses. For a BGP service load balancer configuration, only CIDR format is supported and excludes /32 (IPv4) and /128 (IPv6) prefixes.
         :param pulumi.Input[str] name: The name used to identify this IP address pool for association with a BGP advertisement.
         :param pulumi.Input[Union[str, 'BfdEnabled']] auto_assign: The indicator to determine if automatic allocation from the pool should occur.
         :param pulumi.Input[Union[str, 'BfdEnabled']] only_use_host_ips: The indicator to prevent the use of IP addresses ending with .0 and .255 for this pool. Enabling this option will only use IP addresses between .1 and .254 inclusive.
@@ -1477,7 +1685,7 @@ class IpAddressPoolArgs:
     @pulumi.getter
     def addresses(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses.
+        The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses. For a BGP service load balancer configuration, only CIDR format is supported and excludes /32 (IPv4) and /128 (IPv6) prefixes.
         """
         return pulumi.get(self, "addresses")
 
@@ -1716,6 +1924,38 @@ class L2NetworkAttachmentConfigurationArgs:
 
 
 if not MYPY:
+    class L2ServiceLoadBalancerConfigurationArgsDict(TypedDict):
+        ip_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgsDict']]]]
+        """
+        The list of pools of IP addresses that can be allocated to load balancer services.
+        """
+elif False:
+    L2ServiceLoadBalancerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class L2ServiceLoadBalancerConfigurationArgs:
+    def __init__(__self__, *,
+                 ip_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]] ip_address_pools: The list of pools of IP addresses that can be allocated to load balancer services.
+        """
+        if ip_address_pools is not None:
+            pulumi.set(__self__, "ip_address_pools", ip_address_pools)
+
+    @property
+    @pulumi.getter(name="ipAddressPools")
+    def ip_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]]]:
+        """
+        The list of pools of IP addresses that can be allocated to load balancer services.
+        """
+        return pulumi.get(self, "ip_address_pools")
+
+    @ip_address_pools.setter
+    def ip_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]]]):
+        pulumi.set(self, "ip_address_pools", value)
+
+
+if not MYPY:
     class L3NetworkAttachmentConfigurationArgsDict(TypedDict):
         network_id: pulumi.Input[str]
         """
@@ -1840,6 +2080,61 @@ class ManagedResourceGroupConfigurationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 if not MYPY:
@@ -2051,11 +2346,15 @@ if not MYPY:
         """
         bgp_service_load_balancer_configuration: NotRequired[pulumi.Input['BgpServiceLoadBalancerConfigurationArgsDict']]
         """
-        The configuration of the BGP service load balancer for this Kubernetes cluster.
+        The configuration of the BGP service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
         """
         dns_service_ip: NotRequired[pulumi.Input[str]]
         """
         The IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in service CIDR.
+        """
+        l2_service_load_balancer_configuration: NotRequired[pulumi.Input['L2ServiceLoadBalancerConfigurationArgsDict']]
+        """
+        The configuration of the Layer 2 service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
         """
         pod_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -2076,14 +2375,16 @@ class NetworkConfigurationArgs:
                  attached_network_configuration: Optional[pulumi.Input['AttachedNetworkConfigurationArgs']] = None,
                  bgp_service_load_balancer_configuration: Optional[pulumi.Input['BgpServiceLoadBalancerConfigurationArgs']] = None,
                  dns_service_ip: Optional[pulumi.Input[str]] = None,
+                 l2_service_load_balancer_configuration: Optional[pulumi.Input['L2ServiceLoadBalancerConfigurationArgs']] = None,
                  pod_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] cloud_services_network_id: The resource ID of the associated Cloud Services network.
         :param pulumi.Input[str] cni_network_id: The resource ID of the Layer 3 network that is used for creation of the Container Networking Interface network.
         :param pulumi.Input['AttachedNetworkConfigurationArgs'] attached_network_configuration: The configuration of networks being attached to the cluster for use by the workloads that run on this Kubernetes cluster.
-        :param pulumi.Input['BgpServiceLoadBalancerConfigurationArgs'] bgp_service_load_balancer_configuration: The configuration of the BGP service load balancer for this Kubernetes cluster.
+        :param pulumi.Input['BgpServiceLoadBalancerConfigurationArgs'] bgp_service_load_balancer_configuration: The configuration of the BGP service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
         :param pulumi.Input[str] dns_service_ip: The IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in service CIDR.
+        :param pulumi.Input['L2ServiceLoadBalancerConfigurationArgs'] l2_service_load_balancer_configuration: The configuration of the Layer 2 service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pod_cidrs: The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_cidrs: The CIDR notation IP ranges from which to assign service IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
         """
@@ -2095,6 +2396,8 @@ class NetworkConfigurationArgs:
             pulumi.set(__self__, "bgp_service_load_balancer_configuration", bgp_service_load_balancer_configuration)
         if dns_service_ip is not None:
             pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+        if l2_service_load_balancer_configuration is not None:
+            pulumi.set(__self__, "l2_service_load_balancer_configuration", l2_service_load_balancer_configuration)
         if pod_cidrs is not None:
             pulumi.set(__self__, "pod_cidrs", pod_cidrs)
         if service_cidrs is not None:
@@ -2140,7 +2443,7 @@ class NetworkConfigurationArgs:
     @pulumi.getter(name="bgpServiceLoadBalancerConfiguration")
     def bgp_service_load_balancer_configuration(self) -> Optional[pulumi.Input['BgpServiceLoadBalancerConfigurationArgs']]:
         """
-        The configuration of the BGP service load balancer for this Kubernetes cluster.
+        The configuration of the BGP service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
         """
         return pulumi.get(self, "bgp_service_load_balancer_configuration")
 
@@ -2159,6 +2462,18 @@ class NetworkConfigurationArgs:
     @dns_service_ip.setter
     def dns_service_ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_service_ip", value)
+
+    @property
+    @pulumi.getter(name="l2ServiceLoadBalancerConfiguration")
+    def l2_service_load_balancer_configuration(self) -> Optional[pulumi.Input['L2ServiceLoadBalancerConfigurationArgs']]:
+        """
+        The configuration of the Layer 2 service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
+        """
+        return pulumi.get(self, "l2_service_load_balancer_configuration")
+
+    @l2_service_load_balancer_configuration.setter
+    def l2_service_load_balancer_configuration(self, value: Optional[pulumi.Input['L2ServiceLoadBalancerConfigurationArgs']]):
+        pulumi.set(self, "l2_service_load_balancer_configuration", value)
 
     @property
     @pulumi.getter(name="podCidrs")
@@ -2189,7 +2504,7 @@ if not MYPY:
     class OsDiskArgsDict(TypedDict):
         disk_size_gb: pulumi.Input[float]
         """
-        The size of the disk in gigabytes. Required if the createOption is Ephemeral.
+        The size of the disk. Required if the createOption is Ephemeral. Allocations are measured in gibibytes.
         """
         create_option: NotRequired[pulumi.Input[Union[str, 'OsDiskCreateOption']]]
         """
@@ -2209,7 +2524,7 @@ class OsDiskArgs:
                  create_option: Optional[pulumi.Input[Union[str, 'OsDiskCreateOption']]] = None,
                  delete_option: Optional[pulumi.Input[Union[str, 'OsDiskDeleteOption']]] = None):
         """
-        :param pulumi.Input[float] disk_size_gb: The size of the disk in gigabytes. Required if the createOption is Ephemeral.
+        :param pulumi.Input[float] disk_size_gb: The size of the disk. Required if the createOption is Ephemeral. Allocations are measured in gibibytes.
         :param pulumi.Input[Union[str, 'OsDiskCreateOption']] create_option: The strategy for creating the OS disk.
         :param pulumi.Input[Union[str, 'OsDiskDeleteOption']] delete_option: The strategy for deleting the OS disk.
         """
@@ -2227,7 +2542,7 @@ class OsDiskArgs:
     @pulumi.getter(name="diskSizeGB")
     def disk_size_gb(self) -> pulumi.Input[float]:
         """
-        The size of the disk in gigabytes. Required if the createOption is Ephemeral.
+        The size of the disk. Required if the createOption is Ephemeral. Allocations are measured in gibibytes.
         """
         return pulumi.get(self, "disk_size_gb")
 
@@ -2444,6 +2759,58 @@ class RuntimeProtectionConfigurationArgs:
 
 
 if not MYPY:
+    class SecretArchiveSettingsArgsDict(TypedDict):
+        associated_identity: NotRequired[pulumi.Input['IdentitySelectorArgsDict']]
+        """
+        The selection of the managed identity to use with this vault URI. The identity type must be either system assigned or user assigned.
+        """
+        vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI for the key vault used as the secret archive.
+        """
+elif False:
+    SecretArchiveSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecretArchiveSettingsArgs:
+    def __init__(__self__, *,
+                 associated_identity: Optional[pulumi.Input['IdentitySelectorArgs']] = None,
+                 vault_uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['IdentitySelectorArgs'] associated_identity: The selection of the managed identity to use with this vault URI. The identity type must be either system assigned or user assigned.
+        :param pulumi.Input[str] vault_uri: The URI for the key vault used as the secret archive.
+        """
+        if associated_identity is not None:
+            pulumi.set(__self__, "associated_identity", associated_identity)
+        if vault_uri is not None:
+            pulumi.set(__self__, "vault_uri", vault_uri)
+
+    @property
+    @pulumi.getter(name="associatedIdentity")
+    def associated_identity(self) -> Optional[pulumi.Input['IdentitySelectorArgs']]:
+        """
+        The selection of the managed identity to use with this vault URI. The identity type must be either system assigned or user assigned.
+        """
+        return pulumi.get(self, "associated_identity")
+
+    @associated_identity.setter
+    def associated_identity(self, value: Optional[pulumi.Input['IdentitySelectorArgs']]):
+        pulumi.set(self, "associated_identity", value)
+
+    @property
+    @pulumi.getter(name="vaultUri")
+    def vault_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI for the key vault used as the secret archive.
+        """
+        return pulumi.get(self, "vault_uri")
+
+    @vault_uri.setter
+    def vault_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vault_uri", value)
+
+
+if not MYPY:
     class ServiceLoadBalancerBgpPeerArgsDict(TypedDict):
         name: pulumi.Input[str]
         """
@@ -2467,11 +2834,11 @@ if not MYPY:
         """
         hold_time: NotRequired[pulumi.Input[str]]
         """
-        The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
         """
         keep_alive_time: NotRequired[pulumi.Input[str]]
         """
-        The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
         """
         my_asn: NotRequired[pulumi.Input[float]]
         """
@@ -2507,8 +2874,8 @@ class ServiceLoadBalancerBgpPeerArgs:
         :param pulumi.Input[float] peer_asn: The autonomous system number expected from the remote end of the BGP session.
         :param pulumi.Input[Union[str, 'BfdEnabled']] bfd_enabled: The indicator of BFD enablement for this BgpPeer.
         :param pulumi.Input[Union[str, 'BgpMultiHop']] bgp_multi_hop: The indicator to enable multi-hop peering support.
-        :param pulumi.Input[str] hold_time: The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
-        :param pulumi.Input[str] keep_alive_time: The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
+        :param pulumi.Input[str] hold_time: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
+        :param pulumi.Input[str] keep_alive_time: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
         :param pulumi.Input[float] my_asn: The autonomous system number used for the local end of the BGP session.
         :param pulumi.Input[str] password: The authentication password for routers enforcing TCP MD5 authenticated sessions.
         :param pulumi.Input[float] peer_port: The port used to connect this BGP session.
@@ -2601,7 +2968,7 @@ class ServiceLoadBalancerBgpPeerArgs:
     @pulumi.getter(name="holdTime")
     def hold_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
         """
         return pulumi.get(self, "hold_time")
 
@@ -2613,7 +2980,7 @@ class ServiceLoadBalancerBgpPeerArgs:
     @pulumi.getter(name="keepAliveTime")
     def keep_alive_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
         """
         return pulumi.get(self, "keep_alive_time")
 
@@ -2781,7 +3148,7 @@ if not MYPY:
     class StorageApplianceConfigurationDataArgsDict(TypedDict):
         admin_credentials: pulumi.Input['AdministrativeCredentialsArgsDict']
         """
-        The credentials of the administrative interface on this storage appliance.
+        The credentials of the administrative interface on this storage appliance. The password field is expected to be an Azure Key Vault key URL. Until the cluster is converted to utilize managed identity by setting the secret archive settings, the actual password value should be provided instead.
         """
         rack_slot: pulumi.Input[float]
         """
@@ -2806,7 +3173,7 @@ class StorageApplianceConfigurationDataArgs:
                  serial_number: pulumi.Input[str],
                  storage_appliance_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['AdministrativeCredentialsArgs'] admin_credentials: The credentials of the administrative interface on this storage appliance.
+        :param pulumi.Input['AdministrativeCredentialsArgs'] admin_credentials: The credentials of the administrative interface on this storage appliance. The password field is expected to be an Azure Key Vault key URL. Until the cluster is converted to utilize managed identity by setting the secret archive settings, the actual password value should be provided instead.
         :param pulumi.Input[float] rack_slot: The slot that storage appliance is in the rack based on the BOM configuration.
         :param pulumi.Input[str] serial_number: The serial number of the appliance.
         :param pulumi.Input[str] storage_appliance_name: The user-provided name for the storage appliance that will be created from this specification.
@@ -2821,7 +3188,7 @@ class StorageApplianceConfigurationDataArgs:
     @pulumi.getter(name="adminCredentials")
     def admin_credentials(self) -> pulumi.Input['AdministrativeCredentialsArgs']:
         """
-        The credentials of the administrative interface on this storage appliance.
+        The credentials of the administrative interface on this storage appliance. The password field is expected to be an Azure Key Vault key URL. Until the cluster is converted to utilize managed identity by setting the secret archive settings, the actual password value should be provided instead.
         """
         return pulumi.get(self, "admin_credentials")
 
@@ -3175,5 +3542,39 @@ class VirtualMachinePlacementHintArgs:
     @scope.setter
     def scope(self, value: pulumi.Input[Union[str, 'VirtualMachinePlacementHintPodAffinityScope']]):
         pulumi.set(self, "scope", value)
+
+
+if not MYPY:
+    class VulnerabilityScanningSettingsArgsDict(TypedDict):
+        container_scan: NotRequired[pulumi.Input[Union[str, 'VulnerabilityScanningSettingsContainerScan']]]
+        """
+        The mode selection for container vulnerability scanning.
+        """
+elif False:
+    VulnerabilityScanningSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VulnerabilityScanningSettingsArgs:
+    def __init__(__self__, *,
+                 container_scan: Optional[pulumi.Input[Union[str, 'VulnerabilityScanningSettingsContainerScan']]] = None):
+        """
+        :param pulumi.Input[Union[str, 'VulnerabilityScanningSettingsContainerScan']] container_scan: The mode selection for container vulnerability scanning.
+        """
+        if container_scan is None:
+            container_scan = 'Enabled'
+        if container_scan is not None:
+            pulumi.set(__self__, "container_scan", container_scan)
+
+    @property
+    @pulumi.getter(name="containerScan")
+    def container_scan(self) -> Optional[pulumi.Input[Union[str, 'VulnerabilityScanningSettingsContainerScan']]]:
+        """
+        The mode selection for container vulnerability scanning.
+        """
+        return pulumi.get(self, "container_scan")
+
+    @container_scan.setter
+    def container_scan(self, value: Optional[pulumi.Input[Union[str, 'VulnerabilityScanningSettingsContainerScan']]]):
+        pulumi.set(self, "container_scan", value)
 
 

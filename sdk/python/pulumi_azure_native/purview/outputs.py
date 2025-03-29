@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccountMergeInfoResponse',
     'AccountPropertiesResponseAccountStatus',
     'AccountPropertiesResponseEndpoints',
     'AccountPropertiesResponseManagedResources',
@@ -26,6 +27,7 @@ __all__ = [
     'CredentialsResponse',
     'ErrorModelResponse',
     'IdentityResponse',
+    'IngestionStorageResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -33,6 +35,123 @@ __all__ = [
     'TrackedResourceResponseSystemData',
     'UserAssignedIdentityResponse',
 ]
+
+@pulumi.output_type
+class AccountMergeInfoResponse(dict):
+    """
+    The public Account Merge Info model.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountLocation":
+            suggest = "account_location"
+        elif key == "accountName":
+            suggest = "account_name"
+        elif key == "accountResourceGroupName":
+            suggest = "account_resource_group_name"
+        elif key == "accountSubscriptionId":
+            suggest = "account_subscription_id"
+        elif key == "mergeStatus":
+            suggest = "merge_status"
+        elif key == "typeOfAccount":
+            suggest = "type_of_account"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountMergeInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountMergeInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountMergeInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_location: str,
+                 account_name: str,
+                 account_resource_group_name: str,
+                 account_subscription_id: str,
+                 deprovisioned: bool,
+                 merge_status: str,
+                 type_of_account: str):
+        """
+        The public Account Merge Info model.
+        :param str account_location: The account location of the *other* account in the merge operation.
+        :param str account_name: The account name of the *other* account in the merge operation.
+        :param str account_resource_group_name: The resource group name of the *other* account in the merge operation.
+        :param str account_subscription_id: The subscription id of the *other* account in the merge operation.
+        :param bool deprovisioned: The deprovisioned status of the account.
+               Only applicable for the secondary account.
+        :param str merge_status: The status of the merge operation.
+        :param str type_of_account: The account's type for the merge operation.
+        """
+        pulumi.set(__self__, "account_location", account_location)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "account_resource_group_name", account_resource_group_name)
+        pulumi.set(__self__, "account_subscription_id", account_subscription_id)
+        pulumi.set(__self__, "deprovisioned", deprovisioned)
+        pulumi.set(__self__, "merge_status", merge_status)
+        pulumi.set(__self__, "type_of_account", type_of_account)
+
+    @property
+    @pulumi.getter(name="accountLocation")
+    def account_location(self) -> str:
+        """
+        The account location of the *other* account in the merge operation.
+        """
+        return pulumi.get(self, "account_location")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        The account name of the *other* account in the merge operation.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="accountResourceGroupName")
+    def account_resource_group_name(self) -> str:
+        """
+        The resource group name of the *other* account in the merge operation.
+        """
+        return pulumi.get(self, "account_resource_group_name")
+
+    @property
+    @pulumi.getter(name="accountSubscriptionId")
+    def account_subscription_id(self) -> str:
+        """
+        The subscription id of the *other* account in the merge operation.
+        """
+        return pulumi.get(self, "account_subscription_id")
+
+    @property
+    @pulumi.getter
+    def deprovisioned(self) -> bool:
+        """
+        The deprovisioned status of the account.
+        Only applicable for the secondary account.
+        """
+        return pulumi.get(self, "deprovisioned")
+
+    @property
+    @pulumi.getter(name="mergeStatus")
+    def merge_status(self) -> str:
+        """
+        The status of the merge operation.
+        """
+        return pulumi.get(self, "merge_status")
+
+    @property
+    @pulumi.getter(name="typeOfAccount")
+    def type_of_account(self) -> str:
+        """
+        The account's type for the merge operation.
+        """
+        return pulumi.get(self, "type_of_account")
+
 
 @pulumi.output_type
 class AccountPropertiesResponseAccountStatus(dict):
@@ -93,16 +212,13 @@ class AccountPropertiesResponseEndpoints(dict):
     """
     def __init__(__self__, *,
                  catalog: str,
-                 guardian: str,
                  scan: str):
         """
         The URIs that are the public endpoints of the account.
         :param str catalog: Gets the catalog endpoint.
-        :param str guardian: Gets the guardian endpoint.
         :param str scan: Gets the scan endpoint.
         """
         pulumi.set(__self__, "catalog", catalog)
-        pulumi.set(__self__, "guardian", guardian)
         pulumi.set(__self__, "scan", scan)
 
     @property
@@ -112,14 +228,6 @@ class AccountPropertiesResponseEndpoints(dict):
         Gets the catalog endpoint.
         """
         return pulumi.get(self, "catalog")
-
-    @property
-    @pulumi.getter
-    def guardian(self) -> str:
-        """
-        Gets the guardian endpoint.
-        """
-        return pulumi.get(self, "guardian")
 
     @property
     @pulumi.getter
@@ -509,6 +617,70 @@ class IdentityResponse(dict):
         User Assigned Identities
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class IngestionStorageResponse(dict):
+    """
+    Ingestion Storage Account Info
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryEndpoint":
+            suggest = "primary_endpoint"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IngestionStorageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IngestionStorageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IngestionStorageResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 primary_endpoint: str,
+                 public_network_access: Optional[str] = None):
+        """
+        Ingestion Storage Account Info
+        :param str id: Gets or sets the Id.
+        :param str primary_endpoint: Gets or sets the primary endpoint.
+        :param str public_network_access: Gets or sets the public network access setting
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "primary_endpoint", primary_endpoint)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Gets or sets the Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="primaryEndpoint")
+    def primary_endpoint(self) -> str:
+        """
+        Gets or sets the primary endpoint.
+        """
+        return pulumi.get(self, "primary_endpoint")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Gets or sets the public network access setting
+        """
+        return pulumi.get(self, "public_network_access")
 
 
 @pulumi.output_type

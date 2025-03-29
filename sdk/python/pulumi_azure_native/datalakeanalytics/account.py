@@ -336,7 +336,7 @@ class Account(pulumi.CustomResource):
         """
         A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
 
-        Uses Azure REST API version 2019-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2016-11-01.
+        Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -367,7 +367,7 @@ class Account(pulumi.CustomResource):
         """
         A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
 
-        Uses Azure REST API version 2019-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2016-11-01.
+        Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -448,6 +448,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
             __props__.__dict__["account_id"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["current_tier"] = None
             __props__.__dict__["debug_data_access_level"] = None
@@ -491,6 +492,7 @@ class Account(pulumi.CustomResource):
         __props__ = AccountArgs.__new__(AccountArgs)
 
         __props__.__dict__["account_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["compute_policies"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["current_tier"] = None
@@ -533,6 +535,14 @@ class Account(pulumi.CustomResource):
         The unique identifier associated with this Data Lake Analytics account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="computePolicies")

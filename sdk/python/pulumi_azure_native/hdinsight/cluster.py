@@ -154,9 +154,9 @@ class Cluster(pulumi.CustomResource):
         """
         The HDInsight cluster.
 
-        Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01-preview.
+        Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
-        Other available API versions: 2023-04-15-preview, 2023-06-01-preview, 2023-08-15-preview, 2023-11-01-preview, 2024-05-01-preview, 2024-08-01-preview, 2025-01-15-preview.
+        Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,9 +177,9 @@ class Cluster(pulumi.CustomResource):
         """
         The HDInsight cluster.
 
-        Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01-preview.
+        Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
-        Other available API versions: 2023-04-15-preview, 2023-06-01-preview, 2023-08-15-preview, 2023-11-01-preview, 2024-05-01-preview, 2024-08-01-preview, 2025-01-15-preview.
+        Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -221,11 +221,12 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight/v20150301preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20210601:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20230415preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20230815preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20240801preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20250115preview:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight/v20150301preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20210601:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20230415preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20230601preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20230815preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20231101preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20240501preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20240801preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20250115preview:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:hdinsight:Cluster',
@@ -249,6 +250,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
@@ -259,6 +261,14 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["zones"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

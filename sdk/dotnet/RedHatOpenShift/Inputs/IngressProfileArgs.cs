@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Inputs
     public sealed class IngressProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IP of the ingress.
-        /// </summary>
-        [Input("ip")]
-        public Input<string>? Ip { get; set; }
-
-        /// <summary>
         /// The ingress profile name.
         /// </summary>
         [Input("name")]

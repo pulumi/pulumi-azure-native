@@ -17,21 +17,35 @@ namespace Pulumi.AzureNative.DeviceRegistry.Outputs
     public sealed class AssetStatusResponse
     {
         /// <summary>
+        /// Array of dataset statuses that describe the status of each dataset.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AssetStatusDatasetResponse> Datasets;
+        /// <summary>
         /// Array object to transfer and persist errors that originate from the Edge.
         /// </summary>
         public readonly ImmutableArray<Outputs.AssetStatusErrorResponse> Errors;
         /// <summary>
+        /// Array of event statuses that describe the status of each event.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AssetStatusEventResponse> Events;
+        /// <summary>
         /// A read only incremental counter indicating the number of times the configuration has been modified from the perspective of the current actual (Edge) state of the Asset. Edge would be the only writer of this value and would sync back up to the cloud. In steady state, this should equal version.
         /// </summary>
-        public readonly int Version;
+        public readonly double Version;
 
         [OutputConstructor]
         private AssetStatusResponse(
+            ImmutableArray<Outputs.AssetStatusDatasetResponse> datasets,
+
             ImmutableArray<Outputs.AssetStatusErrorResponse> errors,
 
-            int version)
+            ImmutableArray<Outputs.AssetStatusEventResponse> events,
+
+            double version)
         {
+            Datasets = datasets;
             Errors = errors;
+            Events = events;
             Version = version;
         }
     }

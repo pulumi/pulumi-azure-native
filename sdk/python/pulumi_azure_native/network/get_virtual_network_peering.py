@@ -27,7 +27,7 @@ class GetVirtualNetworkPeeringResult:
     """
     Peerings in a virtual network resource.
     """
-    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, do_not_verify_remote_gateways=None, etag=None, id=None, name=None, peering_state=None, peering_sync_level=None, provisioning_state=None, remote_address_space=None, remote_bgp_communities=None, remote_virtual_network=None, remote_virtual_network_address_space=None, remote_virtual_network_encryption=None, resource_guid=None, type=None, use_remote_gateways=None):
+    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, azure_api_version=None, do_not_verify_remote_gateways=None, enable_only_i_pv6_peering=None, etag=None, id=None, local_address_space=None, local_subnet_names=None, local_virtual_network_address_space=None, name=None, peer_complete_vnets=None, peering_state=None, peering_sync_level=None, provisioning_state=None, remote_address_space=None, remote_bgp_communities=None, remote_subnet_names=None, remote_virtual_network=None, remote_virtual_network_address_space=None, remote_virtual_network_encryption=None, resource_guid=None, type=None, use_remote_gateways=None):
         if allow_forwarded_traffic and not isinstance(allow_forwarded_traffic, bool):
             raise TypeError("Expected argument 'allow_forwarded_traffic' to be a bool")
         pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
@@ -37,18 +37,36 @@ class GetVirtualNetworkPeeringResult:
         if allow_virtual_network_access and not isinstance(allow_virtual_network_access, bool):
             raise TypeError("Expected argument 'allow_virtual_network_access' to be a bool")
         pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if do_not_verify_remote_gateways and not isinstance(do_not_verify_remote_gateways, bool):
             raise TypeError("Expected argument 'do_not_verify_remote_gateways' to be a bool")
         pulumi.set(__self__, "do_not_verify_remote_gateways", do_not_verify_remote_gateways)
+        if enable_only_i_pv6_peering and not isinstance(enable_only_i_pv6_peering, bool):
+            raise TypeError("Expected argument 'enable_only_i_pv6_peering' to be a bool")
+        pulumi.set(__self__, "enable_only_i_pv6_peering", enable_only_i_pv6_peering)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if local_address_space and not isinstance(local_address_space, dict):
+            raise TypeError("Expected argument 'local_address_space' to be a dict")
+        pulumi.set(__self__, "local_address_space", local_address_space)
+        if local_subnet_names and not isinstance(local_subnet_names, list):
+            raise TypeError("Expected argument 'local_subnet_names' to be a list")
+        pulumi.set(__self__, "local_subnet_names", local_subnet_names)
+        if local_virtual_network_address_space and not isinstance(local_virtual_network_address_space, dict):
+            raise TypeError("Expected argument 'local_virtual_network_address_space' to be a dict")
+        pulumi.set(__self__, "local_virtual_network_address_space", local_virtual_network_address_space)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if peer_complete_vnets and not isinstance(peer_complete_vnets, bool):
+            raise TypeError("Expected argument 'peer_complete_vnets' to be a bool")
+        pulumi.set(__self__, "peer_complete_vnets", peer_complete_vnets)
         if peering_state and not isinstance(peering_state, str):
             raise TypeError("Expected argument 'peering_state' to be a str")
         pulumi.set(__self__, "peering_state", peering_state)
@@ -64,6 +82,9 @@ class GetVirtualNetworkPeeringResult:
         if remote_bgp_communities and not isinstance(remote_bgp_communities, dict):
             raise TypeError("Expected argument 'remote_bgp_communities' to be a dict")
         pulumi.set(__self__, "remote_bgp_communities", remote_bgp_communities)
+        if remote_subnet_names and not isinstance(remote_subnet_names, list):
+            raise TypeError("Expected argument 'remote_subnet_names' to be a list")
+        pulumi.set(__self__, "remote_subnet_names", remote_subnet_names)
         if remote_virtual_network and not isinstance(remote_virtual_network, dict):
             raise TypeError("Expected argument 'remote_virtual_network' to be a dict")
         pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
@@ -108,12 +129,28 @@ class GetVirtualNetworkPeeringResult:
         return pulumi.get(self, "allow_virtual_network_access")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="doNotVerifyRemoteGateways")
     def do_not_verify_remote_gateways(self) -> Optional[bool]:
         """
         If we need to verify the provisioning state of the remote gateway.
         """
         return pulumi.get(self, "do_not_verify_remote_gateways")
+
+    @property
+    @pulumi.getter(name="enableOnlyIPv6Peering")
+    def enable_only_i_pv6_peering(self) -> Optional[bool]:
+        """
+        Whether only Ipv6 address space is peered for subnet peering.
+        """
+        return pulumi.get(self, "enable_only_i_pv6_peering")
 
     @property
     @pulumi.getter
@@ -132,12 +169,44 @@ class GetVirtualNetworkPeeringResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="localAddressSpace")
+    def local_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+        """
+        The local address space of the local virtual network that is peered.
+        """
+        return pulumi.get(self, "local_address_space")
+
+    @property
+    @pulumi.getter(name="localSubnetNames")
+    def local_subnet_names(self) -> Optional[Sequence[str]]:
+        """
+        List of local subnet names that are subnet peered with remote virtual network.
+        """
+        return pulumi.get(self, "local_subnet_names")
+
+    @property
+    @pulumi.getter(name="localVirtualNetworkAddressSpace")
+    def local_virtual_network_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+        """
+        The current local address space of the local virtual network that is peered.
+        """
+        return pulumi.get(self, "local_virtual_network_address_space")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="peerCompleteVnets")
+    def peer_complete_vnets(self) -> Optional[bool]:
+        """
+        Whether complete virtual network address space is peered.
+        """
+        return pulumi.get(self, "peer_complete_vnets")
 
     @property
     @pulumi.getter(name="peeringState")
@@ -178,6 +247,14 @@ class GetVirtualNetworkPeeringResult:
         The reference to the remote virtual network's Bgp Communities.
         """
         return pulumi.get(self, "remote_bgp_communities")
+
+    @property
+    @pulumi.getter(name="remoteSubnetNames")
+    def remote_subnet_names(self) -> Optional[Sequence[str]]:
+        """
+        List of remote subnet names from remote virtual network that are subnet peered.
+        """
+        return pulumi.get(self, "remote_subnet_names")
 
     @property
     @pulumi.getter(name="remoteVirtualNetwork")
@@ -237,15 +314,22 @@ class AwaitableGetVirtualNetworkPeeringResult(GetVirtualNetworkPeeringResult):
             allow_forwarded_traffic=self.allow_forwarded_traffic,
             allow_gateway_transit=self.allow_gateway_transit,
             allow_virtual_network_access=self.allow_virtual_network_access,
+            azure_api_version=self.azure_api_version,
             do_not_verify_remote_gateways=self.do_not_verify_remote_gateways,
+            enable_only_i_pv6_peering=self.enable_only_i_pv6_peering,
             etag=self.etag,
             id=self.id,
+            local_address_space=self.local_address_space,
+            local_subnet_names=self.local_subnet_names,
+            local_virtual_network_address_space=self.local_virtual_network_address_space,
             name=self.name,
+            peer_complete_vnets=self.peer_complete_vnets,
             peering_state=self.peering_state,
             peering_sync_level=self.peering_sync_level,
             provisioning_state=self.provisioning_state,
             remote_address_space=self.remote_address_space,
             remote_bgp_communities=self.remote_bgp_communities,
+            remote_subnet_names=self.remote_subnet_names,
             remote_virtual_network=self.remote_virtual_network,
             remote_virtual_network_address_space=self.remote_virtual_network_address_space,
             remote_virtual_network_encryption=self.remote_virtual_network_encryption,
@@ -261,9 +345,9 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
     """
     Gets the specified virtual network peering.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -281,15 +365,22 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
         allow_forwarded_traffic=pulumi.get(__ret__, 'allow_forwarded_traffic'),
         allow_gateway_transit=pulumi.get(__ret__, 'allow_gateway_transit'),
         allow_virtual_network_access=pulumi.get(__ret__, 'allow_virtual_network_access'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         do_not_verify_remote_gateways=pulumi.get(__ret__, 'do_not_verify_remote_gateways'),
+        enable_only_i_pv6_peering=pulumi.get(__ret__, 'enable_only_i_pv6_peering'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
+        local_address_space=pulumi.get(__ret__, 'local_address_space'),
+        local_subnet_names=pulumi.get(__ret__, 'local_subnet_names'),
+        local_virtual_network_address_space=pulumi.get(__ret__, 'local_virtual_network_address_space'),
         name=pulumi.get(__ret__, 'name'),
+        peer_complete_vnets=pulumi.get(__ret__, 'peer_complete_vnets'),
         peering_state=pulumi.get(__ret__, 'peering_state'),
         peering_sync_level=pulumi.get(__ret__, 'peering_sync_level'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         remote_address_space=pulumi.get(__ret__, 'remote_address_space'),
         remote_bgp_communities=pulumi.get(__ret__, 'remote_bgp_communities'),
+        remote_subnet_names=pulumi.get(__ret__, 'remote_subnet_names'),
         remote_virtual_network=pulumi.get(__ret__, 'remote_virtual_network'),
         remote_virtual_network_address_space=pulumi.get(__ret__, 'remote_virtual_network_address_space'),
         remote_virtual_network_encryption=pulumi.get(__ret__, 'remote_virtual_network_encryption'),
@@ -303,9 +394,9 @@ def get_virtual_network_peering_output(resource_group_name: Optional[pulumi.Inpu
     """
     Gets the specified virtual network peering.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -322,15 +413,22 @@ def get_virtual_network_peering_output(resource_group_name: Optional[pulumi.Inpu
         allow_forwarded_traffic=pulumi.get(__response__, 'allow_forwarded_traffic'),
         allow_gateway_transit=pulumi.get(__response__, 'allow_gateway_transit'),
         allow_virtual_network_access=pulumi.get(__response__, 'allow_virtual_network_access'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         do_not_verify_remote_gateways=pulumi.get(__response__, 'do_not_verify_remote_gateways'),
+        enable_only_i_pv6_peering=pulumi.get(__response__, 'enable_only_i_pv6_peering'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
+        local_address_space=pulumi.get(__response__, 'local_address_space'),
+        local_subnet_names=pulumi.get(__response__, 'local_subnet_names'),
+        local_virtual_network_address_space=pulumi.get(__response__, 'local_virtual_network_address_space'),
         name=pulumi.get(__response__, 'name'),
+        peer_complete_vnets=pulumi.get(__response__, 'peer_complete_vnets'),
         peering_state=pulumi.get(__response__, 'peering_state'),
         peering_sync_level=pulumi.get(__response__, 'peering_sync_level'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         remote_address_space=pulumi.get(__response__, 'remote_address_space'),
         remote_bgp_communities=pulumi.get(__response__, 'remote_bgp_communities'),
+        remote_subnet_names=pulumi.get(__response__, 'remote_subnet_names'),
         remote_virtual_network=pulumi.get(__response__, 'remote_virtual_network'),
         remote_virtual_network_address_space=pulumi.get(__response__, 'remote_virtual_network_address_space'),
         remote_virtual_network_encryption=pulumi.get(__response__, 'remote_virtual_network_encryption'),

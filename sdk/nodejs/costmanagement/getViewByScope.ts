@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the view for the defined scope by view name.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-08-01.
  *
- * Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+ * Other available API versions: 2019-04-01-preview, 2019-11-01, 2020-06-01, 2021-10-01, 2022-08-01-preview, 2022-10-01, 2022-10-01-preview, 2022-10-05-preview, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getViewByScope(args: GetViewByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetViewByScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +41,10 @@ export interface GetViewByScopeResult {
      * Show costs accumulated over time.
      */
     readonly accumulated?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Chart type of the main view in Cost Analysis. Required.
      */
@@ -117,9 +121,9 @@ export interface GetViewByScopeResult {
 /**
  * Gets the view for the defined scope by view name.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-08-01.
  *
- * Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+ * Other available API versions: 2019-04-01-preview, 2019-11-01, 2020-06-01, 2021-10-01, 2022-08-01-preview, 2022-10-01, 2022-10-01-preview, 2022-10-05-preview, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getViewByScopeOutput(args: GetViewByScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetViewByScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

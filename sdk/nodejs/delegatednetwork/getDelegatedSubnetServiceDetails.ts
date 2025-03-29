@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets details about the specified dnc DelegatedSubnet Link.
  *
- * Uses Azure REST API version 2021-03-15.
+ * Uses Azure REST API version 2023-06-27-preview.
  *
- * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ * Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedSubnetServiceDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,15 @@ export interface GetDelegatedSubnetServiceDetailsArgs {
  * Represents an instance of a orchestrator.
  */
 export interface GetDelegatedSubnetServiceDetailsResult {
+    /**
+     * Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
+     * Delegated subnet's prefix size should be smaller than this by a minimum of 3.
+     */
+    readonly allocationBlockPrefixSize?: number;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Properties of the controller.
      */
@@ -77,9 +86,9 @@ export interface GetDelegatedSubnetServiceDetailsResult {
 /**
  * Gets details about the specified dnc DelegatedSubnet Link.
  *
- * Uses Azure REST API version 2021-03-15.
+ * Uses Azure REST API version 2023-06-27-preview.
  *
- * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ * Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDelegatedSubnetServiceDetailsOutput(args: GetDelegatedSubnetServiceDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDelegatedSubnetServiceDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

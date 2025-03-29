@@ -43,7 +43,7 @@ class SubscriptionArgs:
         """
         The set of arguments for constructing a Subscription resource.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] topic_name: The topic name.
         :param pulumi.Input[str] auto_delete_on_idle: ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         :param pulumi.Input['SBClientAffinePropertiesArgs'] client_affine_properties: Properties specific to client affine subscriptions.
@@ -111,7 +111,7 @@ class SubscriptionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -339,9 +339,9 @@ class Subscription(pulumi.CustomResource):
         """
         Description of subscription resource.
 
-        Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -359,7 +359,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[int] max_delivery_count: Number of maximum deliveries.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[bool] requires_session: Value indicating if a subscription supports the concept of sessions.
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         :param pulumi.Input[str] subscription_name: The subscription name.
         :param pulumi.Input[str] topic_name: The topic name.
@@ -373,9 +373,9 @@ class Subscription(pulumi.CustomResource):
         """
         Description of subscription resource.
 
-        Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -444,6 +444,7 @@ class Subscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'topic_name'")
             __props__.__dict__["topic_name"] = topic_name
             __props__.__dict__["accessed_at"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["count_details"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["location"] = None
@@ -478,6 +479,7 @@ class Subscription(pulumi.CustomResource):
 
         __props__.__dict__["accessed_at"] = None
         __props__.__dict__["auto_delete_on_idle"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["client_affine_properties"] = None
         __props__.__dict__["count_details"] = None
         __props__.__dict__["created_at"] = None
@@ -516,6 +518,14 @@ class Subscription(pulumi.CustomResource):
         ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         """
         return pulumi.get(self, "auto_delete_on_idle")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientAffineProperties")

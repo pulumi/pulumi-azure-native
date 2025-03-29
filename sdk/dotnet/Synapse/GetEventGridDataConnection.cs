@@ -118,6 +118,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetEventGridDataConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The name of blob storage event type to process.
         /// </summary>
         public readonly string? BlobStorageEventType;
@@ -181,6 +185,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetEventGridDataConnectionResult(
+            string azureApiVersion,
+
             string? blobStorageEventType,
 
             string consumerGroup,
@@ -211,6 +217,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BlobStorageEventType = blobStorageEventType;
             ConsumerGroup = consumerGroup;
             DataFormat = dataFormat;

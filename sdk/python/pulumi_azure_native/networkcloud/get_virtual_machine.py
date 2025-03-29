@@ -24,13 +24,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetVirtualMachineResult:
-    def __init__(__self__, admin_username=None, availability_zone=None, bare_metal_machine_id=None, boot_method=None, cloud_services_network_attachment=None, cluster_id=None, cpu_cores=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, isolate_emulator_thread=None, location=None, memory_size_gb=None, name=None, network_attachments=None, network_data=None, placement_hints=None, power_state=None, provisioning_state=None, ssh_public_keys=None, storage_profile=None, system_data=None, tags=None, type=None, user_data=None, virtio_interface=None, vm_device_model=None, vm_image=None, vm_image_repository_credentials=None, volumes=None):
+    def __init__(__self__, admin_username=None, availability_zone=None, azure_api_version=None, bare_metal_machine_id=None, boot_method=None, cloud_services_network_attachment=None, cluster_id=None, console_extended_location=None, cpu_cores=None, detailed_status=None, detailed_status_message=None, etag=None, extended_location=None, id=None, isolate_emulator_thread=None, location=None, memory_size_gb=None, name=None, network_attachments=None, network_data=None, placement_hints=None, power_state=None, provisioning_state=None, ssh_public_keys=None, storage_profile=None, system_data=None, tags=None, type=None, user_data=None, virtio_interface=None, vm_device_model=None, vm_image=None, vm_image_repository_credentials=None, volumes=None):
         if admin_username and not isinstance(admin_username, str):
             raise TypeError("Expected argument 'admin_username' to be a str")
         pulumi.set(__self__, "admin_username", admin_username)
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bare_metal_machine_id and not isinstance(bare_metal_machine_id, str):
             raise TypeError("Expected argument 'bare_metal_machine_id' to be a str")
         pulumi.set(__self__, "bare_metal_machine_id", bare_metal_machine_id)
@@ -43,6 +46,9 @@ class GetVirtualMachineResult:
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
+        if console_extended_location and not isinstance(console_extended_location, dict):
+            raise TypeError("Expected argument 'console_extended_location' to be a dict")
+        pulumi.set(__self__, "console_extended_location", console_extended_location)
         if cpu_cores and not isinstance(cpu_cores, float):
             raise TypeError("Expected argument 'cpu_cores' to be a float")
         pulumi.set(__self__, "cpu_cores", cpu_cores)
@@ -52,6 +58,9 @@ class GetVirtualMachineResult:
         if detailed_status_message and not isinstance(detailed_status_message, str):
             raise TypeError("Expected argument 'detailed_status_message' to be a str")
         pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -136,6 +145,14 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "availability_zone")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="bareMetalMachineId")
     def bare_metal_machine_id(self) -> str:
         """
@@ -168,6 +185,14 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "cluster_id")
 
     @property
+    @pulumi.getter(name="consoleExtendedLocation")
+    def console_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location to use for creation of a VM console resource.
+        """
+        return pulumi.get(self, "console_extended_location")
+
+    @property
     @pulumi.getter(name="cpuCores")
     def cpu_cores(self) -> float:
         """
@@ -190,6 +215,14 @@ class GetVirtualMachineResult:
         The descriptive message about the current detailed status.
         """
         return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -227,7 +260,7 @@ class GetVirtualMachineResult:
     @pulumi.getter(name="memorySizeGB")
     def memory_size_gb(self) -> float:
         """
-        The memory size of the virtual machine in GB.
+        The memory size of the virtual machine. Allocations are measured in gibibytes.
         """
         return pulumi.get(self, "memory_size_gb")
 
@@ -376,13 +409,16 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
         return GetVirtualMachineResult(
             admin_username=self.admin_username,
             availability_zone=self.availability_zone,
+            azure_api_version=self.azure_api_version,
             bare_metal_machine_id=self.bare_metal_machine_id,
             boot_method=self.boot_method,
             cloud_services_network_attachment=self.cloud_services_network_attachment,
             cluster_id=self.cluster_id,
+            console_extended_location=self.console_extended_location,
             cpu_cores=self.cpu_cores,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
+            etag=self.etag,
             extended_location=self.extended_location,
             id=self.id,
             isolate_emulator_thread=self.isolate_emulator_thread,
@@ -413,9 +449,9 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     """
     Get properties of the provided virtual machine.
 
-    Uses Azure REST API version 2023-10-01-preview.
+    Uses Azure REST API version 2025-02-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -430,13 +466,16 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     return AwaitableGetVirtualMachineResult(
         admin_username=pulumi.get(__ret__, 'admin_username'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bare_metal_machine_id=pulumi.get(__ret__, 'bare_metal_machine_id'),
         boot_method=pulumi.get(__ret__, 'boot_method'),
         cloud_services_network_attachment=pulumi.get(__ret__, 'cloud_services_network_attachment'),
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
+        console_extended_location=pulumi.get(__ret__, 'console_extended_location'),
         cpu_cores=pulumi.get(__ret__, 'cpu_cores'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        etag=pulumi.get(__ret__, 'etag'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         isolate_emulator_thread=pulumi.get(__ret__, 'isolate_emulator_thread'),
@@ -465,9 +504,9 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     """
     Get properties of the provided virtual machine.
 
-    Uses Azure REST API version 2023-10-01-preview.
+    Uses Azure REST API version 2025-02-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -481,13 +520,16 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     return __ret__.apply(lambda __response__: GetVirtualMachineResult(
         admin_username=pulumi.get(__response__, 'admin_username'),
         availability_zone=pulumi.get(__response__, 'availability_zone'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bare_metal_machine_id=pulumi.get(__response__, 'bare_metal_machine_id'),
         boot_method=pulumi.get(__response__, 'boot_method'),
         cloud_services_network_attachment=pulumi.get(__response__, 'cloud_services_network_attachment'),
         cluster_id=pulumi.get(__response__, 'cluster_id'),
+        console_extended_location=pulumi.get(__response__, 'console_extended_location'),
         cpu_cores=pulumi.get(__response__, 'cpu_cores'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        etag=pulumi.get(__response__, 'etag'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         isolate_emulator_thread=pulumi.get(__response__, 'isolate_emulator_thread'),

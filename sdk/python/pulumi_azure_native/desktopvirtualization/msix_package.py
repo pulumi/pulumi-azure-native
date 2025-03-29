@@ -50,7 +50,7 @@ class MSIXPackageArgs:
         :param pulumi.Input[str] package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
         :param pulumi.Input[str] package_name: Package Name from appxmanifest.xml. 
         :param pulumi.Input[str] package_relative_path: Relative Path to the package inside the image. 
-        :param pulumi.Input[str] version: Package Version found in the appxmanifest.xml. 
+        :param pulumi.Input[str] version: Package version found in the appxmanifest.xml. 
         """
         pulumi.set(__self__, "host_pool_name", host_pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -239,7 +239,7 @@ class MSIXPackageArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml. 
         """
         return pulumi.get(self, "version")
 
@@ -271,9 +271,9 @@ class MSIXPackage(pulumi.CustomResource):
         """
         Schema for MSIX Package properties.
 
-        Uses Azure REST API version 2022-09-09. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+        Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
 
-        Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,7 +290,7 @@ class MSIXPackage(pulumi.CustomResource):
         :param pulumi.Input[str] package_name: Package Name from appxmanifest.xml. 
         :param pulumi.Input[str] package_relative_path: Relative Path to the package inside the image. 
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] version: Package Version found in the appxmanifest.xml. 
+        :param pulumi.Input[str] version: Package version found in the appxmanifest.xml. 
         """
         ...
     @overload
@@ -301,9 +301,9 @@ class MSIXPackage(pulumi.CustomResource):
         """
         Schema for MSIX Package properties.
 
-        Uses Azure REST API version 2022-09-09. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+        Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
 
-        Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param MSIXPackageArgs args: The arguments to use to populate this resource's properties.
@@ -361,10 +361,11 @@ class MSIXPackage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["version"] = version
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:MSIXPackage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:MSIXPackage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MSIXPackage, __self__).__init__(
             'azure-native:desktopvirtualization:MSIXPackage',
@@ -388,6 +389,7 @@ class MSIXPackage(pulumi.CustomResource):
 
         __props__ = MSIXPackageArgs.__new__(MSIXPackageArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["image_path"] = None
         __props__.__dict__["is_active"] = None
@@ -403,6 +405,14 @@ class MSIXPackage(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
         return MSIXPackage(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="displayName")
@@ -496,7 +506,7 @@ class MSIXPackage(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -512,7 +522,7 @@ class MSIXPackage(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[str]]:
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml. 
         """
         return pulumi.get(self, "version")
 

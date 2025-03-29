@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// Adapter Name of NIC
         /// </summary>
-        public readonly string AdapterName;
+        public readonly string? AdapterName;
         /// <summary>
         /// Component Id of NIC
         /// </summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
         [OutputConstructor]
         private NicDetailResponse(
-            string adapterName,
+            string? adapterName,
 
             string? componentId,
 

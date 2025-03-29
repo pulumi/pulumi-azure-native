@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Media
         /// Get the details of a Track in the Asset
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetTrackResult> InvokeAsync(GetTrackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrackResult>("azure-native:media:getTrack", args ?? new GetTrackArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Media
         /// Get the details of a Track in the Asset
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTrackResult> Invoke(GetTrackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrackResult>("azure-native:media:getTrack", args ?? new GetTrackInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Media
         /// Get the details of a Track in the Asset
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTrackResult> Invoke(GetTrackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrackResult>("azure-native:media:getTrack", args ?? new GetTrackInvokeArgs(), options.WithDefaults());
@@ -106,6 +112,10 @@ namespace Pulumi.AzureNative.Media
     public sealed class GetTrackResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -128,6 +138,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetTrackResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -138,6 +150,7 @@ namespace Pulumi.AzureNative.Media
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

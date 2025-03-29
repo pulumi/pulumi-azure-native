@@ -22,6 +22,7 @@ __all__ = ['DelegatedSubnetServiceDetailsArgs', 'DelegatedSubnetServiceDetails']
 class DelegatedSubnetServiceDetailsArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 allocation_block_prefix_size: Optional[pulumi.Input[int]] = None,
                  controller_details: Optional[pulumi.Input['ControllerDetailsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,8 @@ class DelegatedSubnetServiceDetailsArgs:
         """
         The set of arguments for constructing a DelegatedSubnetServiceDetails resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[int] allocation_block_prefix_size: Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
+               Delegated subnet's prefix size should be smaller than this by a minimum of 3.
         :param pulumi.Input['ControllerDetailsArgs'] controller_details: Properties of the controller.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
@@ -37,6 +40,8 @@ class DelegatedSubnetServiceDetailsArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if allocation_block_prefix_size is not None:
+            pulumi.set(__self__, "allocation_block_prefix_size", allocation_block_prefix_size)
         if controller_details is not None:
             pulumi.set(__self__, "controller_details", controller_details)
         if location is not None:
@@ -59,6 +64,19 @@ class DelegatedSubnetServiceDetailsArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="allocationBlockPrefixSize")
+    def allocation_block_prefix_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
+        Delegated subnet's prefix size should be smaller than this by a minimum of 3.
+        """
+        return pulumi.get(self, "allocation_block_prefix_size")
+
+    @allocation_block_prefix_size.setter
+    def allocation_block_prefix_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "allocation_block_prefix_size", value)
 
     @property
     @pulumi.getter(name="controllerDetails")
@@ -126,6 +144,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allocation_block_prefix_size: Optional[pulumi.Input[int]] = None,
                  controller_details: Optional[pulumi.Input[Union['ControllerDetailsArgs', 'ControllerDetailsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -136,12 +155,14 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
         """
         Represents an instance of a orchestrator.
 
-        Uses Azure REST API version 2021-03-15. In version 1.x of the Azure Native provider, it used API version 2021-03-15.
+        Uses Azure REST API version 2023-06-27-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-15.
 
-        Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+        Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] allocation_block_prefix_size: Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
+               Delegated subnet's prefix size should be smaller than this by a minimum of 3.
         :param pulumi.Input[Union['ControllerDetailsArgs', 'ControllerDetailsArgsDict']] controller_details: Properties of the controller.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -158,9 +179,9 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
         """
         Represents an instance of a orchestrator.
 
-        Uses Azure REST API version 2021-03-15. In version 1.x of the Azure Native provider, it used API version 2021-03-15.
+        Uses Azure REST API version 2023-06-27-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-15.
 
-        Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+        Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DelegatedSubnetServiceDetailsArgs args: The arguments to use to populate this resource's properties.
@@ -177,6 +198,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allocation_block_prefix_size: Optional[pulumi.Input[int]] = None,
                  controller_details: Optional[pulumi.Input[Union['ControllerDetailsArgs', 'ControllerDetailsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -192,6 +214,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DelegatedSubnetServiceDetailsArgs.__new__(DelegatedSubnetServiceDetailsArgs)
 
+            __props__.__dict__["allocation_block_prefix_size"] = allocation_block_prefix_size
             __props__.__dict__["controller_details"] = controller_details
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -200,6 +223,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["subnet_details"] = subnet_details
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
@@ -228,6 +252,8 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
 
         __props__ = DelegatedSubnetServiceDetailsArgs.__new__(DelegatedSubnetServiceDetailsArgs)
 
+        __props__.__dict__["allocation_block_prefix_size"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["controller_details"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -237,6 +263,23 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DelegatedSubnetServiceDetails(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allocationBlockPrefixSize")
+    def allocation_block_prefix_size(self) -> pulumi.Output[Optional[int]]:
+        """
+        Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
+        Delegated subnet's prefix size should be smaller than this by a minimum of 3.
+        """
+        return pulumi.get(self, "allocation_block_prefix_size")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="controllerDetails")

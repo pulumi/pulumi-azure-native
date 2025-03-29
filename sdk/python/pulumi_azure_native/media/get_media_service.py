@@ -27,7 +27,10 @@ class GetMediaServiceResult:
     """
     A Media Services account.
     """
-    def __init__(__self__, encryption=None, id=None, identity=None, key_delivery=None, location=None, media_service_id=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, storage_accounts=None, storage_authentication=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, encryption=None, id=None, identity=None, key_delivery=None, location=None, media_service_id=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, storage_accounts=None, storage_authentication=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -76,6 +79,14 @@ class GetMediaServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -209,6 +220,7 @@ class AwaitableGetMediaServiceResult(GetMediaServiceResult):
         if False:
             yield self
         return GetMediaServiceResult(
+            azure_api_version=self.azure_api_version,
             encryption=self.encryption,
             id=self.id,
             identity=self.identity,
@@ -235,7 +247,7 @@ def get_media_service(account_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-01-01.
 
-    Other available API versions: 2015-10-01.
+    Other available API versions: 2015-10-01, 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The Media Services account name.
@@ -248,6 +260,7 @@ def get_media_service(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media:getMediaService', __args__, opts=opts, typ=GetMediaServiceResult).value
 
     return AwaitableGetMediaServiceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         encryption=pulumi.get(__ret__, 'encryption'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -272,7 +285,7 @@ def get_media_service_output(account_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2023-01-01.
 
-    Other available API versions: 2015-10-01.
+    Other available API versions: 2015-10-01, 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The Media Services account name.
@@ -284,6 +297,7 @@ def get_media_service_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media:getMediaService', __args__, opts=opts, typ=GetMediaServiceResult)
     return __ret__.apply(lambda __response__: GetMediaServiceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         encryption=pulumi.get(__response__, 'encryption'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

@@ -26,10 +26,13 @@ class GetServiceResult:
     """
     The description of the Windows IoT Device Service.
     """
-    def __init__(__self__, admin_domain_name=None, billing_domain_name=None, etag=None, id=None, location=None, name=None, notes=None, quantity=None, start_date=None, tags=None, type=None):
+    def __init__(__self__, admin_domain_name=None, azure_api_version=None, billing_domain_name=None, etag=None, id=None, location=None, name=None, notes=None, quantity=None, start_date=None, tags=None, type=None):
         if admin_domain_name and not isinstance(admin_domain_name, str):
             raise TypeError("Expected argument 'admin_domain_name' to be a str")
         pulumi.set(__self__, "admin_domain_name", admin_domain_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if billing_domain_name and not isinstance(billing_domain_name, str):
             raise TypeError("Expected argument 'billing_domain_name' to be a str")
         pulumi.set(__self__, "billing_domain_name", billing_domain_name)
@@ -68,6 +71,14 @@ class GetServiceResult:
         Windows IoT Device Service OEM AAD domain
         """
         return pulumi.get(self, "admin_domain_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="billingDomainName")
@@ -157,6 +168,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             yield self
         return GetServiceResult(
             admin_domain_name=self.admin_domain_name,
+            azure_api_version=self.azure_api_version,
             billing_domain_name=self.billing_domain_name,
             etag=self.etag,
             id=self.id,
@@ -189,6 +201,7 @@ def get_service(device_name: Optional[str] = None,
 
     return AwaitableGetServiceResult(
         admin_domain_name=pulumi.get(__ret__, 'admin_domain_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         billing_domain_name=pulumi.get(__ret__, 'billing_domain_name'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -218,6 +231,7 @@ def get_service_output(device_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:windowsiot:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         admin_domain_name=pulumi.get(__response__, 'admin_domain_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         billing_domain_name=pulumi.get(__response__, 'billing_domain_name'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.GraphServices
     /// <summary>
     /// Account details
     /// 
-    /// Uses Azure REST API version 2023-04-13. In version 1.x of the Azure Native provider, it used API version 2022-09-22-preview.
+    /// Uses Azure REST API version 2023-04-13. In version 2.x of the Azure Native provider, it used API version 2023-04-13.
     /// </summary>
     [AzureNativeResourceType("azure-native:graphservices:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Location of the resource.
         /// </summary>

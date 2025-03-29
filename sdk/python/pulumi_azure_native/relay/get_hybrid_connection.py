@@ -27,7 +27,10 @@ class GetHybridConnectionResult:
     """
     Description of hybrid connection resource.
     """
-    def __init__(__self__, created_at=None, id=None, listener_count=None, location=None, name=None, requires_client_authorization=None, system_data=None, type=None, updated_at=None, user_metadata=None):
+    def __init__(__self__, azure_api_version=None, created_at=None, id=None, listener_count=None, location=None, name=None, requires_client_authorization=None, system_data=None, type=None, updated_at=None, user_metadata=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -58,6 +61,14 @@ class GetHybridConnectionResult:
         if user_metadata and not isinstance(user_metadata, str):
             raise TypeError("Expected argument 'user_metadata' to be a str")
         pulumi.set(__self__, "user_metadata", user_metadata)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -146,6 +157,7 @@ class AwaitableGetHybridConnectionResult(GetHybridConnectionResult):
         if False:
             yield self
         return GetHybridConnectionResult(
+            azure_api_version=self.azure_api_version,
             created_at=self.created_at,
             id=self.id,
             listener_count=self.listener_count,
@@ -165,9 +177,9 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
     """
     Returns the description for the specified hybrid connection.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2024-01-01.
+    Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str hybrid_connection_name: The hybrid connection name.
@@ -182,6 +194,7 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:relay:getHybridConnection', __args__, opts=opts, typ=GetHybridConnectionResult).value
 
     return AwaitableGetHybridConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
         listener_count=pulumi.get(__ret__, 'listener_count'),
@@ -199,9 +212,9 @@ def get_hybrid_connection_output(hybrid_connection_name: Optional[pulumi.Input[s
     """
     Returns the description for the specified hybrid connection.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2024-01-01.
+    Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str hybrid_connection_name: The hybrid connection name.
@@ -215,6 +228,7 @@ def get_hybrid_connection_output(hybrid_connection_name: Optional[pulumi.Input[s
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:relay:getHybridConnection', __args__, opts=opts, typ=GetHybridConnectionResult)
     return __ret__.apply(lambda __response__: GetHybridConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_at=pulumi.get(__response__, 'created_at'),
         id=pulumi.get(__response__, 'id'),
         listener_count=pulumi.get(__response__, 'listener_count'),

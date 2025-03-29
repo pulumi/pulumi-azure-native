@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements InventoryItem GET method.
         /// 
-        /// Uses Azure REST API version 2022-07-15-preview.
+        /// Uses Azure REST API version 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetInventoryItemResult> InvokeAsync(GetInventoryItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInventoryItemResult>("azure-native:connectedvmwarevsphere:getInventoryItem", args ?? new GetInventoryItemArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements InventoryItem GET method.
         /// 
-        /// Uses Azure REST API version 2022-07-15-preview.
+        /// Uses Azure REST API version 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInventoryItemResult> Invoke(GetInventoryItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInventoryItemResult>("azure-native:connectedvmwarevsphere:getInventoryItem", args ?? new GetInventoryItemInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements InventoryItem GET method.
         /// 
-        /// Uses Azure REST API version 2022-07-15-preview.
+        /// Uses Azure REST API version 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInventoryItemResult> Invoke(GetInventoryItemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInventoryItemResult>("azure-native:connectedvmwarevsphere:getInventoryItem", args ?? new GetInventoryItemInvokeArgs(), options.WithDefaults());
@@ -100,7 +100,11 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public sealed class GetInventoryItemResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -128,11 +132,11 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system data.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
         [OutputConstructor]
         private GetInventoryItemResult(
+            string azureApiVersion,
+
             string id,
 
             string inventoryType,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             InventoryType = inventoryType;
             Kind = kind;

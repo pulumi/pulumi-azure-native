@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements virtual network GET method.
         /// 
-        /// Uses Azure REST API version 2022-07-15-preview.
+        /// Uses Azure REST API version 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:connectedvmwarevsphere:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements virtual network GET method.
         /// 
-        /// Uses Azure REST API version 2022-07-15-preview.
+        /// Uses Azure REST API version 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:connectedvmwarevsphere:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Implements virtual network GET method.
         /// 
-        /// Uses Azure REST API version 2022-07-15-preview.
+        /// Uses Azure REST API version 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:connectedvmwarevsphere:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public sealed class GetVirtualNetworkResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the name of the corresponding resource in Kubernetes.
         /// </summary>
         public readonly string CustomResourceName;
@@ -124,7 +128,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
+            string azureApiVersion,
+
             string customResourceName,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string? vCenterId)
         {
+            AzureApiVersion = azureApiVersion;
             CustomResourceName = customResourceName;
             ExtendedLocation = extendedLocation;
             Id = id;

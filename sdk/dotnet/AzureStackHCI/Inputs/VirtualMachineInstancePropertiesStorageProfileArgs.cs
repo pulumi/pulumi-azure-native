@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
     public sealed class VirtualMachineInstancePropertiesStorageProfileArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataDisks")]
-        private InputList<Inputs.VirtualMachineInstancePropertiesDataDisksArgs>? _dataDisks;
+        private InputList<Inputs.VirtualHardDiskArmReferenceArgs>? _dataDisks;
 
         /// <summary>
         /// adds data disks to the virtual machine instance
         /// </summary>
-        public InputList<Inputs.VirtualMachineInstancePropertiesDataDisksArgs> DataDisks
+        public InputList<Inputs.VirtualHardDiskArmReferenceArgs> DataDisks
         {
-            get => _dataDisks ?? (_dataDisks = new InputList<Inputs.VirtualMachineInstancePropertiesDataDisksArgs>());
+            get => _dataDisks ?? (_dataDisks = new InputList<Inputs.VirtualHardDiskArmReferenceArgs>());
             set => _dataDisks = value;
         }
 
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         /// Which Image to use for the virtual machine instance
         /// </summary>
         [Input("imageReference")]
-        public Input<Inputs.VirtualMachineInstancePropertiesImageReferenceArgs>? ImageReference { get; set; }
+        public Input<Inputs.ImageArmReferenceArgs>? ImageReference { get; set; }
 
         /// <summary>
         /// VHD to attach as OS disk
         /// </summary>
         [Input("osDisk")]
-        public Input<Inputs.VirtualMachineInstancePropertiesOsDiskArgs>? OsDisk { get; set; }
+        public Input<Inputs.VirtualMachineInstancePropertiesStorageProfileOsDiskArgs>? OsDisk { get; set; }
 
         /// <summary>
         /// Id of the storage container that hosts the VM configuration file

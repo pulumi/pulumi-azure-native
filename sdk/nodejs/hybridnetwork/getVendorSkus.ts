@@ -36,6 +36,10 @@ export interface GetVendorSkusArgs {
  */
 export interface GetVendorSkusResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The sku deployment mode.
      */
     readonly deploymentMode?: string;

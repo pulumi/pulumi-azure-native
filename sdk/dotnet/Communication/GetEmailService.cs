@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the EmailService and its properties.
         /// 
-        /// Uses Azure REST API version 2023-03-31.
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetEmailServiceResult> InvokeAsync(GetEmailServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailServiceResult>("azure-native:communication:getEmailService", args ?? new GetEmailServiceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the EmailService and its properties.
         /// 
-        /// Uses Azure REST API version 2023-03-31.
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEmailServiceResult> Invoke(GetEmailServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailServiceResult>("azure-native:communication:getEmailService", args ?? new GetEmailServiceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the EmailService and its properties.
         /// 
-        /// Uses Azure REST API version 2023-03-31.
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEmailServiceResult> Invoke(GetEmailServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailServiceResult>("azure-native:communication:getEmailService", args ?? new GetEmailServiceInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Communication
     public sealed class GetEmailServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The location where the email service stores its data at rest.
         /// </summary>
         public readonly string DataLocation;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.Communication
 
         [OutputConstructor]
         private GetEmailServiceResult(
+            string azureApiVersion,
+
             string dataLocation,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.Communication
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataLocation = dataLocation;
             Id = id;
             Location = location;

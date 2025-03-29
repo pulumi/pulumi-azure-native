@@ -27,13 +27,19 @@ class GetNetworkInterfaceResult:
     """
     A network interface in a resource group.
     """
-    def __init__(__self__, auxiliary_mode=None, auxiliary_sku=None, disable_tcp_state_tracking=None, dns_settings=None, dscp_configuration=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, extended_location=None, hosted_workloads=None, id=None, ip_configurations=None, location=None, mac_address=None, migration_phase=None, name=None, network_security_group=None, nic_type=None, primary=None, private_endpoint=None, private_link_service=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None, vnet_encryption_supported=None, workload_type=None):
+    def __init__(__self__, auxiliary_mode=None, auxiliary_sku=None, azure_api_version=None, default_outbound_connectivity_enabled=None, disable_tcp_state_tracking=None, dns_settings=None, dscp_configuration=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, extended_location=None, hosted_workloads=None, id=None, ip_configurations=None, location=None, mac_address=None, migration_phase=None, name=None, network_security_group=None, nic_type=None, primary=None, private_endpoint=None, private_link_service=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None, vnet_encryption_supported=None, workload_type=None):
         if auxiliary_mode and not isinstance(auxiliary_mode, str):
             raise TypeError("Expected argument 'auxiliary_mode' to be a str")
         pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
         if auxiliary_sku and not isinstance(auxiliary_sku, str):
             raise TypeError("Expected argument 'auxiliary_sku' to be a str")
         pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if default_outbound_connectivity_enabled and not isinstance(default_outbound_connectivity_enabled, bool):
+            raise TypeError("Expected argument 'default_outbound_connectivity_enabled' to be a bool")
+        pulumi.set(__self__, "default_outbound_connectivity_enabled", default_outbound_connectivity_enabled)
         if disable_tcp_state_tracking and not isinstance(disable_tcp_state_tracking, bool):
             raise TypeError("Expected argument 'disable_tcp_state_tracking' to be a bool")
         pulumi.set(__self__, "disable_tcp_state_tracking", disable_tcp_state_tracking)
@@ -131,6 +137,22 @@ class GetNetworkInterfaceResult:
         Auxiliary sku of Network Interface resource.
         """
         return pulumi.get(self, "auxiliary_sku")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="defaultOutboundConnectivityEnabled")
+    def default_outbound_connectivity_enabled(self) -> bool:
+        """
+        Whether default outbound connectivity for nic was configured or not.
+        """
+        return pulumi.get(self, "default_outbound_connectivity_enabled")
 
     @property
     @pulumi.getter(name="disableTcpStateTracking")
@@ -357,6 +379,8 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
         return GetNetworkInterfaceResult(
             auxiliary_mode=self.auxiliary_mode,
             auxiliary_sku=self.auxiliary_sku,
+            azure_api_version=self.azure_api_version,
+            default_outbound_connectivity_enabled=self.default_outbound_connectivity_enabled,
             disable_tcp_state_tracking=self.disable_tcp_state_tracking,
             dns_settings=self.dns_settings,
             dscp_configuration=self.dscp_configuration,
@@ -393,9 +417,9 @@ def get_network_interface(expand: Optional[str] = None,
     """
     Gets information about the specified network interface.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2018-07-01, 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: Expands referenced resources.
@@ -412,6 +436,8 @@ def get_network_interface(expand: Optional[str] = None,
     return AwaitableGetNetworkInterfaceResult(
         auxiliary_mode=pulumi.get(__ret__, 'auxiliary_mode'),
         auxiliary_sku=pulumi.get(__ret__, 'auxiliary_sku'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        default_outbound_connectivity_enabled=pulumi.get(__ret__, 'default_outbound_connectivity_enabled'),
         disable_tcp_state_tracking=pulumi.get(__ret__, 'disable_tcp_state_tracking'),
         dns_settings=pulumi.get(__ret__, 'dns_settings'),
         dscp_configuration=pulumi.get(__ret__, 'dscp_configuration'),
@@ -446,9 +472,9 @@ def get_network_interface_output(expand: Optional[pulumi.Input[Optional[str]]] =
     """
     Gets information about the specified network interface.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2018-07-01, 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: Expands referenced resources.
@@ -464,6 +490,8 @@ def get_network_interface_output(expand: Optional[pulumi.Input[Optional[str]]] =
     return __ret__.apply(lambda __response__: GetNetworkInterfaceResult(
         auxiliary_mode=pulumi.get(__response__, 'auxiliary_mode'),
         auxiliary_sku=pulumi.get(__response__, 'auxiliary_sku'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        default_outbound_connectivity_enabled=pulumi.get(__response__, 'default_outbound_connectivity_enabled'),
         disable_tcp_state_tracking=pulumi.get(__response__, 'disable_tcp_state_tracking'),
         dns_settings=pulumi.get(__response__, 'dns_settings'),
         dscp_configuration=pulumi.get(__response__, 'dscp_configuration'),

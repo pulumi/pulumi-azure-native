@@ -26,6 +26,7 @@ class ManagedDatabaseSensitivityLabelArgs:
                  resource_group_name: pulumi.Input[str],
                  schema_name: pulumi.Input[str],
                  table_name: pulumi.Input[str],
+                 client_classification_source: Optional[pulumi.Input[Union[str, 'ClientClassificationSource']]] = None,
                  information_type: Optional[pulumi.Input[str]] = None,
                  information_type_id: Optional[pulumi.Input[str]] = None,
                  label_id: Optional[pulumi.Input[str]] = None,
@@ -52,6 +53,8 @@ class ManagedDatabaseSensitivityLabelArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "schema_name", schema_name)
         pulumi.set(__self__, "table_name", table_name)
+        if client_classification_source is not None:
+            pulumi.set(__self__, "client_classification_source", client_classification_source)
         if information_type is not None:
             pulumi.set(__self__, "information_type", information_type)
         if information_type_id is not None:
@@ -138,6 +141,15 @@ class ManagedDatabaseSensitivityLabelArgs:
         pulumi.set(self, "table_name", value)
 
     @property
+    @pulumi.getter(name="clientClassificationSource")
+    def client_classification_source(self) -> Optional[pulumi.Input[Union[str, 'ClientClassificationSource']]]:
+        return pulumi.get(self, "client_classification_source")
+
+    @client_classification_source.setter
+    def client_classification_source(self, value: Optional[pulumi.Input[Union[str, 'ClientClassificationSource']]]):
+        pulumi.set(self, "client_classification_source", value)
+
+    @property
     @pulumi.getter(name="informationType")
     def information_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -212,6 +224,7 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 client_classification_source: Optional[pulumi.Input[Union[str, 'ClientClassificationSource']]] = None,
                  column_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  information_type: Optional[pulumi.Input[str]] = None,
@@ -228,9 +241,9 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
         """
         A sensitivity label.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,9 +268,9 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
         """
         A sensitivity label.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ManagedDatabaseSensitivityLabelArgs args: The arguments to use to populate this resource's properties.
@@ -274,6 +287,7 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 client_classification_source: Optional[pulumi.Input[Union[str, 'ClientClassificationSource']]] = None,
                  column_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  information_type: Optional[pulumi.Input[str]] = None,
@@ -295,6 +309,7 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedDatabaseSensitivityLabelArgs.__new__(ManagedDatabaseSensitivityLabelArgs)
 
+            __props__.__dict__["client_classification_source"] = client_classification_source
             if column_name is None and not opts.urn:
                 raise TypeError("Missing required property 'column_name'")
             __props__.__dict__["column_name"] = column_name
@@ -319,6 +334,7 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["is_disabled"] = None
             __props__.__dict__["managed_by"] = None
             __props__.__dict__["name"] = None
@@ -347,6 +363,8 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
 
         __props__ = ManagedDatabaseSensitivityLabelArgs.__new__(ManagedDatabaseSensitivityLabelArgs)
 
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["client_classification_source"] = None
         __props__.__dict__["column_name"] = None
         __props__.__dict__["information_type"] = None
         __props__.__dict__["information_type_id"] = None
@@ -360,6 +378,19 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
         __props__.__dict__["table_name"] = None
         __props__.__dict__["type"] = None
         return ManagedDatabaseSensitivityLabel(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="clientClassificationSource")
+    def client_classification_source(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "client_classification_source")
 
     @property
     @pulumi.getter(name="columnName")

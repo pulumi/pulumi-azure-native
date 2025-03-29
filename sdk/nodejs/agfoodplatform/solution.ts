@@ -10,9 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Solution resource.
  *
- * Uses Azure REST API version 2023-06-01-preview.
- *
- * Other available API versions: 2021-09-01-preview.
+ * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  */
 export class Solution extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class Solution extends pulumi.CustomResource {
         return obj['__pulumiType'] === Solution.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The ETag value to implement optimistic concurrency.
      */
@@ -83,11 +85,13 @@ export class Solution extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["solutionId"] = args ? args.solutionId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

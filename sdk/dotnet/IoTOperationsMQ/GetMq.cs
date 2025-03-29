@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     public sealed class GetMqResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Extended Location
         /// </summary>
         public readonly Outputs.ExtendedLocationPropertyResponse ExtendedLocation;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
         [OutputConstructor]
         private GetMqResult(
+            string azureApiVersion,
+
             Outputs.ExtendedLocationPropertyResponse extendedLocation,
 
             string id,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;

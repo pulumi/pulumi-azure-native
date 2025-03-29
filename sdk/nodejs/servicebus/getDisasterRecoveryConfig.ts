@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
  *
- * Uses Azure REST API version 2022-01-01-preview.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,7 +33,7 @@ export interface GetDisasterRecoveryConfigArgs {
      */
     namespaceName: string;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -46,6 +46,10 @@ export interface GetDisasterRecoveryConfigResult {
      * Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
      */
     readonly alternateName?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -86,9 +90,9 @@ export interface GetDisasterRecoveryConfigResult {
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
  *
- * Uses Azure REST API version 2022-01-01-preview.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDisasterRecoveryConfigOutput(args: GetDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDisasterRecoveryConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -109,7 +113,7 @@ export interface GetDisasterRecoveryConfigOutputArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

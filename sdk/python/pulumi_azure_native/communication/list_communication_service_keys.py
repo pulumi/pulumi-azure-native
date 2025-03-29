@@ -91,9 +91,9 @@ def list_communication_service_keys(communication_service_name: Optional[str] = 
     """
     Get the access keys of the CommunicationService resource.
 
-    Uses Azure REST API version 2023-03-31.
+    Uses Azure REST API version 2023-06-01-preview.
 
-    Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.
@@ -116,9 +116,9 @@ def list_communication_service_keys_output(communication_service_name: Optional[
     """
     Get the access keys of the CommunicationService resource.
 
-    Uses Azure REST API version 2023-03-31.
+    Uses Azure REST API version 2023-06-01-preview.
 
-    Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.

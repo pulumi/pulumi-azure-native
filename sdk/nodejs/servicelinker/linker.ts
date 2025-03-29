@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Linker of source and target resource
  *
- * Uses Azure REST API version 2022-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-11-01-preview.
+ * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
  *
- * Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Linker extends pulumi.CustomResource {
     /**
@@ -44,7 +44,11 @@ export class Linker extends pulumi.CustomResource {
     /**
      * The authentication type.
      */
-    public readonly authInfo!: pulumi.Output<outputs.servicelinker.AccessKeyInfoBaseResponse | outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAccountAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse | undefined>;
+    public readonly authInfo!: pulumi.Output<outputs.servicelinker.AccessKeyInfoBaseResponse | outputs.servicelinker.EasyAuthMicrosoftEntraIDAuthInfoResponse | outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAccountAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The application client type
      */
@@ -114,12 +118,14 @@ export class Linker extends pulumi.CustomResource {
             resourceInputs["secretStore"] = args ? args.secretStore : undefined;
             resourceInputs["targetService"] = args ? args.targetService : undefined;
             resourceInputs["vNetSolution"] = args ? args.vNetSolution : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authInfo"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientType"] = undefined /*out*/;
             resourceInputs["configurationInfo"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -146,7 +152,7 @@ export interface LinkerArgs {
     /**
      * The authentication type.
      */
-    authInfo?: pulumi.Input<inputs.servicelinker.AccessKeyInfoBaseArgs | inputs.servicelinker.SecretAuthInfoArgs | inputs.servicelinker.ServicePrincipalCertificateAuthInfoArgs | inputs.servicelinker.ServicePrincipalSecretAuthInfoArgs | inputs.servicelinker.SystemAssignedIdentityAuthInfoArgs | inputs.servicelinker.UserAccountAuthInfoArgs | inputs.servicelinker.UserAssignedIdentityAuthInfoArgs>;
+    authInfo?: pulumi.Input<inputs.servicelinker.AccessKeyInfoBaseArgs | inputs.servicelinker.EasyAuthMicrosoftEntraIDAuthInfoArgs | inputs.servicelinker.SecretAuthInfoArgs | inputs.servicelinker.ServicePrincipalCertificateAuthInfoArgs | inputs.servicelinker.ServicePrincipalSecretAuthInfoArgs | inputs.servicelinker.SystemAssignedIdentityAuthInfoArgs | inputs.servicelinker.UserAccountAuthInfoArgs | inputs.servicelinker.UserAssignedIdentityAuthInfoArgs>;
     /**
      * The application client type
      */

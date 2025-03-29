@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the managementpolicy associated with the specified storage account.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetManagementPolicyArgs {
  */
 export interface GetManagementPolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -55,7 +59,7 @@ export interface GetManagementPolicyResult {
      */
     readonly name: string;
     /**
-     * The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+     * The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
      */
     readonly policy: outputs.storage.ManagementPolicySchemaResponse;
     /**
@@ -66,9 +70,9 @@ export interface GetManagementPolicyResult {
 /**
  * Gets the managementpolicy associated with the specified storage account.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagementPolicyOutput(args: GetManagementPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

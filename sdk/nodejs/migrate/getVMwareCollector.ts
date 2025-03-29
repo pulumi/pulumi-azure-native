@@ -37,6 +37,10 @@ export interface GetVMwareCollectorArgs {
 }
 
 export interface GetVMwareCollectorResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     readonly eTag?: string;
     readonly id: string;
     readonly name: string;

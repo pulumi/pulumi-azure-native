@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Address Resource.
  *
- * Uses Azure REST API version 2022-05-01-preview.
+ * Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
  *
- * Other available API versions: 2024-02-01.
+ * Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Address extends pulumi.CustomResource {
     /**
@@ -42,13 +42,21 @@ export class Address extends pulumi.CustomResource {
     }
 
     /**
+     * Type of address based on its usage context.
+     */
+    public readonly addressClassification!: pulumi.Output<string | undefined>;
+    /**
      * Status of address validation.
      */
     public /*out*/ readonly addressValidationStatus!: pulumi.Output<string>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Contact details for the address.
      */
-    public readonly contactDetails!: pulumi.Output<outputs.edgeorder.ContactDetailsResponse>;
+    public readonly contactDetails!: pulumi.Output<outputs.edgeorder.ContactDetailsResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -58,11 +66,15 @@ export class Address extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Provisioning state
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
      * Shipping details for the address.
      */
     public readonly shippingAddress!: pulumi.Output<outputs.edgeorder.ShippingAddressResponse | undefined>;
     /**
-     * Represents resource creation and update time.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.edgeorder.SystemDataResponse>;
     /**
@@ -85,12 +97,10 @@ export class Address extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contactDetails === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'contactDetails'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["addressClassification"] = args ? args.addressClassification : undefined;
             resourceInputs["addressName"] = args ? args.addressName : undefined;
             resourceInputs["contactDetails"] = args ? args.contactDetails : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -98,21 +108,26 @@ export class Address extends pulumi.CustomResource {
             resourceInputs["shippingAddress"] = args ? args.shippingAddress : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["addressValidationStatus"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["addressClassification"] = undefined /*out*/;
             resourceInputs["addressValidationStatus"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contactDetails"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["shippingAddress"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:Address" }, { type: "azure-native:edgeorder/v20211201:Address" }, { type: "azure-native:edgeorder/v20220501preview:Address" }, { type: "azure-native:edgeorder/v20240201:Address" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:Address" }, { type: "azure-native:edgeorder/v20211201:Address" }, { type: "azure-native:edgeorder/v20211201:AddressByName" }, { type: "azure-native:edgeorder/v20220501preview:Address" }, { type: "azure-native:edgeorder/v20240201:Address" }, { type: "azure-native:edgeorder:AddressByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Address.__pulumiType, name, resourceInputs, opts);
     }
@@ -123,13 +138,17 @@ export class Address extends pulumi.CustomResource {
  */
 export interface AddressArgs {
     /**
+     * Type of address based on its usage context.
+     */
+    addressClassification?: pulumi.Input<string | enums.edgeorder.AddressClassification>;
+    /**
      * The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
      */
     addressName?: pulumi.Input<string>;
     /**
      * Contact details for the address.
      */
-    contactDetails: pulumi.Input<inputs.edgeorder.ContactDetailsArgs>;
+    contactDetails?: pulumi.Input<inputs.edgeorder.ContactDetailsArgs>;
     /**
      * The geo-location where the resource lives
      */

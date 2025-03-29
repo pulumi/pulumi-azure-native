@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.StorageSync
     /// <summary>
     /// Server Endpoint object.
     /// 
-    /// Uses Azure REST API version 2022-06-01. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
+    /// Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
     /// 
-    /// Other available API versions: 2022-09-01.
+    /// Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:ServerEndpoint")]
     public partial class ServerEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Cloud Tiering.
         /// </summary>
@@ -108,6 +114,12 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("recallStatus")]
         public Output<Outputs.ServerEndpointRecallStatusResponse> RecallStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Server Endpoint provisioning status
+        /// </summary>
+        [Output("serverEndpointProvisioningStatus")]
+        public Output<Outputs.ServerEndpointProvisioningStatusResponse?> ServerEndpointProvisioningStatus { get; private set; } = null!;
 
         /// <summary>
         /// Server Local path.
@@ -309,9 +321,6 @@ namespace Pulumi.AzureNative.StorageSync
 
         public ServerEndpointArgs()
         {
-            InitialDownloadPolicy = "NamespaceThenModifiedFiles";
-            InitialUploadPolicy = "Merge";
-            LocalCacheMode = "UpdateLocallyCachedFiles";
             TierFilesOlderThanDays = 0;
             VolumeFreeSpacePercent = 20;
         }

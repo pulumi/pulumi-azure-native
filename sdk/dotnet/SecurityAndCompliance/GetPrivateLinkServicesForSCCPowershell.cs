@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     public sealed class GetPrivateLinkServicesForSCCPowershellResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
         /// </summary>
         public readonly string? Etag;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
 
         [OutputConstructor]
         private GetPrivateLinkServicesForSCCPowershellResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Identity = identity;

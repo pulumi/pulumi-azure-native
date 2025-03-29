@@ -27,10 +27,10 @@ class GetPipelineGroupResult:
     """
     A pipeline group definition.
     """
-    def __init__(__self__, exporters=None, extended_location=None, id=None, location=None, name=None, networking_configurations=None, processors=None, provisioning_state=None, receivers=None, replicas=None, service=None, system_data=None, tags=None, type=None):
-        if exporters and not isinstance(exporters, list):
-            raise TypeError("Expected argument 'exporters' to be a list")
-        pulumi.set(__self__, "exporters", exporters)
+    def __init__(__self__, azure_api_version=None, extended_location=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -43,24 +43,9 @@ class GetPipelineGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if networking_configurations and not isinstance(networking_configurations, list):
-            raise TypeError("Expected argument 'networking_configurations' to be a list")
-        pulumi.set(__self__, "networking_configurations", networking_configurations)
-        if processors and not isinstance(processors, list):
-            raise TypeError("Expected argument 'processors' to be a list")
-        pulumi.set(__self__, "processors", processors)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if receivers and not isinstance(receivers, list):
-            raise TypeError("Expected argument 'receivers' to be a list")
-        pulumi.set(__self__, "receivers", receivers)
-        if replicas and not isinstance(replicas, int):
-            raise TypeError("Expected argument 'replicas' to be a int")
-        pulumi.set(__self__, "replicas", replicas)
-        if service and not isinstance(service, dict):
-            raise TypeError("Expected argument 'service' to be a dict")
-        pulumi.set(__self__, "service", service)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -72,18 +57,18 @@ class GetPipelineGroupResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter
-    def exporters(self) -> Sequence['outputs.ExporterResponse']:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
         """
-        The exporters specified for a pipeline group instance.
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "exporters")
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> Optional['outputs.AzureResourceManagerCommonTypesExtendedLocationResponse']:
         """
-        The extended location for given pipeline group.
+        The complex type of the extended location.
         """
         return pulumi.get(self, "extended_location")
 
@@ -112,52 +97,12 @@ class GetPipelineGroupResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="networkingConfigurations")
-    def networking_configurations(self) -> Optional[Sequence['outputs.NetworkingConfigurationResponse']]:
-        """
-        Networking configurations for the pipeline group instance.
-        """
-        return pulumi.get(self, "networking_configurations")
-
-    @property
     @pulumi.getter
-    def processors(self) -> Sequence['outputs.ProcessorResponse']:
+    def properties(self) -> 'outputs.PipelineGroupPropertiesResponse':
         """
-        The processors specified for a pipeline group instance.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "processors")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of a pipeline group instance. Set to Succeeded if everything is healthy.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def receivers(self) -> Sequence['outputs.ReceiverResponse']:
-        """
-        The receivers specified for a pipeline group instance.
-        """
-        return pulumi.get(self, "receivers")
-
-    @property
-    @pulumi.getter
-    def replicas(self) -> Optional[int]:
-        """
-        Defines the amount of replicas of the pipeline group instance.
-        """
-        return pulumi.get(self, "replicas")
-
-    @property
-    @pulumi.getter
-    def service(self) -> 'outputs.ServiceResponse':
-        """
-        The service section for a given pipeline group instance.
-        """
-        return pulumi.get(self, "service")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -190,17 +135,12 @@ class AwaitableGetPipelineGroupResult(GetPipelineGroupResult):
         if False:
             yield self
         return GetPipelineGroupResult(
-            exporters=self.exporters,
+            azure_api_version=self.azure_api_version,
             extended_location=self.extended_location,
             id=self.id,
             location=self.location,
             name=self.name,
-            networking_configurations=self.networking_configurations,
-            processors=self.processors,
-            provisioning_state=self.provisioning_state,
-            receivers=self.receivers,
-            replicas=self.replicas,
-            service=self.service,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -212,9 +152,9 @@ def get_pipeline_group(pipeline_group_name: Optional[str] = None,
     """
     Returns the specific pipeline group instance.
 
-    Uses Azure REST API version 2023-10-01-preview.
+    Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2024-10-01-preview.
+    Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str pipeline_group_name: The name of pipeline group. The name is case insensitive.
@@ -227,17 +167,12 @@ def get_pipeline_group(pipeline_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:monitor:getPipelineGroup', __args__, opts=opts, typ=GetPipelineGroupResult).value
 
     return AwaitableGetPipelineGroupResult(
-        exporters=pulumi.get(__ret__, 'exporters'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        networking_configurations=pulumi.get(__ret__, 'networking_configurations'),
-        processors=pulumi.get(__ret__, 'processors'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        receivers=pulumi.get(__ret__, 'receivers'),
-        replicas=pulumi.get(__ret__, 'replicas'),
-        service=pulumi.get(__ret__, 'service'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -247,9 +182,9 @@ def get_pipeline_group_output(pipeline_group_name: Optional[pulumi.Input[str]] =
     """
     Returns the specific pipeline group instance.
 
-    Uses Azure REST API version 2023-10-01-preview.
+    Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2024-10-01-preview.
+    Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str pipeline_group_name: The name of pipeline group. The name is case insensitive.
@@ -261,17 +196,12 @@ def get_pipeline_group_output(pipeline_group_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:monitor:getPipelineGroup', __args__, opts=opts, typ=GetPipelineGroupResult)
     return __ret__.apply(lambda __response__: GetPipelineGroupResult(
-        exporters=pulumi.get(__response__, 'exporters'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
-        networking_configurations=pulumi.get(__response__, 'networking_configurations'),
-        processors=pulumi.get(__response__, 'processors'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        receivers=pulumi.get(__response__, 'receivers'),
-        replicas=pulumi.get(__response__, 'replicas'),
-        service=pulumi.get(__response__, 'service'),
+        properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
         private InputList<Inputs.IpAddressPoolArgs>? _ipAddressPools;
 
         /// <summary>
-        /// The list of pools of IP addresses that can be allocated to Load Balancer services.
+        /// The list of pools of IP addresses that can be allocated to load balancer services.
         /// </summary>
         public InputList<Inputs.IpAddressPoolArgs> IpAddressPools
         {

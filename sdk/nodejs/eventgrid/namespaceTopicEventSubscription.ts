@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Event Subscription.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class NamespaceTopicEventSubscription extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class NamespaceTopicEventSubscription extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Information about the delivery configuration of the event subscription.
      */
     public readonly deliveryConfiguration!: pulumi.Output<outputs.eventgrid.DeliveryConfigurationResponse | undefined>;
@@ -49,6 +53,10 @@ export class NamespaceTopicEventSubscription extends pulumi.CustomResource {
      * The event delivery schema for the event subscription.
      */
     public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
+    /**
+     * Expiration time of the event subscription.
+     */
+    public readonly expirationTimeUtc!: pulumi.Output<string | undefined>;
     /**
      * Information about the filter for the event subscription.
      */
@@ -62,7 +70,7 @@ export class NamespaceTopicEventSubscription extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system metadata relating to Event Subscription resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -93,17 +101,21 @@ export class NamespaceTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["deliveryConfiguration"] = args ? args.deliveryConfiguration : undefined;
             resourceInputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
             resourceInputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
+            resourceInputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
             resourceInputs["filtersConfiguration"] = args ? args.filtersConfiguration : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deliveryConfiguration"] = undefined /*out*/;
             resourceInputs["eventDeliverySchema"] = undefined /*out*/;
+            resourceInputs["expirationTimeUtc"] = undefined /*out*/;
             resourceInputs["filtersConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -130,9 +142,13 @@ export interface NamespaceTopicEventSubscriptionArgs {
      */
     eventDeliverySchema?: pulumi.Input<string | enums.eventgrid.DeliverySchema>;
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription to be created. Event subscription names must be between 3 and 50 characters in length and use alphanumeric letters only.
      */
     eventSubscriptionName?: pulumi.Input<string>;
+    /**
+     * Expiration time of the event subscription.
+     */
+    expirationTimeUtc?: pulumi.Input<string>;
     /**
      * Information about the filter for the event subscription.
      */

@@ -27,7 +27,10 @@ class GetBackupScheduleResult:
     """
     The backup schedule.
     """
-    def __init__(__self__, backup_type=None, id=None, kind=None, last_successful_run=None, name=None, retention_count=None, schedule_recurrence=None, schedule_status=None, start_time=None, type=None):
+    def __init__(__self__, azure_api_version=None, backup_type=None, id=None, kind=None, last_successful_run=None, name=None, retention_count=None, schedule_recurrence=None, schedule_status=None, start_time=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backup_type and not isinstance(backup_type, str):
             raise TypeError("Expected argument 'backup_type' to be a str")
         pulumi.set(__self__, "backup_type", backup_type)
@@ -58,6 +61,14 @@ class GetBackupScheduleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backupType")
@@ -146,6 +157,7 @@ class AwaitableGetBackupScheduleResult(GetBackupScheduleResult):
         if False:
             yield self
         return GetBackupScheduleResult(
+            azure_api_version=self.azure_api_version,
             backup_type=self.backup_type,
             id=self.id,
             kind=self.kind,
@@ -186,6 +198,7 @@ def get_backup_schedule(backup_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:getBackupSchedule', __args__, opts=opts, typ=GetBackupScheduleResult).value
 
     return AwaitableGetBackupScheduleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backup_type=pulumi.get(__ret__, 'backup_type'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -223,6 +236,7 @@ def get_backup_schedule_output(backup_policy_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getBackupSchedule', __args__, opts=opts, typ=GetBackupScheduleResult)
     return __ret__.apply(lambda __response__: GetBackupScheduleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backup_type=pulumi.get(__response__, 'backup_type'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

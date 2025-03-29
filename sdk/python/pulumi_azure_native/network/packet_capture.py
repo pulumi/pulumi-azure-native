@@ -27,6 +27,8 @@ class PacketCaptureArgs:
                  storage_location: pulumi.Input['PacketCaptureStorageLocationArgs'],
                  target: pulumi.Input[str],
                  bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
+                 capture_settings: Optional[pulumi.Input['PacketCaptureSettingsArgs']] = None,
+                 continuous_capture: Optional[pulumi.Input[bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]] = None,
                  packet_capture_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['PacketCaptureMachineScopeArgs']] = None,
@@ -40,6 +42,8 @@ class PacketCaptureArgs:
         :param pulumi.Input['PacketCaptureStorageLocationArgs'] storage_location: The storage location for a packet capture session.
         :param pulumi.Input[str] target: The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
         :param pulumi.Input[float] bytes_to_capture_per_packet: Number of bytes captured per packet, the remaining bytes are truncated.
+        :param pulumi.Input['PacketCaptureSettingsArgs'] capture_settings: The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
+        :param pulumi.Input[bool] continuous_capture: This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
         :param pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]] filters: A list of packet capture filters.
         :param pulumi.Input[str] packet_capture_name: The name of the packet capture session.
         :param pulumi.Input['PacketCaptureMachineScopeArgs'] scope: A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
@@ -55,6 +59,10 @@ class PacketCaptureArgs:
             bytes_to_capture_per_packet = 0
         if bytes_to_capture_per_packet is not None:
             pulumi.set(__self__, "bytes_to_capture_per_packet", bytes_to_capture_per_packet)
+        if capture_settings is not None:
+            pulumi.set(__self__, "capture_settings", capture_settings)
+        if continuous_capture is not None:
+            pulumi.set(__self__, "continuous_capture", continuous_capture)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
         if packet_capture_name is not None:
@@ -131,6 +139,30 @@ class PacketCaptureArgs:
     @bytes_to_capture_per_packet.setter
     def bytes_to_capture_per_packet(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "bytes_to_capture_per_packet", value)
+
+    @property
+    @pulumi.getter(name="captureSettings")
+    def capture_settings(self) -> Optional[pulumi.Input['PacketCaptureSettingsArgs']]:
+        """
+        The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
+        """
+        return pulumi.get(self, "capture_settings")
+
+    @capture_settings.setter
+    def capture_settings(self, value: Optional[pulumi.Input['PacketCaptureSettingsArgs']]):
+        pulumi.set(self, "capture_settings", value)
+
+    @property
+    @pulumi.getter(name="continuousCapture")
+    def continuous_capture(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
+        """
+        return pulumi.get(self, "continuous_capture")
+
+    @continuous_capture.setter
+    def continuous_capture(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "continuous_capture", value)
 
     @property
     @pulumi.getter
@@ -211,6 +243,8 @@ class PacketCapture(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
+                 capture_settings: Optional[pulumi.Input[Union['PacketCaptureSettingsArgs', 'PacketCaptureSettingsArgsDict']]] = None,
+                 continuous_capture: Optional[pulumi.Input[bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  packet_capture_name: Optional[pulumi.Input[str]] = None,
@@ -225,13 +259,15 @@ class PacketCapture(pulumi.CustomResource):
         """
         Information about packet capture session.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] bytes_to_capture_per_packet: Number of bytes captured per packet, the remaining bytes are truncated.
+        :param pulumi.Input[Union['PacketCaptureSettingsArgs', 'PacketCaptureSettingsArgsDict']] capture_settings: The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
+        :param pulumi.Input[bool] continuous_capture: This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]] filters: A list of packet capture filters.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] packet_capture_name: The name of the packet capture session.
@@ -252,9 +288,9 @@ class PacketCapture(pulumi.CustomResource):
         """
         Information about packet capture session.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PacketCaptureArgs args: The arguments to use to populate this resource's properties.
@@ -272,6 +308,8 @@ class PacketCapture(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
+                 capture_settings: Optional[pulumi.Input[Union['PacketCaptureSettingsArgs', 'PacketCaptureSettingsArgsDict']]] = None,
+                 continuous_capture: Optional[pulumi.Input[bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  packet_capture_name: Optional[pulumi.Input[str]] = None,
@@ -294,6 +332,8 @@ class PacketCapture(pulumi.CustomResource):
             if bytes_to_capture_per_packet is None:
                 bytes_to_capture_per_packet = 0
             __props__.__dict__["bytes_to_capture_per_packet"] = bytes_to_capture_per_packet
+            __props__.__dict__["capture_settings"] = capture_settings
+            __props__.__dict__["continuous_capture"] = continuous_capture
             __props__.__dict__["filters"] = filters
             if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
@@ -316,6 +356,7 @@ class PacketCapture(pulumi.CustomResource):
             if total_bytes_per_session is None:
                 total_bytes_per_session = 1073741824
             __props__.__dict__["total_bytes_per_session"] = total_bytes_per_session
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -343,7 +384,10 @@ class PacketCapture(pulumi.CustomResource):
 
         __props__ = PacketCaptureArgs.__new__(PacketCaptureArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["bytes_to_capture_per_packet"] = None
+        __props__.__dict__["capture_settings"] = None
+        __props__.__dict__["continuous_capture"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["filters"] = None
         __props__.__dict__["name"] = None
@@ -357,12 +401,36 @@ class PacketCapture(pulumi.CustomResource):
         return PacketCapture(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="bytesToCapturePerPacket")
     def bytes_to_capture_per_packet(self) -> pulumi.Output[Optional[float]]:
         """
         Number of bytes captured per packet, the remaining bytes are truncated.
         """
         return pulumi.get(self, "bytes_to_capture_per_packet")
+
+    @property
+    @pulumi.getter(name="captureSettings")
+    def capture_settings(self) -> pulumi.Output[Optional['outputs.PacketCaptureSettingsResponse']]:
+        """
+        The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
+        """
+        return pulumi.get(self, "capture_settings")
+
+    @property
+    @pulumi.getter(name="continuousCapture")
+    def continuous_capture(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
+        """
+        return pulumi.get(self, "continuous_capture")
 
     @property
     @pulumi.getter

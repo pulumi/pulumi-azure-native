@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Implements HybridIdentityMetadata GET method.
  *
- * Uses Azure REST API version 2022-07-15-preview.
+ * Uses Azure REST API version 2023-03-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getHybridIdentityMetadatum(args: GetHybridIdentityMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridIdentityMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +43,11 @@ export interface GetHybridIdentityMetadatumArgs {
  */
 export interface GetHybridIdentityMetadatumResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -55,7 +59,7 @@ export interface GetHybridIdentityMetadatumResult {
      */
     readonly name: string;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     readonly provisioningState: string;
     /**
@@ -63,7 +67,7 @@ export interface GetHybridIdentityMetadatumResult {
      */
     readonly publicKey?: string;
     /**
-     * The system data.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.connectedvmwarevsphere.SystemDataResponse;
     /**
@@ -78,9 +82,9 @@ export interface GetHybridIdentityMetadatumResult {
 /**
  * Implements HybridIdentityMetadata GET method.
  *
- * Uses Azure REST API version 2022-07-15-preview.
+ * Uses Azure REST API version 2023-03-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

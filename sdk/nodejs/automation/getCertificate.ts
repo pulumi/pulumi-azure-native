@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieve the certificate identified by certificate name.
  *
- * Uses Azure REST API version 2022-08-08.
+ * Uses Azure REST API version 2023-11-01.
  *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +39,10 @@ export interface GetCertificateArgs {
  * Definition of the certificate.
  */
 export interface GetCertificateResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets the creation time.
      */
@@ -79,9 +83,9 @@ export interface GetCertificateResult {
 /**
  * Retrieve the certificate identified by certificate name.
  *
- * Uses Azure REST API version 2022-08-08.
+ * Uses Azure REST API version 2023-11-01.
  *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

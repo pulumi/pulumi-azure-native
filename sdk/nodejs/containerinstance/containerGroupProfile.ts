@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A container group profile.
  *
- * Uses Azure REST API version 2024-05-01-preview.
+ * Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
  */
 export class ContainerGroupProfile extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class ContainerGroupProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContainerGroupProfile.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The properties for confidential container group
      */
@@ -157,10 +161,12 @@ export class ContainerGroupProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["confidentialComputeProperties"] = undefined /*out*/;
             resourceInputs["containers"] = undefined /*out*/;
             resourceInputs["diagnostics"] = undefined /*out*/;
@@ -182,7 +188,7 @@ export class ContainerGroupProfile extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance/v20240501preview:ContainerGroupProfile" }, { type: "azure-native:containerinstance/v20241101preview:ContainerGroupProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance/v20240501preview:ContainerGroupProfile" }, { type: "azure-native:containerinstance/v20241101preview:CGProfile" }, { type: "azure-native:containerinstance/v20241101preview:ContainerGroupProfile" }, { type: "azure-native:containerinstance:CGProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerGroupProfile.__pulumiType, name, resourceInputs, opts);
     }

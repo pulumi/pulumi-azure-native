@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * An object that represents a cache rule for a container registry.
  *
- * Uses Azure REST API version 2023-01-01-preview.
+ * Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class CacheRule extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class CacheRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === CacheRule.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The creation date of the cache rule.
      */
@@ -98,12 +102,14 @@ export class CacheRule extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sourceRepository"] = args ? args.sourceRepository : undefined;
             resourceInputs["targetRepository"] = args ? args.targetRepository : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["credentialSetResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Class representing an Event Grid data connection.
  *
- * Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+ * Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
  */
 export class EventGridDataConnection extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class EventGridDataConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventGridDataConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of blob storage event type to process.
      */
@@ -158,11 +162,13 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedIdentityObjectId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobStorageEventType"] = undefined /*out*/;
             resourceInputs["consumerGroup"] = undefined /*out*/;
             resourceInputs["dataFormat"] = undefined /*out*/;
@@ -182,7 +188,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190121:EventGridDataConnection" }, { type: "azure-native:kusto/v20190515:EventGridDataConnection" }, { type: "azure-native:kusto/v20190907:EventGridDataConnection" }, { type: "azure-native:kusto/v20191109:EventGridDataConnection" }, { type: "azure-native:kusto/v20200215:EventGridDataConnection" }, { type: "azure-native:kusto/v20200614:EventGridDataConnection" }, { type: "azure-native:kusto/v20200918:EventGridDataConnection" }, { type: "azure-native:kusto/v20210101:EventGridDataConnection" }, { type: "azure-native:kusto/v20210827:EventGridDataConnection" }, { type: "azure-native:kusto/v20220201:EventGridDataConnection" }, { type: "azure-native:kusto/v20220707:EventGridDataConnection" }, { type: "azure-native:kusto/v20221111:EventGridDataConnection" }, { type: "azure-native:kusto/v20221229:EventGridDataConnection" }, { type: "azure-native:kusto/v20230502:EventGridDataConnection" }, { type: "azure-native:kusto/v20230815:EventGridDataConnection" }, { type: "azure-native:kusto/v20240413:EventGridDataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190121:EventGridDataConnection" }, { type: "azure-native:kusto/v20190515:EventGridDataConnection" }, { type: "azure-native:kusto/v20190907:EventGridDataConnection" }, { type: "azure-native:kusto/v20191109:EventGridDataConnection" }, { type: "azure-native:kusto/v20200215:EventGridDataConnection" }, { type: "azure-native:kusto/v20200614:EventGridDataConnection" }, { type: "azure-native:kusto/v20200918:EventGridDataConnection" }, { type: "azure-native:kusto/v20210101:EventGridDataConnection" }, { type: "azure-native:kusto/v20210827:EventGridDataConnection" }, { type: "azure-native:kusto/v20220201:EventGridDataConnection" }, { type: "azure-native:kusto/v20220707:EventGridDataConnection" }, { type: "azure-native:kusto/v20221111:EventGridDataConnection" }, { type: "azure-native:kusto/v20221229:CosmosDbDataConnection" }, { type: "azure-native:kusto/v20221229:EventGridDataConnection" }, { type: "azure-native:kusto/v20221229:EventHubDataConnection" }, { type: "azure-native:kusto/v20221229:IotHubDataConnection" }, { type: "azure-native:kusto/v20230502:CosmosDbDataConnection" }, { type: "azure-native:kusto/v20230502:EventGridDataConnection" }, { type: "azure-native:kusto/v20230502:EventHubDataConnection" }, { type: "azure-native:kusto/v20230502:IotHubDataConnection" }, { type: "azure-native:kusto/v20230815:CosmosDbDataConnection" }, { type: "azure-native:kusto/v20230815:EventGridDataConnection" }, { type: "azure-native:kusto/v20230815:EventHubDataConnection" }, { type: "azure-native:kusto/v20230815:IotHubDataConnection" }, { type: "azure-native:kusto/v20240413:CosmosDbDataConnection" }, { type: "azure-native:kusto/v20240413:EventGridDataConnection" }, { type: "azure-native:kusto/v20240413:EventHubDataConnection" }, { type: "azure-native:kusto/v20240413:IotHubDataConnection" }, { type: "azure-native:kusto:CosmosDbDataConnection" }, { type: "azure-native:kusto:EventHubDataConnection" }, { type: "azure-native:kusto:IotHubDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventGridDataConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -250,7 +256,7 @@ export interface EventGridDataConnectionArgs {
      */
     mappingRuleName?: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

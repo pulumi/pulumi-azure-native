@@ -27,7 +27,10 @@ class GetSignalRReplicaResult:
     """
     A class represent a replica resource.
     """
-    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, region_endpoint_enabled=None, resource_stopped=None, sku=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +43,12 @@ class GetSignalRReplicaResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if region_endpoint_enabled and not isinstance(region_endpoint_enabled, str):
+            raise TypeError("Expected argument 'region_endpoint_enabled' to be a str")
+        pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
+        if resource_stopped and not isinstance(resource_stopped, str):
+            raise TypeError("Expected argument 'resource_stopped' to be a str")
+        pulumi.set(__self__, "resource_stopped", resource_stopped)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -52,6 +61,14 @@ class GetSignalRReplicaResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -84,6 +101,25 @@ class GetSignalRReplicaResult:
         Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> Optional[str]:
+        """
+        Enable or disable the regional endpoint. Default to "Enabled".
+        When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
+
+    @property
+    @pulumi.getter(name="resourceStopped")
+    def resource_stopped(self) -> Optional[str]:
+        """
+        Stop or start the resource.  Default to "false".
+        When it's true, the data plane of the resource is shutdown.
+        When it's false, the data plane of the resource is started.
+        """
+        return pulumi.get(self, "resource_stopped")
 
     @property
     @pulumi.getter
@@ -124,10 +160,13 @@ class AwaitableGetSignalRReplicaResult(GetSignalRReplicaResult):
         if False:
             yield self
         return GetSignalRReplicaResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            region_endpoint_enabled=self.region_endpoint_enabled,
+            resource_stopped=self.resource_stopped,
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
@@ -141,9 +180,9 @@ def get_signal_r_replica(replica_name: Optional[str] = None,
     """
     Get the replica and its properties.
 
-    Uses Azure REST API version 2023-03-01-preview.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str replica_name: The name of the replica.
@@ -158,10 +197,13 @@ def get_signal_r_replica(replica_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:signalrservice:getSignalRReplica', __args__, opts=opts, typ=GetSignalRReplicaResult).value
 
     return AwaitableGetSignalRReplicaResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        region_endpoint_enabled=pulumi.get(__ret__, 'region_endpoint_enabled'),
+        resource_stopped=pulumi.get(__ret__, 'resource_stopped'),
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -173,9 +215,9 @@ def get_signal_r_replica_output(replica_name: Optional[pulumi.Input[str]] = None
     """
     Get the replica and its properties.
 
-    Uses Azure REST API version 2023-03-01-preview.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str replica_name: The name of the replica.
@@ -189,10 +231,13 @@ def get_signal_r_replica_output(replica_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:signalrservice:getSignalRReplica', __args__, opts=opts, typ=GetSignalRReplicaResult)
     return __ret__.apply(lambda __response__: GetSignalRReplicaResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        region_endpoint_enabled=pulumi.get(__response__, 'region_endpoint_enabled'),
+        resource_stopped=pulumi.get(__response__, 'resource_stopped'),
         sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

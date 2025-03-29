@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified NSP link resource.
  *
- * Uses Azure REST API version 2021-02-01-preview.
+ * Uses Azure REST API version 2023-08-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNspLink(args: GetNspLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetNspLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +44,10 @@ export interface GetNspLinkResult {
      */
     readonly autoApprovedRemotePerimeterResourceId?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * A message passed to the owner of the remote NSP link resource with this connection request. In case of Auto-approved flow, it is default to 'Auto Approved'. Restricted to 140 chars.
      */
     readonly description?: string;
@@ -56,7 +60,7 @@ export interface GetNspLinkResult {
      */
     readonly id: string;
     /**
-     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
      */
     readonly localInboundProfiles?: string[];
     /**
@@ -72,7 +76,7 @@ export interface GetNspLinkResult {
      */
     readonly provisioningState: string;
     /**
-     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
      */
     readonly remoteInboundProfiles?: string[];
     /**
@@ -99,9 +103,9 @@ export interface GetNspLinkResult {
 /**
  * Gets the specified NSP link resource.
  *
- * Uses Azure REST API version 2021-02-01-preview.
+ * Uses Azure REST API version 2023-08-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNspLinkOutput(args: GetNspLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNspLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -27,7 +27,10 @@ class GetKustoPoolResult:
     """
     Class representing a Kusto kusto pool.
     """
-    def __init__(__self__, data_ingestion_uri=None, enable_purge=None, enable_streaming_ingest=None, etag=None, id=None, language_extensions=None, location=None, name=None, optimized_autoscale=None, provisioning_state=None, sku=None, state=None, state_reason=None, system_data=None, tags=None, type=None, uri=None, workspace_uid=None):
+    def __init__(__self__, azure_api_version=None, data_ingestion_uri=None, enable_purge=None, enable_streaming_ingest=None, etag=None, id=None, language_extensions=None, location=None, name=None, optimized_autoscale=None, provisioning_state=None, sku=None, state=None, state_reason=None, system_data=None, tags=None, type=None, uri=None, workspace_uid=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_ingestion_uri and not isinstance(data_ingestion_uri, str):
             raise TypeError("Expected argument 'data_ingestion_uri' to be a str")
         pulumi.set(__self__, "data_ingestion_uri", data_ingestion_uri)
@@ -82,6 +85,14 @@ class GetKustoPoolResult:
         if workspace_uid and not isinstance(workspace_uid, str):
             raise TypeError("Expected argument 'workspace_uid' to be a str")
         pulumi.set(__self__, "workspace_uid", workspace_uid)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataIngestionUri")
@@ -234,6 +245,7 @@ class AwaitableGetKustoPoolResult(GetKustoPoolResult):
         if False:
             yield self
         return GetKustoPoolResult(
+            azure_api_version=self.azure_api_version,
             data_ingestion_uri=self.data_ingestion_uri,
             enable_purge=self.enable_purge,
             enable_streaming_ingest=self.enable_streaming_ingest,
@@ -263,6 +275,8 @@ def get_kusto_pool(kusto_pool_name: Optional[str] = None,
 
     Uses Azure REST API version 2021-06-01-preview.
 
+    Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -276,6 +290,7 @@ def get_kusto_pool(kusto_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse:getKustoPool', __args__, opts=opts, typ=GetKustoPoolResult).value
 
     return AwaitableGetKustoPoolResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_ingestion_uri=pulumi.get(__ret__, 'data_ingestion_uri'),
         enable_purge=pulumi.get(__ret__, 'enable_purge'),
         enable_streaming_ingest=pulumi.get(__ret__, 'enable_streaming_ingest'),
@@ -303,6 +318,8 @@ def get_kusto_pool_output(kusto_pool_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2021-06-01-preview.
 
+    Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -315,6 +332,7 @@ def get_kusto_pool_output(kusto_pool_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getKustoPool', __args__, opts=opts, typ=GetKustoPoolResult)
     return __ret__.apply(lambda __response__: GetKustoPoolResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_ingestion_uri=pulumi.get(__response__, 'data_ingestion_uri'),
         enable_purge=pulumi.get(__response__, 'enable_purge'),
         enable_streaming_ingest=pulumi.get(__response__, 'enable_streaming_ingest'),

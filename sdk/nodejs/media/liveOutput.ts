@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The Live Output.
  *
- * Uses Azure REST API version 2022-11-01. In version 1.x of the Azure Native provider, it used API version 2020-05-01.
+ * Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
+ *
+ * Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2019-05-01-preview, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class LiveOutput extends pulumi.CustomResource {
     /**
@@ -47,6 +49,10 @@ export class LiveOutput extends pulumi.CustomResource {
      * The asset that the live output will write to.
      */
     public readonly assetName!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The creation time the live output.
      */
@@ -133,6 +139,7 @@ export class LiveOutput extends pulumi.CustomResource {
             resourceInputs["outputSnapTime"] = args ? args.outputSnapTime : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rewindWindowLength"] = args ? args.rewindWindowLength : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -143,6 +150,7 @@ export class LiveOutput extends pulumi.CustomResource {
         } else {
             resourceInputs["archiveWindowLength"] = undefined /*out*/;
             resourceInputs["assetName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["hls"] = undefined /*out*/;

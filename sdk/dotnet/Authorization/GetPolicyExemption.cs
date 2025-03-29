@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2022-07-01-preview.
         /// 
-        /// Other available API versions: 2024-12-01-preview.
+        /// Other available API versions: 2020-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPolicyExemptionResult> InvokeAsync(GetPolicyExemptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyExemptionResult>("azure-native:authorization:getPolicyExemption", args ?? new GetPolicyExemptionArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2022-07-01-preview.
         /// 
-        /// Other available API versions: 2024-12-01-preview.
+        /// Other available API versions: 2020-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPolicyExemptionResult> Invoke(GetPolicyExemptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyExemptionResult>("azure-native:authorization:getPolicyExemption", args ?? new GetPolicyExemptionInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2022-07-01-preview.
         /// 
-        /// Other available API versions: 2024-12-01-preview.
+        /// Other available API versions: 2020-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPolicyExemptionResult> Invoke(GetPolicyExemptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyExemptionResult>("azure-native:authorization:getPolicyExemption", args ?? new GetPolicyExemptionInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string? AssignmentScopeValidation;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The description of the policy exemption.
         /// </summary>
         public readonly string? Description;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.Authorization
         private GetPolicyExemptionResult(
             string? assignmentScopeValidation,
 
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -169,6 +175,7 @@ namespace Pulumi.AzureNative.Authorization
             string type)
         {
             AssignmentScopeValidation = assignmentScopeValidation;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             ExemptionCategory = exemptionCategory;

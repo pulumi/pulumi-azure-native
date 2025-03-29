@@ -27,7 +27,10 @@ class GetACSSBackupConnectionResult:
     """
     Define the backup connection resource of virtual instance for SAP..
     """
-    def __init__(__self__, backup_data=None, errors=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, backup_data=None, errors=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backup_data and not isinstance(backup_data, dict):
             raise TypeError("Expected argument 'backup_data' to be a dict")
         pulumi.set(__self__, "backup_data", backup_data)
@@ -55,6 +58,14 @@ class GetACSSBackupConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backupData")
@@ -135,6 +146,7 @@ class AwaitableGetACSSBackupConnectionResult(GetACSSBackupConnectionResult):
         if False:
             yield self
         return GetACSSBackupConnectionResult(
+            azure_api_version=self.azure_api_version,
             backup_data=self.backup_data,
             errors=self.errors,
             id=self.id,
@@ -168,6 +180,7 @@ def get_acss_backup_connection(backup_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads:getACSSBackupConnection', __args__, opts=opts, typ=GetACSSBackupConnectionResult).value
 
     return AwaitableGetACSSBackupConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backup_data=pulumi.get(__ret__, 'backup_data'),
         errors=pulumi.get(__ret__, 'errors'),
         id=pulumi.get(__ret__, 'id'),
@@ -198,6 +211,7 @@ def get_acss_backup_connection_output(backup_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getACSSBackupConnection', __args__, opts=opts, typ=GetACSSBackupConnectionResult)
     return __ret__.apply(lambda __response__: GetACSSBackupConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backup_data=pulumi.get(__response__, 'backup_data'),
         errors=pulumi.get(__response__, 'errors'),
         id=pulumi.get(__response__, 'id'),

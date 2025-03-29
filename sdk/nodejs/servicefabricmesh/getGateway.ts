@@ -36,6 +36,10 @@ export interface GetGatewayArgs {
  */
 export interface GetGatewayResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * User readable description of the gateway.
      */
     readonly description?: string;

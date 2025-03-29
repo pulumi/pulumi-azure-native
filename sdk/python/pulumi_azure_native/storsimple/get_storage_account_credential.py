@@ -27,10 +27,13 @@ class GetStorageAccountCredentialResult:
     """
     The storage account credential.
     """
-    def __init__(__self__, access_key=None, end_point=None, id=None, kind=None, name=None, ssl_status=None, type=None, volumes_count=None):
+    def __init__(__self__, access_key=None, azure_api_version=None, end_point=None, id=None, kind=None, name=None, ssl_status=None, type=None, volumes_count=None):
         if access_key and not isinstance(access_key, dict):
             raise TypeError("Expected argument 'access_key' to be a dict")
         pulumi.set(__self__, "access_key", access_key)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if end_point and not isinstance(end_point, str):
             raise TypeError("Expected argument 'end_point' to be a str")
         pulumi.set(__self__, "end_point", end_point)
@@ -60,6 +63,14 @@ class GetStorageAccountCredentialResult:
         The details of the storage account password.
         """
         return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="endPoint")
@@ -125,6 +136,7 @@ class AwaitableGetStorageAccountCredentialResult(GetStorageAccountCredentialResu
             yield self
         return GetStorageAccountCredentialResult(
             access_key=self.access_key,
+            azure_api_version=self.azure_api_version,
             end_point=self.end_point,
             id=self.id,
             kind=self.kind,
@@ -157,6 +169,7 @@ def get_storage_account_credential(manager_name: Optional[str] = None,
 
     return AwaitableGetStorageAccountCredentialResult(
         access_key=pulumi.get(__ret__, 'access_key'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         end_point=pulumi.get(__ret__, 'end_point'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -186,6 +199,7 @@ def get_storage_account_credential_output(manager_name: Optional[pulumi.Input[st
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getStorageAccountCredential', __args__, opts=opts, typ=GetStorageAccountCredentialResult)
     return __ret__.apply(lambda __response__: GetStorageAccountCredentialResult(
         access_key=pulumi.get(__response__, 'access_key'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         end_point=pulumi.get(__response__, 'end_point'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

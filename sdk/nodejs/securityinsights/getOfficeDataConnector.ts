@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Gets a data connector.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-09-01.
  */
 export function getOfficeDataConnector(args: GetOfficeDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficeDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +40,10 @@ export interface GetOfficeDataConnectorArgs {
  * Represents office data connector.
  */
 export interface GetOfficeDataConnectorResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The available data types for the connector.
      */
@@ -77,7 +81,7 @@ export interface GetOfficeDataConnectorResult {
 /**
  * Gets a data connector.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-09-01.
  */
 export function getOfficeDataConnectorOutput(args: GetOfficeDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOfficeDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -36,6 +36,10 @@ export interface GetDeviceArgs {
  */
 export interface GetDeviceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The type of the device.
      */
     readonly deviceType: string;

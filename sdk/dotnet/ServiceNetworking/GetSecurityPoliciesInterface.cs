@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Get a SecurityPolicy
         /// 
-        /// Uses Azure REST API version 2024-05-01-preview.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2025-01-01, 2025-03-01-preview.
+        /// Other available API versions: 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSecurityPoliciesInterfaceResult> InvokeAsync(GetSecurityPoliciesInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPoliciesInterfaceResult>("azure-native:servicenetworking:getSecurityPoliciesInterface", args ?? new GetSecurityPoliciesInterfaceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Get a SecurityPolicy
         /// 
-        /// Uses Azure REST API version 2024-05-01-preview.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2025-01-01, 2025-03-01-preview.
+        /// Other available API versions: 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSecurityPoliciesInterfaceResult> Invoke(GetSecurityPoliciesInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPoliciesInterfaceResult>("azure-native:servicenetworking:getSecurityPoliciesInterface", args ?? new GetSecurityPoliciesInterfaceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Get a SecurityPolicy
         /// 
-        /// Uses Azure REST API version 2024-05-01-preview.
+        /// Uses Azure REST API version 2025-01-01.
         /// 
-        /// Other available API versions: 2025-01-01, 2025-03-01-preview.
+        /// Other available API versions: 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSecurityPoliciesInterfaceResult> Invoke(GetSecurityPoliciesInterfaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPoliciesInterfaceResult>("azure-native:servicenetworking:getSecurityPoliciesInterface", args ?? new GetSecurityPoliciesInterfaceInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.ServiceNetworking
     public sealed class GetSecurityPoliciesInterfaceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
 
         [OutputConstructor]
         private GetSecurityPoliciesInterfaceResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
 
             Outputs.WafPolicyResponse? wafPolicy)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
     /// <summary>
     /// The Managed Network resource
     /// 
-    /// Uses Azure REST API version 2019-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-06-01-preview.
+    /// Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetwork:ScopeAssignment")]
     public partial class ScopeAssignment : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// </summary>
         [Output("assignedManagedNetwork")]
         public Output<string?> AssignedManagedNetwork { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.

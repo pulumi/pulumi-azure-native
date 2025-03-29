@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
     public sealed class StatementActionPropertiesResponse
     {
         /// <summary>
-        /// action. Example: Permit | Deny.
+        /// Action type. Example: Permit | Deny | Continue.
         /// </summary>
         public readonly string ActionType;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
         /// </summary>
         public readonly Outputs.ActionIpExtendedCommunityPropertiesResponse? IpExtendedCommunityProperties;
         /// <summary>
-        /// localPreference of the route policy.
+        /// Local Preference of the route policy.
         /// </summary>
         public readonly double? LocalPreference;
 

@@ -37,6 +37,10 @@ export interface GetScopeAssignmentResult {
      */
     readonly assignedManagedNetwork?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;

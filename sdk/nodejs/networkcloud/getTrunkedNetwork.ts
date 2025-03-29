@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get properties of the provided trunked network.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getTrunkedNetwork(args: GetTrunkedNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetTrunkedNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +39,10 @@ export interface GetTrunkedNetworkResult {
      */
     readonly associatedResourceIds: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource ID of the Network Cloud cluster this trunked network is associated with.
      */
     readonly clusterId: string;
@@ -50,6 +54,10 @@ export interface GetTrunkedNetworkResult {
      * The descriptive message about the current detailed status.
      */
     readonly detailedStatusMessage: string;
+    /**
+     * Resource ETag.
+     */
+    readonly etag: string;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -110,9 +118,9 @@ export interface GetTrunkedNetworkResult {
 /**
  * Get properties of the provided trunked network.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getTrunkedNetworkOutput(args: GetTrunkedNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrunkedNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

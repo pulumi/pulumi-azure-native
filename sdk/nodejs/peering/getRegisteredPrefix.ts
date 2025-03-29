@@ -38,6 +38,10 @@ export interface GetRegisteredPrefixArgs {
  */
 export interface GetRegisteredPrefixResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The error message associated with the validation state, if any.
      */
     readonly errorMessage: string;

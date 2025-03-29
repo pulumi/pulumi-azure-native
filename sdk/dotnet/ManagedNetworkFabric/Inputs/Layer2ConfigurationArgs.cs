@@ -11,21 +11,27 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
 {
 
     /// <summary>
-    /// layer2Configuration
+    /// Common properties for Layer2 Configuration.
     /// </summary>
     public sealed class Layer2ConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("interfaces")]
+        private InputList<string>? _interfaces;
+
+        /// <summary>
+        /// List of network device interfaces resource IDs.
+        /// </summary>
+        public InputList<string> Interfaces
+        {
+            get => _interfaces ?? (_interfaces = new InputList<string>());
+            set => _interfaces = value;
+        }
+
         /// <summary>
         /// MTU of the packets between PE &amp; CE.
         /// </summary>
-        [Input("mtu", required: true)]
-        public Input<int> Mtu { get; set; } = null!;
-
-        /// <summary>
-        /// Number of ports connected between PE/CE. Maximum value depends on FabricSKU.
-        /// </summary>
-        [Input("portCount")]
-        public Input<int>? PortCount { get; set; }
+        [Input("mtu")]
+        public Input<int>? Mtu { get; set; }
 
         public Layer2ConfigurationArgs()
         {

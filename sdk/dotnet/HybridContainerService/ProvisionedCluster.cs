@@ -12,13 +12,17 @@ namespace Pulumi.AzureNative.HybridContainerService
     /// <summary>
     /// The provisionedClusters resource definition.
     /// 
-    /// Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-05-01-preview.
-    /// 
-    /// Other available API versions: 2022-05-01-preview.
+    /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:ProvisionedCluster")]
     public partial class ProvisionedCluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         [Output("extendedLocation")]
         public Output<Outputs.ProvisionedClustersResponseResponseExtendedLocation?> ExtendedLocation { get; private set; } = null!;
 

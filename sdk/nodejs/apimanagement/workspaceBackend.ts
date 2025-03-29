@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Backend details.
  *
- * Uses Azure REST API version 2023-09-01-preview.
+ * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
  *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WorkspaceBackend extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class WorkspaceBackend extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceBackend.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Backend Circuit Breaker Configuration
      */
@@ -133,8 +137,10 @@ export class WorkspaceBackend extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuitBreaker"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

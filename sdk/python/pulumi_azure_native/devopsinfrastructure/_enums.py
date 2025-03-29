@@ -5,9 +5,100 @@
 from enum import Enum
 
 __all__ = [
+    'AzureDevOpsPermissionType',
+    'CachingType',
+    'CertificateStoreNameOption',
+    'EphemeralType',
+    'LogonType',
     'ManagedServiceIdentityType',
+    'OsDiskStorageAccountType',
+    'PredictionPreference',
     'ProvisioningState',
+    'ResourcePredictionsProfileType',
+    'StorageAccountType',
 ]
+
+
+class AzureDevOpsPermissionType(str, Enum):
+    """
+    Determines who has admin permissions to the Azure DevOps pool.
+    """
+    INHERIT = "Inherit"
+    """
+    Pool will inherit permissions from the project or organization.
+    """
+    CREATOR_ONLY = "CreatorOnly"
+    """
+    Only the pool creator will be an admin of the pool.
+    """
+    SPECIFIC_ACCOUNTS = "SpecificAccounts"
+    """
+    Only the specified accounts will be admins of the pool.
+    """
+
+
+class CachingType(str, Enum):
+    """
+    The type of caching to be enabled for the data disks. The default value for caching is readwrite. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+    """
+    NONE = "None"
+    """
+    Don't use host caching.
+    """
+    READ_ONLY = "ReadOnly"
+    """
+    For workloads that only do read operations.
+    """
+    READ_WRITE = "ReadWrite"
+    """
+    For workloads that do a balance of read and write operations.
+    """
+
+
+class CertificateStoreNameOption(str, Enum):
+    """
+    Name of the certificate store to use on the machine, currently 'My' and 'Root' are supported.
+    """
+    MY = "My"
+    """
+    The X.509 certificate store for personal certificates.
+    """
+    ROOT = "Root"
+    """
+    The X.509 certificate store for trusted root certificate authorities (CAs).
+    """
+
+
+class EphemeralType(str, Enum):
+    """
+    The ephemeral type of the image.
+    """
+    AUTOMATIC = "Automatic"
+    """
+    Ephemeral is handled by Managed DevOps Pools service.
+    """
+    CACHE_DISK = "CacheDisk"
+    """
+    CacheDisk ephemeral only, requires that the SKU has a cache that is large enough for the image.
+    """
+    RESOURCE_DISK = "ResourceDisk"
+    """
+    ResourceDisk ephemeral only, requires only that the SKU supports it.
+    """
+
+
+class LogonType(str, Enum):
+    """
+    Determines how the service should be run. By default, this will be set to Service.
+    """
+    SERVICE = "Service"
+    """
+    Run as a service.
+    """
+    INTERACTIVE = "Interactive"
+    """
+    Run in interactive mode.
+    """
 
 
 class ManagedServiceIdentityType(str, Enum):
@@ -17,7 +108,51 @@ class ManagedServiceIdentityType(str, Enum):
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class OsDiskStorageAccountType(str, Enum):
+    """
+    The Azure SKU name of the machines in the pool.
+    """
+    STANDARD = "Standard"
+    """
+    Standard OS disk type.
+    """
+    PREMIUM = "Premium"
+    """
+    Premium OS disk type.
+    """
+    STANDARD_SSD = "StandardSSD"
+    """
+    Standard SSD OS disk type.
+    """
+
+
+class PredictionPreference(str, Enum):
+    """
+    Determines the balance between cost and performance.
+    """
+    BALANCED = "Balanced"
+    """
+    Balance between cost and performance.
+    """
+    MOST_COST_EFFECTIVE = "MostCostEffective"
+    """
+    Optimizes for cost over performance.
+    """
+    MORE_COST_EFFECTIVE = "MoreCostEffective"
+    """
+    Halfway through cost and balanced.
+    """
+    MORE_PERFORMANCE = "MorePerformance"
+    """
+    Halfway through balanced and performance.
+    """
+    BEST_PERFORMANCE = "BestPerformance"
+    """
+    Optimizes for performance over cost.
+    """
 
 
 class ProvisioningState(str, Enum):
@@ -51,4 +186,44 @@ class ProvisioningState(str, Enum):
     ACCEPTED = "Accepted"
     """
     Represents an accepted operation.
+    """
+
+
+class ResourcePredictionsProfileType(str, Enum):
+    """
+    Determines how the stand-by scheme should be provided.
+    """
+    MANUAL = "Manual"
+    """
+    Customer provides the stand-by agent scheme.
+    """
+    AUTOMATIC = "Automatic"
+    """
+    The stand-by agent scheme is determined based on historical demand.
+    """
+
+
+class StorageAccountType(str, Enum):
+    """
+    The storage Account type to be used for the data disk. If omitted, the default is "standard_lrs".
+    """
+    STANDARD_LRS = "Standard_LRS"
+    """
+    The data disk should use standard locally redundant storage.
+    """
+    PREMIUM_LRS = "Premium_LRS"
+    """
+    The data disk should use premium locally redundant storage.
+    """
+    STANDARD_SSDLRS = "StandardSSD_LRS"
+    """
+    The data disk should use standard SSD locally redundant storage.
+    """
+    PREMIUM_ZRS = "Premium_ZRS"
+    """
+    The data disk should use premium SSD zonal redundant storage.
+    """
+    STANDARD_SSDZRS = "StandardSSD_ZRS"
+    """
+    The data disk should use standard SSD zonal redundant storage.
     """

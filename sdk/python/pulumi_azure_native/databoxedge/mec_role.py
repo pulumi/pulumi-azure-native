@@ -170,7 +170,7 @@ class MECRole(pulumi.CustomResource):
         """
         MEC role.
 
-        Uses Azure REST API version 2022-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +193,7 @@ class MECRole(pulumi.CustomResource):
         """
         MEC role.
 
-        Uses Azure REST API version 2022-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param MECRoleArgs args: The arguments to use to populate this resource's properties.
@@ -243,9 +243,10 @@ class MECRole(pulumi.CustomResource):
             if role_status is None and not opts.urn:
                 raise TypeError("Missing required property 'role_status'")
             __props__.__dict__["role_status"] = role_status
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:MECRole")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:CloudEdgeManagementRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:CloudEdgeManagementRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:MECRole"), pulumi.Alias(type_="azure-native:databoxedge:CloudEdgeManagementRole"), pulumi.Alias(type_="azure-native:databoxedge:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge:KubernetesRole")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MECRole, __self__).__init__(
             'azure-native:databoxedge:MECRole',
@@ -269,6 +270,7 @@ class MECRole(pulumi.CustomResource):
 
         __props__ = MECRoleArgs.__new__(MECRoleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["connection_string"] = None
         __props__.__dict__["controller_endpoint"] = None
         __props__.__dict__["kind"] = None
@@ -278,6 +280,14 @@ class MECRole(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return MECRole(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionString")

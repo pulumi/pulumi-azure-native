@@ -26,7 +26,10 @@ class GetPartnerResult:
     """
     this is the management partner operations response
     """
-    def __init__(__self__, created_time=None, etag=None, id=None, name=None, object_id=None, partner_id=None, partner_name=None, tenant_id=None, type=None, updated_time=None, version=None):
+    def __init__(__self__, azure_api_version=None, created_time=None, etag=None, id=None, name=None, object_id=None, partner_id=None, partner_name=None, tenant_id=None, type=None, updated_time=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -60,6 +63,14 @@ class GetPartnerResult:
         if version and not isinstance(version, int):
             raise TypeError("Expected argument 'version' to be a int")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTime")
@@ -156,6 +167,7 @@ class AwaitableGetPartnerResult(GetPartnerResult):
         if False:
             yield self
         return GetPartnerResult(
+            azure_api_version=self.azure_api_version,
             created_time=self.created_time,
             etag=self.etag,
             id=self.id,
@@ -185,6 +197,7 @@ def get_partner(partner_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managementpartner:getPartner', __args__, opts=opts, typ=GetPartnerResult).value
 
     return AwaitableGetPartnerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_time=pulumi.get(__ret__, 'created_time'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -211,6 +224,7 @@ def get_partner_output(partner_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managementpartner:getPartner', __args__, opts=opts, typ=GetPartnerResult)
     return __ret__.apply(lambda __response__: GetPartnerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_time=pulumi.get(__response__, 'created_time'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

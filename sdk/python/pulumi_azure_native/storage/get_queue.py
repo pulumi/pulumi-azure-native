@@ -23,10 +23,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetQueueResult:
-    def __init__(__self__, approximate_message_count=None, id=None, metadata=None, name=None, type=None):
+    def __init__(__self__, approximate_message_count=None, azure_api_version=None, id=None, metadata=None, name=None, type=None):
         if approximate_message_count and not isinstance(approximate_message_count, int):
             raise TypeError("Expected argument 'approximate_message_count' to be a int")
         pulumi.set(__self__, "approximate_message_count", approximate_message_count)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,6 +50,14 @@ class GetQueueResult:
         Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
         """
         return pulumi.get(self, "approximate_message_count")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -88,6 +99,7 @@ class AwaitableGetQueueResult(GetQueueResult):
             yield self
         return GetQueueResult(
             approximate_message_count=self.approximate_message_count,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             metadata=self.metadata,
             name=self.name,
@@ -101,9 +113,9 @@ def get_queue(account_name: Optional[str] = None,
     """
     Gets the queue with the specified queue name, under the specified account if it exists.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -119,6 +131,7 @@ def get_queue(account_name: Optional[str] = None,
 
     return AwaitableGetQueueResult(
         approximate_message_count=pulumi.get(__ret__, 'approximate_message_count'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
@@ -130,9 +143,9 @@ def get_queue_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the queue with the specified queue name, under the specified account if it exists.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -147,6 +160,7 @@ def get_queue_output(account_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getQueue', __args__, opts=opts, typ=GetQueueResult)
     return __ret__.apply(lambda __response__: GetQueueResult(
         approximate_message_count=pulumi.get(__response__, 'approximate_message_count'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),

@@ -44,6 +44,10 @@ export interface GetNetworkTapResult {
      */
     readonly annotation?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Gets the configurations state of the resource.
      */
     readonly configurationState: string;

@@ -10,13 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Datadog
 {
     /// <summary>
-    /// Uses Azure REST API version 2022-06-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+    /// Uses Azure REST API version 2023-10-20. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
     /// 
-    /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+    /// Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:datadog:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         [Output("identity")]
         public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
 

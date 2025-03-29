@@ -25,9 +25,18 @@ __all__ = [
 @pulumi.output_type
 class GetServiceResult:
     """
-    A Database Migration Service resource
+    An Azure Database Migration Service (classic) resource
     """
-    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, provisioning_state=None, public_key=None, sku=None, system_data=None, tags=None, type=None, virtual_nic_id=None, virtual_subnet_id=None):
+    def __init__(__self__, auto_stop_delay=None, azure_api_version=None, delete_resources_on_stop=None, etag=None, id=None, kind=None, location=None, name=None, provisioning_state=None, public_key=None, sku=None, system_data=None, tags=None, type=None, virtual_nic_id=None, virtual_subnet_id=None):
+        if auto_stop_delay and not isinstance(auto_stop_delay, str):
+            raise TypeError("Expected argument 'auto_stop_delay' to be a str")
+        pulumi.set(__self__, "auto_stop_delay", auto_stop_delay)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if delete_resources_on_stop and not isinstance(delete_resources_on_stop, bool):
+            raise TypeError("Expected argument 'delete_resources_on_stop' to be a bool")
+        pulumi.set(__self__, "delete_resources_on_stop", delete_resources_on_stop)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -69,6 +78,30 @@ class GetServiceResult:
         pulumi.set(__self__, "virtual_subnet_id", virtual_subnet_id)
 
     @property
+    @pulumi.getter(name="autoStopDelay")
+    def auto_stop_delay(self) -> Optional[str]:
+        """
+        The time delay before the service is auto-stopped when idle.
+        """
+        return pulumi.get(self, "auto_stop_delay")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="deleteResourcesOnStop")
+    def delete_resources_on_stop(self) -> Optional[bool]:
+        """
+        Whether service resources should be deleted when stopped. (Turned on by default)
+        """
+        return pulumi.get(self, "delete_resources_on_stop")
+
+    @property
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
@@ -79,9 +112,6 @@ class GetServiceResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        Resource ID.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -94,18 +124,12 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
-        """
-        Resource location.
-        """
+    def location(self) -> Optional[str]:
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Resource name.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -135,25 +159,16 @@ class GetServiceResult:
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
         return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        Resource type.
-        """
         return pulumi.get(self, "type")
 
     @property
@@ -166,7 +181,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="virtualSubnetId")
-    def virtual_subnet_id(self) -> str:
+    def virtual_subnet_id(self) -> Optional[str]:
         """
         The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """
@@ -179,6 +194,9 @@ class AwaitableGetServiceResult(GetServiceResult):
         if False:
             yield self
         return GetServiceResult(
+            auto_stop_delay=self.auto_stop_delay,
+            azure_api_version=self.azure_api_version,
+            delete_resources_on_stop=self.delete_resources_on_stop,
             etag=self.etag,
             id=self.id,
             kind=self.kind,
@@ -198,11 +216,11 @@ def get_service(group_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
+    The services resource is the top-level resource that represents the Azure Database Migration Service (classic). The GET method retrieves information about a service instance.
 
-    Uses Azure REST API version 2021-06-30.
+    Uses Azure REST API version 2023-07-15-preview.
 
-    Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+    Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str group_name: Name of the resource group
@@ -215,6 +233,9 @@ def get_service(group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datamigration:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
+        auto_stop_delay=pulumi.get(__ret__, 'auto_stop_delay'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        delete_resources_on_stop=pulumi.get(__ret__, 'delete_resources_on_stop'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -232,11 +253,11 @@ def get_service_output(group_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
-    The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
+    The services resource is the top-level resource that represents the Azure Database Migration Service (classic). The GET method retrieves information about a service instance.
 
-    Uses Azure REST API version 2021-06-30.
+    Uses Azure REST API version 2023-07-15-preview.
 
-    Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+    Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str group_name: Name of the resource group
@@ -248,6 +269,9 @@ def get_service_output(group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
+        auto_stop_delay=pulumi.get(__response__, 'auto_stop_delay'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        delete_resources_on_stop=pulumi.get(__response__, 'delete_resources_on_stop'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

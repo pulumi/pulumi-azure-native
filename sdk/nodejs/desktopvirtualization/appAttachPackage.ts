@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Schema for App Attach Package properties.
  *
- * Uses Azure REST API version 2023-10-04-preview.
+ * Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
  *
- * Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AppAttachPackage extends pulumi.CustomResource {
     /**
@@ -42,34 +42,23 @@ export class AppAttachPackage extends pulumi.CustomResource {
     }
 
     /**
-     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     * The Azure API version of the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
-    public readonly identity!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
-    /**
-     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-     */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-     */
-    public readonly managedBy!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly plan!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
     /**
      * Detailed properties for App Attach Package
      */
     public readonly properties!: pulumi.Output<outputs.desktopvirtualization.AppAttachPackagePropertiesResponse>;
-    public readonly sku!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
@@ -99,29 +88,19 @@ export class AppAttachPackage extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["appAttachPackageName"] = args ? args.appAttachPackageName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["identity"] = undefined /*out*/;
-            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["plan"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
-            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -138,23 +117,13 @@ export class AppAttachPackage extends pulumi.CustomResource {
  */
 export interface AppAttachPackageArgs {
     /**
-     * The name of the App Attach package arm object
+     * The name of the App Attach package
      */
     appAttachPackageName?: pulumi.Input<string>;
-    identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
-    /**
-     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-     */
-    kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
-    /**
-     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-     */
-    managedBy?: pulumi.Input<string>;
-    plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * Detailed properties for App Attach Package
      */
@@ -163,7 +132,6 @@ export interface AppAttachPackageArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * Resource tags.
      */

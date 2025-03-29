@@ -12,19 +12,37 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// <summary>
     /// Define the resourcePool.
     /// 
-    /// Uses Azure REST API version 2022-07-15-preview. In version 1.x of the Azure Native provider, it used API version 2020-10-01-preview.
+    /// Uses Azure REST API version 2023-12-01. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
     /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:ResourcePool")]
     public partial class ResourcePool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the max CPU usage across all cores on the pool in MHz.
+        /// </summary>
+        [Output("cpuCapacityMHz")]
+        public Output<double> CpuCapacityMHz { get; private set; } = null!;
+
         /// <summary>
         /// Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
         /// Utilization will not exceed this limit even if there are available resources.
         /// </summary>
         [Output("cpuLimitMHz")]
         public Output<double> CpuLimitMHz { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the used CPU usage across all cores on the pool in MHz.
+        /// </summary>
+        [Output("cpuOverallUsageMHz")]
+        public Output<double> CpuOverallUsageMHz { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
@@ -47,7 +65,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string> CustomResourceName { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the datastore ARM ids.
+        /// Gets the datastore ARM ids.
         /// </summary>
         [Output("datastoreIds")]
         public Output<ImmutableArray<string>> DatastoreIds { get; private set; } = null!;
@@ -77,11 +95,23 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Gets the total amount of physical memory on the pool in GB.
+        /// </summary>
+        [Output("memCapacityGB")]
+        public Output<double> MemCapacityGB { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
         /// Utilization will not exceed the specified limit even if there are available resources.
         /// </summary>
         [Output("memLimitMB")]
         public Output<double> MemLimitMB { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the used physical memory on the pool in GB.
+        /// </summary>
+        [Output("memOverallUsageGB")]
+        public Output<double> MemOverallUsageGB { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets MemReservationMB which specifies the guaranteed available memory in
@@ -116,13 +146,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the network ARM ids.
+        /// Gets the network ARM ids.
         /// </summary>
         [Output("networkIds")]
         public Output<ImmutableArray<string>> NetworkIds { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;

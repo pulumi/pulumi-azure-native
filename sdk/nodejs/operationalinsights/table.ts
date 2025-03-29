@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Workspace data table definition.
  *
- * Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2021-12-01-preview.
+ * Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
  *
- * Other available API versions: 2023-09-01, 2025-02-01.
+ * Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class Table extends pulumi.CustomResource {
      * The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
      */
     public /*out*/ readonly archiveRetentionInDays!: pulumi.Output<number>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The timestamp that table plan was last modified (UTC).
      */
@@ -129,6 +133,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["totalRetentionInDays"] = args ? args.totalRetentionInDays : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["archiveRetentionInDays"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastPlanModifiedDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -139,6 +144,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["archiveRetentionInDays"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastPlanModifiedDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;

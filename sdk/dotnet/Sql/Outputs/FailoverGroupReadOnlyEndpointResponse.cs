@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.Sql.Outputs
         /// Failover policy of the read-only endpoint for the failover group.
         /// </summary>
         public readonly string? FailoverPolicy;
+        /// <summary>
+        /// The target partner server where the read-only endpoint points to.
+        /// </summary>
+        public readonly string? TargetServer;
 
         [OutputConstructor]
-        private FailoverGroupReadOnlyEndpointResponse(string? failoverPolicy)
+        private FailoverGroupReadOnlyEndpointResponse(
+            string? failoverPolicy,
+
+            string? targetServer)
         {
             FailoverPolicy = failoverPolicy;
+            TargetServer = targetServer;
         }
     }
 }

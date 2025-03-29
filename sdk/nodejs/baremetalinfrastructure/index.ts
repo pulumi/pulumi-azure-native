@@ -29,19 +29,6 @@ utilities.lazyLoad(exports, ["getAzureBareMetalStorageInstance","getAzureBareMet
 // Export enums:
 export * from "../types/enums/baremetalinfrastructure";
 
-// Export sub-modules:
-import * as v20230406 from "./v20230406";
-import * as v20230804preview from "./v20230804preview";
-import * as v20231101preview from "./v20231101preview";
-import * as v20240801preview from "./v20240801preview";
-
-export {
-    v20230406,
-    v20230804preview,
-    v20231101preview,
-    v20240801preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

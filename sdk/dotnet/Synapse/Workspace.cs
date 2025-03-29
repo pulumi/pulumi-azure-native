@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Synapse
     /// <summary>
     /// A workspace
     /// 
-    /// Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+    /// Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
-    /// Other available API versions: 2021-05-01, 2021-06-01-preview.
+    /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Output("adlaResourceId")]
         public Output<string> AdlaResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Connectivity endpoints

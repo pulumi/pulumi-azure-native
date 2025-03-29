@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Managed cluster.
  *
- * Uses Azure REST API version 2023-04-01.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2019-06-01, 2021-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01.
+ * Other available API versions: 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,6 +62,10 @@ export interface GetManagedClusterResult {
      */
     readonly autoUpgradeProfile?: outputs.containerservice.ManagedClusterAutoUpgradeProfileResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Azure Monitor addon profiles for monitoring the managed cluster.
      */
     readonly azureMonitorProfile?: outputs.containerservice.ManagedClusterAzureMonitorProfileResponse;
@@ -85,6 +89,10 @@ export interface GetManagedClusterResult {
      * This cannot be updated once the Managed Cluster has been created.
      */
     readonly dnsPrefix?: string;
+    /**
+     * Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
+     */
+    readonly eTag: string;
     /**
      * (DEPRECATED) Whether to enable Kubernetes pod security policy (preview). PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25. Learn more at https://aka.ms/k8s/psp and https://aka.ms/aks/psp.
      */
@@ -110,7 +118,7 @@ export interface GetManagedClusterResult {
      */
     readonly httpProxyConfig?: outputs.containerservice.ManagedClusterHTTPProxyConfigResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -118,9 +126,13 @@ export interface GetManagedClusterResult {
      */
     readonly identity?: outputs.containerservice.ManagedClusterIdentityResponse;
     /**
-     * Identities associated with the cluster.
+     * The user identity associated with the managed cluster. This identity will be used by the kubelet. Only one user assigned identity is allowed. The only accepted key is "kubeletidentity", with value of "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}".
      */
     readonly identityProfile?: {[key: string]: outputs.containerservice.UserAssignedIdentityResponse};
+    /**
+     * Ingress profile for the managed cluster.
+     */
+    readonly ingressProfile?: outputs.containerservice.ManagedClusterIngressProfileResponse;
     /**
      * Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
      */
@@ -138,6 +150,10 @@ export interface GetManagedClusterResult {
      */
     readonly maxAgentPools: number;
     /**
+     * Optional cluster metrics configuration.
+     */
+    readonly metricsProfile?: outputs.containerservice.ManagedClusterMetricsProfileResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -149,6 +165,10 @@ export interface GetManagedClusterResult {
      * The name of the resource group containing agent pool nodes.
      */
     readonly nodeResourceGroup?: string;
+    /**
+     * Profile of the node resource group configuration.
+     */
+    readonly nodeResourceGroupProfile?: outputs.containerservice.ManagedClusterNodeResourceGroupProfileResponse;
     /**
      * The OIDC issuer profile of the Managed Cluster.
      */
@@ -178,9 +198,17 @@ export interface GetManagedClusterResult {
      */
     readonly publicNetworkAccess?: string;
     /**
+     * The resourceUID uniquely identifies ManagedClusters that reuse ARM ResourceIds (i.e: create, delete, create sequence)
+     */
+    readonly resourceUID: string;
+    /**
      * Security profile for the managed cluster.
      */
     readonly securityProfile?: outputs.containerservice.ManagedClusterSecurityProfileResponse;
+    /**
+     * Service mesh profile for a managed cluster.
+     */
+    readonly serviceMeshProfile?: outputs.containerservice.ServiceMeshProfileResponse;
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
      */
@@ -210,6 +238,10 @@ export interface GetManagedClusterResult {
      */
     readonly type: string;
     /**
+     * Settings for upgrading a cluster.
+     */
+    readonly upgradeSettings?: outputs.containerservice.ClusterUpgradeSettingsResponse;
+    /**
      * The profile for Windows VMs in the Managed Cluster.
      */
     readonly windowsProfile?: outputs.containerservice.ManagedClusterWindowsProfileResponse;
@@ -221,9 +253,9 @@ export interface GetManagedClusterResult {
 /**
  * Managed cluster.
  *
- * Uses Azure REST API version 2023-04-01.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2019-06-01, 2021-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01.
+ * Other available API versions: 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

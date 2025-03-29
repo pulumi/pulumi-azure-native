@@ -38,6 +38,10 @@ export interface GetConnectionMonitorTestArgs {
  */
 export interface GetConnectionMonitorTestResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The Connection Monitor test destination
      */
     readonly destination?: string;

@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.SignalRService
     /// <summary>
     /// A class represent a resource.
     /// 
-    /// Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-05-01.
+    /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice:SignalR")]
     public partial class SignalR : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Cross-Origin Resource Sharing (CORS) settings.
         /// </summary>
@@ -77,7 +83,7 @@ namespace Pulumi.AzureNative.SignalRService
         public Output<Outputs.ManagedIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of the service, it can be SignalR or RawWebSockets
+        /// The kind of the service
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -89,13 +95,13 @@ namespace Pulumi.AzureNative.SignalRService
         public Output<Outputs.LiveTraceConfigurationResponse?> LiveTraceConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -133,10 +139,26 @@ namespace Pulumi.AzureNative.SignalRService
         public Output<int> PublicPort { get; private set; } = null!;
 
         /// <summary>
+        /// Enable or disable the regional endpoint. Default to "Enabled".
+        /// When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        /// This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        /// </summary>
+        [Output("regionEndpointEnabled")]
+        public Output<string?> RegionEndpointEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Resource log configuration of a Microsoft.SignalRService resource.
         /// </summary>
         [Output("resourceLogConfiguration")]
         public Output<Outputs.ResourceLogConfigurationResponse?> ResourceLogConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Stop or start the resource.  Default to "False".
+        /// When it's true, the data plane of the resource is shutdown.
+        /// When it's false, the data plane of the resource is started.
+        /// </summary>
+        [Output("resourceStopped")]
+        public Output<string?> ResourceStopped { get; private set; } = null!;
 
         /// <summary>
         /// The publicly accessible port of the resource which is designed for customer server side usage.
@@ -163,13 +185,13 @@ namespace Pulumi.AzureNative.SignalRService
         public Output<Outputs.ResourceSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Tags of the service which is a list of key value pairs that describe the resource.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -181,7 +203,7 @@ namespace Pulumi.AzureNative.SignalRService
         public Output<Outputs.SignalRTlsSettingsResponse?> Tls { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -311,7 +333,7 @@ namespace Pulumi.AzureNative.SignalRService
         public Input<Inputs.ManagedIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The kind of the service, it can be SignalR or RawWebSockets
+        /// The kind of the service
         /// </summary>
         [Input("kind")]
         public InputUnion<string, Pulumi.AzureNative.SignalRService.ServiceKind>? Kind { get; set; }
@@ -323,7 +345,7 @@ namespace Pulumi.AzureNative.SignalRService
         public Input<Inputs.LiveTraceConfigurationArgs>? LiveTraceConfiguration { get; set; }
 
         /// <summary>
-        /// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -343,7 +365,15 @@ namespace Pulumi.AzureNative.SignalRService
         public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// Enable or disable the regional endpoint. Default to "Enabled".
+        /// When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        /// This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        /// </summary>
+        [Input("regionEndpointEnabled")]
+        public Input<string>? RegionEndpointEnabled { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -361,6 +391,14 @@ namespace Pulumi.AzureNative.SignalRService
         public Input<string>? ResourceName { get; set; }
 
         /// <summary>
+        /// Stop or start the resource.  Default to "False".
+        /// When it's true, the data plane of the resource is shutdown.
+        /// When it's false, the data plane of the resource is started.
+        /// </summary>
+        [Input("resourceStopped")]
+        public Input<string>? ResourceStopped { get; set; }
+
+        /// <summary>
         /// Serverless settings.
         /// </summary>
         [Input("serverless")]
@@ -376,7 +414,7 @@ namespace Pulumi.AzureNative.SignalRService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags of the service which is a list of key value pairs that describe the resource.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -401,6 +439,8 @@ namespace Pulumi.AzureNative.SignalRService
             DisableAadAuth = false;
             DisableLocalAuth = false;
             PublicNetworkAccess = "Enabled";
+            RegionEndpointEnabled = "Enabled";
+            ResourceStopped = "false";
         }
         public static new SignalRArgs Empty => new SignalRArgs();
     }

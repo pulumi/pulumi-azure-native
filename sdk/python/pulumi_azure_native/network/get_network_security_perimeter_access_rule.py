@@ -27,10 +27,13 @@ class GetNetworkSecurityPerimeterAccessRuleResult:
     """
     The NSP access rule resource
     """
-    def __init__(__self__, address_prefixes=None, direction=None, email_addresses=None, fully_qualified_domain_names=None, id=None, location=None, name=None, network_security_perimeters=None, phone_numbers=None, provisioning_state=None, service_tags=None, subscriptions=None, tags=None, type=None):
+    def __init__(__self__, address_prefixes=None, azure_api_version=None, direction=None, email_addresses=None, fully_qualified_domain_names=None, id=None, location=None, name=None, network_security_perimeters=None, phone_numbers=None, provisioning_state=None, service_tags=None, subscriptions=None, tags=None, type=None):
         if address_prefixes and not isinstance(address_prefixes, list):
             raise TypeError("Expected argument 'address_prefixes' to be a list")
         pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if direction and not isinstance(direction, str):
             raise TypeError("Expected argument 'direction' to be a str")
         pulumi.set(__self__, "direction", direction)
@@ -78,6 +81,14 @@ class GetNetworkSecurityPerimeterAccessRuleResult:
         Inbound address prefixes (IPv4/IPv6)
         """
         return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -191,6 +202,7 @@ class AwaitableGetNetworkSecurityPerimeterAccessRuleResult(GetNetworkSecurityPer
             yield self
         return GetNetworkSecurityPerimeterAccessRuleResult(
             address_prefixes=self.address_prefixes,
+            azure_api_version=self.azure_api_version,
             direction=self.direction,
             email_addresses=self.email_addresses,
             fully_qualified_domain_names=self.fully_qualified_domain_names,
@@ -232,6 +244,7 @@ def get_network_security_perimeter_access_rule(access_rule_name: Optional[str] =
 
     return AwaitableGetNetworkSecurityPerimeterAccessRuleResult(
         address_prefixes=pulumi.get(__ret__, 'address_prefixes'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         direction=pulumi.get(__ret__, 'direction'),
         email_addresses=pulumi.get(__ret__, 'email_addresses'),
         fully_qualified_domain_names=pulumi.get(__ret__, 'fully_qualified_domain_names'),
@@ -270,6 +283,7 @@ def get_network_security_perimeter_access_rule_output(access_rule_name: Optional
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNetworkSecurityPerimeterAccessRule', __args__, opts=opts, typ=GetNetworkSecurityPerimeterAccessRuleResult)
     return __ret__.apply(lambda __response__: GetNetworkSecurityPerimeterAccessRuleResult(
         address_prefixes=pulumi.get(__response__, 'address_prefixes'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         direction=pulumi.get(__response__, 'direction'),
         email_addresses=pulumi.get(__response__, 'email_addresses'),
         fully_qualified_domain_names=pulumi.get(__response__, 'fully_qualified_domain_names'),

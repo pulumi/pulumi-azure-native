@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// <summary>
         /// Gets the properties of the specified replica.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetReplicaResult> InvokeAsync(GetReplicaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicaResult>("azure-native:appconfiguration:getReplica", args ?? new GetReplicaArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// <summary>
         /// Gets the properties of the specified replica.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetReplicaResult> Invoke(GetReplicaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicaResult>("azure-native:appconfiguration:getReplica", args ?? new GetReplicaInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// <summary>
         /// Gets the properties of the specified replica.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetReplicaResult> Invoke(GetReplicaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicaResult>("azure-native:appconfiguration:getReplica", args ?? new GetReplicaInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.AppConfiguration
     public sealed class GetReplicaResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The URI of the replica where the replica API will be available.
         /// </summary>
         public readonly string Endpoint;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.AppConfiguration
 
         [OutputConstructor]
         private GetReplicaResult(
+            string azureApiVersion,
+
             string endpoint,
 
             string id,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.AppConfiguration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Endpoint = endpoint;
             Id = id;
             Location = location;

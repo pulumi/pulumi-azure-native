@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
     /// <summary>
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
     /// 
-    /// Uses Azure REST API version 2023-10-30-preview.
+    /// Uses Azure REST API version 2025-01-21. In version 2.x of the Azure Native provider, it used API version 2023-10-30-preview.
     /// 
-    /// Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
+    /// Other available API versions: 2023-10-30-preview, 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devopsinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:devopsinfrastructure:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         /// </summary>
         [Output("agentProfile")]
         public Output<Union<Outputs.StatefulResponse, Outputs.StatelessAgentProfileResponse>> AgentProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The resource id of the DevCenter Project the pool belongs to.
@@ -65,7 +71,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         /// Defines the organization in which the pool will be used.
         /// </summary>
         [Output("organizationProfile")]
-        public Output<Outputs.AzureDevOpsOrganizationProfileResponse> OrganizationProfile { get; private set; } = null!;
+        public Output<Union<Outputs.AzureDevOpsOrganizationProfileResponse, Outputs.GitHubOrganizationProfileResponse>> OrganizationProfile { get; private set; } = null!;
 
         /// <summary>
         /// The status of the current operation.
@@ -185,7 +191,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         /// Defines the organization in which the pool will be used.
         /// </summary>
         [Input("organizationProfile", required: true)]
-        public Input<Inputs.AzureDevOpsOrganizationProfileArgs> OrganizationProfile { get; set; } = null!;
+        public InputUnion<Inputs.AzureDevOpsOrganizationProfileArgs, Inputs.GitHubOrganizationProfileArgs> OrganizationProfile { get; set; } = null!;
 
         /// <summary>
         /// Name of the pool. It needs to be globally unique.

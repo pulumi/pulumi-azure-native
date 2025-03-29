@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * ArcSetting details.
  *
- * Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01-preview.
+ * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ArcSetting extends pulumi.CustomResource {
     /**
@@ -65,6 +65,10 @@ export class ArcSetting extends pulumi.CustomResource {
      * Object id of arc AAD service principal.
      */
     public readonly arcServicePrincipalObjectId!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * contains connectivity related configuration for ARC resources
      */
@@ -121,6 +125,7 @@ export class ArcSetting extends pulumi.CustomResource {
             resourceInputs["connectivityProperties"] = args ? args.connectivityProperties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["aggregateState"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultExtensions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["perNodeDetails"] = undefined /*out*/;
@@ -134,6 +139,7 @@ export class ArcSetting extends pulumi.CustomResource {
             resourceInputs["arcApplicationTenantId"] = undefined /*out*/;
             resourceInputs["arcInstanceResourceGroup"] = undefined /*out*/;
             resourceInputs["arcServicePrincipalObjectId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectivityProperties"] = undefined /*out*/;
             resourceInputs["defaultExtensions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

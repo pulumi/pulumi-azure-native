@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// Gets a Project resource.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        /// Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:storagemover:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// Gets a Project resource.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        /// Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:storagemover:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// Gets a Project resource.
         /// 
-        /// Uses Azure REST API version 2023-03-01.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        /// Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:storagemover:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.StorageMover
     public sealed class GetProjectResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A description for the Project.
         /// </summary>
         public readonly string? Description;
@@ -116,7 +120,7 @@ namespace Pulumi.AzureNative.StorageMover
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource system metadata.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.StorageMover
 
         [OutputConstructor]
         private GetProjectResult(
+            string azureApiVersion,
+
             string? description,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.StorageMover
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Id = id;
             Name = name;

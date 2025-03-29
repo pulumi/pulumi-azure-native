@@ -36,6 +36,10 @@ export interface GetMySQLSiteArgs {
  */
 export interface GetMySQLSiteResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The extended location.
      */
     readonly extendedLocation: outputs.mysqldiscovery.ExtendedLocationResponse;

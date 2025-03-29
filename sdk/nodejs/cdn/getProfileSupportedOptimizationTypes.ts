@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
  *
- * Uses Azure REST API version 2023-05-01.
+ * Uses Azure REST API version 2024-09-01.
  *
- * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getProfileSupportedOptimizationTypes(args: GetProfileSupportedOptimizationTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileSupportedOptimizationTypesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,9 +42,9 @@ export interface GetProfileSupportedOptimizationTypesResult {
 /**
  * Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
  *
- * Uses Azure REST API version 2023-05-01.
+ * Uses Azure REST API version 2024-09-01.
  *
- * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getProfileSupportedOptimizationTypesOutput(args: GetProfileSupportedOptimizationTypesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfileSupportedOptimizationTypesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Datadog.Outputs
     public sealed class MonitorPropertiesResponse
     {
         /// <summary>
-        /// Datadog organization properties
+        /// Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
         /// </summary>
         public readonly Outputs.DatadogOrganizationPropertiesResponse? DatadogOrganizationProperties;
         public readonly string LiftrResourceCategory;
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Datadog.Outputs
         public readonly string? MonitoringStatus;
         public readonly string ProvisioningState;
         /// <summary>
-        /// User info
+        /// Includes name, email and optionally, phone number. User Information can't be null.
         /// </summary>
         public readonly Outputs.UserInfoResponse? UserInfo;
 

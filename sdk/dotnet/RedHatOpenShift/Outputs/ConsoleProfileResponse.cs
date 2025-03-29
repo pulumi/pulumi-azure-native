@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
         /// <summary>
         /// The URL to access the cluster console.
         /// </summary>
-        public readonly string? Url;
+        public readonly string Url;
 
         [OutputConstructor]
-        private ConsoleProfileResponse(string? url)
+        private ConsoleProfileResponse(string url)
         {
             Url = url;
         }

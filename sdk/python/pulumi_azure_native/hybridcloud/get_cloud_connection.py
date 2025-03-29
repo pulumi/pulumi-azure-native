@@ -27,7 +27,10 @@ class GetCloudConnectionResult:
     """
     Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
     """
-    def __init__(__self__, cloud_connector=None, etag=None, id=None, location=None, name=None, provisioning_state=None, remote_resource_id=None, shared_key=None, system_data=None, tags=None, type=None, virtual_hub=None):
+    def __init__(__self__, azure_api_version=None, cloud_connector=None, etag=None, id=None, location=None, name=None, provisioning_state=None, remote_resource_id=None, shared_key=None, system_data=None, tags=None, type=None, virtual_hub=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cloud_connector and not isinstance(cloud_connector, dict):
             raise TypeError("Expected argument 'cloud_connector' to be a dict")
         pulumi.set(__self__, "cloud_connector", cloud_connector)
@@ -64,6 +67,14 @@ class GetCloudConnectionResult:
         if virtual_hub and not isinstance(virtual_hub, dict):
             raise TypeError("Expected argument 'virtual_hub' to be a dict")
         pulumi.set(__self__, "virtual_hub", virtual_hub)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudConnector")
@@ -168,6 +179,7 @@ class AwaitableGetCloudConnectionResult(GetCloudConnectionResult):
         if False:
             yield self
         return GetCloudConnectionResult(
+            azure_api_version=self.azure_api_version,
             cloud_connector=self.cloud_connector,
             etag=self.etag,
             id=self.id,
@@ -201,6 +213,7 @@ def get_cloud_connection(cloud_connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridcloud:getCloudConnection', __args__, opts=opts, typ=GetCloudConnectionResult).value
 
     return AwaitableGetCloudConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cloud_connector=pulumi.get(__ret__, 'cloud_connector'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -231,6 +244,7 @@ def get_cloud_connection_output(cloud_connection_name: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcloud:getCloudConnection', __args__, opts=opts, typ=GetCloudConnectionResult)
     return __ret__.apply(lambda __response__: GetCloudConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cloud_connector=pulumi.get(__response__, 'cloud_connector'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

@@ -539,6 +539,37 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
     /// <summary>
+    /// Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateIPAddressVersion : IEquatable<PrivateIPAddressVersion>
+    {
+        private readonly string _value;
+
+        private PrivateIPAddressVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateIPAddressVersion IPv4 { get; } = new PrivateIPAddressVersion("IPv4");
+        public static PrivateIPAddressVersion IPv6 { get; } = new PrivateIPAddressVersion("IPv6");
+
+        public static bool operator ==(PrivateIPAddressVersion left, PrivateIPAddressVersion right) => left.Equals(right);
+        public static bool operator !=(PrivateIPAddressVersion left, PrivateIPAddressVersion right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateIPAddressVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateIPAddressVersion other && Equals(other);
+        public bool Equals(PrivateIPAddressVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enable or Disable apply network policies on private link service in the subnet.
     /// </summary>
     [EnumType]
@@ -633,6 +664,37 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
     /// <summary>
+    /// Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicIPAddressVersion : IEquatable<PublicIPAddressVersion>
+    {
+        private readonly string _value;
+
+        private PublicIPAddressVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicIPAddressVersion IPv4 { get; } = new PublicIPAddressVersion("IPv4");
+        public static PublicIPAddressVersion IPv6 { get; } = new PublicIPAddressVersion("IPv6");
+
+        public static bool operator ==(PublicIPAddressVersion left, PublicIPAddressVersion right) => left.Equals(right);
+        public static bool operator !=(PublicIPAddressVersion left, PublicIPAddressVersion right) => !left.Equals(right);
+
+        public static explicit operator string(PublicIPAddressVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicIPAddressVersion other && Equals(other);
+        public bool Equals(PublicIPAddressVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
     /// </summary>
     [EnumType]
@@ -670,7 +732,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
     /// <summary>
-    /// Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+    /// Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
     /// </summary>
     [EnumType]
     public readonly struct SecurityType : IEquatable<SecurityType>
@@ -686,6 +748,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Trusted Launch is a security type that secures generation 2 virtual machines.
         /// </summary>
         public static SecurityType TrustedLaunch { get; } = new SecurityType("TrustedLaunch");
+        /// <summary>
+        /// Standard is the default security type for all machines.
+        /// </summary>
+        public static SecurityType Standard { get; } = new SecurityType("Standard");
 
         public static bool operator ==(SecurityType left, SecurityType right) => left.Equals(right);
         public static bool operator !=(SecurityType left, SecurityType right) => !left.Equals(right);
@@ -1048,6 +1114,39 @@ namespace Pulumi.AzureNative.ServiceFabric
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VmSetupAction other && Equals(other);
         public bool Equals(VmSetupAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Vm extension setup order.
+    /// </summary>
+    [EnumType]
+    public readonly struct VmssExtensionSetupOrder : IEquatable<VmssExtensionSetupOrder>
+    {
+        private readonly string _value;
+
+        private VmssExtensionSetupOrder(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates that the vm extension should run before the service fabric runtime starts.
+        /// </summary>
+        public static VmssExtensionSetupOrder BeforeSFRuntime { get; } = new VmssExtensionSetupOrder("BeforeSFRuntime");
+
+        public static bool operator ==(VmssExtensionSetupOrder left, VmssExtensionSetupOrder right) => left.Equals(right);
+        public static bool operator !=(VmssExtensionSetupOrder left, VmssExtensionSetupOrder right) => !left.Equals(right);
+
+        public static explicit operator string(VmssExtensionSetupOrder value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VmssExtensionSetupOrder other && Equals(other);
+        public bool Equals(VmssExtensionSetupOrder other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

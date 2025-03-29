@@ -31,11 +31,3 @@ from .volume import *
 from .volume_container import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.storsimple.v20170601 as __v20170601
-    v20170601 = __v20170601
-else:
-    v20170601 = _utilities.lazy_import('pulumi_azure_native.storsimple.v20170601')
-

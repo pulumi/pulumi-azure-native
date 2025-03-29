@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// The storage container resource definition.
     /// 
-    /// Uses Azure REST API version 2022-12-15-preview.
+    /// Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+    /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:StorageContainer")]
     public partial class StorageContainer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The extendedLocation of the resource.
         /// </summary>
@@ -41,7 +47,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Path of the storage container on the disk
         /// </summary>
         [Output("path")]
-        public Output<string?> Path { get; private set; } = null!;
+        public Output<string> Path { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the storage container.
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:StoragecontainerRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:StorageContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:StorageContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:StorageContainer" },
@@ -148,8 +155,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Path of the storage container on the disk
         /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
+        [Input("path", required: true)]
+        public Input<string> Path { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

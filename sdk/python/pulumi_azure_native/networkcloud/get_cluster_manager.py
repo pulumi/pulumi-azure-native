@@ -24,13 +24,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterManagerResult:
-    def __init__(__self__, analytics_workspace_id=None, availability_zones=None, cluster_versions=None, detailed_status=None, detailed_status_message=None, fabric_controller_id=None, id=None, location=None, managed_resource_group_configuration=None, manager_extended_location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, vm_size=None):
+    def __init__(__self__, analytics_workspace_id=None, availability_zones=None, azure_api_version=None, cluster_versions=None, detailed_status=None, detailed_status_message=None, etag=None, fabric_controller_id=None, id=None, identity=None, location=None, managed_resource_group_configuration=None, manager_extended_location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, vm_size=None):
         if analytics_workspace_id and not isinstance(analytics_workspace_id, str):
             raise TypeError("Expected argument 'analytics_workspace_id' to be a str")
         pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_versions and not isinstance(cluster_versions, list):
             raise TypeError("Expected argument 'cluster_versions' to be a list")
         pulumi.set(__self__, "cluster_versions", cluster_versions)
@@ -40,12 +43,18 @@ class GetClusterManagerResult:
         if detailed_status_message and not isinstance(detailed_status_message, str):
             raise TypeError("Expected argument 'detailed_status_message' to be a str")
         pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if fabric_controller_id and not isinstance(fabric_controller_id, str):
             raise TypeError("Expected argument 'fabric_controller_id' to be a str")
         pulumi.set(__self__, "fabric_controller_id", fabric_controller_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -91,6 +100,14 @@ class GetClusterManagerResult:
         return pulumi.get(self, "availability_zones")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="clusterVersions")
     def cluster_versions(self) -> Sequence['outputs.ClusterAvailableVersionResponse']:
         """
@@ -115,6 +132,14 @@ class GetClusterManagerResult:
         return pulumi.get(self, "detailed_status_message")
 
     @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
     @pulumi.getter(name="fabricControllerId")
     def fabric_controller_id(self) -> str:
         """
@@ -129,6 +154,14 @@ class GetClusterManagerResult:
         Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity of the cluster manager.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -211,11 +244,14 @@ class AwaitableGetClusterManagerResult(GetClusterManagerResult):
         return GetClusterManagerResult(
             analytics_workspace_id=self.analytics_workspace_id,
             availability_zones=self.availability_zones,
+            azure_api_version=self.azure_api_version,
             cluster_versions=self.cluster_versions,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
+            etag=self.etag,
             fabric_controller_id=self.fabric_controller_id,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             managed_resource_group_configuration=self.managed_resource_group_configuration,
             manager_extended_location=self.manager_extended_location,
@@ -233,9 +269,9 @@ def get_cluster_manager(cluster_manager_name: Optional[str] = None,
     """
     Get the properties of the provided cluster manager.
 
-    Uses Azure REST API version 2023-10-01-preview.
+    Uses Azure REST API version 2025-02-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_manager_name: The name of the cluster manager.
@@ -250,11 +286,14 @@ def get_cluster_manager(cluster_manager_name: Optional[str] = None,
     return AwaitableGetClusterManagerResult(
         analytics_workspace_id=pulumi.get(__ret__, 'analytics_workspace_id'),
         availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_versions=pulumi.get(__ret__, 'cluster_versions'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        etag=pulumi.get(__ret__, 'etag'),
         fabric_controller_id=pulumi.get(__ret__, 'fabric_controller_id'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         managed_resource_group_configuration=pulumi.get(__ret__, 'managed_resource_group_configuration'),
         manager_extended_location=pulumi.get(__ret__, 'manager_extended_location'),
@@ -270,9 +309,9 @@ def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]]
     """
     Get the properties of the provided cluster manager.
 
-    Uses Azure REST API version 2023-10-01-preview.
+    Uses Azure REST API version 2025-02-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_manager_name: The name of the cluster manager.
@@ -286,11 +325,14 @@ def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]]
     return __ret__.apply(lambda __response__: GetClusterManagerResult(
         analytics_workspace_id=pulumi.get(__response__, 'analytics_workspace_id'),
         availability_zones=pulumi.get(__response__, 'availability_zones'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_versions=pulumi.get(__response__, 'cluster_versions'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        etag=pulumi.get(__response__, 'etag'),
         fabric_controller_id=pulumi.get(__response__, 'fabric_controller_id'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         managed_resource_group_configuration=pulumi.get(__response__, 'managed_resource_group_configuration'),
         manager_extended_location=pulumi.get(__response__, 'manager_extended_location'),

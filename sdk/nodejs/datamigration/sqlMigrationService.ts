@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A SQL Migration Service.
  *
- * Uses Azure REST API version 2022-03-30-preview. In version 1.x of the Azure Native provider, it used API version 2021-10-30-preview.
+ * Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-03-30-preview.
  *
- * Other available API versions: 2023-07-15-preview.
+ * Other available API versions: 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SqlMigrationService extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class SqlMigrationService extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlMigrationService.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Current state of the Integration runtime.
      */
@@ -73,12 +77,14 @@ export class SqlMigrationService extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sqlMigrationServiceName"] = args ? args.sqlMigrationServiceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["integrationRuntimeState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["integrationRuntimeState"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -41,6 +41,10 @@ export interface GetIoTHubEventSourceArgs {
  */
 export interface GetIoTHubEventSourceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The name of the iot hub's consumer group that holds the partitions from which events will be read.
      */
     readonly consumerGroupName: string;

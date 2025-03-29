@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// <summary>
     /// Represents a server.
     /// 
-    /// Uses Azure REST API version 2022-01-01. In version 1.x of the Azure Native provider, it used API version 2017-12-01.
+    /// Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
     /// 
-    /// Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
+    /// Other available API versions: 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-06-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Server")]
     public partial class Server : global::Pulumi.CustomResource
@@ -30,6 +30,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Backup related properties of a server.
@@ -59,7 +65,13 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// The cmk identity for the server.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.MySQLServerIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Source properties for import from storage.
+        /// </summary>
+        [Output("importSourceProperties")]
+        public Output<Outputs.ImportSourcePropertiesResponse?> ImportSourceProperties { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -86,6 +98,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Output<Outputs.NetworkResponse?> Network { get; private set; } = null!;
 
         /// <summary>
+        /// PrivateEndpointConnections related properties of a server.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum number of replicas that a primary server can have.
         /// </summary>
         [Output("replicaCapacity")]
@@ -101,7 +119,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// The SKU (pricing tier) of the server.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.MySQLServerSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The source MySQL server id.
@@ -122,7 +140,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Output<Outputs.StorageResponse?> Storage { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -170,6 +188,8 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Server" },
@@ -254,7 +274,13 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// The cmk identity for the server.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Inputs.MySQLServerIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Source properties for import from storage.
+        /// </summary>
+        [Input("importSourceProperties")]
+        public Input<Inputs.ImportSourcePropertiesArgs>? ImportSourceProperties { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -302,7 +328,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// The SKU (pricing tier) of the server.
         /// </summary>
         [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
+        public Input<Inputs.MySQLServerSkuArgs>? Sku { get; set; }
 
         /// <summary>
         /// The source MySQL server id.

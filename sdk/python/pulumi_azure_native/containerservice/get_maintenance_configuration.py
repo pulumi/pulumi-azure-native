@@ -27,10 +27,16 @@ class GetMaintenanceConfigurationResult:
     """
     See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
     """
-    def __init__(__self__, id=None, name=None, not_allowed_time=None, system_data=None, time_in_week=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, maintenance_window=None, name=None, not_allowed_time=None, system_data=None, time_in_week=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if maintenance_window and not isinstance(maintenance_window, dict):
+            raise TypeError("Expected argument 'maintenance_window' to be a dict")
+        pulumi.set(__self__, "maintenance_window", maintenance_window)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -48,12 +54,28 @@ class GetMaintenanceConfigurationResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional['outputs.MaintenanceWindowResponse']:
+        """
+        Maintenance window for the maintenance configuration.
+        """
+        return pulumi.get(self, "maintenance_window")
 
     @property
     @pulumi.getter
@@ -102,7 +124,9 @@ class AwaitableGetMaintenanceConfigurationResult(GetMaintenanceConfigurationResu
         if False:
             yield self
         return GetMaintenanceConfigurationResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
+            maintenance_window=self.maintenance_window,
             name=self.name,
             not_allowed_time=self.not_allowed_time,
             system_data=self.system_data,
@@ -117,9 +141,9 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
     """
     See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01.
+    Other available API versions: 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str config_name: The name of the maintenance configuration.
@@ -134,7 +158,9 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice:getMaintenanceConfiguration', __args__, opts=opts, typ=GetMaintenanceConfigurationResult).value
 
     return AwaitableGetMaintenanceConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
+        maintenance_window=pulumi.get(__ret__, 'maintenance_window'),
         name=pulumi.get(__ret__, 'name'),
         not_allowed_time=pulumi.get(__ret__, 'not_allowed_time'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -147,9 +173,9 @@ def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]
     """
     See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01.
+    Other available API versions: 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str config_name: The name of the maintenance configuration.
@@ -163,7 +189,9 @@ def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice:getMaintenanceConfiguration', __args__, opts=opts, typ=GetMaintenanceConfigurationResult)
     return __ret__.apply(lambda __response__: GetMaintenanceConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
+        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
         name=pulumi.get(__response__, 'name'),
         not_allowed_time=pulumi.get(__response__, 'not_allowed_time'),
         system_data=pulumi.get(__response__, 'system_data'),

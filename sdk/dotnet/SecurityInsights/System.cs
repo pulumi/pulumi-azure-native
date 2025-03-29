@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// <summary>
     /// Describes the system within the agent.
     /// 
-    /// Uses Azure REST API version 2024-04-01-preview.
+    /// Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
     /// 
-    /// Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+    /// Other available API versions: 2024-04-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:System")]
     public partial class System : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The configuration of the system.
         /// </summary>

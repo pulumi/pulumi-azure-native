@@ -51,6 +51,10 @@ export interface GetIotHubDataConnectionArgs {
  */
 export interface GetIotHubDataConnectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The iot hub consumer group.
      */
     readonly consumerGroup: string;

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a network manager security configuration admin rule.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// </summary>
         public static Task<GetDefaultAdminRuleResult> InvokeAsync(GetDefaultAdminRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultAdminRuleResult>("azure-native:network:getDefaultAdminRule", args ?? new GetDefaultAdminRuleArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a network manager security configuration admin rule.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// </summary>
         public static Output<GetDefaultAdminRuleResult> Invoke(GetDefaultAdminRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultAdminRuleResult>("azure-native:network:getDefaultAdminRule", args ?? new GetDefaultAdminRuleInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a network manager security configuration admin rule.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// </summary>
         public static Output<GetDefaultAdminRuleResult> Invoke(GetDefaultAdminRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultAdminRuleResult>("azure-native:network:getDefaultAdminRule", args ?? new GetDefaultAdminRuleInvokeArgs(), options.WithDefaults());
@@ -122,6 +122,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Access;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A description for this rule. Restricted to 140 chars.
         /// </summary>
         public readonly string Description;
@@ -195,6 +199,8 @@ namespace Pulumi.AzureNative.Network
         private GetDefaultAdminRuleResult(
             string access,
 
+            string azureApiVersion,
+
             string description,
 
             ImmutableArray<string> destinationPortRanges,
@@ -230,6 +236,7 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             Access = access;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DestinationPortRanges = destinationPortRanges;
             Destinations = destinations;

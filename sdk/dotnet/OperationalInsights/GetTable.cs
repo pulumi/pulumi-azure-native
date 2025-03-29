@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a Log Analytics workspace table.
         /// 
-        /// Uses Azure REST API version 2022-10-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a Log Analytics workspace table.
         /// 
-        /// Uses Azure REST API version 2022-10-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a Log Analytics workspace table.
         /// 
-        /// Uses Azure REST API version 2022-10-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly int ArchiveRetentionInDays;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -168,6 +172,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         private GetTableResult(
             int archiveRetentionInDays,
 
+            string azureApiVersion,
+
             string id,
 
             string lastPlanModifiedDate,
@@ -199,6 +205,7 @@ namespace Pulumi.AzureNative.OperationalInsights
             string type)
         {
             ArchiveRetentionInDays = archiveRetentionInDays;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             LastPlanModifiedDate = lastPlanModifiedDate;
             Name = name;

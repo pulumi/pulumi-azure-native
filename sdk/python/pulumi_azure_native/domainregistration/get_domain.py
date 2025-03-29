@@ -27,13 +27,16 @@ class GetDomainResult:
     """
     Information about a domain.
     """
-    def __init__(__self__, auth_code=None, auto_renew=None, created_time=None, dns_type=None, dns_zone_id=None, domain_not_renewable_reasons=None, expiration_time=None, id=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, tags=None, target_dns_type=None, type=None):
+    def __init__(__self__, auth_code=None, auto_renew=None, azure_api_version=None, created_time=None, dns_type=None, dns_zone_id=None, domain_not_renewable_reasons=None, expiration_time=None, id=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, tags=None, target_dns_type=None, type=None):
         if auth_code and not isinstance(auth_code, str):
             raise TypeError("Expected argument 'auth_code' to be a str")
         pulumi.set(__self__, "auth_code", auth_code)
         if auto_renew and not isinstance(auto_renew, bool):
             raise TypeError("Expected argument 'auto_renew' to be a bool")
         pulumi.set(__self__, "auto_renew", auto_renew)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -106,6 +109,14 @@ class GetDomainResult:
         return pulumi.get(self, "auto_renew")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> str:
         """
@@ -157,7 +168,7 @@ class GetDomainResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -267,6 +278,7 @@ class AwaitableGetDomainResult(GetDomainResult):
         return GetDomainResult(
             auth_code=self.auth_code,
             auto_renew=self.auto_renew,
+            azure_api_version=self.azure_api_version,
             created_time=self.created_time,
             dns_type=self.dns_type,
             dns_zone_id=self.dns_zone_id,
@@ -294,9 +306,9 @@ def get_domain(domain_name: Optional[str] = None,
     """
     Description for Get a domain.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str domain_name: Name of the domain.
@@ -311,6 +323,7 @@ def get_domain(domain_name: Optional[str] = None,
     return AwaitableGetDomainResult(
         auth_code=pulumi.get(__ret__, 'auth_code'),
         auto_renew=pulumi.get(__ret__, 'auto_renew'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_time=pulumi.get(__ret__, 'created_time'),
         dns_type=pulumi.get(__ret__, 'dns_type'),
         dns_zone_id=pulumi.get(__ret__, 'dns_zone_id'),
@@ -336,9 +349,9 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     """
     Description for Get a domain.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str domain_name: Name of the domain.
@@ -352,6 +365,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetDomainResult(
         auth_code=pulumi.get(__response__, 'auth_code'),
         auto_renew=pulumi.get(__response__, 'auto_renew'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_time=pulumi.get(__response__, 'created_time'),
         dns_type=pulumi.get(__response__, 'dns_type'),
         dns_zone_id=pulumi.get(__response__, 'dns_zone_id'),

@@ -27,7 +27,10 @@ class GetAksAssessmentOperationResult:
     """
     ARM model of AKS Assessment.
     """
-    def __init__(__self__, details=None, e_tag=None, id=None, name=None, provisioning_state=None, scope=None, settings=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, details=None, e_tag=None, id=None, name=None, provisioning_state=None, scope=None, settings=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if details and not isinstance(details, dict):
             raise TypeError("Expected argument 'details' to be a dict")
         pulumi.set(__self__, "details", details)
@@ -55,6 +58,14 @@ class GetAksAssessmentOperationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetAksAssessmentOperationResult(GetAksAssessmentOperationResult):
         if False:
             yield self
         return GetAksAssessmentOperationResult(
+            azure_api_version=self.azure_api_version,
             details=self.details,
             e_tag=self.e_tag,
             id=self.id,
@@ -153,9 +165,9 @@ def get_aks_assessment_operation(assessment_name: Optional[str] = None,
     """
     Get a AKSAssessment
 
-    Uses Azure REST API version 2023-04-01-preview.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assessment_name: AKS Assessment Name.
@@ -170,6 +182,7 @@ def get_aks_assessment_operation(assessment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:migrate:getAksAssessmentOperation', __args__, opts=opts, typ=GetAksAssessmentOperationResult).value
 
     return AwaitableGetAksAssessmentOperationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         details=pulumi.get(__ret__, 'details'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         id=pulumi.get(__ret__, 'id'),
@@ -186,9 +199,9 @@ def get_aks_assessment_operation_output(assessment_name: Optional[pulumi.Input[s
     """
     Get a AKSAssessment
 
-    Uses Azure REST API version 2023-04-01-preview.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assessment_name: AKS Assessment Name.
@@ -202,6 +215,7 @@ def get_aks_assessment_operation_output(assessment_name: Optional[pulumi.Input[s
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getAksAssessmentOperation', __args__, opts=opts, typ=GetAksAssessmentOperationResult)
     return __ret__.apply(lambda __response__: GetAksAssessmentOperationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         details=pulumi.get(__response__, 'details'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         id=pulumi.get(__response__, 'id'),

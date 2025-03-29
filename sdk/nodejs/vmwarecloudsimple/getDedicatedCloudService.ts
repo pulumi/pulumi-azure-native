@@ -33,6 +33,10 @@ export interface GetDedicatedCloudServiceArgs {
  */
 export interface GetDedicatedCloudServiceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * gateway Subnet for the account. It will collect the subnet address and always treat it as /28
      */
     readonly gatewaySubnet: string;

@@ -12,15 +12,19 @@ namespace Pulumi.AzureNative.App
     /// <summary>
     /// Container App.
     /// 
-    /// Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2022-03-01.
+    /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
-    /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
-    /// 
-    /// **Note**: the current default Azure API version for this resource, 2022-10-01, has an issue with referencing Key Vault secrets via the `KeyVaultUrl` property. If you encounter the error _"invalid: value or keyVaultUrl and identity should be provided"_ with such a configuration, you can use API version 2023-05-1 instead. In v3 of this provider, we will update the default API version.
+    /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerApp")]
     public partial class ContainerApp : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Non versioned Container App configuration properties.
         /// </summary>
@@ -82,6 +86,12 @@ namespace Pulumi.AzureNative.App
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        /// </summary>
+        [Output("managedBy")]
+        public Output<string?> ManagedBy { get; private set; } = null!;
+
+        /// <summary>
         /// Deprecated. Resource ID of the Container App's environment.
         /// </summary>
         [Output("managedEnvironmentId")]
@@ -130,10 +140,10 @@ namespace Pulumi.AzureNative.App
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Workload profile type to pin for container app execution.
+        /// Workload profile name to pin for container app execution.
         /// </summary>
-        [Output("workloadProfileType")]
-        public Output<string?> WorkloadProfileType { get; private set; } = null!;
+        [Output("workloadProfileName")]
+        public Output<string?> WorkloadProfileName { get; private set; } = null!;
 
 
         /// <summary>
@@ -235,6 +245,12 @@ namespace Pulumi.AzureNative.App
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        /// </summary>
+        [Input("managedBy")]
+        public Input<string>? ManagedBy { get; set; }
+
+        /// <summary>
         /// Deprecated. Resource ID of the Container App's environment.
         /// </summary>
         [Input("managedEnvironmentId")]
@@ -265,10 +281,10 @@ namespace Pulumi.AzureNative.App
         public Input<Inputs.TemplateArgs>? Template { get; set; }
 
         /// <summary>
-        /// Workload profile type to pin for container app execution.
+        /// Workload profile name to pin for container app execution.
         /// </summary>
-        [Input("workloadProfileType")]
-        public Input<string>? WorkloadProfileType { get; set; }
+        [Input("workloadProfileName")]
+        public Input<string>? WorkloadProfileName { get; set; }
 
         public ContainerAppArgs()
         {

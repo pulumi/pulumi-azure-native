@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// Get an alert processing rule by name.
         /// 
         /// Uses Azure REST API version 2021-08-08.
+        /// 
+        /// Other available API versions: 2021-08-08-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAlertProcessingRuleByNameResult> InvokeAsync(GetAlertProcessingRuleByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertProcessingRuleByNameResult>("azure-native:alertsmanagement:getAlertProcessingRuleByName", args ?? new GetAlertProcessingRuleByNameArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// Get an alert processing rule by name.
         /// 
         /// Uses Azure REST API version 2021-08-08.
+        /// 
+        /// Other available API versions: 2021-08-08-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAlertProcessingRuleByNameResult> Invoke(GetAlertProcessingRuleByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertProcessingRuleByNameResult>("azure-native:alertsmanagement:getAlertProcessingRuleByName", args ?? new GetAlertProcessingRuleByNameInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// Get an alert processing rule by name.
         /// 
         /// Uses Azure REST API version 2021-08-08.
+        /// 
+        /// Other available API versions: 2021-08-08-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAlertProcessingRuleByNameResult> Invoke(GetAlertProcessingRuleByNameInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertProcessingRuleByNameResult>("azure-native:alertsmanagement:getAlertProcessingRuleByName", args ?? new GetAlertProcessingRuleByNameInvokeArgs(), options.WithDefaults());
@@ -82,6 +88,10 @@ namespace Pulumi.AzureNative.AlertsManagement
     public sealed class GetAlertProcessingRuleByNameResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
@@ -112,6 +122,8 @@ namespace Pulumi.AzureNative.AlertsManagement
 
         [OutputConstructor]
         private GetAlertProcessingRuleByNameResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -126,6 +138,7 @@ namespace Pulumi.AzureNative.AlertsManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -27,7 +27,10 @@ class GetUserResult:
     """
     User details.
     """
-    def __init__(__self__, email=None, first_name=None, groups=None, id=None, identities=None, last_name=None, name=None, note=None, registration_date=None, state=None, type=None):
+    def __init__(__self__, azure_api_version=None, email=None, first_name=None, groups=None, id=None, identities=None, last_name=None, name=None, note=None, registration_date=None, state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
@@ -61,6 +64,14 @@ class GetUserResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -157,6 +168,7 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
+            azure_api_version=self.azure_api_version,
             email=self.email,
             first_name=self.first_name,
             groups=self.groups,
@@ -177,9 +189,9 @@ def get_user(resource_group_name: Optional[str] = None,
     """
     Gets the details of the user specified by its identifier.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2016-10-10, 2017-03-01, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -194,6 +206,7 @@ def get_user(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         email=pulumi.get(__ret__, 'email'),
         first_name=pulumi.get(__ret__, 'first_name'),
         groups=pulumi.get(__ret__, 'groups'),
@@ -212,9 +225,9 @@ def get_user_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the details of the user specified by its identifier.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2016-10-10, 2017-03-01, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -228,6 +241,7 @@ def get_user_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         email=pulumi.get(__response__, 'email'),
         first_name=pulumi.get(__response__, 'first_name'),
         groups=pulumi.get(__response__, 'groups'),

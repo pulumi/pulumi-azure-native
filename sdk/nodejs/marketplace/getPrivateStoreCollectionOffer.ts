@@ -41,6 +41,10 @@ export interface GetPrivateStoreCollectionOfferArgs {
  */
 export interface GetPrivateStoreCollectionOfferResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Private store offer creation date
      */
     readonly createdAt: string;

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The Managed Network resource
  *
- * Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+ * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
- * Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class NetworkManager extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class NetworkManager extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * A description of the network manager.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -60,7 +64,7 @@ export class NetworkManager extends pulumi.CustomResource {
     /**
      * Scope Access.
      */
-    public readonly networkManagerScopeAccesses!: pulumi.Output<string[]>;
+    public readonly networkManagerScopeAccesses!: pulumi.Output<string[] | undefined>;
     /**
      * Scope of Network Manager.
      */
@@ -97,9 +101,6 @@ export class NetworkManager extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkManagerScopeAccesses === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'networkManagerScopeAccesses'");
-            }
             if ((!args || args.networkManagerScopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerScopes'");
             }
@@ -114,6 +115,7 @@ export class NetworkManager extends pulumi.CustomResource {
             resourceInputs["networkManagerScopes"] = args ? args.networkManagerScopes : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -121,6 +123,7 @@ export class NetworkManager extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -163,7 +166,7 @@ export interface NetworkManagerArgs {
     /**
      * Scope Access.
      */
-    networkManagerScopeAccesses: pulumi.Input<pulumi.Input<string | enums.network.ConfigurationType>[]>;
+    networkManagerScopeAccesses?: pulumi.Input<pulumi.Input<string | enums.network.ConfigurationType>[]>;
     /**
      * Scope of Network Manager.
      */

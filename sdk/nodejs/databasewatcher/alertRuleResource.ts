@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
  *
- * Uses Azure REST API version 2024-07-19-preview.
+ * Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-07-19-preview.
  *
- * Other available API versions: 2024-10-01-preview, 2025-01-02.
+ * Other available API versions: 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AlertRuleResource extends pulumi.CustomResource {
     /**
@@ -53,6 +53,10 @@ export class AlertRuleResource extends pulumi.CustomResource {
      * The alert rule template version.
      */
     public readonly alertRuleTemplateVersion!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The properties with which the alert rule resource was created.
      */
@@ -118,6 +122,7 @@ export class AlertRuleResource extends pulumi.CustomResource {
             resourceInputs["creationTime"] = args ? args.creationTime : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -126,6 +131,7 @@ export class AlertRuleResource extends pulumi.CustomResource {
             resourceInputs["alertRuleResourceId"] = undefined /*out*/;
             resourceInputs["alertRuleTemplateId"] = undefined /*out*/;
             resourceInputs["alertRuleTemplateVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdWithProperties"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

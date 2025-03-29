@@ -27,10 +27,13 @@ class GetMetadataSchemaResult:
     """
     Metadata schema entity. Used to define metadata for the entities in API catalog.
     """
-    def __init__(__self__, assigned_to=None, id=None, name=None, schema=None, system_data=None, type=None):
+    def __init__(__self__, assigned_to=None, azure_api_version=None, id=None, name=None, schema=None, system_data=None, type=None):
         if assigned_to and not isinstance(assigned_to, list):
             raise TypeError("Expected argument 'assigned_to' to be a list")
         pulumi.set(__self__, "assigned_to", assigned_to)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -54,6 +57,14 @@ class GetMetadataSchemaResult:
         The assignees
         """
         return pulumi.get(self, "assigned_to")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -103,6 +114,7 @@ class AwaitableGetMetadataSchemaResult(GetMetadataSchemaResult):
             yield self
         return GetMetadataSchemaResult(
             assigned_to=self.assigned_to,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             schema=self.schema,
@@ -117,9 +129,9 @@ def get_metadata_schema(metadata_schema_name: Optional[str] = None,
     """
     Returns details of the metadata schema.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-03-15-preview.
 
-    Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+    Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str metadata_schema_name: The name of the metadata schema.
@@ -135,6 +147,7 @@ def get_metadata_schema(metadata_schema_name: Optional[str] = None,
 
     return AwaitableGetMetadataSchemaResult(
         assigned_to=pulumi.get(__ret__, 'assigned_to'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         schema=pulumi.get(__ret__, 'schema'),
@@ -147,9 +160,9 @@ def get_metadata_schema_output(metadata_schema_name: Optional[pulumi.Input[str]]
     """
     Returns details of the metadata schema.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-03-15-preview.
 
-    Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+    Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str metadata_schema_name: The name of the metadata schema.
@@ -164,6 +177,7 @@ def get_metadata_schema_output(metadata_schema_name: Optional[pulumi.Input[str]]
     __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter:getMetadataSchema', __args__, opts=opts, typ=GetMetadataSchemaResult)
     return __ret__.apply(lambda __response__: GetMetadataSchemaResult(
         assigned_to=pulumi.get(__response__, 'assigned_to'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         schema=pulumi.get(__response__, 'schema'),

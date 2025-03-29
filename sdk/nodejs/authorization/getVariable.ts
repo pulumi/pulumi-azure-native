@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-08-01-preview.
  *
- * Other available API versions: 2024-12-01-preview.
+ * Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,6 +32,10 @@ export interface GetVariableArgs {
  * The variable.
  */
 export interface GetVariableResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Variable column definitions.
      */
@@ -58,7 +62,7 @@ export interface GetVariableResult {
  *
  * Uses Azure REST API version 2022-08-01-preview.
  *
- * Other available API versions: 2024-12-01-preview.
+ * Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -45,6 +45,10 @@ export interface GetSapInstanceResult {
      */
     readonly application: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The Environment; PRD, QA, DEV, etc to which SAP system belongs to. Select from the list of available dropdown values.
      */
     readonly environment: string;

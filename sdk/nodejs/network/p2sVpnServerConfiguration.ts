@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * P2SVpnServerConfiguration Resource.
  *
- * Uses Azure REST API version 2019-07-01. In version 1.x of the Azure Native provider, it used API version 2019-07-01.
+ * Uses Azure REST API version 2019-07-01. In version 2.x of the Azure Native provider, it used API version 2019-07-01.
+ *
+ * Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class P2sVpnServerConfiguration extends pulumi.CustomResource {
     /**
@@ -40,53 +42,21 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
+     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * List of references to P2SVpnGateways.
+     * Properties of the P2SVpnServer configuration.
      */
-    public /*out*/ readonly p2SVpnGateways!: pulumi.Output<outputs.network.SubResourceResponse[]>;
-    /**
-     * Radius client root certificate of P2SVpnServerConfiguration.
-     */
-    public readonly p2SVpnServerConfigRadiusClientRootCertificates!: pulumi.Output<outputs.network.P2SVpnServerConfigRadiusClientRootCertificateResponse[] | undefined>;
-    /**
-     * Radius Server root certificate of P2SVpnServerConfiguration.
-     */
-    public readonly p2SVpnServerConfigRadiusServerRootCertificates!: pulumi.Output<outputs.network.P2SVpnServerConfigRadiusServerRootCertificateResponse[] | undefined>;
-    /**
-     * VPN client revoked certificate of P2SVpnServerConfiguration.
-     */
-    public readonly p2SVpnServerConfigVpnClientRevokedCertificates!: pulumi.Output<outputs.network.P2SVpnServerConfigVpnClientRevokedCertificateResponse[] | undefined>;
-    /**
-     * VPN client root certificate of P2SVpnServerConfiguration.
-     */
-    public readonly p2SVpnServerConfigVpnClientRootCertificates!: pulumi.Output<outputs.network.P2SVpnServerConfigVpnClientRootCertificateResponse[] | undefined>;
-    /**
-     * The provisioning state of the P2S VPN server configuration resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
-     */
-    public readonly radiusServerAddress!: pulumi.Output<string | undefined>;
-    /**
-     * The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
-     */
-    public readonly radiusServerSecret!: pulumi.Output<string | undefined>;
-    /**
-     * VpnClientIpsecPolicies for P2SVpnServerConfiguration.
-     */
-    public readonly vpnClientIpsecPolicies!: pulumi.Output<outputs.network.IpsecPolicyResponse[] | undefined>;
-    /**
-     * VPN protocols for the P2SVpnServerConfiguration.
-     */
-    public readonly vpnProtocols!: pulumi.Output<string[] | undefined>;
+    public readonly properties!: pulumi.Output<outputs.network.P2SVpnServerConfigurationPropertiesResponse>;
 
     /**
      * Create a P2sVpnServerConfiguration resource with the given unique name, arguments, and options.
@@ -107,33 +77,17 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["p2SVpnServerConfigRadiusClientRootCertificates"] = args ? args.p2SVpnServerConfigRadiusClientRootCertificates : undefined;
-            resourceInputs["p2SVpnServerConfigRadiusServerRootCertificates"] = args ? args.p2SVpnServerConfigRadiusServerRootCertificates : undefined;
-            resourceInputs["p2SVpnServerConfigVpnClientRevokedCertificates"] = args ? args.p2SVpnServerConfigVpnClientRevokedCertificates : undefined;
-            resourceInputs["p2SVpnServerConfigVpnClientRootCertificates"] = args ? args.p2SVpnServerConfigVpnClientRootCertificates : undefined;
             resourceInputs["p2SVpnServerConfigurationName"] = args ? args.p2SVpnServerConfigurationName : undefined;
-            resourceInputs["radiusServerAddress"] = args ? args.radiusServerAddress : undefined;
-            resourceInputs["radiusServerSecret"] = args ? args.radiusServerSecret : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["virtualWanName"] = args ? args.virtualWanName : undefined;
-            resourceInputs["vpnClientIpsecPolicies"] = args ? args.vpnClientIpsecPolicies : undefined;
-            resourceInputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["p2SVpnGateways"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["p2SVpnGateways"] = undefined /*out*/;
-            resourceInputs["p2SVpnServerConfigRadiusClientRootCertificates"] = undefined /*out*/;
-            resourceInputs["p2SVpnServerConfigRadiusServerRootCertificates"] = undefined /*out*/;
-            resourceInputs["p2SVpnServerConfigVpnClientRevokedCertificates"] = undefined /*out*/;
-            resourceInputs["p2SVpnServerConfigVpnClientRootCertificates"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["radiusServerAddress"] = undefined /*out*/;
-            resourceInputs["radiusServerSecret"] = undefined /*out*/;
-            resourceInputs["vpnClientIpsecPolicies"] = undefined /*out*/;
-            resourceInputs["vpnProtocols"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20180801:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20181001:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20181101:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20181201:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190201:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190401:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190601:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190701:P2sVpnServerConfiguration" }] };
@@ -151,37 +105,17 @@ export interface P2sVpnServerConfigurationArgs {
      */
     id?: pulumi.Input<string>;
     /**
-     * The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
+     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Radius client root certificate of P2SVpnServerConfiguration.
-     */
-    p2SVpnServerConfigRadiusClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.P2SVpnServerConfigRadiusClientRootCertificateArgs>[]>;
-    /**
-     * Radius Server root certificate of P2SVpnServerConfiguration.
-     */
-    p2SVpnServerConfigRadiusServerRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.P2SVpnServerConfigRadiusServerRootCertificateArgs>[]>;
-    /**
-     * VPN client revoked certificate of P2SVpnServerConfiguration.
-     */
-    p2SVpnServerConfigVpnClientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.P2SVpnServerConfigVpnClientRevokedCertificateArgs>[]>;
-    /**
-     * VPN client root certificate of P2SVpnServerConfiguration.
-     */
-    p2SVpnServerConfigVpnClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.P2SVpnServerConfigVpnClientRootCertificateArgs>[]>;
     /**
      * The name of the P2SVpnServerConfiguration.
      */
     p2SVpnServerConfigurationName?: pulumi.Input<string>;
     /**
-     * The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
+     * Properties of the P2SVpnServer configuration.
      */
-    radiusServerAddress?: pulumi.Input<string>;
-    /**
-     * The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
-     */
-    radiusServerSecret?: pulumi.Input<string>;
+    properties?: pulumi.Input<inputs.network.P2SVpnServerConfigurationPropertiesArgs>;
     /**
      * The resource group name of the VirtualWan.
      */
@@ -190,12 +124,4 @@ export interface P2sVpnServerConfigurationArgs {
      * The name of the VirtualWan.
      */
     virtualWanName: pulumi.Input<string>;
-    /**
-     * VpnClientIpsecPolicies for P2SVpnServerConfiguration.
-     */
-    vpnClientIpsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicyArgs>[]>;
-    /**
-     * VPN protocols for the P2SVpnServerConfiguration.
-     */
-    vpnProtocols?: pulumi.Input<pulumi.Input<string | enums.network.VpnGatewayTunnelingProtocol>[]>;
 }

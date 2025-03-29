@@ -26,7 +26,10 @@ class GetDdosCustomPolicyResult:
     """
     A DDoS custom policy in a resource group.
     """
-    def __init__(__self__, etag=None, id=None, location=None, name=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, location=None, name=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -51,6 +54,14 @@ class GetDdosCustomPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -123,6 +134,7 @@ class AwaitableGetDdosCustomPolicyResult(GetDdosCustomPolicyResult):
         if False:
             yield self
         return GetDdosCustomPolicyResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             location=self.location,
@@ -139,9 +151,9 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[str] = None,
     """
     Gets information about the specified DDoS custom policy.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2022-01-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str ddos_custom_policy_name: The name of the DDoS custom policy.
@@ -154,6 +166,7 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getDdosCustomPolicy', __args__, opts=opts, typ=GetDdosCustomPolicyResult).value
 
     return AwaitableGetDdosCustomPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -168,9 +181,9 @@ def get_ddos_custom_policy_output(ddos_custom_policy_name: Optional[pulumi.Input
     """
     Gets information about the specified DDoS custom policy.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2022-01-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str ddos_custom_policy_name: The name of the DDoS custom policy.
@@ -182,6 +195,7 @@ def get_ddos_custom_policy_output(ddos_custom_policy_name: Optional[pulumi.Input
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getDdosCustomPolicy', __args__, opts=opts, typ=GetDdosCustomPolicyResult)
     return __ret__.apply(lambda __response__: GetDdosCustomPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

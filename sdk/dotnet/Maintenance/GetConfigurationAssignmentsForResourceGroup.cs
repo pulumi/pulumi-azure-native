@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// Get configuration assignment for resource..
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetConfigurationAssignmentsForResourceGroupResult> InvokeAsync(GetConfigurationAssignmentsForResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentsForResourceGroupResult>("azure-native:maintenance:getConfigurationAssignmentsForResourceGroup", args ?? new GetConfigurationAssignmentsForResourceGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// Get configuration assignment for resource..
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConfigurationAssignmentsForResourceGroupResult> Invoke(GetConfigurationAssignmentsForResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentsForResourceGroupResult>("azure-native:maintenance:getConfigurationAssignmentsForResourceGroup", args ?? new GetConfigurationAssignmentsForResourceGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// Get configuration assignment for resource..
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConfigurationAssignmentsForResourceGroupResult> Invoke(GetConfigurationAssignmentsForResourceGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentsForResourceGroupResult>("azure-native:maintenance:getConfigurationAssignmentsForResourceGroup", args ?? new GetConfigurationAssignmentsForResourceGroupInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Maintenance
     public sealed class GetConfigurationAssignmentsForResourceGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Properties of the configuration assignment
         /// </summary>
         public readonly Outputs.ConfigurationAssignmentFilterPropertiesResponse? Filter;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.Maintenance
 
         [OutputConstructor]
         private GetConfigurationAssignmentsForResourceGroupResult(
+            string azureApiVersion,
+
             Outputs.ConfigurationAssignmentFilterPropertiesResponse? filter,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.Maintenance
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Filter = filter;
             Id = id;
             Location = location;

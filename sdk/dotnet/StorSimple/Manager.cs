@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.StorSimple
     /// <summary>
     /// The StorSimple Manager.
     /// 
-    /// Uses Azure REST API version 2017-06-01. In version 1.x of the Azure Native provider, it used API version 2017-06-01.
+    /// Uses Azure REST API version 2017-06-01. In version 2.x of the Azure Native provider, it used API version 2017-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:Manager")]
     public partial class Manager : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Represents the type of StorSimple Manager.
         /// </summary>

@@ -27,13 +27,16 @@ class GetApiManagementServiceResult:
     """
     A single API Management service resource in List or Get response.
     """
-    def __init__(__self__, additional_locations=None, api_version_constraint=None, certificates=None, created_at_utc=None, custom_properties=None, developer_portal_url=None, disable_gateway=None, enable_client_certificate=None, etag=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identity=None, location=None, management_api_url=None, name=None, nat_gateway_state=None, notification_sender_email=None, outbound_public_ip_addresses=None, platform_version=None, portal_url=None, private_endpoint_connections=None, private_ip_addresses=None, provisioning_state=None, public_ip_addresses=None, public_ip_address_id=None, public_network_access=None, publisher_email=None, publisher_name=None, restore=None, scm_url=None, sku=None, system_data=None, tags=None, target_provisioning_state=None, type=None, virtual_network_configuration=None, virtual_network_type=None, zones=None):
+    def __init__(__self__, additional_locations=None, api_version_constraint=None, azure_api_version=None, certificates=None, created_at_utc=None, custom_properties=None, developer_portal_url=None, disable_gateway=None, enable_client_certificate=None, etag=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identity=None, location=None, management_api_url=None, name=None, nat_gateway_state=None, notification_sender_email=None, outbound_public_ip_addresses=None, platform_version=None, portal_url=None, private_endpoint_connections=None, private_ip_addresses=None, provisioning_state=None, public_ip_addresses=None, public_ip_address_id=None, public_network_access=None, publisher_email=None, publisher_name=None, restore=None, scm_url=None, sku=None, system_data=None, tags=None, target_provisioning_state=None, type=None, virtual_network_configuration=None, virtual_network_type=None, zones=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
         pulumi.set(__self__, "additional_locations", additional_locations)
         if api_version_constraint and not isinstance(api_version_constraint, dict):
             raise TypeError("Expected argument 'api_version_constraint' to be a dict")
         pulumi.set(__self__, "api_version_constraint", api_version_constraint)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if certificates and not isinstance(certificates, list):
             raise TypeError("Expected argument 'certificates' to be a list")
         pulumi.set(__self__, "certificates", certificates)
@@ -164,6 +167,14 @@ class GetApiManagementServiceResult:
         Control Plane Apis version constraint for the API Management service.
         """
         return pulumi.get(self, "api_version_constraint")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -478,6 +489,7 @@ class AwaitableGetApiManagementServiceResult(GetApiManagementServiceResult):
         return GetApiManagementServiceResult(
             additional_locations=self.additional_locations,
             api_version_constraint=self.api_version_constraint,
+            azure_api_version=self.azure_api_version,
             certificates=self.certificates,
             created_at_utc=self.created_at_utc,
             custom_properties=self.custom_properties,
@@ -524,9 +536,9 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
     """
     Gets an API Management service resource description.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -541,6 +553,7 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
     return AwaitableGetApiManagementServiceResult(
         additional_locations=pulumi.get(__ret__, 'additional_locations'),
         api_version_constraint=pulumi.get(__ret__, 'api_version_constraint'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         certificates=pulumi.get(__ret__, 'certificates'),
         created_at_utc=pulumi.get(__ret__, 'created_at_utc'),
         custom_properties=pulumi.get(__ret__, 'custom_properties'),
@@ -585,9 +598,9 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
     """
     Gets an API Management service resource description.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -601,6 +614,7 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
     return __ret__.apply(lambda __response__: GetApiManagementServiceResult(
         additional_locations=pulumi.get(__response__, 'additional_locations'),
         api_version_constraint=pulumi.get(__response__, 'api_version_constraint'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         certificates=pulumi.get(__response__, 'certificates'),
         created_at_utc=pulumi.get(__response__, 'created_at_utc'),
         custom_properties=pulumi.get(__response__, 'custom_properties'),

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets an existing attestation at resource group scope.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2024-10-01.
+        /// Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAttestationAtResourceGroupResult> InvokeAsync(GetAttestationAtResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceGroupResult>("azure-native:policyinsights:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets an existing attestation at resource group scope.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2024-10-01.
+        /// Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAttestationAtResourceGroupResult> Invoke(GetAttestationAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceGroupResult>("azure-native:policyinsights:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets an existing attestation at resource group scope.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2024-10-01.
+        /// Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAttestationAtResourceGroupResult> Invoke(GetAttestationAtResourceGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceGroupResult>("azure-native:policyinsights:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// The time the evidence was assessed
         /// </summary>
         public readonly string? AssessmentDate;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Comments describing why this attestation was created.
         /// </summary>
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         private GetAttestationAtResourceGroupResult(
             string? assessmentDate,
 
+            string azureApiVersion,
+
             string? comments,
 
             string? complianceState,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.PolicyInsights
             string type)
         {
             AssessmentDate = assessmentDate;
+            AzureApiVersion = azureApiVersion;
             Comments = comments;
             ComplianceState = complianceState;
             Evidence = evidence;

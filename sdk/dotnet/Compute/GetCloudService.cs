@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Compute
         /// 
         /// Uses Azure REST API version 2022-09-04.
         /// 
-        /// Other available API versions: 2024-11-04.
+        /// Other available API versions: 2022-04-04, 2024-11-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCloudServiceResult> InvokeAsync(GetCloudServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Compute
         /// 
         /// Uses Azure REST API version 2022-09-04.
         /// 
-        /// Other available API versions: 2024-11-04.
+        /// Other available API versions: 2022-04-04, 2024-11-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCloudServiceResult> Invoke(GetCloudServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Compute
         /// 
         /// Uses Azure REST API version 2022-09-04.
         /// 
-        /// Other available API versions: 2024-11-04.
+        /// Other available API versions: 2022-04-04, 2024-11-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCloudServiceResult> Invoke(GetCloudServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetCloudServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetCloudServiceResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.Compute
 
             ImmutableArray<string> zones)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

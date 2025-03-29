@@ -466,9 +466,9 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
         """
         Web app Assessment REST resource.
 
-        Uses Azure REST API version 2023-04-01-preview.
+        Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -511,9 +511,9 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
         """
         Web app Assessment REST resource.
 
-        Uses Azure REST API version 2023-04-01-preview.
+        Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WebAppAssessmentV2OperationArgs args: The arguments to use to populate this resource's properties.
@@ -595,6 +595,7 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
             __props__.__dict__["scaling_factor"] = scaling_factor
             __props__.__dict__["sizing_criterion"] = sizing_criterion
             __props__.__dict__["time_range"] = time_range
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_timestamp"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["prices_timestamp"] = None
@@ -632,6 +633,7 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
         __props__.__dict__["app_svc_container_settings"] = None
         __props__.__dict__["app_svc_native_settings"] = None
         __props__.__dict__["assessment_type"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["azure_location"] = None
         __props__.__dict__["azure_offer_code"] = None
         __props__.__dict__["azure_security_offering_type"] = None
@@ -685,6 +687,14 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
         Assessment type of the assessment.
         """
         return pulumi.get(self, "assessment_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureLocation")

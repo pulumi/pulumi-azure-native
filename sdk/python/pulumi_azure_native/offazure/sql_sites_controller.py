@@ -123,9 +123,9 @@ class SqlSitesController(pulumi.CustomResource):
         """
         SQL site web model.
 
-        Uses Azure REST API version 2023-06-06.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,9 +146,9 @@ class SqlSitesController(pulumi.CustomResource):
         """
         SQL site web model.
 
-        Uses Azure REST API version 2023-06-06.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param SqlSitesControllerArgs args: The arguments to use to populate this resource's properties.
@@ -188,6 +188,7 @@ class SqlSitesController(pulumi.CustomResource):
                 raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["sql_site_name"] = sql_site_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["service_endpoint"] = None
@@ -217,6 +218,7 @@ class SqlSitesController(pulumi.CustomResource):
 
         __props__ = SqlSitesControllerArgs.__new__(SqlSitesControllerArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["discovery_scenario"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -225,6 +227,14 @@ class SqlSitesController(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SqlSitesController(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="discoveryScenario")

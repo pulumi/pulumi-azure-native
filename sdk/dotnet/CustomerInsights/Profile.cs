@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.CustomerInsights
     /// <summary>
     /// The profile resource format.
     /// 
-    /// Uses Azure REST API version 2017-04-26. In version 1.x of the Azure Native provider, it used API version 2017-04-26.
+    /// Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:Profile")]
     public partial class Profile : global::Pulumi.CustomResource
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         [Output("attributes")]
         public Output<ImmutableDictionary<string, ImmutableArray<string>>?> Attributes { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Localized descriptions for the property.

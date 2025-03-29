@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2024-01-01-preview.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMarketplaceSubscription(args: GetMarketplaceSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetMarketplaceSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetMarketplaceSubscriptionArgs {
  */
 export interface GetMarketplaceSubscriptionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -66,9 +70,9 @@ export interface GetMarketplaceSubscriptionResult {
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2024-01-01-preview.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMarketplaceSubscriptionOutput(args: GetMarketplaceSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMarketplaceSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

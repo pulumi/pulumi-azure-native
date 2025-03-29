@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get access review history definition by definition Id
  *
  * Uses Azure REST API version 2021-12-01-preview.
+ *
+ * Other available API versions: 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAccessReviewHistoryDefinitionById(args: GetAccessReviewHistoryDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewHistoryDefinitionByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,6 +33,10 @@ export interface GetAccessReviewHistoryDefinitionByIdArgs {
  */
 export interface GetAccessReviewHistoryDefinitionByIdResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Date time when history definition was created
      */
     readonly createdDateTime: string;
@@ -42,10 +48,6 @@ export interface GetAccessReviewHistoryDefinitionByIdResult {
      * The display name for the history definition.
      */
     readonly displayName?: string;
-    /**
-     * The DateTime when the review is scheduled to end. Required if type is endDate
-     */
-    readonly endDate?: string;
     /**
      * The access review history definition id.
      */
@@ -63,10 +65,6 @@ export interface GetAccessReviewHistoryDefinitionByIdResult {
      */
     readonly name: string;
     /**
-     * The number of times to repeat the access review. Required and must be positive if type is numbered.
-     */
-    readonly numberOfOccurrences?: number;
-    /**
      * The identity id
      */
     readonly principalId: string;
@@ -79,6 +77,10 @@ export interface GetAccessReviewHistoryDefinitionByIdResult {
      */
     readonly principalType: string;
     /**
+     * Access Review History Definition recurrence settings.
+     */
+    readonly range?: outputs.authorization.AccessReviewRecurrenceRangeResponse;
+    /**
      * Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
      */
     readonly reviewHistoryPeriodEndDateTime: string;
@@ -90,10 +92,6 @@ export interface GetAccessReviewHistoryDefinitionByIdResult {
      * A collection of scopes used when selecting review history data
      */
     readonly scopes?: outputs.authorization.AccessReviewScopeResponse[];
-    /**
-     * The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-     */
-    readonly startDate?: string;
     /**
      * This read-only field specifies the of the requested review history data. This is either requested, in-progress, done or error.
      */
@@ -111,6 +109,8 @@ export interface GetAccessReviewHistoryDefinitionByIdResult {
  * Get access review history definition by definition Id
  *
  * Uses Azure REST API version 2021-12-01-preview.
+ *
+ * Other available API versions: 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAccessReviewHistoryDefinitionByIdOutput(args: GetAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessReviewHistoryDefinitionByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

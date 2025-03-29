@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.SignalRService.Outputs
     public sealed class SignalRTlsSettingsResponse
     {
         /// <summary>
-        /// Request client certificate during TLS handshake if enabled
+        /// Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         /// </summary>
         public readonly bool? ClientCertEnabled;
 

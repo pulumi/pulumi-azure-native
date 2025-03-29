@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// A paginated list of FeaturesetJob entities.
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview.
+        /// Other available API versions: 2023-02-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListFeaturesetVersionMaterializationJobsResult> InvokeAsync(ListFeaturesetVersionMaterializationJobsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListFeaturesetVersionMaterializationJobsResult>("azure-native:machinelearningservices:listFeaturesetVersionMaterializationJobs", args ?? new ListFeaturesetVersionMaterializationJobsArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// A paginated list of FeaturesetJob entities.
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview.
+        /// Other available API versions: 2023-02-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListFeaturesetVersionMaterializationJobsResult> Invoke(ListFeaturesetVersionMaterializationJobsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFeaturesetVersionMaterializationJobsResult>("azure-native:machinelearningservices:listFeaturesetVersionMaterializationJobs", args ?? new ListFeaturesetVersionMaterializationJobsInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// A paginated list of FeaturesetJob entities.
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview.
+        /// Other available API versions: 2023-02-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListFeaturesetVersionMaterializationJobsResult> Invoke(ListFeaturesetVersionMaterializationJobsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListFeaturesetVersionMaterializationJobsResult>("azure-native:machinelearningservices:listFeaturesetVersionMaterializationJobs", args ?? new ListFeaturesetVersionMaterializationJobsInvokeArgs(), options.WithDefaults());

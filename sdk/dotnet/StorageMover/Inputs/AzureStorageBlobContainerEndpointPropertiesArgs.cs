@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageMover.Inputs
 {
 
+    /// <summary>
+    /// The properties of Azure Storage blob container endpoint.
+    /// </summary>
     public sealed class AzureStorageBlobContainerEndpointPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

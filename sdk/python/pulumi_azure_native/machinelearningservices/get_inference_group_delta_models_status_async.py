@@ -108,9 +108,9 @@ def get_inference_group_delta_models_status_async(delta_models: Optional[Sequenc
     """
     Contract returning to user the delta models.
 
-    Uses Azure REST API version 2024-10-01-preview.
+    Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2025-01-01-preview.
+    Other available API versions: 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param Sequence[str] delta_models: Gets or sets collection of delta models to retrieve status for.
@@ -146,9 +146,9 @@ def get_inference_group_delta_models_status_async_output(delta_models: Optional[
     """
     Contract returning to user the delta models.
 
-    Uses Azure REST API version 2024-10-01-preview.
+    Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2025-01-01-preview.
+    Other available API versions: 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param Sequence[str] delta_models: Gets or sets collection of delta models to retrieve status for.

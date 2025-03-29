@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.AVS.Inputs
         /// <summary>
         /// The cluster size
         /// </summary>
-        [Input("clusterSize", required: true)]
-        public Input<int> ClusterSize { get; set; } = null!;
+        [Input("clusterSize")]
+        public Input<int>? ClusterSize { get; set; }
 
         [Input("hosts")]
         private InputList<string>? _hosts;
@@ -32,6 +32,12 @@ namespace Pulumi.AzureNative.AVS.Inputs
             get => _hosts ?? (_hosts = new InputList<string>());
             set => _hosts = value;
         }
+
+        /// <summary>
+        /// Name of the vsan datastore associated with the cluster
+        /// </summary>
+        [Input("vsanDatastoreName")]
+        public Input<string>? VsanDatastoreName { get; set; }
 
         public ManagementClusterArgs()
         {

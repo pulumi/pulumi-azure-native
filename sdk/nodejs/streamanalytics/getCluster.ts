@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Gets information about the specified cluster.
  *
  * Uses Azure REST API version 2020-03-01.
- *
- * Other available API versions: 2020-03-01-preview.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +35,10 @@ export interface GetClusterArgs {
  * A Stream Analytics Cluster object
  */
 export interface GetClusterResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Represents the number of streaming units currently being used on the cluster.
      */
@@ -90,8 +92,6 @@ export interface GetClusterResult {
  * Gets information about the specified cluster.
  *
  * Uses Azure REST API version 2020-03-01.
- *
- * Other available API versions: 2020-03-01-preview.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

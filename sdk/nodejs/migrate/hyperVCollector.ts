@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2019-10-01. In version 1.x of the Azure Native provider, it used API version 2019-10-01.
+ * Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
  */
 export class HyperVCollector extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class HyperVCollector extends pulumi.CustomResource {
         return obj['__pulumiType'] === HyperVCollector.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     public readonly eTag!: pulumi.Output<string | undefined>;
     public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly properties!: pulumi.Output<outputs.migrate.CollectorPropertiesResponse>;
@@ -64,16 +68,18 @@ export class HyperVCollector extends pulumi.CustomResource {
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:HyperVCollector" }, { type: "azure-native:migrate/v20230315:HyperVCollector" }, { type: "azure-native:migrate/v20230401preview:HyperVCollector" }, { type: "azure-native:migrate/v20230501preview:HyperVCollector" }, { type: "azure-native:migrate/v20230909preview:HyperVCollector" }, { type: "azure-native:migrate/v20240101preview:HyperVCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:HyperVCollector" }, { type: "azure-native:migrate/v20230315:HyperVCollector" }, { type: "azure-native:migrate/v20230315:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:HyperVCollector" }, { type: "azure-native:migrate/v20230401preview:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:HyperVCollector" }, { type: "azure-native:migrate/v20230501preview:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:HyperVCollector" }, { type: "azure-native:migrate/v20230909preview:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20240101preview:HyperVCollector" }, { type: "azure-native:migrate/v20240101preview:HypervCollectorsOperation" }, { type: "azure-native:migrate:HypervCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HyperVCollector.__pulumiType, name, resourceInputs, opts);
     }

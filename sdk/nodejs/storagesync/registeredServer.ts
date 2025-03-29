@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Registered Server resource.
  *
- * Uses Azure REST API version 2022-06-01. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
+ * Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
  *
- * Other available API versions: 2022-09-01.
+ * Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class RegisteredServer extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class RegisteredServer extends pulumi.CustomResource {
     }
 
     /**
+     * Server auth type.
+     */
+    public /*out*/ readonly activeAuthType!: pulumi.Output<string>;
+    /**
      * Registered Server Agent Version
      */
     public readonly agentVersion!: pulumi.Output<string | undefined>;
@@ -53,6 +57,14 @@ export class RegisteredServer extends pulumi.CustomResource {
      * Registered Server Agent Version Status
      */
     public /*out*/ readonly agentVersionStatus!: pulumi.Output<string>;
+    /**
+     * Server Application Id
+     */
+    public readonly applicationId!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Registered Server clusterId
      */
@@ -70,6 +82,10 @@ export class RegisteredServer extends pulumi.CustomResource {
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
     /**
+     * Apply server with newly discovered ApplicationId if available.
+     */
+    public readonly identity!: pulumi.Output<boolean>;
+    /**
      * Registered Server last heart beat
      */
     public readonly lastHeartBeat!: pulumi.Output<string | undefined>;
@@ -81,6 +97,10 @@ export class RegisteredServer extends pulumi.CustomResource {
      * Registered Server lastWorkflowId
      */
     public /*out*/ readonly lastWorkflowId!: pulumi.Output<string | undefined>;
+    /**
+     * Latest Server Application Id discovered from the server. It is not yet applied.
+     */
+    public /*out*/ readonly latestApplicationId!: pulumi.Output<string | undefined>;
     /**
      * Management Endpoint Uri
      */
@@ -164,9 +184,11 @@ export class RegisteredServer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
             resourceInputs["agentVersion"] = args ? args.agentVersion : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["clusterId"] = args ? args.clusterId : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["lastHeartBeat"] = args ? args.lastHeartBeat : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverCertificate"] = args ? args.serverCertificate : undefined;
@@ -174,11 +196,14 @@ export class RegisteredServer extends pulumi.CustomResource {
             resourceInputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
             resourceInputs["serverRole"] = args ? args.serverRole : undefined;
             resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            resourceInputs["activeAuthType"] = undefined /*out*/;
             resourceInputs["agentVersionExpirationDate"] = undefined /*out*/;
             resourceInputs["agentVersionStatus"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["discoveryEndpointUri"] = undefined /*out*/;
             resourceInputs["lastOperationName"] = undefined /*out*/;
             resourceInputs["lastWorkflowId"] = undefined /*out*/;
+            resourceInputs["latestApplicationId"] = undefined /*out*/;
             resourceInputs["managementEndpointUri"] = undefined /*out*/;
             resourceInputs["monitoringConfiguration"] = undefined /*out*/;
             resourceInputs["monitoringEndpointUri"] = undefined /*out*/;
@@ -192,16 +217,21 @@ export class RegisteredServer extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["activeAuthType"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;
             resourceInputs["agentVersionExpirationDate"] = undefined /*out*/;
             resourceInputs["agentVersionStatus"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["clusterName"] = undefined /*out*/;
             resourceInputs["discoveryEndpointUri"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["lastHeartBeat"] = undefined /*out*/;
             resourceInputs["lastOperationName"] = undefined /*out*/;
             resourceInputs["lastWorkflowId"] = undefined /*out*/;
+            resourceInputs["latestApplicationId"] = undefined /*out*/;
             resourceInputs["managementEndpointUri"] = undefined /*out*/;
             resourceInputs["monitoringConfiguration"] = undefined /*out*/;
             resourceInputs["monitoringEndpointUri"] = undefined /*out*/;
@@ -235,6 +265,10 @@ export interface RegisteredServerArgs {
      */
     agentVersion?: pulumi.Input<string>;
     /**
+     * Server ServicePrincipal Id
+     */
+    applicationId?: pulumi.Input<string>;
+    /**
      * Registered Server clusterId
      */
     clusterId?: pulumi.Input<string>;
@@ -246,6 +280,10 @@ export interface RegisteredServerArgs {
      * Friendly Name
      */
     friendlyName?: pulumi.Input<string>;
+    /**
+     * Apply server with newly discovered ApplicationId if available.
+     */
+    identity?: pulumi.Input<boolean>;
     /**
      * Registered Server last heart beat
      */

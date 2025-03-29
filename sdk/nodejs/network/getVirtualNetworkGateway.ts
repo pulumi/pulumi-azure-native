@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified virtual network gateway by resource group.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,6 +53,14 @@ export interface GetVirtualNetworkGatewayResult {
      * Configures this gateway to accept traffic from remote Virtual WAN networks.
      */
     readonly allowVirtualWanTraffic?: boolean;
+    /**
+     * Autoscale configuration for virutal network gateway
+     */
+    readonly autoScaleConfiguration?: outputs.network.VirtualNetworkGatewayAutoScaleConfigurationResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Virtual network gateway's BGP speaker settings.
      */
@@ -102,6 +110,10 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly id?: string;
     /**
+     * The identity of the virtual network gateway, if configured.
+     */
+    readonly identity?: outputs.network.ManagedServiceIdentityResponse;
+    /**
      * The IP address allocated by the gateway to which dns requests can be sent.
      */
     readonly inboundDnsForwardingEndpoint: string;
@@ -125,6 +137,10 @@ export interface GetVirtualNetworkGatewayResult {
      * The provisioning state of the virtual network gateway resource.
      */
     readonly provisioningState: string;
+    /**
+     * Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
+     */
+    readonly resiliencyModel?: string;
     /**
      * The resource GUID property of the virtual network gateway resource.
      */
@@ -165,9 +181,9 @@ export interface GetVirtualNetworkGatewayResult {
 /**
  * Gets the specified virtual network gateway by resource group.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVirtualNetworkGatewayOutput(args: GetVirtualNetworkGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

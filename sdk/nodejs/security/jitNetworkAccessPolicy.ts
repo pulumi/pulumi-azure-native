@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2020-01-01. In version 1.x of the Azure Native provider, it used API version 2020-01-01.
+ * Uses Azure REST API version 2020-01-01. In version 2.x of the Azure Native provider, it used API version 2020-01-01.
  */
 export class JitNetworkAccessPolicy extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === JitNetworkAccessPolicy.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Kind of the resource
      */
@@ -89,11 +93,13 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
             resourceInputs["requests"] = args ? args.requests : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["virtualMachines"] = args ? args.virtualMachines : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

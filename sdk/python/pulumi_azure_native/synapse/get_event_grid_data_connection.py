@@ -27,7 +27,10 @@ class GetEventGridDataConnectionResult:
     """
     Class representing an Event Grid data connection.
     """
-    def __init__(__self__, blob_storage_event_type=None, consumer_group=None, data_format=None, event_hub_resource_id=None, id=None, ignore_first_record=None, kind=None, location=None, mapping_rule_name=None, name=None, provisioning_state=None, storage_account_resource_id=None, system_data=None, table_name=None, type=None):
+    def __init__(__self__, azure_api_version=None, blob_storage_event_type=None, consumer_group=None, data_format=None, event_hub_resource_id=None, id=None, ignore_first_record=None, kind=None, location=None, mapping_rule_name=None, name=None, provisioning_state=None, storage_account_resource_id=None, system_data=None, table_name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if blob_storage_event_type and not isinstance(blob_storage_event_type, str):
             raise TypeError("Expected argument 'blob_storage_event_type' to be a str")
         pulumi.set(__self__, "blob_storage_event_type", blob_storage_event_type)
@@ -73,6 +76,14 @@ class GetEventGridDataConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="blobStorageEventType")
@@ -202,6 +213,7 @@ class AwaitableGetEventGridDataConnectionResult(GetEventGridDataConnectionResult
         if False:
             yield self
         return GetEventGridDataConnectionResult(
+            azure_api_version=self.azure_api_version,
             blob_storage_event_type=self.blob_storage_event_type,
             consumer_group=self.consumer_group,
             data_format=self.data_format,
@@ -247,6 +259,7 @@ def get_event_grid_data_connection(data_connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse:getEventGridDataConnection', __args__, opts=opts, typ=GetEventGridDataConnectionResult).value
 
     return AwaitableGetEventGridDataConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         blob_storage_event_type=pulumi.get(__ret__, 'blob_storage_event_type'),
         consumer_group=pulumi.get(__ret__, 'consumer_group'),
         data_format=pulumi.get(__ret__, 'data_format'),
@@ -289,6 +302,7 @@ def get_event_grid_data_connection_output(data_connection_name: Optional[pulumi.
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getEventGridDataConnection', __args__, opts=opts, typ=GetEventGridDataConnectionResult)
     return __ret__.apply(lambda __response__: GetEventGridDataConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         blob_storage_event_type=pulumi.get(__response__, 'blob_storage_event_type'),
         consumer_group=pulumi.get(__response__, 'consumer_group'),
         data_format=pulumi.get(__response__, 'data_format'),

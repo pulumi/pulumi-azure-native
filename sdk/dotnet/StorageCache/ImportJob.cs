@@ -13,10 +13,18 @@ namespace Pulumi.AzureNative.StorageCache
     /// An import job instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// 
     /// Uses Azure REST API version 2024-03-01.
+    /// 
+    /// Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache:ImportJob")]
     public partial class ImportJob : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// A recent and frequently updated rate of total files, directories, and symlinks imported per second.
         /// </summary>
@@ -157,10 +165,7 @@ namespace Pulumi.AzureNative.StorageCache
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240301:ImportJob" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240301:importJob" },
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240701:ImportJob" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240701:importJob" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache:importJob" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

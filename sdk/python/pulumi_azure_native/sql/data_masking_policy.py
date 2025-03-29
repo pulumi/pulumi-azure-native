@@ -132,9 +132,9 @@ class DataMaskingPolicy(pulumi.CustomResource):
         """
         A database data masking policy.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2014-04-01.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2014-04-01, 2021-11-01, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,9 +154,9 @@ class DataMaskingPolicy(pulumi.CustomResource):
         """
         A database data masking policy.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2014-04-01.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2014-04-01, 2021-11-01, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DataMaskingPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -203,6 +203,7 @@ class DataMaskingPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["application_principals"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["masking_level"] = None
@@ -233,6 +234,7 @@ class DataMaskingPolicy(pulumi.CustomResource):
         __props__ = DataMaskingPolicyArgs.__new__(DataMaskingPolicyArgs)
 
         __props__.__dict__["application_principals"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["data_masking_state"] = None
         __props__.__dict__["exempt_principals"] = None
         __props__.__dict__["kind"] = None
@@ -249,6 +251,14 @@ class DataMaskingPolicy(pulumi.CustomResource):
         The list of the application principals. This is a legacy parameter and is no longer used.
         """
         return pulumi.get(self, "application_principals")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataMaskingState")

@@ -20,13 +20,13 @@ namespace Pulumi.AzureNative.Quota.Outputs
         /// <summary>
         /// An Azure subscriptionId.
         /// </summary>
-        public readonly string SubscriptionId;
+        public readonly string? SubscriptionId;
 
         [OutputConstructor]
         private GroupQuotaSubscriptionIdResponseProperties(
             string provisioningState,
 
-            string subscriptionId)
+            string? subscriptionId)
         {
             ProvisioningState = provisioningState;
             SubscriptionId = subscriptionId;

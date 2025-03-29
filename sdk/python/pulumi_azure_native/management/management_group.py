@@ -103,9 +103,9 @@ class ManagementGroup(pulumi.CustomResource):
         """
         The management group details.
 
-        Uses Azure REST API version 2021-04-01. In version 1.x of the Azure Native provider, it used API version 2020-05-01.
+        Uses Azure REST API version 2023-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
 
-        Other available API versions: 2023-04-01.
+        Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,9 +123,9 @@ class ManagementGroup(pulumi.CustomResource):
         """
         The management group details.
 
-        Uses Azure REST API version 2021-04-01. In version 1.x of the Azure Native provider, it used API version 2020-05-01.
+        Uses Azure REST API version 2023-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
 
-        Other available API versions: 2023-04-01.
+        Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupArgs args: The arguments to use to populate this resource's properties.
@@ -159,6 +159,7 @@ class ManagementGroup(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["group_id"] = group_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["children"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
@@ -186,6 +187,7 @@ class ManagementGroup(pulumi.CustomResource):
 
         __props__ = ManagementGroupArgs.__new__(ManagementGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["children"] = None
         __props__.__dict__["details"] = None
         __props__.__dict__["display_name"] = None
@@ -193,6 +195,14 @@ class ManagementGroup(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return ManagementGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

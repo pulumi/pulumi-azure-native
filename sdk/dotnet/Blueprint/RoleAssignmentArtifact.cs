@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Blueprint
     /// <summary>
     /// Blueprint artifact that applies a Role assignment.
     /// 
-    /// Uses Azure REST API version 2018-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-11-01-preview.
+    /// Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint:RoleAssignmentArtifact")]
     public partial class RoleAssignmentArtifact : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Artifacts which need to be deployed before the specified artifact.
         /// </summary>
@@ -104,7 +110,11 @@ namespace Pulumi.AzureNative.Blueprint
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact" },
                     new global::Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:RoleAssignmentArtifact" },
+                    new global::Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:TemplateArtifact" },
+                    new global::Pulumi.Alias { Type = "azure-native:blueprint:PolicyAssignmentArtifact" },
+                    new global::Pulumi.Alias { Type = "azure-native:blueprint:TemplateArtifact" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

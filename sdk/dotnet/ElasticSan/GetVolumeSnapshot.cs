@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Get a Volume Snapshot.
         /// 
-        /// Uses Azure REST API version 2023-01-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVolumeSnapshotResult> InvokeAsync(GetVolumeSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeSnapshotResult>("azure-native:elasticsan:getVolumeSnapshot", args ?? new GetVolumeSnapshotArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Get a Volume Snapshot.
         /// 
-        /// Uses Azure REST API version 2023-01-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVolumeSnapshotResult> Invoke(GetVolumeSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeSnapshotResult>("azure-native:elasticsan:getVolumeSnapshot", args ?? new GetVolumeSnapshotInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Get a Volume Snapshot.
         /// 
-        /// Uses Azure REST API version 2023-01-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVolumeSnapshotResult> Invoke(GetVolumeSnapshotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeSnapshotResult>("azure-native:elasticsan:getVolumeSnapshot", args ?? new GetVolumeSnapshotInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.ElasticSan
     public sealed class GetVolumeSnapshotResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Data used when creating a volume snapshot.
         /// </summary>
         public readonly Outputs.SnapshotCreationDataResponse CreationData;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNative.ElasticSan
 
         [OutputConstructor]
         private GetVolumeSnapshotResult(
+            string azureApiVersion,
+
             Outputs.SnapshotCreationDataResponse creationData,
 
             string id,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.ElasticSan
 
             string volumeName)
         {
+            AzureApiVersion = azureApiVersion;
             CreationData = creationData;
             Id = id;
             Name = name;

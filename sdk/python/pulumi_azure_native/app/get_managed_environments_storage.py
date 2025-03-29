@@ -27,7 +27,10 @@ class GetManagedEnvironmentsStorageResult:
     """
     Storage resource for managedEnvironment.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetManagedEnvironmentsStorageResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -91,6 +102,7 @@ class AwaitableGetManagedEnvironmentsStorageResult(GetManagedEnvironmentsStorage
         if False:
             yield self
         return GetManagedEnvironmentsStorageResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             properties=self.properties,
@@ -105,9 +117,9 @@ def get_managed_environments_storage(environment_name: Optional[str] = None,
     """
     Get storage for a managedEnvironment.
 
-    Uses Azure REST API version 2022-10-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str environment_name: Name of the Environment.
@@ -122,6 +134,7 @@ def get_managed_environments_storage(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getManagedEnvironmentsStorage', __args__, opts=opts, typ=GetManagedEnvironmentsStorageResult).value
 
     return AwaitableGetManagedEnvironmentsStorageResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
@@ -134,9 +147,9 @@ def get_managed_environments_storage_output(environment_name: Optional[pulumi.In
     """
     Get storage for a managedEnvironment.
 
-    Uses Azure REST API version 2022-10-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str environment_name: Name of the Environment.
@@ -150,6 +163,7 @@ def get_managed_environments_storage_output(environment_name: Optional[pulumi.In
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getManagedEnvironmentsStorage', __args__, opts=opts, typ=GetManagedEnvironmentsStorageResult)
     return __ret__.apply(lambda __response__: GetManagedEnvironmentsStorageResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),

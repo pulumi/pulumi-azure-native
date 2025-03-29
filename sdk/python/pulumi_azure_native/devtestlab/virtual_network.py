@@ -187,7 +187,7 @@ class VirtualNetwork(pulumi.CustomResource):
         """
         A virtual network.
 
-        Uses Azure REST API version 2018-09-15. In version 1.x of the Azure Native provider, it used API version 2018-09-15.
+        Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,7 +210,7 @@ class VirtualNetwork(pulumi.CustomResource):
         """
         A virtual network.
 
-        Uses Azure REST API version 2018-09-15. In version 1.x of the Azure Native provider, it used API version 2018-09-15.
+        Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -258,6 +258,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["subnet_overrides"] = subnet_overrides
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_date"] = None
             __props__.__dict__["external_subnets"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -288,6 +289,7 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
 
         __props__.__dict__["allowed_subnets"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_date"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["external_provider_resource_id"] = None
@@ -308,6 +310,14 @@ class VirtualNetwork(pulumi.CustomResource):
         The allowed subnets of the virtual network.
         """
         return pulumi.get(self, "allowed_subnets")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")

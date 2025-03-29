@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Lists approved schemas for Azure Data Transfer.
         /// 
-        /// Uses Azure REST API version 2023-10-11-preview.
+        /// Uses Azure REST API version 2024-09-27.
         /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
+        /// Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListAzureDataTransferApprovedSchemasResult> InvokeAsync(ListAzureDataTransferApprovedSchemasArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAzureDataTransferApprovedSchemasResult>("azure-native:azuredatatransfer:listAzureDataTransferApprovedSchemas", args ?? new ListAzureDataTransferApprovedSchemasArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Lists approved schemas for Azure Data Transfer.
         /// 
-        /// Uses Azure REST API version 2023-10-11-preview.
+        /// Uses Azure REST API version 2024-09-27.
         /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
+        /// Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListAzureDataTransferApprovedSchemasResult> Invoke(ListAzureDataTransferApprovedSchemasInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAzureDataTransferApprovedSchemasResult>("azure-native:azuredatatransfer:listAzureDataTransferApprovedSchemas", args ?? new ListAzureDataTransferApprovedSchemasInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Lists approved schemas for Azure Data Transfer.
         /// 
-        /// Uses Azure REST API version 2023-10-11-preview.
+        /// Uses Azure REST API version 2024-09-27.
         /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
+        /// Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListAzureDataTransferApprovedSchemasResult> Invoke(ListAzureDataTransferApprovedSchemasInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAzureDataTransferApprovedSchemasResult>("azure-native:azuredatatransfer:listAzureDataTransferApprovedSchemas", args ?? new ListAzureDataTransferApprovedSchemasInvokeArgs(), options.WithDefaults());

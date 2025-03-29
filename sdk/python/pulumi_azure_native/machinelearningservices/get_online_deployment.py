@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetOnlineDeploymentResult:
-    def __init__(__self__, id=None, identity=None, kind=None, location=None, name=None, online_deployment_properties=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, kind=None, location=None, name=None, online_deployment_properties=None, sku=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -55,6 +58,14 @@ class GetOnlineDeploymentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -143,6 +154,7 @@ class AwaitableGetOnlineDeploymentResult(GetOnlineDeploymentResult):
         if False:
             yield self
         return GetOnlineDeploymentResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
@@ -161,9 +173,9 @@ def get_online_deployment(deployment_name: Optional[str] = None,
                           workspace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOnlineDeploymentResult:
     """
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str deployment_name: Inference Endpoint Deployment name.
@@ -180,6 +192,7 @@ def get_online_deployment(deployment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getOnlineDeployment', __args__, opts=opts, typ=GetOnlineDeploymentResult).value
 
     return AwaitableGetOnlineDeploymentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -196,9 +209,9 @@ def get_online_deployment_output(deployment_name: Optional[pulumi.Input[str]] = 
                                  workspace_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOnlineDeploymentResult]:
     """
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str deployment_name: Inference Endpoint Deployment name.
@@ -214,6 +227,7 @@ def get_online_deployment_output(deployment_name: Optional[pulumi.Input[str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getOnlineDeployment', __args__, opts=opts, typ=GetOnlineDeploymentResult)
     return __ret__.apply(lambda __response__: GetOnlineDeploymentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         kind=pulumi.get(__response__, 'kind'),

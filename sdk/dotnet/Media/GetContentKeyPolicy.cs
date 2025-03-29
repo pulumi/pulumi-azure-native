@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Media
         /// Get the details of a Content Key Policy in the Media Services account
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetContentKeyPolicyResult> InvokeAsync(GetContentKeyPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyResult>("azure-native:media:getContentKeyPolicy", args ?? new GetContentKeyPolicyArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Media
         /// Get the details of a Content Key Policy in the Media Services account
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetContentKeyPolicyResult> Invoke(GetContentKeyPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentKeyPolicyResult>("azure-native:media:getContentKeyPolicy", args ?? new GetContentKeyPolicyInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Media
         /// Get the details of a Content Key Policy in the Media Services account
         /// 
         /// Uses Azure REST API version 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetContentKeyPolicyResult> Invoke(GetContentKeyPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentKeyPolicyResult>("azure-native:media:getContentKeyPolicy", args ?? new GetContentKeyPolicyInvokeArgs(), options.WithDefaults());
@@ -94,6 +100,10 @@ namespace Pulumi.AzureNative.Media
     public sealed class GetContentKeyPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of the Policy
         /// </summary>
         public readonly string Created;
@@ -132,6 +142,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetContentKeyPolicyResult(
+            string azureApiVersion,
+
             string created,
 
             string? description,
@@ -150,6 +162,7 @@ namespace Pulumi.AzureNative.Media
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Created = created;
             Description = description;
             Id = id;

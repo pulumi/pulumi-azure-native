@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
  *
- * Uses Azure REST API version 2024-09-18-preview.
+ * Uses Azure REST API version 2024-09-18-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-18-preview.
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Instance extends pulumi.CustomResource {
         return obj['__pulumiType'] === Instance.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The managed service identities assigned to this resource.
      */
@@ -88,10 +92,12 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

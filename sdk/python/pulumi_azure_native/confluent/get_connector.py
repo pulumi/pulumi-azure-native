@@ -27,7 +27,10 @@ class GetConnectorResult:
     """
     Details of connector record
     """
-    def __init__(__self__, connector_basic_info=None, connector_service_type_info=None, id=None, name=None, partner_connector_info=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, connector_basic_info=None, connector_service_type_info=None, id=None, name=None, partner_connector_info=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connector_basic_info and not isinstance(connector_basic_info, dict):
             raise TypeError("Expected argument 'connector_basic_info' to be a dict")
         pulumi.set(__self__, "connector_basic_info", connector_basic_info)
@@ -49,6 +52,14 @@ class GetConnectorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectorBasicInfo")
@@ -113,6 +124,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
         if False:
             yield self
         return GetConnectorResult(
+            azure_api_version=self.azure_api_version,
             connector_basic_info=self.connector_basic_info,
             connector_service_type_info=self.connector_service_type_info,
             id=self.id,
@@ -150,6 +162,7 @@ def get_connector(cluster_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:confluent:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
     return AwaitableGetConnectorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connector_basic_info=pulumi.get(__ret__, 'connector_basic_info'),
         connector_service_type_info=pulumi.get(__ret__, 'connector_service_type_info'),
         id=pulumi.get(__ret__, 'id'),
@@ -184,6 +197,7 @@ def get_connector_output(cluster_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:confluent:getConnector', __args__, opts=opts, typ=GetConnectorResult)
     return __ret__.apply(lambda __response__: GetConnectorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connector_basic_info=pulumi.get(__response__, 'connector_basic_info'),
         connector_service_type_info=pulumi.get(__response__, 'connector_service_type_info'),
         id=pulumi.get(__response__, 'id'),

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Server communication link.
  *
- * Uses Azure REST API version 2014-04-01. In version 1.x of the Azure Native provider, it used API version 2014-04-01.
+ * Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
  */
 export class ServerCommunicationLink extends pulumi.CustomResource {
     /**
@@ -36,6 +36,10 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServerCommunicationLink.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Communication link kind.  This property is used for Azure Portal metadata.
      */
@@ -85,12 +89,14 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
             resourceInputs["partnerServer"] = args ? args.partnerServer : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

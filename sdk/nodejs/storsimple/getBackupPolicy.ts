@@ -43,6 +43,10 @@ export interface GetBackupPolicyArgs {
  */
 export interface GetBackupPolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
      */
     readonly backupPolicyCreationType: string;

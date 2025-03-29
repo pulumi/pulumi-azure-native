@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A class representing a SuppressionList resource.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
- * Other available API versions: 2024-09-01-preview.
+ * Other available API versions: 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SuppressionList extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class SuppressionList extends pulumi.CustomResource {
         return obj['__pulumiType'] === SuppressionList.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The date the resource was created.
      */
@@ -95,6 +99,7 @@ export class SuppressionList extends pulumi.CustomResource {
             resourceInputs["listName"] = args ? args.listName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["suppressionListName"] = args ? args.suppressionListName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeStamp"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["lastUpdatedTimeStamp"] = undefined /*out*/;
@@ -102,6 +107,7 @@ export class SuppressionList extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeStamp"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["lastUpdatedTimeStamp"] = undefined /*out*/;

@@ -171,9 +171,9 @@ class ConnectedEnvironment(pulumi.CustomResource):
         """
         An environment for Kubernetes cluster specialized for web workloads by Azure App Service
 
-        Uses Azure REST API version 2022-10-01.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,9 +195,9 @@ class ConnectedEnvironment(pulumi.CustomResource):
         """
         An environment for Kubernetes cluster specialized for web workloads by Azure App Service
 
-        Uses Azure REST API version 2022-10-01.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ConnectedEnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -241,6 +241,7 @@ class ConnectedEnvironment(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["static_ip"] = static_ip
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["default_domain"] = None
             __props__.__dict__["deployment_errors"] = None
             __props__.__dict__["name"] = None
@@ -271,6 +272,7 @@ class ConnectedEnvironment(pulumi.CustomResource):
 
         __props__ = ConnectedEnvironmentArgs.__new__(ConnectedEnvironmentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["custom_domain_configuration"] = None
         __props__.__dict__["dapr_ai_connection_string"] = None
         __props__.__dict__["default_domain"] = None
@@ -284,6 +286,14 @@ class ConnectedEnvironment(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ConnectedEnvironment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customDomainConfiguration")

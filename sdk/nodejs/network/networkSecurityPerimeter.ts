@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * The Network Security Perimeter resource
  *
- * Uses Azure REST API version 2021-03-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+ * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-01-preview.
  *
- * Other available API versions: 2021-02-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2021-02-01-preview, 2021-03-01-preview, 2023-07-01-preview, 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class NetworkSecurityPerimeter extends pulumi.CustomResource {
     /**
@@ -39,17 +39,9 @@ export class NetworkSecurityPerimeter extends pulumi.CustomResource {
     }
 
     /**
-     * A description of the network security perimeter.
+     * The Azure API version of the resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * A friendly name for the network security perimeter.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource location.
      */
@@ -57,7 +49,11 @@ export class NetworkSecurityPerimeter extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * perimeter guid of the network security perimeter.
+     */
+    public /*out*/ readonly perimeterGuid!: pulumi.Output<string>;
     /**
      * The provisioning state of the scope assignment resource.
      */
@@ -85,23 +81,21 @@ export class NetworkSecurityPerimeter extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkSecurityPerimeterName"] = args ? args.networkSecurityPerimeterName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["perimeterGuid"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["perimeterGuid"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -118,14 +112,6 @@ export class NetworkSecurityPerimeter extends pulumi.CustomResource {
  */
 export interface NetworkSecurityPerimeterArgs {
     /**
-     * A description of the network security perimeter.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * A friendly name for the network security perimeter.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
      * Resource ID.
      */
     id?: pulumi.Input<string>;
@@ -133,10 +119,6 @@ export interface NetworkSecurityPerimeterArgs {
      * Resource location.
      */
     location?: pulumi.Input<string>;
-    /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
-     */
-    name?: pulumi.Input<string>;
     /**
      * The name of the network security perimeter.
      */

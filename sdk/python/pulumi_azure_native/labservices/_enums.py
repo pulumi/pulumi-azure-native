@@ -5,47 +5,15 @@
 from enum import Enum
 
 __all__ = [
-    'AddRemove',
-    'ConfigurationState',
     'ConnectionType',
     'CreateOption',
     'EnableState',
-    'ManagedLabVmSize',
     'RecurrenceFrequency',
     'ResourceIdentityType',
     'ShutdownOnIdleMode',
     'SkuTier',
     'WeekDay',
 ]
-
-
-class AddRemove(str, Enum):
-    """
-    Enum indicating if user is adding or removing a favorite lab
-    """
-    ADD = "Add"
-    """
-    Indicates that a user is adding a favorite lab
-    """
-    REMOVE = "Remove"
-    """
-    Indicates that a user is removing a favorite lab
-    """
-
-
-class ConfigurationState(str, Enum):
-    """
-    Describes the user's progress in configuring their environment setting
-    """
-    NOT_APPLICABLE = "NotApplicable"
-    """
-    User either hasn't started configuring their template
-    or they haven't started the configuration process.
-    """
-    COMPLETED = "Completed"
-    """
-    User is finished modifying the template.
-    """
 
 
 class ConnectionType(str, Enum):
@@ -77,24 +45,6 @@ class EnableState(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class ManagedLabVmSize(str, Enum):
-    """
-    The size of the virtual machine
-    """
-    BASIC = "Basic"
-    """
-    The base VM size
-    """
-    STANDARD = "Standard"
-    """
-    The standard or default VM size
-    """
-    PERFORMANCE = "Performance"
-    """
-    The most performant VM size
-    """
 
 
 class RecurrenceFrequency(str, Enum):

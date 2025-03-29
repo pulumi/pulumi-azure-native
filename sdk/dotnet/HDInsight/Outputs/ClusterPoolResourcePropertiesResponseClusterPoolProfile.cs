@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
         /// Cluster pool version is a 2-part version.
         /// </summary>
         public readonly string ClusterPoolVersion;
+        /// <summary>
+        /// Gets or sets the IP tag for the public IPs created along with the HDInsightOnAks ClusterPools and Clusters. 
+        /// </summary>
+        public readonly Outputs.IpTagResponse? PublicIpTag;
 
         [OutputConstructor]
-        private ClusterPoolResourcePropertiesResponseClusterPoolProfile(string clusterPoolVersion)
+        private ClusterPoolResourcePropertiesResponseClusterPoolProfile(
+            string clusterPoolVersion,
+
+            Outputs.IpTagResponse? publicIpTag)
         {
             ClusterPoolVersion = clusterPoolVersion;
+            PublicIpTag = publicIpTag;
         }
     }
 }

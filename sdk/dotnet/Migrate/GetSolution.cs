@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Migrate
     public sealed class GetSolutionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the ETAG for optimistic concurrency control.
         /// </summary>
         public readonly string? Etag;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.Migrate
 
         [OutputConstructor]
         private GetSolutionResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.Migrate
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Name = name;

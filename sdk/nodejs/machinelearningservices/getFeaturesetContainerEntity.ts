@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2023-04-01-preview.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFeaturesetContainerEntity(args: GetFeaturesetContainerEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetFeaturesetContainerEntityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetFeaturesetContainerEntityArgs {
  */
 export interface GetFeaturesetContainerEntityResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * [Required] Additional attributes of the entity.
      */
     readonly featuresetContainerProperties: outputs.machinelearningservices.FeaturesetContainerResponse;
@@ -66,9 +70,9 @@ export interface GetFeaturesetContainerEntityResult {
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2023-04-01-preview.
+ * Uses Azure REST API version 2024-10-01.
  *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFeaturesetContainerEntityOutput(args: GetFeaturesetContainerEntityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFeaturesetContainerEntityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

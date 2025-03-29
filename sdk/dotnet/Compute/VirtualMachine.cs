@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Compute
     /// <summary>
     /// Describes a Virtual Machine.
     /// 
-    /// Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
@@ -38,6 +38,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.SubResourceResponse?> AvailabilitySet { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the billing related details of a Azure Spot virtual machine. Minimum api-version: 2019-03-01.
         /// </summary>
         [Output("billingProfile")]
@@ -54,6 +60,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("diagnosticsProfile")]
         public Output<Outputs.DiagnosticsProfileResponse?> DiagnosticsProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Etag is property returned in Create/Update/Get response of the VM, so that customer can supply it in the header to ensure optimistic updates.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -116,6 +128,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// ManagedBy is set to Virtual Machine Scale Set(VMSS) flex ARM resourceID, if the VM is part of the VMSS. This property is used by platform for internal resource group delete optimization.
+        /// </summary>
+        [Output("managedBy")]
+        public Output<string> ManagedBy { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
@@ -132,6 +150,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("osProfile")]
         public Output<Outputs.OSProfileResponse?> OsProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
+        /// </summary>
+        [Output("placement")]
+        public Output<Outputs.PlacementResponse?> Placement { get; private set; } = null!;
 
         /// <summary>
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
@@ -168,6 +192,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<Outputs.VirtualMachineExtensionResponse>> Resources { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+        /// </summary>
+        [Output("scheduledEventsPolicy")]
+        public Output<Outputs.ScheduledEventsPolicyResponse?> ScheduledEventsPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies Scheduled Event related configurations.
@@ -406,6 +436,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.OSProfileArgs>? OsProfile { get; set; }
 
         /// <summary>
+        /// Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
+        /// </summary>
+        [Input("placement")]
+        public Input<Inputs.PlacementArgs>? Placement { get; set; }
+
+        /// <summary>
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
         [Input("plan")]
@@ -434,6 +470,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+        /// </summary>
+        [Input("scheduledEventsPolicy")]
+        public Input<Inputs.ScheduledEventsPolicyArgs>? ScheduledEventsPolicy { get; set; }
 
         /// <summary>
         /// Specifies Scheduled Event related configurations.

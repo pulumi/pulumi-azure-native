@@ -27,7 +27,10 @@ class GetClusterResult:
     """
     The HDInsight cluster.
     """
-    def __init__(__self__, etag=None, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None, zones=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None, zones=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -58,6 +61,14 @@ class GetClusterResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             identity=self.identity,
@@ -164,9 +176,9 @@ def get_cluster(cluster_name: Optional[str] = None,
     """
     Gets the specified cluster.
 
-    Uses Azure REST API version 2021-06-01.
+    Uses Azure REST API version 2024-08-01-preview.
 
-    Other available API versions: 2023-04-15-preview, 2023-06-01-preview, 2023-08-15-preview, 2023-11-01-preview, 2024-05-01-preview, 2024-08-01-preview, 2025-01-15-preview.
+    Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_name: The name of the cluster.
@@ -179,6 +191,7 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hdinsight:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -195,9 +208,9 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the specified cluster.
 
-    Uses Azure REST API version 2021-06-01.
+    Uses Azure REST API version 2024-08-01-preview.
 
-    Other available API versions: 2023-04-15-preview, 2023-06-01-preview, 2023-08-15-preview, 2023-11-01-preview, 2024-05-01-preview, 2024-08-01-preview, 2025-01-15-preview.
+    Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cluster_name: The name of the cluster.
@@ -209,6 +222,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hdinsight:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

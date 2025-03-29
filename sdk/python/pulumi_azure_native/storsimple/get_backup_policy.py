@@ -26,7 +26,10 @@ class GetBackupPolicyResult:
     """
     The backup policy.
     """
-    def __init__(__self__, backup_policy_creation_type=None, id=None, kind=None, last_backup_time=None, name=None, next_backup_time=None, scheduled_backup_status=None, schedules_count=None, ssm_host_name=None, type=None, volume_ids=None):
+    def __init__(__self__, azure_api_version=None, backup_policy_creation_type=None, id=None, kind=None, last_backup_time=None, name=None, next_backup_time=None, scheduled_backup_status=None, schedules_count=None, ssm_host_name=None, type=None, volume_ids=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backup_policy_creation_type and not isinstance(backup_policy_creation_type, str):
             raise TypeError("Expected argument 'backup_policy_creation_type' to be a str")
         pulumi.set(__self__, "backup_policy_creation_type", backup_policy_creation_type)
@@ -60,6 +63,14 @@ class GetBackupPolicyResult:
         if volume_ids and not isinstance(volume_ids, list):
             raise TypeError("Expected argument 'volume_ids' to be a list")
         pulumi.set(__self__, "volume_ids", volume_ids)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backupPolicyCreationType")
@@ -156,6 +167,7 @@ class AwaitableGetBackupPolicyResult(GetBackupPolicyResult):
         if False:
             yield self
         return GetBackupPolicyResult(
+            azure_api_version=self.azure_api_version,
             backup_policy_creation_type=self.backup_policy_creation_type,
             id=self.id,
             kind=self.kind,
@@ -194,6 +206,7 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult).value
 
     return AwaitableGetBackupPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backup_policy_creation_type=pulumi.get(__ret__, 'backup_policy_creation_type'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -229,6 +242,7 @@ def get_backup_policy_output(backup_policy_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult)
     return __ret__.apply(lambda __response__: GetBackupPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backup_policy_creation_type=pulumi.get(__response__, 'backup_policy_creation_type'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

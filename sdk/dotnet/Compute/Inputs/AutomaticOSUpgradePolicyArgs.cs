@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<bool>? EnableAutomaticOSUpgrade { get; set; }
 
         /// <summary>
+        /// Indicates whether Auto OS Upgrade should undergo deferral. Deferred OS upgrades will send advanced notifications on a per-VM basis that an OS upgrade from rolling upgrades is incoming, via the IMDS tag 'Platform.PendingOSUpgrade'. The upgrade then defers until the upgrade is approved via an ApproveRollingUpgrade call.
+        /// </summary>
+        [Input("osRollingUpgradeDeferral")]
+        public Input<bool>? OsRollingUpgradeDeferral { get; set; }
+
+        /// <summary>
         /// Indicates whether rolling upgrade policy should be used during Auto OS Upgrade. Default value is false. Auto OS Upgrade will fallback to the default policy if no policy is defined on the VMSS.
         /// </summary>
         [Input("useRollingUpgradePolicy")]

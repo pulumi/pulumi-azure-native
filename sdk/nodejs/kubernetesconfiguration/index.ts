@@ -59,29 +59,6 @@ utilities.lazyLoad(exports, ["SourceControlConfiguration"], () => require("./sou
 // Export enums:
 export * from "../types/enums/kubernetesconfiguration";
 
-// Export sub-modules:
-import * as v20200701preview from "./v20200701preview";
-import * as v20211101preview from "./v20211101preview";
-import * as v20220101preview from "./v20220101preview";
-import * as v20220402preview from "./v20220402preview";
-import * as v20220701 from "./v20220701";
-import * as v20230501 from "./v20230501";
-import * as v20240401preview from "./v20240401preview";
-import * as v20241101 from "./v20241101";
-import * as v20241101preview from "./v20241101preview";
-
-export {
-    v20200701preview,
-    v20211101preview,
-    v20220101preview,
-    v20220402preview,
-    v20220701,
-    v20230501,
-    v20240401preview,
-    v20241101,
-    v20241101preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

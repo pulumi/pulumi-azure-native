@@ -239,9 +239,9 @@ class LabPlan(pulumi.CustomResource):
         """
         Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
 
-        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2021-10-01-preview.
+        Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2023-06-07.
+        Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,9 +267,9 @@ class LabPlan(pulumi.CustomResource):
         """
         Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
 
-        Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2021-10-01-preview.
+        Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2023-06-07.
+        Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param LabPlanArgs args: The arguments to use to populate this resource's properties.
@@ -321,8 +321,10 @@ class LabPlan(pulumi.CustomResource):
             __props__.__dict__["shared_gallery_id"] = shared_gallery_id
             __props__.__dict__["support_info"] = support_info
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_operation_error"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20211001preview:LabPlan"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:LabPlan"), pulumi.Alias(type_="azure-native:labservices/v20220801:LabPlan"), pulumi.Alias(type_="azure-native:labservices/v20230607:LabPlan")])
@@ -350,6 +352,7 @@ class LabPlan(pulumi.CustomResource):
         __props__ = LabPlanArgs.__new__(LabPlanArgs)
 
         __props__.__dict__["allowed_regions"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["default_auto_shutdown_profile"] = None
         __props__.__dict__["default_connection_profile"] = None
         __props__.__dict__["default_network_profile"] = None
@@ -358,6 +361,7 @@ class LabPlan(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_operation_error"] = None
         __props__.__dict__["shared_gallery_id"] = None
         __props__.__dict__["support_info"] = None
         __props__.__dict__["system_data"] = None
@@ -372,6 +376,14 @@ class LabPlan(pulumi.CustomResource):
         The allowed regions for the lab creator to use when creating labs using this lab plan.
         """
         return pulumi.get(self, "allowed_regions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultAutoShutdownProfile")
@@ -436,6 +448,14 @@ class LabPlan(pulumi.CustomResource):
         Current provisioning state of the lab plan.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceOperationError")
+    def resource_operation_error(self) -> pulumi.Output['outputs.ResourceOperationErrorResponse']:
+        """
+        Error details of last operation done on lab plan.
+        """
+        return pulumi.get(self, "resource_operation_error")
 
     @property
     @pulumi.getter(name="sharedGalleryId")

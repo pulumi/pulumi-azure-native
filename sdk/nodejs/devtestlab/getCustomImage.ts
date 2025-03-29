@@ -50,6 +50,10 @@ export interface GetCustomImageResult {
      */
     readonly author?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creation date of the custom image.
      */
     readonly creationDate: string;

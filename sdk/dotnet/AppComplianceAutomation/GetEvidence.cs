@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     public sealed class GetEvidenceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Control id.
         /// </summary>
         public readonly string? ControlId;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
 
         [OutputConstructor]
         private GetEvidenceResult(
+            string azureApiVersion,
+
             string? controlId,
 
             string? evidenceType,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ControlId = controlId;
             EvidenceType = evidenceType;
             ExtraData = extraData;

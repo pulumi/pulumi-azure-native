@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.CustomerInsights
     public sealed class GetRelationshipLinkResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Localized descriptions for the Relationship Link.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Description;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.CustomerInsights
 
         [OutputConstructor]
         private GetRelationshipLinkResult(
+            string azureApiVersion,
+
             ImmutableDictionary<string, string>? description,
 
             ImmutableDictionary<string, string>? displayName,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.CustomerInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Id = id;

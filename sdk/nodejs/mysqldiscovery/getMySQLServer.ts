@@ -41,6 +41,10 @@ export interface GetMySQLServerArgs {
  */
 export interface GetMySQLServerResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * mysql server edition.
      */
     readonly edition?: string;

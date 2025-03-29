@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetJitNetworkAccessPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -125,6 +129,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetJitNetworkAccessPolicyResult(
+            string azureApiVersion,
+
             string id,
 
             string? kind,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNative.Security
 
             ImmutableArray<Outputs.JitNetworkAccessPolicyVirtualMachineResponse> virtualMachines)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Kind = kind;
             Location = location;

@@ -10,9 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The private endpoint connection of a Digital Twin.
  *
- * Uses Azure REST API version 2023-01-31. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
- *
- * Other available API versions: 2020-12-01.
+ * Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateEndpointConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The resource name.
      */
@@ -82,10 +84,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

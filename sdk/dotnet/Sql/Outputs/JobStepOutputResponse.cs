@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Sql.Outputs
         /// <summary>
         /// The resource ID of the credential to use to connect to the output destination.
         /// </summary>
-        public readonly string Credential;
+        public readonly string? Credential;
         /// <summary>
         /// The output destination database.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.Sql.Outputs
 
         [OutputConstructor]
         private JobStepOutputResponse(
-            string credential,
+            string? credential,
 
             string databaseName,
 

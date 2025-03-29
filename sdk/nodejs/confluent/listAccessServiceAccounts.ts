@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * List service accounts success response
  *
- * Uses Azure REST API version 2023-08-22.
+ * Uses Azure REST API version 2024-07-01.
  *
- * Other available API versions: 2024-02-13, 2024-07-01.
+ * Other available API versions: 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listAccessServiceAccounts(args: ListAccessServiceAccountsArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessServiceAccountsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -29,7 +29,7 @@ export interface ListAccessServiceAccountsArgs {
      */
     organizationName: string;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * Resource group name
      */
     resourceGroupName: string;
     /**
@@ -58,9 +58,9 @@ export interface ListAccessServiceAccountsResult {
 /**
  * List service accounts success response
  *
- * Uses Azure REST API version 2023-08-22.
+ * Uses Azure REST API version 2024-07-01.
  *
- * Other available API versions: 2024-02-13, 2024-07-01.
+ * Other available API versions: 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listAccessServiceAccountsOutput(args: ListAccessServiceAccountsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessServiceAccountsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +77,7 @@ export interface ListAccessServiceAccountsOutputArgs {
      */
     organizationName: pulumi.Input<string>;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * Resource group name
      */
     resourceGroupName: pulumi.Input<string>;
     /**

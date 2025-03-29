@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The integration service environment managed api.
  *
- * Uses Azure REST API version 2019-05-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
+ * Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
  */
 export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResource {
     /**
@@ -47,6 +47,10 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
      * The api definitions.
      */
     public /*out*/ readonly apiDefinitions!: pulumi.Output<outputs.logic.ApiResourceDefinitionsResponse>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The backend service.
      */
@@ -134,6 +138,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["apiDefinitionUrl"] = undefined /*out*/;
             resourceInputs["apiDefinitions"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backendService"] = undefined /*out*/;
             resourceInputs["capabilities"] = undefined /*out*/;
             resourceInputs["category"] = undefined /*out*/;
@@ -148,6 +153,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
         } else {
             resourceInputs["apiDefinitionUrl"] = undefined /*out*/;
             resourceInputs["apiDefinitions"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backendService"] = undefined /*out*/;
             resourceInputs["capabilities"] = undefined /*out*/;
             resourceInputs["category"] = undefined /*out*/;

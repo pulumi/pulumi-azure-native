@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.IoTCentral
     /// <summary>
     /// The IoT Central application.
     /// 
-    /// Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2021-06-01.
+    /// Uses Azure REST API version 2021-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
-    /// Other available API versions: 2021-11-01-preview.
+    /// Other available API versions: 2021-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotcentral [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotcentral:App")]
     public partial class App : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.IoTCentral
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The display name of the application.
@@ -38,16 +44,40 @@ namespace Pulumi.AzureNative.IoTCentral
         public Output<Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The ARM resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Network Rule Set Properties of this IoT Central application.
+        /// </summary>
+        [Output("networkRuleSets")]
+        public Output<Outputs.NetworkRuleSetsResponse?> NetworkRuleSets { get; private set; } = null!;
+
+        /// <summary>
+        /// Private endpoint connections created on this IoT Central application.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the application.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether requests from the public network are allowed.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// A valid instance SKU.
@@ -68,7 +98,13 @@ namespace Pulumi.AzureNative.IoTCentral
         public Output<string?> Subdomain { get; private set; } = null!;
 
         /// <summary>
-        /// The resource tags.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -80,7 +116,7 @@ namespace Pulumi.AzureNative.IoTCentral
         public Output<string?> Template { get; private set; } = null!;
 
         /// <summary>
-        /// The resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -149,10 +185,22 @@ namespace Pulumi.AzureNative.IoTCentral
         public Input<Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Network Rule Set Properties of this IoT Central application.
+        /// </summary>
+        [Input("networkRuleSets")]
+        public Input<Inputs.NetworkRuleSetsArgs>? NetworkRuleSets { get; set; }
+
+        /// <summary>
+        /// Whether requests from the public network are allowed.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.IoTCentral.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the IoT Central application.
@@ -182,7 +230,7 @@ namespace Pulumi.AzureNative.IoTCentral
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The resource tags.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

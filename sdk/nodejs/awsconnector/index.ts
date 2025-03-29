@@ -1129,13 +1129,6 @@ utilities.lazyLoad(exports, ["Wafv2LoggingConfiguration"], () => require("./wafv
 // Export enums:
 export * from "../types/enums/awsconnector";
 
-// Export sub-modules:
-import * as v20241201 from "./v20241201";
-
-export {
-    v20241201,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  *
- * Uses Azure REST API version 2023-04-01.
+ * Uses Azure REST API version 2024-02-01-preview.
  *
- * Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
+ * Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,17 +42,25 @@ export interface GetMonitorResult {
      */
     readonly appLocation?: string;
     /**
+     * App service plan configuration
+     */
+    readonly appServicePlanConfiguration?: outputs.workloads.AppServicePlanConfigurationResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Defines the SAP monitor errors.
      */
-    readonly errors: outputs.workloads.MonitorPropertiesResponseErrors;
+    readonly errors: outputs.workloads.ErrorDetailResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * [currently not in use] Managed service identity(user assigned identities)
+     * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.workloads.UserAssignedServiceIdentityResponse;
+    readonly identity?: outputs.workloads.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -64,7 +72,7 @@ export interface GetMonitorResult {
     /**
      * Managed resource group configuration
      */
-    readonly managedResourceGroupConfiguration?: outputs.workloads.ManagedRGConfigurationResponse;
+    readonly managedResourceGroupConfiguration?: outputs.workloads.ManagedResourceGroupConfigurationResponse;
     /**
      * The subnet which the SAP monitor will be deployed in
      */
@@ -109,9 +117,9 @@ export interface GetMonitorResult {
 /**
  * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  *
- * Uses Azure REST API version 2023-04-01.
+ * Uses Azure REST API version 2024-02-01-preview.
  *
- * Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
+ * Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

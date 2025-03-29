@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a WebAppCollector
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebAppCollectorOperationResult> InvokeAsync(GetWebAppCollectorOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppCollectorOperationResult>("azure-native:migrate:getWebAppCollectorOperation", args ?? new GetWebAppCollectorOperationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a WebAppCollector
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppCollectorOperationResult> Invoke(GetWebAppCollectorOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppCollectorOperationResult>("azure-native:migrate:getWebAppCollectorOperation", args ?? new GetWebAppCollectorOperationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a WebAppCollector
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppCollectorOperationResult> Invoke(GetWebAppCollectorOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppCollectorOperationResult>("azure-native:migrate:getWebAppCollectorOperation", args ?? new GetWebAppCollectorOperationInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public readonly Outputs.CollectorAgentPropertiesBaseResponse? AgentProperties;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the Timestamp when collector was created.
         /// </summary>
         public readonly string CreatedTimestamp;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.Migrate
         private GetWebAppCollectorOperationResult(
             Outputs.CollectorAgentPropertiesBaseResponse? agentProperties,
 
+            string azureApiVersion,
+
             string createdTimestamp,
 
             string? discoverySiteId,
@@ -157,6 +163,7 @@ namespace Pulumi.AzureNative.Migrate
             string updatedTimestamp)
         {
             AgentProperties = agentProperties;
+            AzureApiVersion = azureApiVersion;
             CreatedTimestamp = createdTimestamp;
             DiscoverySiteId = discoverySiteId;
             Id = id;

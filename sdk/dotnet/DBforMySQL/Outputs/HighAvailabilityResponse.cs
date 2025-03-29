@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforMySQL.Outputs
 {
 
     /// <summary>
-    /// Network related properties of a server
+    /// High availability properties of a server
     /// </summary>
     [OutputType]
     public sealed class HighAvailabilityResponse

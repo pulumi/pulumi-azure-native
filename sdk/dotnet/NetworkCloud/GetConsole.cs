@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided virtual machine console.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-native:networkcloud:getConsole", args ?? new GetConsoleArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided virtual machine console.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsoleResult>("azure-native:networkcloud:getConsole", args ?? new GetConsoleInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided virtual machine console.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsoleResult>("azure-native:networkcloud:getConsole", args ?? new GetConsoleInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetConsoleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The more detailed status of the console.
         /// </summary>
         public readonly string DetailedStatus;
@@ -111,6 +115,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The indicator of whether the console access is enabled.
         /// </summary>
         public readonly string Enabled;
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// The date and time after which the key will be disallowed access.
         /// </summary>
@@ -162,11 +170,15 @@ namespace Pulumi.AzureNative.NetworkCloud
 
         [OutputConstructor]
         private GetConsoleResult(
+            string azureApiVersion,
+
             string detailedStatus,
 
             string detailedStatusMessage,
 
             string enabled,
+
+            string etag,
 
             string? expiration,
 
@@ -192,9 +204,11 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string virtualMachineAccessId)
         {
+            AzureApiVersion = azureApiVersion;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
             Enabled = enabled;
+            Etag = etag;
             Expiration = expiration;
             ExtendedLocation = extendedLocation;
             Id = id;

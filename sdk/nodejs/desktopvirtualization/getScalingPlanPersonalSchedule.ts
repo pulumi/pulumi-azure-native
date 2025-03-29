@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a ScalingPlanPersonalSchedule.
  *
- * Uses Azure REST API version 2024-11-01-preview.
+ * Uses Azure REST API version 2024-04-03.
  *
- * Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+ * Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getScalingPlanPersonalSchedule(args: GetScalingPlanPersonalScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanPersonalScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,9 +43,13 @@ export interface GetScalingPlanPersonalScheduleArgs {
  */
 export interface GetScalingPlanPersonalScheduleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Set of days of the week on which this schedule is active.
      */
-    readonly daysOfWeek: string[];
+    readonly daysOfWeek?: string[];
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -73,7 +77,7 @@ export interface GetScalingPlanPersonalScheduleResult {
     /**
      * Starting time for off-peak period.
      */
-    readonly offPeakStartTime: outputs.desktopvirtualization.TimeResponse;
+    readonly offPeakStartTime?: outputs.desktopvirtualization.TimeResponse;
     /**
      * The desired configuration of Start VM On Connect for the hostpool during the off-peak phase.
      */
@@ -97,7 +101,7 @@ export interface GetScalingPlanPersonalScheduleResult {
     /**
      * Starting time for peak period.
      */
-    readonly peakStartTime: outputs.desktopvirtualization.TimeResponse;
+    readonly peakStartTime?: outputs.desktopvirtualization.TimeResponse;
     /**
      * The desired configuration of Start VM On Connect for the hostpool during the peak phase.
      */
@@ -121,7 +125,7 @@ export interface GetScalingPlanPersonalScheduleResult {
     /**
      * Starting time for ramp down period.
      */
-    readonly rampDownStartTime: outputs.desktopvirtualization.TimeResponse;
+    readonly rampDownStartTime?: outputs.desktopvirtualization.TimeResponse;
     /**
      * The desired configuration of Start VM On Connect for the hostpool during the ramp down phase.
      */
@@ -149,7 +153,7 @@ export interface GetScalingPlanPersonalScheduleResult {
     /**
      * Starting time for ramp up period.
      */
-    readonly rampUpStartTime: outputs.desktopvirtualization.TimeResponse;
+    readonly rampUpStartTime?: outputs.desktopvirtualization.TimeResponse;
     /**
      * The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
      */
@@ -166,9 +170,9 @@ export interface GetScalingPlanPersonalScheduleResult {
 /**
  * Get a ScalingPlanPersonalSchedule.
  *
- * Uses Azure REST API version 2024-11-01-preview.
+ * Uses Azure REST API version 2024-04-03.
  *
- * Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+ * Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getScalingPlanPersonalScheduleOutput(args: GetScalingPlanPersonalScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScalingPlanPersonalScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

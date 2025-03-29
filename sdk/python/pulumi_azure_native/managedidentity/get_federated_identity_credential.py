@@ -27,10 +27,13 @@ class GetFederatedIdentityCredentialResult:
     """
     Describes a federated identity credential.
     """
-    def __init__(__self__, audiences=None, id=None, issuer=None, name=None, subject=None, system_data=None, type=None):
+    def __init__(__self__, audiences=None, azure_api_version=None, id=None, issuer=None, name=None, subject=None, system_data=None, type=None):
         if audiences and not isinstance(audiences, list):
             raise TypeError("Expected argument 'audiences' to be a list")
         pulumi.set(__self__, "audiences", audiences)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -57,6 +60,14 @@ class GetFederatedIdentityCredentialResult:
         The list of audiences that can appear in the issued token.
         """
         return pulumi.get(self, "audiences")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -114,6 +125,7 @@ class AwaitableGetFederatedIdentityCredentialResult(GetFederatedIdentityCredenti
             yield self
         return GetFederatedIdentityCredentialResult(
             audiences=self.audiences,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             issuer=self.issuer,
             name=self.name,
@@ -131,7 +143,7 @@ def get_federated_identity_credential(federated_identity_credential_resource_nam
 
     Uses Azure REST API version 2023-01-31.
 
-    Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
+    Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str federated_identity_credential_resource_name: The name of the federated identity credential resource.
@@ -147,6 +159,7 @@ def get_federated_identity_credential(federated_identity_credential_resource_nam
 
     return AwaitableGetFederatedIdentityCredentialResult(
         audiences=pulumi.get(__ret__, 'audiences'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         issuer=pulumi.get(__ret__, 'issuer'),
         name=pulumi.get(__ret__, 'name'),
@@ -162,7 +175,7 @@ def get_federated_identity_credential_output(federated_identity_credential_resou
 
     Uses Azure REST API version 2023-01-31.
 
-    Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
+    Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str federated_identity_credential_resource_name: The name of the federated identity credential resource.
@@ -177,6 +190,7 @@ def get_federated_identity_credential_output(federated_identity_credential_resou
     __ret__ = pulumi.runtime.invoke_output('azure-native:managedidentity:getFederatedIdentityCredential', __args__, opts=opts, typ=GetFederatedIdentityCredentialResult)
     return __ret__.apply(lambda __response__: GetFederatedIdentityCredentialResult(
         audiences=pulumi.get(__response__, 'audiences'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         issuer=pulumi.get(__response__, 'issuer'),
         name=pulumi.get(__response__, 'name'),

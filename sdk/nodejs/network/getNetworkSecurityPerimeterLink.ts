@@ -42,6 +42,10 @@ export interface GetNetworkSecurityPerimeterLinkResult {
      */
     readonly autoApprovedRemotePerimeterResourceId?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * A message passed to the owner of the remote NSP link resource with this connection request. In case of Auto-approved flow, it is default to 'Auto Approved'. Restricted to 140 chars.
      */
     readonly description?: string;

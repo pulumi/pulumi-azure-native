@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Event Grid Partner Topic.
  *
- * Uses Azure REST API version 2022-06-15. In version 1.x of the Azure Native provider, it used API version 2021-10-15-preview.
+ * Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PartnerTopic extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class PartnerTopic extends pulumi.CustomResource {
      * Activation state of the partner topic.
      */
     public readonly activationState!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Event Type information from the corresponding event channel.
      */
@@ -88,7 +92,7 @@ export class PartnerTopic extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to Partner Topic resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -126,12 +130,14 @@ export class PartnerTopic extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activationState"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eventTypeInfo"] = undefined /*out*/;
             resourceInputs["expirationTimeIfNotActivatedUtc"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;

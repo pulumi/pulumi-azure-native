@@ -52,6 +52,12 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Inputs
         [Input("sku", required: true)]
         public Input<Inputs.DevOpsAzureSkuArgs> Sku { get; set; } = null!;
 
+        /// <summary>
+        /// The storage profile of the machines in the pool.
+        /// </summary>
+        [Input("storageProfile")]
+        public Input<Inputs.StorageProfileArgs>? StorageProfile { get; set; }
+
         public VmssFabricProfileArgs()
         {
         }

@@ -45,6 +45,10 @@ export interface GetGovernanceAssignmentResult {
      */
     readonly additionalData?: outputs.security.GovernanceAssignmentAdditionalDataResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
      */
     readonly governanceEmailNotification?: outputs.security.GovernanceEmailNotificationResponse;

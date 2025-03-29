@@ -271,9 +271,17 @@ if not MYPY:
         """
         Array of all cert based Security Principals.
         """
+        ledger_sku: NotRequired[pulumi.Input[Union[str, 'LedgerSku']]]
+        """
+        SKU associated with the ledger
+        """
         ledger_type: NotRequired[pulumi.Input[Union[str, 'LedgerType']]]
         """
         Type of Confidential Ledger
+        """
+        running_state: NotRequired[pulumi.Input[Union[str, 'RunningState']]]
+        """
+        Object representing RunningState for Ledger.
         """
 elif False:
     LedgerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -283,19 +291,27 @@ class LedgerPropertiesArgs:
     def __init__(__self__, *,
                  aad_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]] = None,
                  cert_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]] = None,
-                 ledger_type: Optional[pulumi.Input[Union[str, 'LedgerType']]] = None):
+                 ledger_sku: Optional[pulumi.Input[Union[str, 'LedgerSku']]] = None,
+                 ledger_type: Optional[pulumi.Input[Union[str, 'LedgerType']]] = None,
+                 running_state: Optional[pulumi.Input[Union[str, 'RunningState']]] = None):
         """
         Additional Confidential Ledger properties.
         :param pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]] aad_based_security_principals: Array of all AAD based Security Principals.
         :param pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]] cert_based_security_principals: Array of all cert based Security Principals.
+        :param pulumi.Input[Union[str, 'LedgerSku']] ledger_sku: SKU associated with the ledger
         :param pulumi.Input[Union[str, 'LedgerType']] ledger_type: Type of Confidential Ledger
+        :param pulumi.Input[Union[str, 'RunningState']] running_state: Object representing RunningState for Ledger.
         """
         if aad_based_security_principals is not None:
             pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
         if cert_based_security_principals is not None:
             pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
+        if ledger_sku is not None:
+            pulumi.set(__self__, "ledger_sku", ledger_sku)
         if ledger_type is not None:
             pulumi.set(__self__, "ledger_type", ledger_type)
+        if running_state is not None:
+            pulumi.set(__self__, "running_state", running_state)
 
     @property
     @pulumi.getter(name="aadBasedSecurityPrincipals")
@@ -322,6 +338,18 @@ class LedgerPropertiesArgs:
         pulumi.set(self, "cert_based_security_principals", value)
 
     @property
+    @pulumi.getter(name="ledgerSku")
+    def ledger_sku(self) -> Optional[pulumi.Input[Union[str, 'LedgerSku']]]:
+        """
+        SKU associated with the ledger
+        """
+        return pulumi.get(self, "ledger_sku")
+
+    @ledger_sku.setter
+    def ledger_sku(self, value: Optional[pulumi.Input[Union[str, 'LedgerSku']]]):
+        pulumi.set(self, "ledger_sku", value)
+
+    @property
     @pulumi.getter(name="ledgerType")
     def ledger_type(self) -> Optional[pulumi.Input[Union[str, 'LedgerType']]]:
         """
@@ -332,6 +360,18 @@ class LedgerPropertiesArgs:
     @ledger_type.setter
     def ledger_type(self, value: Optional[pulumi.Input[Union[str, 'LedgerType']]]):
         pulumi.set(self, "ledger_type", value)
+
+    @property
+    @pulumi.getter(name="runningState")
+    def running_state(self) -> Optional[pulumi.Input[Union[str, 'RunningState']]]:
+        """
+        Object representing RunningState for Ledger.
+        """
+        return pulumi.get(self, "running_state")
+
+    @running_state.setter
+    def running_state(self, value: Optional[pulumi.Input[Union[str, 'RunningState']]]):
+        pulumi.set(self, "running_state", value)
 
 
 if not MYPY:
@@ -351,6 +391,10 @@ if not MYPY:
         """
         Number of CCF nodes in the Managed CCF.
         """
+        running_state: NotRequired[pulumi.Input[Union[str, 'RunningState']]]
+        """
+        Object representing RunningState for Managed CCF.
+        """
 elif False:
     ManagedCCFPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -359,12 +403,14 @@ class ManagedCCFPropertiesArgs:
     def __init__(__self__, *,
                  deployment_type: Optional[pulumi.Input['DeploymentTypeArgs']] = None,
                  member_identity_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]]] = None,
-                 node_count: Optional[pulumi.Input[int]] = None):
+                 node_count: Optional[pulumi.Input[int]] = None,
+                 running_state: Optional[pulumi.Input[Union[str, 'RunningState']]] = None):
         """
         Additional Managed CCF properties.
         :param pulumi.Input['DeploymentTypeArgs'] deployment_type: Deployment Type of Managed CCF
         :param pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]] member_identity_certificates: List of member identity certificates for  Managed CCF
         :param pulumi.Input[int] node_count: Number of CCF nodes in the Managed CCF.
+        :param pulumi.Input[Union[str, 'RunningState']] running_state: Object representing RunningState for Managed CCF.
         """
         if deployment_type is not None:
             pulumi.set(__self__, "deployment_type", deployment_type)
@@ -372,6 +418,8 @@ class ManagedCCFPropertiesArgs:
             pulumi.set(__self__, "member_identity_certificates", member_identity_certificates)
         if node_count is not None:
             pulumi.set(__self__, "node_count", node_count)
+        if running_state is not None:
+            pulumi.set(__self__, "running_state", running_state)
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -408,6 +456,18 @@ class ManagedCCFPropertiesArgs:
     @node_count.setter
     def node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "node_count", value)
+
+    @property
+    @pulumi.getter(name="runningState")
+    def running_state(self) -> Optional[pulumi.Input[Union[str, 'RunningState']]]:
+        """
+        Object representing RunningState for Managed CCF.
+        """
+        return pulumi.get(self, "running_state")
+
+    @running_state.setter
+    def running_state(self, value: Optional[pulumi.Input[Union[str, 'RunningState']]]):
+        pulumi.set(self, "running_state", value)
 
 
 if not MYPY:

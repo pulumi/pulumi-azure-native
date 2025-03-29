@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Peering
     public sealed class GetPeeringResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The properties that define a direct peering.
         /// </summary>
         public readonly Outputs.PeeringPropertiesDirectResponse? Direct;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNative.Peering
 
         [OutputConstructor]
         private GetPeeringResult(
+            string azureApiVersion,
+
             Outputs.PeeringPropertiesDirectResponse? direct,
 
             Outputs.PeeringPropertiesExchangeResponse? exchange,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.Peering
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Direct = direct;
             Exchange = exchange;
             Id = id;

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a SqlAssessmentV2
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSqlAssessmentV2OperationResult> InvokeAsync(GetSqlAssessmentV2OperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlAssessmentV2OperationResult>("azure-native:migrate:getSqlAssessmentV2Operation", args ?? new GetSqlAssessmentV2OperationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a SqlAssessmentV2
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSqlAssessmentV2OperationResult> Invoke(GetSqlAssessmentV2OperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlAssessmentV2OperationResult>("azure-native:migrate:getSqlAssessmentV2Operation", args ?? new GetSqlAssessmentV2OperationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a SqlAssessmentV2
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSqlAssessmentV2OperationResult> Invoke(GetSqlAssessmentV2OperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlAssessmentV2OperationResult>("azure-native:migrate:getSqlAssessmentV2Operation", args ?? new GetSqlAssessmentV2OperationInvokeArgs(), options.WithDefaults());
@@ -120,6 +120,10 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public readonly string? AsyncCommitModeIntent;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Azure Location or Azure region where to which the machines will be migrated.
         /// </summary>
         public readonly string? AzureLocation;
@@ -190,7 +194,7 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public readonly string? GroupType;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -291,6 +295,8 @@ namespace Pulumi.AzureNative.Migrate
 
             string? asyncCommitModeIntent,
 
+            string azureApiVersion,
+
             string? azureLocation,
 
             string? azureOfferCode,
@@ -373,6 +379,7 @@ namespace Pulumi.AzureNative.Migrate
         {
             AssessmentType = assessmentType;
             AsyncCommitModeIntent = asyncCommitModeIntent;
+            AzureApiVersion = azureApiVersion;
             AzureLocation = azureLocation;
             AzureOfferCode = azureOfferCode;
             AzureOfferCodeForVm = azureOfferCodeForVm;

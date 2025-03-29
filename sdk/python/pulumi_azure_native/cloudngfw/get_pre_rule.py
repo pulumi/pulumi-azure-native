@@ -27,7 +27,7 @@ class GetPreRuleResult:
     """
     PreRulestack rule list
     """
-    def __init__(__self__, action_type=None, applications=None, audit_comment=None, category=None, decryption_rule_type=None, description=None, destination=None, enable_logging=None, etag=None, id=None, inbound_inspection_certificate=None, name=None, negate_destination=None, negate_source=None, priority=None, protocol=None, protocol_port_list=None, provisioning_state=None, rule_name=None, rule_state=None, source=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, action_type=None, applications=None, audit_comment=None, azure_api_version=None, category=None, decryption_rule_type=None, description=None, destination=None, enable_logging=None, etag=None, id=None, inbound_inspection_certificate=None, name=None, negate_destination=None, negate_source=None, priority=None, protocol=None, protocol_port_list=None, provisioning_state=None, rule_name=None, rule_state=None, source=None, system_data=None, tags=None, type=None):
         if action_type and not isinstance(action_type, str):
             raise TypeError("Expected argument 'action_type' to be a str")
         pulumi.set(__self__, "action_type", action_type)
@@ -37,6 +37,9 @@ class GetPreRuleResult:
         if audit_comment and not isinstance(audit_comment, str):
             raise TypeError("Expected argument 'audit_comment' to be a str")
         pulumi.set(__self__, "audit_comment", audit_comment)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if category and not isinstance(category, dict):
             raise TypeError("Expected argument 'category' to be a dict")
         pulumi.set(__self__, "category", category)
@@ -124,6 +127,14 @@ class GetPreRuleResult:
         rule comment
         """
         return pulumi.get(self, "audit_comment")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -300,6 +311,7 @@ class AwaitableGetPreRuleResult(GetPreRuleResult):
             action_type=self.action_type,
             applications=self.applications,
             audit_comment=self.audit_comment,
+            azure_api_version=self.azure_api_version,
             category=self.category,
             decryption_rule_type=self.decryption_rule_type,
             description=self.description,
@@ -329,9 +341,9 @@ def get_pre_rule(global_rulestack_name: Optional[str] = None,
     """
     Get a PreRulesResource
 
-    Uses Azure REST API version 2023-09-01.
+    Uses Azure REST API version 2025-02-06-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name
@@ -347,6 +359,7 @@ def get_pre_rule(global_rulestack_name: Optional[str] = None,
         action_type=pulumi.get(__ret__, 'action_type'),
         applications=pulumi.get(__ret__, 'applications'),
         audit_comment=pulumi.get(__ret__, 'audit_comment'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         category=pulumi.get(__ret__, 'category'),
         decryption_rule_type=pulumi.get(__ret__, 'decryption_rule_type'),
         description=pulumi.get(__ret__, 'description'),
@@ -374,9 +387,9 @@ def get_pre_rule_output(global_rulestack_name: Optional[pulumi.Input[str]] = Non
     """
     Get a PreRulesResource
 
-    Uses Azure REST API version 2023-09-01.
+    Uses Azure REST API version 2025-02-06-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name
@@ -391,6 +404,7 @@ def get_pre_rule_output(global_rulestack_name: Optional[pulumi.Input[str]] = Non
         action_type=pulumi.get(__response__, 'action_type'),
         applications=pulumi.get(__response__, 'applications'),
         audit_comment=pulumi.get(__response__, 'audit_comment'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         category=pulumi.get(__response__, 'category'),
         decryption_rule_type=pulumi.get(__response__, 'decryption_rule_type'),
         description=pulumi.get(__response__, 'description'),

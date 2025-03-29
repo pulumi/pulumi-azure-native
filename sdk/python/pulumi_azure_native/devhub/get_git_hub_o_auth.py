@@ -67,9 +67,9 @@ def get_git_hub_o_auth(location: Optional[str] = None,
     """
     URL used to authorize the Developer Hub GitHub App
 
-    Uses Azure REST API version 2022-10-11-preview.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-04-01-preview, 2023-08-01, 2024-05-01-preview, 2024-08-01-preview, 2025-03-01-preview.
+    Other available API versions: 2022-10-11-preview, 2024-05-01-preview, 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str location: The name of Azure region.
@@ -90,9 +90,9 @@ def get_git_hub_o_auth_output(location: Optional[pulumi.Input[str]] = None,
     """
     URL used to authorize the Developer Hub GitHub App
 
-    Uses Azure REST API version 2022-10-11-preview.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-04-01-preview, 2023-08-01, 2024-05-01-preview, 2024-08-01-preview, 2025-03-01-preview.
+    Other available API versions: 2022-10-11-preview, 2024-05-01-preview, 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str location: The name of Azure region.

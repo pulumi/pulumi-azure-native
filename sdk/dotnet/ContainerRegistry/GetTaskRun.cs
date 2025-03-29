@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public sealed class GetTaskRunResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// How the run should be forced to rerun even if the run request configuration has not changed
         /// </summary>
         public readonly string? ForceUpdateTag;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
         [OutputConstructor]
         private GetTaskRunResult(
+            string azureApiVersion,
+
             string? forceUpdateTag,
 
             string id,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ForceUpdateTag = forceUpdateTag;
             Id = id;
             Identity = identity;

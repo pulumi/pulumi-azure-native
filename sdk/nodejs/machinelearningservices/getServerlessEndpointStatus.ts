@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2023-08-01-preview.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+ * Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getServerlessEndpointStatus(args: GetServerlessEndpointStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessEndpointStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,9 +40,9 @@ export interface GetServerlessEndpointStatusResult {
     readonly metrics: {[key: string]: string};
 }
 /**
- * Uses Azure REST API version 2023-08-01-preview.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+ * Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getServerlessEndpointStatusOutput(args: GetServerlessEndpointStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessEndpointStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a WebAppAssessmentV2
  *
- * Uses Azure REST API version 2023-04-01-preview.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWebAppAssessmentV2Operation(args: GetWebAppAssessmentV2OperationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppAssessmentV2OperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,6 +59,10 @@ export interface GetWebAppAssessmentV2OperationResult {
      * Assessment type of the assessment.
      */
     readonly assessmentType?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
@@ -183,9 +187,9 @@ export interface GetWebAppAssessmentV2OperationResult {
 /**
  * Get a WebAppAssessmentV2
  *
- * Uses Azure REST API version 2023-04-01-preview.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWebAppAssessmentV2OperationOutput(args: GetWebAppAssessmentV2OperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppAssessmentV2OperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

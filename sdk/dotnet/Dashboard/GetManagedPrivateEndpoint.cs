@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The managed private endpoint resource type.
         /// 
-        /// Uses Azure REST API version 2022-10-01-preview.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
+        /// Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetManagedPrivateEndpointResult> InvokeAsync(GetManagedPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-native:dashboard:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The managed private endpoint resource type.
         /// 
-        /// Uses Azure REST API version 2022-10-01-preview.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
+        /// Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:dashboard:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The managed private endpoint resource type.
         /// 
-        /// Uses Azure REST API version 2022-10-01-preview.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
+        /// Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:dashboard:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Dashboard
     public sealed class GetManagedPrivateEndpointResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The state of managed private endpoint connection.
         /// </summary>
         public readonly Outputs.ManagedPrivateEndpointConnectionStateResponse ConnectionState;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.Dashboard
 
         [OutputConstructor]
         private GetManagedPrivateEndpointResult(
+            string azureApiVersion,
+
             Outputs.ManagedPrivateEndpointConnectionStateResponse connectionState,
 
             ImmutableArray<string> groupIds,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.Dashboard
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ConnectionState = connectionState;
             GroupIds = groupIds;
             Id = id;

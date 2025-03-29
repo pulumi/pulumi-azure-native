@@ -27,7 +27,10 @@ class GetAppServicePlanResult:
     """
     App Service plan.
     """
-    def __init__(__self__, elastic_scale_enabled=None, extended_location=None, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, is_spot=None, is_xenon=None, kind=None, kube_environment_profile=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, number_of_workers=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None, zone_redundant=None):
+    def __init__(__self__, azure_api_version=None, elastic_scale_enabled=None, extended_location=None, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, is_spot=None, is_xenon=None, kind=None, kube_environment_profile=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, number_of_workers=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None, zone_redundant=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if elastic_scale_enabled and not isinstance(elastic_scale_enabled, bool):
             raise TypeError("Expected argument 'elastic_scale_enabled' to be a bool")
         pulumi.set(__self__, "elastic_scale_enabled", elastic_scale_enabled)
@@ -123,6 +126,14 @@ class GetAppServicePlanResult:
         pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="elasticScaleEnabled")
     def elastic_scale_enabled(self) -> Optional[bool]:
         """
@@ -198,7 +209,7 @@ class GetAppServicePlanResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -379,6 +390,7 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
         if False:
             yield self
         return GetAppServicePlanResult(
+            azure_api_version=self.azure_api_version,
             elastic_scale_enabled=self.elastic_scale_enabled,
             extended_location=self.extended_location,
             free_offer_expiration_time=self.free_offer_expiration_time,
@@ -418,9 +430,9 @@ def get_app_service_plan(name: Optional[str] = None,
     """
     Description for Get an App Service plan.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the App Service plan.
@@ -433,6 +445,7 @@ def get_app_service_plan(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getAppServicePlan', __args__, opts=opts, typ=GetAppServicePlanResult).value
 
     return AwaitableGetAppServicePlanResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         elastic_scale_enabled=pulumi.get(__ret__, 'elastic_scale_enabled'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         free_offer_expiration_time=pulumi.get(__ret__, 'free_offer_expiration_time'),
@@ -470,9 +483,9 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Get an App Service plan.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the App Service plan.
@@ -484,6 +497,7 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getAppServicePlan', __args__, opts=opts, typ=GetAppServicePlanResult)
     return __ret__.apply(lambda __response__: GetAppServicePlanResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         elastic_scale_enabled=pulumi.get(__response__, 'elastic_scale_enabled'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         free_offer_expiration_time=pulumi.get(__response__, 'free_offer_expiration_time'),

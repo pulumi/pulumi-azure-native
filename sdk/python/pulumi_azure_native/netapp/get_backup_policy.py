@@ -27,7 +27,10 @@ class GetBackupPolicyResult:
     """
     Backup policy information
     """
-    def __init__(__self__, backup_policy_id=None, daily_backups_to_keep=None, enabled=None, etag=None, id=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None):
+    def __init__(__self__, azure_api_version=None, backup_policy_id=None, daily_backups_to_keep=None, enabled=None, etag=None, id=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backup_policy_id and not isinstance(backup_policy_id, str):
             raise TypeError("Expected argument 'backup_policy_id' to be a str")
         pulumi.set(__self__, "backup_policy_id", backup_policy_id)
@@ -75,10 +78,18 @@ class GetBackupPolicyResult:
         pulumi.set(__self__, "weekly_backups_to_keep", weekly_backups_to_keep)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="backupPolicyId")
     def backup_policy_id(self) -> str:
         """
-        Backup Policy Resource ID
+        Backup Policy GUID ID
         """
         return pulumi.get(self, "backup_policy_id")
 
@@ -110,7 +121,7 @@ class GetBackupPolicyResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -201,6 +212,7 @@ class AwaitableGetBackupPolicyResult(GetBackupPolicyResult):
         if False:
             yield self
         return GetBackupPolicyResult(
+            azure_api_version=self.azure_api_version,
             backup_policy_id=self.backup_policy_id,
             daily_backups_to_keep=self.daily_backups_to_keep,
             enabled=self.enabled,
@@ -225,9 +237,9 @@ def get_backup_policy(account_name: Optional[str] = None,
     """
     Get a particular backup Policy
 
-    Uses Azure REST API version 2022-11-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2021-04-01, 2021-04-01-preview, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+    Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the NetApp account
@@ -242,6 +254,7 @@ def get_backup_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult).value
 
     return AwaitableGetBackupPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backup_policy_id=pulumi.get(__ret__, 'backup_policy_id'),
         daily_backups_to_keep=pulumi.get(__ret__, 'daily_backups_to_keep'),
         enabled=pulumi.get(__ret__, 'enabled'),
@@ -264,9 +277,9 @@ def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Get a particular backup Policy
 
-    Uses Azure REST API version 2022-11-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2021-04-01, 2021-04-01-preview, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+    Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the NetApp account
@@ -280,6 +293,7 @@ def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:netapp:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult)
     return __ret__.apply(lambda __response__: GetBackupPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backup_policy_id=pulumi.get(__response__, 'backup_policy_id'),
         daily_backups_to_keep=pulumi.get(__response__, 'daily_backups_to_keep'),
         enabled=pulumi.get(__response__, 'enabled'),

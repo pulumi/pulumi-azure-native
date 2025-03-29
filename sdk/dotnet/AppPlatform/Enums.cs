@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
+    /// Indicates whether the API try-out feature is enabled or disabled. When enabled, users can try out the API by sending requests and viewing responses in API portal. When disabled, users cannot try out the API.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApiPortalApiTryOutEnabledState : IEquatable<ApiPortalApiTryOutEnabledState>
+    {
+        private readonly string _value;
+
+        private ApiPortalApiTryOutEnabledState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApiPortalApiTryOutEnabledState Enabled { get; } = new ApiPortalApiTryOutEnabledState("Enabled");
+        public static ApiPortalApiTryOutEnabledState Disabled { get; } = new ApiPortalApiTryOutEnabledState("Disabled");
+
+        public static bool operator ==(ApiPortalApiTryOutEnabledState left, ApiPortalApiTryOutEnabledState right) => left.Equals(right);
+        public static bool operator !=(ApiPortalApiTryOutEnabledState left, ApiPortalApiTryOutEnabledState right) => !left.Equals(right);
+
+        public static explicit operator string(ApiPortalApiTryOutEnabledState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApiPortalApiTryOutEnabledState other && Equals(other);
+        public bool Equals(ApiPortalApiTryOutEnabledState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of application performance monitoring
     /// </summary>
     [EnumType]
@@ -177,6 +208,37 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
     /// <summary>
+    /// Type of the customized accelerator.
+    /// </summary>
+    [EnumType]
+    public readonly struct CustomizedAcceleratorType : IEquatable<CustomizedAcceleratorType>
+    {
+        private readonly string _value;
+
+        private CustomizedAcceleratorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CustomizedAcceleratorType Accelerator { get; } = new CustomizedAcceleratorType("Accelerator");
+        public static CustomizedAcceleratorType Fragment { get; } = new CustomizedAcceleratorType("Fragment");
+
+        public static bool operator ==(CustomizedAcceleratorType left, CustomizedAcceleratorType right) => left.Equals(right);
+        public static bool operator !=(CustomizedAcceleratorType left, CustomizedAcceleratorType right) => !left.Equals(right);
+
+        public static explicit operator string(CustomizedAcceleratorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomizedAcceleratorType other && Equals(other);
+        public bool Equals(CustomizedAcceleratorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// State of the plugin
     /// </summary>
     [EnumType]
@@ -206,6 +268,36 @@ namespace Pulumi.AzureNative.AppPlatform
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DevToolPortalFeatureState other && Equals(other);
         public bool Equals(DevToolPortalFeatureState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The frequency to run the maintenance job
+    /// </summary>
+    [EnumType]
+    public readonly struct Frequency : IEquatable<Frequency>
+    {
+        private readonly string _value;
+
+        private Frequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Frequency Weekly { get; } = new Frequency("Weekly");
+
+        public static bool operator ==(Frequency left, Frequency right) => left.Equals(right);
+        public static bool operator !=(Frequency left, Frequency right) => !left.Equals(right);
+
+        public static explicit operator string(Frequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Frequency other && Equals(other);
+        public bool Equals(Frequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -348,6 +440,37 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
     /// <summary>
+    /// Indicates whether to automatically synchronize certificate from key vault or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct KeyVaultCertificateAutoSync : IEquatable<KeyVaultCertificateAutoSync>
+    {
+        private readonly string _value;
+
+        private KeyVaultCertificateAutoSync(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KeyVaultCertificateAutoSync Disabled { get; } = new KeyVaultCertificateAutoSync("Disabled");
+        public static KeyVaultCertificateAutoSync Enabled { get; } = new KeyVaultCertificateAutoSync("Enabled");
+
+        public static bool operator ==(KeyVaultCertificateAutoSync left, KeyVaultCertificateAutoSync right) => left.Equals(right);
+        public static bool operator !=(KeyVaultCertificateAutoSync left, KeyVaultCertificateAutoSync right) => !left.Equals(right);
+
+        public static explicit operator string(KeyVaultCertificateAutoSync value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeyVaultCertificateAutoSync other && Equals(other);
+        public bool Equals(KeyVaultCertificateAutoSync other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of the managed identity
     /// </summary>
     [EnumType]
@@ -474,6 +597,43 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
     /// <summary>
+    /// State of test endpoint auth.
+    /// </summary>
+    [EnumType]
+    public readonly struct TestEndpointAuthState : IEquatable<TestEndpointAuthState>
+    {
+        private readonly string _value;
+
+        private TestEndpointAuthState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enable test endpoint auth.
+        /// </summary>
+        public static TestEndpointAuthState Enabled { get; } = new TestEndpointAuthState("Enabled");
+        /// <summary>
+        /// Disable test endpoint auth
+        /// </summary>
+        public static TestEndpointAuthState Disabled { get; } = new TestEndpointAuthState("Disabled");
+
+        public static bool operator ==(TestEndpointAuthState left, TestEndpointAuthState right) => left.Equals(right);
+        public static bool operator !=(TestEndpointAuthState left, TestEndpointAuthState right) => !left.Equals(right);
+
+        public static explicit operator string(TestEndpointAuthState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TestEndpointAuthState other && Equals(other);
+        public bool Equals(TestEndpointAuthState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of job trigger
     /// </summary>
     [EnumType]
@@ -526,6 +686,42 @@ namespace Pulumi.AzureNative.AppPlatform
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Type other && Equals(other);
         public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The day to run the maintenance job
+    /// </summary>
+    [EnumType]
+    public readonly struct WeekDay : IEquatable<WeekDay>
+    {
+        private readonly string _value;
+
+        private WeekDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WeekDay Monday { get; } = new WeekDay("Monday");
+        public static WeekDay Tuesday { get; } = new WeekDay("Tuesday");
+        public static WeekDay Wednesday { get; } = new WeekDay("Wednesday");
+        public static WeekDay Thursday { get; } = new WeekDay("Thursday");
+        public static WeekDay Friday { get; } = new WeekDay("Friday");
+        public static WeekDay Saturday { get; } = new WeekDay("Saturday");
+        public static WeekDay Sunday { get; } = new WeekDay("Sunday");
+
+        public static bool operator ==(WeekDay left, WeekDay right) => left.Equals(right);
+        public static bool operator !=(WeekDay left, WeekDay right) => !left.Equals(right);
+
+        public static explicit operator string(WeekDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WeekDay other && Equals(other);
+        public bool Equals(WeekDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

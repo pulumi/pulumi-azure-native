@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// List all the firewall rules in a given server.
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2017-12-01, 2020-10-05-privatepreview, 2022-11-08, 2023-03-01-preview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbforpostgresql:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// List all the firewall rules in a given server.
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2017-12-01, 2020-10-05-privatepreview, 2022-11-08, 2023-03-01-preview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbforpostgresql:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// List all the firewall rules in a given server.
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2017-12-01, 2020-10-05-privatepreview, 2022-11-08, 2023-03-01-preview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbforpostgresql:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
@@ -100,11 +100,15 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetFirewallRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The end IP address of the server firewall rule. Must be IPv4 format.
         /// </summary>
         public readonly string EndIpAddress;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
         [OutputConstructor]
         private GetFirewallRuleResult(
+            string azureApiVersion,
+
             string endIpAddress,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EndIpAddress = endIpAddress;
             Id = id;
             Name = name;

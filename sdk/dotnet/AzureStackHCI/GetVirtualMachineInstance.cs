@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a virtual machine instance
         /// 
-        /// Uses Azure REST API version 2023-07-01-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVirtualMachineInstanceResult> InvokeAsync(GetVirtualMachineInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineInstanceResult>("azure-native:azurestackhci:getVirtualMachineInstance", args ?? new GetVirtualMachineInstanceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a virtual machine instance
         /// 
-        /// Uses Azure REST API version 2023-07-01-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualMachineInstanceResult> Invoke(GetVirtualMachineInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineInstanceResult>("azure-native:azurestackhci:getVirtualMachineInstance", args ?? new GetVirtualMachineInstanceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets a virtual machine instance
         /// 
-        /// Uses Azure REST API version 2023-07-01-preview.
+        /// Uses Azure REST API version 2025-02-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualMachineInstanceResult> Invoke(GetVirtualMachineInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineInstanceResult>("azure-native:azurestackhci:getVirtualMachineInstance", args ?? new GetVirtualMachineInstanceInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetVirtualMachineInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetVirtualMachineInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
@@ -76,6 +76,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetVirtualMachineInstanceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Boolean indicating whether this is an existing local virtual machine or if one should be created.
+        /// </summary>
+        public readonly bool? CreateFromLocal;
+        /// <summary>
         /// The extendedLocation of the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
@@ -86,15 +94,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// HardwareProfile - Specifies the hardware settings for the virtual machine instance.
         /// </summary>
-        public readonly Outputs.VirtualMachineInstancePropertiesResponseHardwareProfile? HardwareProfile;
+        public readonly Outputs.VirtualMachineInstancePropertiesHardwareProfileResponse? HardwareProfile;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// HTTP Proxy configuration for the VM.
+        /// </summary>
+        public readonly Outputs.HttpProxyConfigurationResponse? HttpProxyConfig;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Identity for the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The virtual machine instance view.
         /// </summary>
@@ -106,11 +118,11 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// NetworkProfile - describes the network configuration the virtual machine instance
         /// </summary>
-        public readonly Outputs.VirtualMachineInstancePropertiesResponseNetworkProfile? NetworkProfile;
+        public readonly Outputs.VirtualMachineInstancePropertiesNetworkProfileResponse? NetworkProfile;
         /// <summary>
         /// OsProfile - describes the configuration of the operating system and sets login data
         /// </summary>
-        public readonly Outputs.VirtualMachineInstancePropertiesResponseOsProfile? OsProfile;
+        public readonly Outputs.VirtualMachineInstancePropertiesOsProfileResponse? OsProfile;
         /// <summary>
         /// Provisioning state of the virtual machine instance.
         /// </summary>
@@ -122,7 +134,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// SecurityProfile - Specifies the security settings for the virtual machine instance.
         /// </summary>
-        public readonly Outputs.VirtualMachineInstancePropertiesResponseSecurityProfile? SecurityProfile;
+        public readonly Outputs.VirtualMachineInstancePropertiesSecurityProfileResponse? SecurityProfile;
         /// <summary>
         /// The observed state of virtual machine instances
         /// </summary>
@@ -130,7 +142,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// StorageProfile - contains information about the disks and storage information for the virtual machine instance
         /// </summary>
-        public readonly Outputs.VirtualMachineInstancePropertiesResponseStorageProfile? StorageProfile;
+        public readonly Outputs.VirtualMachineInstancePropertiesStorageProfileResponse? StorageProfile;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -146,33 +158,39 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetVirtualMachineInstanceResult(
+            string azureApiVersion,
+
+            bool? createFromLocal,
+
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             Outputs.GuestAgentInstallStatusResponse? guestAgentInstallStatus,
 
-            Outputs.VirtualMachineInstancePropertiesResponseHardwareProfile? hardwareProfile,
+            Outputs.VirtualMachineInstancePropertiesHardwareProfileResponse? hardwareProfile,
+
+            Outputs.HttpProxyConfigurationResponse? httpProxyConfig,
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             Outputs.VirtualMachineInstanceViewResponse instanceView,
 
             string name,
 
-            Outputs.VirtualMachineInstancePropertiesResponseNetworkProfile? networkProfile,
+            Outputs.VirtualMachineInstancePropertiesNetworkProfileResponse? networkProfile,
 
-            Outputs.VirtualMachineInstancePropertiesResponseOsProfile? osProfile,
+            Outputs.VirtualMachineInstancePropertiesOsProfileResponse? osProfile,
 
             string provisioningState,
 
             string? resourceUid,
 
-            Outputs.VirtualMachineInstancePropertiesResponseSecurityProfile? securityProfile,
+            Outputs.VirtualMachineInstancePropertiesSecurityProfileResponse? securityProfile,
 
             Outputs.VirtualMachineInstanceStatusResponse status,
 
-            Outputs.VirtualMachineInstancePropertiesResponseStorageProfile? storageProfile,
+            Outputs.VirtualMachineInstancePropertiesStorageProfileResponse? storageProfile,
 
             Outputs.SystemDataResponse systemData,
 
@@ -180,9 +198,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string vmId)
         {
+            AzureApiVersion = azureApiVersion;
+            CreateFromLocal = createFromLocal;
             ExtendedLocation = extendedLocation;
             GuestAgentInstallStatus = guestAgentInstallStatus;
             HardwareProfile = hardwareProfile;
+            HttpProxyConfig = httpProxyConfig;
             Id = id;
             Identity = identity;
             InstanceView = instanceView;

@@ -27,10 +27,19 @@ class GetJobResult:
     """
     Job Resource.
     """
-    def __init__(__self__, cancellation_reason=None, delivery_info=None, delivery_type=None, details=None, error=None, id=None, identity=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_prepare_to_ship_enabled=None, is_shipping_address_editable=None, location=None, name=None, reverse_shipping_details_update=None, reverse_transport_preference_update=None, sku=None, start_time=None, status=None, system_data=None, tags=None, transfer_type=None, type=None):
+    def __init__(__self__, all_devices_lost=None, azure_api_version=None, cancellation_reason=None, delayed_stage=None, delivery_info=None, delivery_type=None, details=None, error=None, id=None, identity=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_prepare_to_ship_enabled=None, is_shipping_address_editable=None, location=None, name=None, reverse_shipping_details_update=None, reverse_transport_preference_update=None, sku=None, start_time=None, status=None, system_data=None, tags=None, transfer_type=None, type=None):
+        if all_devices_lost and not isinstance(all_devices_lost, bool):
+            raise TypeError("Expected argument 'all_devices_lost' to be a bool")
+        pulumi.set(__self__, "all_devices_lost", all_devices_lost)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cancellation_reason and not isinstance(cancellation_reason, str):
             raise TypeError("Expected argument 'cancellation_reason' to be a str")
         pulumi.set(__self__, "cancellation_reason", cancellation_reason)
+        if delayed_stage and not isinstance(delayed_stage, str):
+            raise TypeError("Expected argument 'delayed_stage' to be a str")
+        pulumi.set(__self__, "delayed_stage", delayed_stage)
         if delivery_info and not isinstance(delivery_info, dict):
             raise TypeError("Expected argument 'delivery_info' to be a dict")
         pulumi.set(__self__, "delivery_info", delivery_info)
@@ -99,12 +108,36 @@ class GetJobResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="allDevicesLost")
+    def all_devices_lost(self) -> bool:
+        """
+        Flag to indicate if all devices associated with the job are lost.
+        """
+        return pulumi.get(self, "all_devices_lost")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="cancellationReason")
     def cancellation_reason(self) -> str:
         """
         Reason for cancellation.
         """
         return pulumi.get(self, "cancellation_reason")
+
+    @property
+    @pulumi.getter(name="delayedStage")
+    def delayed_stage(self) -> str:
+        """
+        Name of the stage where delay might be present.
+        """
+        return pulumi.get(self, "delayed_stage")
 
     @property
     @pulumi.getter(name="deliveryInfo")
@@ -289,7 +322,10 @@ class AwaitableGetJobResult(GetJobResult):
         if False:
             yield self
         return GetJobResult(
+            all_devices_lost=self.all_devices_lost,
+            azure_api_version=self.azure_api_version,
             cancellation_reason=self.cancellation_reason,
+            delayed_stage=self.delayed_stage,
             delivery_info=self.delivery_info,
             delivery_type=self.delivery_type,
             details=self.details,
@@ -321,9 +357,9 @@ def get_job(expand: Optional[str] = None,
     """
     Gets information about the specified job.
 
-    Uses Azure REST API version 2022-12-01.
+    Uses Azure REST API version 2024-03-01-preview.
 
-    Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
+    Other available API versions: 2022-12-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databox [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.
@@ -338,7 +374,10 @@ def get_job(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databox:getJob', __args__, opts=opts, typ=GetJobResult).value
 
     return AwaitableGetJobResult(
+        all_devices_lost=pulumi.get(__ret__, 'all_devices_lost'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cancellation_reason=pulumi.get(__ret__, 'cancellation_reason'),
+        delayed_stage=pulumi.get(__ret__, 'delayed_stage'),
         delivery_info=pulumi.get(__ret__, 'delivery_info'),
         delivery_type=pulumi.get(__ret__, 'delivery_type'),
         details=pulumi.get(__ret__, 'details'),
@@ -368,9 +407,9 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Gets information about the specified job.
 
-    Uses Azure REST API version 2022-12-01.
+    Uses Azure REST API version 2024-03-01-preview.
 
-    Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
+    Other available API versions: 2022-12-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databox [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.
@@ -384,7 +423,10 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databox:getJob', __args__, opts=opts, typ=GetJobResult)
     return __ret__.apply(lambda __response__: GetJobResult(
+        all_devices_lost=pulumi.get(__response__, 'all_devices_lost'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cancellation_reason=pulumi.get(__response__, 'cancellation_reason'),
+        delayed_stage=pulumi.get(__response__, 'delayed_stage'),
         delivery_info=pulumi.get(__response__, 'delivery_info'),
         delivery_type=pulumi.get(__response__, 'delivery_type'),
         details=pulumi.get(__response__, 'details'),

@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.Migrate
         /// Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
         /// 
         /// Uses Azure REST API version 2019-10-01.
-        /// 
-        /// Other available API versions: 2018-02-02.
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.Migrate
         /// Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
         /// 
         /// Uses Azure REST API version 2019-10-01.
-        /// 
-        /// Other available API versions: 2018-02-02.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.Migrate
         /// Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
         /// 
         /// Uses Azure REST API version 2019-10-01.
-        /// 
-        /// Other available API versions: 2018-02-02.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
@@ -112,6 +106,10 @@ namespace Pulumi.AzureNative.Migrate
     public sealed class GetAssessmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// For optimistic concurrency control.
         /// </summary>
         public readonly string? ETag;
@@ -134,6 +132,8 @@ namespace Pulumi.AzureNative.Migrate
 
         [OutputConstructor]
         private GetAssessmentResult(
+            string azureApiVersion,
+
             string? eTag,
 
             string id,
@@ -144,6 +144,7 @@ namespace Pulumi.AzureNative.Migrate
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             Name = name;

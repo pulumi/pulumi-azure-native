@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01-preview.
  *
- * Other available API versions: 2024-08-01-preview, 2025-03-01-preview.
+ * Other available API versions: 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getIacProfile(args: GetIacProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetIacProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +41,10 @@ export interface GetIacProfileResult {
      * Determines the authorization status of requests.
      */
     readonly authStatus: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Repository Branch Name
      */
@@ -117,7 +121,7 @@ export interface GetIacProfileResult {
  *
  * Uses Azure REST API version 2024-05-01-preview.
  *
- * Other available API versions: 2024-08-01-preview, 2025-03-01-preview.
+ * Other available API versions: 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getIacProfileOutput(args: GetIacProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIacProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

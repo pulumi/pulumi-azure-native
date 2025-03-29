@@ -27,7 +27,10 @@ class GetLoadTestProfileMappingResult:
     """
     LoadTest profile mapping resource details
     """
-    def __init__(__self__, azure_load_testing_resource_id=None, id=None, name=None, source_resource_id=None, system_data=None, test_profile_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, azure_load_testing_resource_id=None, id=None, name=None, source_resource_id=None, system_data=None, test_profile_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_load_testing_resource_id and not isinstance(azure_load_testing_resource_id, str):
             raise TypeError("Expected argument 'azure_load_testing_resource_id' to be a str")
         pulumi.set(__self__, "azure_load_testing_resource_id", azure_load_testing_resource_id)
@@ -49,6 +52,14 @@ class GetLoadTestProfileMappingResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureLoadTestingResourceId")
@@ -113,6 +124,7 @@ class AwaitableGetLoadTestProfileMappingResult(GetLoadTestProfileMappingResult):
         if False:
             yield self
         return GetLoadTestProfileMappingResult(
+            azure_api_version=self.azure_api_version,
             azure_load_testing_resource_id=self.azure_load_testing_resource_id,
             id=self.id,
             name=self.name,
@@ -130,7 +142,7 @@ def get_load_test_profile_mapping(load_test_profile_mapping_name: Optional[str] 
 
     Uses Azure REST API version 2023-12-01-preview.
 
-    Other available API versions: 2024-12-01-preview.
+    Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str load_test_profile_mapping_name: Load Test Profile Mapping name
@@ -143,6 +155,7 @@ def get_load_test_profile_mapping(load_test_profile_mapping_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:loadtestservice:getLoadTestProfileMapping', __args__, opts=opts, typ=GetLoadTestProfileMappingResult).value
 
     return AwaitableGetLoadTestProfileMappingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_load_testing_resource_id=pulumi.get(__ret__, 'azure_load_testing_resource_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -158,7 +171,7 @@ def get_load_test_profile_mapping_output(load_test_profile_mapping_name: Optiona
 
     Uses Azure REST API version 2023-12-01-preview.
 
-    Other available API versions: 2024-12-01-preview.
+    Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str load_test_profile_mapping_name: Load Test Profile Mapping name
@@ -170,6 +183,7 @@ def get_load_test_profile_mapping_output(load_test_profile_mapping_name: Optiona
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:loadtestservice:getLoadTestProfileMapping', __args__, opts=opts, typ=GetLoadTestProfileMappingResult)
     return __ret__.apply(lambda __response__: GetLoadTestProfileMappingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_load_testing_resource_id=pulumi.get(__response__, 'azure_load_testing_resource_id'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

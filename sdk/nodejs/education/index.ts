@@ -29,13 +29,6 @@ utilities.lazyLoad(exports, ["Student"], () => require("./student"));
 // Export enums:
 export * from "../types/enums/education";
 
-// Export sub-modules:
-import * as v20211201preview from "./v20211201preview";
-
-export {
-    v20211201preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -239,9 +239,9 @@ class Workflow(pulumi.CustomResource):
         """
         The workflow type.
 
-        Uses Azure REST API version 2019-05-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
+        Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
-        Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
+        Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,9 +267,9 @@ class Workflow(pulumi.CustomResource):
         """
         The workflow type.
 
-        Uses Azure REST API version 2019-05-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
+        Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
-        Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
+        Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.
@@ -322,6 +322,7 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workflow_name"] = workflow_name
             __props__.__dict__["access_endpoint"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["changed_time"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
@@ -355,6 +356,7 @@ class Workflow(pulumi.CustomResource):
 
         __props__.__dict__["access_control"] = None
         __props__.__dict__["access_endpoint"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["changed_time"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["definition"] = None
@@ -388,6 +390,14 @@ class Workflow(pulumi.CustomResource):
         Gets the access endpoint.
         """
         return pulumi.get(self, "access_endpoint")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="changedTime")

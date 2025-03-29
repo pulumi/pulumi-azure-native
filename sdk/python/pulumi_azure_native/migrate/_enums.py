@@ -10,6 +10,8 @@ __all__ = [
     'AssessmentType',
     'AsyncCommitModeIntent',
     'AutomationArtifactStatus',
+    'AvsAssessmentScenario',
+    'AzureArcState',
     'AzureAvsNodeType',
     'AzureCurrency',
     'AzureDiskType',
@@ -28,21 +30,20 @@ __all__ = [
     'AzureVmCategory',
     'AzureVmFamily',
     'BusinessCaseCurrency',
-    'CleanupState',
     'ComputeTier',
     'ConfigurationType',
     'ConsolidationType',
     'Currency',
     'DiscoverySource',
     'EnvironmentType',
+    'ExternalStorageType',
     'FttAndRaidLevel',
-    'Goal',
     'GroupType',
     'HyperVLicenseType',
-    'LicenseType',
     'LicensingProgram',
     'LoadBalancerType',
     'MigrationStrategy',
+    'MoveType',
     'MultiSubnetIntent',
     'OperatingSystemType',
     'OptimizationLogic',
@@ -52,7 +53,6 @@ __all__ = [
     'PrivateEndpointServiceConnectionStatus',
     'ProjectStatus',
     'ProvisioningState',
-    'Purpose',
     'ReservedInstance',
     'ResourceIdentityType',
     'ResourceIdentityTypes',
@@ -67,8 +67,6 @@ __all__ = [
     'TargetStorageAccessType',
     'TargetStorageProjectionType',
     'TimeRange',
-    'Tool',
-    'VsphereManagementLicenseType',
     'WorkloadDeploymentTarget',
     'WorkloadDeploymentType',
     'WorkloadType',
@@ -127,12 +125,48 @@ class AutomationArtifactStatus(str, Enum):
     GENERATED = "Generated"
 
 
-class AzureAvsNodeType(str, Enum):
+class AvsAssessmentScenario(str, Enum):
     """
-    AVS node type.
+    AVS Assessment Scenario.
     """
     UNKNOWN = "Unknown"
+    """
+    Unknown assessment scenario
+    """
+    NEW_AVS_SDDC = "NewAvsSddc"
+    """
+    Create Assessment for new Avs Sddc
+    """
+    AVS_SDDC_EXPANSION = "AvsSddcExpansion"
+    """
+    Create Assessment for existing Avs Sddc
+    """
+
+
+class AzureArcState(str, Enum):
+    """
+    AzureArc state indicates whether to include azure arc related costs in on-premises or not.
+    """
+    DISABLED = "Disabled"
+    """
+    AzureArc state disabled.
+    """
+    ENABLED = "Enabled"
+    """
+    AzureArc state enabled.
+    """
+    UNKNOWN = "Unknown"
+    """
+    AzureArc state unknown.
+    """
+
+
+class AzureAvsNodeType(str, Enum):
+    UNKNOWN = "Unknown"
     AV36 = "AV36"
+    AV36_P = "AV36P"
+    AV52 = "AV52"
+    AV64 = "AV64"
 
 
 class AzureCurrency(str, Enum):
@@ -600,17 +634,6 @@ class BusinessCaseCurrency(str, Enum):
     """
 
 
-class CleanupState(str, Enum):
-    """
-    Gets or sets the cleanup state of the solution.
-    """
-    NONE = "None"
-    STARTED = "Started"
-    IN_PROGRESS = "InProgress"
-    COMPLETED = "Completed"
-    FAILED = "Failed"
-
-
 class ComputeTier(str, Enum):
     """
     Gets or sets the azure SQL compute tier.
@@ -702,27 +725,60 @@ class EnvironmentType(str, Enum):
     TEST = "Test"
 
 
-class FttAndRaidLevel(str, Enum):
+class ExternalStorageType(str, Enum):
     """
-    Failures to tolerate and RAID level in a common property.
+    Different External storage skus.
     """
     UNKNOWN = "Unknown"
+    """
+    Indicates un-supported external storage.
+    """
+    NONE = "None"
+    """
+    Indicates No external storage.
+    """
+    ANF_STANDARD = "AnfStandard"
+    """
+    ANF external storage with Standard SKU.
+    """
+    ANF_PREMIUM = "AnfPremium"
+    """
+    ANF external storage with Premium SKU.
+    """
+    ANF_ULTRA = "AnfUltra"
+    """
+    ANF external storage with Ultra SKU.
+    """
+
+
+class FttAndRaidLevel(str, Enum):
+    """
+    FTT and RAID Level.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown FTT and RAID Level.
+    """
     FTT1_RAID1 = "Ftt1Raid1"
+    """
+    FTT 1 and RAID Level 1.
+    """
     FTT1_RAID5 = "Ftt1Raid5"
+    """
+    FTT 1 and RAID Level 5.
+    """
     FTT2_RAID1 = "Ftt2Raid1"
+    """
+    FTT 2 and RAID Level 1.
+    """
     FTT2_RAID6 = "Ftt2Raid6"
+    """
+    FTT 2 and RAID Level 6.
+    """
     FTT3_RAID1 = "Ftt3Raid1"
-
-
-class Goal(str, Enum):
     """
-    Gets or sets the goal of the solution.
+    FTT 3 and RAID Level 1.
     """
-    SERVERS = "Servers"
-    DATABASES = "Databases"
-    DESKTOP_VIRTUALIZATION = "DesktopVirtualization"
-    WEB_APPLICATIONS = "WebApplications"
-    DATA_CENTER = "DataCenter"
 
 
 class GroupType(str, Enum):
@@ -748,24 +804,6 @@ class HyperVLicenseType(str, Enum):
     STANDARD = "Standard"
     """
     Standard HyperV License.
-    """
-
-
-class LicenseType(str, Enum):
-    """
-    VSphere licence type.
-    """
-    UNKNOWN = "Unknown"
-    """
-    Unknown License.
-    """
-    V_SPHERE_STANDARD = "VSphereStandard"
-    """
-    VSphereStandard License.
-    """
-    V_SPHERE_ENTERPRISE_PLUS = "VSphereEnterprisePlus"
-    """
-    VSphereEnterprisePlus License.
     """
 
 
@@ -815,6 +853,14 @@ class MigrationStrategy(str, Enum):
     """
     Avs only.
     """
+
+
+class MoveType(str, Enum):
+    """
+    Defines the MoveType.
+    """
+    REGION_TO_REGION = "RegionToRegion"
+    REGION_TO_ZONE = "RegionToZone"
 
 
 class MultiSubnetIntent(str, Enum):
@@ -938,15 +984,6 @@ class ProvisioningState(str, Enum):
     """
 
 
-class Purpose(str, Enum):
-    """
-    Gets or sets the purpose of the solution.
-    """
-    DISCOVERY = "Discovery"
-    ASSESSMENT = "Assessment"
-    MIGRATION = "Migration"
-
-
 class ReservedInstance(str, Enum):
     """
     Azure reserved instance.
@@ -1051,10 +1088,12 @@ class SqlServerLicenseType(str, Enum):
 
 class Status(str, Enum):
     """
-    Gets or sets the current status of the solution.
+    Private link connection state.
     """
-    INACTIVE = "Inactive"
-    ACTIVE = "Active"
+    APPROVED = "Approved"
+    PENDING = "Pending"
+    REJECTED = "Rejected"
+    DISCONNECTED = "Disconnected"
 
 
 class TargetAvailabilityZone(str, Enum):
@@ -1111,51 +1150,6 @@ class TimeRange(str, Enum):
     CUSTOM = "Custom"
     """
     Custom Time Range.
-    """
-
-
-class Tool(str, Enum):
-    """
-    Gets or sets the tool being used in the solution.
-    """
-    SERVER_DISCOVERY = "ServerDiscovery"
-    SERVER_ASSESSMENT = "ServerAssessment"
-    SERVER_MIGRATION = "ServerMigration"
-    CLOUDAMIZE = "Cloudamize"
-    TURBONOMIC = "Turbonomic"
-    ZERTO = "Zerto"
-    CORENT_TECH = "CorentTech"
-    SERVER_ASSESSMENT_V1 = "ServerAssessmentV1"
-    SERVER_MIGRATION_REPLICATION = "ServerMigration_Replication"
-    CARBONITE = "Carbonite"
-    DATA_MIGRATION_ASSISTANT = "DataMigrationAssistant"
-    DATABASE_MIGRATION_SERVICE = "DatabaseMigrationService"
-    DEVICE42 = "Device42"
-    JET_STREAM = "JetStream"
-    RACK_WARE = "RackWare"
-    UNIFY_CLOUD = "UnifyCloud"
-    FLEXERA = "Flexera"
-    SERVER_DISCOVERY_IMPORT = "ServerDiscovery_Import"
-    LAKESIDE = "Lakeside"
-    APP_SERVICE_MIGRATION_ASSISTANT = "AppServiceMigrationAssistant"
-    MOVERE = "Movere"
-    CLOUD_SPHERE = "CloudSphere"
-    MODERNIZATION = "Modernization"
-    SERVER_MIGRATION_DATA_REPLICATION = "ServerMigration_DataReplication"
-    UNKNOWN = "Unknown"
-
-
-class VsphereManagementLicenseType(str, Enum):
-    """
-    VSphere licence type.
-    """
-    UNKNOWN = "Unknown"
-    """
-    Unknown License.
-    """
-    V_SPHERE_SERVER_STANDARD = "VSphereServerStandard"
-    """
-    VSphereServerStandard License.
     """
 
 

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// Cluster details.
     /// 
-    /// Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2020-10-01.
+    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
-    /// Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    /// Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -44,6 +44,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<string?> AadTenantId { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Type of billing applied to the resource.
         /// </summary>
         [Output("billingModel")]
@@ -62,10 +68,22 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<string?> CloudManagementEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Overall connectivity status for the cluster resource.
+        /// </summary>
+        [Output("connectivityStatus")]
+        public Output<string> ConnectivityStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Desired properties of the cluster.
         /// </summary>
         [Output("desiredProperties")]
         public Output<Outputs.ClusterDesiredPropertiesResponse?> DesiredProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// Attestation configurations for isolated VM (e.g. TVM, CVM) of the cluster.
+        /// </summary>
+        [Output("isolatedVmAttestationConfiguration")]
+        public Output<Outputs.IsolatedVmAttestationConfigurationResponse> IsolatedVmAttestationConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Most recent billing meter timestamp.
@@ -84,6 +102,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Log Collection properties of the cluster.
+        /// </summary>
+        [Output("logCollectionProperties")]
+        public Output<Outputs.LogCollectionPropertiesResponse?> LogCollectionProperties { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -108,6 +132,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("registrationTimestamp")]
         public Output<string> RegistrationTimestamp { get; private set; } = null!;
+
+        /// <summary>
+        /// RemoteSupport properties of the cluster.
+        /// </summary>
+        [Output("remoteSupportProperties")]
+        public Output<Outputs.RemoteSupportPropertiesResponse?> RemoteSupportProperties { get; private set; } = null!;
 
         /// <summary>
         /// Properties reported by cluster agent.

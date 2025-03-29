@@ -27,7 +27,10 @@ class GetGen1EnvironmentResult:
     """
     An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
     """
-    def __init__(__self__, creation_time=None, data_access_fqdn=None, data_access_id=None, data_retention_time=None, id=None, kind=None, location=None, name=None, partition_key_properties=None, provisioning_state=None, sku=None, status=None, storage_limit_exceeded_behavior=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, data_access_fqdn=None, data_access_id=None, data_retention_time=None, id=None, kind=None, location=None, name=None, partition_key_properties=None, provisioning_state=None, sku=None, status=None, storage_limit_exceeded_behavior=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -73,6 +76,14 @@ class GetGen1EnvironmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -202,6 +213,7 @@ class AwaitableGetGen1EnvironmentResult(GetGen1EnvironmentResult):
         if False:
             yield self
         return GetGen1EnvironmentResult(
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             data_access_fqdn=self.data_access_fqdn,
             data_access_id=self.data_access_id,
@@ -241,6 +253,7 @@ def get_gen1_environment(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:timeseriesinsights:getGen1Environment', __args__, opts=opts, typ=GetGen1EnvironmentResult).value
 
     return AwaitableGetGen1EnvironmentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         data_access_fqdn=pulumi.get(__ret__, 'data_access_fqdn'),
         data_access_id=pulumi.get(__ret__, 'data_access_id'),
@@ -277,6 +290,7 @@ def get_gen1_environment_output(environment_name: Optional[pulumi.Input[str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:timeseriesinsights:getGen1Environment', __args__, opts=opts, typ=GetGen1EnvironmentResult)
     return __ret__.apply(lambda __response__: GetGen1EnvironmentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         data_access_fqdn=pulumi.get(__response__, 'data_access_fqdn'),
         data_access_id=pulumi.get(__response__, 'data_access_id'),

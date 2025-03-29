@@ -15,33 +15,29 @@ else:
 from .. import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['IpCommunityArgs', 'IpCommunity']
 
 @pulumi.input_type
 class IpCommunityArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input[Union[str, 'CommunityActionTypes']],
-                 community_members: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 ip_community_rules: pulumi.Input[Sequence[pulumi.Input['IpCommunityRuleArgs']]],
                  resource_group_name: pulumi.Input[str],
                  annotation: Optional[pulumi.Input[str]] = None,
                  ip_community_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 well_known_communities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WellKnownCommunities']]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IpCommunity resource.
-        :param pulumi.Input[Union[str, 'CommunityActionTypes']] action: Action to be taken on the configuration. Example: Permit | Deny.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] community_members: List the communityMembers of IP Community .
+        :param pulumi.Input[Sequence[pulumi.Input['IpCommunityRuleArgs']]] ip_community_rules: List of IP Community Rules.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[str] ip_community_name: Name of the IP Community
+        :param pulumi.Input[str] ip_community_name: Name of the IP Community.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WellKnownCommunities']]]] well_known_communities: Supported well known Community List.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "community_members", community_members)
+        pulumi.set(__self__, "ip_community_rules", ip_community_rules)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
@@ -51,32 +47,18 @@ class IpCommunityArgs:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if well_known_communities is not None:
-            pulumi.set(__self__, "well_known_communities", well_known_communities)
 
     @property
-    @pulumi.getter
-    def action(self) -> pulumi.Input[Union[str, 'CommunityActionTypes']]:
+    @pulumi.getter(name="ipCommunityRules")
+    def ip_community_rules(self) -> pulumi.Input[Sequence[pulumi.Input['IpCommunityRuleArgs']]]:
         """
-        Action to be taken on the configuration. Example: Permit | Deny.
+        List of IP Community Rules.
         """
-        return pulumi.get(self, "action")
+        return pulumi.get(self, "ip_community_rules")
 
-    @action.setter
-    def action(self, value: pulumi.Input[Union[str, 'CommunityActionTypes']]):
-        pulumi.set(self, "action", value)
-
-    @property
-    @pulumi.getter(name="communityMembers")
-    def community_members(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List the communityMembers of IP Community .
-        """
-        return pulumi.get(self, "community_members")
-
-    @community_members.setter
-    def community_members(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "community_members", value)
+    @ip_community_rules.setter
+    def ip_community_rules(self, value: pulumi.Input[Sequence[pulumi.Input['IpCommunityRuleArgs']]]):
+        pulumi.set(self, "ip_community_rules", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -106,7 +88,7 @@ class IpCommunityArgs:
     @pulumi.getter(name="ipCommunityName")
     def ip_community_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the IP Community
+        Name of the IP Community.
         """
         return pulumi.get(self, "ip_community_name")
 
@@ -138,50 +120,34 @@ class IpCommunityArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="wellKnownCommunities")
-    def well_known_communities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WellKnownCommunities']]]]]:
-        """
-        Supported well known Community List.
-        """
-        return pulumi.get(self, "well_known_communities")
-
-    @well_known_communities.setter
-    def well_known_communities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WellKnownCommunities']]]]]):
-        pulumi.set(self, "well_known_communities", value)
-
 
 class IpCommunity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union[str, 'CommunityActionTypes']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 community_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_community_name: Optional[pulumi.Input[str]] = None,
+                 ip_community_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpCommunityRuleArgs', 'IpCommunityRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 well_known_communities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WellKnownCommunities']]]]] = None,
                  __props__=None):
         """
-        The IpCommunity resource definition.
+        The IP Community resource definition.
 
-        Uses Azure REST API version 2023-02-01-preview.
+        Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
-        Other available API versions: 2023-06-15.
+        Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[str, 'CommunityActionTypes']] action: Action to be taken on the configuration. Example: Permit | Deny.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] community_members: List the communityMembers of IP Community .
-        :param pulumi.Input[str] ip_community_name: Name of the IP Community
+        :param pulumi.Input[str] ip_community_name: Name of the IP Community.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpCommunityRuleArgs', 'IpCommunityRuleArgsDict']]]] ip_community_rules: List of IP Community Rules.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WellKnownCommunities']]]] well_known_communities: Supported well known Community List.
         """
         ...
     @overload
@@ -190,11 +156,11 @@ class IpCommunity(pulumi.CustomResource):
                  args: IpCommunityArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The IpCommunity resource definition.
+        The IP Community resource definition.
 
-        Uses Azure REST API version 2023-02-01-preview.
+        Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
-        Other available API versions: 2023-06-15.
+        Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param IpCommunityArgs args: The arguments to use to populate this resource's properties.
@@ -211,14 +177,12 @@ class IpCommunity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union[str, 'CommunityActionTypes']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 community_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_community_name: Optional[pulumi.Input[str]] = None,
+                 ip_community_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpCommunityRuleArgs', 'IpCommunityRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 well_known_communities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WellKnownCommunities']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -228,20 +192,19 @@ class IpCommunity(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IpCommunityArgs.__new__(IpCommunityArgs)
 
-            if action is None and not opts.urn:
-                raise TypeError("Missing required property 'action'")
-            __props__.__dict__["action"] = action
             __props__.__dict__["annotation"] = annotation
-            if community_members is None and not opts.urn:
-                raise TypeError("Missing required property 'community_members'")
-            __props__.__dict__["community_members"] = community_members
             __props__.__dict__["ip_community_name"] = ip_community_name
+            if ip_community_rules is None and not opts.urn:
+                raise TypeError("Missing required property 'ip_community_rules'")
+            __props__.__dict__["ip_community_rules"] = ip_community_rules
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["well_known_communities"] = well_known_communities
+            __props__.__dict__["administrative_state"] = None
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["configuration_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -270,25 +233,26 @@ class IpCommunity(pulumi.CustomResource):
 
         __props__ = IpCommunityArgs.__new__(IpCommunityArgs)
 
-        __props__.__dict__["action"] = None
+        __props__.__dict__["administrative_state"] = None
         __props__.__dict__["annotation"] = None
-        __props__.__dict__["community_members"] = None
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["configuration_state"] = None
+        __props__.__dict__["ip_community_rules"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["well_known_communities"] = None
         return IpCommunity(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def action(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="administrativeState")
+    def administrative_state(self) -> pulumi.Output[str]:
         """
-        Action to be taken on the configuration. Example: Permit | Deny.
+        Administrative state of the resource.
         """
-        return pulumi.get(self, "action")
+        return pulumi.get(self, "administrative_state")
 
     @property
     @pulumi.getter
@@ -299,12 +263,28 @@ class IpCommunity(pulumi.CustomResource):
         return pulumi.get(self, "annotation")
 
     @property
-    @pulumi.getter(name="communityMembers")
-    def community_members(self) -> pulumi.Output[Sequence[str]]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
         """
-        List the communityMembers of IP Community .
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "community_members")
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> pulumi.Output[str]:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @property
+    @pulumi.getter(name="ipCommunityRules")
+    def ip_community_rules(self) -> pulumi.Output[Sequence['outputs.IpCommunityRuleResponse']]:
+        """
+        List of IP Community Rules.
+        """
+        return pulumi.get(self, "ip_community_rules")
 
     @property
     @pulumi.getter
@@ -326,7 +306,7 @@ class IpCommunity(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -353,12 +333,4 @@ class IpCommunity(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="wellKnownCommunities")
-    def well_known_communities(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Supported well known Community List.
-        """
-        return pulumi.get(self, "well_known_communities")
 

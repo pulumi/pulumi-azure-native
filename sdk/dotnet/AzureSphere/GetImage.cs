@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Get a Image
         /// 
-        /// Uses Azure REST API version 2022-09-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure-native:azuresphere:getImage", args ?? new GetImageArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Get a Image
         /// 
-        /// Uses Azure REST API version 2022-09-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("azure-native:azuresphere:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Get a Image
         /// 
-        /// Uses Azure REST API version 2022-09-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("azure-native:azuresphere:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.AzureSphere
     public sealed class GetImageResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The image component id.
         /// </summary>
         public readonly string ComponentId;
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.AzureSphere
 
         [OutputConstructor]
         private GetImageResult(
+            string azureApiVersion,
+
             string componentId,
 
             string description,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.AzureSphere
 
             string uri)
         {
+            AzureApiVersion = azureApiVersion;
             ComponentId = componentId;
             Description = description;
             Id = id;

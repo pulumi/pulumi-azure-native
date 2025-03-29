@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public readonly ImmutableArray<Outputs.KpiAliasResponse> Aliases;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The calculation window.
         /// </summary>
         public readonly string CalculationWindow;
@@ -186,6 +190,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         private GetKpiResult(
             ImmutableArray<Outputs.KpiAliasResponse> aliases,
 
+            string azureApiVersion,
+
             string calculationWindow,
 
             string? calculationWindowFieldName,
@@ -229,6 +235,7 @@ namespace Pulumi.AzureNative.CustomerInsights
             string? unit)
         {
             Aliases = aliases;
+            AzureApiVersion = azureApiVersion;
             CalculationWindow = calculationWindow;
             CalculationWindowFieldName = calculationWindowFieldName;
             Description = description;

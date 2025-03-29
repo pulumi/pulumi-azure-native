@@ -100,9 +100,9 @@ class ReplicationExtension(pulumi.CustomResource):
         """
         Replication extension model.
 
-        Uses Azure REST API version 2021-02-16-preview.
+        Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
 
-        Other available API versions: 2024-09-01.
+        Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,9 +120,9 @@ class ReplicationExtension(pulumi.CustomResource):
         """
         Replication extension model.
 
-        Uses Azure REST API version 2021-02-16-preview.
+        Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
 
-        Other available API versions: 2024-09-01.
+        Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ReplicationExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -162,6 +162,7 @@ class ReplicationExtension(pulumi.CustomResource):
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -189,11 +190,20 @@ class ReplicationExtension(pulumi.CustomResource):
 
         __props__ = ReplicationExtensionArgs.__new__(ReplicationExtensionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ReplicationExtension(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

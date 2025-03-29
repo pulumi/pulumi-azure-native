@@ -27,7 +27,10 @@ class GetKafkaConfigurationResult:
     """
     The configuration of the event streaming service resource attached to the Purview account for kafka notifications.
     """
-    def __init__(__self__, consumer_group=None, credentials=None, event_hub_partition_id=None, event_hub_resource_id=None, event_hub_type=None, event_streaming_state=None, event_streaming_type=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, consumer_group=None, credentials=None, event_hub_partition_id=None, event_hub_resource_id=None, event_hub_type=None, event_streaming_state=None, event_streaming_type=None, id=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if consumer_group and not isinstance(consumer_group, str):
             raise TypeError("Expected argument 'consumer_group' to be a str")
         pulumi.set(__self__, "consumer_group", consumer_group)
@@ -63,6 +66,14 @@ class GetKafkaConfigurationResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="consumerGroup")
     def consumer_group(self) -> Optional[str]:
         """
@@ -74,7 +85,7 @@ class GetKafkaConfigurationResult:
     @pulumi.getter
     def credentials(self) -> Optional['outputs.CredentialsResponse']:
         """
-        Credentials to access event hub.
+        Credentials to access the event streaming service attached to the purview account.
         """
         return pulumi.get(self, "credentials")
 
@@ -154,6 +165,7 @@ class AwaitableGetKafkaConfigurationResult(GetKafkaConfigurationResult):
         if False:
             yield self
         return GetKafkaConfigurationResult(
+            azure_api_version=self.azure_api_version,
             consumer_group=self.consumer_group,
             credentials=self.credentials,
             event_hub_partition_id=self.event_hub_partition_id,
@@ -174,9 +186,9 @@ def get_kafka_configuration(account_name: Optional[str] = None,
     """
     Gets the kafka configuration for the account
 
-    Uses Azure REST API version 2021-12-01.
+    Uses Azure REST API version 2024-04-01-preview.
 
-    Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+    Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the account.
@@ -191,6 +203,7 @@ def get_kafka_configuration(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:purview:getKafkaConfiguration', __args__, opts=opts, typ=GetKafkaConfigurationResult).value
 
     return AwaitableGetKafkaConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         consumer_group=pulumi.get(__ret__, 'consumer_group'),
         credentials=pulumi.get(__ret__, 'credentials'),
         event_hub_partition_id=pulumi.get(__ret__, 'event_hub_partition_id'),
@@ -209,9 +222,9 @@ def get_kafka_configuration_output(account_name: Optional[pulumi.Input[str]] = N
     """
     Gets the kafka configuration for the account
 
-    Uses Azure REST API version 2021-12-01.
+    Uses Azure REST API version 2024-04-01-preview.
 
-    Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+    Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the account.
@@ -225,6 +238,7 @@ def get_kafka_configuration_output(account_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:purview:getKafkaConfiguration', __args__, opts=opts, typ=GetKafkaConfigurationResult)
     return __ret__.apply(lambda __response__: GetKafkaConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         consumer_group=pulumi.get(__response__, 'consumer_group'),
         credentials=pulumi.get(__response__, 'credentials'),
         event_hub_partition_id=pulumi.get(__response__, 'event_hub_partition_id'),

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Group resource.
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GroupsOperation extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class GroupsOperation extends pulumi.CustomResource {
      * List of References to Assessments created on this group.
      */
     public /*out*/ readonly assessments!: pulumi.Output<string[]>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Time when this group was created. Date-Time represented in ISO-8601 format.
      */
@@ -115,6 +119,7 @@ export class GroupsOperation extends pulumi.CustomResource {
             resourceInputs["supportedAssessmentTypes"] = args ? args.supportedAssessmentTypes : undefined;
             resourceInputs["areAssessmentsRunning"] = undefined /*out*/;
             resourceInputs["assessments"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["groupStatus"] = undefined /*out*/;
             resourceInputs["machineCount"] = undefined /*out*/;
@@ -125,6 +130,7 @@ export class GroupsOperation extends pulumi.CustomResource {
         } else {
             resourceInputs["areAssessmentsRunning"] = undefined /*out*/;
             resourceInputs["assessments"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["groupStatus"] = undefined /*out*/;
             resourceInputs["groupType"] = undefined /*out*/;
@@ -137,7 +143,7 @@ export class GroupsOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:GroupsOperation" }, { type: "azure-native:migrate/v20230315:GroupsOperation" }, { type: "azure-native:migrate/v20230401preview:GroupsOperation" }, { type: "azure-native:migrate/v20230501preview:GroupsOperation" }, { type: "azure-native:migrate/v20230909preview:GroupsOperation" }, { type: "azure-native:migrate/v20240101preview:GroupsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:Group" }, { type: "azure-native:migrate/v20191001:GroupsOperation" }, { type: "azure-native:migrate/v20230315:GroupsOperation" }, { type: "azure-native:migrate/v20230401preview:GroupsOperation" }, { type: "azure-native:migrate/v20230501preview:GroupsOperation" }, { type: "azure-native:migrate/v20230909preview:GroupsOperation" }, { type: "azure-native:migrate/v20240101preview:GroupsOperation" }, { type: "azure-native:migrate:Group" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GroupsOperation.__pulumiType, name, resourceInputs, opts);
     }

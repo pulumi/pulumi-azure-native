@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.ServiceLinker.Inputs
     public sealed class SecretAuthInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        /// </summary>
+        [Input("authMode")]
+        public InputUnion<string, Pulumi.AzureNative.ServiceLinker.AuthMode>? AuthMode { get; set; }
+
+        /// <summary>
         /// The authentication type.
         /// Expected value is 'secret'.
         /// </summary>

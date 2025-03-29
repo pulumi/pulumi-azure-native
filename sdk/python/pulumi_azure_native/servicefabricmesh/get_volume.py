@@ -27,7 +27,10 @@ class GetVolumeResult:
     """
     This type describes a volume resource.
     """
-    def __init__(__self__, azure_file_parameters=None, description=None, id=None, location=None, name=None, provider=None, provisioning_state=None, status=None, status_details=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, azure_file_parameters=None, description=None, id=None, location=None, name=None, provider=None, provisioning_state=None, status=None, status_details=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_file_parameters and not isinstance(azure_file_parameters, dict):
             raise TypeError("Expected argument 'azure_file_parameters' to be a dict")
         pulumi.set(__self__, "azure_file_parameters", azure_file_parameters)
@@ -61,6 +64,14 @@ class GetVolumeResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureFileParameters")
@@ -157,6 +168,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         if False:
             yield self
         return GetVolumeResult(
+            azure_api_version=self.azure_api_version,
             azure_file_parameters=self.azure_file_parameters,
             description=self.description,
             id=self.id,
@@ -189,6 +201,7 @@ def get_volume(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabricmesh:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_file_parameters=pulumi.get(__ret__, 'azure_file_parameters'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -218,6 +231,7 @@ def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh:getVolume', __args__, opts=opts, typ=GetVolumeResult)
     return __ret__.apply(lambda __response__: GetVolumeResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_file_parameters=pulumi.get(__response__, 'azure_file_parameters'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
