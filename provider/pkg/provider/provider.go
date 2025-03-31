@@ -1025,7 +1025,8 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 			return nil, azure.AzureError(err)
 		}
 	default:
-		id, outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient, reader(customRes, crudClient))
+		id, outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient,
+			reader(customRes, crudClient, nil /* previousInputs, none for Create */))
 		if err != nil {
 			return nil, err
 		}
@@ -1125,7 +1126,9 @@ type readFunc func(ctx context.Context, id string, inputs resource.PropertyMap) 
 // reader returns a function that reads the state of a resource either from a custom Read if it is
 // implemented, or via the standard ResourceCrudClient otherwise. In the latter case, the response
 // will be converted to SDK shape. Custom Reads are expected to do this on their own.
-func reader(customRes *customresources.CustomResource, crudClient crud.ResourceCrudClient) readFunc {
+//
+// The `previousInputs` argument is only used for resources where the API version is user-provided.
+func reader(customRes *customresources.CustomResource, crudClient crud.ResourceCrudClient, previousInputs resource.PropertyMap) readFunc {
 	if customRes != nil && customRes.Read != nil {
 		return func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
 			response, _, err := customRes.Read(ctx, id, inputs)
@@ -1133,11 +1136,14 @@ func reader(customRes *customresources.CustomResource, crudClient crud.ResourceC
 		}
 	}
 
-	return func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+	return func(ctx context.Context, id string, _ resource.PropertyMap) (map[string]any, error) {
 		overrideApiVersion := ""
 		if crudClient.ApiVersionIsUserInput() {
-			overrideApiVersion = getApiVersionFromInputs(inputs)
+			if apiVersion, ok := previousInputs["apiVersion"]; ok {
+				overrideApiVersion = apiVersion.StringValue()
+			}
 		}
+
 		response, err := crudClient.Read(ctx, id, overrideApiVersion)
 		if err == nil {
 			// Map the raw response to the shape of outputs that the SDKs expect.
@@ -1257,12 +1263,19 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 // Depending on the major version, because we turned on SendOldInputs in v3, the previous inputs can be in state under
 // `__inputs`, or available as `req.GetInputs()`/`req.GetOldInputs()`.
 func getPreviousInputs(state resource.PropertyMap, reqInputs *structpb.Struct, label string) (resource.PropertyMap, error) {
-	if version.GetVersion().Major >= 3 {
+	return getPreviousInputsByVersion(state, reqInputs, label, version.GetVersion().Major)
+}
+
+func getPreviousInputsByVersion(state resource.PropertyMap, reqInputs *structpb.Struct, label string, version uint64) (resource.PropertyMap, error) {
+	if version >= 3 {
 		return plugin.UnmarshalProperties(reqInputs, plugin.MarshalOptions{
 			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
 		})
 	}
-	return state["__inputs"].ObjectValue(), nil
+	if __inputs, ok := state["__inputs"]; ok {
+		return __inputs.ObjectValue(), nil
+	}
+	return nil, nil
 }
 
 // Read the current live state associated with a resource.
@@ -1510,7 +1523,11 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 			return nil, azure.AzureError(err)
 		}
 	} else {
-		outputs, err = k.defaultUpdate(ctx, req, inputs, id, queryParams, crudClient, reader(customRes, crudClient))
+		previousInputs, err := getPreviousInputs(oldState, req.GetOldInputs(), label)
+		if err != nil {
+			return nil, err
+		}
+		outputs, err = k.defaultUpdate(ctx, req, inputs, id, queryParams, crudClient, reader(customRes, crudClient, previousInputs))
 		if err != nil {
 			return nil, err
 		}
@@ -1800,18 +1817,4 @@ func getApiVersion(resource *resources.AzureAPIResource, inputs resource.Propert
 		}
 	}
 	return resource.APIVersion
-}
-
-// getApiVersionFromInputs returns the API version from `inputs`. If the API version is not set as input, it checks
-// the `__inputs` field in the state for the API version. The writing of `__inputs` was removed in v3.
-func getApiVersionFromInputs(inputs resource.PropertyMap) string {
-	overrideApiVersion := ""
-	if apiVersion, ok := inputs["apiVersion"]; ok {
-		overrideApiVersion = apiVersion.StringValue()
-	} else if oldInputs, ok := inputs["__inputs"]; ok {
-		if apiVersion, ok := oldInputs.ObjectValue()["apiVersion"]; ok {
-			overrideApiVersion = apiVersion.StringValue()
-		}
-	}
-	return overrideApiVersion
 }
