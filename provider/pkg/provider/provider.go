@@ -1254,6 +1254,17 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 	return missingProperties
 }
 
+// Depending on the major version, because we turned on SendOldInputs in v3, the previous inputs can be in state under
+// `__inputs`, or available as `req.GetInputs()`/`req.GetOldInputs()`.
+func getPreviousInputs(state resource.PropertyMap, reqInputs *structpb.Struct, label string) (resource.PropertyMap, error) {
+	if version.GetVersion().Major >= 3 {
+		return plugin.UnmarshalProperties(reqInputs, plugin.MarshalOptions{
+			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
+		})
+	}
+	return state["__inputs"].ObjectValue(), nil
+}
+
 // Read the current live state associated with a resource.
 func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.ReadResponse, error) {
 	// Use the global context to handle provider shutdown.
@@ -1270,14 +1281,10 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	if err != nil {
 		return nil, err
 	}
-	stateWithPreviousInputs := oldState
-	if version.GetVersion().Major >= 3 {
-		stateWithPreviousInputs, err = plugin.UnmarshalProperties(req.GetInputs(), plugin.MarshalOptions{
-			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
-		})
-		if err != nil {
-			return nil, err
-		}
+
+	previousInputs, err := getPreviousInputs(oldState, req.GetInputs(), label)
+	if err != nil {
+		return nil, err
 	}
 
 	res, err := k.lookupResourceFromURN(urn)
@@ -1303,11 +1310,11 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		outputs = response
 	case res.ReadMethod == "HEAD":
 		url := id + res.ReadPath
-		err = k.azureClient.Head(ctx, url, getApiVersion(res, stateWithPreviousInputs))
+		err = k.azureClient.Head(ctx, url, getApiVersion(res, previousInputs))
 		response = oldState.Mappable()
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	default:
-		response, err = crudClient.Read(ctx, id, getApiVersion(res, stateWithPreviousInputs))
+		response, err = crudClient.Read(ctx, id, getApiVersion(res, previousInputs))
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	}
 	if err != nil {
@@ -1600,15 +1607,6 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 	state, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
 	})
-	stateWithPreviousInputs := state
-	if version.GetVersion().Major >= 3 {
-		stateWithPreviousInputs, err = plugin.UnmarshalProperties(req.GetOldInputs(), plugin.MarshalOptions{
-			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
-		})
-		if err != nil {
-			return nil, err
-		}
-	}
 
 	switch {
 	case isCustom && customRes.Delete != nil:
@@ -1654,8 +1652,13 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			}
 		}
 	default:
-		apiVersion := getApiVersion(res, stateWithPreviousInputs)
-		err := k.azureClient.Delete(ctx, id, apiVersion, res.DeleteAsyncStyle, nil)
+		previousInputs, err := getPreviousInputs(state, req.GetOldInputs(), label)
+		if err != nil {
+			return nil, err
+		}
+
+		apiVersion := getApiVersion(res, previousInputs)
+		err = k.azureClient.Delete(ctx, id, apiVersion, res.DeleteAsyncStyle, nil)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
@@ -1788,13 +1791,19 @@ func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environmen
 	}
 }
 
+// getApiVersion usually returns the API version set on `resource` (from metadata). For resources where the user
+// specifies the API version as input, it returns the value from `inputs`.
 func getApiVersion(resource *resources.AzureAPIResource, inputs resource.PropertyMap) string {
 	if resource.ApiVersionIsUserInput {
-		return getApiVersionFromInputs(inputs)
+		if apiVersion, ok := inputs["apiVersion"]; ok {
+			return apiVersion.StringValue()
+		}
 	}
 	return resource.APIVersion
 }
 
+// getApiVersionFromInputs returns the API version from `inputs`. If the API version is not set as input, it checks
+// the `__inputs` field in the state for the API version. The writing of `__inputs` was removed in v3.
 func getApiVersionFromInputs(inputs resource.PropertyMap) string {
 	overrideApiVersion := ""
 	if apiVersion, ok := inputs["apiVersion"]; ok {
