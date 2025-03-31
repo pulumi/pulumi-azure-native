@@ -2256,6 +2256,20 @@
   {
     "VersionedModule": "azurestackhci/v20250201preview",
     "Module": "AzureStackHCI",
+    "ResourceName": "HciEdgeDeviceJob",
+    "ReferenceName": "HciEdgeDeviceJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20250201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "HciEdgeDeviceJob",
+    "ReferenceName": "HciEdgeDeviceJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20250201preview",
+    "Module": "AzureStackHCI",
     "ResourceName": "NetworkInterface",
     "ReferenceName": "IPConfiguration",
     "Property": "name"
