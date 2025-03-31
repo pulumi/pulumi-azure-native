@@ -1370,7 +1370,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 
 		// 1. If we previously reset inputs to their default value, remove them so we don't get them in
 		// the projected output. This would cause unnecessary changes on refresh.
-		removeDefaults(*res, plainOldState)
+		removeDefaults(*res, plainOldState, previousInputs.Mappable())
 		// 2. Project old outputs to their corresponding input shape (exclude read-only properties).
 		oldInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, plainOldState)
 		// 3a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
@@ -1411,13 +1411,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 }
 
 // removeDefaults removes the resource's default values from the given state, modifying the map in place.
-func removeDefaults(res resources.AzureAPIResource, plainOldState map[string]any) {
-	previousInputsRaw, ok := plainOldState["__inputs"]
-	if !ok {
-		return
-	}
-	previousInputs := previousInputsRaw.(map[string]interface{})
-
+func removeDefaults(res resources.AzureAPIResource, plainOldState, previousInputs map[string]any) {
 	for property, defaultValue := range res.DefaultProperties {
 		_, wasInPreviousInputs := previousInputs[property]
 		val, ok := plainOldState[property]

@@ -100,7 +100,7 @@ func TestRestoreDefaultInputsIsNoopWithoutDefaultProperties(t *testing.T) {
 func TestMappableOldStateIsNoopWithoutDefaults(t *testing.T) {
 	res := resources.AzureAPIResource{} // no defaults
 	m := map[string]interface{}{"foo": "bar"}
-	removeDefaults(res, m)
+	removeDefaults(res, m, nil)
 	assert.Equal(t, map[string]interface{}{"foo": "bar"}, m)
 }
 
@@ -117,7 +117,7 @@ func TestMappableOldStatePreservesNonDefaults(t *testing.T) {
 			"defaultAction": "Deny",
 		},
 	}
-	removeDefaults(res, m)
+	removeDefaults(res, m, nil)
 	assert.Equal(t, "Deny", m["networkRuleSet"].(map[string]interface{})["defaultAction"])
 }
 
@@ -130,17 +130,15 @@ func TestMappableOldStateRemovesDefaultsThatWereInputs(t *testing.T) {
 		},
 	}
 	m := map[string]any{
-		"__inputs": map[string]any{
-			"networkRuleSet": map[string]any{
-				"defaultAction": "Allow",
-			},
-		},
 		"networkRuleSet": map[string]any{
 			"defaultAction": "Allow",
 		},
 	}
-	removeDefaults(res, m)
-	assert.Contains(t, m, "__inputs")
+	removeDefaults(res, m, map[string]any{
+		"networkRuleSet": map[string]any{
+			"defaultAction": "Allow",
+		},
+	})
 	assert.NotContains(t, m, "networkRuleSet")
 }
 
@@ -153,13 +151,11 @@ func TestMappableOldStatePreservesDefaultsThatWereNotInputs(t *testing.T) {
 		},
 	}
 	m := map[string]any{
-		"__inputs": map[string]any{},
 		"networkRuleSet": map[string]any{
 			"defaultAction": "Allow",
 		},
 	}
-	removeDefaults(res, m)
-	assert.Contains(t, m, "__inputs")
+	removeDefaults(res, m, nil)
 	assert.Contains(t, m, "networkRuleSet")
 }
 
