@@ -1263,11 +1263,7 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 // Depending on the major version, because we turned on SendOldInputs in v3, the previous inputs can be in state under
 // `__inputs`, or available as `req.GetInputs()`/`req.GetOldInputs()`.
 func getPreviousInputs(state resource.PropertyMap, reqInputs *structpb.Struct, label string) (resource.PropertyMap, error) {
-	return getPreviousInputsByVersion(state, reqInputs, label, version.GetVersion().Major)
-}
-
-func getPreviousInputsByVersion(state resource.PropertyMap, reqInputs *structpb.Struct, label string, version uint64) (resource.PropertyMap, error) {
-	if version >= 3 {
+	if reqInputs != nil {
 		return plugin.UnmarshalProperties(reqInputs, plugin.MarshalOptions{
 			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
 		})

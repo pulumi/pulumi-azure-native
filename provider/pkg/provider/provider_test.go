@@ -453,32 +453,42 @@ func TestReader(t *testing.T) {
 }
 
 func TestGetPreviousInputs(t *testing.T) {
-	inputs := resource.PropertyMap{
-		"__inputs": resource.NewObjectProperty(resource.PropertyMap{
-			"fromState": resource.PropertyValue{},
-		}),
-	}
-	req := &rpc.ReadRequest{
-		Id: "/subscriptions/123",
-		Inputs: &structpb.Struct{
-			Fields: map[string]*structpb.Value{
-				"fromReq": {
-					Kind: &structpb.Value_BoolValue{
-						BoolValue: true,
-					},
-				},
-			},
-		},
-	}
-
 	t.Run("v2", func(t *testing.T) {
-		oldInputs, err := getPreviousInputsByVersion(inputs, req.GetInputs(), "test", 2)
+		inputs := resource.PropertyMap{
+			"__inputs": resource.NewObjectProperty(resource.PropertyMap{
+				"fromState": resource.PropertyValue{},
+			}),
+		}
+		req := &rpc.ReadRequest{
+			Id:     "/subscriptions/123",
+			Inputs: nil,
+		}
+
+		oldInputs, err := getPreviousInputs(inputs, req.GetInputs(), "test")
 		require.NoError(t, err)
 		assert.Contains(t, oldInputs.Mappable(), "fromState")
 	})
 
 	t.Run("v3", func(t *testing.T) {
-		oldInputs, err := getPreviousInputsByVersion(inputs, req.GetInputs(), "test", 3)
+		inputs := resource.PropertyMap{
+			"__inputs": resource.NewObjectProperty(resource.PropertyMap{
+				"fromState": resource.PropertyValue{},
+			}),
+		}
+		req := &rpc.ReadRequest{
+			Id: "/subscriptions/123",
+			Inputs: &structpb.Struct{
+				Fields: map[string]*structpb.Value{
+					"fromReq": {
+						Kind: &structpb.Value_BoolValue{
+							BoolValue: true,
+						},
+					},
+				},
+			},
+		}
+
+		oldInputs, err := getPreviousInputs(inputs, req.GetInputs(), "test")
 		require.NoError(t, err)
 		assert.Contains(t, oldInputs.Mappable(), "fromReq")
 	})
