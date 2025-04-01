@@ -142,6 +142,7 @@ namespace Pulumi.AzureNative.Cdn.V20230501
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:AFDOrigin" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:AFDOrigin" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:AFDOrigin" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20250415:AFDOrigin" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn:AFDOrigin" },
                 },
             };

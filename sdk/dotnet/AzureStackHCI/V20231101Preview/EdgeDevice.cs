@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20231101Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240401:EdgeDevice" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240901preview:EdgeDevice" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241201preview:EdgeDevice" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:EdgeDevice" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:EdgeDevice" },
                 },
             };

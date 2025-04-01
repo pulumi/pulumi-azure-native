@@ -86,6 +86,8 @@ export class ProjectCapabilityHost extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:ProjectCapabilityHost" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectCapabilityHost.__pulumiType, name, resourceInputs, opts);
     }
 }

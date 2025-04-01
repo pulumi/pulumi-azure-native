@@ -5,23 +5,51 @@
 from enum import Enum
 
 __all__ = [
+    'AvailabilityType',
     'CloudInitDataSource',
+    'ClusterPattern',
+    'ComplianceAssignmentType',
+    'DeploymentMode',
+    'DeviceKind',
+    'DiagnosticLevel',
     'DiskFileFormat',
+    'EceSecrets',
+    'EdgeDeviceKind',
     'ExtendedLocationTypes',
     'GpuAssignmentTypeEnum',
+    'HciEdgeDeviceJobType',
     'HyperVGeneration',
     'IPPoolTypeEnum',
     'IpAllocationMethodEnum',
     'ManagedServiceIdentityType',
     'OperatingSystemTypes',
+    'OperationType',
     'ProvisioningAction',
+    'RemoteSupportAccessLevel',
+    'RemoteSupportType',
+    'SecretsType',
     'SecurityEncryptionType',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
     'SecurityTypes',
+    'ServiceName',
+    'SoftwareAssuranceIntent',
+    'State',
+    'UpdateRunPropertiesState',
+    'UpdateSummariesPropertiesState',
     'VmSizeEnum',
+    'WindowsServerSubscription',
 ]
+
+
+class AvailabilityType(str, Enum):
+    """
+    Indicates the way the update content can be downloaded.
+    """
+    LOCAL = "Local"
+    ONLINE = "Online"
+    NOTIFY = "Notify"
 
 
 class CloudInitDataSource(str, Enum):
@@ -38,6 +66,67 @@ class CloudInitDataSource(str, Enum):
     """
 
 
+class ClusterPattern(str, Enum):
+    """
+    Cluster Pattern supported.
+    """
+    STANDARD = "Standard"
+    """
+    Standard cluster.
+    """
+    RACK_AWARE = "RackAware"
+    """
+    RackAware cluster.
+    """
+
+
+class ComplianceAssignmentType(str, Enum):
+    """
+    WDAC Compliance Assignment
+    """
+    AUDIT = "Audit"
+    """
+    Report on the state of the machine, but don't make changes.
+    """
+    APPLY_AND_AUTO_CORRECT = "ApplyAndAutoCorrect"
+    """
+    Applied to the machine. If it drifts, the local service inside the machine makes a correction at the next evaluation.
+    """
+
+
+class DeploymentMode(str, Enum):
+    """
+    Deployment mode to trigger job.
+    """
+    VALIDATE = "Validate"
+    """
+    Validate ECE action deployment for a cluster.
+    """
+    DEPLOY = "Deploy"
+    """
+    Deploy ECE action deployment for a cluster.
+    """
+
+
+class DeviceKind(str, Enum):
+    """
+    Device kind to support polymorphic resource.
+    """
+    HCI = "HCI"
+    """
+    Arc-enabled edge device with HCI OS.
+    """
+
+
+class DiagnosticLevel(str, Enum):
+    """
+    Desired level of diagnostic data emitted by the cluster.
+    """
+    OFF = "Off"
+    BASIC = "Basic"
+    ENHANCED = "Enhanced"
+
+
 class DiskFileFormat(str, Enum):
     """
     The format of the actual VHD file [vhd, vhdx]
@@ -49,6 +138,38 @@ class DiskFileFormat(str, Enum):
     VHD = "vhd"
     """
     VHD file format
+    """
+
+
+class EceSecrets(str, Enum):
+    """
+    Secret name expected for Enterprise Cloud Engine (ECE) deployment.
+    """
+    AZURE_STACK_LCMUSER_CREDENTIAL = "AzureStackLCMUserCredential"
+    """
+    AzureStackLCMUserCredential used for LCM operations for AzureStackHCI cluster.
+    """
+    DEFAULT_ARB_APPLICATION = "DefaultARBApplication"
+    """
+    DefaultARBApplication used to manage Azure Arc resource bridge (ARB) for AzureStackHCI cluster.
+    """
+    LOCAL_ADMIN_CREDENTIAL = "LocalAdminCredential"
+    """
+    LocalAdminCredential used for admin operations for AzureStackHCI cluster.
+    """
+    WITNESS_STORAGE_KEY = "WitnessStorageKey"
+    """
+    WitnessStorageKey used for setting up a cloud witness for AzureStackHCI cluster.
+    """
+
+
+class EdgeDeviceKind(str, Enum):
+    """
+    Edge Solution type to support polymorphic resource.
+    """
+    HCI = "HCI"
+    """
+    Arc-enabled edge device with HCI OS.
     """
 
 
@@ -73,6 +194,20 @@ class GpuAssignmentTypeEnum(str, Enum):
     GPU_P = "GpuP"
     """
     Attach Graphics Processing Unit (GPU) using GPU Partitioning
+    """
+
+
+class HciEdgeDeviceJobType(str, Enum):
+    """
+    Job Type to support polymorphic resource.
+    """
+    COLLECT_LOG = "CollectLog"
+    """
+    Job to collect logs from the device.
+    """
+    REMOTE_SUPPORT = "RemoteSupport"
+    """
+    Job to provide remote support to the device.
     """
 
 
@@ -142,6 +277,20 @@ class OperatingSystemTypes(str, Enum):
     """
 
 
+class OperationType(str, Enum):
+    """
+    The intended operation for a cluster.
+    """
+    CLUSTER_PROVISIONING = "ClusterProvisioning"
+    """
+    Cluster provisioning operation.
+    """
+    CLUSTER_UPGRADE = "ClusterUpgrade"
+    """
+    Cluster upgrade operation.
+    """
+
+
 class ProvisioningAction(str, Enum):
     """
     The guest agent provisioning action.
@@ -157,6 +306,48 @@ class ProvisioningAction(str, Enum):
     REPAIR = "repair"
     """
     Repair guest agent
+    """
+
+
+class RemoteSupportAccessLevel(str, Enum):
+    """
+    Remote support access level.
+    """
+    NONE = "None"
+    """
+    No remote support access is granted.
+    """
+    DIAGNOSTICS = "Diagnostics"
+    """
+    Access is limited to diagnostics information only.
+    """
+    DIAGNOSTICS_AND_REPAIR = "DiagnosticsAndRepair"
+    """
+    Access includes diagnostics information and the ability to perform repairs.
+    """
+
+
+class RemoteSupportType(str, Enum):
+    """
+    Remote support type.
+    """
+    ENABLE = "Enable"
+    """
+    Enables remote support for the edge device.
+    """
+    REVOKE = "Revoke"
+    """
+    Revokes previously granted remote support access for the edge device.
+    """
+
+
+class SecretsType(str, Enum):
+    """
+    Type of secrets to store
+    """
+    BACKUP_SECRETS = "BackupSecrets"
+    """
+    Backup secrets type
     """
 
 
@@ -232,6 +423,70 @@ class SecurityTypes(str, Enum):
     """
     Confidential VM security type
     """
+
+
+class ServiceName(str, Enum):
+    """
+    Name of the service.
+    """
+    WAC = "WAC"
+
+
+class SoftwareAssuranceIntent(str, Enum):
+    """
+    Customer Intent for Software Assurance Benefit.
+    """
+    ENABLE = "Enable"
+    DISABLE = "Disable"
+
+
+class State(str, Enum):
+    """
+    State of the update as it relates to this stamp.
+    """
+    HAS_PREREQUISITE = "HasPrerequisite"
+    OBSOLETE = "Obsolete"
+    READY = "Ready"
+    NOT_APPLICABLE_BECAUSE_ANOTHER_UPDATE_IS_IN_PROGRESS = "NotApplicableBecauseAnotherUpdateIsInProgress"
+    PREPARING = "Preparing"
+    INSTALLING = "Installing"
+    INSTALLED = "Installed"
+    PREPARATION_FAILED = "PreparationFailed"
+    INSTALLATION_FAILED = "InstallationFailed"
+    INVALID = "Invalid"
+    RECALLED = "Recalled"
+    DOWNLOADING = "Downloading"
+    DOWNLOAD_FAILED = "DownloadFailed"
+    HEALTH_CHECKING = "HealthChecking"
+    HEALTH_CHECK_FAILED = "HealthCheckFailed"
+    READY_TO_INSTALL = "ReadyToInstall"
+    SCAN_IN_PROGRESS = "ScanInProgress"
+    SCAN_FAILED = "ScanFailed"
+    ADDITIONAL_CONTENT_REQUIRED = "AdditionalContentRequired"
+
+
+class UpdateRunPropertiesState(str, Enum):
+    """
+    State of the update run.
+    """
+    UNKNOWN = "Unknown"
+    SUCCEEDED = "Succeeded"
+    IN_PROGRESS = "InProgress"
+    FAILED = "Failed"
+
+
+class UpdateSummariesPropertiesState(str, Enum):
+    """
+    Overall update state of the stamp.
+    """
+    UNKNOWN = "Unknown"
+    APPLIED_SUCCESSFULLY = "AppliedSuccessfully"
+    UPDATE_AVAILABLE = "UpdateAvailable"
+    UPDATE_IN_PROGRESS = "UpdateInProgress"
+    UPDATE_FAILED = "UpdateFailed"
+    NEEDS_ATTENTION = "NeedsAttention"
+    PREPARATION_IN_PROGRESS = "PreparationInProgress"
+    PREPARATION_FAILED = "PreparationFailed"
 
 
 class VmSizeEnum(str, Enum):
@@ -330,3 +585,11 @@ class VmSizeEnum(str, Enum):
     """
     Custom virtual machine size
     """
+
+
+class WindowsServerSubscription(str, Enum):
+    """
+    Desired state of Windows Server Subscription.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"

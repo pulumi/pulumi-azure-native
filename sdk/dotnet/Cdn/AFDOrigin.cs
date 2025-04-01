@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cdn
     /// 
     /// Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-04-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDOrigin")]
     public partial class AFDOrigin : global::Pulumi.CustomResource
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.Cdn
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:AFDOrigin" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:AFDOrigin" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:AFDOrigin" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20250415:AFDOrigin" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

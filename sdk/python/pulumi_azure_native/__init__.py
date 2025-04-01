@@ -4188,14 +4188,24 @@ _utilities.register(
   "mod": "azurestackhci/v20250201preview",
   "fqn": "pulumi_azure_native.azurestackhci.v20250201preview",
   "classes": {
+   "azure-native:azurestackhci/v20250201preview:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci/v20250201preview:Cluster": "Cluster",
+   "azure-native:azurestackhci/v20250201preview:DeploymentSetting": "DeploymentSetting",
+   "azure-native:azurestackhci/v20250201preview:Extension": "Extension",
    "azure-native:azurestackhci/v20250201preview:GalleryImage": "GalleryImage",
    "azure-native:azurestackhci/v20250201preview:GuestAgent": "GuestAgent",
+   "azure-native:azurestackhci/v20250201preview:HciEdgeDevice": "HciEdgeDevice",
+   "azure-native:azurestackhci/v20250201preview:HciEdgeDeviceJob": "HciEdgeDeviceJob",
    "azure-native:azurestackhci/v20250201preview:LogicalNetwork": "LogicalNetwork",
    "azure-native:azurestackhci/v20250201preview:MarketplaceGalleryImage": "MarketplaceGalleryImage",
    "azure-native:azurestackhci/v20250201preview:NetworkInterface": "NetworkInterface",
    "azure-native:azurestackhci/v20250201preview:NetworkSecurityGroup": "NetworkSecurityGroup",
    "azure-native:azurestackhci/v20250201preview:SecurityRule": "SecurityRule",
+   "azure-native:azurestackhci/v20250201preview:SecuritySetting": "SecuritySetting",
    "azure-native:azurestackhci/v20250201preview:StorageContainer": "StorageContainer",
+   "azure-native:azurestackhci/v20250201preview:Update": "Update",
+   "azure-native:azurestackhci/v20250201preview:UpdateRun": "UpdateRun",
+   "azure-native:azurestackhci/v20250201preview:UpdateSummary": "UpdateSummary",
    "azure-native:azurestackhci/v20250201preview:VirtualHardDisk": "VirtualHardDisk",
    "azure-native:azurestackhci/v20250201preview:VirtualMachineInstance": "VirtualMachineInstance"
   }
@@ -4861,6 +4871,28 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cdn/v20250415",
+  "fqn": "pulumi_azure_native.cdn.v20250415",
+  "classes": {
+   "azure-native:cdn/v20250415:AFDCustomDomain": "AFDCustomDomain",
+   "azure-native:cdn/v20250415:AFDEndpoint": "AFDEndpoint",
+   "azure-native:cdn/v20250415:AFDOrigin": "AFDOrigin",
+   "azure-native:cdn/v20250415:AFDOriginGroup": "AFDOriginGroup",
+   "azure-native:cdn/v20250415:CustomDomain": "CustomDomain",
+   "azure-native:cdn/v20250415:Endpoint": "Endpoint",
+   "azure-native:cdn/v20250415:Origin": "Origin",
+   "azure-native:cdn/v20250415:OriginGroup": "OriginGroup",
+   "azure-native:cdn/v20250415:Policy": "Policy",
+   "azure-native:cdn/v20250415:Profile": "Profile",
+   "azure-native:cdn/v20250415:Route": "Route",
+   "azure-native:cdn/v20250415:Rule": "Rule",
+   "azure-native:cdn/v20250415:RuleSet": "RuleSet",
+   "azure-native:cdn/v20250415:Secret": "Secret",
+   "azure-native:cdn/v20250415:SecurityPolicy": "SecurityPolicy"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "certificateregistration",
   "fqn": "pulumi_azure_native.certificateregistration",
   "classes": {
@@ -5227,11 +5259,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.cognitiveservices",
   "classes": {
    "azure-native:cognitiveservices:Account": "Account",
+   "azure-native:cognitiveservices:AccountCapabilityHost": "AccountCapabilityHost",
+   "azure-native:cognitiveservices:AccountConnection": "AccountConnection",
    "azure-native:cognitiveservices:CommitmentPlan": "CommitmentPlan",
    "azure-native:cognitiveservices:CommitmentPlanAssociation": "CommitmentPlanAssociation",
    "azure-native:cognitiveservices:Deployment": "Deployment",
    "azure-native:cognitiveservices:EncryptionScope": "EncryptionScope",
    "azure-native:cognitiveservices:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cognitiveservices:Project": "Project",
+   "azure-native:cognitiveservices:ProjectCapabilityHost": "ProjectCapabilityHost",
+   "azure-native:cognitiveservices:ProjectConnection": "ProjectConnection",
    "azure-native:cognitiveservices:RaiBlocklist": "RaiBlocklist",
    "azure-native:cognitiveservices:RaiBlocklistItem": "RaiBlocklistItem",
    "azure-native:cognitiveservices:RaiPolicy": "RaiPolicy",
@@ -5358,6 +5395,7 @@ _utilities.register(
    "azure-native:communication:Domain": "Domain",
    "azure-native:communication:EmailService": "EmailService",
    "azure-native:communication:SenderUsername": "SenderUsername",
+   "azure-native:communication:SmtpUsername": "SmtpUsername",
    "azure-native:communication:SuppressionList": "SuppressionList",
    "azure-native:communication:SuppressionListAddress": "SuppressionListAddress"
   }
@@ -6897,6 +6935,21 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20250102preview",
+  "fqn": "pulumi_azure_native.containerservice.v20250102preview",
+  "classes": {
+   "azure-native:containerservice/v20250102preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20250102preview:LoadBalancer": "LoadBalancer",
+   "azure-native:containerservice/v20250102preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20250102preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20250102preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20250102preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20250102preview:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20250102preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerstorage",
   "fqn": "pulumi_azure_native.containerstorage",
   "classes": {
@@ -8020,7 +8073,10 @@ _utilities.register(
   "classes": {
    "azure-native:datareplication:Dra": "Dra",
    "azure-native:datareplication:Fabric": "Fabric",
+   "azure-native:datareplication:FabricAgent": "FabricAgent",
    "azure-native:datareplication:Policy": "Policy",
+   "azure-native:datareplication:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:datareplication:PrivateEndpointConnectionProxy": "PrivateEndpointConnectionProxy",
    "azure-native:datareplication:ProtectedItem": "ProtectedItem",
    "azure-native:datareplication:ReplicationExtension": "ReplicationExtension",
    "azure-native:datareplication:Vault": "Vault"
@@ -21308,6 +21364,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.storagecache",
   "classes": {
    "azure-native:storagecache:AmlFilesystem": "AmlFilesystem",
+   "azure-native:storagecache:AutoExportJob": "AutoExportJob",
    "azure-native:storagecache:Cache": "Cache",
    "azure-native:storagecache:ImportJob": "ImportJob",
    "azure-native:storagecache:StorageTarget": "StorageTarget"

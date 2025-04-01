@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
  *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-04-15.
  */
 export class RuleSet extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class RuleSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:RuleSet" }, { type: "azure-native:cdn/v20210601:RuleSet" }, { type: "azure-native:cdn/v20220501preview:RuleSet" }, { type: "azure-native:cdn/v20221101preview:RuleSet" }, { type: "azure-native:cdn/v20230501:RuleSet" }, { type: "azure-native:cdn/v20230701preview:RuleSet" }, { type: "azure-native:cdn/v20240201:RuleSet" }, { type: "azure-native:cdn/v20240501preview:RuleSet" }, { type: "azure-native:cdn/v20240601preview:RuleSet" }, { type: "azure-native:cdn/v20240901:RuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:RuleSet" }, { type: "azure-native:cdn/v20210601:RuleSet" }, { type: "azure-native:cdn/v20220501preview:RuleSet" }, { type: "azure-native:cdn/v20221101preview:RuleSet" }, { type: "azure-native:cdn/v20230501:RuleSet" }, { type: "azure-native:cdn/v20230701preview:RuleSet" }, { type: "azure-native:cdn/v20240201:RuleSet" }, { type: "azure-native:cdn/v20240501preview:RuleSet" }, { type: "azure-native:cdn/v20240601preview:RuleSet" }, { type: "azure-native:cdn/v20240901:RuleSet" }, { type: "azure-native:cdn/v20250415:RuleSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RuleSet.__pulumiType, name, resourceInputs, opts);
     }

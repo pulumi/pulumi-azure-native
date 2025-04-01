@@ -5,10 +5,50 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { ArcSettingArgs } from "./arcSetting";
+export type ArcSetting = import("./arcSetting").ArcSetting;
+export const ArcSetting: typeof import("./arcSetting").ArcSetting = null as any;
+utilities.lazyLoad(exports, ["ArcSetting"], () => require("./arcSetting"));
+
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+
+export { DeploymentSettingArgs } from "./deploymentSetting";
+export type DeploymentSetting = import("./deploymentSetting").DeploymentSetting;
+export const DeploymentSetting: typeof import("./deploymentSetting").DeploymentSetting = null as any;
+utilities.lazyLoad(exports, ["DeploymentSetting"], () => require("./deploymentSetting"));
+
+export { ExtensionArgs } from "./extension";
+export type Extension = import("./extension").Extension;
+export const Extension: typeof import("./extension").Extension = null as any;
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
+
 export { GalleryImageArgs } from "./galleryImage";
 export type GalleryImage = import("./galleryImage").GalleryImage;
 export const GalleryImage: typeof import("./galleryImage").GalleryImage = null as any;
 utilities.lazyLoad(exports, ["GalleryImage"], () => require("./galleryImage"));
+
+export { GetArcSettingArgs, GetArcSettingResult, GetArcSettingOutputArgs } from "./getArcSetting";
+export const getArcSetting: typeof import("./getArcSetting").getArcSetting = null as any;
+export const getArcSettingOutput: typeof import("./getArcSetting").getArcSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getArcSetting","getArcSettingOutput"], () => require("./getArcSetting"));
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+
+export { GetDeploymentSettingArgs, GetDeploymentSettingResult, GetDeploymentSettingOutputArgs } from "./getDeploymentSetting";
+export const getDeploymentSetting: typeof import("./getDeploymentSetting").getDeploymentSetting = null as any;
+export const getDeploymentSettingOutput: typeof import("./getDeploymentSetting").getDeploymentSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getDeploymentSetting","getDeploymentSettingOutput"], () => require("./getDeploymentSetting"));
+
+export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
+export const getExtension: typeof import("./getExtension").getExtension = null as any;
+export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
 
 export { GetGalleryImageArgs, GetGalleryImageResult, GetGalleryImageOutputArgs } from "./getGalleryImage";
 export const getGalleryImage: typeof import("./getGalleryImage").getGalleryImage = null as any;
@@ -19,6 +59,16 @@ export { GetGuestAgentArgs, GetGuestAgentResult, GetGuestAgentOutputArgs } from 
 export const getGuestAgent: typeof import("./getGuestAgent").getGuestAgent = null as any;
 export const getGuestAgentOutput: typeof import("./getGuestAgent").getGuestAgentOutput = null as any;
 utilities.lazyLoad(exports, ["getGuestAgent","getGuestAgentOutput"], () => require("./getGuestAgent"));
+
+export { GetHciEdgeDeviceArgs, GetHciEdgeDeviceResult, GetHciEdgeDeviceOutputArgs } from "./getHciEdgeDevice";
+export const getHciEdgeDevice: typeof import("./getHciEdgeDevice").getHciEdgeDevice = null as any;
+export const getHciEdgeDeviceOutput: typeof import("./getHciEdgeDevice").getHciEdgeDeviceOutput = null as any;
+utilities.lazyLoad(exports, ["getHciEdgeDevice","getHciEdgeDeviceOutput"], () => require("./getHciEdgeDevice"));
+
+export { GetHciEdgeDeviceJobArgs, GetHciEdgeDeviceJobResult, GetHciEdgeDeviceJobOutputArgs } from "./getHciEdgeDeviceJob";
+export const getHciEdgeDeviceJob: typeof import("./getHciEdgeDeviceJob").getHciEdgeDeviceJob = null as any;
+export const getHciEdgeDeviceJobOutput: typeof import("./getHciEdgeDeviceJob").getHciEdgeDeviceJobOutput = null as any;
+utilities.lazyLoad(exports, ["getHciEdgeDeviceJob","getHciEdgeDeviceJobOutput"], () => require("./getHciEdgeDeviceJob"));
 
 export { GetLogicalNetworkArgs, GetLogicalNetworkResult, GetLogicalNetworkOutputArgs } from "./getLogicalNetwork";
 export const getLogicalNetwork: typeof import("./getLogicalNetwork").getLogicalNetwork = null as any;
@@ -45,10 +95,30 @@ export const getSecurityRule: typeof import("./getSecurityRule").getSecurityRule
 export const getSecurityRuleOutput: typeof import("./getSecurityRule").getSecurityRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityRule","getSecurityRuleOutput"], () => require("./getSecurityRule"));
 
+export { GetSecuritySettingArgs, GetSecuritySettingResult, GetSecuritySettingOutputArgs } from "./getSecuritySetting";
+export const getSecuritySetting: typeof import("./getSecuritySetting").getSecuritySetting = null as any;
+export const getSecuritySettingOutput: typeof import("./getSecuritySetting").getSecuritySettingOutput = null as any;
+utilities.lazyLoad(exports, ["getSecuritySetting","getSecuritySettingOutput"], () => require("./getSecuritySetting"));
+
 export { GetStorageContainerArgs, GetStorageContainerResult, GetStorageContainerOutputArgs } from "./getStorageContainer";
 export const getStorageContainer: typeof import("./getStorageContainer").getStorageContainer = null as any;
 export const getStorageContainerOutput: typeof import("./getStorageContainer").getStorageContainerOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageContainer","getStorageContainerOutput"], () => require("./getStorageContainer"));
+
+export { GetUpdateArgs, GetUpdateResult, GetUpdateOutputArgs } from "./getUpdate";
+export const getUpdate: typeof import("./getUpdate").getUpdate = null as any;
+export const getUpdateOutput: typeof import("./getUpdate").getUpdateOutput = null as any;
+utilities.lazyLoad(exports, ["getUpdate","getUpdateOutput"], () => require("./getUpdate"));
+
+export { GetUpdateRunArgs, GetUpdateRunResult, GetUpdateRunOutputArgs } from "./getUpdateRun";
+export const getUpdateRun: typeof import("./getUpdateRun").getUpdateRun = null as any;
+export const getUpdateRunOutput: typeof import("./getUpdateRun").getUpdateRunOutput = null as any;
+utilities.lazyLoad(exports, ["getUpdateRun","getUpdateRunOutput"], () => require("./getUpdateRun"));
+
+export { GetUpdateSummaryArgs, GetUpdateSummaryResult, GetUpdateSummaryOutputArgs } from "./getUpdateSummary";
+export const getUpdateSummary: typeof import("./getUpdateSummary").getUpdateSummary = null as any;
+export const getUpdateSummaryOutput: typeof import("./getUpdateSummary").getUpdateSummaryOutput = null as any;
+utilities.lazyLoad(exports, ["getUpdateSummary","getUpdateSummaryOutput"], () => require("./getUpdateSummary"));
 
 export { GetVirtualHardDiskArgs, GetVirtualHardDiskResult, GetVirtualHardDiskOutputArgs } from "./getVirtualHardDisk";
 export const getVirtualHardDisk: typeof import("./getVirtualHardDisk").getVirtualHardDisk = null as any;
@@ -64,6 +134,16 @@ export { GuestAgentArgs } from "./guestAgent";
 export type GuestAgent = import("./guestAgent").GuestAgent;
 export const GuestAgent: typeof import("./guestAgent").GuestAgent = null as any;
 utilities.lazyLoad(exports, ["GuestAgent"], () => require("./guestAgent"));
+
+export { HciEdgeDeviceArgs } from "./hciEdgeDevice";
+export type HciEdgeDevice = import("./hciEdgeDevice").HciEdgeDevice;
+export const HciEdgeDevice: typeof import("./hciEdgeDevice").HciEdgeDevice = null as any;
+utilities.lazyLoad(exports, ["HciEdgeDevice"], () => require("./hciEdgeDevice"));
+
+export { HciEdgeDeviceJobArgs } from "./hciEdgeDeviceJob";
+export type HciEdgeDeviceJob = import("./hciEdgeDeviceJob").HciEdgeDeviceJob;
+export const HciEdgeDeviceJob: typeof import("./hciEdgeDeviceJob").HciEdgeDeviceJob = null as any;
+utilities.lazyLoad(exports, ["HciEdgeDeviceJob"], () => require("./hciEdgeDeviceJob"));
 
 export { LogicalNetworkArgs } from "./logicalNetwork";
 export type LogicalNetwork = import("./logicalNetwork").LogicalNetwork;
@@ -90,10 +170,30 @@ export type SecurityRule = import("./securityRule").SecurityRule;
 export const SecurityRule: typeof import("./securityRule").SecurityRule = null as any;
 utilities.lazyLoad(exports, ["SecurityRule"], () => require("./securityRule"));
 
+export { SecuritySettingArgs } from "./securitySetting";
+export type SecuritySetting = import("./securitySetting").SecuritySetting;
+export const SecuritySetting: typeof import("./securitySetting").SecuritySetting = null as any;
+utilities.lazyLoad(exports, ["SecuritySetting"], () => require("./securitySetting"));
+
 export { StorageContainerArgs } from "./storageContainer";
 export type StorageContainer = import("./storageContainer").StorageContainer;
 export const StorageContainer: typeof import("./storageContainer").StorageContainer = null as any;
 utilities.lazyLoad(exports, ["StorageContainer"], () => require("./storageContainer"));
+
+export { UpdateArgs } from "./update";
+export type Update = import("./update").Update;
+export const Update: typeof import("./update").Update = null as any;
+utilities.lazyLoad(exports, ["Update"], () => require("./update"));
+
+export { UpdateRunArgs } from "./updateRun";
+export type UpdateRun = import("./updateRun").UpdateRun;
+export const UpdateRun: typeof import("./updateRun").UpdateRun = null as any;
+utilities.lazyLoad(exports, ["UpdateRun"], () => require("./updateRun"));
+
+export { UpdateSummaryArgs } from "./updateSummary";
+export type UpdateSummary = import("./updateSummary").UpdateSummary;
+export const UpdateSummary: typeof import("./updateSummary").UpdateSummary = null as any;
+utilities.lazyLoad(exports, ["UpdateSummary"], () => require("./updateSummary"));
 
 export { VirtualHardDiskArgs } from "./virtualHardDisk";
 export type VirtualHardDisk = import("./virtualHardDisk").VirtualHardDisk;
@@ -113,10 +213,22 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:azurestackhci/v20250201preview:ArcSetting":
+                return new ArcSetting(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci/v20250201preview:Cluster":
+                return new Cluster(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci/v20250201preview:DeploymentSetting":
+                return new DeploymentSetting(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci/v20250201preview:Extension":
+                return new Extension(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20250201preview:GalleryImage":
                 return new GalleryImage(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20250201preview:GuestAgent":
                 return new GuestAgent(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci/v20250201preview:HciEdgeDevice":
+                return new HciEdgeDevice(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci/v20250201preview:HciEdgeDeviceJob":
+                return new HciEdgeDeviceJob(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20250201preview:LogicalNetwork":
                 return new LogicalNetwork(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20250201preview:MarketplaceGalleryImage":
@@ -127,8 +239,16 @@ const _module = {
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20250201preview:SecurityRule":
                 return new SecurityRule(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci/v20250201preview:SecuritySetting":
+                return new SecuritySetting(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20250201preview:StorageContainer":
                 return new StorageContainer(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci/v20250201preview:Update":
+                return new Update(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci/v20250201preview:UpdateRun":
+                return new UpdateRun(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci/v20250201preview:UpdateSummary":
+                return new UpdateSummary(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20250201preview:VirtualHardDisk":
                 return new VirtualHardDisk(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20250201preview:VirtualMachineInstance":

@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Cdn.V20240601Preview
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:SecurityPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20250415:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn:SecurityPolicy" },
                 },
             };

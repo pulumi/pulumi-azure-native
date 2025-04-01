@@ -140,6 +140,7 @@ namespace Pulumi.AzureNative.Cdn.V20240901
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20250415:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn:Policy" },
                 },
             };

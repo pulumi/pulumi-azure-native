@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// 
     /// Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01-preview.
     /// 
-    /// Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    /// Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:ArcSetting")]
     public partial class ArcSetting : global::Pulumi.CustomResource
@@ -143,6 +143,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240401:ArcSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240901preview:ArcSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241201preview:ArcSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:ArcSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

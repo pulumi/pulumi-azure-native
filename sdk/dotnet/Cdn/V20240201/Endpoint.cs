@@ -210,6 +210,7 @@ namespace Pulumi.AzureNative.Cdn.V20240201
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20250415:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn:Endpoint" },
                 },
             };

@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Cdn.V20240601Preview
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:Secret" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20250415:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn:Secret" },
                 },
             };

@@ -278,7 +278,7 @@ class AFDOrigin(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
 
-        Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-04-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -308,7 +308,7 @@ class AFDOrigin(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
 
-        Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-04-15.
 
         :param str resource_name: The name of the resource.
         :param AFDOriginArgs args: The arguments to use to populate this resource's properties.
@@ -381,7 +381,7 @@ class AFDOrigin(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20200901:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20210601:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20230501:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20230701preview:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20240201:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20240601preview:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20240901:AFDOrigin")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20200901:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20210601:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20230501:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20230701preview:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20240201:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20240601preview:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20240901:AFDOrigin"), pulumi.Alias(type_="azure-native:cdn/v20250415:AFDOrigin")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AFDOrigin, __self__).__init__(
             'azure-native:cdn:AFDOrigin',

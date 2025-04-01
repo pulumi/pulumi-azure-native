@@ -212,7 +212,7 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-05-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-04-15.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.
@@ -250,7 +250,7 @@ def get_afd_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]]
 
     Uses Azure REST API version 2023-05-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-04-15.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.

@@ -184,6 +184,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20241201Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240215preview:Update" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240401:Update" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240901preview:Update" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:Update" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:Update" },
                 },
             };

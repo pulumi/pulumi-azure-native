@@ -199,7 +199,7 @@ export class AutoExportJob extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20240701:autoExportJob" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20240701:autoExportJob" }, { type: "azure-native:storagecache:AutoExportJob" }, { type: "azure-native:storagecache:autoExportJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutoExportJob.__pulumiType, name, resourceInputs, opts);
     }

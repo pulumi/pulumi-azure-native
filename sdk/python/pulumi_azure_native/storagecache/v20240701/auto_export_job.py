@@ -255,7 +255,7 @@ class AutoExportJob(pulumi.CustomResource):
             __props__.__dict__["total_files_failed"] = None
             __props__.__dict__["total_mi_b_exported"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20240701:autoExportJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20240701:autoExportJob"), pulumi.Alias(type_="azure-native:storagecache:AutoExportJob"), pulumi.Alias(type_="azure-native:storagecache:autoExportJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutoExportJob, __self__).__init__(
             'azure-native:storagecache/v20240701:AutoExportJob',

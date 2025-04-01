@@ -82,6 +82,8 @@ export class AccountCapabilityHost extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:AccountCapabilityHost" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccountCapabilityHost.__pulumiType, name, resourceInputs, opts);
     }
 }

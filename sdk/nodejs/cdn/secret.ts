@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
  *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-04-15.
  */
 export class Secret extends pulumi.CustomResource {
     /**
@@ -103,7 +103,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:Secret" }, { type: "azure-native:cdn/v20210601:Secret" }, { type: "azure-native:cdn/v20220501preview:Secret" }, { type: "azure-native:cdn/v20221101preview:Secret" }, { type: "azure-native:cdn/v20230501:Secret" }, { type: "azure-native:cdn/v20230701preview:Secret" }, { type: "azure-native:cdn/v20240201:Secret" }, { type: "azure-native:cdn/v20240501preview:Secret" }, { type: "azure-native:cdn/v20240601preview:Secret" }, { type: "azure-native:cdn/v20240901:Secret" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:Secret" }, { type: "azure-native:cdn/v20210601:Secret" }, { type: "azure-native:cdn/v20220501preview:Secret" }, { type: "azure-native:cdn/v20221101preview:Secret" }, { type: "azure-native:cdn/v20230501:Secret" }, { type: "azure-native:cdn/v20230701preview:Secret" }, { type: "azure-native:cdn/v20240201:Secret" }, { type: "azure-native:cdn/v20240501preview:Secret" }, { type: "azure-native:cdn/v20240601preview:Secret" }, { type: "azure-native:cdn/v20240901:Secret" }, { type: "azure-native:cdn/v20250415:Secret" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Secret.__pulumiType, name, resourceInputs, opts);
     }

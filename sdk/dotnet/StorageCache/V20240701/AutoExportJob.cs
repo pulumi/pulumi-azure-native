@@ -179,6 +179,8 @@ namespace Pulumi.AzureNative.StorageCache.V20240701
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240701:autoExportJob" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache:AutoExportJob" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache:autoExportJob" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

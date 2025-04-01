@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20241201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240901preview:HciEdgeDeviceJob" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:HciEdgeDeviceJob" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:HciEdgeDeviceJob" },
                 },
             };

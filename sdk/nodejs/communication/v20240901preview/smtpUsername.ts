@@ -106,6 +106,8 @@ export class SmtpUsername extends pulumi.CustomResource {
             resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:communication:SmtpUsername" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SmtpUsername.__pulumiType, name, resourceInputs, opts);
     }
 }

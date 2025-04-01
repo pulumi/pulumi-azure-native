@@ -16,11 +16,9 @@
     "2023-09-01",
     "2024-02-07-preview"
   ],
-  "ContainerInstance": [
-    "2024-11-01-preview"
-  ],
   "ContainerService": [
-    "2019-10-27-preview"
+    "2019-10-27-preview",
+    "2023-05-02-preview"
   ],
   "ContainerStorage": [
     "2023-07-01-preview"
@@ -36,15 +34,6 @@
   ],
   "DataCatalog": [
     "2016-03-30"
-  ],
-  "DatabaseFleetManager": [
-    "2025-02-01-preview"
-  ],
-  "DependencyMap": [
-    "2025-01-31-preview"
-  ],
-  "DevHub": [
-    "2024-08-01-preview"
   ],
   "DevSpaces": [
     "2019-04-01"
@@ -139,9 +128,6 @@
   ],
   "VideoAnalyzer": [
     "2021-11-01-preview"
-  ],
-  "WeightsAndBiases": [
-    "2024-09-18-preview"
   ],
   "WindowsESU": [
     "2019-09-16-preview"
