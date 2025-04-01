@@ -23,6 +23,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
@@ -501,5 +502,9 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 		suffix = "Response"
 	}
 	referenceName := m.typeNameOverride(ToUpperCamel(MakeLegalIdentifier(ctx.ReferenceName)))
-	return fmt.Sprintf("azure-native:%s:%s%s", m.module, referenceName, suffix)
+	providerName := pulumiProviderName
+	if m.sdkVersion != "" {
+		providerName = provider.ParameterizedProviderName(pulumiProviderName, m.moduleName.Lowered(), m.sdkVersion)
+	}
+	return fmt.Sprintf("%s:%s:%s%s", providerName, m.module, referenceName, suffix)
 }

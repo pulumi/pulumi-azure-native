@@ -179,7 +179,7 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 
 const parameterizedNameSeparator = "_"
 
-func generateNewPackageName(unparameterizedPackageName, targetModule string, targetApiVersion openapi.SdkVersion) string {
+func ParameterizedProviderName(unparameterizedPackageName, targetModule string, targetApiVersion openapi.SdkVersion) string {
 	return strings.Join([]string{unparameterizedPackageName, targetModule, string(targetApiVersion)}, parameterizedNameSeparator)
 }
 
@@ -234,7 +234,7 @@ func getAvailableApiVersions(schema pschema.PackageSpec, targetModule string) []
 // To separate concerns, the `Parameterization` of the new schema is NOT populated yet, the caller is responsible for
 // doing that.
 func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModule string, targetApiVersion openapi.SdkVersion) (*pschema.PackageSpec, *resources.APIMetadata, error) {
-	newPackageName := generateNewPackageName(schema.Name, targetModule, targetApiVersion)
+	newPackageName := ParameterizedProviderName(schema.Name, targetModule, targetApiVersion)
 
 	newSchema := pschema.PackageSpec{
 		Name:        newPackageName,
