@@ -111,6 +111,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240401:DeploymentSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240901preview:DeploymentSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241201preview:DeploymentSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20230801preview:azurestackhci:DeploymentSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20231101preview:azurestackhci:DeploymentSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240101:azurestackhci:DeploymentSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240215preview:azurestackhci:DeploymentSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240401:azurestackhci:DeploymentSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240901preview:azurestackhci:DeploymentSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20241201preview:azurestackhci:DeploymentSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

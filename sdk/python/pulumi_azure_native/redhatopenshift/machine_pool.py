@@ -159,7 +159,7 @@ class MachinePool(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:MachinePool"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230401:MachinePool"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230701preview:MachinePool"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230904:MachinePool"), pulumi.Alias(type_="azure-native:redhatopenshift/v20231122:MachinePool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:MachinePool"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230401:MachinePool"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230701preview:MachinePool"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230904:MachinePool"), pulumi.Alias(type_="azure-native:redhatopenshift/v20231122:MachinePool"), pulumi.Alias(type_="azure-native_redhatopenshift_v20220904:redhatopenshift:MachinePool"), pulumi.Alias(type_="azure-native_redhatopenshift_v20230401:redhatopenshift:MachinePool"), pulumi.Alias(type_="azure-native_redhatopenshift_v20230701preview:redhatopenshift:MachinePool"), pulumi.Alias(type_="azure-native_redhatopenshift_v20230904:redhatopenshift:MachinePool"), pulumi.Alias(type_="azure-native_redhatopenshift_v20231122:redhatopenshift:MachinePool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachinePool, __self__).__init__(
             'azure-native:redhatopenshift:MachinePool',

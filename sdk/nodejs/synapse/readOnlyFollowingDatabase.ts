@@ -149,7 +149,7 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:ReadOnlyFollowingDatabase" }, { type: "azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase" }, { type: "azure-native:synapse/v20210601preview:ReadWriteDatabase" }, { type: "azure-native:synapse:ReadWriteDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase" }, { type: "azure-native:synapse/v20210601preview:ReadWriteDatabase" }, { type: "azure-native:synapse:ReadWriteDatabase" }, { type: "azure-native_synapse_v20210401preview:synapse:ReadOnlyFollowingDatabase" }, { type: "azure-native_synapse_v20210601preview:synapse:ReadOnlyFollowingDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReadOnlyFollowingDatabase.__pulumiType, name, resourceInputs, opts);
     }

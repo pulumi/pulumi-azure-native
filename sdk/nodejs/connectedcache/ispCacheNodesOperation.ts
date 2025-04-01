@@ -105,7 +105,7 @@ export class IspCacheNodesOperation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:IspCacheNodesOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:IspCacheNodesOperation" }, { type: "azure-native_connectedcache_v20230501preview:connectedcache:IspCacheNodesOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IspCacheNodesOperation.__pulumiType, name, resourceInputs, opts);
     }

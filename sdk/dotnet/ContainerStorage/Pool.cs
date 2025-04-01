@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.ContainerStorage
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerstorage/v20230701preview:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerstorage_v20230701preview:containerstorage:Pool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

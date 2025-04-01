@@ -101,7 +101,7 @@ export class EnterpriseCustomerOperation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:EnterpriseCustomerOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:EnterpriseCustomerOperation" }, { type: "azure-native_connectedcache_v20230501preview:connectedcache:EnterpriseCustomerOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnterpriseCustomerOperation.__pulumiType, name, resourceInputs, opts);
     }

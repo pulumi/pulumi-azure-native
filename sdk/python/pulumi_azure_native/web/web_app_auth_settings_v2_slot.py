@@ -265,7 +265,7 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
             __props__.__dict__["slot"] = slot
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppAuthSettingsV2Slot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native_web_v20200601:web:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native_web_v20200901:web:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native_web_v20201001:web:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native_web_v20201201:web:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native_web_v20210101:web:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native_web_v20210115:web:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native_web_v20210201:web:WebAppAuthSettingsV2Slot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAuthSettingsV2Slot, __self__).__init__(
             'azure-native:web:WebAppAuthSettingsV2Slot',

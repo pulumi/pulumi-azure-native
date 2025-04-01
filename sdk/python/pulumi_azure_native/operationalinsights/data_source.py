@@ -206,7 +206,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20151101preview:DataSource"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:DataSource"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:DataSource"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:DataSource"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:DataSource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20151101preview:DataSource"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:DataSource"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:DataSource"), pulumi.Alias(type_="azure-native_operationalinsights_v20151101preview:operationalinsights:DataSource"), pulumi.Alias(type_="azure-native_operationalinsights_v20200301preview:operationalinsights:DataSource"), pulumi.Alias(type_="azure-native_operationalinsights_v20200801:operationalinsights:DataSource"), pulumi.Alias(type_="azure-native_operationalinsights_v20230901:operationalinsights:DataSource"), pulumi.Alias(type_="azure-native_operationalinsights_v20250201:operationalinsights:DataSource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataSource, __self__).__init__(
             'azure-native:operationalinsights:DataSource',

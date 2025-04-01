@@ -70,6 +70,8 @@ namespace Pulumi.AzureNative.Security
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20221201preview:DefenderForStorage" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20241001preview:DefenderForStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20221201preview:security:DefenderForStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20241001preview:security:DefenderForStorage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

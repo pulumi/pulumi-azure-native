@@ -92,14 +92,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230601preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20231201preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240301preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240801:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20241101preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20230601preview:dbforpostgresql:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20231201preview:dbforpostgresql:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20240301preview:dbforpostgresql:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20240801:dbforpostgresql:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20241101preview:dbforpostgresql:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

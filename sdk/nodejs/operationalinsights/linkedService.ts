@@ -107,7 +107,7 @@ export class LinkedService extends pulumi.CustomResource {
             resourceInputs["writeAccessResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-native:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200801:LinkedService" }, { type: "azure-native:operationalinsights/v20230901:LinkedService" }, { type: "azure-native:operationalinsights/v20250201:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200801:LinkedService" }, { type: "azure-native:operationalinsights/v20230901:LinkedService" }, { type: "azure-native_operationalinsights_v20151101preview:operationalinsights:LinkedService" }, { type: "azure-native_operationalinsights_v20190801preview:operationalinsights:LinkedService" }, { type: "azure-native_operationalinsights_v20200301preview:operationalinsights:LinkedService" }, { type: "azure-native_operationalinsights_v20200801:operationalinsights:LinkedService" }, { type: "azure-native_operationalinsights_v20230901:operationalinsights:LinkedService" }, { type: "azure-native_operationalinsights_v20250201:operationalinsights:LinkedService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedService.__pulumiType, name, resourceInputs, opts);
     }

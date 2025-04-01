@@ -245,7 +245,12 @@ namespace Pulumi.AzureNative.NetworkCloud
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:VirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:VirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:VirtualMachine" },
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native_networkcloud_v20230701:networkcloud:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native_networkcloud_v20231001preview:networkcloud:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native_networkcloud_v20240601preview:networkcloud:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native_networkcloud_v20240701:networkcloud:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native_networkcloud_v20241001preview:networkcloud:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native_networkcloud_v20250201:networkcloud:VirtualMachine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

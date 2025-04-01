@@ -305,7 +305,7 @@ class TenantActionGroup(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20230501preview:TenantActionGroup"), pulumi.Alias(type_="azure-native:insights:TenantActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20230301preview:TenantActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20230501preview:TenantActionGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20230501preview:TenantActionGroup"), pulumi.Alias(type_="azure-native:insights:TenantActionGroup"), pulumi.Alias(type_="azure-native_monitor_v20230301preview:monitor:TenantActionGroup"), pulumi.Alias(type_="azure-native_monitor_v20230501preview:monitor:TenantActionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TenantActionGroup, __self__).__init__(
             'azure-native:monitor:TenantActionGroup',

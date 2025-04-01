@@ -206,7 +206,7 @@ class DotNetComponent(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20231102preview:DotNetComponent"), pulumi.Alias(type_="azure-native:app/v20240202preview:DotNetComponent"), pulumi.Alias(type_="azure-native:app/v20240802preview:DotNetComponent"), pulumi.Alias(type_="azure-native:app/v20241002preview:DotNetComponent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20231102preview:DotNetComponent"), pulumi.Alias(type_="azure-native:app/v20240202preview:DotNetComponent"), pulumi.Alias(type_="azure-native:app/v20240802preview:DotNetComponent"), pulumi.Alias(type_="azure-native:app/v20241002preview:DotNetComponent"), pulumi.Alias(type_="azure-native_app_v20231102preview:app:DotNetComponent"), pulumi.Alias(type_="azure-native_app_v20240202preview:app:DotNetComponent"), pulumi.Alias(type_="azure-native_app_v20240802preview:app:DotNetComponent"), pulumi.Alias(type_="azure-native_app_v20241002preview:app:DotNetComponent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DotNetComponent, __self__).__init__(
             'azure-native:app:DotNetComponent',

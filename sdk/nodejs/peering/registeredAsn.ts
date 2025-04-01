@@ -96,7 +96,7 @@ export class RegisteredAsn extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20200101preview:RegisteredAsn" }, { type: "azure-native:peering/v20200401:RegisteredAsn" }, { type: "azure-native:peering/v20201001:RegisteredAsn" }, { type: "azure-native:peering/v20210101:RegisteredAsn" }, { type: "azure-native:peering/v20210601:RegisteredAsn" }, { type: "azure-native:peering/v20220101:RegisteredAsn" }, { type: "azure-native:peering/v20220601:RegisteredAsn" }, { type: "azure-native:peering/v20221001:RegisteredAsn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20221001:RegisteredAsn" }, { type: "azure-native_peering_v20200101preview:peering:RegisteredAsn" }, { type: "azure-native_peering_v20200401:peering:RegisteredAsn" }, { type: "azure-native_peering_v20201001:peering:RegisteredAsn" }, { type: "azure-native_peering_v20210101:peering:RegisteredAsn" }, { type: "azure-native_peering_v20210601:peering:RegisteredAsn" }, { type: "azure-native_peering_v20220101:peering:RegisteredAsn" }, { type: "azure-native_peering_v20220601:peering:RegisteredAsn" }, { type: "azure-native_peering_v20221001:peering:RegisteredAsn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegisteredAsn.__pulumiType, name, resourceInputs, opts);
     }

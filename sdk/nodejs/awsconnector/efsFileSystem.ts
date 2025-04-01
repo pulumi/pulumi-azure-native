@@ -100,7 +100,7 @@ export class EfsFileSystem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:EfsFileSystem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:EfsFileSystem" }, { type: "azure-native_awsconnector_v20241201:awsconnector:EfsFileSystem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EfsFileSystem.__pulumiType, name, resourceInputs, opts);
     }

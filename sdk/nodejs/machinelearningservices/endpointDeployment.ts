@@ -97,7 +97,7 @@ export class EndpointDeployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240101preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240401preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240701preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20241001preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20250101preview:EndpointDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240101preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240401preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240701preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20241001preview:EndpointDeployment" }, { type: "azure-native_machinelearningservices_v20240101preview:machinelearningservices:EndpointDeployment" }, { type: "azure-native_machinelearningservices_v20240401preview:machinelearningservices:EndpointDeployment" }, { type: "azure-native_machinelearningservices_v20240701preview:machinelearningservices:EndpointDeployment" }, { type: "azure-native_machinelearningservices_v20241001preview:machinelearningservices:EndpointDeployment" }, { type: "azure-native_machinelearningservices_v20250101preview:machinelearningservices:EndpointDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EndpointDeployment.__pulumiType, name, resourceInputs, opts);
     }

@@ -170,7 +170,7 @@ export class SapVirtualInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:SapVirtualInstance" }, { type: "azure-native:workloads/v20221101preview:SapVirtualInstance" }, { type: "azure-native:workloads/v20230401:SAPVirtualInstance" }, { type: "azure-native:workloads/v20230401:SapVirtualInstance" }, { type: "azure-native:workloads/v20231001preview:SAPVirtualInstance" }, { type: "azure-native:workloads/v20231001preview:SapVirtualInstance" }, { type: "azure-native:workloads/v20240901:SapVirtualInstance" }, { type: "azure-native:workloads:SAPVirtualInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20230401:SAPVirtualInstance" }, { type: "azure-native:workloads/v20231001preview:SAPVirtualInstance" }, { type: "azure-native:workloads/v20240901:SapVirtualInstance" }, { type: "azure-native:workloads:SAPVirtualInstance" }, { type: "azure-native_workloads_v20211201preview:workloads:SapVirtualInstance" }, { type: "azure-native_workloads_v20221101preview:workloads:SapVirtualInstance" }, { type: "azure-native_workloads_v20230401:workloads:SapVirtualInstance" }, { type: "azure-native_workloads_v20231001preview:workloads:SapVirtualInstance" }, { type: "azure-native_workloads_v20240901:workloads:SapVirtualInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SapVirtualInstance.__pulumiType, name, resourceInputs, opts);
     }

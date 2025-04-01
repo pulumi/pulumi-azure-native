@@ -100,7 +100,7 @@ export class IamAccessKeyLastUsed extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamAccessKeyLastUsed" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamAccessKeyLastUsed" }, { type: "azure-native_awsconnector_v20241201:awsconnector:IamAccessKeyLastUsed" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IamAccessKeyLastUsed.__pulumiType, name, resourceInputs, opts);
     }

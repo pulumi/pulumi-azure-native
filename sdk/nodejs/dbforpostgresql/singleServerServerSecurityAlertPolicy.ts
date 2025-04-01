@@ -126,7 +126,7 @@ export class SingleServerServerSecurityAlertPolicy extends pulumi.CustomResource
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20171201:ServerSecurityAlertPolicy" }, { type: "azure-native:dbforpostgresql/v20171201:SingleServerServerSecurityAlertPolicy" }, { type: "azure-native:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy" }, { type: "azure-native:dbforpostgresql/v20171201preview:SingleServerServerSecurityAlertPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20171201:ServerSecurityAlertPolicy" }, { type: "azure-native:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy" }, { type: "azure-native_dbforpostgresql_v20171201:dbforpostgresql:SingleServerServerSecurityAlertPolicy" }, { type: "azure-native_dbforpostgresql_v20171201preview:dbforpostgresql:SingleServerServerSecurityAlertPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SingleServerServerSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts);
     }

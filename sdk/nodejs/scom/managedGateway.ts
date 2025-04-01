@@ -93,7 +93,7 @@ export class ManagedGateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scom/v20230707preview:ManagedGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scom/v20230707preview:ManagedGateway" }, { type: "azure-native_scom_v20230707preview:scom:ManagedGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedGateway.__pulumiType, name, resourceInputs, opts);
     }

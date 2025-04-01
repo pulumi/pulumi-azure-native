@@ -100,7 +100,7 @@ export class Ec2Ipam extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2Ipam" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2Ipam" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2Ipam" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2Ipam.__pulumiType, name, resourceInputs, opts);
     }

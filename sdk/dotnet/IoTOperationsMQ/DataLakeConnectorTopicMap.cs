@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotoperationsmq/v20231004preview:DataLakeConnectorTopicMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperationsmq_v20231004preview:iotoperationsmq:DataLakeConnectorTopicMap" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

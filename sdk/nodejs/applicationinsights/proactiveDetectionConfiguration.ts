@@ -99,7 +99,7 @@ export class ProactiveDetectionConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:applicationinsights/v20150501:ProactiveDetectionConfiguration" }, { type: "azure-native:applicationinsights/v20180501preview:ProactiveDetectionConfiguration" }, { type: "azure-native:insights/v20150501:ProactiveDetectionConfiguration" }, { type: "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration" }, { type: "azure-native:insights:ProactiveDetectionConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20150501:ProactiveDetectionConfiguration" }, { type: "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration" }, { type: "azure-native:insights:ProactiveDetectionConfiguration" }, { type: "azure-native_applicationinsights_v20150501:applicationinsights:ProactiveDetectionConfiguration" }, { type: "azure-native_applicationinsights_v20180501preview:applicationinsights:ProactiveDetectionConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProactiveDetectionConfiguration.__pulumiType, name, resourceInputs, opts);
     }

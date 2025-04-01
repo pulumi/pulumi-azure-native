@@ -101,7 +101,7 @@ export class Solution extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationsmanagement/v20151101preview:Solution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationsmanagement/v20151101preview:Solution" }, { type: "azure-native_operationsmanagement_v20151101preview:operationsmanagement:Solution" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Solution.__pulumiType, name, resourceInputs, opts);
     }

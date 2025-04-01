@@ -138,9 +138,10 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:ArtifactSource" },
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ArtifactSource" },
                     new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ArtifactSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_devtestlab_v20150521preview:devtestlab:ArtifactSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_devtestlab_v20160515:devtestlab:ArtifactSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_devtestlab_v20180915:devtestlab:ArtifactSource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -223,7 +223,7 @@ class Video(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:videoanalyzer/v20210501preview:Video"), pulumi.Alias(type_="azure-native:videoanalyzer/v20211101preview:Video")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:videoanalyzer/v20210501preview:Video"), pulumi.Alias(type_="azure-native:videoanalyzer/v20211101preview:Video"), pulumi.Alias(type_="azure-native_videoanalyzer_v20210501preview:videoanalyzer:Video"), pulumi.Alias(type_="azure-native_videoanalyzer_v20211101preview:videoanalyzer:Video")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Video, __self__).__init__(
             'azure-native:videoanalyzer:Video',

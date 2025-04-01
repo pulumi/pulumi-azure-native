@@ -107,7 +107,7 @@ export class InstanceDetails extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dynamics365fraudprotection/v20210201preview:InstanceDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dynamics365fraudprotection/v20210201preview:InstanceDetails" }, { type: "azure-native_dynamics365fraudprotection_v20210201preview:dynamics365fraudprotection:InstanceDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InstanceDetails.__pulumiType, name, resourceInputs, opts);
     }

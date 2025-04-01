@@ -143,6 +143,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:VirtualMachineInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231001:VirtualMachineInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231201:VirtualMachineInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_connectedvmwarevsphere_v20230301preview:connectedvmwarevsphere:VirtualMachineInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_connectedvmwarevsphere_v20231001:connectedvmwarevsphere:VirtualMachineInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_connectedvmwarevsphere_v20231201:connectedvmwarevsphere:VirtualMachineInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

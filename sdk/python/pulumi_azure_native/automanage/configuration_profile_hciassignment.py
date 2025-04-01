@@ -166,7 +166,7 @@ class ConfigurationProfileHCIAssignment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment"), pulumi.Alias(type_="azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment"), pulumi.Alias(type_="azure-native_automanage_v20210430preview:automanage:ConfigurationProfileHCIAssignment"), pulumi.Alias(type_="azure-native_automanage_v20220504:automanage:ConfigurationProfileHCIAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationProfileHCIAssignment, __self__).__init__(
             'azure-native:automanage:ConfigurationProfileHCIAssignment',

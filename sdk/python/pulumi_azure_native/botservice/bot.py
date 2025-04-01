@@ -226,7 +226,7 @@ class Bot(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["zones"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:botservice/v20171201:Bot"), pulumi.Alias(type_="azure-native:botservice/v20180712:Bot"), pulumi.Alias(type_="azure-native:botservice/v20200602:Bot"), pulumi.Alias(type_="azure-native:botservice/v20210301:Bot"), pulumi.Alias(type_="azure-native:botservice/v20210501preview:Bot"), pulumi.Alias(type_="azure-native:botservice/v20220615preview:Bot"), pulumi.Alias(type_="azure-native:botservice/v20220915:Bot"), pulumi.Alias(type_="azure-native:botservice/v20230915preview:Bot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:botservice/v20220915:Bot"), pulumi.Alias(type_="azure-native:botservice/v20230915preview:Bot"), pulumi.Alias(type_="azure-native_botservice_v20171201:botservice:Bot"), pulumi.Alias(type_="azure-native_botservice_v20180712:botservice:Bot"), pulumi.Alias(type_="azure-native_botservice_v20200602:botservice:Bot"), pulumi.Alias(type_="azure-native_botservice_v20210301:botservice:Bot"), pulumi.Alias(type_="azure-native_botservice_v20210501preview:botservice:Bot"), pulumi.Alias(type_="azure-native_botservice_v20220615preview:botservice:Bot"), pulumi.Alias(type_="azure-native_botservice_v20220915:botservice:Bot"), pulumi.Alias(type_="azure-native_botservice_v20230915preview:botservice:Bot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Bot, __self__).__init__(
             'azure-native:botservice:Bot',

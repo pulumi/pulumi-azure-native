@@ -183,7 +183,7 @@ class Credential(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20231101preview:Credential")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20231101preview:Credential"), pulumi.Alias(type_="azure-native_testbase_v20231101preview:testbase:Credential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Credential, __self__).__init__(
             'azure-native:testbase:Credential',

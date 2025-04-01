@@ -186,7 +186,7 @@ class BusinessApplicationAgent(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:BusinessApplicationAgent"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:BusinessApplicationAgent"), pulumi.Alias(type_="azure-native:securityinsights/v20250101preview:BusinessApplicationAgent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:BusinessApplicationAgent"), pulumi.Alias(type_="azure-native:securityinsights/v20241001preview:BusinessApplicationAgent"), pulumi.Alias(type_="azure-native_securityinsights_v20240401preview:securityinsights:BusinessApplicationAgent"), pulumi.Alias(type_="azure-native_securityinsights_v20241001preview:securityinsights:BusinessApplicationAgent"), pulumi.Alias(type_="azure-native_securityinsights_v20250101preview:securityinsights:BusinessApplicationAgent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BusinessApplicationAgent, __self__).__init__(
             'azure-native:securityinsights:BusinessApplicationAgent',

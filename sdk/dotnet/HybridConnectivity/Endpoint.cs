@@ -80,10 +80,13 @@ namespace Pulumi.AzureNative.HybridConnectivity
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20211006preview:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20220501preview:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20230315:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20241201:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridconnectivity_v20211006preview:hybridconnectivity:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridconnectivity_v20220501preview:hybridconnectivity:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridconnectivity_v20230315:hybridconnectivity:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridconnectivity_v20241201:hybridconnectivity:Endpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

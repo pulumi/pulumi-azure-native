@@ -74,12 +74,12 @@ namespace Pulumi.AzureNative.FrontDoor
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200101:RulesEngine" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200401:RulesEngine" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200501:RulesEngine" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20210601:RulesEngine" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210601:RulesEngine" },
                     new global::Pulumi.Alias { Type = "azure-native:network:RulesEngine" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20200101:frontdoor:RulesEngine" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20200401:frontdoor:RulesEngine" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20200501:frontdoor:RulesEngine" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20210601:frontdoor:RulesEngine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

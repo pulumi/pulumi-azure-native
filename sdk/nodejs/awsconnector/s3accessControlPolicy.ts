@@ -100,7 +100,7 @@ export class S3AccessControlPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:S3AccessControlPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:S3AccessControlPolicy" }, { type: "azure-native_awsconnector_v20241201:awsconnector:S3AccessControlPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(S3AccessControlPolicy.__pulumiType, name, resourceInputs, opts);
     }

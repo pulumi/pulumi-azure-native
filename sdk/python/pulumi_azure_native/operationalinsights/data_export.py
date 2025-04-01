@@ -284,7 +284,7 @@ class DataExport(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190801preview:DataExport"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:DataExport"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:DataExport"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:DataExport"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:DataExport")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20200801:DataExport"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:DataExport"), pulumi.Alias(type_="azure-native_operationalinsights_v20190801preview:operationalinsights:DataExport"), pulumi.Alias(type_="azure-native_operationalinsights_v20200301preview:operationalinsights:DataExport"), pulumi.Alias(type_="azure-native_operationalinsights_v20200801:operationalinsights:DataExport"), pulumi.Alias(type_="azure-native_operationalinsights_v20230901:operationalinsights:DataExport"), pulumi.Alias(type_="azure-native_operationalinsights_v20250201:operationalinsights:DataExport")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataExport, __self__).__init__(
             'azure-native:operationalinsights:DataExport',

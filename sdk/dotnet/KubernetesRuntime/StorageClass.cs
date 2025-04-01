@@ -140,6 +140,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesruntime/v20231001preview:StorageClass" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesruntime/v20240301:StorageClass" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesruntime_v20231001preview:kubernetesruntime:StorageClass" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesruntime_v20240301:kubernetesruntime:StorageClass" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

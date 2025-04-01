@@ -84,7 +84,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:ManagedNetworkSettingsRule" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:ManagedNetworkSettingsRule" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:ManagedNetworkSettingsRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230401preview:machinelearningservices:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230601preview:machinelearningservices:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230801preview:machinelearningservices:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20231001:machinelearningservices:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240101preview:machinelearningservices:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240401:machinelearningservices:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240401preview:machinelearningservices:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240701preview:machinelearningservices:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20241001:machinelearningservices:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20241001preview:machinelearningservices:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20250101preview:machinelearningservices:ManagedNetworkSettingsRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.Impact
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:impact/v20240501preview:WorkloadImpact" },
+                    new global::Pulumi.Alias { Type = "azure-native_impact_v20240501preview:impact:WorkloadImpact" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

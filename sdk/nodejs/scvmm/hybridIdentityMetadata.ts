@@ -113,7 +113,7 @@ export class HybridIdentityMetadata extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20220521preview:HybridIdentityMetadata" }, { type: "azure-native:scvmm/v20230401preview:HybridIdentityMetadata" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20220521preview:HybridIdentityMetadata" }, { type: "azure-native:scvmm/v20230401preview:HybridIdentityMetadata" }, { type: "azure-native_scvmm_v20220521preview:scvmm:HybridIdentityMetadata" }, { type: "azure-native_scvmm_v20230401preview:scvmm:HybridIdentityMetadata" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridIdentityMetadata.__pulumiType, name, resourceInputs, opts);
     }

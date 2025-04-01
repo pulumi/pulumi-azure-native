@@ -100,7 +100,7 @@ export class CloudFormationStack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:CloudFormationStack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:CloudFormationStack" }, { type: "azure-native_awsconnector_v20241201:awsconnector:CloudFormationStack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudFormationStack.__pulumiType, name, resourceInputs, opts);
     }

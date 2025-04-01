@@ -345,7 +345,7 @@ class MachineExtension(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20220521preview:MachineExtension"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:MachineExtension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20220521preview:MachineExtension"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:MachineExtension"), pulumi.Alias(type_="azure-native_scvmm_v20220521preview:scvmm:MachineExtension"), pulumi.Alias(type_="azure-native_scvmm_v20230401preview:scvmm:MachineExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineExtension, __self__).__init__(
             'azure-native:scvmm:MachineExtension',

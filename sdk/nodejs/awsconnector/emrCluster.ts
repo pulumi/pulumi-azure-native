@@ -100,7 +100,7 @@ export class EmrCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:EmrCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:EmrCluster" }, { type: "azure-native_awsconnector_v20241201:awsconnector:EmrCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EmrCluster.__pulumiType, name, resourceInputs, opts);
     }

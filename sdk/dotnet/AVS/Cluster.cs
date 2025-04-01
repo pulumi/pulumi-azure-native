@@ -105,13 +105,18 @@ namespace Pulumi.AzureNative.AVS
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20200320:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20200320:avs:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20200717preview:avs:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210101preview:avs:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210601:avs:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20211201:avs:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20220501:avs:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230301:avs:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230901:avs:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

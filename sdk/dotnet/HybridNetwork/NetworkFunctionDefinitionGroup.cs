@@ -88,6 +88,8 @@ namespace Pulumi.AzureNative.HybridNetwork
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20230901:NetworkFunctionDefinitionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20240415:NetworkFunctionDefinitionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridnetwork_v20230901:hybridnetwork:NetworkFunctionDefinitionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridnetwork_v20240415:hybridnetwork:NetworkFunctionDefinitionGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

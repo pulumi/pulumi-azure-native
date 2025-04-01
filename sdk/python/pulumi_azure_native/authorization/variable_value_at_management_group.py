@@ -166,7 +166,7 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20220801preview:VariableValueAtManagementGroup"), pulumi.Alias(type_="azure-native:authorization/v20241201preview:VariableValueAtManagementGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20220801preview:VariableValueAtManagementGroup"), pulumi.Alias(type_="azure-native_authorization_v20220801preview:authorization:VariableValueAtManagementGroup"), pulumi.Alias(type_="azure-native_authorization_v20241201preview:authorization:VariableValueAtManagementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VariableValueAtManagementGroup, __self__).__init__(
             'azure-native:authorization:VariableValueAtManagementGroup',

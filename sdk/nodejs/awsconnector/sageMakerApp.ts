@@ -100,7 +100,7 @@ export class SageMakerApp extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SageMakerApp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SageMakerApp" }, { type: "azure-native_awsconnector_v20241201:awsconnector:SageMakerApp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SageMakerApp.__pulumiType, name, resourceInputs, opts);
     }

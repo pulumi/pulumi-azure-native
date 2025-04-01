@@ -144,7 +144,7 @@ class AzureServersSetting(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20230501:AzureServersSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20230501:AzureServersSetting"), pulumi.Alias(type_="azure-native_security_v20230501:security:AzureServersSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureServersSetting, __self__).__init__(
             'azure-native:security:AzureServersSetting',

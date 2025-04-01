@@ -104,7 +104,7 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:Site" }, { type: "azure-native:offazure/v20200707:Site" }, { type: "azure-native:offazure/v20230606:Site" }, { type: "azure-native:offazure/v20230606:SitesController" }, { type: "azure-native:offazure/v20231001preview:Site" }, { type: "azure-native:offazure/v20231001preview:SitesController" }, { type: "azure-native:offazure/v20240501preview:Site" }, { type: "azure-native:offazure/v20240501preview:SitesController" }, { type: "azure-native:offazure:SitesController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200707:Site" }, { type: "azure-native:offazure/v20230606:SitesController" }, { type: "azure-native:offazure/v20231001preview:SitesController" }, { type: "azure-native:offazure/v20240501preview:SitesController" }, { type: "azure-native:offazure:SitesController" }, { type: "azure-native_offazure_v20200101:offazure:Site" }, { type: "azure-native_offazure_v20200707:offazure:Site" }, { type: "azure-native_offazure_v20230606:offazure:Site" }, { type: "azure-native_offazure_v20231001preview:offazure:Site" }, { type: "azure-native_offazure_v20240501preview:offazure:Site" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Site.__pulumiType, name, resourceInputs, opts);
     }

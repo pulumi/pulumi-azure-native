@@ -80,11 +80,11 @@ namespace Pulumi.AzureNative.Redis
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240401preview:AccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20241101:AccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cache:AccessPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:redis/v20230501preview:AccessPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:redis/v20230801:AccessPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:redis/v20240301:AccessPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:redis/v20240401preview:AccessPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:redis/v20241101:AccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_redis_v20230501preview:redis:AccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_redis_v20230801:redis:AccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_redis_v20240301:redis:AccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_redis_v20240401preview:redis:AccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_redis_v20241101:redis:AccessPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

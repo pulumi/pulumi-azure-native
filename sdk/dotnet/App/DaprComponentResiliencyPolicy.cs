@@ -85,6 +85,11 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:DaprComponentResiliencyPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:DaprComponentResiliencyPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:DaprComponentResiliencyPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230801preview:app:DaprComponentResiliencyPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20231102preview:app:DaprComponentResiliencyPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240202preview:app:DaprComponentResiliencyPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240802preview:app:DaprComponentResiliencyPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20241002preview:app:DaprComponentResiliencyPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

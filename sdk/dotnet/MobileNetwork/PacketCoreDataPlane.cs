@@ -98,13 +98,19 @@ namespace Pulumi.AzureNative.MobileNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:PacketCoreDataPlane" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:PacketCoreDataPlane" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:PacketCoreDataPlane" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240201:PacketCoreDataPlane" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240401:PacketCoreDataPlane" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20220301preview:mobilenetwork:PacketCoreDataPlane" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20220401preview:mobilenetwork:PacketCoreDataPlane" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20221101:mobilenetwork:PacketCoreDataPlane" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20230601:mobilenetwork:PacketCoreDataPlane" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20230901:mobilenetwork:PacketCoreDataPlane" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20240201:mobilenetwork:PacketCoreDataPlane" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20240401:mobilenetwork:PacketCoreDataPlane" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

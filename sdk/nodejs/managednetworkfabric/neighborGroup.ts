@@ -128,7 +128,7 @@ export class NeighborGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:NeighborGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:NeighborGroup" }, { type: "azure-native_managednetworkfabric_v20230615:managednetworkfabric:NeighborGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NeighborGroup.__pulumiType, name, resourceInputs, opts);
     }

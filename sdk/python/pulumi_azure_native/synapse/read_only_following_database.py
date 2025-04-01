@@ -231,7 +231,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
             __props__.__dict__["statistics"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:synapse:ReadWriteDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:synapse:ReadWriteDatabase"), pulumi.Alias(type_="azure-native_synapse_v20210401preview:synapse:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native_synapse_v20210601preview:synapse:ReadOnlyFollowingDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReadOnlyFollowingDatabase, __self__).__init__(
             'azure-native:synapse:ReadOnlyFollowingDatabase',

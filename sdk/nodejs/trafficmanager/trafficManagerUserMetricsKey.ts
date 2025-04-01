@@ -77,7 +77,7 @@ export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220401:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20220401preview:TrafficManagerUserMetricsKey" }, { type: "azure-native:network:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20180401:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20180801:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20220401:TrafficManagerUserMetricsKey" }, { type: "azure-native:trafficmanager/v20220401preview:TrafficManagerUserMetricsKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220401:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20220401preview:TrafficManagerUserMetricsKey" }, { type: "azure-native:network:TrafficManagerUserMetricsKey" }, { type: "azure-native_trafficmanager_v20180401:trafficmanager:TrafficManagerUserMetricsKey" }, { type: "azure-native_trafficmanager_v20180801:trafficmanager:TrafficManagerUserMetricsKey" }, { type: "azure-native_trafficmanager_v20220401:trafficmanager:TrafficManagerUserMetricsKey" }, { type: "azure-native_trafficmanager_v20220401preview:trafficmanager:TrafficManagerUserMetricsKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrafficManagerUserMetricsKey.__pulumiType, name, resourceInputs, opts);
     }

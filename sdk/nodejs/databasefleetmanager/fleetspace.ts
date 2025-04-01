@@ -93,7 +93,7 @@ export class Fleetspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databasefleetmanager/v20250201preview:Fleetspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native_databasefleetmanager_v20250201preview:databasefleetmanager:Fleetspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Fleetspace.__pulumiType, name, resourceInputs, opts);
     }

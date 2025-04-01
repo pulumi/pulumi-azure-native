@@ -121,7 +121,7 @@ export class ApplicationResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:integrationspaces/v20231114preview:ApplicationResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:integrationspaces/v20231114preview:ApplicationResource" }, { type: "azure-native_integrationspaces_v20231114preview:integrationspaces:ApplicationResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationResource.__pulumiType, name, resourceInputs, opts);
     }

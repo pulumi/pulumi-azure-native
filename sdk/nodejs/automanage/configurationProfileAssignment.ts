@@ -101,7 +101,7 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automanage/v20200630preview:ConfigurationProfileAssignment" }, { type: "azure-native:automanage/v20210430preview:ConfigurationProfileAssignment" }, { type: "azure-native:automanage/v20220504:ConfigurationProfileAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automanage/v20220504:ConfigurationProfileAssignment" }, { type: "azure-native_automanage_v20200630preview:automanage:ConfigurationProfileAssignment" }, { type: "azure-native_automanage_v20210430preview:automanage:ConfigurationProfileAssignment" }, { type: "azure-native_automanage_v20220504:automanage:ConfigurationProfileAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationProfileAssignment.__pulumiType, name, resourceInputs, opts);
     }

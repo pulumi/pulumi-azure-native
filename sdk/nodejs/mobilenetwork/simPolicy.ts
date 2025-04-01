@@ -152,7 +152,7 @@ export class SimPolicy extends pulumi.CustomResource {
             resourceInputs["ueAmbr"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:SimPolicy" }, { type: "azure-native:mobilenetwork/v20220401preview:SimPolicy" }, { type: "azure-native:mobilenetwork/v20221101:SimPolicy" }, { type: "azure-native:mobilenetwork/v20230601:SimPolicy" }, { type: "azure-native:mobilenetwork/v20230901:SimPolicy" }, { type: "azure-native:mobilenetwork/v20240201:SimPolicy" }, { type: "azure-native:mobilenetwork/v20240401:SimPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220401preview:SimPolicy" }, { type: "azure-native:mobilenetwork/v20221101:SimPolicy" }, { type: "azure-native:mobilenetwork/v20230601:SimPolicy" }, { type: "azure-native:mobilenetwork/v20230901:SimPolicy" }, { type: "azure-native:mobilenetwork/v20240201:SimPolicy" }, { type: "azure-native:mobilenetwork/v20240401:SimPolicy" }, { type: "azure-native_mobilenetwork_v20220301preview:mobilenetwork:SimPolicy" }, { type: "azure-native_mobilenetwork_v20220401preview:mobilenetwork:SimPolicy" }, { type: "azure-native_mobilenetwork_v20221101:mobilenetwork:SimPolicy" }, { type: "azure-native_mobilenetwork_v20230601:mobilenetwork:SimPolicy" }, { type: "azure-native_mobilenetwork_v20230901:mobilenetwork:SimPolicy" }, { type: "azure-native_mobilenetwork_v20240201:mobilenetwork:SimPolicy" }, { type: "azure-native_mobilenetwork_v20240401:mobilenetwork:SimPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SimPolicy.__pulumiType, name, resourceInputs, opts);
     }

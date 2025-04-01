@@ -128,6 +128,12 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
                     new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20240404preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20241019:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20250121:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native_devopsinfrastructure_v20231030preview:devopsinfrastructure:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native_devopsinfrastructure_v20231213preview:devopsinfrastructure:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native_devopsinfrastructure_v20240326preview:devopsinfrastructure:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native_devopsinfrastructure_v20240404preview:devopsinfrastructure:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native_devopsinfrastructure_v20241019:devopsinfrastructure:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native_devopsinfrastructure_v20250121:devopsinfrastructure:Pool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

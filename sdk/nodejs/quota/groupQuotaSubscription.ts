@@ -91,7 +91,7 @@ export class GroupQuotaSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:quota/v20230601preview:GroupQuotaSubscription" }, { type: "azure-native:quota/v20241015preview:GroupQuotaSubscription" }, { type: "azure-native:quota/v20241218preview:GroupQuotaSubscription" }, { type: "azure-native:quota/v20250301:GroupQuotaSubscription" }, { type: "azure-native:quota/v20250315preview:GroupQuotaSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:quota/v20230601preview:GroupQuotaSubscription" }, { type: "azure-native:quota/v20241015preview:GroupQuotaSubscription" }, { type: "azure-native:quota/v20241218preview:GroupQuotaSubscription" }, { type: "azure-native:quota/v20250301:GroupQuotaSubscription" }, { type: "azure-native_quota_v20230601preview:quota:GroupQuotaSubscription" }, { type: "azure-native_quota_v20241015preview:quota:GroupQuotaSubscription" }, { type: "azure-native_quota_v20241218preview:quota:GroupQuotaSubscription" }, { type: "azure-native_quota_v20250301:quota:GroupQuotaSubscription" }, { type: "azure-native_quota_v20250315preview:quota:GroupQuotaSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GroupQuotaSubscription.__pulumiType, name, resourceInputs, opts);
     }

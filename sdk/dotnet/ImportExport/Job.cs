@@ -90,9 +90,10 @@ namespace Pulumi.AzureNative.ImportExport
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:importexport/v20161101:Job" },
-                    new global::Pulumi.Alias { Type = "azure-native:importexport/v20200801:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:importexport/v20210101:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_importexport_v20161101:importexport:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_importexport_v20200801:importexport:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_importexport_v20210101:importexport:Job" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

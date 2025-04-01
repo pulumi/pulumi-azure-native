@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.AwsConnector
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:awsconnector/v20241201:S3AccessPoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_awsconnector_v20241201:awsconnector:S3AccessPoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

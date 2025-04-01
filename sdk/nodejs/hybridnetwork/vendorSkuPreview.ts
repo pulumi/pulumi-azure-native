@@ -93,7 +93,7 @@ export class VendorSkuPreview extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20200101preview:VendorSkuPreview" }, { type: "azure-native:hybridnetwork/v20210501:VendorSkuPreview" }, { type: "azure-native:hybridnetwork/v20220101preview:VendorSkuPreview" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20220101preview:VendorSkuPreview" }, { type: "azure-native_hybridnetwork_v20200101preview:hybridnetwork:VendorSkuPreview" }, { type: "azure-native_hybridnetwork_v20210501:hybridnetwork:VendorSkuPreview" }, { type: "azure-native_hybridnetwork_v20220101preview:hybridnetwork:VendorSkuPreview" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VendorSkuPreview.__pulumiType, name, resourceInputs, opts);
     }

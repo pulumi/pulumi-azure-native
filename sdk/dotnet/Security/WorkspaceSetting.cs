@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20170801preview:WorkspaceSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20170801preview:security:WorkspaceSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

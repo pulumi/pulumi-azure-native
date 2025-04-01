@@ -100,7 +100,7 @@ export class Setting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20191101:Setting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20191101:Setting" }, { type: "azure-native_costmanagement_v20191101:costmanagement:Setting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Setting.__pulumiType, name, resourceInputs, opts);
     }

@@ -205,7 +205,7 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20240405:GuestConfigurationConnectedVMwarevSphereAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20240405:GuestConfigurationConnectedVMwarevSphereAssignment"), pulumi.Alias(type_="azure-native_guestconfiguration_v20200625:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment"), pulumi.Alias(type_="azure-native_guestconfiguration_v20220125:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment"), pulumi.Alias(type_="azure-native_guestconfiguration_v20240405:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestConfigurationConnectedVMwarevSphereAssignment, __self__).__init__(
             'azure-native:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment',

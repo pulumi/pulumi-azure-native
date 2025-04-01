@@ -86,8 +86,6 @@ namespace Pulumi.AzureNative.SignalRService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRCustomDomain" },
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220801preview:SignalRCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230201:SignalRCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalRCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRCustomDomain" },
@@ -97,6 +95,17 @@ namespace Pulumi.AzureNative.SignalRService
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20240401preview:SignalRCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20240801preview:SignalRCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20241001preview:SignalRCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_signalrservice_v20220201:signalrservice:SignalRCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_signalrservice_v20220801preview:signalrservice:SignalRCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_signalrservice_v20230201:signalrservice:SignalRCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_signalrservice_v20230301preview:signalrservice:SignalRCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_signalrservice_v20230601preview:signalrservice:SignalRCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_signalrservice_v20230801preview:signalrservice:SignalRCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_signalrservice_v20240101preview:signalrservice:SignalRCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_signalrservice_v20240301:signalrservice:SignalRCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_signalrservice_v20240401preview:signalrservice:SignalRCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_signalrservice_v20240801preview:signalrservice:SignalRCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_signalrservice_v20241001preview:signalrservice:SignalRCustomDomain" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -221,7 +221,7 @@ class ComputePolicy(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datalakeanalytics/v20151001preview:ComputePolicy"), pulumi.Alias(type_="azure-native:datalakeanalytics/v20161101:ComputePolicy"), pulumi.Alias(type_="azure-native:datalakeanalytics/v20191101preview:ComputePolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datalakeanalytics/v20191101preview:ComputePolicy"), pulumi.Alias(type_="azure-native_datalakeanalytics_v20151001preview:datalakeanalytics:ComputePolicy"), pulumi.Alias(type_="azure-native_datalakeanalytics_v20161101:datalakeanalytics:ComputePolicy"), pulumi.Alias(type_="azure-native_datalakeanalytics_v20191101preview:datalakeanalytics:ComputePolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ComputePolicy, __self__).__init__(
             'azure-native:datalakeanalytics:ComputePolicy',

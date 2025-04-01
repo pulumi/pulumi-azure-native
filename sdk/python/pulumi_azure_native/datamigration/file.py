@@ -187,7 +187,7 @@ class File(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20180715preview:File"), pulumi.Alias(type_="azure-native:datamigration/v20210630:File"), pulumi.Alias(type_="azure-native:datamigration/v20211030preview:File"), pulumi.Alias(type_="azure-native:datamigration/v20220130preview:File"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:File"), pulumi.Alias(type_="azure-native:datamigration/v20230715preview:File")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20210630:File"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:File"), pulumi.Alias(type_="azure-native:datamigration/v20230715preview:File"), pulumi.Alias(type_="azure-native_datamigration_v20180715preview:datamigration:File"), pulumi.Alias(type_="azure-native_datamigration_v20210630:datamigration:File"), pulumi.Alias(type_="azure-native_datamigration_v20211030preview:datamigration:File"), pulumi.Alias(type_="azure-native_datamigration_v20220130preview:datamigration:File"), pulumi.Alias(type_="azure-native_datamigration_v20220330preview:datamigration:File"), pulumi.Alias(type_="azure-native_datamigration_v20230715preview:datamigration:File")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(File, __self__).__init__(
             'azure-native:datamigration:File',

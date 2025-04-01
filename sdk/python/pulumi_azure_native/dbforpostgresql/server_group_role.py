@@ -232,7 +232,7 @@ class ServerGroupRole(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:Role"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:ServerGroupRole"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:Role"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:ServerGroupRole"), pulumi.Alias(type_="azure-native:dbforpostgresql:Role")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:Role"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:Role"), pulumi.Alias(type_="azure-native:dbforpostgresql:Role"), pulumi.Alias(type_="azure-native_dbforpostgresql_v20221108:dbforpostgresql:ServerGroupRole"), pulumi.Alias(type_="azure-native_dbforpostgresql_v20230302preview:dbforpostgresql:ServerGroupRole")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerGroupRole, __self__).__init__(
             'azure-native:dbforpostgresql:ServerGroupRole',

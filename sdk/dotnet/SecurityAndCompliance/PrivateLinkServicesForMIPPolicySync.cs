@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForMIPPolicySync" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityandcompliance_v20210308:securityandcompliance:PrivateLinkServicesForMIPPolicySync" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

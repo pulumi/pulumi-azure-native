@@ -107,7 +107,7 @@ export class LandingZoneAccountOperation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sovereign/v20250227preview:LandingZoneAccountOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native_sovereign_v20250227preview:sovereign:LandingZoneAccountOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LandingZoneAccountOperation.__pulumiType, name, resourceInputs, opts);
     }

@@ -69,7 +69,8 @@ namespace Pulumi.AzureNative.Storage
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230501:StorageTaskAssignment" },
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20240101:StorageTaskAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_storage_v20230501:storage:StorageTaskAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_storage_v20240101:storage:StorageTaskAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

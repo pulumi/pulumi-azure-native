@@ -113,7 +113,7 @@ export class PrivateEndpointConnectionController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200707:PrivateEndpointConnection" }, { type: "azure-native:offazure/v20200707:PrivateEndpointConnectionController" }, { type: "azure-native:offazure/v20230606:PrivateEndpointConnectionController" }, { type: "azure-native:offazure/v20231001preview:PrivateEndpointConnectionController" }, { type: "azure-native:offazure/v20240501preview:PrivateEndpointConnectionController" }, { type: "azure-native:offazure:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200707:PrivateEndpointConnection" }, { type: "azure-native:offazure/v20230606:PrivateEndpointConnectionController" }, { type: "azure-native:offazure/v20231001preview:PrivateEndpointConnectionController" }, { type: "azure-native:offazure/v20240501preview:PrivateEndpointConnectionController" }, { type: "azure-native:offazure:PrivateEndpointConnection" }, { type: "azure-native_offazure_v20200707:offazure:PrivateEndpointConnectionController" }, { type: "azure-native_offazure_v20230606:offazure:PrivateEndpointConnectionController" }, { type: "azure-native_offazure_v20231001preview:offazure:PrivateEndpointConnectionController" }, { type: "azure-native_offazure_v20240501preview:offazure:PrivateEndpointConnectionController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionController.__pulumiType, name, resourceInputs, opts);
     }

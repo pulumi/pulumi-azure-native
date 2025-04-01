@@ -180,7 +180,7 @@ class S3AccessControlPolicy(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:awsconnector/v20241201:S3AccessControlPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:awsconnector/v20241201:S3AccessControlPolicy"), pulumi.Alias(type_="azure-native_awsconnector_v20241201:awsconnector:S3AccessControlPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(S3AccessControlPolicy, __self__).__init__(
             'azure-native:awsconnector:S3AccessControlPolicy',

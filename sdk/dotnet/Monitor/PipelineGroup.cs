@@ -94,6 +94,8 @@ namespace Pulumi.AzureNative.Monitor
                 {
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20231001preview:PipelineGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20241001preview:PipelineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20231001preview:monitor:PipelineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20241001preview:monitor:PipelineGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

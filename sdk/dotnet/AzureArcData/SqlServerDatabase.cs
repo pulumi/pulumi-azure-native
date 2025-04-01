@@ -86,11 +86,14 @@ namespace Pulumi.AzureNative.AzureArcData
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:SqlServerDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:SqlServerDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240101:SqlServerDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:SqlServerDatabase" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:SqlServerDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20220615preview:azurearcdata:SqlServerDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20230115preview:azurearcdata:SqlServerDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20240101:azurearcdata:SqlServerDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20240501preview:azurearcdata:SqlServerDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20250301preview:azurearcdata:SqlServerDatabase" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

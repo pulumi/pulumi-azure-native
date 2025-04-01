@@ -178,7 +178,7 @@ export class ElasticSan extends pulumi.CustomResource {
             resourceInputs["volumeGroupCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20211120preview:ElasticSan" }, { type: "azure-native:elasticsan/v20221201preview:ElasticSan" }, { type: "azure-native:elasticsan/v20230101:ElasticSan" }, { type: "azure-native:elasticsan/v20240501:ElasticSan" }, { type: "azure-native:elasticsan/v20240601preview:ElasticSan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20211120preview:ElasticSan" }, { type: "azure-native:elasticsan/v20221201preview:ElasticSan" }, { type: "azure-native:elasticsan/v20230101:ElasticSan" }, { type: "azure-native:elasticsan/v20240501:ElasticSan" }, { type: "azure-native:elasticsan/v20240601preview:ElasticSan" }, { type: "azure-native_elasticsan_v20211120preview:elasticsan:ElasticSan" }, { type: "azure-native_elasticsan_v20221201preview:elasticsan:ElasticSan" }, { type: "azure-native_elasticsan_v20230101:elasticsan:ElasticSan" }, { type: "azure-native_elasticsan_v20240501:elasticsan:ElasticSan" }, { type: "azure-native_elasticsan_v20240601preview:elasticsan:ElasticSan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticSan.__pulumiType, name, resourceInputs, opts);
     }

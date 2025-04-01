@@ -80,16 +80,19 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Database" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Database" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Database" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Database" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:Database" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220101:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230601preview:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230630:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20231230:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20200701preview:dbformysql:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20200701privatepreview:dbformysql:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20210501:dbformysql:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20210501preview:dbformysql:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20211201preview:dbformysql:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20220101:dbformysql:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20230601preview:dbformysql:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20230630:dbformysql:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20231230:dbformysql:Database" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

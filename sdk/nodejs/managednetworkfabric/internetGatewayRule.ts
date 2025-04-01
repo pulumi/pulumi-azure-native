@@ -122,7 +122,7 @@ export class InternetGatewayRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:InternetGatewayRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:InternetGatewayRule" }, { type: "azure-native_managednetworkfabric_v20230615:managednetworkfabric:InternetGatewayRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InternetGatewayRule.__pulumiType, name, resourceInputs, opts);
     }

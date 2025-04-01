@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.Scom
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scom/v20230707preview:Instance" },
+                    new global::Pulumi.Alias { Type = "azure-native_scom_v20230707preview:scom:Instance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

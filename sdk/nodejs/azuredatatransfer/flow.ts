@@ -119,7 +119,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuredatatransfer/v20231011preview:Flow" }, { type: "azure-native:azuredatatransfer/v20240125:Flow" }, { type: "azure-native:azuredatatransfer/v20240507:Flow" }, { type: "azure-native:azuredatatransfer/v20240911:Flow" }, { type: "azure-native:azuredatatransfer/v20240927:Flow" }, { type: "azure-native:azuredatatransfer/v20250301preview:Flow" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuredatatransfer/v20231011preview:Flow" }, { type: "azure-native:azuredatatransfer/v20240125:Flow" }, { type: "azure-native:azuredatatransfer/v20240507:Flow" }, { type: "azure-native:azuredatatransfer/v20240911:Flow" }, { type: "azure-native:azuredatatransfer/v20240927:Flow" }, { type: "azure-native_azuredatatransfer_v20231011preview:azuredatatransfer:Flow" }, { type: "azure-native_azuredatatransfer_v20240125:azuredatatransfer:Flow" }, { type: "azure-native_azuredatatransfer_v20240507:azuredatatransfer:Flow" }, { type: "azure-native_azuredatatransfer_v20240911:azuredatatransfer:Flow" }, { type: "azure-native_azuredatatransfer_v20240927:azuredatatransfer:Flow" }, { type: "azure-native_azuredatatransfer_v20250301preview:azuredatatransfer:Flow" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Flow.__pulumiType, name, resourceInputs, opts);
     }

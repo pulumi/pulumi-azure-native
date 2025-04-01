@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.AVS
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:IscsiPath" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230901:avs:IscsiPath" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

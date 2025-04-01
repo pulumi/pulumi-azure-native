@@ -99,7 +99,7 @@ export class GalleryInVMAccessControlProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20240303:GalleryInVMAccessControlProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20240303:GalleryInVMAccessControlProfile" }, { type: "azure-native_compute_v20240303:compute:GalleryInVMAccessControlProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryInVMAccessControlProfile.__pulumiType, name, resourceInputs, opts);
     }

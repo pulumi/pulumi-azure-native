@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20220701preview:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20220701preview:security:Application" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

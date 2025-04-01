@@ -136,7 +136,7 @@ export class DataLakeConnectorTopicMap extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:DataLakeConnectorTopicMap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:DataLakeConnectorTopicMap" }, { type: "azure-native_iotoperationsmq_v20231004preview:iotoperationsmq:DataLakeConnectorTopicMap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataLakeConnectorTopicMap.__pulumiType, name, resourceInputs, opts);
     }

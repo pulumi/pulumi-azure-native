@@ -136,7 +136,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20200501:PrivateLinkAssociation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20200501:PrivateLinkAssociation"), pulumi.Alias(type_="azure-native_authorization_v20200501:authorization:PrivateLinkAssociation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkAssociation, __self__).__init__(
             'azure-native:authorization:PrivateLinkAssociation',

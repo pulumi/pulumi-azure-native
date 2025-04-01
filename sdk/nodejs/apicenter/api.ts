@@ -159,7 +159,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240301:Api" }, { type: "azure-native:apicenter/v20240315preview:Api" }, { type: "azure-native:apicenter/v20240601preview:Api" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240301:Api" }, { type: "azure-native:apicenter/v20240315preview:Api" }, { type: "azure-native:apicenter/v20240601preview:Api" }, { type: "azure-native_apicenter_v20240301:apicenter:Api" }, { type: "azure-native_apicenter_v20240315preview:apicenter:Api" }, { type: "azure-native_apicenter_v20240601preview:apicenter:Api" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Api.__pulumiType, name, resourceInputs, opts);
     }

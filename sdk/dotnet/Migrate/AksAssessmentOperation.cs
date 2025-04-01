@@ -102,6 +102,10 @@ namespace Pulumi.AzureNative.Migrate
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AksAssessmentOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AksAssessmentOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AksAssessmentOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230401preview:migrate:AksAssessmentOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230501preview:migrate:AksAssessmentOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230909preview:migrate:AksAssessmentOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20240101preview:migrate:AksAssessmentOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

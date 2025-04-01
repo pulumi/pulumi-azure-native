@@ -71,6 +71,9 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240201:ReplicationProtectionCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240401:ReplicationProtectionCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20241001:ReplicationProtectionCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_recoveryservices_v20240201:recoveryservices:ReplicationProtectionCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_recoveryservices_v20240401:recoveryservices:ReplicationProtectionCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_recoveryservices_v20241001:recoveryservices:ReplicationProtectionCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

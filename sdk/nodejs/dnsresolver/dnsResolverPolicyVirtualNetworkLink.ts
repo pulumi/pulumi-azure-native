@@ -120,7 +120,7 @@ export class DnsResolverPolicyVirtualNetworkLink extends pulumi.CustomResource {
             resourceInputs["virtualNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dnsresolver/v20230701preview:DnsResolverPolicyVirtualNetworkLink" }, { type: "azure-native:network/v20230701preview:DnsResolverPolicyVirtualNetworkLink" }, { type: "azure-native:network:DnsResolverPolicyVirtualNetworkLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20230701preview:DnsResolverPolicyVirtualNetworkLink" }, { type: "azure-native:network:DnsResolverPolicyVirtualNetworkLink" }, { type: "azure-native_dnsresolver_v20230701preview:dnsresolver:DnsResolverPolicyVirtualNetworkLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DnsResolverPolicyVirtualNetworkLink.__pulumiType, name, resourceInputs, opts);
     }

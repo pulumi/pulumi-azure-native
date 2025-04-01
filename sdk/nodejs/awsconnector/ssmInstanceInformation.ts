@@ -100,7 +100,7 @@ export class SsmInstanceInformation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SsmInstanceInformation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SsmInstanceInformation" }, { type: "azure-native_awsconnector_v20241201:awsconnector:SsmInstanceInformation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SsmInstanceInformation.__pulumiType, name, resourceInputs, opts);
     }

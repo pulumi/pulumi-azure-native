@@ -152,7 +152,7 @@ export class Assignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:Assignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:Assignment" }, { type: "azure-native_blueprint_v20181101preview:blueprint:Assignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Assignment.__pulumiType, name, resourceInputs, opts);
     }

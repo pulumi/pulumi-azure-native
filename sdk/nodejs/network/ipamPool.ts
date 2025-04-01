@@ -110,7 +110,7 @@ export class IpamPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240101preview:IpamPool" }, { type: "azure-native:network/v20240501:IpamPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240101preview:IpamPool" }, { type: "azure-native:network/v20240501:IpamPool" }, { type: "azure-native_network_v20240101preview:network:IpamPool" }, { type: "azure-native_network_v20240501:network:IpamPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IpamPool.__pulumiType, name, resourceInputs, opts);
     }

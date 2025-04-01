@@ -172,7 +172,7 @@ export class VCenter extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20230301preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20231001:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20231201:VCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20220715preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20230301preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20231001:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20231201:VCenter" }, { type: "azure-native_connectedvmwarevsphere_v20201001preview:connectedvmwarevsphere:VCenter" }, { type: "azure-native_connectedvmwarevsphere_v20220110preview:connectedvmwarevsphere:VCenter" }, { type: "azure-native_connectedvmwarevsphere_v20220715preview:connectedvmwarevsphere:VCenter" }, { type: "azure-native_connectedvmwarevsphere_v20230301preview:connectedvmwarevsphere:VCenter" }, { type: "azure-native_connectedvmwarevsphere_v20231001:connectedvmwarevsphere:VCenter" }, { type: "azure-native_connectedvmwarevsphere_v20231201:connectedvmwarevsphere:VCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VCenter.__pulumiType, name, resourceInputs, opts);
     }

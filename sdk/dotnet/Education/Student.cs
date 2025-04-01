@@ -133,6 +133,7 @@ namespace Pulumi.AzureNative.Education
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:education/v20211201preview:Student" },
+                    new global::Pulumi.Alias { Type = "azure-native_education_v20211201preview:education:Student" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

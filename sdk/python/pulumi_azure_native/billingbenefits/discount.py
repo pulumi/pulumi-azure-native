@@ -391,7 +391,7 @@ class Discount(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:billingbenefits/v20241101preview:Discount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native_billingbenefits_v20241101preview:billingbenefits:Discount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Discount, __self__).__init__(
             'azure-native:billingbenefits:Discount',

@@ -591,7 +591,7 @@ class Asset(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20231101preview:Asset"), pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:Asset"), pulumi.Alias(type_="azure-native:deviceregistry/v20241101:Asset")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20231101preview:Asset"), pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:Asset"), pulumi.Alias(type_="azure-native:deviceregistry/v20241101:Asset"), pulumi.Alias(type_="azure-native_deviceregistry_v20231101preview:deviceregistry:Asset"), pulumi.Alias(type_="azure-native_deviceregistry_v20240901preview:deviceregistry:Asset"), pulumi.Alias(type_="azure-native_deviceregistry_v20241101:deviceregistry:Asset")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Asset, __self__).__init__(
             'azure-native:deviceregistry:Asset',

@@ -224,7 +224,7 @@ class Variable(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:Variable"), pulumi.Alias(type_="azure-native:automation/v20190601:Variable"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Variable"), pulumi.Alias(type_="azure-native:automation/v20220808:Variable"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Variable"), pulumi.Alias(type_="azure-native:automation/v20231101:Variable"), pulumi.Alias(type_="azure-native:automation/v20241023:Variable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20220808:Variable"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Variable"), pulumi.Alias(type_="azure-native:automation/v20231101:Variable"), pulumi.Alias(type_="azure-native:automation/v20241023:Variable"), pulumi.Alias(type_="azure-native_automation_v20151031:automation:Variable"), pulumi.Alias(type_="azure-native_automation_v20190601:automation:Variable"), pulumi.Alias(type_="azure-native_automation_v20200113preview:automation:Variable"), pulumi.Alias(type_="azure-native_automation_v20220808:automation:Variable"), pulumi.Alias(type_="azure-native_automation_v20230515preview:automation:Variable"), pulumi.Alias(type_="azure-native_automation_v20231101:automation:Variable"), pulumi.Alias(type_="azure-native_automation_v20241023:automation:Variable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Variable, __self__).__init__(
             'azure-native:automation:Variable',

@@ -224,7 +224,7 @@ class CollectorPolicy(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkfunction/v20210901preview:CollectorPolicy"), pulumi.Alias(type_="azure-native:networkfunction/v20220501:CollectorPolicy"), pulumi.Alias(type_="azure-native:networkfunction/v20220801:CollectorPolicy"), pulumi.Alias(type_="azure-native:networkfunction/v20221101:CollectorPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkfunction/v20220501:CollectorPolicy"), pulumi.Alias(type_="azure-native:networkfunction/v20221101:CollectorPolicy"), pulumi.Alias(type_="azure-native_networkfunction_v20210901preview:networkfunction:CollectorPolicy"), pulumi.Alias(type_="azure-native_networkfunction_v20220501:networkfunction:CollectorPolicy"), pulumi.Alias(type_="azure-native_networkfunction_v20220801:networkfunction:CollectorPolicy"), pulumi.Alias(type_="azure-native_networkfunction_v20221101:networkfunction:CollectorPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CollectorPolicy, __self__).__init__(
             'azure-native:networkfunction:CollectorPolicy',

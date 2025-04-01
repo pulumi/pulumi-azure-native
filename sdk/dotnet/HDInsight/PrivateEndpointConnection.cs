@@ -96,7 +96,11 @@ namespace Pulumi.AzureNative.HDInsight
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230415preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230815preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20240801preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20250115preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20210601:hdinsight:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20230415preview:hdinsight:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20230815preview:hdinsight:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20240801preview:hdinsight:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20250115preview:hdinsight:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

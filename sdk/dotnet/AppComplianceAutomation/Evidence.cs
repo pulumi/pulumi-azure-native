@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appcomplianceautomation/v20240627:Evidence" },
+                    new global::Pulumi.Alias { Type = "azure-native_appcomplianceautomation_v20240627:appcomplianceautomation:Evidence" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

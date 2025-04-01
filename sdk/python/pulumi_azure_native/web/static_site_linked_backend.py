@@ -204,7 +204,7 @@ class StaticSiteLinkedBackend(pulumi.CustomResource):
             __props__.__dict__["created_on"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20220301:StaticSiteLinkedBackend"), pulumi.Alias(type_="azure-native:web/v20220901:StaticSiteLinkedBackend"), pulumi.Alias(type_="azure-native:web/v20230101:StaticSiteLinkedBackend"), pulumi.Alias(type_="azure-native:web/v20231201:StaticSiteLinkedBackend"), pulumi.Alias(type_="azure-native:web/v20240401:StaticSiteLinkedBackend")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20220901:StaticSiteLinkedBackend"), pulumi.Alias(type_="azure-native:web/v20230101:StaticSiteLinkedBackend"), pulumi.Alias(type_="azure-native:web/v20231201:StaticSiteLinkedBackend"), pulumi.Alias(type_="azure-native:web/v20240401:StaticSiteLinkedBackend"), pulumi.Alias(type_="azure-native_web_v20220301:web:StaticSiteLinkedBackend"), pulumi.Alias(type_="azure-native_web_v20220901:web:StaticSiteLinkedBackend"), pulumi.Alias(type_="azure-native_web_v20230101:web:StaticSiteLinkedBackend"), pulumi.Alias(type_="azure-native_web_v20231201:web:StaticSiteLinkedBackend"), pulumi.Alias(type_="azure-native_web_v20240401:web:StaticSiteLinkedBackend")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSiteLinkedBackend, __self__).__init__(
             'azure-native:web:StaticSiteLinkedBackend',

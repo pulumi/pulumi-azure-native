@@ -654,7 +654,7 @@ class ServerGroupCluster(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20201005privatepreview:ServerGroupCluster"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:Cluster"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:ServerGroupCluster"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:Cluster"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:ServerGroupCluster"), pulumi.Alias(type_="azure-native:dbforpostgresql:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:Cluster"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:Cluster"), pulumi.Alias(type_="azure-native:dbforpostgresql:Cluster"), pulumi.Alias(type_="azure-native_dbforpostgresql_v20201005privatepreview:dbforpostgresql:ServerGroupCluster"), pulumi.Alias(type_="azure-native_dbforpostgresql_v20221108:dbforpostgresql:ServerGroupCluster"), pulumi.Alias(type_="azure-native_dbforpostgresql_v20230302preview:dbforpostgresql:ServerGroupCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerGroupCluster, __self__).__init__(
             'azure-native:dbforpostgresql:ServerGroupCluster',

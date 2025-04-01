@@ -134,9 +134,11 @@ namespace Pulumi.AzureNative.PolicyInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20210101:AttestationAtSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20220901:AttestationAtSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20241001:AttestationAtSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_policyinsights_v20210101:policyinsights:AttestationAtSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_policyinsights_v20220901:policyinsights:AttestationAtSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_policyinsights_v20241001:policyinsights:AttestationAtSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

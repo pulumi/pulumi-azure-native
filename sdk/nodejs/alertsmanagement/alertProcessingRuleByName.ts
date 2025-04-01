@@ -103,7 +103,7 @@ export class AlertProcessingRuleByName extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement:ActionRuleByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement/v20190505preview:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement:ActionRuleByName" }, { type: "azure-native_alertsmanagement_v20181102privatepreview:alertsmanagement:AlertProcessingRuleByName" }, { type: "azure-native_alertsmanagement_v20190505preview:alertsmanagement:AlertProcessingRuleByName" }, { type: "azure-native_alertsmanagement_v20210808:alertsmanagement:AlertProcessingRuleByName" }, { type: "azure-native_alertsmanagement_v20210808preview:alertsmanagement:AlertProcessingRuleByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AlertProcessingRuleByName.__pulumiType, name, resourceInputs, opts);
     }

@@ -87,16 +87,20 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230801preview:EdgeDevice" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230801preview:HciEdgeDevice" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20231101preview:EdgeDevice" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20231101preview:HciEdgeDevice" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:EdgeDevice" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:HciEdgeDevice" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240215preview:HciEdgeDevice" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240401:HciEdgeDevice" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240901preview:HciEdgeDevice" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241201preview:HciEdgeDevice" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:EdgeDevice" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20230801preview:azurestackhci:HciEdgeDevice" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20231101preview:azurestackhci:HciEdgeDevice" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240101:azurestackhci:HciEdgeDevice" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240215preview:azurestackhci:HciEdgeDevice" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240401:azurestackhci:HciEdgeDevice" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240901preview:azurestackhci:HciEdgeDevice" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20241201preview:azurestackhci:HciEdgeDevice" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

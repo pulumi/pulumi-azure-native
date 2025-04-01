@@ -100,7 +100,7 @@ export class WafWebAclSummary extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:WafWebAclSummary" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:WafWebAclSummary" }, { type: "azure-native_awsconnector_v20241201:awsconnector:WafWebAclSummary" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WafWebAclSummary.__pulumiType, name, resourceInputs, opts);
     }

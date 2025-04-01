@@ -167,7 +167,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay/v20160701:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20211101:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20240101:NamespaceAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20211101:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20240101:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native_relay_v20160701:relay:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native_relay_v20170401:relay:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native_relay_v20211101:relay:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native_relay_v20240101:relay:NamespaceAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azure-native:relay:NamespaceAuthorizationRule',

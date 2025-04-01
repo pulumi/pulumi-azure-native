@@ -302,7 +302,7 @@ class KustoPool(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uri"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:KustoPool"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:KustoPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:KustoPool"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:KustoPool"), pulumi.Alias(type_="azure-native_synapse_v20210401preview:synapse:KustoPool"), pulumi.Alias(type_="azure-native_synapse_v20210601preview:synapse:KustoPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KustoPool, __self__).__init__(
             'azure-native:synapse:KustoPool',

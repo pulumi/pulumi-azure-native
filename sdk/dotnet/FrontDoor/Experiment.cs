@@ -114,9 +114,9 @@ namespace Pulumi.AzureNative.FrontDoor
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20191101:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20191101:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:network:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20191101:frontdoor:Experiment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

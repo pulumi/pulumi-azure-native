@@ -105,7 +105,7 @@ export class EnterpriseMccCacheNodesOperation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:EnterpriseMccCacheNodesOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:EnterpriseMccCacheNodesOperation" }, { type: "azure-native_connectedcache_v20230501preview:connectedcache:EnterpriseMccCacheNodesOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnterpriseMccCacheNodesOperation.__pulumiType, name, resourceInputs, opts);
     }

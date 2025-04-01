@@ -92,7 +92,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220308preview:Administrator" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221201:Administrator" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230301preview:Administrator" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230601preview:Administrator" },
@@ -100,6 +99,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240301preview:Administrator" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240801:Administrator" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20241101preview:Administrator" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20220308preview:dbforpostgresql:Administrator" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20221201:dbforpostgresql:Administrator" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20230301preview:dbforpostgresql:Administrator" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20230601preview:dbforpostgresql:Administrator" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20231201preview:dbforpostgresql:Administrator" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20240301preview:dbforpostgresql:Administrator" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20240801:dbforpostgresql:Administrator" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20241101preview:dbforpostgresql:Administrator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20201001:PimRoleEligibilitySchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20201001:authorization:PimRoleEligibilitySchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

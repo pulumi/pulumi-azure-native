@@ -104,11 +104,13 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:DataExport" },
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:DataExport" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:DataExport" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:DataExport" },
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:DataExport" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20190801preview:operationalinsights:DataExport" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20200301preview:operationalinsights:DataExport" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20200801:operationalinsights:DataExport" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20230901:operationalinsights:DataExport" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20250201:operationalinsights:DataExport" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

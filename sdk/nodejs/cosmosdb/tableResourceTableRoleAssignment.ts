@@ -111,7 +111,7 @@ export class TableResourceTableRoleAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cosmosdb/v20241201preview:TableResourceTableRoleAssignment" }, { type: "azure-native:documentdb/v20241201preview:TableResourceTableRoleAssignment" }, { type: "azure-native:documentdb:TableResourceTableRoleAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20241201preview:TableResourceTableRoleAssignment" }, { type: "azure-native:documentdb:TableResourceTableRoleAssignment" }, { type: "azure-native_cosmosdb_v20241201preview:cosmosdb:TableResourceTableRoleAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TableResourceTableRoleAssignment.__pulumiType, name, resourceInputs, opts);
     }

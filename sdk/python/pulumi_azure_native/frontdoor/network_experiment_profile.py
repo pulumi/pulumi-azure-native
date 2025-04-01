@@ -199,7 +199,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20191101:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:network/v20191101:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:network:NetworkExperimentProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20191101:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:network:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native_frontdoor_v20191101:frontdoor:NetworkExperimentProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkExperimentProfile, __self__).__init__(
             'azure-native:frontdoor:NetworkExperimentProfile',

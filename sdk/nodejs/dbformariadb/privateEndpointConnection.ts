@@ -99,7 +99,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb/v20180601:PrivateEndpointConnection" }, { type: "azure-native:dbformariadb/v20180601privatepreview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb/v20180601:PrivateEndpointConnection" }, { type: "azure-native:dbformariadb/v20180601privatepreview:PrivateEndpointConnection" }, { type: "azure-native_dbformariadb_v20180601:dbformariadb:PrivateEndpointConnection" }, { type: "azure-native_dbformariadb_v20180601privatepreview:dbformariadb:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

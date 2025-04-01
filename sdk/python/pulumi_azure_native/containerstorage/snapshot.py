@@ -163,7 +163,7 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerstorage/v20230701preview:Snapshot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerstorage/v20230701preview:Snapshot"), pulumi.Alias(type_="azure-native_containerstorage_v20230701preview:containerstorage:Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Snapshot, __self__).__init__(
             'azure-native:containerstorage:Snapshot',

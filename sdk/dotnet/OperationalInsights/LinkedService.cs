@@ -87,11 +87,14 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:LinkedService" },
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedService" },
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:LinkedService" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:LinkedService" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:LinkedService" },
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:LinkedService" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20151101preview:operationalinsights:LinkedService" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20190801preview:operationalinsights:LinkedService" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20200301preview:operationalinsights:LinkedService" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20200801:operationalinsights:LinkedService" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20230901:operationalinsights:LinkedService" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20250201:operationalinsights:LinkedService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

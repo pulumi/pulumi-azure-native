@@ -184,12 +184,16 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220301:FluxConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:FluxConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20221101:FluxConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20230501:FluxConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20240401preview:FluxConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20241101:FluxConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20211101preview:kubernetesconfiguration:FluxConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20220101preview:kubernetesconfiguration:FluxConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20220301:kubernetesconfiguration:FluxConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20220701:kubernetesconfiguration:FluxConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20221101:kubernetesconfiguration:FluxConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20230501:kubernetesconfiguration:FluxConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20240401preview:kubernetesconfiguration:FluxConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20241101:kubernetesconfiguration:FluxConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

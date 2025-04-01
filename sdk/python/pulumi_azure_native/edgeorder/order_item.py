@@ -249,7 +249,7 @@ class OrderItem(pulumi.CustomResource):
             __props__.__dict__["start_time"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder/v20201201preview:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:OrderItemByName"), pulumi.Alias(type_="azure-native:edgeorder/v20220501preview:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20240201:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder:OrderItemByName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder/v20211201:OrderItemByName"), pulumi.Alias(type_="azure-native:edgeorder/v20220501preview:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20240201:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder:OrderItemByName"), pulumi.Alias(type_="azure-native_edgeorder_v20201201preview:edgeorder:OrderItem"), pulumi.Alias(type_="azure-native_edgeorder_v20211201:edgeorder:OrderItem"), pulumi.Alias(type_="azure-native_edgeorder_v20220501preview:edgeorder:OrderItem"), pulumi.Alias(type_="azure-native_edgeorder_v20240201:edgeorder:OrderItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrderItem, __self__).__init__(
             'azure-native:edgeorder:OrderItem',

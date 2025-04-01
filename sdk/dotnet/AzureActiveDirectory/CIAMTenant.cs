@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20230517preview:CIAMTenant" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureactivedirectory_v20230517preview:azureactivedirectory:CIAMTenant" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

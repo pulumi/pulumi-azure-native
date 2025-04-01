@@ -189,7 +189,7 @@ class DnsResolver(pulumi.CustomResource):
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dnsresolver/v20200401preview:DnsResolver"), pulumi.Alias(type_="azure-native:dnsresolver/v20220701:DnsResolver"), pulumi.Alias(type_="azure-native:dnsresolver/v20230701preview:DnsResolver"), pulumi.Alias(type_="azure-native:network/v20220701:DnsResolver"), pulumi.Alias(type_="azure-native:network/v20230701preview:DnsResolver"), pulumi.Alias(type_="azure-native:network:DnsResolver")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20220701:DnsResolver"), pulumi.Alias(type_="azure-native:network/v20230701preview:DnsResolver"), pulumi.Alias(type_="azure-native:network:DnsResolver"), pulumi.Alias(type_="azure-native_dnsresolver_v20200401preview:dnsresolver:DnsResolver"), pulumi.Alias(type_="azure-native_dnsresolver_v20220701:dnsresolver:DnsResolver"), pulumi.Alias(type_="azure-native_dnsresolver_v20230701preview:dnsresolver:DnsResolver")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DnsResolver, __self__).__init__(
             'azure-native:dnsresolver:DnsResolver',

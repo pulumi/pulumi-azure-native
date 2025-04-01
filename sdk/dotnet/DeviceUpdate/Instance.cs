@@ -108,11 +108,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:Instance" },
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Instance" },
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:Instance" },
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221201preview:Instance" },
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20230701:Instance" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceupdate_v20200301preview:deviceupdate:Instance" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceupdate_v20220401preview:deviceupdate:Instance" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceupdate_v20221001:deviceupdate:Instance" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceupdate_v20221201preview:deviceupdate:Instance" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceupdate_v20230701:deviceupdate:Instance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

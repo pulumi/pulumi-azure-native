@@ -84,7 +84,7 @@ export class NamespaceVirtualNetworkRule extends pulumi.CustomResource {
             resourceInputs["virtualNetworkSubnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule" }, { type: "azure-native_eventhub_v20180101preview:eventhub:NamespaceVirtualNetworkRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceVirtualNetworkRule.__pulumiType, name, resourceInputs, opts);
     }

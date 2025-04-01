@@ -127,7 +127,7 @@ export class FabricCapacity extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:fabric/v20231101:FabricCapacity" }, { type: "azure-native:fabric/v20250115preview:FabricCapacity" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:fabric/v20231101:FabricCapacity" }, { type: "azure-native:fabric/v20250115preview:FabricCapacity" }, { type: "azure-native_fabric_v20231101:fabric:FabricCapacity" }, { type: "azure-native_fabric_v20250115preview:fabric:FabricCapacity" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FabricCapacity.__pulumiType, name, resourceInputs, opts);
     }

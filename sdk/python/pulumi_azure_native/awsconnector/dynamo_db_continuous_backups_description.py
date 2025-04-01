@@ -180,7 +180,7 @@ class DynamoDbContinuousBackupsDescription(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:awsconnector/v20241201:DynamoDbContinuousBackupsDescription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:awsconnector/v20241201:DynamoDbContinuousBackupsDescription"), pulumi.Alias(type_="azure-native_awsconnector_v20241201:awsconnector:DynamoDbContinuousBackupsDescription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DynamoDbContinuousBackupsDescription, __self__).__init__(
             'azure-native:awsconnector:DynamoDbContinuousBackupsDescription',

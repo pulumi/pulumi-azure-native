@@ -158,7 +158,7 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule"), pulumi.Alias(type_="azure-native_eventhub_v20180101preview:eventhub:NamespaceVirtualNetworkRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceVirtualNetworkRule, __self__).__init__(
             'azure-native:eventhub:NamespaceVirtualNetworkRule',

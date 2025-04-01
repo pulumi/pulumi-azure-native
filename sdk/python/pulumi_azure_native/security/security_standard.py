@@ -222,7 +222,7 @@ class SecurityStandard(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["standard_type"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20240801:SecurityStandard")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20240801:SecurityStandard"), pulumi.Alias(type_="azure-native_security_v20240801:security:SecurityStandard")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityStandard, __self__).__init__(
             'azure-native:security:SecurityStandard',

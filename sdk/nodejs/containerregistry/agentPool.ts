@@ -130,7 +130,7 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["virtualNetworkSubnetResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20190601preview:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20190601preview:AgentPool" }, { type: "azure-native_containerregistry_v20190601preview:containerregistry:AgentPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AgentPool.__pulumiType, name, resourceInputs, opts);
     }

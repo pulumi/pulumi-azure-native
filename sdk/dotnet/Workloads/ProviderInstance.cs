@@ -92,12 +92,16 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:ProviderInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:ProviderInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:ProviderInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:ProviderInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231201preview:ProviderInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20240201preview:ProviderInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20211201preview:workloads:ProviderInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20221101preview:workloads:ProviderInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20230401:workloads:ProviderInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20231001preview:workloads:ProviderInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20231201preview:workloads:ProviderInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20240201preview:workloads:ProviderInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

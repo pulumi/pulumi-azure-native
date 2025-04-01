@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160601:ConnectionGateway" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20160601:web:ConnectionGateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

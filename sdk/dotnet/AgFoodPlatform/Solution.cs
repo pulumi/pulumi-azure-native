@@ -80,6 +80,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
                 {
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20210901preview:Solution" },
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20230601preview:Solution" },
+                    new global::Pulumi.Alias { Type = "azure-native_agfoodplatform_v20210901preview:agfoodplatform:Solution" },
+                    new global::Pulumi.Alias { Type = "azure-native_agfoodplatform_v20230601preview:agfoodplatform:Solution" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

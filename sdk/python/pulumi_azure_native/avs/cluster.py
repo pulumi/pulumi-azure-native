@@ -229,7 +229,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200320:Cluster"), pulumi.Alias(type_="azure-native:avs/v20200717preview:Cluster"), pulumi.Alias(type_="azure-native:avs/v20210101preview:Cluster"), pulumi.Alias(type_="azure-native:avs/v20210601:Cluster"), pulumi.Alias(type_="azure-native:avs/v20211201:Cluster"), pulumi.Alias(type_="azure-native:avs/v20220501:Cluster"), pulumi.Alias(type_="azure-native:avs/v20230301:Cluster"), pulumi.Alias(type_="azure-native:avs/v20230901:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200320:Cluster"), pulumi.Alias(type_="azure-native:avs/v20210601:Cluster"), pulumi.Alias(type_="azure-native:avs/v20220501:Cluster"), pulumi.Alias(type_="azure-native:avs/v20230301:Cluster"), pulumi.Alias(type_="azure-native:avs/v20230901:Cluster"), pulumi.Alias(type_="azure-native_avs_v20200320:avs:Cluster"), pulumi.Alias(type_="azure-native_avs_v20200717preview:avs:Cluster"), pulumi.Alias(type_="azure-native_avs_v20210101preview:avs:Cluster"), pulumi.Alias(type_="azure-native_avs_v20210601:avs:Cluster"), pulumi.Alias(type_="azure-native_avs_v20211201:avs:Cluster"), pulumi.Alias(type_="azure-native_avs_v20220501:avs:Cluster"), pulumi.Alias(type_="azure-native_avs_v20230301:avs:Cluster"), pulumi.Alias(type_="azure-native_avs_v20230901:avs:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:avs:Cluster',

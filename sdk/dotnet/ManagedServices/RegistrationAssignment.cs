@@ -72,13 +72,14 @@ namespace Pulumi.AzureNative.ManagedServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationAssignment" },
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationAssignment" },
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationAssignment" },
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190901:RegistrationAssignment" },
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationAssignment" },
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20220101preview:RegistrationAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:managedservices/v20221001:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_managedservices_v20180601preview:managedservices:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_managedservices_v20190401preview:managedservices:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_managedservices_v20190601:managedservices:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_managedservices_v20190901:managedservices:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_managedservices_v20200201preview:managedservices:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_managedservices_v20220101preview:managedservices:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_managedservices_v20221001:managedservices:RegistrationAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

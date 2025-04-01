@@ -100,7 +100,7 @@ export class AppSyncGraphqlApi extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:AppSyncGraphqlApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:AppSyncGraphqlApi" }, { type: "azure-native_awsconnector_v20241201:awsconnector:AppSyncGraphqlApi" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppSyncGraphqlApi.__pulumiType, name, resourceInputs, opts);
     }

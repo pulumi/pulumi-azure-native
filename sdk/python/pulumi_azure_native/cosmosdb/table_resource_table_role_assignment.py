@@ -201,7 +201,7 @@ class TableResourceTableRoleAssignment(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20241201preview:TableResourceTableRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20241201preview:TableResourceTableRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb:TableResourceTableRoleAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20241201preview:TableResourceTableRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb:TableResourceTableRoleAssignment"), pulumi.Alias(type_="azure-native_cosmosdb_v20241201preview:cosmosdb:TableResourceTableRoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TableResourceTableRoleAssignment, __self__).__init__(
             'azure-native:cosmosdb:TableResourceTableRoleAssignment',

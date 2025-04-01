@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20241201:PublicCloudConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridconnectivity_v20241201:hybridconnectivity:PublicCloudConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

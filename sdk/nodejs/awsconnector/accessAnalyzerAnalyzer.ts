@@ -100,7 +100,7 @@ export class AccessAnalyzerAnalyzer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:AccessAnalyzerAnalyzer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:AccessAnalyzerAnalyzer" }, { type: "azure-native_awsconnector_v20241201:awsconnector:AccessAnalyzerAnalyzer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessAnalyzerAnalyzer.__pulumiType, name, resourceInputs, opts);
     }

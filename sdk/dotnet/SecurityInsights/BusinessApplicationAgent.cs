@@ -91,7 +91,9 @@ namespace Pulumi.AzureNative.SecurityInsights
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:BusinessApplicationAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:BusinessApplicationAgent" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:BusinessApplicationAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20240401preview:securityinsights:BusinessApplicationAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20241001preview:securityinsights:BusinessApplicationAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20250101preview:securityinsights:BusinessApplicationAgent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -108,7 +108,7 @@ export class PrivateEndpointConnectionsForMIPPolicySync extends pulumi.CustomRes
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForMIPPolicySync" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForMIPPolicySync" }, { type: "azure-native_securityandcompliance_v20210308:securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionsForMIPPolicySync.__pulumiType, name, resourceInputs, opts);
     }

@@ -102,7 +102,7 @@ export class ClusterInstanceHybridIdentityMetadatum extends pulumi.CustomResourc
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20231115preview:ClusterInstanceHybridIdentityMetadatum" }, { type: "azure-native:hybridcontainerservice/v20231115preview:HybridIdentityMetadatum" }, { type: "azure-native:hybridcontainerservice/v20240101:ClusterInstanceHybridIdentityMetadatum" }, { type: "azure-native:hybridcontainerservice/v20240101:HybridIdentityMetadatum" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20231115preview:HybridIdentityMetadatum" }, { type: "azure-native:hybridcontainerservice/v20240101:HybridIdentityMetadatum" }, { type: "azure-native_hybridcontainerservice_v20231115preview:hybridcontainerservice:ClusterInstanceHybridIdentityMetadatum" }, { type: "azure-native_hybridcontainerservice_v20240101:hybridcontainerservice:ClusterInstanceHybridIdentityMetadatum" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ClusterInstanceHybridIdentityMetadatum.__pulumiType, name, resourceInputs, opts);
     }

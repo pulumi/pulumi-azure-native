@@ -509,7 +509,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20200605preview:VirtualMachine"), pulumi.Alias(type_="azure-native:scvmm/v20220521preview:VirtualMachine"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VirtualMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20220521preview:VirtualMachine"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VirtualMachine"), pulumi.Alias(type_="azure-native_scvmm_v20200605preview:scvmm:VirtualMachine"), pulumi.Alias(type_="azure-native_scvmm_v20220521preview:scvmm:VirtualMachine"), pulumi.Alias(type_="azure-native_scvmm_v20230401preview:scvmm:VirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachine, __self__).__init__(
             'azure-native:scvmm:VirtualMachine',

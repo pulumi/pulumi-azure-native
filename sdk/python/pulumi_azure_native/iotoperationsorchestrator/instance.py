@@ -282,7 +282,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperationsorchestrator/v20231004preview:Instance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperationsorchestrator/v20231004preview:Instance"), pulumi.Alias(type_="azure-native_iotoperationsorchestrator_v20231004preview:iotoperationsorchestrator:Instance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Instance, __self__).__init__(
             'azure-native:iotoperationsorchestrator:Instance',

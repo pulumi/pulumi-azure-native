@@ -166,7 +166,7 @@ class RulesEngine(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20200101:RulesEngine"), pulumi.Alias(type_="azure-native:frontdoor/v20200401:RulesEngine"), pulumi.Alias(type_="azure-native:frontdoor/v20200501:RulesEngine"), pulumi.Alias(type_="azure-native:frontdoor/v20210601:RulesEngine"), pulumi.Alias(type_="azure-native:network/v20210601:RulesEngine"), pulumi.Alias(type_="azure-native:network:RulesEngine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210601:RulesEngine"), pulumi.Alias(type_="azure-native:network:RulesEngine"), pulumi.Alias(type_="azure-native_frontdoor_v20200101:frontdoor:RulesEngine"), pulumi.Alias(type_="azure-native_frontdoor_v20200401:frontdoor:RulesEngine"), pulumi.Alias(type_="azure-native_frontdoor_v20200501:frontdoor:RulesEngine"), pulumi.Alias(type_="azure-native_frontdoor_v20210601:frontdoor:RulesEngine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RulesEngine, __self__).__init__(
             'azure-native:frontdoor:RulesEngine',

@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.Scom
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scom/v20230707preview:ManagedGateway" },
+                    new global::Pulumi.Alias { Type = "azure-native_scom_v20230707preview:scom:ManagedGateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -116,7 +116,7 @@ export class ServerGroupPrivateEndpointConnection extends pulumi.CustomResource 
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20221108:ServerGroupPrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20230302preview:ServerGroupPrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql:PrivateEndpointConnection" }, { type: "azure-native_dbforpostgresql_v20221108:dbforpostgresql:ServerGroupPrivateEndpointConnection" }, { type: "azure-native_dbforpostgresql_v20230302preview:dbforpostgresql:ServerGroupPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerGroupPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

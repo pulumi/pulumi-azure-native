@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.App
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:HttpRouteConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20241002preview:app:HttpRouteConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

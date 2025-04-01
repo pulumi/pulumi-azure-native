@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsForEDM" },
+                    new global::Pulumi.Alias { Type = "azure-native_m365securityandcompliance_v20210325preview:m365securityandcompliance:PrivateEndpointConnectionsForEDM" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

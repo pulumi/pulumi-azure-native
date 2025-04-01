@@ -86,11 +86,15 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SapLandscapeMonitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SapLandscapeMonitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SapLandscapeMonitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231201preview:SapLandscapeMonitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20240201preview:SapLandscapeMonitor" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20221101preview:workloads:SapLandscapeMonitor" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20230401:workloads:SapLandscapeMonitor" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20231001preview:workloads:SapLandscapeMonitor" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20231201preview:workloads:SapLandscapeMonitor" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20240201preview:workloads:SapLandscapeMonitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -133,7 +133,7 @@ export class Automation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:Automation" }, { type: "azure-native:security/v20231201preview:Automation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:Automation" }, { type: "azure-native:security/v20231201preview:Automation" }, { type: "azure-native_security_v20190101preview:security:Automation" }, { type: "azure-native_security_v20231201preview:security:Automation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Automation.__pulumiType, name, resourceInputs, opts);
     }

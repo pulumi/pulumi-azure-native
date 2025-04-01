@@ -171,7 +171,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-native_logic_v20190501:logic:IntegrationServiceEnvironmentManagedApi" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationServiceEnvironmentManagedApi.__pulumiType, name, resourceInputs, opts);
     }

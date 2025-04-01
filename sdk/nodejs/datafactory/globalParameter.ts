@@ -96,7 +96,7 @@ export class GlobalParameter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datafactory/v20180601:GlobalParameter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory/v20180601:GlobalParameter" }, { type: "azure-native_datafactory_v20180601:datafactory:GlobalParameter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GlobalParameter.__pulumiType, name, resourceInputs, opts);
     }

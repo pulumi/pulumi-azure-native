@@ -186,7 +186,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["user_email"] = None
             __props__.__dict__["user_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20181101preview:Account"), pulumi.Alias(type_="azure-native:datashare/v20191101:Account"), pulumi.Alias(type_="azure-native:datashare/v20200901:Account"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:Account"), pulumi.Alias(type_="azure-native:datashare/v20210801:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20210801:Account"), pulumi.Alias(type_="azure-native_datashare_v20181101preview:datashare:Account"), pulumi.Alias(type_="azure-native_datashare_v20191101:datashare:Account"), pulumi.Alias(type_="azure-native_datashare_v20200901:datashare:Account"), pulumi.Alias(type_="azure-native_datashare_v20201001preview:datashare:Account"), pulumi.Alias(type_="azure-native_datashare_v20210801:datashare:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:datashare:Account',

@@ -92,13 +92,19 @@ namespace Pulumi.AzureNative.MobileNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240201:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240401:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20220301preview:mobilenetwork:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20220401preview:mobilenetwork:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20221101:mobilenetwork:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20230601:mobilenetwork:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20230901:mobilenetwork:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20240201:mobilenetwork:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20240401:mobilenetwork:Site" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

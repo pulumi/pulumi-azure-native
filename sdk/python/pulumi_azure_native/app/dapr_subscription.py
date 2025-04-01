@@ -284,7 +284,7 @@ class DaprSubscription(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20230801preview:DaprSubscription"), pulumi.Alias(type_="azure-native:app/v20231102preview:DaprSubscription"), pulumi.Alias(type_="azure-native:app/v20240202preview:DaprSubscription"), pulumi.Alias(type_="azure-native:app/v20240802preview:DaprSubscription"), pulumi.Alias(type_="azure-native:app/v20241002preview:DaprSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20230801preview:DaprSubscription"), pulumi.Alias(type_="azure-native:app/v20231102preview:DaprSubscription"), pulumi.Alias(type_="azure-native:app/v20240202preview:DaprSubscription"), pulumi.Alias(type_="azure-native:app/v20240802preview:DaprSubscription"), pulumi.Alias(type_="azure-native:app/v20241002preview:DaprSubscription"), pulumi.Alias(type_="azure-native_app_v20230801preview:app:DaprSubscription"), pulumi.Alias(type_="azure-native_app_v20231102preview:app:DaprSubscription"), pulumi.Alias(type_="azure-native_app_v20240202preview:app:DaprSubscription"), pulumi.Alias(type_="azure-native_app_v20240802preview:app:DaprSubscription"), pulumi.Alias(type_="azure-native_app_v20241002preview:app:DaprSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DaprSubscription, __self__).__init__(
             'azure-native:app:DaprSubscription',

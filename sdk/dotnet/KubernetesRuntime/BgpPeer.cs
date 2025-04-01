@@ -92,6 +92,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesruntime/v20231001preview:BgpPeer" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesruntime/v20240301:BgpPeer" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesruntime_v20231001preview:kubernetesruntime:BgpPeer" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesruntime_v20240301:kubernetesruntime:BgpPeer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

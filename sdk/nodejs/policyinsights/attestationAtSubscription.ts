@@ -150,7 +150,7 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights/v20210101:AttestationAtSubscription" }, { type: "azure-native:policyinsights/v20220901:AttestationAtSubscription" }, { type: "azure-native:policyinsights/v20241001:AttestationAtSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights/v20220901:AttestationAtSubscription" }, { type: "azure-native:policyinsights/v20241001:AttestationAtSubscription" }, { type: "azure-native_policyinsights_v20210101:policyinsights:AttestationAtSubscription" }, { type: "azure-native_policyinsights_v20220901:policyinsights:AttestationAtSubscription" }, { type: "azure-native_policyinsights_v20241001:policyinsights:AttestationAtSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttestationAtSubscription.__pulumiType, name, resourceInputs, opts);
     }

@@ -265,7 +265,7 @@ class SchemaRegistry(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:SchemaRegistry")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:SchemaRegistry"), pulumi.Alias(type_="azure-native_deviceregistry_v20240901preview:deviceregistry:SchemaRegistry")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SchemaRegistry, __self__).__init__(
             'azure-native:deviceregistry:SchemaRegistry',

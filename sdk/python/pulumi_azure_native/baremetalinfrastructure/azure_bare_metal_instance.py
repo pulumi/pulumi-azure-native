@@ -342,7 +342,7 @@ class AzureBareMetalInstance(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20240801preview:AzureBareMetalInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20240801preview:AzureBareMetalInstance"), pulumi.Alias(type_="azure-native_baremetalinfrastructure_v20240801preview:baremetalinfrastructure:AzureBareMetalInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureBareMetalInstance, __self__).__init__(
             'azure-native:baremetalinfrastructure:AzureBareMetalInstance',

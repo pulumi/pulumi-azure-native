@@ -104,13 +104,18 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:SharedCommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20230501:SharedCommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:SharedCommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:SharedCommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240601preview:SharedCommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20241001:SharedCommitmentPlan" },
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250401preview:SharedCommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20221201:cognitiveservices:SharedCommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20230501:cognitiveservices:SharedCommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20231001preview:cognitiveservices:SharedCommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20240401preview:cognitiveservices:SharedCommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20240601preview:cognitiveservices:SharedCommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20241001:cognitiveservices:SharedCommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20250401preview:cognitiveservices:SharedCommitmentPlan" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

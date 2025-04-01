@@ -140,15 +140,16 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:Gen1Environment" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:Gen1Environment" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:Gen1Environment" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:Gen1Environment" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:Gen1Environment" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:Gen2Environment" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:Gen1Environment" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:Gen2Environment" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:Gen2Environment" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20170228preview:timeseriesinsights:Gen1Environment" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20171115:timeseriesinsights:Gen1Environment" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20180815preview:timeseriesinsights:Gen1Environment" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20200515:timeseriesinsights:Gen1Environment" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20210331preview:timeseriesinsights:Gen1Environment" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20210630preview:timeseriesinsights:Gen1Environment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

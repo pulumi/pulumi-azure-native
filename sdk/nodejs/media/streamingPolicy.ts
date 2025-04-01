@@ -125,7 +125,7 @@ export class StreamingPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media/v20180330preview:StreamingPolicy" }, { type: "azure-native:media/v20180601preview:StreamingPolicy" }, { type: "azure-native:media/v20180701:StreamingPolicy" }, { type: "azure-native:media/v20200501:StreamingPolicy" }, { type: "azure-native:media/v20210601:StreamingPolicy" }, { type: "azure-native:media/v20211101:StreamingPolicy" }, { type: "azure-native:media/v20220801:StreamingPolicy" }, { type: "azure-native:media/v20230101:StreamingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media/v20230101:StreamingPolicy" }, { type: "azure-native_media_v20180330preview:media:StreamingPolicy" }, { type: "azure-native_media_v20180601preview:media:StreamingPolicy" }, { type: "azure-native_media_v20180701:media:StreamingPolicy" }, { type: "azure-native_media_v20200501:media:StreamingPolicy" }, { type: "azure-native_media_v20210601:media:StreamingPolicy" }, { type: "azure-native_media_v20211101:media:StreamingPolicy" }, { type: "azure-native_media_v20220801:media:StreamingPolicy" }, { type: "azure-native_media_v20230101:media:StreamingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StreamingPolicy.__pulumiType, name, resourceInputs, opts);
     }

@@ -289,7 +289,7 @@ class Watcher(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:Watcher"), pulumi.Alias(type_="azure-native:automation/v20190601:Watcher"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Watcher"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Watcher"), pulumi.Alias(type_="azure-native:automation/v20241023:Watcher")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20200113preview:Watcher"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Watcher"), pulumi.Alias(type_="azure-native:automation/v20241023:Watcher"), pulumi.Alias(type_="azure-native_automation_v20151031:automation:Watcher"), pulumi.Alias(type_="azure-native_automation_v20190601:automation:Watcher"), pulumi.Alias(type_="azure-native_automation_v20200113preview:automation:Watcher"), pulumi.Alias(type_="azure-native_automation_v20230515preview:automation:Watcher"), pulumi.Alias(type_="azure-native_automation_v20241023:automation:Watcher")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Watcher, __self__).__init__(
             'azure-native:automation:Watcher',

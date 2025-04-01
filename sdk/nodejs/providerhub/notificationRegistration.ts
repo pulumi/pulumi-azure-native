@@ -86,7 +86,7 @@ export class NotificationRegistration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20201120:NotificationRegistration" }, { type: "azure-native:providerhub/v20210501preview:NotificationRegistration" }, { type: "azure-native:providerhub/v20210601preview:NotificationRegistration" }, { type: "azure-native:providerhub/v20210901preview:NotificationRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20210901preview:NotificationRegistration" }, { type: "azure-native_providerhub_v20201120:providerhub:NotificationRegistration" }, { type: "azure-native_providerhub_v20210501preview:providerhub:NotificationRegistration" }, { type: "azure-native_providerhub_v20210601preview:providerhub:NotificationRegistration" }, { type: "azure-native_providerhub_v20210901preview:providerhub:NotificationRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationRegistration.__pulumiType, name, resourceInputs, opts);
     }

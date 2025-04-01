@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NetworkSecurityPerimeterLoggingConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240601preview:network:NetworkSecurityPerimeterLoggingConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -87,10 +87,13 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:DataSource" },
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:DataSource" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:DataSource" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:DataSource" },
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:DataSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20151101preview:operationalinsights:DataSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20200301preview:operationalinsights:DataSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20200801:operationalinsights:DataSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20230901:operationalinsights:DataSource" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20250201:operationalinsights:DataSource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

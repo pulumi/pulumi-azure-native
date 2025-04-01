@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:MachineLearningDataset" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20200501preview:machinelearningservices:MachineLearningDataset" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

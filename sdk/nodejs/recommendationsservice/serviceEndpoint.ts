@@ -107,7 +107,7 @@ export class ServiceEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:recommendationsservice/v20220201:ServiceEndpoint" }, { type: "azure-native:recommendationsservice/v20220301preview:ServiceEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recommendationsservice/v20220201:ServiceEndpoint" }, { type: "azure-native:recommendationsservice/v20220301preview:ServiceEndpoint" }, { type: "azure-native_recommendationsservice_v20220201:recommendationsservice:ServiceEndpoint" }, { type: "azure-native_recommendationsservice_v20220301preview:recommendationsservice:ServiceEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceEndpoint.__pulumiType, name, resourceInputs, opts);
     }

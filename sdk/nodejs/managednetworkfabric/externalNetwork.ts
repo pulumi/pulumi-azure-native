@@ -164,7 +164,7 @@ export class ExternalNetwork extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:ExternalNetwork" }, { type: "azure-native:managednetworkfabric/v20230615:ExternalNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:ExternalNetwork" }, { type: "azure-native:managednetworkfabric/v20230615:ExternalNetwork" }, { type: "azure-native_managednetworkfabric_v20230201preview:managednetworkfabric:ExternalNetwork" }, { type: "azure-native_managednetworkfabric_v20230615:managednetworkfabric:ExternalNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExternalNetwork.__pulumiType, name, resourceInputs, opts);
     }

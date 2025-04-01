@@ -89,7 +89,7 @@ export class OpenAI extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elastic/v20240101preview:OpenAI" }, { type: "azure-native:elastic/v20240301:OpenAI" }, { type: "azure-native:elastic/v20240501preview:OpenAI" }, { type: "azure-native:elastic/v20240615preview:OpenAI" }, { type: "azure-native:elastic/v20241001preview:OpenAI" }, { type: "azure-native:elastic/v20250115preview:OpenAI" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elastic/v20240101preview:OpenAI" }, { type: "azure-native:elastic/v20240301:OpenAI" }, { type: "azure-native:elastic/v20240501preview:OpenAI" }, { type: "azure-native:elastic/v20240615preview:OpenAI" }, { type: "azure-native:elastic/v20241001preview:OpenAI" }, { type: "azure-native_elastic_v20240101preview:elastic:OpenAI" }, { type: "azure-native_elastic_v20240301:elastic:OpenAI" }, { type: "azure-native_elastic_v20240501preview:elastic:OpenAI" }, { type: "azure-native_elastic_v20240615preview:elastic:OpenAI" }, { type: "azure-native_elastic_v20241001preview:elastic:OpenAI" }, { type: "azure-native_elastic_v20250115preview:elastic:OpenAI" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OpenAI.__pulumiType, name, resourceInputs, opts);
     }

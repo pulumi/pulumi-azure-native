@@ -161,7 +161,7 @@ export class LocalUser extends pulumi.CustomResource {
             resourceInputs["userId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20210801:LocalUser" }, { type: "azure-native:storage/v20210901:LocalUser" }, { type: "azure-native:storage/v20220501:LocalUser" }, { type: "azure-native:storage/v20220901:LocalUser" }, { type: "azure-native:storage/v20230101:LocalUser" }, { type: "azure-native:storage/v20230401:LocalUser" }, { type: "azure-native:storage/v20230501:LocalUser" }, { type: "azure-native:storage/v20240101:LocalUser" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20220901:LocalUser" }, { type: "azure-native:storage/v20230101:LocalUser" }, { type: "azure-native:storage/v20230401:LocalUser" }, { type: "azure-native:storage/v20230501:LocalUser" }, { type: "azure-native_storage_v20210801:storage:LocalUser" }, { type: "azure-native_storage_v20210901:storage:LocalUser" }, { type: "azure-native_storage_v20220501:storage:LocalUser" }, { type: "azure-native_storage_v20220901:storage:LocalUser" }, { type: "azure-native_storage_v20230101:storage:LocalUser" }, { type: "azure-native_storage_v20230401:storage:LocalUser" }, { type: "azure-native_storage_v20230501:storage:LocalUser" }, { type: "azure-native_storage_v20240101:storage:LocalUser" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LocalUser.__pulumiType, name, resourceInputs, opts);
     }

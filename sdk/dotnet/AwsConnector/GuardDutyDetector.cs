@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.AwsConnector
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:awsconnector/v20241201:GuardDutyDetector" },
+                    new global::Pulumi.Alias { Type = "azure-native_awsconnector_v20241201:awsconnector:GuardDutyDetector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

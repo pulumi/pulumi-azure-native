@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.PowerBI
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:powerbi/v20200601:PowerBIResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_powerbi_v20200601:powerbi:PowerBIResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

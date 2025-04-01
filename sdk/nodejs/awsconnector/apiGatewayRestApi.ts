@@ -100,7 +100,7 @@ export class ApiGatewayRestApi extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ApiGatewayRestApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ApiGatewayRestApi" }, { type: "azure-native_awsconnector_v20241201:awsconnector:ApiGatewayRestApi" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiGatewayRestApi.__pulumiType, name, resourceInputs, opts);
     }

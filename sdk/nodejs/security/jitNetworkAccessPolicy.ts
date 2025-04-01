@@ -109,7 +109,7 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
             resourceInputs["virtualMachines"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20150601preview:JitNetworkAccessPolicy" }, { type: "azure-native:security/v20200101:JitNetworkAccessPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20200101:JitNetworkAccessPolicy" }, { type: "azure-native_security_v20150601preview:security:JitNetworkAccessPolicy" }, { type: "azure-native_security_v20200101:security:JitNetworkAccessPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JitNetworkAccessPolicy.__pulumiType, name, resourceInputs, opts);
     }

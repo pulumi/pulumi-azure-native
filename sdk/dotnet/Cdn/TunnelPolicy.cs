@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Cdn
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:TunnelPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240601preview:cdn:TunnelPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

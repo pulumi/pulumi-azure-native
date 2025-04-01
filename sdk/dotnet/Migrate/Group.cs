@@ -72,19 +72,19 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20180202:Group" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:Group" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:Group" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:GroupsOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:Group" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:GroupsOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:Group" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:GroupsOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:Group" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:GroupsOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:Group" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:GroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20191001:migrate:Group" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230315:migrate:Group" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230401preview:migrate:Group" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230501preview:migrate:Group" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230909preview:migrate:Group" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20240101preview:migrate:Group" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

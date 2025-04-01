@@ -120,7 +120,7 @@ export class VolumeSnapshot extends pulumi.CustomResource {
             resourceInputs["volumeName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20230101:VolumeSnapshot" }, { type: "azure-native:elasticsan/v20240501:VolumeSnapshot" }, { type: "azure-native:elasticsan/v20240601preview:VolumeSnapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20230101:VolumeSnapshot" }, { type: "azure-native:elasticsan/v20240501:VolumeSnapshot" }, { type: "azure-native:elasticsan/v20240601preview:VolumeSnapshot" }, { type: "azure-native_elasticsan_v20230101:elasticsan:VolumeSnapshot" }, { type: "azure-native_elasticsan_v20240501:elasticsan:VolumeSnapshot" }, { type: "azure-native_elasticsan_v20240601preview:elasticsan:VolumeSnapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VolumeSnapshot.__pulumiType, name, resourceInputs, opts);
     }

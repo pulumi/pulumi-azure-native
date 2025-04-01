@@ -109,7 +109,7 @@ export class Publisher extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:Publisher" }, { type: "azure-native:hybridnetwork/v20240415:Publisher" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:Publisher" }, { type: "azure-native:hybridnetwork/v20240415:Publisher" }, { type: "azure-native_hybridnetwork_v20230901:hybridnetwork:Publisher" }, { type: "azure-native_hybridnetwork_v20240415:hybridnetwork:Publisher" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Publisher.__pulumiType, name, resourceInputs, opts);
     }

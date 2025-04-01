@@ -128,7 +128,7 @@ export class StaticSiteBuildDatabaseConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20220901:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20230101:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20231201:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20240401:StaticSiteBuildDatabaseConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20220901:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20230101:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20231201:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20240401:StaticSiteBuildDatabaseConnection" }, { type: "azure-native_web_v20220901:web:StaticSiteBuildDatabaseConnection" }, { type: "azure-native_web_v20230101:web:StaticSiteBuildDatabaseConnection" }, { type: "azure-native_web_v20231201:web:StaticSiteBuildDatabaseConnection" }, { type: "azure-native_web_v20240401:web:StaticSiteBuildDatabaseConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteBuildDatabaseConnection.__pulumiType, name, resourceInputs, opts);
     }

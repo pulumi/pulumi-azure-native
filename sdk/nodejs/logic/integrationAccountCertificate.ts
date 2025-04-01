@@ -125,7 +125,7 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:IntegrationAccountCertificate" }, { type: "azure-native:logic/v20160601:Certificate" }, { type: "azure-native:logic/v20160601:IntegrationAccountCertificate" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountCertificate" }, { type: "azure-native:logic/v20190501:IntegrationAccountCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:IntegrationAccountCertificate" }, { type: "azure-native:logic/v20160601:Certificate" }, { type: "azure-native:logic/v20190501:IntegrationAccountCertificate" }, { type: "azure-native_logic_v20150801preview:logic:IntegrationAccountCertificate" }, { type: "azure-native_logic_v20160601:logic:IntegrationAccountCertificate" }, { type: "azure-native_logic_v20180701preview:logic:IntegrationAccountCertificate" }, { type: "azure-native_logic_v20190501:logic:IntegrationAccountCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountCertificate.__pulumiType, name, resourceInputs, opts);
     }

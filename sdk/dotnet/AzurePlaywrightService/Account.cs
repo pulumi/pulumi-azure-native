@@ -120,6 +120,10 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
                     new global::Pulumi.Alias { Type = "azure-native:azureplaywrightservice/v20240201preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:azureplaywrightservice/v20240801preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:azureplaywrightservice/v20241201:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureplaywrightservice_v20231001preview:azureplaywrightservice:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureplaywrightservice_v20240201preview:azureplaywrightservice:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureplaywrightservice_v20240801preview:azureplaywrightservice:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureplaywrightservice_v20241201:azureplaywrightservice:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

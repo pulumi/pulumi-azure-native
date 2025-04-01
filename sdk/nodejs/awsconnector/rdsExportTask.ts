@@ -100,7 +100,7 @@ export class RdsExportTask extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:RdsExportTask" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:RdsExportTask" }, { type: "azure-native_awsconnector_v20241201:awsconnector:RdsExportTask" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RdsExportTask.__pulumiType, name, resourceInputs, opts);
     }

@@ -125,16 +125,22 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDCustomDomain" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDCustomDomain" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:AFDCustomDomain" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:AFDCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:AFDCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:AFDCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:AFDCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:AFDCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:AFDCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:AFDCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20200901:cdn:AFDCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20210601:cdn:AFDCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20220501preview:cdn:AFDCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20221101preview:cdn:AFDCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20230501:cdn:AFDCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20230701preview:cdn:AFDCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240201:cdn:AFDCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240501preview:cdn:AFDCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240601preview:cdn:AFDCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240901:cdn:AFDCustomDomain" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -171,7 +171,7 @@ export class MySQLServer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mysqldiscovery/v20240930preview:MySQLServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native_mysqldiscovery_v20240930preview:mysqldiscovery:MySQLServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MySQLServer.__pulumiType, name, resourceInputs, opts);
     }

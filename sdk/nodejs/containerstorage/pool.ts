@@ -140,7 +140,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerstorage/v20230701preview:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerstorage/v20230701preview:Pool" }, { type: "azure-native_containerstorage_v20230701preview:containerstorage:Pool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pool.__pulumiType, name, resourceInputs, opts);
     }

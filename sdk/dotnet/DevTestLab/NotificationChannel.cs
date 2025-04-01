@@ -120,8 +120,9 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:NotificationChannel" },
                     new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:NotificationChannel" },
+                    new global::Pulumi.Alias { Type = "azure-native_devtestlab_v20160515:devtestlab:NotificationChannel" },
+                    new global::Pulumi.Alias { Type = "azure-native_devtestlab_v20180915:devtestlab:NotificationChannel" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

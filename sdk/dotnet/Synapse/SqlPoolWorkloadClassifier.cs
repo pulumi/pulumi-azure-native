@@ -98,13 +98,15 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolWorkloadClassifier" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolWorkloadClassifier" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolWorkloadClassifier" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolWorkloadClassifier" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolWorkloadClassifier" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20190601preview:synapse:SqlPoolWorkloadClassifier" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20201201:synapse:SqlPoolWorkloadClassifier" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210301:synapse:SqlPoolWorkloadClassifier" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210401preview:synapse:SqlPoolWorkloadClassifier" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210501:synapse:SqlPoolWorkloadClassifier" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210601:synapse:SqlPoolWorkloadClassifier" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210601preview:synapse:SqlPoolWorkloadClassifier" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

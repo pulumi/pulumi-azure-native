@@ -390,7 +390,7 @@ class EventHubDataConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:EventHubDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:EventGridDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:EventHubDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:IotHubDataConnection"), pulumi.Alias(type_="azure-native:synapse:EventGridDataConnection"), pulumi.Alias(type_="azure-native:synapse:IotHubDataConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210601preview:EventGridDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:EventHubDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:IotHubDataConnection"), pulumi.Alias(type_="azure-native:synapse:EventGridDataConnection"), pulumi.Alias(type_="azure-native:synapse:IotHubDataConnection"), pulumi.Alias(type_="azure-native_synapse_v20210401preview:synapse:EventHubDataConnection"), pulumi.Alias(type_="azure-native_synapse_v20210601preview:synapse:EventHubDataConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHubDataConnection, __self__).__init__(
             'azure-native:synapse:EventHubDataConnection',

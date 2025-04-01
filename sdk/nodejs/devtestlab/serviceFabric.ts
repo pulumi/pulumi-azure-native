@@ -126,7 +126,7 @@ export class ServiceFabric extends pulumi.CustomResource {
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20180915:ServiceFabric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20180915:ServiceFabric" }, { type: "azure-native_devtestlab_v20180915:devtestlab:ServiceFabric" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceFabric.__pulumiType, name, resourceInputs, opts);
     }

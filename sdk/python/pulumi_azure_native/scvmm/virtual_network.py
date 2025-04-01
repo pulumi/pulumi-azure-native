@@ -247,7 +247,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20200605preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:scvmm/v20220521preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:scvmm/v20231007:VirtualNetwork"), pulumi.Alias(type_="azure-native:scvmm/v20240601:VirtualNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20220521preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:scvmm/v20231007:VirtualNetwork"), pulumi.Alias(type_="azure-native:scvmm/v20240601:VirtualNetwork"), pulumi.Alias(type_="azure-native_scvmm_v20200605preview:scvmm:VirtualNetwork"), pulumi.Alias(type_="azure-native_scvmm_v20220521preview:scvmm:VirtualNetwork"), pulumi.Alias(type_="azure-native_scvmm_v20230401preview:scvmm:VirtualNetwork"), pulumi.Alias(type_="azure-native_scvmm_v20231007:scvmm:VirtualNetwork"), pulumi.Alias(type_="azure-native_scvmm_v20240601:scvmm:VirtualNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetwork, __self__).__init__(
             'azure-native:scvmm:VirtualNetwork',

@@ -74,7 +74,6 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:AuthorizationAccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:AuthorizationAccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:AuthorizationAccessPolicy" },
@@ -82,6 +81,14 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:AuthorizationAccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:AuthorizationAccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:AuthorizationAccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20220401preview:apimanagement:AuthorizationAccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20220801:apimanagement:AuthorizationAccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20220901preview:apimanagement:AuthorizationAccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230301preview:apimanagement:AuthorizationAccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230501preview:apimanagement:AuthorizationAccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230901preview:apimanagement:AuthorizationAccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20240501:apimanagement:AuthorizationAccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20240601preview:apimanagement:AuthorizationAccessPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

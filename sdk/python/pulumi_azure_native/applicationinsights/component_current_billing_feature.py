@@ -158,7 +158,7 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["azure_api_version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:applicationinsights/v20150501:ComponentCurrentBillingFeature"), pulumi.Alias(type_="azure-native:insights/v20150501:ComponentCurrentBillingFeature"), pulumi.Alias(type_="azure-native:insights:ComponentCurrentBillingFeature")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20150501:ComponentCurrentBillingFeature"), pulumi.Alias(type_="azure-native:insights:ComponentCurrentBillingFeature"), pulumi.Alias(type_="azure-native_applicationinsights_v20150501:applicationinsights:ComponentCurrentBillingFeature")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ComponentCurrentBillingFeature, __self__).__init__(
             'azure-native:applicationinsights:ComponentCurrentBillingFeature',

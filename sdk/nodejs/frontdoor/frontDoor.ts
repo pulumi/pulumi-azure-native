@@ -175,7 +175,7 @@ export class FrontDoor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20190401:FrontDoor" }, { type: "azure-native:frontdoor/v20190501:FrontDoor" }, { type: "azure-native:frontdoor/v20200101:FrontDoor" }, { type: "azure-native:frontdoor/v20200401:FrontDoor" }, { type: "azure-native:frontdoor/v20200501:FrontDoor" }, { type: "azure-native:frontdoor/v20210601:FrontDoor" }, { type: "azure-native:network/v20210601:FrontDoor" }, { type: "azure-native:network:FrontDoor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210601:FrontDoor" }, { type: "azure-native:network:FrontDoor" }, { type: "azure-native_frontdoor_v20190401:frontdoor:FrontDoor" }, { type: "azure-native_frontdoor_v20190501:frontdoor:FrontDoor" }, { type: "azure-native_frontdoor_v20200101:frontdoor:FrontDoor" }, { type: "azure-native_frontdoor_v20200401:frontdoor:FrontDoor" }, { type: "azure-native_frontdoor_v20200501:frontdoor:FrontDoor" }, { type: "azure-native_frontdoor_v20210601:frontdoor:FrontDoor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FrontDoor.__pulumiType, name, resourceInputs, opts);
     }

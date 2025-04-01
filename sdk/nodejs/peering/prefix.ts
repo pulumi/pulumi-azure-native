@@ -123,7 +123,7 @@ export class Prefix extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20190801preview:Prefix" }, { type: "azure-native:peering/v20190901preview:Prefix" }, { type: "azure-native:peering/v20200101preview:Prefix" }, { type: "azure-native:peering/v20200401:Prefix" }, { type: "azure-native:peering/v20201001:Prefix" }, { type: "azure-native:peering/v20210101:Prefix" }, { type: "azure-native:peering/v20210601:Prefix" }, { type: "azure-native:peering/v20220101:Prefix" }, { type: "azure-native:peering/v20220601:Prefix" }, { type: "azure-native:peering/v20221001:Prefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20221001:Prefix" }, { type: "azure-native_peering_v20190801preview:peering:Prefix" }, { type: "azure-native_peering_v20190901preview:peering:Prefix" }, { type: "azure-native_peering_v20200101preview:peering:Prefix" }, { type: "azure-native_peering_v20200401:peering:Prefix" }, { type: "azure-native_peering_v20201001:peering:Prefix" }, { type: "azure-native_peering_v20210101:peering:Prefix" }, { type: "azure-native_peering_v20210601:peering:Prefix" }, { type: "azure-native_peering_v20220101:peering:Prefix" }, { type: "azure-native_peering_v20220601:peering:Prefix" }, { type: "azure-native_peering_v20221001:peering:Prefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Prefix.__pulumiType, name, resourceInputs, opts);
     }

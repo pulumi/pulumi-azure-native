@@ -86,16 +86,20 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSite" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSiteUserProvidedFunctionAppForStaticSite" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSiteUserProvidedFunctionAppForStaticSite" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteUserProvidedFunctionAppForStaticSite" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:StaticSiteUserProvidedFunctionAppForStaticSite" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:StaticSiteUserProvidedFunctionAppForStaticSite" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:StaticSiteUserProvidedFunctionAppForStaticSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20201201:web:StaticSiteUserProvidedFunctionAppForStaticSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210101:web:StaticSiteUserProvidedFunctionAppForStaticSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210115:web:StaticSiteUserProvidedFunctionAppForStaticSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210201:web:StaticSiteUserProvidedFunctionAppForStaticSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210301:web:StaticSiteUserProvidedFunctionAppForStaticSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220301:web:StaticSiteUserProvidedFunctionAppForStaticSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220901:web:StaticSiteUserProvidedFunctionAppForStaticSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20230101:web:StaticSiteUserProvidedFunctionAppForStaticSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20231201:web:StaticSiteUserProvidedFunctionAppForStaticSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20240401:web:StaticSiteUserProvidedFunctionAppForStaticSite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

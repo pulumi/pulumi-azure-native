@@ -164,7 +164,7 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:Secret"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230401:Secret"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230701preview:Secret"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230904:Secret"), pulumi.Alias(type_="azure-native:redhatopenshift/v20231122:Secret")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:Secret"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230401:Secret"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230701preview:Secret"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230904:Secret"), pulumi.Alias(type_="azure-native:redhatopenshift/v20231122:Secret"), pulumi.Alias(type_="azure-native_redhatopenshift_v20220904:redhatopenshift:Secret"), pulumi.Alias(type_="azure-native_redhatopenshift_v20230401:redhatopenshift:Secret"), pulumi.Alias(type_="azure-native_redhatopenshift_v20230701preview:redhatopenshift:Secret"), pulumi.Alias(type_="azure-native_redhatopenshift_v20230904:redhatopenshift:Secret"), pulumi.Alias(type_="azure-native_redhatopenshift_v20231122:redhatopenshift:Secret")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Secret, __self__).__init__(
             'azure-native:redhatopenshift:Secret',

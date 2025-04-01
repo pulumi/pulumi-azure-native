@@ -100,7 +100,7 @@ export class ConfigServiceConfigurationRecorderStatus extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ConfigServiceConfigurationRecorderStatus" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ConfigServiceConfigurationRecorderStatus" }, { type: "azure-native_awsconnector_v20241201:awsconnector:ConfigServiceConfigurationRecorderStatus" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigServiceConfigurationRecorderStatus.__pulumiType, name, resourceInputs, opts);
     }

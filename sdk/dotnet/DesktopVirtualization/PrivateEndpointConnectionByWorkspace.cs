@@ -92,10 +92,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByWorkspace" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByWorkspace" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByWorkspace" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:PrivateEndpointConnectionByWorkspace" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:PrivateEndpointConnectionByWorkspace" },
@@ -106,7 +102,20 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:PrivateEndpointConnectionByWorkspace" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:PrivateEndpointConnectionByWorkspace" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240808preview:PrivateEndpointConnectionByWorkspace" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20210401preview:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20210903preview:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20220210preview:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20220401preview:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20221014preview:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20230905:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20231004preview:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20231101preview:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240116preview:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240306preview:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240403:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240408preview:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240808preview:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20241101preview:desktopvirtualization:PrivateEndpointConnectionByWorkspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

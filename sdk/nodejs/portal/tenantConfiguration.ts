@@ -87,7 +87,7 @@ export class TenantConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:portal/v20190101preview:TenantConfiguration" }, { type: "azure-native:portal/v20200901preview:TenantConfiguration" }, { type: "azure-native:portal/v20221201preview:TenantConfiguration" }, { type: "azure-native:portal/v20250401preview:TenantConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:portal/v20200901preview:TenantConfiguration" }, { type: "azure-native:portal/v20221201preview:TenantConfiguration" }, { type: "azure-native_portal_v20190101preview:portal:TenantConfiguration" }, { type: "azure-native_portal_v20200901preview:portal:TenantConfiguration" }, { type: "azure-native_portal_v20221201preview:portal:TenantConfiguration" }, { type: "azure-native_portal_v20250401preview:portal:TenantConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TenantConfiguration.__pulumiType, name, resourceInputs, opts);
     }

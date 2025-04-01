@@ -107,7 +107,7 @@ export class MigrationService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20230715preview:MigrationService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20230715preview:MigrationService" }, { type: "azure-native_datamigration_v20230715preview:datamigration:MigrationService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MigrationService.__pulumiType, name, resourceInputs, opts);
     }

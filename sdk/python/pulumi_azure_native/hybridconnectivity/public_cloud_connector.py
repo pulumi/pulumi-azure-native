@@ -205,7 +205,7 @@ class PublicCloudConnector(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridconnectivity/v20241201:PublicCloudConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridconnectivity/v20241201:PublicCloudConnector"), pulumi.Alias(type_="azure-native_hybridconnectivity_v20241201:hybridconnectivity:PublicCloudConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PublicCloudConnector, __self__).__init__(
             'azure-native:hybridconnectivity:PublicCloudConnector',

@@ -101,7 +101,7 @@ export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph" }, { type: "azure-native_enterpriseknowledgegraph_v20181203:enterpriseknowledgegraph:EnterpriseKnowledgeGraph" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnterpriseKnowledgeGraph.__pulumiType, name, resourceInputs, opts);
     }

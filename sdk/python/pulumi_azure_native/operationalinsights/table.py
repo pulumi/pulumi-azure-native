@@ -272,7 +272,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["total_retention_in_days_as_default"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20211201preview:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:Table")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Table"), pulumi.Alias(type_="azure-native_operationalinsights_v20211201preview:operationalinsights:Table"), pulumi.Alias(type_="azure-native_operationalinsights_v20221001:operationalinsights:Table"), pulumi.Alias(type_="azure-native_operationalinsights_v20230901:operationalinsights:Table"), pulumi.Alias(type_="azure-native_operationalinsights_v20250201:operationalinsights:Table")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Table, __self__).__init__(
             'azure-native:operationalinsights:Table',

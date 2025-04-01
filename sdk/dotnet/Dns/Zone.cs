@@ -134,16 +134,16 @@ namespace Pulumi.AzureNative.Dns
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20150504preview:Zone" },
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20160401:Zone" },
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20170901:Zone" },
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20171001:Zone" },
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20180301preview:Zone" },
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20180501:Zone" },
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20230701preview:Zone" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180501:Zone" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:Zone" },
                     new global::Pulumi.Alias { Type = "azure-native:network:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20150504preview:dns:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20160401:dns:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20170901:dns:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20171001:dns:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20180301preview:dns:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20180501:dns:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20230701preview:dns:Zone" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

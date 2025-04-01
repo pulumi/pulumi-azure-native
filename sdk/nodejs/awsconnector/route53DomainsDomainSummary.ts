@@ -100,7 +100,7 @@ export class Route53DomainsDomainSummary extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Route53DomainsDomainSummary" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Route53DomainsDomainSummary" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Route53DomainsDomainSummary" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Route53DomainsDomainSummary.__pulumiType, name, resourceInputs, opts);
     }

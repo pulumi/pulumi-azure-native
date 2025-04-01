@@ -291,7 +291,7 @@ class NetworkTapRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:NetworkTapRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:NetworkTapRule"), pulumi.Alias(type_="azure-native_managednetworkfabric_v20230615:managednetworkfabric:NetworkTapRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkTapRule, __self__).__init__(
             'azure-native:managednetworkfabric:NetworkTapRule',

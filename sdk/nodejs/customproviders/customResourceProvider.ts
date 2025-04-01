@@ -113,7 +113,7 @@ export class CustomResourceProvider extends pulumi.CustomResource {
             resourceInputs["validations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:customproviders/v20180901preview:CustomResourceProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customproviders/v20180901preview:CustomResourceProvider" }, { type: "azure-native_customproviders_v20180901preview:customproviders:CustomResourceProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomResourceProvider.__pulumiType, name, resourceInputs, opts);
     }

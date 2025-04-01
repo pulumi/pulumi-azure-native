@@ -102,16 +102,17 @@ namespace Pulumi.AzureNative.Peering
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190801preview:Prefix" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190901preview:Prefix" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200101preview:Prefix" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200401:Prefix" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20201001:Prefix" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210101:Prefix" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:Prefix" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:Prefix" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:Prefix" },
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20221001:Prefix" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20190801preview:peering:Prefix" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20190901preview:peering:Prefix" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20200101preview:peering:Prefix" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20200401:peering:Prefix" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20201001:peering:Prefix" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20210101:peering:Prefix" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20210601:peering:Prefix" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20220101:peering:Prefix" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20220601:peering:Prefix" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20221001:peering:Prefix" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -134,6 +134,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
                 {
                     new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20210501preview:VideoAnalyzer" },
                     new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:VideoAnalyzer" },
+                    new global::Pulumi.Alias { Type = "azure-native_videoanalyzer_v20210501preview:videoanalyzer:VideoAnalyzer" },
+                    new global::Pulumi.Alias { Type = "azure-native_videoanalyzer_v20211101preview:videoanalyzer:VideoAnalyzer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

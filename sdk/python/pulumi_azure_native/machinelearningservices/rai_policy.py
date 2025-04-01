@@ -208,7 +208,7 @@ class RaiPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:RaiPolicy"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:RaiPolicy"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:RaiPolicy"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:RaiPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:RaiPolicy"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:RaiPolicy"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:RaiPolicy"), pulumi.Alias(type_="azure-native_machinelearningservices_v20240401preview:machinelearningservices:RaiPolicy"), pulumi.Alias(type_="azure-native_machinelearningservices_v20240701preview:machinelearningservices:RaiPolicy"), pulumi.Alias(type_="azure-native_machinelearningservices_v20241001preview:machinelearningservices:RaiPolicy"), pulumi.Alias(type_="azure-native_machinelearningservices_v20250101preview:machinelearningservices:RaiPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RaiPolicy, __self__).__init__(
             'azure-native:machinelearningservices:RaiPolicy',

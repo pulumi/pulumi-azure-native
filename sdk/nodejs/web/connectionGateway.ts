@@ -99,7 +99,7 @@ export class ConnectionGateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160601:ConnectionGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160601:ConnectionGateway" }, { type: "azure-native_web_v20160601:web:ConnectionGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionGateway.__pulumiType, name, resourceInputs, opts);
     }

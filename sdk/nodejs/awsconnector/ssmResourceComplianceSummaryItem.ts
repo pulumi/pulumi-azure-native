@@ -100,7 +100,7 @@ export class SsmResourceComplianceSummaryItem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SsmResourceComplianceSummaryItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SsmResourceComplianceSummaryItem" }, { type: "azure-native_awsconnector_v20241201:awsconnector:SsmResourceComplianceSummaryItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SsmResourceComplianceSummaryItem.__pulumiType, name, resourceInputs, opts);
     }

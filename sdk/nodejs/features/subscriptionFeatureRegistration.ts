@@ -80,7 +80,7 @@ export class SubscriptionFeatureRegistration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:features/v20210701:SubscriptionFeatureRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:features/v20210701:SubscriptionFeatureRegistration" }, { type: "azure-native_features_v20210701:features:SubscriptionFeatureRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubscriptionFeatureRegistration.__pulumiType, name, resourceInputs, opts);
     }

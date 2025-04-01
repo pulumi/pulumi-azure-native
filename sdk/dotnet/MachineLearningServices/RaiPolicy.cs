@@ -77,7 +77,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:RaiPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:RaiPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:RaiPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:RaiPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240401preview:machinelearningservices:RaiPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240701preview:machinelearningservices:RaiPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20241001preview:machinelearningservices:RaiPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20250101preview:machinelearningservices:RaiPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

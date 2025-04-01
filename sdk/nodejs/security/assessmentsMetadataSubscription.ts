@@ -142,7 +142,7 @@ export class AssessmentsMetadataSubscription extends pulumi.CustomResource {
             resourceInputs["userImpact"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:AssessmentsMetadataSubscription" }, { type: "azure-native:security/v20200101:AssessmentsMetadataSubscription" }, { type: "azure-native:security/v20210601:AssessmentMetadataInSubscription" }, { type: "azure-native:security/v20210601:AssessmentsMetadataSubscription" }, { type: "azure-native:security:AssessmentMetadataInSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:AssessmentsMetadataSubscription" }, { type: "azure-native:security/v20210601:AssessmentMetadataInSubscription" }, { type: "azure-native:security:AssessmentMetadataInSubscription" }, { type: "azure-native_security_v20190101preview:security:AssessmentsMetadataSubscription" }, { type: "azure-native_security_v20200101:security:AssessmentsMetadataSubscription" }, { type: "azure-native_security_v20210601:security:AssessmentsMetadataSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentsMetadataSubscription.__pulumiType, name, resourceInputs, opts);
     }

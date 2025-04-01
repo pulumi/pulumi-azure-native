@@ -76,6 +76,8 @@ namespace Pulumi.AzureNative.Network
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101preview:StaticCidr" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:StaticCidr" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240101preview:network:StaticCidr" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240501:network:StaticCidr" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

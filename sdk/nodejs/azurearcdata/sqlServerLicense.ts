@@ -106,7 +106,7 @@ export class SqlServerLicense extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20240501preview:SqlServerLicense" }, { type: "azure-native:azurearcdata/v20250301preview:SqlServerLicense" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20240501preview:SqlServerLicense" }, { type: "azure-native_azurearcdata_v20240501preview:azurearcdata:SqlServerLicense" }, { type: "azure-native_azurearcdata_v20250301preview:azurearcdata:SqlServerLicense" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerLicense.__pulumiType, name, resourceInputs, opts);
     }

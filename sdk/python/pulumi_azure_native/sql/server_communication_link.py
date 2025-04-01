@@ -162,7 +162,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:ServerCommunicationLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:ServerCommunicationLink"), pulumi.Alias(type_="azure-native_sql_v20140401:sql:ServerCommunicationLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerCommunicationLink, __self__).__init__(
             'azure-native:sql:ServerCommunicationLink',

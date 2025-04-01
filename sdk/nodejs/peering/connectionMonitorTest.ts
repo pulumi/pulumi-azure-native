@@ -120,7 +120,7 @@ export class ConnectionMonitorTest extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20210601:ConnectionMonitorTest" }, { type: "azure-native:peering/v20220101:ConnectionMonitorTest" }, { type: "azure-native:peering/v20220601:ConnectionMonitorTest" }, { type: "azure-native:peering/v20221001:ConnectionMonitorTest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20221001:ConnectionMonitorTest" }, { type: "azure-native_peering_v20210601:peering:ConnectionMonitorTest" }, { type: "azure-native_peering_v20220101:peering:ConnectionMonitorTest" }, { type: "azure-native_peering_v20220601:peering:ConnectionMonitorTest" }, { type: "azure-native_peering_v20221001:peering:ConnectionMonitorTest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionMonitorTest.__pulumiType, name, resourceInputs, opts);
     }

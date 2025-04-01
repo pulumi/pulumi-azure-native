@@ -135,7 +135,7 @@ export class SapInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20231001preview:SapInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20231001preview:SapInstance" }, { type: "azure-native_workloads_v20231001preview:workloads:SapInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SapInstance.__pulumiType, name, resourceInputs, opts);
     }

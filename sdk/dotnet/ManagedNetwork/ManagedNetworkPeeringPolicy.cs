@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_managednetwork_v20190601preview:managednetwork:ManagedNetworkPeeringPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

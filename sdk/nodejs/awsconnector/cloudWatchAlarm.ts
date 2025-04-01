@@ -100,7 +100,7 @@ export class CloudWatchAlarm extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:CloudWatchAlarm" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:CloudWatchAlarm" }, { type: "azure-native_awsconnector_v20241201:awsconnector:CloudWatchAlarm" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudWatchAlarm.__pulumiType, name, resourceInputs, opts);
     }

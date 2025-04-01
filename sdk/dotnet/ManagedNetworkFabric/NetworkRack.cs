@@ -112,6 +112,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
                 {
                     new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230201preview:NetworkRack" },
                     new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:NetworkRack" },
+                    new global::Pulumi.Alias { Type = "azure-native_managednetworkfabric_v20230201preview:managednetworkfabric:NetworkRack" },
+                    new global::Pulumi.Alias { Type = "azure-native_managednetworkfabric_v20230615:managednetworkfabric:NetworkRack" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

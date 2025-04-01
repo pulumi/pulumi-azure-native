@@ -100,7 +100,7 @@ export class IamPasswordPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamPasswordPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamPasswordPolicy" }, { type: "azure-native_awsconnector_v20241201:awsconnector:IamPasswordPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IamPasswordPolicy.__pulumiType, name, resourceInputs, opts);
     }

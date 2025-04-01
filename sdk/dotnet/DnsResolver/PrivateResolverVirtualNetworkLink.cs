@@ -92,13 +92,13 @@ namespace Pulumi.AzureNative.DnsResolver
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20200401preview:PrivateResolverVirtualNetworkLink" },
-                    new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20220701:PrivateResolverVirtualNetworkLink" },
-                    new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20230701preview:PrivateResolverVirtualNetworkLink" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:PrivateResolverVirtualNetworkLink" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:PrivateResolverVirtualNetworkLink" },
                     new global::Pulumi.Alias { Type = "azure-native:network:PrivateResolverVirtualNetworkLink" },
+                    new global::Pulumi.Alias { Type = "azure-native_dnsresolver_v20200401preview:dnsresolver:PrivateResolverVirtualNetworkLink" },
+                    new global::Pulumi.Alias { Type = "azure-native_dnsresolver_v20220701:dnsresolver:PrivateResolverVirtualNetworkLink" },
+                    new global::Pulumi.Alias { Type = "azure-native_dnsresolver_v20230701preview:dnsresolver:PrivateResolverVirtualNetworkLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

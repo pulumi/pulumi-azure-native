@@ -328,7 +328,7 @@ class ExportConfiguration(pulumi.CustomResource):
             __props__.__dict__["resource_group"] = None
             __props__.__dict__["storage_name"] = None
             __props__.__dict__["subscription_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:applicationinsights/v20150501:ExportConfiguration"), pulumi.Alias(type_="azure-native:insights/v20150501:ExportConfiguration"), pulumi.Alias(type_="azure-native:insights:ExportConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20150501:ExportConfiguration"), pulumi.Alias(type_="azure-native:insights:ExportConfiguration"), pulumi.Alias(type_="azure-native_applicationinsights_v20150501:applicationinsights:ExportConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExportConfiguration, __self__).__init__(
             'azure-native:applicationinsights:ExportConfiguration',

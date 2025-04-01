@@ -86,11 +86,15 @@ namespace Pulumi.AzureNative.ConfidentialLedger
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20220908preview:ManagedCCF" },
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20230126preview:ManagedCCF" },
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20230628preview:ManagedCCF" },
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20240709preview:ManagedCCF" },
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20240919preview:ManagedCCF" },
+                    new global::Pulumi.Alias { Type = "azure-native_confidentialledger_v20220908preview:confidentialledger:ManagedCCF" },
+                    new global::Pulumi.Alias { Type = "azure-native_confidentialledger_v20230126preview:confidentialledger:ManagedCCF" },
+                    new global::Pulumi.Alias { Type = "azure-native_confidentialledger_v20230628preview:confidentialledger:ManagedCCF" },
+                    new global::Pulumi.Alias { Type = "azure-native_confidentialledger_v20240709preview:confidentialledger:ManagedCCF" },
+                    new global::Pulumi.Alias { Type = "azure-native_confidentialledger_v20240919preview:confidentialledger:ManagedCCF" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

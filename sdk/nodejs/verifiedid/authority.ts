@@ -101,7 +101,7 @@ export class Authority extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:verifiedid/v20240126preview:Authority" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:verifiedid/v20240126preview:Authority" }, { type: "azure-native_verifiedid_v20240126preview:verifiedid:Authority" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Authority.__pulumiType, name, resourceInputs, opts);
     }

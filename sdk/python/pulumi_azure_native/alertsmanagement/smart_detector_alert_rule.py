@@ -334,7 +334,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-native_alertsmanagement_v20190301:alertsmanagement:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-native_alertsmanagement_v20190601:alertsmanagement:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-native_alertsmanagement_v20210401:alertsmanagement:SmartDetectorAlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SmartDetectorAlertRule, __self__).__init__(
             'azure-native:alertsmanagement:SmartDetectorAlertRule',

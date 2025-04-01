@@ -312,7 +312,7 @@ class LiveOutput(pulumi.CustomResource):
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20180330preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20180601preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20180701:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20190501preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20200501:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20210601:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20211101:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20220801:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20221101:LiveOutput")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20221101:LiveOutput"), pulumi.Alias(type_="azure-native_media_v20180330preview:media:LiveOutput"), pulumi.Alias(type_="azure-native_media_v20180601preview:media:LiveOutput"), pulumi.Alias(type_="azure-native_media_v20180701:media:LiveOutput"), pulumi.Alias(type_="azure-native_media_v20190501preview:media:LiveOutput"), pulumi.Alias(type_="azure-native_media_v20200501:media:LiveOutput"), pulumi.Alias(type_="azure-native_media_v20210601:media:LiveOutput"), pulumi.Alias(type_="azure-native_media_v20211101:media:LiveOutput"), pulumi.Alias(type_="azure-native_media_v20220801:media:LiveOutput"), pulumi.Alias(type_="azure-native_media_v20221101:media:LiveOutput")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LiveOutput, __self__).__init__(
             'azure-native:media:LiveOutput',

@@ -73,7 +73,12 @@ namespace Pulumi.AzureNative.Elastic
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240501preview:OpenAI" },
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240615preview:OpenAI" },
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20241001preview:OpenAI" },
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20250115preview:OpenAI" },
+                    new global::Pulumi.Alias { Type = "azure-native_elastic_v20240101preview:elastic:OpenAI" },
+                    new global::Pulumi.Alias { Type = "azure-native_elastic_v20240301:elastic:OpenAI" },
+                    new global::Pulumi.Alias { Type = "azure-native_elastic_v20240501preview:elastic:OpenAI" },
+                    new global::Pulumi.Alias { Type = "azure-native_elastic_v20240615preview:elastic:OpenAI" },
+                    new global::Pulumi.Alias { Type = "azure-native_elastic_v20241001preview:elastic:OpenAI" },
+                    new global::Pulumi.Alias { Type = "azure-native_elastic_v20250115preview:elastic:OpenAI" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

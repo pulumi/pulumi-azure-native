@@ -247,7 +247,7 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_offer_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:marketplace/v20210601:PrivateStoreCollectionOffer"), pulumi.Alias(type_="azure-native:marketplace/v20211201:PrivateStoreCollectionOffer"), pulumi.Alias(type_="azure-native:marketplace/v20220301:PrivateStoreCollectionOffer"), pulumi.Alias(type_="azure-native:marketplace/v20220901:PrivateStoreCollectionOffer"), pulumi.Alias(type_="azure-native:marketplace/v20230101:PrivateStoreCollectionOffer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:marketplace/v20230101:PrivateStoreCollectionOffer"), pulumi.Alias(type_="azure-native_marketplace_v20210601:marketplace:PrivateStoreCollectionOffer"), pulumi.Alias(type_="azure-native_marketplace_v20211201:marketplace:PrivateStoreCollectionOffer"), pulumi.Alias(type_="azure-native_marketplace_v20220301:marketplace:PrivateStoreCollectionOffer"), pulumi.Alias(type_="azure-native_marketplace_v20220901:marketplace:PrivateStoreCollectionOffer"), pulumi.Alias(type_="azure-native_marketplace_v20230101:marketplace:PrivateStoreCollectionOffer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateStoreCollectionOffer, __self__).__init__(
             'azure-native:marketplace:PrivateStoreCollectionOffer',

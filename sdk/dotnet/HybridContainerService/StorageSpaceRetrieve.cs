@@ -87,8 +87,9 @@ namespace Pulumi.AzureNative.HybridContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:StorageSpaceRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:StorageSpaceRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcontainerservice_v20220501preview:hybridcontainerservice:StorageSpaceRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcontainerservice_v20220901preview:hybridcontainerservice:StorageSpaceRetrieve" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

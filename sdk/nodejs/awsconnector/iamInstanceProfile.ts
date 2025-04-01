@@ -100,7 +100,7 @@ export class IamInstanceProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamInstanceProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamInstanceProfile" }, { type: "azure-native_awsconnector_v20241201:awsconnector:IamInstanceProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IamInstanceProfile.__pulumiType, name, resourceInputs, opts);
     }

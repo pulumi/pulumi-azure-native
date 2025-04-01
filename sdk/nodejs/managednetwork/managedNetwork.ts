@@ -113,7 +113,7 @@ export class ManagedNetwork extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetwork/v20190601preview:ManagedNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetwork/v20190601preview:ManagedNetwork" }, { type: "azure-native_managednetwork_v20190601preview:managednetwork:ManagedNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedNetwork.__pulumiType, name, resourceInputs, opts);
     }

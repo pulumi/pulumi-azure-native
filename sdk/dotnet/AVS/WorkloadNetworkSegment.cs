@@ -110,13 +110,16 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkSegment" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkSegment" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkSegment" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkSegment" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:WorkloadNetworkSegment" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:WorkloadNetworkSegment" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:WorkloadNetworkSegment" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20200717preview:avs:WorkloadNetworkSegment" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210101preview:avs:WorkloadNetworkSegment" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210601:avs:WorkloadNetworkSegment" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20211201:avs:WorkloadNetworkSegment" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20220501:avs:WorkloadNetworkSegment" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230301:avs:WorkloadNetworkSegment" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230901:avs:WorkloadNetworkSegment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

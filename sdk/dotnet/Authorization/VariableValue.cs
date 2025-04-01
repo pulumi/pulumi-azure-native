@@ -75,7 +75,8 @@ namespace Pulumi.AzureNative.Authorization
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20220801preview:VariableValue" },
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20241201preview:VariableValue" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20220801preview:authorization:VariableValue" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20241201preview:authorization:VariableValue" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

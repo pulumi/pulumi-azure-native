@@ -144,7 +144,7 @@ export class NetworkSecurityPerimeterLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterLink" }, { type: "azure-native:network/v20210201preview:NspLink" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterLink" }, { type: "azure-native:network/v20230701preview:NspLink" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterLink" }, { type: "azure-native:network/v20230801preview:NspLink" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterLink" }, { type: "azure-native:network:NspLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NspLink" }, { type: "azure-native:network/v20230701preview:NspLink" }, { type: "azure-native:network/v20230801preview:NspLink" }, { type: "azure-native:network:NspLink" }, { type: "azure-native_network_v20210201preview:network:NetworkSecurityPerimeterLink" }, { type: "azure-native_network_v20230701preview:network:NetworkSecurityPerimeterLink" }, { type: "azure-native_network_v20230801preview:network:NetworkSecurityPerimeterLink" }, { type: "azure-native_network_v20240601preview:network:NetworkSecurityPerimeterLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeterLink.__pulumiType, name, resourceInputs, opts);
     }

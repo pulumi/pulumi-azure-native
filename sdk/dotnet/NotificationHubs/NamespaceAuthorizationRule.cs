@@ -136,11 +136,15 @@ namespace Pulumi.AzureNative.NotificationHubs
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20230101preview:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20230901:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20231001preview:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_notificationhubs_v20160301:notificationhubs:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_notificationhubs_v20170401:notificationhubs:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_notificationhubs_v20230101preview:notificationhubs:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_notificationhubs_v20230901:notificationhubs:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_notificationhubs_v20231001preview:notificationhubs:NamespaceAuthorizationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

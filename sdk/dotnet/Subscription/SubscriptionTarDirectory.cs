@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.Subscription
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:subscription/v20240801preview:SubscriptionTarDirectory" },
+                    new global::Pulumi.Alias { Type = "azure-native_subscription_v20240801preview:subscription:SubscriptionTarDirectory" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

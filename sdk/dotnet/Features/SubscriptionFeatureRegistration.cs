@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Features
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:features/v20210701:SubscriptionFeatureRegistration" },
+                    new global::Pulumi.Alias { Type = "azure-native_features_v20210701:features:SubscriptionFeatureRegistration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

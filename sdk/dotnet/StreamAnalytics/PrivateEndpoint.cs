@@ -80,6 +80,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
                 {
                     new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:PrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_streamanalytics_v20200301:streamanalytics:PrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_streamanalytics_v20200301preview:streamanalytics:PrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

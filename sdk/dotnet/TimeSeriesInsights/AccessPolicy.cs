@@ -80,12 +80,14 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:AccessPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:AccessPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:AccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:AccessPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:AccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:AccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20170228preview:timeseriesinsights:AccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20171115:timeseriesinsights:AccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20180815preview:timeseriesinsights:AccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20200515:timeseriesinsights:AccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20210331preview:timeseriesinsights:AccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20210630preview:timeseriesinsights:AccessPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

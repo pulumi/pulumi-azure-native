@@ -102,8 +102,9 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForSCCPowershell" },
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForSCCPowershell" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityandcompliance_v20210111:securityandcompliance:PrivateLinkServicesForSCCPowershell" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityandcompliance_v20210308:securityandcompliance:PrivateLinkServicesForSCCPowershell" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

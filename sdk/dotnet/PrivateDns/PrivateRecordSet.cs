@@ -143,10 +143,10 @@ namespace Pulumi.AzureNative.PrivateDns
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateRecordSet" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240601:PrivateRecordSet" },
                     new global::Pulumi.Alias { Type = "azure-native:network:PrivateRecordSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:privatedns/v20180901:PrivateRecordSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:privatedns/v20200101:PrivateRecordSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:privatedns/v20200601:PrivateRecordSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:privatedns/v20240601:PrivateRecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_privatedns_v20180901:privatedns:PrivateRecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_privatedns_v20200101:privatedns:PrivateRecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_privatedns_v20200601:privatedns:PrivateRecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_privatedns_v20240601:privatedns:PrivateRecordSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

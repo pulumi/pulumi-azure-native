@@ -103,7 +103,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuredatatransfer/v20231011preview:Connection" }, { type: "azure-native:azuredatatransfer/v20240125:Connection" }, { type: "azure-native:azuredatatransfer/v20240507:Connection" }, { type: "azure-native:azuredatatransfer/v20240911:Connection" }, { type: "azure-native:azuredatatransfer/v20240927:Connection" }, { type: "azure-native:azuredatatransfer/v20250301preview:Connection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuredatatransfer/v20231011preview:Connection" }, { type: "azure-native:azuredatatransfer/v20240125:Connection" }, { type: "azure-native:azuredatatransfer/v20240507:Connection" }, { type: "azure-native:azuredatatransfer/v20240911:Connection" }, { type: "azure-native:azuredatatransfer/v20240927:Connection" }, { type: "azure-native_azuredatatransfer_v20231011preview:azuredatatransfer:Connection" }, { type: "azure-native_azuredatatransfer_v20240125:azuredatatransfer:Connection" }, { type: "azure-native_azuredatatransfer_v20240507:azuredatatransfer:Connection" }, { type: "azure-native_azuredatatransfer_v20240911:azuredatatransfer:Connection" }, { type: "azure-native_azuredatatransfer_v20240927:azuredatatransfer:Connection" }, { type: "azure-native_azuredatatransfer_v20250301preview:azuredatatransfer:Connection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }

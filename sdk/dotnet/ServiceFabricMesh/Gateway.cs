@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Gateway" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicefabricmesh_v20180901preview:servicefabricmesh:Gateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

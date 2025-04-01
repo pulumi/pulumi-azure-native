@@ -95,7 +95,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesruntime/v20231001preview:Service" }, { type: "azure-native:kubernetesruntime/v20240301:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesruntime/v20231001preview:Service" }, { type: "azure-native:kubernetesruntime/v20240301:Service" }, { type: "azure-native_kubernetesruntime_v20231001preview:kubernetesruntime:Service" }, { type: "azure-native_kubernetesruntime_v20240301:kubernetesruntime:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

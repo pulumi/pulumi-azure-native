@@ -100,7 +100,7 @@ export class ElasticBeanstalkConfigurationTemplate extends pulumi.CustomResource
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ElasticBeanstalkConfigurationTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ElasticBeanstalkConfigurationTemplate" }, { type: "azure-native_awsconnector_v20241201:awsconnector:ElasticBeanstalkConfigurationTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticBeanstalkConfigurationTemplate.__pulumiType, name, resourceInputs, opts);
     }

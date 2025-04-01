@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appcomplianceautomation/v20240627:ScopingConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_appcomplianceautomation_v20240627:appcomplianceautomation:ScopingConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

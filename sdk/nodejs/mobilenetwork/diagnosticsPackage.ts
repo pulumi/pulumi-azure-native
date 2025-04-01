@@ -107,7 +107,7 @@ export class DiagnosticsPackage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20230601:DiagnosticsPackage" }, { type: "azure-native:mobilenetwork/v20230901:DiagnosticsPackage" }, { type: "azure-native:mobilenetwork/v20240201:DiagnosticsPackage" }, { type: "azure-native:mobilenetwork/v20240401:DiagnosticsPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20230601:DiagnosticsPackage" }, { type: "azure-native:mobilenetwork/v20230901:DiagnosticsPackage" }, { type: "azure-native:mobilenetwork/v20240201:DiagnosticsPackage" }, { type: "azure-native:mobilenetwork/v20240401:DiagnosticsPackage" }, { type: "azure-native_mobilenetwork_v20230601:mobilenetwork:DiagnosticsPackage" }, { type: "azure-native_mobilenetwork_v20230901:mobilenetwork:DiagnosticsPackage" }, { type: "azure-native_mobilenetwork_v20240201:mobilenetwork:DiagnosticsPackage" }, { type: "azure-native_mobilenetwork_v20240401:mobilenetwork:DiagnosticsPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiagnosticsPackage.__pulumiType, name, resourceInputs, opts);
     }

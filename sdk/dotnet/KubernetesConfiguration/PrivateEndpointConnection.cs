@@ -87,7 +87,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220402preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20241101preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20220402preview:kubernetesconfiguration:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20241101preview:kubernetesconfiguration:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

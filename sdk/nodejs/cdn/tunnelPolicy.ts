@@ -117,7 +117,7 @@ export class TunnelPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20240601preview:TunnelPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20240601preview:TunnelPolicy" }, { type: "azure-native_cdn_v20240601preview:cdn:TunnelPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TunnelPolicy.__pulumiType, name, resourceInputs, opts);
     }

@@ -122,7 +122,7 @@ export class DnsResolverDomainList extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dnsresolver/v20230701preview:DnsResolverDomainList" }, { type: "azure-native:network/v20230701preview:DnsResolverDomainList" }, { type: "azure-native:network:DnsResolverDomainList" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20230701preview:DnsResolverDomainList" }, { type: "azure-native:network:DnsResolverDomainList" }, { type: "azure-native_dnsresolver_v20230701preview:dnsresolver:DnsResolverDomainList" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DnsResolverDomainList.__pulumiType, name, resourceInputs, opts);
     }

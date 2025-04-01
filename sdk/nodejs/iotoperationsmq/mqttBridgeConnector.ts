@@ -171,7 +171,7 @@ export class MqttBridgeConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:MqttBridgeConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:MqttBridgeConnector" }, { type: "azure-native_iotoperationsmq_v20231004preview:iotoperationsmq:MqttBridgeConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MqttBridgeConnector.__pulumiType, name, resourceInputs, opts);
     }

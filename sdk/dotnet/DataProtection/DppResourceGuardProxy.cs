@@ -74,9 +74,6 @@ namespace Pulumi.AzureNative.DataProtection
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220901preview:DppResourceGuardProxy" },
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221001preview:DppResourceGuardProxy" },
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221101preview:DppResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230101:DppResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230401preview:DppResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230501:DppResourceGuardProxy" },
@@ -87,8 +84,21 @@ namespace Pulumi.AzureNative.DataProtection
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240201preview:DppResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240301:DppResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240401:DppResourceGuardProxy" },
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20250101:DppResourceGuardProxy" },
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20250201:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20220901preview:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20221001preview:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20221101preview:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20230101:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20230401preview:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20230501:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20230601preview:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20230801preview:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20231101:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20231201:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20240201preview:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20240301:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20240401:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20250101:dataprotection:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dataprotection_v20250201:dataprotection:DppResourceGuardProxy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

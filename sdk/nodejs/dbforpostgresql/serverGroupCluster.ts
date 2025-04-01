@@ -290,7 +290,7 @@ export class ServerGroupCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup" }, { type: "azure-native:dbforpostgresql/v20201005privatepreview:ServerGroupCluster" }, { type: "azure-native:dbforpostgresql/v20221108:Cluster" }, { type: "azure-native:dbforpostgresql/v20221108:ServerGroupCluster" }, { type: "azure-native:dbforpostgresql/v20230302preview:Cluster" }, { type: "azure-native:dbforpostgresql/v20230302preview:ServerGroupCluster" }, { type: "azure-native:dbforpostgresql:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup" }, { type: "azure-native:dbforpostgresql/v20221108:Cluster" }, { type: "azure-native:dbforpostgresql/v20230302preview:Cluster" }, { type: "azure-native:dbforpostgresql:Cluster" }, { type: "azure-native_dbforpostgresql_v20201005privatepreview:dbforpostgresql:ServerGroupCluster" }, { type: "azure-native_dbforpostgresql_v20221108:dbforpostgresql:ServerGroupCluster" }, { type: "azure-native_dbforpostgresql_v20230302preview:dbforpostgresql:ServerGroupCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerGroupCluster.__pulumiType, name, resourceInputs, opts);
     }

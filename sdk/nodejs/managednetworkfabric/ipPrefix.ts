@@ -130,7 +130,7 @@ export class IpPrefix extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:IpPrefix" }, { type: "azure-native:managednetworkfabric/v20230615:IpPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:IpPrefix" }, { type: "azure-native:managednetworkfabric/v20230615:IpPrefix" }, { type: "azure-native_managednetworkfabric_v20230201preview:managednetworkfabric:IpPrefix" }, { type: "azure-native_managednetworkfabric_v20230615:managednetworkfabric:IpPrefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IpPrefix.__pulumiType, name, resourceInputs, opts);
     }

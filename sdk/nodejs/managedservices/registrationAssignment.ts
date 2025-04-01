@@ -89,7 +89,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managedservices/v20180601preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20190601:RegistrationAssignment" }, { type: "azure-native:managedservices/v20190901:RegistrationAssignment" }, { type: "azure-native:managedservices/v20200201preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20220101preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20221001:RegistrationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedservices/v20221001:RegistrationAssignment" }, { type: "azure-native_managedservices_v20180601preview:managedservices:RegistrationAssignment" }, { type: "azure-native_managedservices_v20190401preview:managedservices:RegistrationAssignment" }, { type: "azure-native_managedservices_v20190601:managedservices:RegistrationAssignment" }, { type: "azure-native_managedservices_v20190901:managedservices:RegistrationAssignment" }, { type: "azure-native_managedservices_v20200201preview:managedservices:RegistrationAssignment" }, { type: "azure-native_managedservices_v20220101preview:managedservices:RegistrationAssignment" }, { type: "azure-native_managedservices_v20221001:managedservices:RegistrationAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistrationAssignment.__pulumiType, name, resourceInputs, opts);
     }

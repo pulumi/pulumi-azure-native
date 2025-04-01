@@ -93,7 +93,7 @@ export class MonitoredResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scom/v20230707preview:MonitoredResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scom/v20230707preview:MonitoredResource" }, { type: "azure-native_scom_v20230707preview:scom:MonitoredResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MonitoredResource.__pulumiType, name, resourceInputs, opts);
     }

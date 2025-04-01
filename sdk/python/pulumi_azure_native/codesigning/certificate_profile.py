@@ -309,7 +309,7 @@ class CertificateProfile(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:codesigning/v20240205preview:CertificateProfile"), pulumi.Alias(type_="azure-native:codesigning/v20240930preview:CertificateProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:codesigning/v20240205preview:CertificateProfile"), pulumi.Alias(type_="azure-native:codesigning/v20240930preview:CertificateProfile"), pulumi.Alias(type_="azure-native_codesigning_v20240205preview:codesigning:CertificateProfile"), pulumi.Alias(type_="azure-native_codesigning_v20240930preview:codesigning:CertificateProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CertificateProfile, __self__).__init__(
             'azure-native:codesigning:CertificateProfile',

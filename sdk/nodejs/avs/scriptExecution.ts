@@ -184,7 +184,7 @@ export class ScriptExecution extends pulumi.CustomResource {
             resourceInputs["warnings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20210601:ScriptExecution" }, { type: "azure-native:avs/v20211201:ScriptExecution" }, { type: "azure-native:avs/v20220501:ScriptExecution" }, { type: "azure-native:avs/v20230301:ScriptExecution" }, { type: "azure-native:avs/v20230901:ScriptExecution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20220501:ScriptExecution" }, { type: "azure-native:avs/v20230301:ScriptExecution" }, { type: "azure-native:avs/v20230901:ScriptExecution" }, { type: "azure-native_avs_v20210601:avs:ScriptExecution" }, { type: "azure-native_avs_v20211201:avs:ScriptExecution" }, { type: "azure-native_avs_v20220501:avs:ScriptExecution" }, { type: "azure-native_avs_v20230301:avs:ScriptExecution" }, { type: "azure-native_avs_v20230901:avs:ScriptExecution" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScriptExecution.__pulumiType, name, resourceInputs, opts);
     }

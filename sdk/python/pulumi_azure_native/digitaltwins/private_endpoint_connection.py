@@ -163,7 +163,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:digitaltwins/v20201201:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:digitaltwins/v20220531:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:digitaltwins/v20221031:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:digitaltwins/v20230131:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:digitaltwins/v20201201:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:digitaltwins/v20230131:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native_digitaltwins_v20201201:digitaltwins:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native_digitaltwins_v20210630preview:digitaltwins:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native_digitaltwins_v20220531:digitaltwins:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native_digitaltwins_v20221031:digitaltwins:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native_digitaltwins_v20230131:digitaltwins:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:digitaltwins:PrivateEndpointConnection',

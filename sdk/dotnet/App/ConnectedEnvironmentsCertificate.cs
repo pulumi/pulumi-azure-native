@@ -86,9 +86,7 @@ namespace Pulumi.AzureNative.App
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ConnectedEnvironmentsCertificate" },
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ConnectedEnvironmentsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ConnectedEnvironmentsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:ConnectedEnvironmentsCertificate" },
@@ -98,7 +96,19 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:ConnectedEnvironmentsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ConnectedEnvironmentsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ConnectedEnvironmentsCertificate" },
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20250101:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20220601preview:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20221001:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20221101preview:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230401preview:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230501:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230502preview:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230801preview:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20231102preview:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240202preview:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240301:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240802preview:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20241002preview:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20250101:app:ConnectedEnvironmentsCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

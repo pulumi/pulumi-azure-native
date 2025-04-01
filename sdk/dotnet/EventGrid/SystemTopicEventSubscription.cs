@@ -138,17 +138,22 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:SystemTopicEventSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:SystemTopicEventSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:SystemTopicEventSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:SystemTopicEventSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20240601preview:SystemTopicEventSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20241215preview:SystemTopicEventSubscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20250215:SystemTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20200401preview:eventgrid:SystemTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20201015preview:eventgrid:SystemTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20210601preview:eventgrid:SystemTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20211015preview:eventgrid:SystemTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20211201:eventgrid:SystemTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20220615:eventgrid:SystemTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20230601preview:eventgrid:SystemTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20231215preview:eventgrid:SystemTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20240601preview:eventgrid:SystemTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20241215preview:eventgrid:SystemTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20250215:eventgrid:SystemTopicEventSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

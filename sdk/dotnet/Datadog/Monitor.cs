@@ -84,13 +84,18 @@ namespace Pulumi.AzureNative.Datadog
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20200201preview:Monitor" },
-                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20210301:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20220601:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20220801:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20230101:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20230707:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20231020:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native_datadog_v20200201preview:datadog:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native_datadog_v20210301:datadog:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native_datadog_v20220601:datadog:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native_datadog_v20220801:datadog:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native_datadog_v20230101:datadog:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native_datadog_v20230707:datadog:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native_datadog_v20231020:datadog:Monitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

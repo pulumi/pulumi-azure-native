@@ -113,7 +113,7 @@ export class StaticSiteLinkedBackendForBuild extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20220301:StaticSiteLinkedBackendForBuild" }, { type: "azure-native:web/v20220901:StaticSiteLinkedBackendForBuild" }, { type: "azure-native:web/v20230101:StaticSiteLinkedBackendForBuild" }, { type: "azure-native:web/v20231201:StaticSiteLinkedBackendForBuild" }, { type: "azure-native:web/v20240401:StaticSiteLinkedBackendForBuild" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20220901:StaticSiteLinkedBackendForBuild" }, { type: "azure-native:web/v20230101:StaticSiteLinkedBackendForBuild" }, { type: "azure-native:web/v20231201:StaticSiteLinkedBackendForBuild" }, { type: "azure-native:web/v20240401:StaticSiteLinkedBackendForBuild" }, { type: "azure-native_web_v20220301:web:StaticSiteLinkedBackendForBuild" }, { type: "azure-native_web_v20220901:web:StaticSiteLinkedBackendForBuild" }, { type: "azure-native_web_v20230101:web:StaticSiteLinkedBackendForBuild" }, { type: "azure-native_web_v20231201:web:StaticSiteLinkedBackendForBuild" }, { type: "azure-native_web_v20240401:web:StaticSiteLinkedBackendForBuild" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteLinkedBackendForBuild.__pulumiType, name, resourceInputs, opts);
     }

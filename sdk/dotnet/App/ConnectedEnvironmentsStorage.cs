@@ -74,9 +74,7 @@ namespace Pulumi.AzureNative.App
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ConnectedEnvironmentsStorage" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ConnectedEnvironmentsStorage" },
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ConnectedEnvironmentsStorage" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ConnectedEnvironmentsStorage" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ConnectedEnvironmentsStorage" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:ConnectedEnvironmentsStorage" },
@@ -86,7 +84,19 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:ConnectedEnvironmentsStorage" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ConnectedEnvironmentsStorage" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ConnectedEnvironmentsStorage" },
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20250101:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20220601preview:app:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20221001:app:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20221101preview:app:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230401preview:app:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230501:app:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230502preview:app:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230801preview:app:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20231102preview:app:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240202preview:app:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240301:app:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240802preview:app:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20241002preview:app:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20250101:app:ConnectedEnvironmentsStorage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

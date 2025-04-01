@@ -122,9 +122,10 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200701preview:PolicyExemption" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20220701preview:PolicyExemption" },
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20241201preview:PolicyExemption" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20200701preview:authorization:PolicyExemption" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20220701preview:authorization:PolicyExemption" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20241201preview:authorization:PolicyExemption" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

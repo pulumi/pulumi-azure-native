@@ -109,7 +109,7 @@ export class Catalog extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere/v20220901preview:Catalog" }, { type: "azure-native:azuresphere/v20240401:Catalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere/v20220901preview:Catalog" }, { type: "azure-native:azuresphere/v20240401:Catalog" }, { type: "azure-native_azuresphere_v20220901preview:azuresphere:Catalog" }, { type: "azure-native_azuresphere_v20240401:azuresphere:Catalog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Catalog.__pulumiType, name, resourceInputs, opts);
     }

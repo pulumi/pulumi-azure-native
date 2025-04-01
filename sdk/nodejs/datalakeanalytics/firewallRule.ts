@@ -96,7 +96,7 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datalakeanalytics/v20151001preview:FirewallRule" }, { type: "azure-native:datalakeanalytics/v20161101:FirewallRule" }, { type: "azure-native:datalakeanalytics/v20191101preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datalakeanalytics/v20191101preview:FirewallRule" }, { type: "azure-native_datalakeanalytics_v20151001preview:datalakeanalytics:FirewallRule" }, { type: "azure-native_datalakeanalytics_v20161101:datalakeanalytics:FirewallRule" }, { type: "azure-native_datalakeanalytics_v20191101preview:datalakeanalytics:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }

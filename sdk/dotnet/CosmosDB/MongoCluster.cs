@@ -122,11 +122,6 @@ namespace Pulumi.AzureNative.CosmosDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20230301preview:MongoCluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20230315preview:MongoCluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20230915preview:MongoCluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20231115preview:MongoCluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20240215preview:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:MongoCluster" },
@@ -136,6 +131,11 @@ namespace Pulumi.AzureNative.CosmosDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240701:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241001preview:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:MongoCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20230301preview:cosmosdb:MongoCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20230315preview:cosmosdb:MongoCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20230915preview:cosmosdb:MongoCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20231115preview:cosmosdb:MongoCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20240215preview:cosmosdb:MongoCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

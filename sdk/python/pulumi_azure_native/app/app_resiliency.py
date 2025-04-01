@@ -264,7 +264,7 @@ class AppResiliency(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20230801preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20231102preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20240202preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20240802preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20241002preview:AppResiliency")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20230801preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20231102preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20240202preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20240802preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20241002preview:AppResiliency"), pulumi.Alias(type_="azure-native_app_v20230801preview:app:AppResiliency"), pulumi.Alias(type_="azure-native_app_v20231102preview:app:AppResiliency"), pulumi.Alias(type_="azure-native_app_v20240202preview:app:AppResiliency"), pulumi.Alias(type_="azure-native_app_v20240802preview:app:AppResiliency"), pulumi.Alias(type_="azure-native_app_v20241002preview:app:AppResiliency")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppResiliency, __self__).__init__(
             'azure-native:app:AppResiliency',

@@ -139,7 +139,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20200501:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20210101:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mixedreality/v20210101:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount" }, { type: "azure-native_mixedreality_v20190228preview:mixedreality:SpatialAnchorsAccount" }, { type: "azure-native_mixedreality_v20191202preview:mixedreality:SpatialAnchorsAccount" }, { type: "azure-native_mixedreality_v20200501:mixedreality:SpatialAnchorsAccount" }, { type: "azure-native_mixedreality_v20210101:mixedreality:SpatialAnchorsAccount" }, { type: "azure-native_mixedreality_v20210301preview:mixedreality:SpatialAnchorsAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SpatialAnchorsAccount.__pulumiType, name, resourceInputs, opts);
     }

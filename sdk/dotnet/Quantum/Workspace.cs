@@ -92,9 +92,11 @@ namespace Pulumi.AzureNative.Quantum
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:quantum/v20191104preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:quantum/v20220110preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:quantum/v20231113preview:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_quantum_v20191104preview:quantum:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_quantum_v20220110preview:quantum:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_quantum_v20231113preview:quantum:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

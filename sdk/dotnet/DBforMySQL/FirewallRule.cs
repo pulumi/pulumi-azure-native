@@ -80,16 +80,19 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:FirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:FirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:FirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:FirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:FirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220101:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230601preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230630:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20231230:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20200701preview:dbformysql:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20200701privatepreview:dbformysql:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20210501:dbformysql:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20210501preview:dbformysql:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20211201preview:dbformysql:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20220101:dbformysql:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20230601preview:dbformysql:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20230630:dbformysql:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformysql_v20231230:dbformysql:FirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

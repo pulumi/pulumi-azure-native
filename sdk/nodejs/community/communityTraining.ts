@@ -170,7 +170,7 @@ export class CommunityTraining extends pulumi.CustomResource {
             resourceInputs["zoneRedundancyEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:community/v20231101:CommunityTraining" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:community/v20231101:CommunityTraining" }, { type: "azure-native_community_v20231101:community:CommunityTraining" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommunityTraining.__pulumiType, name, resourceInputs, opts);
     }

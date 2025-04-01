@@ -123,7 +123,7 @@ export class ResourceSyncRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:extendedlocation/v20210831preview:ResourceSyncRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:extendedlocation/v20210831preview:ResourceSyncRule" }, { type: "azure-native_extendedlocation_v20210831preview:extendedlocation:ResourceSyncRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ResourceSyncRule.__pulumiType, name, resourceInputs, opts);
     }

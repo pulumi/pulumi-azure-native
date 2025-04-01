@@ -143,7 +143,7 @@ class DefenderForStorage(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20221201preview:DefenderForStorage"), pulumi.Alias(type_="azure-native:security/v20241001preview:DefenderForStorage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20221201preview:DefenderForStorage"), pulumi.Alias(type_="azure-native:security/v20241001preview:DefenderForStorage"), pulumi.Alias(type_="azure-native_security_v20221201preview:security:DefenderForStorage"), pulumi.Alias(type_="azure-native_security_v20241001preview:security:DefenderForStorage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefenderForStorage, __self__).__init__(
             'azure-native:security:DefenderForStorage',

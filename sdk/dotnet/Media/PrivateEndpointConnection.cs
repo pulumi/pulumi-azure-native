@@ -80,11 +80,12 @@ namespace Pulumi.AzureNative.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210501:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:media/v20230101:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20200501:media:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20210501:media:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20210601:media:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20211101:media:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20230101:media:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

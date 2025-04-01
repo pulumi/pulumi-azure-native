@@ -100,7 +100,7 @@ export class RdsDbInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:RdsDbInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:RdsDbInstance" }, { type: "azure-native_awsconnector_v20241201:awsconnector:RdsDbInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RdsDbInstance.__pulumiType, name, resourceInputs, opts);
     }

@@ -74,12 +74,15 @@ namespace Pulumi.AzureNative.AzureArcData
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240101:ActiveDirectoryConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:ActiveDirectoryConnector" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:ActiveDirectoryConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20220301preview:azurearcdata:ActiveDirectoryConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20220615preview:azurearcdata:ActiveDirectoryConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20230115preview:azurearcdata:ActiveDirectoryConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20240101:azurearcdata:ActiveDirectoryConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20240501preview:azurearcdata:ActiveDirectoryConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20250301preview:azurearcdata:ActiveDirectoryConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

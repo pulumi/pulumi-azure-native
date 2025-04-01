@@ -165,7 +165,7 @@ export class DscConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:DscConfiguration" }, { type: "azure-native:automation/v20190601:DscConfiguration" }, { type: "azure-native:automation/v20220808:DscConfiguration" }, { type: "azure-native:automation/v20230515preview:DscConfiguration" }, { type: "azure-native:automation/v20231101:DscConfiguration" }, { type: "azure-native:automation/v20241023:DscConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20220808:DscConfiguration" }, { type: "azure-native:automation/v20230515preview:DscConfiguration" }, { type: "azure-native:automation/v20231101:DscConfiguration" }, { type: "azure-native:automation/v20241023:DscConfiguration" }, { type: "azure-native_automation_v20151031:automation:DscConfiguration" }, { type: "azure-native_automation_v20190601:automation:DscConfiguration" }, { type: "azure-native_automation_v20220808:automation:DscConfiguration" }, { type: "azure-native_automation_v20230515preview:automation:DscConfiguration" }, { type: "azure-native_automation_v20231101:automation:DscConfiguration" }, { type: "azure-native_automation_v20241023:automation:DscConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DscConfiguration.__pulumiType, name, resourceInputs, opts);
     }

@@ -122,14 +122,18 @@ namespace Pulumi.AzureNative.Databricks
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20180401:VNetPeering" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:VNetPeering" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:VNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230201:VNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230915preview:VNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240501:VNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240901preview:VNetPeering" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20250301preview:VNetPeering" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20180401:databricks:VNetPeering" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20210401preview:databricks:VNetPeering" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20220401preview:databricks:VNetPeering" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20230201:databricks:VNetPeering" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20230915preview:databricks:VNetPeering" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20240501:databricks:VNetPeering" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20240901preview:databricks:VNetPeering" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20250301preview:databricks:VNetPeering" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

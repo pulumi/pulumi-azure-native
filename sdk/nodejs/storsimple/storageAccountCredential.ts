@@ -117,7 +117,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             resourceInputs["volumesCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/v20161001:StorageAccountCredential" }, { type: "azure-native:storsimple/v20170601:StorageAccountCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/v20170601:StorageAccountCredential" }, { type: "azure-native_storsimple_v20161001:storsimple:StorageAccountCredential" }, { type: "azure-native_storsimple_v20170601:storsimple:StorageAccountCredential" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAccountCredential.__pulumiType, name, resourceInputs, opts);
     }

@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.AppPlatform
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240501preview:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_appplatform_v20240501preview:appplatform:Job" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

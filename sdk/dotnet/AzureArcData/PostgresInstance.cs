@@ -98,14 +98,17 @@ namespace Pulumi.AzureNative.AzureArcData
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210601preview:PostgresInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:PostgresInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:PostgresInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:PostgresInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:PostgresInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240101:PostgresInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:PostgresInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:PostgresInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20210601preview:azurearcdata:PostgresInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20210701preview:azurearcdata:PostgresInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20220301preview:azurearcdata:PostgresInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20220615preview:azurearcdata:PostgresInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20230115preview:azurearcdata:PostgresInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20240101:azurearcdata:PostgresInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20240501preview:azurearcdata:PostgresInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20250301preview:azurearcdata:PostgresInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -128,7 +128,6 @@ namespace Pulumi.AzureNative.App
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230501:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:Job" },
@@ -138,7 +137,17 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:Job" },
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20250101:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20221101preview:app:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230401preview:app:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230501:app:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230502preview:app:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230801preview:app:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20231102preview:app:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240202preview:app:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240301:app:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240802preview:app:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20241002preview:app:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20250101:app:Job" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -161,7 +161,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20211201preview:Table" }, { type: "azure-native:operationalinsights/v20221001:Table" }, { type: "azure-native:operationalinsights/v20230901:Table" }, { type: "azure-native:operationalinsights/v20250201:Table" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20221001:Table" }, { type: "azure-native:operationalinsights/v20230901:Table" }, { type: "azure-native_operationalinsights_v20211201preview:operationalinsights:Table" }, { type: "azure-native_operationalinsights_v20221001:operationalinsights:Table" }, { type: "azure-native_operationalinsights_v20230901:operationalinsights:Table" }, { type: "azure-native_operationalinsights_v20250201:operationalinsights:Table" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Table.__pulumiType, name, resourceInputs, opts);
     }

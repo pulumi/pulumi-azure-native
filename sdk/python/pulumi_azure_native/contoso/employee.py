@@ -184,7 +184,7 @@ class Employee(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:contoso/v20211001preview:Employee"), pulumi.Alias(type_="azure-native:contoso/v20211101:Employee")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:contoso/v20211001preview:Employee"), pulumi.Alias(type_="azure-native_contoso_v20211001preview:contoso:Employee"), pulumi.Alias(type_="azure-native_contoso_v20211101:contoso:Employee")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Employee, __self__).__init__(
             'azure-native:contoso:Employee',

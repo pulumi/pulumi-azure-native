@@ -117,7 +117,7 @@ export class SuppressionList extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20230601preview:SuppressionList" }, { type: "azure-native:communication/v20240901preview:SuppressionList" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20230601preview:SuppressionList" }, { type: "azure-native_communication_v20230601preview:communication:SuppressionList" }, { type: "azure-native_communication_v20240901preview:communication:SuppressionList" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SuppressionList.__pulumiType, name, resourceInputs, opts);
     }

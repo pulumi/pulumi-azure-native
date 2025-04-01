@@ -86,13 +86,18 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20230501:CommitmentPlanAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:CommitmentPlanAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:CommitmentPlanAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240601preview:CommitmentPlanAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20241001:CommitmentPlanAssociation" },
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250401preview:CommitmentPlanAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20221201:cognitiveservices:CommitmentPlanAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20230501:cognitiveservices:CommitmentPlanAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20231001preview:cognitiveservices:CommitmentPlanAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20240401preview:cognitiveservices:CommitmentPlanAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20240601preview:cognitiveservices:CommitmentPlanAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20241001:cognitiveservices:CommitmentPlanAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20250401preview:cognitiveservices:CommitmentPlanAssociation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

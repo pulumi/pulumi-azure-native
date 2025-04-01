@@ -159,7 +159,7 @@ export class KafkaConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:KafkaConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:KafkaConnector" }, { type: "azure-native_iotoperationsmq_v20231004preview:iotoperationsmq:KafkaConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KafkaConnector.__pulumiType, name, resourceInputs, opts);
     }
