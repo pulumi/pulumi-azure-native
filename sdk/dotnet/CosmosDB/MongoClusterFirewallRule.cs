@@ -86,11 +86,6 @@ namespace Pulumi.AzureNative.CosmosDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20230301preview:MongoClusterFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20230315preview:MongoClusterFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20230915preview:MongoClusterFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20231115preview:MongoClusterFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20240215preview:MongoClusterFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:MongoClusterFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:MongoClusterFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:MongoClusterFirewallRule" },
@@ -101,6 +96,11 @@ namespace Pulumi.AzureNative.CosmosDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241001preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:MongoClusterFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20230301preview:cosmosdb:MongoClusterFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20230315preview:cosmosdb:MongoClusterFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20230915preview:cosmosdb:MongoClusterFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20231115preview:cosmosdb:MongoClusterFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cosmosdb_v20240215preview:cosmosdb:MongoClusterFirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

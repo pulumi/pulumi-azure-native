@@ -116,6 +116,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
                 {
                     new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_streamanalytics_v20200301:streamanalytics:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_streamanalytics_v20200301preview:streamanalytics:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

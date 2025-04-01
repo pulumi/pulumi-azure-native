@@ -100,7 +100,7 @@ export class RedshiftClusterParameterGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:RedshiftClusterParameterGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:RedshiftClusterParameterGroup" }, { type: "azure-native_awsconnector_v20241201:awsconnector:RedshiftClusterParameterGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RedshiftClusterParameterGroup.__pulumiType, name, resourceInputs, opts);
     }

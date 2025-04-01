@@ -80,17 +80,21 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:TopicAuthorizationRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:TopicAuthorizationRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:TopicAuthorizationRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:TopicAuthorizationRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:TopicAuthorizationRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:TopicAuthorizationRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:TopicAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:TopicAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:TopicAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20230101preview:TopicAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20240101:TopicAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20140901:servicebus:TopicAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20150801:servicebus:TopicAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20170401:servicebus:TopicAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20180101preview:servicebus:TopicAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20210101preview:servicebus:TopicAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20210601preview:servicebus:TopicAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20211101:servicebus:TopicAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20220101preview:servicebus:TopicAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20221001preview:servicebus:TopicAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20230101preview:servicebus:TopicAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20240101:servicebus:TopicAuthorizationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

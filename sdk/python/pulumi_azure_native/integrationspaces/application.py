@@ -222,7 +222,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:integrationspaces/v20231114preview:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:integrationspaces/v20231114preview:Application"), pulumi.Alias(type_="azure-native_integrationspaces_v20231114preview:integrationspaces:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azure-native:integrationspaces:Application',

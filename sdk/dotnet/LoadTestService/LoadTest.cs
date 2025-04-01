@@ -111,10 +111,13 @@ namespace Pulumi.AzureNative.LoadTestService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20211201preview:LoadTest" },
-                    new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20220415preview:LoadTest" },
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20221201:LoadTest" },
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20231201preview:LoadTest" },
-                    new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20241201preview:LoadTest" },
+                    new global::Pulumi.Alias { Type = "azure-native_loadtestservice_v20211201preview:loadtestservice:LoadTest" },
+                    new global::Pulumi.Alias { Type = "azure-native_loadtestservice_v20220415preview:loadtestservice:LoadTest" },
+                    new global::Pulumi.Alias { Type = "azure-native_loadtestservice_v20221201:loadtestservice:LoadTest" },
+                    new global::Pulumi.Alias { Type = "azure-native_loadtestservice_v20231201preview:loadtestservice:LoadTest" },
+                    new global::Pulumi.Alias { Type = "azure-native_loadtestservice_v20241201preview:loadtestservice:LoadTest" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

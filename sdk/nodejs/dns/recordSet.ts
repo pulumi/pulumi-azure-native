@@ -207,7 +207,7 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dns/v20150504preview:RecordSet" }, { type: "azure-native:dns/v20160401:RecordSet" }, { type: "azure-native:dns/v20170901:RecordSet" }, { type: "azure-native:dns/v20171001:RecordSet" }, { type: "azure-native:dns/v20180301preview:RecordSet" }, { type: "azure-native:dns/v20180501:RecordSet" }, { type: "azure-native:dns/v20230701preview:RecordSet" }, { type: "azure-native:network/v20180501:RecordSet" }, { type: "azure-native:network/v20230701preview:RecordSet" }, { type: "azure-native:network:RecordSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180501:RecordSet" }, { type: "azure-native:network/v20230701preview:RecordSet" }, { type: "azure-native:network:RecordSet" }, { type: "azure-native_dns_v20150504preview:dns:RecordSet" }, { type: "azure-native_dns_v20160401:dns:RecordSet" }, { type: "azure-native_dns_v20170901:dns:RecordSet" }, { type: "azure-native_dns_v20171001:dns:RecordSet" }, { type: "azure-native_dns_v20180301preview:dns:RecordSet" }, { type: "azure-native_dns_v20180501:dns:RecordSet" }, { type: "azure-native_dns_v20230701preview:dns:RecordSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RecordSet.__pulumiType, name, resourceInputs, opts);
     }

@@ -119,16 +119,20 @@ namespace Pulumi.AzureNative.DataMigration
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Project" },
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Project" },
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180331preview:Project" },
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Project" },
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Project" },
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20210630:Project" },
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:Project" },
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:Project" },
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:Project" },
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20230715preview:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native_datamigration_v20171115preview:datamigration:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native_datamigration_v20180315preview:datamigration:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native_datamigration_v20180331preview:datamigration:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native_datamigration_v20180419:datamigration:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native_datamigration_v20180715preview:datamigration:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native_datamigration_v20210630:datamigration:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native_datamigration_v20211030preview:datamigration:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native_datamigration_v20220130preview:datamigration:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native_datamigration_v20220330preview:datamigration:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native_datamigration_v20230715preview:datamigration:Project" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

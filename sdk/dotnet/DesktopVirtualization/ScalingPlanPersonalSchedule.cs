@@ -232,7 +232,15 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:ScalingPlanPersonalSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:ScalingPlanPersonalSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240808preview:ScalingPlanPersonalSchedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:ScalingPlanPersonalSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20230905:desktopvirtualization:ScalingPlanPersonalSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20231004preview:desktopvirtualization:ScalingPlanPersonalSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20231101preview:desktopvirtualization:ScalingPlanPersonalSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240116preview:desktopvirtualization:ScalingPlanPersonalSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240306preview:desktopvirtualization:ScalingPlanPersonalSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240403:desktopvirtualization:ScalingPlanPersonalSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240408preview:desktopvirtualization:ScalingPlanPersonalSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240808preview:desktopvirtualization:ScalingPlanPersonalSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20241101preview:desktopvirtualization:ScalingPlanPersonalSchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

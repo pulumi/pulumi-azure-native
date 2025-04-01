@@ -89,7 +89,7 @@ export class DefaultRollout extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20201120:DefaultRollout" }, { type: "azure-native:providerhub/v20210501preview:DefaultRollout" }, { type: "azure-native:providerhub/v20210601preview:DefaultRollout" }, { type: "azure-native:providerhub/v20210901preview:DefaultRollout" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20210901preview:DefaultRollout" }, { type: "azure-native_providerhub_v20201120:providerhub:DefaultRollout" }, { type: "azure-native_providerhub_v20210501preview:providerhub:DefaultRollout" }, { type: "azure-native_providerhub_v20210601preview:providerhub:DefaultRollout" }, { type: "azure-native_providerhub_v20210901preview:providerhub:DefaultRollout" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DefaultRollout.__pulumiType, name, resourceInputs, opts);
     }

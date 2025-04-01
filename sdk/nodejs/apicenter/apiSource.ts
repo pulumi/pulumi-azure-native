@@ -121,7 +121,7 @@ export class ApiSource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240601preview:ApiSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240601preview:ApiSource" }, { type: "azure-native_apicenter_v20240601preview:apicenter:ApiSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiSource.__pulumiType, name, resourceInputs, opts);
     }

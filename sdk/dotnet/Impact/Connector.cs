@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.Impact
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:impact/v20240501preview:Connector" },
+                    new global::Pulumi.Alias { Type = "azure-native_impact_v20240501preview:impact:Connector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

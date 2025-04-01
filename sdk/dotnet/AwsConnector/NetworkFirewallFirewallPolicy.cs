@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.AwsConnector
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:awsconnector/v20241201:NetworkFirewallFirewallPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_awsconnector_v20241201:awsconnector:NetworkFirewallFirewallPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

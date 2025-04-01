@@ -88,6 +88,8 @@ namespace Pulumi.AzureNative.Network
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101preview:VerifierWorkspace" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:VerifierWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240101preview:network:VerifierWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240501:network:VerifierWorkspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

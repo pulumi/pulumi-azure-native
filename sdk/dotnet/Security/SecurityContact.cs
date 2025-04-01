@@ -95,6 +95,9 @@ namespace Pulumi.AzureNative.Security
                     new global::Pulumi.Alias { Type = "azure-native:security/v20170801preview:SecurityContact" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20200101preview:SecurityContact" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20231201preview:SecurityContact" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20170801preview:security:SecurityContact" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20200101preview:security:SecurityContact" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20231201preview:security:SecurityContact" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -75,7 +75,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:CapabilityHost" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:CapabilityHost" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20241001preview:machinelearningservices:CapabilityHost" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20250101preview:machinelearningservices:CapabilityHost" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

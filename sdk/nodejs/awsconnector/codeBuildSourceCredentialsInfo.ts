@@ -100,7 +100,7 @@ export class CodeBuildSourceCredentialsInfo extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:CodeBuildSourceCredentialsInfo" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:CodeBuildSourceCredentialsInfo" }, { type: "azure-native_awsconnector_v20241201:awsconnector:CodeBuildSourceCredentialsInfo" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodeBuildSourceCredentialsInfo.__pulumiType, name, resourceInputs, opts);
     }

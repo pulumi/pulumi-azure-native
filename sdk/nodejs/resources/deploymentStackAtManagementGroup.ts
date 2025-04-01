@@ -208,7 +208,7 @@ export class DeploymentStackAtManagementGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20220801preview:DeploymentStackAtManagementGroup" }, { type: "azure-native:resources/v20240301:DeploymentStackAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20220801preview:DeploymentStackAtManagementGroup" }, { type: "azure-native:resources/v20240301:DeploymentStackAtManagementGroup" }, { type: "azure-native_resources_v20220801preview:resources:DeploymentStackAtManagementGroup" }, { type: "azure-native_resources_v20240301:resources:DeploymentStackAtManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentStackAtManagementGroup.__pulumiType, name, resourceInputs, opts);
     }

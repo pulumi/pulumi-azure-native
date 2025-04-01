@@ -134,7 +134,7 @@ export class Favorite extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:applicationinsights/v20150501:Favorite" }, { type: "azure-native:insights/v20150501:Favorite" }, { type: "azure-native:insights:Favorite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20150501:Favorite" }, { type: "azure-native:insights:Favorite" }, { type: "azure-native_applicationinsights_v20150501:applicationinsights:Favorite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Favorite.__pulumiType, name, resourceInputs, opts);
     }

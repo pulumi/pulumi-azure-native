@@ -113,7 +113,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:programmableconnectivity/v20240115preview:Gateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:programmableconnectivity/v20240115preview:Gateway" }, { type: "azure-native_programmableconnectivity_v20240115preview:programmableconnectivity:Gateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
     }

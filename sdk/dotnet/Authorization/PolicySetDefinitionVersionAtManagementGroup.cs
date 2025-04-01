@@ -119,7 +119,10 @@ namespace Pulumi.AzureNative.Authorization
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20230401:PolicySetDefinitionVersionAtManagementGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20240501:PolicySetDefinitionVersionAtManagementGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20250101:PolicySetDefinitionVersionAtManagementGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20250301:PolicySetDefinitionVersionAtManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20230401:authorization:PolicySetDefinitionVersionAtManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20240501:authorization:PolicySetDefinitionVersionAtManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20250101:authorization:PolicySetDefinitionVersionAtManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20250301:authorization:PolicySetDefinitionVersionAtManagementGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

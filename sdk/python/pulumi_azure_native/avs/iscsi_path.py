@@ -142,7 +142,7 @@ class IscsiPath(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20230901:IscsiPath")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20230901:IscsiPath"), pulumi.Alias(type_="azure-native_avs_v20230901:avs:IscsiPath")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IscsiPath, __self__).__init__(
             'azure-native:avs:IscsiPath',

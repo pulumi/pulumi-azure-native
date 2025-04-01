@@ -145,6 +145,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appcomplianceautomation/v20240627:Webhook" },
+                    new global::Pulumi.Alias { Type = "azure-native_appcomplianceautomation_v20240627:appcomplianceautomation:Webhook" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -186,7 +186,7 @@ class SqlServerEsuLicense(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20240501preview:SqlServerEsuLicense"), pulumi.Alias(type_="azure-native:azurearcdata/v20250301preview:SqlServerEsuLicense")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20240501preview:SqlServerEsuLicense"), pulumi.Alias(type_="azure-native_azurearcdata_v20240501preview:azurearcdata:SqlServerEsuLicense"), pulumi.Alias(type_="azure-native_azurearcdata_v20250301preview:azurearcdata:SqlServerEsuLicense")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlServerEsuLicense, __self__).__init__(
             'azure-native:azurearcdata:SqlServerEsuLicense',

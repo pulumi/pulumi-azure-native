@@ -92,14 +92,18 @@ namespace Pulumi.AzureNative.Communication
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:EmailService" },
-                    new global::Pulumi.Alias { Type = "azure-native:communication/v20220701preview:EmailService" },
-                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230301preview:EmailService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230331:EmailService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401:EmailService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:EmailService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230601preview:EmailService" },
-                    new global::Pulumi.Alias { Type = "azure-native:communication/v20240901preview:EmailService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20211001preview:communication:EmailService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20220701preview:communication:EmailService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20230301preview:communication:EmailService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20230331:communication:EmailService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20230401:communication:EmailService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20230401preview:communication:EmailService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20230601preview:communication:EmailService" },
+                    new global::Pulumi.Alias { Type = "azure-native_communication_v20240901preview:communication:EmailService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

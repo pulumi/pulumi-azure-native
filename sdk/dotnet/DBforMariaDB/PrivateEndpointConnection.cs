@@ -80,6 +80,8 @@ namespace Pulumi.AzureNative.DBforMariaDB
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601privatepreview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformariadb_v20180601:dbformariadb:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbformariadb_v20180601privatepreview:dbformariadb:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

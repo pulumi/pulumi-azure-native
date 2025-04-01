@@ -122,14 +122,17 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachineGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachineGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20231001:SqlVirtualMachineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20170301preview:sqlvirtualmachine:SqlVirtualMachineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20211101preview:sqlvirtualmachine:SqlVirtualMachineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20220201:sqlvirtualmachine:SqlVirtualMachineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20220201preview:sqlvirtualmachine:SqlVirtualMachineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20220701preview:sqlvirtualmachine:SqlVirtualMachineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20220801preview:sqlvirtualmachine:SqlVirtualMachineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20230101preview:sqlvirtualmachine:SqlVirtualMachineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20231001:sqlvirtualmachine:SqlVirtualMachineGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

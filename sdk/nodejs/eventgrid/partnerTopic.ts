@@ -153,7 +153,7 @@ export class PartnerTopic extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:PartnerTopic" }, { type: "azure-native:eventgrid/v20220615:PartnerTopic" }, { type: "azure-native:eventgrid/v20230601preview:PartnerTopic" }, { type: "azure-native:eventgrid/v20231215preview:PartnerTopic" }, { type: "azure-native:eventgrid/v20240601preview:PartnerTopic" }, { type: "azure-native:eventgrid/v20241215preview:PartnerTopic" }, { type: "azure-native:eventgrid/v20250215:PartnerTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20220615:PartnerTopic" }, { type: "azure-native:eventgrid/v20230601preview:PartnerTopic" }, { type: "azure-native:eventgrid/v20231215preview:PartnerTopic" }, { type: "azure-native:eventgrid/v20240601preview:PartnerTopic" }, { type: "azure-native:eventgrid/v20241215preview:PartnerTopic" }, { type: "azure-native_eventgrid_v20211015preview:eventgrid:PartnerTopic" }, { type: "azure-native_eventgrid_v20220615:eventgrid:PartnerTopic" }, { type: "azure-native_eventgrid_v20230601preview:eventgrid:PartnerTopic" }, { type: "azure-native_eventgrid_v20231215preview:eventgrid:PartnerTopic" }, { type: "azure-native_eventgrid_v20240601preview:eventgrid:PartnerTopic" }, { type: "azure-native_eventgrid_v20241215preview:eventgrid:PartnerTopic" }, { type: "azure-native_eventgrid_v20250215:eventgrid:PartnerTopic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerTopic.__pulumiType, name, resourceInputs, opts);
     }

@@ -141,7 +141,7 @@ export class HypervSitesController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:HypervSitesController" }, { type: "azure-native:offazure/v20200707:HyperVSite" }, { type: "azure-native:offazure/v20200707:HypervSitesController" }, { type: "azure-native:offazure/v20230606:HypervSitesController" }, { type: "azure-native:offazure/v20231001preview:HypervSitesController" }, { type: "azure-native:offazure/v20240501preview:HypervSitesController" }, { type: "azure-native:offazure:HyperVSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200707:HyperVSite" }, { type: "azure-native:offazure/v20230606:HypervSitesController" }, { type: "azure-native:offazure/v20231001preview:HypervSitesController" }, { type: "azure-native:offazure/v20240501preview:HypervSitesController" }, { type: "azure-native:offazure:HyperVSite" }, { type: "azure-native_offazure_v20200101:offazure:HypervSitesController" }, { type: "azure-native_offazure_v20200707:offazure:HypervSitesController" }, { type: "azure-native_offazure_v20230606:offazure:HypervSitesController" }, { type: "azure-native_offazure_v20231001preview:offazure:HypervSitesController" }, { type: "azure-native_offazure_v20240501preview:offazure:HypervSitesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HypervSitesController.__pulumiType, name, resourceInputs, opts);
     }

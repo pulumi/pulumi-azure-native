@@ -223,7 +223,7 @@ class PrivateLinkServicesForSCCPowershell(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:PrivateLinkServicesForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:PrivateLinkServicesForSCCPowershell")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:PrivateLinkServicesForSCCPowershell"), pulumi.Alias(type_="azure-native_securityandcompliance_v20210111:securityandcompliance:PrivateLinkServicesForSCCPowershell"), pulumi.Alias(type_="azure-native_securityandcompliance_v20210308:securityandcompliance:PrivateLinkServicesForSCCPowershell")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkServicesForSCCPowershell, __self__).__init__(
             'azure-native:securityandcompliance:PrivateLinkServicesForSCCPowershell',

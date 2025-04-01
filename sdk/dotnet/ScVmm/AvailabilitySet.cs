@@ -104,11 +104,15 @@ namespace Pulumi.AzureNative.ScVmm
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:AvailabilitySet" },
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:AvailabilitySet" },
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20230401preview:AvailabilitySet" },
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20231007:AvailabilitySet" },
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20240601:AvailabilitySet" },
+                    new global::Pulumi.Alias { Type = "azure-native_scvmm_v20200605preview:scvmm:AvailabilitySet" },
+                    new global::Pulumi.Alias { Type = "azure-native_scvmm_v20220521preview:scvmm:AvailabilitySet" },
+                    new global::Pulumi.Alias { Type = "azure-native_scvmm_v20230401preview:scvmm:AvailabilitySet" },
+                    new global::Pulumi.Alias { Type = "azure-native_scvmm_v20231007:scvmm:AvailabilitySet" },
+                    new global::Pulumi.Alias { Type = "azure-native_scvmm_v20240601:scvmm:AvailabilitySet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

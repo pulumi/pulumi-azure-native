@@ -102,7 +102,7 @@ export class CustomApi extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160601:CustomApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160601:CustomApi" }, { type: "azure-native_web_v20160601:web:CustomApi" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomApi.__pulumiType, name, resourceInputs, opts);
     }

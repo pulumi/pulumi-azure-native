@@ -111,7 +111,7 @@ export class NetworkFunctionDefinitionVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:NetworkFunctionDefinitionVersion" }, { type: "azure-native:hybridnetwork/v20240415:NetworkFunctionDefinitionVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:NetworkFunctionDefinitionVersion" }, { type: "azure-native:hybridnetwork/v20240415:NetworkFunctionDefinitionVersion" }, { type: "azure-native_hybridnetwork_v20230901:hybridnetwork:NetworkFunctionDefinitionVersion" }, { type: "azure-native_hybridnetwork_v20240415:hybridnetwork:NetworkFunctionDefinitionVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkFunctionDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }

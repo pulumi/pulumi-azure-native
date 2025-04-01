@@ -100,7 +100,7 @@ export class IamGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamGroup" }, { type: "azure-native_awsconnector_v20241201:awsconnector:IamGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IamGroup.__pulumiType, name, resourceInputs, opts);
     }

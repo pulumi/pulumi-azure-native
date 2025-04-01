@@ -120,13 +120,14 @@ namespace Pulumi.AzureNative.DigitalTwins
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20200301preview:DigitalTwin" },
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20201031:DigitalTwin" },
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:DigitalTwin" },
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:DigitalTwin" },
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20220531:DigitalTwin" },
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20221031:DigitalTwin" },
                     new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20230131:DigitalTwin" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20200301preview:digitaltwins:DigitalTwin" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20201031:digitaltwins:DigitalTwin" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20201201:digitaltwins:DigitalTwin" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20210630preview:digitaltwins:DigitalTwin" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20220531:digitaltwins:DigitalTwin" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20221031:digitaltwins:DigitalTwin" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20230131:digitaltwins:DigitalTwin" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

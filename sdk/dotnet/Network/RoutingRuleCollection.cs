@@ -106,6 +106,8 @@ namespace Pulumi.AzureNative.Network
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:RoutingRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:RoutingRuleCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240301:network:RoutingRuleCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240501:network:RoutingRuleCollection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -100,7 +100,7 @@ export class EcsTaskDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:EcsTaskDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:EcsTaskDefinition" }, { type: "azure-native_awsconnector_v20241201:awsconnector:EcsTaskDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EcsTaskDefinition.__pulumiType, name, resourceInputs, opts);
     }

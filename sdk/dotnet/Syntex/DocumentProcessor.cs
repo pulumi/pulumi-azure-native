@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.Syntex
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:syntex/v20220915preview:DocumentProcessor" },
+                    new global::Pulumi.Alias { Type = "azure-native_syntex_v20220915preview:syntex:DocumentProcessor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

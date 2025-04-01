@@ -80,10 +80,6 @@ namespace Pulumi.AzureNative.Chaos
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20210915preview:Target" },
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20220701preview:Target" },
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20221001preview:Target" },
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20230401preview:Target" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20230415preview:Target" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20230901preview:Target" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20231027preview:Target" },
@@ -91,7 +87,18 @@ namespace Pulumi.AzureNative.Chaos
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20240101:Target" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20240322preview:Target" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20241101preview:Target" },
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20250101:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20210915preview:chaos:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20220701preview:chaos:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20221001preview:chaos:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20230401preview:chaos:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20230415preview:chaos:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20230901preview:chaos:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20231027preview:chaos:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20231101:chaos:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20240101:chaos:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20240322preview:chaos:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20241101preview:chaos:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native_chaos_v20250101:chaos:Target" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -108,7 +108,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scom/v20230707preview:Instance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scom/v20230707preview:Instance" }, { type: "azure-native_scom_v20230707preview:scom:Instance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }

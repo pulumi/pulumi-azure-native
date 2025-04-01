@@ -113,7 +113,7 @@ export class ManufacturingDataService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:manufacturingplatform/v20250301:ManufacturingDataService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native_manufacturingplatform_v20250301:manufacturingplatform:ManufacturingDataService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManufacturingDataService.__pulumiType, name, resourceInputs, opts);
     }

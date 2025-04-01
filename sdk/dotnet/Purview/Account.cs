@@ -205,6 +205,11 @@ namespace Pulumi.AzureNative.Purview
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20211201:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20230501preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20240401preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native_purview_v20201201preview:purview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native_purview_v20210701:purview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native_purview_v20211201:purview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native_purview_v20230501preview:purview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native_purview_v20240401preview:purview:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

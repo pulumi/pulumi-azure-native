@@ -142,7 +142,7 @@ export class KustoPoolAttachedDatabaseConfiguration extends pulumi.CustomResourc
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration" }, { type: "azure-native_synapse_v20210601preview:synapse:KustoPoolAttachedDatabaseConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KustoPoolAttachedDatabaseConfiguration.__pulumiType, name, resourceInputs, opts);
     }

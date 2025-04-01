@@ -311,7 +311,7 @@ class PolicyExemption(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20200701preview:PolicyExemption"), pulumi.Alias(type_="azure-native:authorization/v20220701preview:PolicyExemption"), pulumi.Alias(type_="azure-native:authorization/v20241201preview:PolicyExemption")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20220701preview:PolicyExemption"), pulumi.Alias(type_="azure-native_authorization_v20200701preview:authorization:PolicyExemption"), pulumi.Alias(type_="azure-native_authorization_v20220701preview:authorization:PolicyExemption"), pulumi.Alias(type_="azure-native_authorization_v20241201preview:authorization:PolicyExemption")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyExemption, __self__).__init__(
             'azure-native:authorization:PolicyExemption',

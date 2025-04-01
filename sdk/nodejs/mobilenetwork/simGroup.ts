@@ -121,7 +121,7 @@ export class SimGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220401preview:SimGroup" }, { type: "azure-native:mobilenetwork/v20221101:SimGroup" }, { type: "azure-native:mobilenetwork/v20230601:SimGroup" }, { type: "azure-native:mobilenetwork/v20230901:SimGroup" }, { type: "azure-native:mobilenetwork/v20240201:SimGroup" }, { type: "azure-native:mobilenetwork/v20240401:SimGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220401preview:SimGroup" }, { type: "azure-native:mobilenetwork/v20221101:SimGroup" }, { type: "azure-native:mobilenetwork/v20230601:SimGroup" }, { type: "azure-native:mobilenetwork/v20230901:SimGroup" }, { type: "azure-native:mobilenetwork/v20240201:SimGroup" }, { type: "azure-native:mobilenetwork/v20240401:SimGroup" }, { type: "azure-native_mobilenetwork_v20220401preview:mobilenetwork:SimGroup" }, { type: "azure-native_mobilenetwork_v20221101:mobilenetwork:SimGroup" }, { type: "azure-native_mobilenetwork_v20230601:mobilenetwork:SimGroup" }, { type: "azure-native_mobilenetwork_v20230901:mobilenetwork:SimGroup" }, { type: "azure-native_mobilenetwork_v20240201:mobilenetwork:SimGroup" }, { type: "azure-native_mobilenetwork_v20240401:mobilenetwork:SimGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SimGroup.__pulumiType, name, resourceInputs, opts);
     }

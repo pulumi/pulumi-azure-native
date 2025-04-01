@@ -98,14 +98,18 @@ namespace Pulumi.AzureNative.Kusto
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:ManagedPrivateEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:ManagedPrivateEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:ManagedPrivateEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_kusto_v20210827:kusto:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_kusto_v20220201:kusto:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_kusto_v20220707:kusto:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_kusto_v20221111:kusto:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_kusto_v20221229:kusto:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_kusto_v20230502:kusto:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_kusto_v20230815:kusto:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_kusto_v20240413:kusto:ManagedPrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

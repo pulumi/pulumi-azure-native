@@ -92,14 +92,19 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ManagedInstanceLongTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:ManagedInstanceLongTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ManagedInstanceLongTermRetentionPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:ManagedInstanceLongTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:ManagedInstanceLongTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:ManagedInstanceLongTermRetentionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20220501preview:sql:ManagedInstanceLongTermRetentionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20220801preview:sql:ManagedInstanceLongTermRetentionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20221101preview:sql:ManagedInstanceLongTermRetentionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230201preview:sql:ManagedInstanceLongTermRetentionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230501preview:sql:ManagedInstanceLongTermRetentionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230801:sql:ManagedInstanceLongTermRetentionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230801preview:sql:ManagedInstanceLongTermRetentionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20240501preview:sql:ManagedInstanceLongTermRetentionPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

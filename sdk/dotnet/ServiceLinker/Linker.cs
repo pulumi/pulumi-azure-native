@@ -123,12 +123,17 @@ namespace Pulumi.AzureNative.ServiceLinker
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20211101preview:Linker" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20220101preview:Linker" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20220501:Linker" },
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20221101preview:Linker" },
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20230401preview:Linker" },
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20240401:Linker" },
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20240701preview:Linker" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicelinker_v20211101preview:servicelinker:Linker" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicelinker_v20220101preview:servicelinker:Linker" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicelinker_v20220501:servicelinker:Linker" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicelinker_v20221101preview:servicelinker:Linker" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicelinker_v20230401preview:servicelinker:Linker" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicelinker_v20240401:servicelinker:Linker" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicelinker_v20240701preview:servicelinker:Linker" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

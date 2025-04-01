@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.EngagementFabric
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:engagementfabric/v20180901preview:Channel" },
+                    new global::Pulumi.Alias { Type = "azure-native_engagementfabric_v20180901preview:engagementfabric:Channel" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

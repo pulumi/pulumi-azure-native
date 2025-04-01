@@ -115,7 +115,12 @@ namespace Pulumi.AzureNative.HybridCompute
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:Gateway" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240910preview:Gateway" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20241110preview:Gateway" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20250113:Gateway" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240331preview:hybridcompute:Gateway" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240520preview:hybridcompute:Gateway" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240731preview:hybridcompute:Gateway" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20240910preview:hybridcompute:Gateway" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20241110preview:hybridcompute:Gateway" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcompute_v20250113:hybridcompute:Gateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

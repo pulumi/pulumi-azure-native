@@ -131,7 +131,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
             resourceInputs["virtualNetworkLinkState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200601:VirtualNetworkLink" }, { type: "azure-native:network/v20240601:VirtualNetworkLink" }, { type: "azure-native:network:VirtualNetworkLink" }, { type: "azure-native:privatedns/v20180901:VirtualNetworkLink" }, { type: "azure-native:privatedns/v20200101:VirtualNetworkLink" }, { type: "azure-native:privatedns/v20200601:VirtualNetworkLink" }, { type: "azure-native:privatedns/v20240601:VirtualNetworkLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200601:VirtualNetworkLink" }, { type: "azure-native:network/v20240601:VirtualNetworkLink" }, { type: "azure-native:network:VirtualNetworkLink" }, { type: "azure-native_privatedns_v20180901:privatedns:VirtualNetworkLink" }, { type: "azure-native_privatedns_v20200101:privatedns:VirtualNetworkLink" }, { type: "azure-native_privatedns_v20200601:privatedns:VirtualNetworkLink" }, { type: "azure-native_privatedns_v20240601:privatedns:VirtualNetworkLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkLink.__pulumiType, name, resourceInputs, opts);
     }

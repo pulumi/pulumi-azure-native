@@ -80,6 +80,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesruntime/v20231001preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesruntime/v20240301:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesruntime_v20231001preview:kubernetesruntime:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesruntime_v20240301:kubernetesruntime:Service" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

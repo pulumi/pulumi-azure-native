@@ -104,7 +104,7 @@ export class KeyGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20230701preview:KeyGroup" }, { type: "azure-native:cdn/v20240501preview:KeyGroup" }, { type: "azure-native:cdn/v20240601preview:KeyGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20230701preview:KeyGroup" }, { type: "azure-native:cdn/v20240501preview:KeyGroup" }, { type: "azure-native:cdn/v20240601preview:KeyGroup" }, { type: "azure-native_cdn_v20230701preview:cdn:KeyGroup" }, { type: "azure-native_cdn_v20240501preview:cdn:KeyGroup" }, { type: "azure-native_cdn_v20240601preview:cdn:KeyGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KeyGroup.__pulumiType, name, resourceInputs, opts);
     }

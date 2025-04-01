@@ -85,6 +85,8 @@ namespace Pulumi.AzureNative.Web
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20150801preview:Connection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160601:Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20150801preview:web:Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20160601:web:Connection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

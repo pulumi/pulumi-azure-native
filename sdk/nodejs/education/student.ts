@@ -175,7 +175,7 @@ export class Student extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:education/v20211201preview:Student" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:education/v20211201preview:Student" }, { type: "azure-native_education_v20211201preview:education:Student" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Student.__pulumiType, name, resourceInputs, opts);
     }

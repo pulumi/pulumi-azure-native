@@ -190,7 +190,7 @@ class ReplicationLink(pulumi.CustomResource):
             __props__.__dict__["role"] = None
             __props__.__dict__["start_time"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20230501preview:ReplicationLink"), pulumi.Alias(type_="azure-native:sql/v20230801:ReplicationLink"), pulumi.Alias(type_="azure-native:sql/v20230801preview:ReplicationLink"), pulumi.Alias(type_="azure-native:sql/v20240501preview:ReplicationLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20230501preview:ReplicationLink"), pulumi.Alias(type_="azure-native:sql/v20230801preview:ReplicationLink"), pulumi.Alias(type_="azure-native:sql/v20240501preview:ReplicationLink"), pulumi.Alias(type_="azure-native_sql_v20230501preview:sql:ReplicationLink"), pulumi.Alias(type_="azure-native_sql_v20230801:sql:ReplicationLink"), pulumi.Alias(type_="azure-native_sql_v20230801preview:sql:ReplicationLink"), pulumi.Alias(type_="azure-native_sql_v20240501preview:sql:ReplicationLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationLink, __self__).__init__(
             'azure-native:sql:ReplicationLink',

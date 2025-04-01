@@ -268,7 +268,7 @@ class WorkspaceLogger(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceLogger"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceLogger"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceLogger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceLogger"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceLogger"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceLogger"), pulumi.Alias(type_="azure-native_apimanagement_v20230901preview:apimanagement:WorkspaceLogger"), pulumi.Alias(type_="azure-native_apimanagement_v20240501:apimanagement:WorkspaceLogger"), pulumi.Alias(type_="azure-native_apimanagement_v20240601preview:apimanagement:WorkspaceLogger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceLogger, __self__).__init__(
             'azure-native:apimanagement:WorkspaceLogger',

@@ -309,7 +309,7 @@ class BackupSchedule(pulumi.CustomResource):
             __props__.__dict__["last_successful_run"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple/v20170601:BackupSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple/v20170601:BackupSchedule"), pulumi.Alias(type_="azure-native_storsimple_v20170601:storsimple:BackupSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupSchedule, __self__).__init__(
             'azure-native:storsimple:BackupSchedule',

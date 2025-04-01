@@ -112,7 +112,7 @@ export class DotNetComponent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20231102preview:DotNetComponent" }, { type: "azure-native:app/v20240202preview:DotNetComponent" }, { type: "azure-native:app/v20240802preview:DotNetComponent" }, { type: "azure-native:app/v20241002preview:DotNetComponent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20231102preview:DotNetComponent" }, { type: "azure-native:app/v20240202preview:DotNetComponent" }, { type: "azure-native:app/v20240802preview:DotNetComponent" }, { type: "azure-native:app/v20241002preview:DotNetComponent" }, { type: "azure-native_app_v20231102preview:app:DotNetComponent" }, { type: "azure-native_app_v20240202preview:app:DotNetComponent" }, { type: "azure-native_app_v20240802preview:app:DotNetComponent" }, { type: "azure-native_app_v20241002preview:app:DotNetComponent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DotNetComponent.__pulumiType, name, resourceInputs, opts);
     }

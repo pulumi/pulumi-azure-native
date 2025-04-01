@@ -94,7 +94,7 @@ export class VariableValue extends pulumi.CustomResource {
             resourceInputs["values"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20220801preview:VariableValue" }, { type: "azure-native:authorization/v20241201preview:VariableValue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20220801preview:VariableValue" }, { type: "azure-native_authorization_v20220801preview:authorization:VariableValue" }, { type: "azure-native_authorization_v20241201preview:authorization:VariableValue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VariableValue.__pulumiType, name, resourceInputs, opts);
     }

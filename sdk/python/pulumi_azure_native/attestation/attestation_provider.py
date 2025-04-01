@@ -188,7 +188,7 @@ class AttestationProvider(pulumi.CustomResource):
             __props__.__dict__["tpm_attestation_authentication"] = None
             __props__.__dict__["trust_model"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:attestation/v20180901preview:AttestationProvider"), pulumi.Alias(type_="azure-native:attestation/v20201001:AttestationProvider"), pulumi.Alias(type_="azure-native:attestation/v20210601:AttestationProvider"), pulumi.Alias(type_="azure-native:attestation/v20210601preview:AttestationProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:attestation/v20210601:AttestationProvider"), pulumi.Alias(type_="azure-native:attestation/v20210601preview:AttestationProvider"), pulumi.Alias(type_="azure-native_attestation_v20180901preview:attestation:AttestationProvider"), pulumi.Alias(type_="azure-native_attestation_v20201001:attestation:AttestationProvider"), pulumi.Alias(type_="azure-native_attestation_v20210601:attestation:AttestationProvider"), pulumi.Alias(type_="azure-native_attestation_v20210601preview:attestation:AttestationProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttestationProvider, __self__).__init__(
             'azure-native:attestation:AttestationProvider',

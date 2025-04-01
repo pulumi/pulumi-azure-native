@@ -350,7 +350,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurefleet/v20231101preview:Fleet"), pulumi.Alias(type_="azure-native:azurefleet/v20240501preview:Fleet"), pulumi.Alias(type_="azure-native:azurefleet/v20241101:Fleet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurefleet/v20231101preview:Fleet"), pulumi.Alias(type_="azure-native:azurefleet/v20240501preview:Fleet"), pulumi.Alias(type_="azure-native:azurefleet/v20241101:Fleet"), pulumi.Alias(type_="azure-native_azurefleet_v20231101preview:azurefleet:Fleet"), pulumi.Alias(type_="azure-native_azurefleet_v20240501preview:azurefleet:Fleet"), pulumi.Alias(type_="azure-native_azurefleet_v20241101:azurefleet:Fleet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Fleet, __self__).__init__(
             'azure-native:azurefleet:Fleet',

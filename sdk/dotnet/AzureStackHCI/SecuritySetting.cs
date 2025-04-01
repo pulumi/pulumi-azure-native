@@ -104,6 +104,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240401:SecuritySetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240901preview:SecuritySetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241201preview:SecuritySetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20231101preview:azurestackhci:SecuritySetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240101:azurestackhci:SecuritySetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240215preview:azurestackhci:SecuritySetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240401:azurestackhci:SecuritySetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240901preview:azurestackhci:SecuritySetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20241201preview:azurestackhci:SecuritySetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

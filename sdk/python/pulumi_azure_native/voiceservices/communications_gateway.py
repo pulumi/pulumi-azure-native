@@ -487,7 +487,7 @@ class CommunicationsGateway(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:voiceservices/v20221201preview:CommunicationsGateway"), pulumi.Alias(type_="azure-native:voiceservices/v20230131:CommunicationsGateway"), pulumi.Alias(type_="azure-native:voiceservices/v20230403:CommunicationsGateway"), pulumi.Alias(type_="azure-native:voiceservices/v20230901:CommunicationsGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:voiceservices/v20230403:CommunicationsGateway"), pulumi.Alias(type_="azure-native:voiceservices/v20230901:CommunicationsGateway"), pulumi.Alias(type_="azure-native_voiceservices_v20221201preview:voiceservices:CommunicationsGateway"), pulumi.Alias(type_="azure-native_voiceservices_v20230131:voiceservices:CommunicationsGateway"), pulumi.Alias(type_="azure-native_voiceservices_v20230403:voiceservices:CommunicationsGateway"), pulumi.Alias(type_="azure-native_voiceservices_v20230901:voiceservices:CommunicationsGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CommunicationsGateway, __self__).__init__(
             'azure-native:voiceservices:CommunicationsGateway',

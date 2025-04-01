@@ -100,7 +100,7 @@ export class Ec2RouteTable extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2RouteTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2RouteTable" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2RouteTable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2RouteTable.__pulumiType, name, resourceInputs, opts);
     }

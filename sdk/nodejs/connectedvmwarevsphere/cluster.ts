@@ -193,7 +193,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["vCenterId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20230301preview:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20231001:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20231201:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20220715preview:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20230301preview:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20231001:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20231201:Cluster" }, { type: "azure-native_connectedvmwarevsphere_v20201001preview:connectedvmwarevsphere:Cluster" }, { type: "azure-native_connectedvmwarevsphere_v20220110preview:connectedvmwarevsphere:Cluster" }, { type: "azure-native_connectedvmwarevsphere_v20220715preview:connectedvmwarevsphere:Cluster" }, { type: "azure-native_connectedvmwarevsphere_v20230301preview:connectedvmwarevsphere:Cluster" }, { type: "azure-native_connectedvmwarevsphere_v20231001:connectedvmwarevsphere:Cluster" }, { type: "azure-native_connectedvmwarevsphere_v20231201:connectedvmwarevsphere:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

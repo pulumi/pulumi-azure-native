@@ -81,7 +81,7 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20200501:PrivateLinkAssociation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20200501:PrivateLinkAssociation" }, { type: "azure-native_authorization_v20200501:authorization:PrivateLinkAssociation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkAssociation.__pulumiType, name, resourceInputs, opts);
     }

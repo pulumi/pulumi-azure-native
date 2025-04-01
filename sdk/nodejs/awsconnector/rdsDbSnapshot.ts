@@ -100,7 +100,7 @@ export class RdsDbSnapshot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:RdsDbSnapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:RdsDbSnapshot" }, { type: "azure-native_awsconnector_v20241201:awsconnector:RdsDbSnapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RdsDbSnapshot.__pulumiType, name, resourceInputs, opts);
     }

@@ -101,7 +101,7 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20240405:GuestConfigurationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20240405:GuestConfigurationAssignment" }, { type: "azure-native_guestconfiguration_v20180630preview:guestconfiguration:GuestConfigurationAssignment" }, { type: "azure-native_guestconfiguration_v20181120:guestconfiguration:GuestConfigurationAssignment" }, { type: "azure-native_guestconfiguration_v20200625:guestconfiguration:GuestConfigurationAssignment" }, { type: "azure-native_guestconfiguration_v20210125:guestconfiguration:GuestConfigurationAssignment" }, { type: "azure-native_guestconfiguration_v20220125:guestconfiguration:GuestConfigurationAssignment" }, { type: "azure-native_guestconfiguration_v20240405:guestconfiguration:GuestConfigurationAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestConfigurationAssignment.__pulumiType, name, resourceInputs, opts);
     }

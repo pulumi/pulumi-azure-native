@@ -104,7 +104,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:relay/v20160701:NamespaceAuthorizationRule" }, { type: "azure-native:relay/v20170401:NamespaceAuthorizationRule" }, { type: "azure-native:relay/v20211101:NamespaceAuthorizationRule" }, { type: "azure-native:relay/v20240101:NamespaceAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:relay/v20170401:NamespaceAuthorizationRule" }, { type: "azure-native:relay/v20211101:NamespaceAuthorizationRule" }, { type: "azure-native:relay/v20240101:NamespaceAuthorizationRule" }, { type: "azure-native_relay_v20160701:relay:NamespaceAuthorizationRule" }, { type: "azure-native_relay_v20170401:relay:NamespaceAuthorizationRule" }, { type: "azure-native_relay_v20211101:relay:NamespaceAuthorizationRule" }, { type: "azure-native_relay_v20240101:relay:NamespaceAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }

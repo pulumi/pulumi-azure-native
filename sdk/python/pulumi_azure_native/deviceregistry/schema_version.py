@@ -205,7 +205,7 @@ class SchemaVersion(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:SchemaVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:SchemaVersion"), pulumi.Alias(type_="azure-native_deviceregistry_v20240901preview:deviceregistry:SchemaVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SchemaVersion, __self__).__init__(
             'azure-native:deviceregistry:SchemaVersion',

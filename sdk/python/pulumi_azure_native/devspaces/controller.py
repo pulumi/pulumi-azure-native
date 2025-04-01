@@ -222,7 +222,7 @@ class Controller(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["target_container_host_api_server_fqdn"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devspaces/v20190401:Controller")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devspaces/v20190401:Controller"), pulumi.Alias(type_="azure-native_devspaces_v20190401:devspaces:Controller")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Controller, __self__).__init__(
             'azure-native:devspaces:Controller',

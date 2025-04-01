@@ -87,15 +87,16 @@ namespace Pulumi.AzureNative.OffAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:Site" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:SitesController" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:SitesController" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:SitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure:SitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20200101:offazure:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20200707:offazure:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20230606:offazure:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20231001preview:offazure:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20240501preview:offazure:Site" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

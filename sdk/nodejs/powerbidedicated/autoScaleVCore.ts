@@ -122,7 +122,7 @@ export class AutoScaleVCore extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:powerbidedicated/v20210101:AutoScaleVCore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:powerbidedicated/v20210101:AutoScaleVCore" }, { type: "azure-native_powerbidedicated_v20210101:powerbidedicated:AutoScaleVCore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutoScaleVCore.__pulumiType, name, resourceInputs, opts);
     }

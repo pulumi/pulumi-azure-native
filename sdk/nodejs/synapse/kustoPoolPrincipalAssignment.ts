@@ -150,7 +150,7 @@ export class KustoPoolPrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment" }, { type: "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment" }, { type: "azure-native_synapse_v20210401preview:synapse:KustoPoolPrincipalAssignment" }, { type: "azure-native_synapse_v20210601preview:synapse:KustoPoolPrincipalAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KustoPoolPrincipalAssignment.__pulumiType, name, resourceInputs, opts);
     }

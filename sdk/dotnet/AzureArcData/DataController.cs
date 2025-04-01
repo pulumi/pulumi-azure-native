@@ -92,16 +92,19 @@ namespace Pulumi.AzureNative.AzureArcData
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210601preview:DataController" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:DataController" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210801:DataController" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20211101:DataController" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:DataController" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:DataController" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:DataController" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240101:DataController" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:DataController" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:DataController" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20210601preview:azurearcdata:DataController" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20210701preview:azurearcdata:DataController" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20210801:azurearcdata:DataController" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20211101:azurearcdata:DataController" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20220301preview:azurearcdata:DataController" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20220615preview:azurearcdata:DataController" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20230115preview:azurearcdata:DataController" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20240101:azurearcdata:DataController" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20240501preview:azurearcdata:DataController" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20250301preview:azurearcdata:DataController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -140,7 +140,7 @@ class CustomEntityStoreAssignment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20210701preview:CustomEntityStoreAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20210701preview:CustomEntityStoreAssignment"), pulumi.Alias(type_="azure-native_security_v20210701preview:security:CustomEntityStoreAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomEntityStoreAssignment, __self__).__init__(
             'azure-native:security:CustomEntityStoreAssignment',

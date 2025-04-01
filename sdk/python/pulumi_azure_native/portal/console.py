@@ -118,7 +118,7 @@ class Console(pulumi.CustomResource):
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             __props__.__dict__["azure_api_version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20181001:Console")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20181001:Console"), pulumi.Alias(type_="azure-native_portal_v20181001:portal:Console")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Console, __self__).__init__(
             'azure-native:portal:Console',

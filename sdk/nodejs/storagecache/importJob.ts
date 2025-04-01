@@ -185,7 +185,7 @@ export class ImportJob extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20240301:ImportJob" }, { type: "azure-native:storagecache/v20240701:ImportJob" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20240301:ImportJob" }, { type: "azure-native_storagecache_v20240301:storagecache:ImportJob" }, { type: "azure-native_storagecache_v20240701:storagecache:ImportJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ImportJob.__pulumiType, name, resourceInputs, opts);
     }

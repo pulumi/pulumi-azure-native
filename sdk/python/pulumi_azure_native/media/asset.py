@@ -248,7 +248,7 @@ class Asset(pulumi.CustomResource):
             __props__.__dict__["storage_encryption_format"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20180330preview:Asset"), pulumi.Alias(type_="azure-native:media/v20180601preview:Asset"), pulumi.Alias(type_="azure-native:media/v20180701:Asset"), pulumi.Alias(type_="azure-native:media/v20200501:Asset"), pulumi.Alias(type_="azure-native:media/v20210601:Asset"), pulumi.Alias(type_="azure-native:media/v20211101:Asset"), pulumi.Alias(type_="azure-native:media/v20220801:Asset"), pulumi.Alias(type_="azure-native:media/v20230101:Asset")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20230101:Asset"), pulumi.Alias(type_="azure-native_media_v20180330preview:media:Asset"), pulumi.Alias(type_="azure-native_media_v20180601preview:media:Asset"), pulumi.Alias(type_="azure-native_media_v20180701:media:Asset"), pulumi.Alias(type_="azure-native_media_v20200501:media:Asset"), pulumi.Alias(type_="azure-native_media_v20210601:media:Asset"), pulumi.Alias(type_="azure-native_media_v20211101:media:Asset"), pulumi.Alias(type_="azure-native_media_v20220801:media:Asset"), pulumi.Alias(type_="azure-native_media_v20230101:media:Asset")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Asset, __self__).__init__(
             'azure-native:media:Asset',

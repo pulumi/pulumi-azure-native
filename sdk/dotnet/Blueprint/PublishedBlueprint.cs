@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.Blueprint
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:PublishedBlueprint" },
+                    new global::Pulumi.Alias { Type = "azure-native_blueprint_v20181101preview:blueprint:PublishedBlueprint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

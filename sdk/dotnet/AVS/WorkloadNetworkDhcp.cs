@@ -98,13 +98,17 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkDhcp" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkDhcp" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkDhcp" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkDhcp" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:WorkloadNetworkDhcp" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:WorkloadNetworkDhcp" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:WorkloadNetworkDhcp" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20200717preview:avs:WorkloadNetworkDhcp" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210101preview:avs:WorkloadNetworkDhcp" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210601:avs:WorkloadNetworkDhcp" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20211201:avs:WorkloadNetworkDhcp" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20220501:avs:WorkloadNetworkDhcp" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230301:avs:WorkloadNetworkDhcp" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230901:avs:WorkloadNetworkDhcp" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

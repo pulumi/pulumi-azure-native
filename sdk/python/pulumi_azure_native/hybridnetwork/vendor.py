@@ -100,7 +100,7 @@ class Vendor(pulumi.CustomResource):
             __props__.__dict__["skus"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:Vendor"), pulumi.Alias(type_="azure-native:hybridnetwork/v20210501:Vendor"), pulumi.Alias(type_="azure-native:hybridnetwork/v20220101preview:Vendor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20220101preview:Vendor"), pulumi.Alias(type_="azure-native_hybridnetwork_v20200101preview:hybridnetwork:Vendor"), pulumi.Alias(type_="azure-native_hybridnetwork_v20210501:hybridnetwork:Vendor"), pulumi.Alias(type_="azure-native_hybridnetwork_v20220101preview:hybridnetwork:Vendor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Vendor, __self__).__init__(
             'azure-native:hybridnetwork:Vendor',

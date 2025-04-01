@@ -248,7 +248,7 @@ class StorageTask(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["task_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storageactions/v20230101:StorageTask")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storageactions/v20230101:StorageTask"), pulumi.Alias(type_="azure-native_storageactions_v20230101:storageactions:StorageTask")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageTask, __self__).__init__(
             'azure-native:storageactions:StorageTask',

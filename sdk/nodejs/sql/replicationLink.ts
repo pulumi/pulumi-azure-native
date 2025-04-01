@@ -159,7 +159,7 @@ export class ReplicationLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20230501preview:ReplicationLink" }, { type: "azure-native:sql/v20230801:ReplicationLink" }, { type: "azure-native:sql/v20230801preview:ReplicationLink" }, { type: "azure-native:sql/v20240501preview:ReplicationLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20230501preview:ReplicationLink" }, { type: "azure-native:sql/v20230801preview:ReplicationLink" }, { type: "azure-native:sql/v20240501preview:ReplicationLink" }, { type: "azure-native_sql_v20230501preview:sql:ReplicationLink" }, { type: "azure-native_sql_v20230801:sql:ReplicationLink" }, { type: "azure-native_sql_v20230801preview:sql:ReplicationLink" }, { type: "azure-native_sql_v20240501preview:sql:ReplicationLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationLink.__pulumiType, name, resourceInputs, opts);
     }

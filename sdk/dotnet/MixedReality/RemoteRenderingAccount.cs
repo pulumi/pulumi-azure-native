@@ -122,11 +122,13 @@ namespace Pulumi.AzureNative.MixedReality
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount" },
-                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:RemoteRenderingAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount" },
-                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20250101:RemoteRenderingAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_mixedreality_v20191202preview:mixedreality:RemoteRenderingAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_mixedreality_v20200406preview:mixedreality:RemoteRenderingAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_mixedreality_v20210101:mixedreality:RemoteRenderingAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_mixedreality_v20210301preview:mixedreality:RemoteRenderingAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_mixedreality_v20250101:mixedreality:RemoteRenderingAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

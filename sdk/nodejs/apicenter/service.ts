@@ -115,7 +115,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20230701preview:Service" }, { type: "azure-native:apicenter/v20240301:Service" }, { type: "azure-native:apicenter/v20240315preview:Service" }, { type: "azure-native:apicenter/v20240601preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20230701preview:Service" }, { type: "azure-native:apicenter/v20240301:Service" }, { type: "azure-native:apicenter/v20240315preview:Service" }, { type: "azure-native:apicenter/v20240601preview:Service" }, { type: "azure-native_apicenter_v20230701preview:apicenter:Service" }, { type: "azure-native_apicenter_v20240301:apicenter:Service" }, { type: "azure-native_apicenter_v20240315preview:apicenter:Service" }, { type: "azure-native_apicenter_v20240601preview:apicenter:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

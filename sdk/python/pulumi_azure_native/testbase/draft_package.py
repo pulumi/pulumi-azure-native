@@ -614,7 +614,7 @@ class DraftPackage(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["working_path"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20231101preview:DraftPackage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20231101preview:DraftPackage"), pulumi.Alias(type_="azure-native_testbase_v20231101preview:testbase:DraftPackage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DraftPackage, __self__).__init__(
             'azure-native:testbase:DraftPackage',

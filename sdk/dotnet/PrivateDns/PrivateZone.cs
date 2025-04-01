@@ -131,10 +131,10 @@ namespace Pulumi.AzureNative.PrivateDns
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateZone" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240601:PrivateZone" },
                     new global::Pulumi.Alias { Type = "azure-native:network:PrivateZone" },
-                    new global::Pulumi.Alias { Type = "azure-native:privatedns/v20180901:PrivateZone" },
-                    new global::Pulumi.Alias { Type = "azure-native:privatedns/v20200101:PrivateZone" },
-                    new global::Pulumi.Alias { Type = "azure-native:privatedns/v20200601:PrivateZone" },
-                    new global::Pulumi.Alias { Type = "azure-native:privatedns/v20240601:PrivateZone" },
+                    new global::Pulumi.Alias { Type = "azure-native_privatedns_v20180901:privatedns:PrivateZone" },
+                    new global::Pulumi.Alias { Type = "azure-native_privatedns_v20200101:privatedns:PrivateZone" },
+                    new global::Pulumi.Alias { Type = "azure-native_privatedns_v20200601:privatedns:PrivateZone" },
+                    new global::Pulumi.Alias { Type = "azure-native_privatedns_v20240601:privatedns:PrivateZone" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

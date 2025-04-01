@@ -103,7 +103,7 @@ export class RaiPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:RaiPolicy" }, { type: "azure-native:machinelearningservices/v20240701preview:RaiPolicy" }, { type: "azure-native:machinelearningservices/v20241001preview:RaiPolicy" }, { type: "azure-native:machinelearningservices/v20250101preview:RaiPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:RaiPolicy" }, { type: "azure-native:machinelearningservices/v20240701preview:RaiPolicy" }, { type: "azure-native:machinelearningservices/v20241001preview:RaiPolicy" }, { type: "azure-native_machinelearningservices_v20240401preview:machinelearningservices:RaiPolicy" }, { type: "azure-native_machinelearningservices_v20240701preview:machinelearningservices:RaiPolicy" }, { type: "azure-native_machinelearningservices_v20241001preview:machinelearningservices:RaiPolicy" }, { type: "azure-native_machinelearningservices_v20250101preview:machinelearningservices:RaiPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RaiPolicy.__pulumiType, name, resourceInputs, opts);
     }

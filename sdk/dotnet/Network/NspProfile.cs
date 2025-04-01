@@ -89,7 +89,10 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspProfile" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NspProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20210201preview:network:NspProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20230701preview:network:NspProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20230801preview:network:NspProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240601preview:network:NspProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

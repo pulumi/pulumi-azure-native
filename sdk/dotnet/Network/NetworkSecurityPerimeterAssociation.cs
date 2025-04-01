@@ -102,14 +102,14 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeterAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspAssociation" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NetworkSecurityPerimeterAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspAssociation" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NetworkSecurityPerimeterAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspAssociation" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NetworkSecurityPerimeterAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:network:NspAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20210201preview:network:NetworkSecurityPerimeterAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20230701preview:network:NetworkSecurityPerimeterAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20230801preview:network:NetworkSecurityPerimeterAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240601preview:network:NetworkSecurityPerimeterAssociation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -135,7 +135,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240301:Environment" }, { type: "azure-native:apicenter/v20240315preview:Environment" }, { type: "azure-native:apicenter/v20240601preview:Environment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240301:Environment" }, { type: "azure-native:apicenter/v20240315preview:Environment" }, { type: "azure-native:apicenter/v20240601preview:Environment" }, { type: "azure-native_apicenter_v20240301:apicenter:Environment" }, { type: "azure-native_apicenter_v20240315preview:apicenter:Environment" }, { type: "azure-native_apicenter_v20240601preview:apicenter:Environment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Environment.__pulumiType, name, resourceInputs, opts);
     }

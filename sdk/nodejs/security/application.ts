@@ -94,7 +94,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20220701preview:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20220701preview:Application" }, { type: "azure-native_security_v20220701preview:security:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }

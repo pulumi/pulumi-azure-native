@@ -144,7 +144,7 @@ export class Dataset extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsdataprocessor/v20231004preview:Dataset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsdataprocessor/v20231004preview:Dataset" }, { type: "azure-native_iotoperationsdataprocessor_v20231004preview:iotoperationsdataprocessor:Dataset" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Dataset.__pulumiType, name, resourceInputs, opts);
     }

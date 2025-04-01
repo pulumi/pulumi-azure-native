@@ -160,7 +160,9 @@ namespace Pulumi.AzureNative.DevHub
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devhub/v20240501preview:IacProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:devhub/v20240801preview:IacProfile" },
-                    new global::Pulumi.Alias { Type = "azure-native:devhub/v20250301preview:IacProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_devhub_v20240501preview:devhub:IacProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_devhub_v20240801preview:devhub:IacProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_devhub_v20250301preview:devhub:IacProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

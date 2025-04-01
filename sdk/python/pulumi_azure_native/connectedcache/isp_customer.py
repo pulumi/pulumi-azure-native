@@ -181,7 +181,7 @@ class IspCustomer(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedcache/v20230501preview:IspCustomer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedcache/v20230501preview:IspCustomer"), pulumi.Alias(type_="azure-native_connectedcache_v20230501preview:connectedcache:IspCustomer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IspCustomer, __self__).__init__(
             'azure-native:connectedcache:IspCustomer',

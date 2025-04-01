@@ -140,7 +140,7 @@ export class AzureKeyVaultSecretProviderClass extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:secretsynccontroller/v20240821preview:AzureKeyVaultSecretProviderClass" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:secretsynccontroller/v20240821preview:AzureKeyVaultSecretProviderClass" }, { type: "azure-native_secretsynccontroller_v20240821preview:secretsynccontroller:AzureKeyVaultSecretProviderClass" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureKeyVaultSecretProviderClass.__pulumiType, name, resourceInputs, opts);
     }

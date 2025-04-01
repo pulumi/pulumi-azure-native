@@ -132,14 +132,15 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SapDatabaseInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SapDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SAPDatabaseInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SapDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SAPDatabaseInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SapDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20240901:SapDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads:SAPDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20211201preview:workloads:SapDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20221101preview:workloads:SapDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20230401:workloads:SapDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20231001preview:workloads:SapDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20240901:workloads:SapDatabaseInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

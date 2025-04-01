@@ -157,7 +157,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scheduler/v20140801preview:Job"), pulumi.Alias(type_="azure-native:scheduler/v20160101:Job"), pulumi.Alias(type_="azure-native:scheduler/v20160301:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scheduler/v20160301:Job"), pulumi.Alias(type_="azure-native_scheduler_v20140801preview:scheduler:Job"), pulumi.Alias(type_="azure-native_scheduler_v20160101:scheduler:Job"), pulumi.Alias(type_="azure-native_scheduler_v20160301:scheduler:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-native:scheduler:Job',

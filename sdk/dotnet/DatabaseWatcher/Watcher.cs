@@ -114,6 +114,10 @@ namespace Pulumi.AzureNative.DatabaseWatcher
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20240719preview:Watcher" },
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20241001preview:Watcher" },
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20250102:Watcher" },
+                    new global::Pulumi.Alias { Type = "azure-native_databasewatcher_v20230901preview:databasewatcher:Watcher" },
+                    new global::Pulumi.Alias { Type = "azure-native_databasewatcher_v20240719preview:databasewatcher:Watcher" },
+                    new global::Pulumi.Alias { Type = "azure-native_databasewatcher_v20241001preview:databasewatcher:Watcher" },
+                    new global::Pulumi.Alias { Type = "azure-native_databasewatcher_v20250102:databasewatcher:Watcher" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

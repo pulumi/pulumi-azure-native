@@ -101,7 +101,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20190601preview:PrivateEndpointConnection" }, { type: "azure-native:synapse/v20201201:PrivateEndpointConnection" }, { type: "azure-native:synapse/v20210301:PrivateEndpointConnection" }, { type: "azure-native:synapse/v20210401preview:PrivateEndpointConnection" }, { type: "azure-native:synapse/v20210501:PrivateEndpointConnection" }, { type: "azure-native:synapse/v20210601:PrivateEndpointConnection" }, { type: "azure-native:synapse/v20210601preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210601:PrivateEndpointConnection" }, { type: "azure-native:synapse/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native_synapse_v20190601preview:synapse:PrivateEndpointConnection" }, { type: "azure-native_synapse_v20201201:synapse:PrivateEndpointConnection" }, { type: "azure-native_synapse_v20210301:synapse:PrivateEndpointConnection" }, { type: "azure-native_synapse_v20210401preview:synapse:PrivateEndpointConnection" }, { type: "azure-native_synapse_v20210501:synapse:PrivateEndpointConnection" }, { type: "azure-native_synapse_v20210601:synapse:PrivateEndpointConnection" }, { type: "azure-native_synapse_v20210601preview:synapse:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

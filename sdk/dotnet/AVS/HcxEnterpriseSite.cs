@@ -86,14 +86,17 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200320:HcxEnterpriseSite" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:HcxEnterpriseSite" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:HcxEnterpriseSite" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:HcxEnterpriseSite" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:HcxEnterpriseSite" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:HcxEnterpriseSite" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:HcxEnterpriseSite" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:HcxEnterpriseSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20200320:avs:HcxEnterpriseSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20200717preview:avs:HcxEnterpriseSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210101preview:avs:HcxEnterpriseSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210601:avs:HcxEnterpriseSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20211201:avs:HcxEnterpriseSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20220501:avs:HcxEnterpriseSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230301:avs:HcxEnterpriseSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230901:avs:HcxEnterpriseSite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

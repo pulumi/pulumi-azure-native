@@ -265,7 +265,7 @@ class AzureKeyVaultSecretProviderClass(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:secretsynccontroller/v20240821preview:AzureKeyVaultSecretProviderClass")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:secretsynccontroller/v20240821preview:AzureKeyVaultSecretProviderClass"), pulumi.Alias(type_="azure-native_secretsynccontroller_v20240821preview:secretsynccontroller:AzureKeyVaultSecretProviderClass")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureKeyVaultSecretProviderClass, __self__).__init__(
             'azure-native:secretsynccontroller:AzureKeyVaultSecretProviderClass',

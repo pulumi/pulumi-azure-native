@@ -100,7 +100,7 @@ export class Ec2Address extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2Address" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2Address" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2Address" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2Address.__pulumiType, name, resourceInputs, opts);
     }

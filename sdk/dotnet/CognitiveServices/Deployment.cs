@@ -92,16 +92,21 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:Deployment" },
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:Deployment" },
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221001:Deployment" },
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20230501:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240601preview:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20241001:Deployment" },
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250401preview:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20211001:cognitiveservices:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20220301:cognitiveservices:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20221001:cognitiveservices:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20221201:cognitiveservices:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20230501:cognitiveservices:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20231001preview:cognitiveservices:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20240401preview:cognitiveservices:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20240601preview:cognitiveservices:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20241001:cognitiveservices:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20250401preview:cognitiveservices:Deployment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

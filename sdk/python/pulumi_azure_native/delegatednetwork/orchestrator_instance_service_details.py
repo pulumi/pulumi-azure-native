@@ -328,7 +328,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20230518preview:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20230627preview:OrchestratorInstanceServiceDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20230518preview:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20230627preview:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native_delegatednetwork_v20200808preview:delegatednetwork:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native_delegatednetwork_v20210315:delegatednetwork:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native_delegatednetwork_v20230518preview:delegatednetwork:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native_delegatednetwork_v20230627preview:delegatednetwork:OrchestratorInstanceServiceDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrchestratorInstanceServiceDetails, __self__).__init__(
             'azure-native:delegatednetwork:OrchestratorInstanceServiceDetails',

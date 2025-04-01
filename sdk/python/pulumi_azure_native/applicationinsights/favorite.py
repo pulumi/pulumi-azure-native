@@ -299,7 +299,7 @@ class Favorite(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["time_modified"] = None
             __props__.__dict__["user_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:applicationinsights/v20150501:Favorite"), pulumi.Alias(type_="azure-native:insights/v20150501:Favorite"), pulumi.Alias(type_="azure-native:insights:Favorite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20150501:Favorite"), pulumi.Alias(type_="azure-native:insights:Favorite"), pulumi.Alias(type_="azure-native_applicationinsights_v20150501:applicationinsights:Favorite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Favorite, __self__).__init__(
             'azure-native:applicationinsights:Favorite',

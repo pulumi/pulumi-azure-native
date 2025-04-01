@@ -399,7 +399,7 @@ class NetworkFabric(pulumi.CustomResource):
             __props__.__dict__["router_ids"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230201preview:NetworkFabric"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:NetworkFabric")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230201preview:NetworkFabric"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:NetworkFabric"), pulumi.Alias(type_="azure-native_managednetworkfabric_v20230201preview:managednetworkfabric:NetworkFabric"), pulumi.Alias(type_="azure-native_managednetworkfabric_v20230615:managednetworkfabric:NetworkFabric")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkFabric, __self__).__init__(
             'azure-native:managednetworkfabric:NetworkFabric',

@@ -311,7 +311,7 @@ class Firmware(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20230208preview:Firmware"), pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20240110:Firmware"), pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20250401preview:Firmware")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20230208preview:Firmware"), pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20240110:Firmware"), pulumi.Alias(type_="azure-native_iotfirmwaredefense_v20230208preview:iotfirmwaredefense:Firmware"), pulumi.Alias(type_="azure-native_iotfirmwaredefense_v20240110:iotfirmwaredefense:Firmware"), pulumi.Alias(type_="azure-native_iotfirmwaredefense_v20250401preview:iotfirmwaredefense:Firmware")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Firmware, __self__).__init__(
             'azure-native:iotfirmwaredefense:Firmware',

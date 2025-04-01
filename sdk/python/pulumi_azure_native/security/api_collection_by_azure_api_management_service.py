@@ -148,7 +148,7 @@ class APICollectionByAzureApiManagementService(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["sensitivity_label"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20221120preview:APICollection"), pulumi.Alias(type_="azure-native:security/v20221120preview:APICollectionByAzureApiManagementService"), pulumi.Alias(type_="azure-native:security/v20231115:APICollectionByAzureApiManagementService"), pulumi.Alias(type_="azure-native:security:APICollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20221120preview:APICollection"), pulumi.Alias(type_="azure-native:security/v20231115:APICollectionByAzureApiManagementService"), pulumi.Alias(type_="azure-native:security:APICollection"), pulumi.Alias(type_="azure-native_security_v20221120preview:security:APICollectionByAzureApiManagementService"), pulumi.Alias(type_="azure-native_security_v20231115:security:APICollectionByAzureApiManagementService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(APICollectionByAzureApiManagementService, __self__).__init__(
             'azure-native:security:APICollectionByAzureApiManagementService',

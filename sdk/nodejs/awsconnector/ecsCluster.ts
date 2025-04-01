@@ -100,7 +100,7 @@ export class EcsCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:EcsCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:EcsCluster" }, { type: "azure-native_awsconnector_v20241201:awsconnector:EcsCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EcsCluster.__pulumiType, name, resourceInputs, opts);
     }

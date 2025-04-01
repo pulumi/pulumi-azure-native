@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Authorization
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20200501:PrivateLinkAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20200501:authorization:PrivateLinkAssociation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -100,7 +100,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridconnectivity/v20211006preview:Endpoint" }, { type: "azure-native:hybridconnectivity/v20220501preview:Endpoint" }, { type: "azure-native:hybridconnectivity/v20230315:Endpoint" }, { type: "azure-native:hybridconnectivity/v20241201:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridconnectivity/v20220501preview:Endpoint" }, { type: "azure-native:hybridconnectivity/v20230315:Endpoint" }, { type: "azure-native:hybridconnectivity/v20241201:Endpoint" }, { type: "azure-native_hybridconnectivity_v20211006preview:hybridconnectivity:Endpoint" }, { type: "azure-native_hybridconnectivity_v20220501preview:hybridconnectivity:Endpoint" }, { type: "azure-native_hybridconnectivity_v20230315:hybridconnectivity:Endpoint" }, { type: "azure-native_hybridconnectivity_v20241201:hybridconnectivity:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }

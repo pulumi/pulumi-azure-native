@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.AwsConnector
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:awsconnector/v20241201:S3BucketPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_awsconnector_v20241201:awsconnector:S3BucketPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

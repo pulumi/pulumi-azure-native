@@ -89,16 +89,22 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:SecurityPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:SecurityPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:SecurityPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:SecurityPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20200901:cdn:SecurityPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20210601:cdn:SecurityPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20220501preview:cdn:SecurityPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20221101preview:cdn:SecurityPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20230501:cdn:SecurityPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20230701preview:cdn:SecurityPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240201:cdn:SecurityPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240501preview:cdn:SecurityPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240601preview:cdn:SecurityPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240901:cdn:SecurityPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

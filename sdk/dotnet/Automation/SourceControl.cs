@@ -116,13 +116,17 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20170515preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:SourceControl" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:SourceControl" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:SourceControl" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:SourceControl" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:SourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20170515preview:automation:SourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20190601:automation:SourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20200113preview:automation:SourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20220808:automation:SourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20230515preview:automation:SourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20231101:automation:SourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20241023:automation:SourceControl" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

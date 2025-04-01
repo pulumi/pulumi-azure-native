@@ -122,7 +122,7 @@ export class AksAssessmentOperation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230401preview:AksAssessmentOperation" }, { type: "azure-native:migrate/v20230501preview:AksAssessmentOperation" }, { type: "azure-native:migrate/v20230909preview:AksAssessmentOperation" }, { type: "azure-native:migrate/v20240101preview:AksAssessmentOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230401preview:AksAssessmentOperation" }, { type: "azure-native:migrate/v20230501preview:AksAssessmentOperation" }, { type: "azure-native:migrate/v20230909preview:AksAssessmentOperation" }, { type: "azure-native:migrate/v20240101preview:AksAssessmentOperation" }, { type: "azure-native_migrate_v20230401preview:migrate:AksAssessmentOperation" }, { type: "azure-native_migrate_v20230501preview:migrate:AksAssessmentOperation" }, { type: "azure-native_migrate_v20230909preview:migrate:AksAssessmentOperation" }, { type: "azure-native_migrate_v20240101preview:migrate:AksAssessmentOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AksAssessmentOperation.__pulumiType, name, resourceInputs, opts);
     }

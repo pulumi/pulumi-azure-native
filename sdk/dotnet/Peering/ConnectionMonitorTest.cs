@@ -102,10 +102,11 @@ namespace Pulumi.AzureNative.Peering
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:ConnectionMonitorTest" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:ConnectionMonitorTest" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:ConnectionMonitorTest" },
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20221001:ConnectionMonitorTest" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20210601:peering:ConnectionMonitorTest" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20220101:peering:ConnectionMonitorTest" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20220601:peering:ConnectionMonitorTest" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20221001:peering:ConnectionMonitorTest" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

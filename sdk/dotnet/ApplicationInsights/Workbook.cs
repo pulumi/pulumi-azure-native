@@ -158,19 +158,19 @@ namespace Pulumi.AzureNative.ApplicationInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:applicationinsights/v20150501:Workbook" },
-                    new global::Pulumi.Alias { Type = "azure-native:applicationinsights/v20180617preview:Workbook" },
-                    new global::Pulumi.Alias { Type = "azure-native:applicationinsights/v20201020:Workbook" },
-                    new global::Pulumi.Alias { Type = "azure-native:applicationinsights/v20210308:Workbook" },
-                    new global::Pulumi.Alias { Type = "azure-native:applicationinsights/v20210801:Workbook" },
-                    new global::Pulumi.Alias { Type = "azure-native:applicationinsights/v20220401:Workbook" },
-                    new global::Pulumi.Alias { Type = "azure-native:applicationinsights/v20230601:Workbook" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:Workbook" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210308:Workbook" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210801:Workbook" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220401:Workbook" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20230601:Workbook" },
                     new global::Pulumi.Alias { Type = "azure-native:insights:Workbook" },
+                    new global::Pulumi.Alias { Type = "azure-native_applicationinsights_v20150501:applicationinsights:Workbook" },
+                    new global::Pulumi.Alias { Type = "azure-native_applicationinsights_v20180617preview:applicationinsights:Workbook" },
+                    new global::Pulumi.Alias { Type = "azure-native_applicationinsights_v20201020:applicationinsights:Workbook" },
+                    new global::Pulumi.Alias { Type = "azure-native_applicationinsights_v20210308:applicationinsights:Workbook" },
+                    new global::Pulumi.Alias { Type = "azure-native_applicationinsights_v20210801:applicationinsights:Workbook" },
+                    new global::Pulumi.Alias { Type = "azure-native_applicationinsights_v20220401:applicationinsights:Workbook" },
+                    new global::Pulumi.Alias { Type = "azure-native_applicationinsights_v20230601:applicationinsights:Workbook" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

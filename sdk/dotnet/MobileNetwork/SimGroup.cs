@@ -110,6 +110,12 @@ namespace Pulumi.AzureNative.MobileNetwork
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:SimGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240201:SimGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240401:SimGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20220401preview:mobilenetwork:SimGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20221101:mobilenetwork:SimGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20230601:mobilenetwork:SimGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20230901:mobilenetwork:SimGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20240201:mobilenetwork:SimGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_mobilenetwork_v20240401:mobilenetwork:SimGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

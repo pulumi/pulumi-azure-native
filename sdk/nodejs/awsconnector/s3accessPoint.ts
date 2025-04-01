@@ -100,7 +100,7 @@ export class S3AccessPoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:S3AccessPoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:S3AccessPoint" }, { type: "azure-native_awsconnector_v20241201:awsconnector:S3AccessPoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(S3AccessPoint.__pulumiType, name, resourceInputs, opts);
     }

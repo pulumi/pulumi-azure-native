@@ -105,7 +105,7 @@ export class AFDTargetGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20240601preview:AFDTargetGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20240601preview:AFDTargetGroup" }, { type: "azure-native_cdn_v20240601preview:cdn:AFDTargetGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AFDTargetGroup.__pulumiType, name, resourceInputs, opts);
     }

@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.CustomProviders
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:customproviders/v20180901preview:Association" },
+                    new global::Pulumi.Alias { Type = "azure-native_customproviders_v20180901preview:customproviders:Association" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

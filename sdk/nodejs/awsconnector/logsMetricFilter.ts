@@ -100,7 +100,7 @@ export class LogsMetricFilter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:LogsMetricFilter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:LogsMetricFilter" }, { type: "azure-native_awsconnector_v20241201:awsconnector:LogsMetricFilter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LogsMetricFilter.__pulumiType, name, resourceInputs, opts);
     }

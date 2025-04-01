@@ -90,7 +90,7 @@ export class SingleServerDatabase extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:Database" }, { type: "azure-native:dbformysql/v20171201:SingleServerDatabase" }, { type: "azure-native:dbformysql/v20171201preview:SingleServerDatabase" }, { type: "azure-native:dbformysql/v20180601privatepreview:SingleServerDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:Database" }, { type: "azure-native_dbformysql_v20171201:dbformysql:SingleServerDatabase" }, { type: "azure-native_dbformysql_v20171201preview:dbformysql:SingleServerDatabase" }, { type: "azure-native_dbformysql_v20180601privatepreview:dbformysql:SingleServerDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SingleServerDatabase.__pulumiType, name, resourceInputs, opts);
     }

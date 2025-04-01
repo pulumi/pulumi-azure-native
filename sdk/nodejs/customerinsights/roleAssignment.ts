@@ -206,7 +206,7 @@ export class RoleAssignment extends pulumi.CustomResource {
             resourceInputs["widgetTypes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/v20170101:RoleAssignment" }, { type: "azure-native:customerinsights/v20170426:RoleAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/v20170426:RoleAssignment" }, { type: "azure-native_customerinsights_v20170101:customerinsights:RoleAssignment" }, { type: "azure-native_customerinsights_v20170426:customerinsights:RoleAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleAssignment.__pulumiType, name, resourceInputs, opts);
     }

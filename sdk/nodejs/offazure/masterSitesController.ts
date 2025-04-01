@@ -142,7 +142,7 @@ export class MasterSitesController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200707:MasterSitesController" }, { type: "azure-native:offazure/v20230606:MasterSitesController" }, { type: "azure-native:offazure/v20231001preview:MasterSitesController" }, { type: "azure-native:offazure/v20240501preview:MasterSitesController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20230606:MasterSitesController" }, { type: "azure-native:offazure/v20231001preview:MasterSitesController" }, { type: "azure-native:offazure/v20240501preview:MasterSitesController" }, { type: "azure-native_offazure_v20200707:offazure:MasterSitesController" }, { type: "azure-native_offazure_v20230606:offazure:MasterSitesController" }, { type: "azure-native_offazure_v20231001preview:offazure:MasterSitesController" }, { type: "azure-native_offazure_v20240501preview:offazure:MasterSitesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MasterSitesController.__pulumiType, name, resourceInputs, opts);
     }

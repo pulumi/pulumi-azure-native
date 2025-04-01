@@ -115,7 +115,7 @@ export class NetworkFunction extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20200101preview:NetworkFunction" }, { type: "azure-native:hybridnetwork/v20210501:NetworkFunction" }, { type: "azure-native:hybridnetwork/v20220101preview:NetworkFunction" }, { type: "azure-native:hybridnetwork/v20230901:NetworkFunction" }, { type: "azure-native:hybridnetwork/v20240415:NetworkFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20220101preview:NetworkFunction" }, { type: "azure-native:hybridnetwork/v20230901:NetworkFunction" }, { type: "azure-native:hybridnetwork/v20240415:NetworkFunction" }, { type: "azure-native_hybridnetwork_v20200101preview:hybridnetwork:NetworkFunction" }, { type: "azure-native_hybridnetwork_v20210501:hybridnetwork:NetworkFunction" }, { type: "azure-native_hybridnetwork_v20220101preview:hybridnetwork:NetworkFunction" }, { type: "azure-native_hybridnetwork_v20230901:hybridnetwork:NetworkFunction" }, { type: "azure-native_hybridnetwork_v20240415:hybridnetwork:NetworkFunction" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkFunction.__pulumiType, name, resourceInputs, opts);
     }

@@ -200,7 +200,7 @@ class MigrateProject(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20180901preview:MigrateProject"), pulumi.Alias(type_="azure-native:migrate/v20200501:MigrateProject"), pulumi.Alias(type_="azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject"), pulumi.Alias(type_="azure-native:migrate/v20230101:MigrateProject"), pulumi.Alias(type_="azure-native:migrate/v20230101:MigrateProjectsControllerMigrateProject"), pulumi.Alias(type_="azure-native:migrate:MigrateProjectsControllerMigrateProject")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20180901preview:MigrateProject"), pulumi.Alias(type_="azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject"), pulumi.Alias(type_="azure-native:migrate/v20230101:MigrateProjectsControllerMigrateProject"), pulumi.Alias(type_="azure-native:migrate:MigrateProjectsControllerMigrateProject"), pulumi.Alias(type_="azure-native_migrate_v20180901preview:migrate:MigrateProject"), pulumi.Alias(type_="azure-native_migrate_v20200501:migrate:MigrateProject"), pulumi.Alias(type_="azure-native_migrate_v20230101:migrate:MigrateProject")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MigrateProject, __self__).__init__(
             'azure-native:migrate:MigrateProject',

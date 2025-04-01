@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.ConnectedCache
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:connectedcache/v20230501preview:CacheNodesOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_connectedcache_v20230501preview:connectedcache:CacheNodesOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

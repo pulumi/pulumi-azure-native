@@ -222,7 +222,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["zoneRedundancy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20140901:Namespace" }, { type: "azure-native:notificationhubs/v20160301:Namespace" }, { type: "azure-native:notificationhubs/v20170401:Namespace" }, { type: "azure-native:notificationhubs/v20230101preview:Namespace" }, { type: "azure-native:notificationhubs/v20230901:Namespace" }, { type: "azure-native:notificationhubs/v20231001preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20170401:Namespace" }, { type: "azure-native:notificationhubs/v20230101preview:Namespace" }, { type: "azure-native:notificationhubs/v20230901:Namespace" }, { type: "azure-native:notificationhubs/v20231001preview:Namespace" }, { type: "azure-native_notificationhubs_v20140901:notificationhubs:Namespace" }, { type: "azure-native_notificationhubs_v20160301:notificationhubs:Namespace" }, { type: "azure-native_notificationhubs_v20170401:notificationhubs:Namespace" }, { type: "azure-native_notificationhubs_v20230101preview:notificationhubs:Namespace" }, { type: "azure-native_notificationhubs_v20230901:notificationhubs:Namespace" }, { type: "azure-native_notificationhubs_v20231001preview:notificationhubs:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }

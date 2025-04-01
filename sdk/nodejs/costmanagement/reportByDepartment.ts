@@ -113,7 +113,7 @@ export class ReportByDepartment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20180801preview:ReportByDepartment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20180801preview:ReportByDepartment" }, { type: "azure-native_costmanagement_v20180801preview:costmanagement:ReportByDepartment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReportByDepartment.__pulumiType, name, resourceInputs, opts);
     }

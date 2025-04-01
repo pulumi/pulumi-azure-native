@@ -117,7 +117,7 @@ export class Partner extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managementpartner/v20180201:Partner" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managementpartner/v20180201:Partner" }, { type: "azure-native_managementpartner_v20180201:managementpartner:Partner" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Partner.__pulumiType, name, resourceInputs, opts);
     }

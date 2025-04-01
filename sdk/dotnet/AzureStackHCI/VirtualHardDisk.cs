@@ -158,8 +158,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualHardDisk" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:VirtualHardDisk" },
@@ -170,8 +168,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:VirtualHardDisk" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:VirtualHardDisk" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250401preview:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20210701preview:azurestackhci:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20210901preview:azurestackhci:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20221215preview:azurestackhci:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20230701preview:azurestackhci:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20230901preview:azurestackhci:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240101:azurestackhci:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240201preview:azurestackhci:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240501preview:azurestackhci:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240715preview:azurestackhci:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240801preview:azurestackhci:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20241001preview:azurestackhci:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20250201preview:azurestackhci:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20250401preview:azurestackhci:VirtualHardDisk" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

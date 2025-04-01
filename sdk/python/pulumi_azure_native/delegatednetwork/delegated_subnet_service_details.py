@@ -228,7 +228,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20230518preview:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20230627preview:DelegatedSubnetServiceDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20230518preview:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20230627preview:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native_delegatednetwork_v20200808preview:delegatednetwork:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native_delegatednetwork_v20210315:delegatednetwork:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native_delegatednetwork_v20230518preview:delegatednetwork:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native_delegatednetwork_v20230627preview:delegatednetwork:DelegatedSubnetServiceDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DelegatedSubnetServiceDetails, __self__).__init__(
             'azure-native:delegatednetwork:DelegatedSubnetServiceDetails',

@@ -59,17 +59,18 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:HyperVCollector" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:HyperVCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:HypervCollectorsOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:HyperVCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:HypervCollectorsOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:HyperVCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:HypervCollectorsOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:HyperVCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:HypervCollectorsOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:HyperVCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:HypervCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:HypervCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20191001:migrate:HyperVCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230315:migrate:HyperVCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230401preview:migrate:HyperVCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230501preview:migrate:HyperVCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230909preview:migrate:HyperVCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20240101preview:migrate:HyperVCollector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

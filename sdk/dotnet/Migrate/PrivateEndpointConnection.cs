@@ -73,17 +73,18 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:PrivateEndpointConnectionOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:PrivateEndpointConnectionOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:PrivateEndpointConnectionOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:PrivateEndpointConnectionOperation" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:PrivateEndpointConnectionOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20191001:migrate:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230315:migrate:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230401preview:migrate:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230501preview:migrate:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230909preview:migrate:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20240101preview:migrate:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

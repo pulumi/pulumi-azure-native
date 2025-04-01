@@ -85,11 +85,12 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:MigrateProject" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20200501:MigrateProject" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230101:MigrateProject" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230101:MigrateProjectsControllerMigrateProject" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:MigrateProjectsControllerMigrateProject" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20180901preview:migrate:MigrateProject" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20200501:migrate:MigrateProject" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230101:migrate:MigrateProject" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

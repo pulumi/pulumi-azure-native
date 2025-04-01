@@ -273,12 +273,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201005privatepreview:ServerGroupCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:ServerGroupCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230302preview:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230302preview:ServerGroupCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20201005privatepreview:dbforpostgresql:ServerGroupCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20221108:dbforpostgresql:ServerGroupCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20230302preview:dbforpostgresql:ServerGroupCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

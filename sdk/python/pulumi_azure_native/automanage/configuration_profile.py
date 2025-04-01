@@ -184,7 +184,7 @@ class ConfigurationProfile(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automanage/v20210430preview:ConfigurationProfile"), pulumi.Alias(type_="azure-native:automanage/v20220504:ConfigurationProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automanage/v20220504:ConfigurationProfile"), pulumi.Alias(type_="azure-native_automanage_v20210430preview:automanage:ConfigurationProfile"), pulumi.Alias(type_="azure-native_automanage_v20220504:automanage:ConfigurationProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationProfile, __self__).__init__(
             'azure-native:automanage:ConfigurationProfile',

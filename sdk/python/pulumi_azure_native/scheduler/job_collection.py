@@ -195,7 +195,7 @@ class JobCollection(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scheduler/v20140801preview:JobCollection"), pulumi.Alias(type_="azure-native:scheduler/v20160101:JobCollection"), pulumi.Alias(type_="azure-native:scheduler/v20160301:JobCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scheduler/v20160301:JobCollection"), pulumi.Alias(type_="azure-native_scheduler_v20140801preview:scheduler:JobCollection"), pulumi.Alias(type_="azure-native_scheduler_v20160101:scheduler:JobCollection"), pulumi.Alias(type_="azure-native_scheduler_v20160301:scheduler:JobCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobCollection, __self__).__init__(
             'azure-native:scheduler:JobCollection',

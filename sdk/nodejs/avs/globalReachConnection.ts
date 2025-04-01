@@ -129,7 +129,7 @@ export class GlobalReachConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:GlobalReachConnection" }, { type: "azure-native:avs/v20210101preview:GlobalReachConnection" }, { type: "azure-native:avs/v20210601:GlobalReachConnection" }, { type: "azure-native:avs/v20211201:GlobalReachConnection" }, { type: "azure-native:avs/v20220501:GlobalReachConnection" }, { type: "azure-native:avs/v20230301:GlobalReachConnection" }, { type: "azure-native:avs/v20230901:GlobalReachConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20220501:GlobalReachConnection" }, { type: "azure-native:avs/v20230301:GlobalReachConnection" }, { type: "azure-native:avs/v20230901:GlobalReachConnection" }, { type: "azure-native_avs_v20200717preview:avs:GlobalReachConnection" }, { type: "azure-native_avs_v20210101preview:avs:GlobalReachConnection" }, { type: "azure-native_avs_v20210601:avs:GlobalReachConnection" }, { type: "azure-native_avs_v20211201:avs:GlobalReachConnection" }, { type: "azure-native_avs_v20220501:avs:GlobalReachConnection" }, { type: "azure-native_avs_v20230301:avs:GlobalReachConnection" }, { type: "azure-native_avs_v20230901:avs:GlobalReachConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GlobalReachConnection.__pulumiType, name, resourceInputs, opts);
     }

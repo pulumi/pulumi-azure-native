@@ -104,7 +104,7 @@ export class MetadataSchema extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240301:MetadataSchema" }, { type: "azure-native:apicenter/v20240315preview:MetadataSchema" }, { type: "azure-native:apicenter/v20240601preview:MetadataSchema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240301:MetadataSchema" }, { type: "azure-native:apicenter/v20240315preview:MetadataSchema" }, { type: "azure-native:apicenter/v20240601preview:MetadataSchema" }, { type: "azure-native_apicenter_v20240301:apicenter:MetadataSchema" }, { type: "azure-native_apicenter_v20240315preview:apicenter:MetadataSchema" }, { type: "azure-native_apicenter_v20240601preview:apicenter:MetadataSchema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MetadataSchema.__pulumiType, name, resourceInputs, opts);
     }

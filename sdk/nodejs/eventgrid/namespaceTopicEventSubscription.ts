@@ -123,7 +123,7 @@ export class NamespaceTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:NamespaceTopicEventSubscription" }, { type: "azure-native:eventgrid/v20231215preview:NamespaceTopicEventSubscription" }, { type: "azure-native:eventgrid/v20240601preview:NamespaceTopicEventSubscription" }, { type: "azure-native:eventgrid/v20241215preview:NamespaceTopicEventSubscription" }, { type: "azure-native:eventgrid/v20250215:NamespaceTopicEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:NamespaceTopicEventSubscription" }, { type: "azure-native:eventgrid/v20231215preview:NamespaceTopicEventSubscription" }, { type: "azure-native:eventgrid/v20240601preview:NamespaceTopicEventSubscription" }, { type: "azure-native:eventgrid/v20241215preview:NamespaceTopicEventSubscription" }, { type: "azure-native_eventgrid_v20230601preview:eventgrid:NamespaceTopicEventSubscription" }, { type: "azure-native_eventgrid_v20231215preview:eventgrid:NamespaceTopicEventSubscription" }, { type: "azure-native_eventgrid_v20240601preview:eventgrid:NamespaceTopicEventSubscription" }, { type: "azure-native_eventgrid_v20241215preview:eventgrid:NamespaceTopicEventSubscription" }, { type: "azure-native_eventgrid_v20250215:eventgrid:NamespaceTopicEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceTopicEventSubscription.__pulumiType, name, resourceInputs, opts);
     }

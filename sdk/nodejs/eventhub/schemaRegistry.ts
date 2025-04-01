@@ -125,7 +125,7 @@ export class SchemaRegistry extends pulumi.CustomResource {
             resourceInputs["updatedAtUtc"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20211101:SchemaRegistry" }, { type: "azure-native:eventhub/v20220101preview:SchemaRegistry" }, { type: "azure-native:eventhub/v20221001preview:SchemaRegistry" }, { type: "azure-native:eventhub/v20230101preview:SchemaRegistry" }, { type: "azure-native:eventhub/v20240101:SchemaRegistry" }, { type: "azure-native:eventhub/v20240501preview:SchemaRegistry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20221001preview:SchemaRegistry" }, { type: "azure-native:eventhub/v20230101preview:SchemaRegistry" }, { type: "azure-native:eventhub/v20240101:SchemaRegistry" }, { type: "azure-native:eventhub/v20240501preview:SchemaRegistry" }, { type: "azure-native_eventhub_v20211101:eventhub:SchemaRegistry" }, { type: "azure-native_eventhub_v20220101preview:eventhub:SchemaRegistry" }, { type: "azure-native_eventhub_v20221001preview:eventhub:SchemaRegistry" }, { type: "azure-native_eventhub_v20230101preview:eventhub:SchemaRegistry" }, { type: "azure-native_eventhub_v20240101:eventhub:SchemaRegistry" }, { type: "azure-native_eventhub_v20240501preview:eventhub:SchemaRegistry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SchemaRegistry.__pulumiType, name, resourceInputs, opts);
     }

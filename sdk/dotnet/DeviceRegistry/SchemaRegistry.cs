@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20240901preview:SchemaRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceregistry_v20240901preview:deviceregistry:SchemaRegistry" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

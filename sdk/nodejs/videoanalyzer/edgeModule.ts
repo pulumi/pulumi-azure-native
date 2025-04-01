@@ -93,7 +93,7 @@ export class EdgeModule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer/v20210501preview:EdgeModule" }, { type: "azure-native:videoanalyzer/v20211101preview:EdgeModule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer/v20211101preview:EdgeModule" }, { type: "azure-native_videoanalyzer_v20210501preview:videoanalyzer:EdgeModule" }, { type: "azure-native_videoanalyzer_v20211101preview:videoanalyzer:EdgeModule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EdgeModule.__pulumiType, name, resourceInputs, opts);
     }

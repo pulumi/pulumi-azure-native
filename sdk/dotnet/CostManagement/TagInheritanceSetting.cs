@@ -80,13 +80,18 @@ namespace Pulumi.AzureNative.CostManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001preview:TagInheritanceSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221005preview:TagInheritanceSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230801:TagInheritanceSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230901:TagInheritanceSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20231101:TagInheritanceSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20240801:TagInheritanceSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20241001preview:TagInheritanceSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20221001preview:costmanagement:TagInheritanceSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20221005preview:costmanagement:TagInheritanceSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230801:costmanagement:TagInheritanceSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230901:costmanagement:TagInheritanceSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20231101:costmanagement:TagInheritanceSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20240801:costmanagement:TagInheritanceSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20241001preview:costmanagement:TagInheritanceSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

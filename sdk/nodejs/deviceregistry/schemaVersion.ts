@@ -124,7 +124,7 @@ export class SchemaVersion extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20240901preview:SchemaVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20240901preview:SchemaVersion" }, { type: "azure-native_deviceregistry_v20240901preview:deviceregistry:SchemaVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SchemaVersion.__pulumiType, name, resourceInputs, opts);
     }

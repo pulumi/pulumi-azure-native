@@ -119,7 +119,7 @@ export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20210601:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20211201:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20220501:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20230301:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20230901:WorkloadNetworkVMGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20220501:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20230301:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20230901:WorkloadNetworkVMGroup" }, { type: "azure-native_avs_v20200717preview:avs:WorkloadNetworkVMGroup" }, { type: "azure-native_avs_v20210101preview:avs:WorkloadNetworkVMGroup" }, { type: "azure-native_avs_v20210601:avs:WorkloadNetworkVMGroup" }, { type: "azure-native_avs_v20211201:avs:WorkloadNetworkVMGroup" }, { type: "azure-native_avs_v20220501:avs:WorkloadNetworkVMGroup" }, { type: "azure-native_avs_v20230301:avs:WorkloadNetworkVMGroup" }, { type: "azure-native_avs_v20230901:avs:WorkloadNetworkVMGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkVMGroup.__pulumiType, name, resourceInputs, opts);
     }

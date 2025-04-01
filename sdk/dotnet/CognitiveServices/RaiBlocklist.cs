@@ -90,7 +90,11 @@ namespace Pulumi.AzureNative.CognitiveServices
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:RaiBlocklist" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240601preview:RaiBlocklist" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20241001:RaiBlocklist" },
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250401preview:RaiBlocklist" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20231001preview:cognitiveservices:RaiBlocklist" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20240401preview:cognitiveservices:RaiBlocklist" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20240601preview:cognitiveservices:RaiBlocklist" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20241001:cognitiveservices:RaiBlocklist" },
+                    new global::Pulumi.Alias { Type = "azure-native_cognitiveservices_v20250401preview:cognitiveservices:RaiBlocklist" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -187,7 +187,7 @@ class CustomerEvent(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20201216preview:CustomerEvent"), pulumi.Alias(type_="azure-native:testbase/v20220401preview:CustomerEvent"), pulumi.Alias(type_="azure-native:testbase/v20231101preview:CustomerEvent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20220401preview:CustomerEvent"), pulumi.Alias(type_="azure-native:testbase/v20231101preview:CustomerEvent"), pulumi.Alias(type_="azure-native_testbase_v20201216preview:testbase:CustomerEvent"), pulumi.Alias(type_="azure-native_testbase_v20220401preview:testbase:CustomerEvent"), pulumi.Alias(type_="azure-native_testbase_v20231101preview:testbase:CustomerEvent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomerEvent, __self__).__init__(
             'azure-native:testbase:CustomerEvent',

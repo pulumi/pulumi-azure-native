@@ -246,7 +246,7 @@ class StorageInsightConfig(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20150320:StorageInsightConfig"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:StorageInsightConfig"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:StorageInsightConfig"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:StorageInsightConfig"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:StorageInsightConfig")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20200801:StorageInsightConfig"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:StorageInsightConfig"), pulumi.Alias(type_="azure-native_operationalinsights_v20150320:operationalinsights:StorageInsightConfig"), pulumi.Alias(type_="azure-native_operationalinsights_v20200301preview:operationalinsights:StorageInsightConfig"), pulumi.Alias(type_="azure-native_operationalinsights_v20200801:operationalinsights:StorageInsightConfig"), pulumi.Alias(type_="azure-native_operationalinsights_v20230901:operationalinsights:StorageInsightConfig"), pulumi.Alias(type_="azure-native_operationalinsights_v20250201:operationalinsights:StorageInsightConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageInsightConfig, __self__).__init__(
             'azure-native:operationalinsights:StorageInsightConfig',

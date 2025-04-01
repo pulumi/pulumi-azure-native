@@ -100,7 +100,7 @@ export class LambdaFunction extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:LambdaFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:LambdaFunction" }, { type: "azure-native_awsconnector_v20241201:awsconnector:LambdaFunction" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LambdaFunction.__pulumiType, name, resourceInputs, opts);
     }

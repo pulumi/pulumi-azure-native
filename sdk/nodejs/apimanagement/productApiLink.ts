@@ -93,7 +93,7 @@ export class ProductApiLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:ProductApiLink" }, { type: "azure-native:apimanagement/v20230301preview:ProductApiLink" }, { type: "azure-native:apimanagement/v20230501preview:ProductApiLink" }, { type: "azure-native:apimanagement/v20230901preview:ProductApiLink" }, { type: "azure-native:apimanagement/v20240501:ProductApiLink" }, { type: "azure-native:apimanagement/v20240601preview:ProductApiLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:ProductApiLink" }, { type: "azure-native:apimanagement/v20230301preview:ProductApiLink" }, { type: "azure-native:apimanagement/v20230501preview:ProductApiLink" }, { type: "azure-native:apimanagement/v20230901preview:ProductApiLink" }, { type: "azure-native:apimanagement/v20240501:ProductApiLink" }, { type: "azure-native:apimanagement/v20240601preview:ProductApiLink" }, { type: "azure-native_apimanagement_v20220901preview:apimanagement:ProductApiLink" }, { type: "azure-native_apimanagement_v20230301preview:apimanagement:ProductApiLink" }, { type: "azure-native_apimanagement_v20230501preview:apimanagement:ProductApiLink" }, { type: "azure-native_apimanagement_v20230901preview:apimanagement:ProductApiLink" }, { type: "azure-native_apimanagement_v20240501:apimanagement:ProductApiLink" }, { type: "azure-native_apimanagement_v20240601preview:apimanagement:ProductApiLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductApiLink.__pulumiType, name, resourceInputs, opts);
     }

@@ -125,7 +125,7 @@ export class PublicCloudConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridconnectivity/v20241201:PublicCloudConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridconnectivity/v20241201:PublicCloudConnector" }, { type: "azure-native_hybridconnectivity_v20241201:hybridconnectivity:PublicCloudConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PublicCloudConnector.__pulumiType, name, resourceInputs, opts);
     }

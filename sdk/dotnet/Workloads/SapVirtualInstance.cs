@@ -144,14 +144,15 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SapVirtualInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SapVirtualInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SAPVirtualInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SapVirtualInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SAPVirtualInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SapVirtualInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20240901:SapVirtualInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads:SAPVirtualInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20211201preview:workloads:SapVirtualInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20221101preview:workloads:SapVirtualInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20230401:workloads:SapVirtualInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20231001preview:workloads:SapVirtualInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20240901:workloads:SapVirtualInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

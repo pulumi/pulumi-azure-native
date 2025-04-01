@@ -134,7 +134,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:MarketplaceGalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:Marketplacegalleryimage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:MarketplaceGalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:MarketplaceGalleryImage" },
@@ -145,8 +144,18 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:MarketplaceGalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:MarketplaceGalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:MarketplaceGalleryImage" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:MarketplaceGalleryImage" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250401preview:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20210901preview:azurestackhci:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20221215preview:azurestackhci:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20230701preview:azurestackhci:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20230901preview:azurestackhci:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240101:azurestackhci:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240201preview:azurestackhci:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240501preview:azurestackhci:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240715preview:azurestackhci:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240801preview:azurestackhci:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20241001preview:azurestackhci:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20250201preview:azurestackhci:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20250401preview:azurestackhci:MarketplaceGalleryImage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

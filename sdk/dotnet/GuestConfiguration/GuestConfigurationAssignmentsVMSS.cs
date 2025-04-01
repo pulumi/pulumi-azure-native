@@ -82,6 +82,8 @@ namespace Pulumi.AzureNative.GuestConfiguration
                 {
                     new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS" },
                     new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20240405:GuestConfigurationAssignmentsVMSS" },
+                    new global::Pulumi.Alias { Type = "azure-native_guestconfiguration_v20220125:guestconfiguration:GuestConfigurationAssignmentsVMSS" },
+                    new global::Pulumi.Alias { Type = "azure-native_guestconfiguration_v20240405:guestconfiguration:GuestConfigurationAssignmentsVMSS" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

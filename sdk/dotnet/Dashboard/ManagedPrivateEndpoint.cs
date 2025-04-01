@@ -132,6 +132,10 @@ namespace Pulumi.AzureNative.Dashboard
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20230901:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20231001preview:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20241001:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_dashboard_v20221001preview:dashboard:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_dashboard_v20230901:dashboard:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_dashboard_v20231001preview:dashboard:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_dashboard_v20241001:dashboard:ManagedPrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

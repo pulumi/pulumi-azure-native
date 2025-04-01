@@ -100,7 +100,7 @@ export class Ec2SecurityGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2SecurityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2SecurityGroup" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2SecurityGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2SecurityGroup.__pulumiType, name, resourceInputs, opts);
     }

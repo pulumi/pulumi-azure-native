@@ -155,7 +155,7 @@ class SqlMigrationService(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20211030preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20220130preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20230715preview:SqlMigrationService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20220330preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20230715preview:SqlMigrationService"), pulumi.Alias(type_="azure-native_datamigration_v20211030preview:datamigration:SqlMigrationService"), pulumi.Alias(type_="azure-native_datamigration_v20220130preview:datamigration:SqlMigrationService"), pulumi.Alias(type_="azure-native_datamigration_v20220330preview:datamigration:SqlMigrationService"), pulumi.Alias(type_="azure-native_datamigration_v20230715preview:datamigration:SqlMigrationService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlMigrationService, __self__).__init__(
             'azure-native:datamigration:SqlMigrationService',

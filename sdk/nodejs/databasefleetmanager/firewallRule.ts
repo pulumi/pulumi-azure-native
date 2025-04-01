@@ -97,7 +97,7 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databasefleetmanager/v20250201preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native_databasefleetmanager_v20250201preview:databasefleetmanager:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }

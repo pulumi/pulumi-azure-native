@@ -110,14 +110,17 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener" },
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20211101preview:AvailabilityGroupListener" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener" },
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener" },
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener" },
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20231001:AvailabilityGroupListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20170301preview:sqlvirtualmachine:AvailabilityGroupListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20211101preview:sqlvirtualmachine:AvailabilityGroupListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20220201:sqlvirtualmachine:AvailabilityGroupListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20220201preview:sqlvirtualmachine:AvailabilityGroupListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20220701preview:sqlvirtualmachine:AvailabilityGroupListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20220801preview:sqlvirtualmachine:AvailabilityGroupListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20230101preview:sqlvirtualmachine:AvailabilityGroupListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_sqlvirtualmachine_v20231001:sqlvirtualmachine:AvailabilityGroupListener" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

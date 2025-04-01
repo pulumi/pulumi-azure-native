@@ -100,7 +100,7 @@ export class SqsQueue extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SqsQueue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SqsQueue" }, { type: "azure-native_awsconnector_v20241201:awsconnector:SqsQueue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqsQueue.__pulumiType, name, resourceInputs, opts);
     }

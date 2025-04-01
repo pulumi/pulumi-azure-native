@@ -116,10 +116,11 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleDefinition" },
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180101preview:RoleDefinition" },
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20220401:RoleDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20220501preview:RoleDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20150701:authorization:RoleDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20180101preview:authorization:RoleDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20220401:authorization:RoleDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native_authorization_v20220501preview:authorization:RoleDefinition" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

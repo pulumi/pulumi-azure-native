@@ -101,7 +101,7 @@ export class GuestConfigurationConnectedVMwarevSphereAssignment extends pulumi.C
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment" }, { type: "azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment" }, { type: "azure-native:guestconfiguration/v20240405:GuestConfigurationConnectedVMwarevSphereAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment" }, { type: "azure-native:guestconfiguration/v20240405:GuestConfigurationConnectedVMwarevSphereAssignment" }, { type: "azure-native_guestconfiguration_v20200625:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment" }, { type: "azure-native_guestconfiguration_v20220125:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment" }, { type: "azure-native_guestconfiguration_v20240405:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestConfigurationConnectedVMwarevSphereAssignment.__pulumiType, name, resourceInputs, opts);
     }

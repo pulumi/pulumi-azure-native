@@ -166,7 +166,7 @@ export class WebAppSiteContainer extends pulumi.CustomResource {
             resourceInputs["volumeMounts"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20231201:WebAppSiteContainer" }, { type: "azure-native:web/v20240401:WebAppSiteContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20231201:WebAppSiteContainer" }, { type: "azure-native:web/v20240401:WebAppSiteContainer" }, { type: "azure-native_web_v20231201:web:WebAppSiteContainer" }, { type: "azure-native_web_v20240401:web:WebAppSiteContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSiteContainer.__pulumiType, name, resourceInputs, opts);
     }

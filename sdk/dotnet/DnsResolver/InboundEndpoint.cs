@@ -104,13 +104,13 @@ namespace Pulumi.AzureNative.DnsResolver
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20200401preview:InboundEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20220701:InboundEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20230701preview:InboundEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:InboundEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:InboundEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:InboundEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network:InboundEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_dnsresolver_v20200401preview:dnsresolver:InboundEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_dnsresolver_v20220701:dnsresolver:InboundEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_dnsresolver_v20230701preview:dnsresolver:InboundEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

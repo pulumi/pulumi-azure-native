@@ -92,14 +92,18 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20230101preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20240101:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20180101preview:servicebus:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20210101preview:servicebus:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20210601preview:servicebus:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20211101:servicebus:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20220101preview:servicebus:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20221001preview:servicebus:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20230101preview:servicebus:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20240101:servicebus:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

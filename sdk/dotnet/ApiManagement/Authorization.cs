@@ -92,7 +92,6 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Authorization" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:Authorization" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:Authorization" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:Authorization" },
@@ -100,6 +99,14 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:Authorization" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:Authorization" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20220401preview:apimanagement:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20220801:apimanagement:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20220901preview:apimanagement:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230301preview:apimanagement:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230501preview:apimanagement:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230901preview:apimanagement:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20240501:apimanagement:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20240601preview:apimanagement:Authorization" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

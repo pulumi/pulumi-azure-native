@@ -134,12 +134,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Configuration" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Configuration" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Configuration" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210615privatepreview:Configuration" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Configuration" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220308preview:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221201:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230301preview:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230601preview:Configuration" },
@@ -147,6 +141,18 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240301preview:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240801:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20241101preview:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20210601:dbforpostgresql:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20210601preview:dbforpostgresql:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20210615privatepreview:dbforpostgresql:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20220120preview:dbforpostgresql:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20220308preview:dbforpostgresql:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20221201:dbforpostgresql:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20230301preview:dbforpostgresql:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20230601preview:dbforpostgresql:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20231201preview:dbforpostgresql:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20240301preview:dbforpostgresql:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20240801:dbforpostgresql:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20241101preview:dbforpostgresql:Configuration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

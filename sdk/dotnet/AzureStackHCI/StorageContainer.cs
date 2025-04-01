@@ -104,7 +104,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:StorageContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:StoragecontainerRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:StorageContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:StorageContainer" },
@@ -115,8 +114,18 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:StorageContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:StorageContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:StorageContainer" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:StorageContainer" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250401preview:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20210901preview:azurestackhci:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20221215preview:azurestackhci:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20230701preview:azurestackhci:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20230901preview:azurestackhci:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240101:azurestackhci:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240201preview:azurestackhci:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240501preview:azurestackhci:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240715preview:azurestackhci:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240801preview:azurestackhci:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20241001preview:azurestackhci:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20250201preview:azurestackhci:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20250401preview:azurestackhci:StorageContainer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

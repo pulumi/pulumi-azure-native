@@ -100,7 +100,7 @@ export class S3ControlMultiRegionAccessPointPolicyDocument extends pulumi.Custom
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:S3ControlMultiRegionAccessPointPolicyDocument" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:S3ControlMultiRegionAccessPointPolicyDocument" }, { type: "azure-native_awsconnector_v20241201:awsconnector:S3ControlMultiRegionAccessPointPolicyDocument" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(S3ControlMultiRegionAccessPointPolicyDocument.__pulumiType, name, resourceInputs, opts);
     }

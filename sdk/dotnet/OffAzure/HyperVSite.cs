@@ -87,15 +87,16 @@ namespace Pulumi.AzureNative.OffAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:HyperVSite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:HyperVSite" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:HyperVSite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:HypervSitesController" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:HyperVSite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:HypervSitesController" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:HyperVSite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:HypervSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure:HypervSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20200101:offazure:HyperVSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20200707:offazure:HyperVSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20230606:offazure:HyperVSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20231001preview:offazure:HyperVSite" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20240501preview:offazure:HyperVSite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

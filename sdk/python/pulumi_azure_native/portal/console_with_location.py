@@ -117,7 +117,7 @@ class ConsoleWithLocation(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["properties"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20181001:ConsoleWithLocation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20181001:ConsoleWithLocation"), pulumi.Alias(type_="azure-native_portal_v20181001:portal:ConsoleWithLocation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConsoleWithLocation, __self__).__init__(
             'azure-native:portal:ConsoleWithLocation',

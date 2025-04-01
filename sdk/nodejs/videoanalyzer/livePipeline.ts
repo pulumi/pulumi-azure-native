@@ -123,7 +123,7 @@ export class LivePipeline extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer/v20211101preview:LivePipeline" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer/v20211101preview:LivePipeline" }, { type: "azure-native_videoanalyzer_v20211101preview:videoanalyzer:LivePipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LivePipeline.__pulumiType, name, resourceInputs, opts);
     }

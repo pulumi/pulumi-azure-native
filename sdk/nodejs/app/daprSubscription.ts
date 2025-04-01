@@ -130,7 +130,7 @@ export class DaprSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20230801preview:DaprSubscription" }, { type: "azure-native:app/v20231102preview:DaprSubscription" }, { type: "azure-native:app/v20240202preview:DaprSubscription" }, { type: "azure-native:app/v20240802preview:DaprSubscription" }, { type: "azure-native:app/v20241002preview:DaprSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20230801preview:DaprSubscription" }, { type: "azure-native:app/v20231102preview:DaprSubscription" }, { type: "azure-native:app/v20240202preview:DaprSubscription" }, { type: "azure-native:app/v20240802preview:DaprSubscription" }, { type: "azure-native:app/v20241002preview:DaprSubscription" }, { type: "azure-native_app_v20230801preview:app:DaprSubscription" }, { type: "azure-native_app_v20231102preview:app:DaprSubscription" }, { type: "azure-native_app_v20240202preview:app:DaprSubscription" }, { type: "azure-native_app_v20240802preview:app:DaprSubscription" }, { type: "azure-native_app_v20241002preview:app:DaprSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DaprSubscription.__pulumiType, name, resourceInputs, opts);
     }

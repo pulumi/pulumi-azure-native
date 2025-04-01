@@ -87,10 +87,7 @@ namespace Pulumi.AzureNative.App
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:Certificate" },
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:Certificate" },
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:Certificate" },
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230501:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:Certificate" },
@@ -100,7 +97,21 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:Certificate" },
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20250101:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20220101preview:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20220301:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20220601preview:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20221001:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20221101preview:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230401preview:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230501:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230502preview:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20230801preview:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20231102preview:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240202preview:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240301:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240802preview:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20241002preview:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20250101:app:Certificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

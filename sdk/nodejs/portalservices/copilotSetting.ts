@@ -95,7 +95,7 @@ export class CopilotSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:portalservices/v20240401:CopilotSetting" }, { type: "azure-native:portalservices/v20240401preview:CopilotSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:portalservices/v20240401preview:CopilotSetting" }, { type: "azure-native_portalservices_v20240401:portalservices:CopilotSetting" }, { type: "azure-native_portalservices_v20240401preview:portalservices:CopilotSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CopilotSetting.__pulumiType, name, resourceInputs, opts);
     }

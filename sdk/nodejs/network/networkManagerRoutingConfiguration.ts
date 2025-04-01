@@ -113,7 +113,7 @@ export class NetworkManagerRoutingConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240301:NetworkManagerRoutingConfiguration" }, { type: "azure-native:network/v20240501:NetworkManagerRoutingConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240301:NetworkManagerRoutingConfiguration" }, { type: "azure-native:network/v20240501:NetworkManagerRoutingConfiguration" }, { type: "azure-native_network_v20240301:network:NetworkManagerRoutingConfiguration" }, { type: "azure-native_network_v20240501:network:NetworkManagerRoutingConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkManagerRoutingConfiguration.__pulumiType, name, resourceInputs, opts);
     }

@@ -97,7 +97,7 @@ export class BillingRoleAssignmentByBillingAccount extends pulumi.CustomResource
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:billing/v20191001preview:BillingRoleAssignmentByBillingAccount" }, { type: "azure-native:billing/v20240401:BillingRoleAssignmentByBillingAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:billing/v20191001preview:BillingRoleAssignmentByBillingAccount" }, { type: "azure-native:billing/v20240401:BillingRoleAssignmentByBillingAccount" }, { type: "azure-native_billing_v20191001preview:billing:BillingRoleAssignmentByBillingAccount" }, { type: "azure-native_billing_v20240401:billing:BillingRoleAssignmentByBillingAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BillingRoleAssignmentByBillingAccount.__pulumiType, name, resourceInputs, opts);
     }

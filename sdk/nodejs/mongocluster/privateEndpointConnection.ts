@@ -95,7 +95,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20240301preview:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20240601preview:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20240701:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20241001preview:PrivateEndpointConnection" }, { type: "azure-native:mongocluster/v20240301preview:PrivateEndpointConnection" }, { type: "azure-native:mongocluster/v20240601preview:PrivateEndpointConnection" }, { type: "azure-native:mongocluster/v20240701:PrivateEndpointConnection" }, { type: "azure-native:mongocluster/v20241001preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20240301preview:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20240601preview:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20240701:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20241001preview:PrivateEndpointConnection" }, { type: "azure-native_mongocluster_v20240301preview:mongocluster:PrivateEndpointConnection" }, { type: "azure-native_mongocluster_v20240601preview:mongocluster:PrivateEndpointConnection" }, { type: "azure-native_mongocluster_v20240701:mongocluster:PrivateEndpointConnection" }, { type: "azure-native_mongocluster_v20241001preview:mongocluster:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

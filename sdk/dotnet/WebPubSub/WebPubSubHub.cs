@@ -74,8 +74,6 @@ namespace Pulumi.AzureNative.WebPubSub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubHub" },
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubHub" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubHub" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubHub" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubHub" },
@@ -85,6 +83,17 @@ namespace Pulumi.AzureNative.WebPubSub
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240401preview:WebPubSubHub" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240801preview:WebPubSubHub" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20241001preview:WebPubSubHub" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20211001:webpubsub:WebPubSubHub" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20220801preview:webpubsub:WebPubSubHub" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230201:webpubsub:WebPubSubHub" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230301preview:webpubsub:WebPubSubHub" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230601preview:webpubsub:WebPubSubHub" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230801preview:webpubsub:WebPubSubHub" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240101preview:webpubsub:WebPubSubHub" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240301:webpubsub:WebPubSubHub" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240401preview:webpubsub:WebPubSubHub" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240801preview:webpubsub:WebPubSubHub" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20241001preview:webpubsub:WebPubSubHub" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

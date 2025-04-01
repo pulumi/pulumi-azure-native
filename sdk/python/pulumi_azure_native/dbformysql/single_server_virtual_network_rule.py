@@ -180,7 +180,7 @@ class SingleServerVirtualNetworkRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20171201:SingleServerVirtualNetworkRule"), pulumi.Alias(type_="azure-native:dbformysql/v20171201:VirtualNetworkRule"), pulumi.Alias(type_="azure-native:dbformysql/v20171201preview:SingleServerVirtualNetworkRule"), pulumi.Alias(type_="azure-native:dbformysql/v20180601privatepreview:SingleServerVirtualNetworkRule"), pulumi.Alias(type_="azure-native:dbformysql/v20180601privatepreview:VirtualNetworkRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20171201:VirtualNetworkRule"), pulumi.Alias(type_="azure-native:dbformysql/v20180601privatepreview:VirtualNetworkRule"), pulumi.Alias(type_="azure-native_dbformysql_v20171201:dbformysql:SingleServerVirtualNetworkRule"), pulumi.Alias(type_="azure-native_dbformysql_v20171201preview:dbformysql:SingleServerVirtualNetworkRule"), pulumi.Alias(type_="azure-native_dbformysql_v20180601privatepreview:dbformysql:SingleServerVirtualNetworkRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SingleServerVirtualNetworkRule, __self__).__init__(
             'azure-native:dbformysql:SingleServerVirtualNetworkRule',

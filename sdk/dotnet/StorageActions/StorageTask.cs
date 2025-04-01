@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.StorageActions
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storageactions/v20230101:StorageTask" },
+                    new global::Pulumi.Alias { Type = "azure-native_storageactions_v20230101:storageactions:StorageTask" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -113,7 +113,7 @@ export class WorkspaceCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20230901preview:WorkspaceCertificate" }, { type: "azure-native:apimanagement/v20240501:WorkspaceCertificate" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20230901preview:WorkspaceCertificate" }, { type: "azure-native:apimanagement/v20240501:WorkspaceCertificate" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceCertificate" }, { type: "azure-native_apimanagement_v20230901preview:apimanagement:WorkspaceCertificate" }, { type: "azure-native_apimanagement_v20240501:apimanagement:WorkspaceCertificate" }, { type: "azure-native_apimanagement_v20240601preview:apimanagement:WorkspaceCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceCertificate.__pulumiType, name, resourceInputs, opts);
     }

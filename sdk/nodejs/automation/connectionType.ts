@@ -119,7 +119,7 @@ export class ConnectionType extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:ConnectionType" }, { type: "azure-native:automation/v20190601:ConnectionType" }, { type: "azure-native:automation/v20200113preview:ConnectionType" }, { type: "azure-native:automation/v20220808:ConnectionType" }, { type: "azure-native:automation/v20230515preview:ConnectionType" }, { type: "azure-native:automation/v20231101:ConnectionType" }, { type: "azure-native:automation/v20241023:ConnectionType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20220808:ConnectionType" }, { type: "azure-native:automation/v20230515preview:ConnectionType" }, { type: "azure-native:automation/v20231101:ConnectionType" }, { type: "azure-native:automation/v20241023:ConnectionType" }, { type: "azure-native_automation_v20151031:automation:ConnectionType" }, { type: "azure-native_automation_v20190601:automation:ConnectionType" }, { type: "azure-native_automation_v20200113preview:automation:ConnectionType" }, { type: "azure-native_automation_v20220808:automation:ConnectionType" }, { type: "azure-native_automation_v20230515preview:automation:ConnectionType" }, { type: "azure-native_automation_v20231101:automation:ConnectionType" }, { type: "azure-native_automation_v20241023:automation:ConnectionType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionType.__pulumiType, name, resourceInputs, opts);
     }

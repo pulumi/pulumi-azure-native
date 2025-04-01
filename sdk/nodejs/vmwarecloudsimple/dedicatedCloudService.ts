@@ -113,7 +113,7 @@ export class DedicatedCloudService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService" }, { type: "azure-native_vmwarecloudsimple_v20190401:vmwarecloudsimple:DedicatedCloudService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedCloudService.__pulumiType, name, resourceInputs, opts);
     }

@@ -128,10 +128,6 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ADLSGen2FolderDataSetMapping" },
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:ADLSGen2FolderDataSetMapping" },
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ADLSGen2FolderDataSetMapping" },
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobStorageAccountDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2FileDataSetMapping" },
@@ -157,6 +153,11 @@ namespace Pulumi.AzureNative.DataShare
                     new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDBTableDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDWTableDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20181101preview:datashare:ADLSGen2FolderDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20191101:datashare:ADLSGen2FolderDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20200901:datashare:ADLSGen2FolderDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20201001preview:datashare:ADLSGen2FolderDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20210801:datashare:ADLSGen2FolderDataSetMapping" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

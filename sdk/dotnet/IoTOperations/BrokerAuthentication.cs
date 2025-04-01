@@ -84,7 +84,11 @@ namespace Pulumi.AzureNative.IoTOperations
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:BrokerAuthentication" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:BrokerAuthentication" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:BrokerAuthentication" },
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20250401:BrokerAuthentication" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20240701preview:iotoperations:BrokerAuthentication" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20240815preview:iotoperations:BrokerAuthentication" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20240915preview:iotoperations:BrokerAuthentication" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20241101:iotoperations:BrokerAuthentication" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20250401:iotoperations:BrokerAuthentication" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

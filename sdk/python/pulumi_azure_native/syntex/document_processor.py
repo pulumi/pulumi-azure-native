@@ -180,7 +180,7 @@ class DocumentProcessor(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:syntex/v20220915preview:DocumentProcessor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:syntex/v20220915preview:DocumentProcessor"), pulumi.Alias(type_="azure-native_syntex_v20220915preview:syntex:DocumentProcessor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DocumentProcessor, __self__).__init__(
             'azure-native:syntex:DocumentProcessor',

@@ -93,7 +93,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:AppAttachPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:AppAttachPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240808preview:AppAttachPackage" },
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20241101preview:AppAttachPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20231004preview:desktopvirtualization:AppAttachPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20231101preview:desktopvirtualization:AppAttachPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240116preview:desktopvirtualization:AppAttachPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240306preview:desktopvirtualization:AppAttachPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240403:desktopvirtualization:AppAttachPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240408preview:desktopvirtualization:AppAttachPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20240808preview:desktopvirtualization:AppAttachPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native_desktopvirtualization_v20241101preview:desktopvirtualization:AppAttachPackage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

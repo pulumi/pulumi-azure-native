@@ -100,7 +100,7 @@ export class IamServerCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamServerCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamServerCertificate" }, { type: "azure-native_awsconnector_v20241201:awsconnector:IamServerCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IamServerCertificate.__pulumiType, name, resourceInputs, opts);
     }

@@ -230,7 +230,7 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere/v20220901preview:Deployment"), pulumi.Alias(type_="azure-native:azuresphere/v20240401:Deployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere/v20220901preview:Deployment"), pulumi.Alias(type_="azure-native:azuresphere/v20240401:Deployment"), pulumi.Alias(type_="azure-native_azuresphere_v20220901preview:azuresphere:Deployment"), pulumi.Alias(type_="azure-native_azuresphere_v20240401:azuresphere:Deployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Deployment, __self__).__init__(
             'azure-native:azuresphere:Deployment',

@@ -93,7 +93,7 @@ export class HttpRouteConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20241002preview:HttpRouteConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20241002preview:HttpRouteConfig" }, { type: "azure-native_app_v20241002preview:app:HttpRouteConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HttpRouteConfig.__pulumiType, name, resourceInputs, opts);
     }

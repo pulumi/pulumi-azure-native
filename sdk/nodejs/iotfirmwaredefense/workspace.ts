@@ -103,7 +103,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotfirmwaredefense/v20230208preview:Workspace" }, { type: "azure-native:iotfirmwaredefense/v20240110:Workspace" }, { type: "azure-native:iotfirmwaredefense/v20250401preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotfirmwaredefense/v20230208preview:Workspace" }, { type: "azure-native:iotfirmwaredefense/v20240110:Workspace" }, { type: "azure-native_iotfirmwaredefense_v20230208preview:iotfirmwaredefense:Workspace" }, { type: "azure-native_iotfirmwaredefense_v20240110:iotfirmwaredefense:Workspace" }, { type: "azure-native_iotfirmwaredefense_v20250401preview:iotfirmwaredefense:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

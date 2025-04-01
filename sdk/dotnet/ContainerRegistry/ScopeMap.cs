@@ -94,12 +94,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501preview:ScopeMap" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ScopeMap" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ScopeMap" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ScopeMap" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ScopeMap" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ScopeMap" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20221201:ScopeMap" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:ScopeMap" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:ScopeMap" },
@@ -107,6 +101,19 @@ namespace Pulumi.AzureNative.ContainerRegistry
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:ScopeMap" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:ScopeMap" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20190501preview:containerregistry:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20201101preview:containerregistry:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20210601preview:containerregistry:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20210801preview:containerregistry:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20211201preview:containerregistry:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20220201preview:containerregistry:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20221201:containerregistry:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230101preview:containerregistry:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230601preview:containerregistry:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230701:containerregistry:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230801preview:containerregistry:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20231101preview:containerregistry:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20241101preview:containerregistry:ScopeMap" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

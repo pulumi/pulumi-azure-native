@@ -87,7 +87,8 @@ namespace Pulumi.AzureNative.Contoso
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:contoso/v20211001preview:Employee" },
-                    new global::Pulumi.Alias { Type = "azure-native:contoso/v20211101:Employee" },
+                    new global::Pulumi.Alias { Type = "azure-native_contoso_v20211001preview:contoso:Employee" },
+                    new global::Pulumi.Alias { Type = "azure-native_contoso_v20211101:contoso:Employee" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

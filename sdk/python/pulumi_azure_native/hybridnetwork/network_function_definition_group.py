@@ -205,7 +205,7 @@ class NetworkFunctionDefinitionGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20230901:NetworkFunctionDefinitionGroup"), pulumi.Alias(type_="azure-native:hybridnetwork/v20240415:NetworkFunctionDefinitionGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20230901:NetworkFunctionDefinitionGroup"), pulumi.Alias(type_="azure-native:hybridnetwork/v20240415:NetworkFunctionDefinitionGroup"), pulumi.Alias(type_="azure-native_hybridnetwork_v20230901:hybridnetwork:NetworkFunctionDefinitionGroup"), pulumi.Alias(type_="azure-native_hybridnetwork_v20240415:hybridnetwork:NetworkFunctionDefinitionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkFunctionDefinitionGroup, __self__).__init__(
             'azure-native:hybridnetwork:NetworkFunctionDefinitionGroup',

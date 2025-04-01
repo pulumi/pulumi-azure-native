@@ -80,7 +80,6 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:AuthorizationProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:AuthorizationProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:AuthorizationProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:AuthorizationProvider" },
@@ -88,6 +87,14 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:AuthorizationProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:AuthorizationProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:AuthorizationProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20220401preview:apimanagement:AuthorizationProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20220801:apimanagement:AuthorizationProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20220901preview:apimanagement:AuthorizationProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230301preview:apimanagement:AuthorizationProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230501preview:apimanagement:AuthorizationProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20230901preview:apimanagement:AuthorizationProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20240501:apimanagement:AuthorizationProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native_apimanagement_v20240601preview:apimanagement:AuthorizationProvider" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -71,6 +71,9 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:LogicApp" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:LogicApp" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:LogicApp" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240202preview:app:LogicApp" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20240802preview:app:LogicApp" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20241002preview:app:LogicApp" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

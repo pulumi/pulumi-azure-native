@@ -100,7 +100,7 @@ export class DynamoDbTable extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:DynamoDbTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:DynamoDbTable" }, { type: "azure-native_awsconnector_v20241201:awsconnector:DynamoDbTable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DynamoDbTable.__pulumiType, name, resourceInputs, opts);
     }

@@ -122,9 +122,10 @@ namespace Pulumi.AzureNative.AlertsManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule" },
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_alertsmanagement_v20190301:alertsmanagement:SmartDetectorAlertRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_alertsmanagement_v20190601:alertsmanagement:SmartDetectorAlertRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_alertsmanagement_v20210401:alertsmanagement:SmartDetectorAlertRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

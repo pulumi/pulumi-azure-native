@@ -187,7 +187,7 @@ class EncryptionScope(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240601preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20241001:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250401preview:EncryptionScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240601preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20241001:EncryptionScope"), pulumi.Alias(type_="azure-native_cognitiveservices_v20231001preview:cognitiveservices:EncryptionScope"), pulumi.Alias(type_="azure-native_cognitiveservices_v20240401preview:cognitiveservices:EncryptionScope"), pulumi.Alias(type_="azure-native_cognitiveservices_v20240601preview:cognitiveservices:EncryptionScope"), pulumi.Alias(type_="azure-native_cognitiveservices_v20241001:cognitiveservices:EncryptionScope"), pulumi.Alias(type_="azure-native_cognitiveservices_v20250401preview:cognitiveservices:EncryptionScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EncryptionScope, __self__).__init__(
             'azure-native:cognitiveservices:EncryptionScope',

@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.VerifiedId
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:verifiedid/v20240126preview:Authority" },
+                    new global::Pulumi.Alias { Type = "azure-native_verifiedid_v20240126preview:verifiedid:Authority" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

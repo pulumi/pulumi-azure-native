@@ -105,7 +105,7 @@ export class LabelByWorkspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:easm/v20220401preview:LabelByWorkspace" }, { type: "azure-native:easm/v20230401preview:LabelByWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:easm/v20230401preview:LabelByWorkspace" }, { type: "azure-native_easm_v20220401preview:easm:LabelByWorkspace" }, { type: "azure-native_easm_v20230401preview:easm:LabelByWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LabelByWorkspace.__pulumiType, name, resourceInputs, opts);
     }

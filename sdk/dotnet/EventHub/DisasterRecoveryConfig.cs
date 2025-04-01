@@ -104,16 +104,20 @@ namespace Pulumi.AzureNative.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:DisasterRecoveryConfig" },
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:DisasterRecoveryConfig" },
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:DisasterRecoveryConfig" },
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:DisasterRecoveryConfig" },
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:DisasterRecoveryConfig" },
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240501preview:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20170401:eventhub:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20180101preview:eventhub:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20210101preview:eventhub:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20210601preview:eventhub:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20211101:eventhub:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20220101preview:eventhub:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20221001preview:eventhub:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20230101preview:eventhub:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20240101:eventhub:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20240501preview:eventhub:DisasterRecoveryConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

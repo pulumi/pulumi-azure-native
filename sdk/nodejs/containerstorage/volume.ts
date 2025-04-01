@@ -123,7 +123,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["volumeType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerstorage/v20230701preview:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerstorage/v20230701preview:Volume" }, { type: "azure-native_containerstorage_v20230701preview:containerstorage:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }

@@ -176,7 +176,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:Route" }, { type: "azure-native:cdn/v20210601:Route" }, { type: "azure-native:cdn/v20220501preview:Route" }, { type: "azure-native:cdn/v20221101preview:Route" }, { type: "azure-native:cdn/v20230501:Route" }, { type: "azure-native:cdn/v20230701preview:Route" }, { type: "azure-native:cdn/v20240201:Route" }, { type: "azure-native:cdn/v20240501preview:Route" }, { type: "azure-native:cdn/v20240601preview:Route" }, { type: "azure-native:cdn/v20240901:Route" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:Route" }, { type: "azure-native:cdn/v20230501:Route" }, { type: "azure-native:cdn/v20230701preview:Route" }, { type: "azure-native:cdn/v20240201:Route" }, { type: "azure-native:cdn/v20240501preview:Route" }, { type: "azure-native:cdn/v20240601preview:Route" }, { type: "azure-native:cdn/v20240901:Route" }, { type: "azure-native_cdn_v20200901:cdn:Route" }, { type: "azure-native_cdn_v20210601:cdn:Route" }, { type: "azure-native_cdn_v20220501preview:cdn:Route" }, { type: "azure-native_cdn_v20221101preview:cdn:Route" }, { type: "azure-native_cdn_v20230501:cdn:Route" }, { type: "azure-native_cdn_v20230701preview:cdn:Route" }, { type: "azure-native_cdn_v20240201:cdn:Route" }, { type: "azure-native_cdn_v20240501preview:cdn:Route" }, { type: "azure-native_cdn_v20240601preview:cdn:Route" }, { type: "azure-native_cdn_v20240901:cdn:Route" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Route.__pulumiType, name, resourceInputs, opts);
     }

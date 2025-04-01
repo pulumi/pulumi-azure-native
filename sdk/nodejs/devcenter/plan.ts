@@ -109,7 +109,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20240501preview:Plan" }, { type: "azure-native:devcenter/v20240601preview:Plan" }, { type: "azure-native:devcenter/v20240701preview:Plan" }, { type: "azure-native:devcenter/v20240801preview:Plan" }, { type: "azure-native:devcenter/v20241001preview:Plan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20240501preview:Plan" }, { type: "azure-native:devcenter/v20240601preview:Plan" }, { type: "azure-native:devcenter/v20240701preview:Plan" }, { type: "azure-native:devcenter/v20240801preview:Plan" }, { type: "azure-native:devcenter/v20241001preview:Plan" }, { type: "azure-native_devcenter_v20240501preview:devcenter:Plan" }, { type: "azure-native_devcenter_v20240601preview:devcenter:Plan" }, { type: "azure-native_devcenter_v20240701preview:devcenter:Plan" }, { type: "azure-native_devcenter_v20240801preview:devcenter:Plan" }, { type: "azure-native_devcenter_v20241001preview:devcenter:Plan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Plan.__pulumiType, name, resourceInputs, opts);
     }

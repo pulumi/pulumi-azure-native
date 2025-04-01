@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.BillingBenefits
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:billingbenefits/v20241101preview:Discount" },
+                    new global::Pulumi.Alias { Type = "azure-native_billingbenefits_v20241101preview:billingbenefits:Discount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

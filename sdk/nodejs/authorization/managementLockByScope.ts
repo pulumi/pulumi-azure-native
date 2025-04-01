@@ -104,7 +104,7 @@ export class ManagementLockByScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20160901:ManagementLockByScope" }, { type: "azure-native:authorization/v20170401:ManagementLockByScope" }, { type: "azure-native:authorization/v20200501:ManagementLockByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20200501:ManagementLockByScope" }, { type: "azure-native_authorization_v20160901:authorization:ManagementLockByScope" }, { type: "azure-native_authorization_v20170401:authorization:ManagementLockByScope" }, { type: "azure-native_authorization_v20200501:authorization:ManagementLockByScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementLockByScope.__pulumiType, name, resourceInputs, opts);
     }

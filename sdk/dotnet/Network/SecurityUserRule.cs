@@ -128,18 +128,20 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:DefaultUserRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:DefaultUserRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:UserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:SecurityUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:SecurityUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network:DefaultUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network:UserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20210201preview:network:SecurityUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20210501preview:network:SecurityUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20220201preview:network:SecurityUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20220401preview:network:SecurityUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240301:network:SecurityUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240501:network:SecurityUserRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

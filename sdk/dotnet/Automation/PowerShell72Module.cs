@@ -139,6 +139,7 @@ namespace Pulumi.AzureNative.Automation
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:PowerShell72Module" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20231101:automation:PowerShell72Module" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

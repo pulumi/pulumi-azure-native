@@ -87,7 +87,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datalakestore/v20161101:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datalakestore/v20161101:VirtualNetworkRule" }, { type: "azure-native_datalakestore_v20161101:datalakestore:VirtualNetworkRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkRule.__pulumiType, name, resourceInputs, opts);
     }

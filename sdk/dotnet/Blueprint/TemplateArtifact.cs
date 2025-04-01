@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.Blueprint
                     new global::Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:TemplateArtifact" },
                     new global::Pulumi.Alias { Type = "azure-native:blueprint:PolicyAssignmentArtifact" },
                     new global::Pulumi.Alias { Type = "azure-native:blueprint:RoleAssignmentArtifact" },
+                    new global::Pulumi.Alias { Type = "azure-native_blueprint_v20181101preview:blueprint:TemplateArtifact" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

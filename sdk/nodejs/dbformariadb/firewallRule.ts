@@ -96,7 +96,7 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb/v20180601:FirewallRule" }, { type: "azure-native:dbformariadb/v20180601preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb/v20180601:FirewallRule" }, { type: "azure-native:dbformariadb/v20180601preview:FirewallRule" }, { type: "azure-native_dbformariadb_v20180601:dbformariadb:FirewallRule" }, { type: "azure-native_dbformariadb_v20180601preview:dbformariadb:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }

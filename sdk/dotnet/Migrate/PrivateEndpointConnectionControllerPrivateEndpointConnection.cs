@@ -82,6 +82,8 @@ namespace Pulumi.AzureNative.Migrate
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230101:PrivateEndpointConnectionControllerPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20200501:migrate:PrivateEndpointConnectionControllerPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230101:migrate:PrivateEndpointConnectionControllerPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

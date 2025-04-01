@@ -103,7 +103,7 @@ export class PeerAsn extends pulumi.CustomResource {
             resourceInputs["validationState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20190801preview:PeerAsn" }, { type: "azure-native:peering/v20190901preview:PeerAsn" }, { type: "azure-native:peering/v20200101preview:PeerAsn" }, { type: "azure-native:peering/v20200401:PeerAsn" }, { type: "azure-native:peering/v20201001:PeerAsn" }, { type: "azure-native:peering/v20210101:PeerAsn" }, { type: "azure-native:peering/v20210601:PeerAsn" }, { type: "azure-native:peering/v20220101:PeerAsn" }, { type: "azure-native:peering/v20220601:PeerAsn" }, { type: "azure-native:peering/v20221001:PeerAsn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering/v20210101:PeerAsn" }, { type: "azure-native:peering/v20221001:PeerAsn" }, { type: "azure-native_peering_v20190801preview:peering:PeerAsn" }, { type: "azure-native_peering_v20190901preview:peering:PeerAsn" }, { type: "azure-native_peering_v20200101preview:peering:PeerAsn" }, { type: "azure-native_peering_v20200401:peering:PeerAsn" }, { type: "azure-native_peering_v20201001:peering:PeerAsn" }, { type: "azure-native_peering_v20210101:peering:PeerAsn" }, { type: "azure-native_peering_v20210601:peering:PeerAsn" }, { type: "azure-native_peering_v20220101:peering:PeerAsn" }, { type: "azure-native_peering_v20220601:peering:PeerAsn" }, { type: "azure-native_peering_v20221001:peering:PeerAsn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PeerAsn.__pulumiType, name, resourceInputs, opts);
     }

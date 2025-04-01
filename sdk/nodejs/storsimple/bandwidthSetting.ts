@@ -102,7 +102,7 @@ export class BandwidthSetting extends pulumi.CustomResource {
             resourceInputs["volumeCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/v20170601:BandwidthSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/v20170601:BandwidthSetting" }, { type: "azure-native_storsimple_v20170601:storsimple:BandwidthSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BandwidthSetting.__pulumiType, name, resourceInputs, opts);
     }

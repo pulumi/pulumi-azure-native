@@ -92,7 +92,7 @@ export class MachinePool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:MachinePool" }, { type: "azure-native:redhatopenshift/v20230401:MachinePool" }, { type: "azure-native:redhatopenshift/v20230701preview:MachinePool" }, { type: "azure-native:redhatopenshift/v20230904:MachinePool" }, { type: "azure-native:redhatopenshift/v20231122:MachinePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:MachinePool" }, { type: "azure-native:redhatopenshift/v20230401:MachinePool" }, { type: "azure-native:redhatopenshift/v20230701preview:MachinePool" }, { type: "azure-native:redhatopenshift/v20230904:MachinePool" }, { type: "azure-native:redhatopenshift/v20231122:MachinePool" }, { type: "azure-native_redhatopenshift_v20220904:redhatopenshift:MachinePool" }, { type: "azure-native_redhatopenshift_v20230401:redhatopenshift:MachinePool" }, { type: "azure-native_redhatopenshift_v20230701preview:redhatopenshift:MachinePool" }, { type: "azure-native_redhatopenshift_v20230904:redhatopenshift:MachinePool" }, { type: "azure-native_redhatopenshift_v20231122:redhatopenshift:MachinePool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachinePool.__pulumiType, name, resourceInputs, opts);
     }

@@ -139,6 +139,7 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:programmableconnectivity/v20240115preview:OperatorApiConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_programmableconnectivity_v20240115preview:programmableconnectivity:OperatorApiConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

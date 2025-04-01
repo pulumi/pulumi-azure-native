@@ -188,7 +188,7 @@ class ArchiveVersion(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:ArchiveVersion"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:ArchiveVersion"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:ArchiveVersion"), pulumi.Alias(type_="azure-native:containerregistry/v20241101preview:ArchiveVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:ArchiveVersion"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:ArchiveVersion"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:ArchiveVersion"), pulumi.Alias(type_="azure-native:containerregistry/v20241101preview:ArchiveVersion"), pulumi.Alias(type_="azure-native_containerregistry_v20230601preview:containerregistry:ArchiveVersion"), pulumi.Alias(type_="azure-native_containerregistry_v20230801preview:containerregistry:ArchiveVersion"), pulumi.Alias(type_="azure-native_containerregistry_v20231101preview:containerregistry:ArchiveVersion"), pulumi.Alias(type_="azure-native_containerregistry_v20241101preview:containerregistry:ArchiveVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ArchiveVersion, __self__).__init__(
             'azure-native:containerregistry:ArchiveVersion',

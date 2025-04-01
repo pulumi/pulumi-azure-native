@@ -108,7 +108,7 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20201001:RoleManagementPolicyAssignment" }, { type: "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment" }, { type: "azure-native:authorization/v20240201preview:RoleManagementPolicyAssignment" }, { type: "azure-native:authorization/v20240901preview:RoleManagementPolicyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20201001:RoleManagementPolicyAssignment" }, { type: "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment" }, { type: "azure-native:authorization/v20240201preview:RoleManagementPolicyAssignment" }, { type: "azure-native:authorization/v20240901preview:RoleManagementPolicyAssignment" }, { type: "azure-native_authorization_v20201001:authorization:RoleManagementPolicyAssignment" }, { type: "azure-native_authorization_v20201001preview:authorization:RoleManagementPolicyAssignment" }, { type: "azure-native_authorization_v20240201preview:authorization:RoleManagementPolicyAssignment" }, { type: "azure-native_authorization_v20240901preview:authorization:RoleManagementPolicyAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleManagementPolicyAssignment.__pulumiType, name, resourceInputs, opts);
     }

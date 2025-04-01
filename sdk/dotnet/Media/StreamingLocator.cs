@@ -129,13 +129,15 @@ namespace Pulumi.AzureNative.Media
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingLocator" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingLocator" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingLocator" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingLocator" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingLocator" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingLocator" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:StreamingLocator" },
                     new global::Pulumi.Alias { Type = "azure-native:media/v20230101:StreamingLocator" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20180330preview:media:StreamingLocator" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20180601preview:media:StreamingLocator" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20180701:media:StreamingLocator" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20200501:media:StreamingLocator" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20210601:media:StreamingLocator" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20211101:media:StreamingLocator" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20220801:media:StreamingLocator" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20230101:media:StreamingLocator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

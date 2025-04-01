@@ -98,14 +98,18 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:DscNodeConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20180115:DscNodeConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:DscNodeConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:DscNodeConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:DscNodeConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:DscNodeConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:DscNodeConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:DscNodeConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20151031:automation:DscNodeConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20180115:automation:DscNodeConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20190601:automation:DscNodeConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20200113preview:automation:DscNodeConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20220808:automation:DscNodeConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20230515preview:automation:DscNodeConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20231101:automation:DscNodeConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20241023:automation:DscNodeConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -116,7 +116,7 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managedidentity/v20220131preview:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20230131:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20230731preview:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20241130:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20250131preview:FederatedIdentityCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedidentity/v20230131:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20230731preview:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20241130:FederatedIdentityCredential" }, { type: "azure-native_managedidentity_v20220131preview:managedidentity:FederatedIdentityCredential" }, { type: "azure-native_managedidentity_v20230131:managedidentity:FederatedIdentityCredential" }, { type: "azure-native_managedidentity_v20230731preview:managedidentity:FederatedIdentityCredential" }, { type: "azure-native_managedidentity_v20241130:managedidentity:FederatedIdentityCredential" }, { type: "azure-native_managedidentity_v20250131preview:managedidentity:FederatedIdentityCredential" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FederatedIdentityCredential.__pulumiType, name, resourceInputs, opts);
     }

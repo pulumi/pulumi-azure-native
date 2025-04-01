@@ -128,8 +128,9 @@ namespace Pulumi.AzureNative.CostManagement
                 {
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20180801preview:Connector" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20190301preview:CloudConnector" },
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20190301preview:Connector" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement:CloudConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20180801preview:costmanagement:Connector" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20190301preview:costmanagement:Connector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

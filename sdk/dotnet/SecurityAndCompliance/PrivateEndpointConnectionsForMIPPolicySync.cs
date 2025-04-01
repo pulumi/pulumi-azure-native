@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForMIPPolicySync" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityandcompliance_v20210308:securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

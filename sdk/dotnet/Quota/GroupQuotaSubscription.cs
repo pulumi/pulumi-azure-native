@@ -75,7 +75,11 @@ namespace Pulumi.AzureNative.Quota
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20241015preview:GroupQuotaSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20241218preview:GroupQuotaSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20250301:GroupQuotaSubscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:quota/v20250315preview:GroupQuotaSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_quota_v20230601preview:quota:GroupQuotaSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_quota_v20241015preview:quota:GroupQuotaSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_quota_v20241218preview:quota:GroupQuotaSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_quota_v20250301:quota:GroupQuotaSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_quota_v20250315preview:quota:GroupQuotaSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

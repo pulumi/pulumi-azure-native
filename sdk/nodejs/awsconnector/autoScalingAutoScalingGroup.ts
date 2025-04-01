@@ -100,7 +100,7 @@ export class AutoScalingAutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:AutoScalingAutoScalingGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:AutoScalingAutoScalingGroup" }, { type: "azure-native_awsconnector_v20241201:awsconnector:AutoScalingAutoScalingGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutoScalingAutoScalingGroup.__pulumiType, name, resourceInputs, opts);
     }

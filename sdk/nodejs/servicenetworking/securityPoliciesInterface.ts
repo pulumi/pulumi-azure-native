@@ -119,7 +119,7 @@ export class SecurityPoliciesInterface extends pulumi.CustomResource {
             resourceInputs["wafPolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking/v20240501preview:SecurityPoliciesInterface" }, { type: "azure-native:servicenetworking/v20250101:SecurityPoliciesInterface" }, { type: "azure-native:servicenetworking/v20250301preview:SecurityPoliciesInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking/v20240501preview:SecurityPoliciesInterface" }, { type: "azure-native:servicenetworking/v20250101:SecurityPoliciesInterface" }, { type: "azure-native_servicenetworking_v20240501preview:servicenetworking:SecurityPoliciesInterface" }, { type: "azure-native_servicenetworking_v20250101:servicenetworking:SecurityPoliciesInterface" }, { type: "azure-native_servicenetworking_v20250301preview:servicenetworking:SecurityPoliciesInterface" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityPoliciesInterface.__pulumiType, name, resourceInputs, opts);
     }

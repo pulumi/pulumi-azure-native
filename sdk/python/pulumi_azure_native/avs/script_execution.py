@@ -319,7 +319,7 @@ class ScriptExecution(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["warnings"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20210601:ScriptExecution"), pulumi.Alias(type_="azure-native:avs/v20211201:ScriptExecution"), pulumi.Alias(type_="azure-native:avs/v20220501:ScriptExecution"), pulumi.Alias(type_="azure-native:avs/v20230301:ScriptExecution"), pulumi.Alias(type_="azure-native:avs/v20230901:ScriptExecution")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20220501:ScriptExecution"), pulumi.Alias(type_="azure-native:avs/v20230301:ScriptExecution"), pulumi.Alias(type_="azure-native:avs/v20230901:ScriptExecution"), pulumi.Alias(type_="azure-native_avs_v20210601:avs:ScriptExecution"), pulumi.Alias(type_="azure-native_avs_v20211201:avs:ScriptExecution"), pulumi.Alias(type_="azure-native_avs_v20220501:avs:ScriptExecution"), pulumi.Alias(type_="azure-native_avs_v20230301:avs:ScriptExecution"), pulumi.Alias(type_="azure-native_avs_v20230901:avs:ScriptExecution")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScriptExecution, __self__).__init__(
             'azure-native:avs:ScriptExecution',

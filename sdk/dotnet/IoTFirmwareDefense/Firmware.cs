@@ -124,7 +124,9 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotfirmwaredefense/v20230208preview:Firmware" },
                     new global::Pulumi.Alias { Type = "azure-native:iotfirmwaredefense/v20240110:Firmware" },
-                    new global::Pulumi.Alias { Type = "azure-native:iotfirmwaredefense/v20250401preview:Firmware" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotfirmwaredefense_v20230208preview:iotfirmwaredefense:Firmware" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotfirmwaredefense_v20240110:iotfirmwaredefense:Firmware" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotfirmwaredefense_v20250401preview:iotfirmwaredefense:Firmware" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

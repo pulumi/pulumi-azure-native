@@ -86,11 +86,14 @@ namespace Pulumi.AzureNative.ManagedIdentity
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20220131preview:FederatedIdentityCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20230131:FederatedIdentityCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20230731preview:FederatedIdentityCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20241130:FederatedIdentityCredential" },
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20250131preview:FederatedIdentityCredential" },
+                    new global::Pulumi.Alias { Type = "azure-native_managedidentity_v20220131preview:managedidentity:FederatedIdentityCredential" },
+                    new global::Pulumi.Alias { Type = "azure-native_managedidentity_v20230131:managedidentity:FederatedIdentityCredential" },
+                    new global::Pulumi.Alias { Type = "azure-native_managedidentity_v20230731preview:managedidentity:FederatedIdentityCredential" },
+                    new global::Pulumi.Alias { Type = "azure-native_managedidentity_v20241130:managedidentity:FederatedIdentityCredential" },
+                    new global::Pulumi.Alias { Type = "azure-native_managedidentity_v20250131preview:managedidentity:FederatedIdentityCredential" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

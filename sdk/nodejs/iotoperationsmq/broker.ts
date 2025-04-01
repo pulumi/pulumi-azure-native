@@ -198,7 +198,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:Broker" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:Broker" }, { type: "azure-native_iotoperationsmq_v20231004preview:iotoperationsmq:Broker" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Broker.__pulumiType, name, resourceInputs, opts);
     }

@@ -133,6 +133,7 @@ namespace Pulumi.AzureNative.AzureStack
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:LinkedSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestack_v20200601preview:azurestack:LinkedSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

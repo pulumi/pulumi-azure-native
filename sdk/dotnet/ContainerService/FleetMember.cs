@@ -92,9 +92,7 @@ namespace Pulumi.AzureNative.ContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:FleetMember" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220702preview:FleetMember" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220902preview:FleetMember" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230315preview:FleetMember" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230615preview:FleetMember" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230815preview:FleetMember" },
@@ -102,6 +100,16 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240202preview:FleetMember" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240401:FleetMember" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240502preview:FleetMember" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20220602preview:containerservice:FleetMember" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20220702preview:containerservice:FleetMember" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20220902preview:containerservice:FleetMember" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20230315preview:containerservice:FleetMember" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20230615preview:containerservice:FleetMember" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20230815preview:containerservice:FleetMember" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20231015:containerservice:FleetMember" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20240202preview:containerservice:FleetMember" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20240401:containerservice:FleetMember" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20240502preview:containerservice:FleetMember" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

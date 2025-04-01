@@ -124,7 +124,7 @@ export class Builder extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20230801preview:Builder" }, { type: "azure-native:app/v20231102preview:Builder" }, { type: "azure-native:app/v20240202preview:Builder" }, { type: "azure-native:app/v20240802preview:Builder" }, { type: "azure-native:app/v20241002preview:Builder" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20230801preview:Builder" }, { type: "azure-native:app/v20231102preview:Builder" }, { type: "azure-native:app/v20240202preview:Builder" }, { type: "azure-native:app/v20240802preview:Builder" }, { type: "azure-native:app/v20241002preview:Builder" }, { type: "azure-native_app_v20230801preview:app:Builder" }, { type: "azure-native_app_v20231102preview:app:Builder" }, { type: "azure-native_app_v20240202preview:app:Builder" }, { type: "azure-native_app_v20240802preview:app:Builder" }, { type: "azure-native_app_v20241002preview:app:Builder" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Builder.__pulumiType, name, resourceInputs, opts);
     }

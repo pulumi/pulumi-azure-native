@@ -208,7 +208,7 @@ class Pricing(pulumi.CustomResource):
             __props__.__dict__["replaced_by"] = None
             __props__.__dict__["resources_coverage_status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20240101:Pricing")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20240101:Pricing"), pulumi.Alias(type_="azure-native_security_v20240101:security:Pricing")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pricing, __self__).__init__(
             'azure-native:security:Pricing',

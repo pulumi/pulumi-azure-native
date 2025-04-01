@@ -187,7 +187,7 @@ class Broker(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:Broker"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:Broker"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:Broker"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:Broker"), pulumi.Alias(type_="azure-native:iotoperations/v20250401:Broker")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:Broker"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:Broker"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:Broker"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:Broker"), pulumi.Alias(type_="azure-native_iotoperations_v20240701preview:iotoperations:Broker"), pulumi.Alias(type_="azure-native_iotoperations_v20240815preview:iotoperations:Broker"), pulumi.Alias(type_="azure-native_iotoperations_v20240915preview:iotoperations:Broker"), pulumi.Alias(type_="azure-native_iotoperations_v20241101:iotoperations:Broker"), pulumi.Alias(type_="azure-native_iotoperations_v20250401:iotoperations:Broker")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Broker, __self__).__init__(
             'azure-native:iotoperations:Broker',

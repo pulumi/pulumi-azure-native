@@ -149,7 +149,7 @@ export class NetworkTap extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:NetworkTap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:NetworkTap" }, { type: "azure-native_managednetworkfabric_v20230615:managednetworkfabric:NetworkTap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkTap.__pulumiType, name, resourceInputs, opts);
     }

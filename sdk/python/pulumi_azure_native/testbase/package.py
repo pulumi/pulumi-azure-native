@@ -395,7 +395,7 @@ class Package(pulumi.CustomResource):
             __props__.__dict__["test_types"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_results"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20201216preview:Package"), pulumi.Alias(type_="azure-native:testbase/v20220401preview:Package"), pulumi.Alias(type_="azure-native:testbase/v20231101preview:Package")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20220401preview:Package"), pulumi.Alias(type_="azure-native:testbase/v20231101preview:Package"), pulumi.Alias(type_="azure-native_testbase_v20201216preview:testbase:Package"), pulumi.Alias(type_="azure-native_testbase_v20220401preview:testbase:Package"), pulumi.Alias(type_="azure-native_testbase_v20231101preview:testbase:Package")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Package, __self__).__init__(
             'azure-native:testbase:Package',

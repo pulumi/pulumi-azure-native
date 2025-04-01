@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20240901preview:DiscoveredAssetEndpointProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceregistry_v20240901preview:deviceregistry:DiscoveredAssetEndpointProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

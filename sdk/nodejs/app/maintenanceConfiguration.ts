@@ -96,7 +96,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20241002preview:MaintenanceConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20241002preview:MaintenanceConfiguration" }, { type: "azure-native_app_v20241002preview:app:MaintenanceConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MaintenanceConfiguration.__pulumiType, name, resourceInputs, opts);
     }

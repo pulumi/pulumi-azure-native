@@ -100,7 +100,7 @@ export class S3Bucket extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:S3Bucket" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:S3Bucket" }, { type: "azure-native_awsconnector_v20241201:awsconnector:S3Bucket" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(S3Bucket.__pulumiType, name, resourceInputs, opts);
     }

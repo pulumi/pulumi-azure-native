@@ -137,7 +137,7 @@ export class InternetGateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:InternetGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:InternetGateway" }, { type: "azure-native_managednetworkfabric_v20230615:managednetworkfabric:InternetGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InternetGateway.__pulumiType, name, resourceInputs, opts);
     }

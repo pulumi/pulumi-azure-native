@@ -127,7 +127,7 @@ export class LoadTest extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:loadtestservice/v20211201preview:LoadTest" }, { type: "azure-native:loadtestservice/v20220415preview:LoadTest" }, { type: "azure-native:loadtestservice/v20221201:LoadTest" }, { type: "azure-native:loadtestservice/v20231201preview:LoadTest" }, { type: "azure-native:loadtestservice/v20241201preview:LoadTest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:loadtestservice/v20211201preview:LoadTest" }, { type: "azure-native:loadtestservice/v20221201:LoadTest" }, { type: "azure-native:loadtestservice/v20231201preview:LoadTest" }, { type: "azure-native_loadtestservice_v20211201preview:loadtestservice:LoadTest" }, { type: "azure-native_loadtestservice_v20220415preview:loadtestservice:LoadTest" }, { type: "azure-native_loadtestservice_v20221201:loadtestservice:LoadTest" }, { type: "azure-native_loadtestservice_v20231201preview:loadtestservice:LoadTest" }, { type: "azure-native_loadtestservice_v20241201preview:loadtestservice:LoadTest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LoadTest.__pulumiType, name, resourceInputs, opts);
     }

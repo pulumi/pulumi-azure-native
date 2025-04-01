@@ -206,10 +206,6 @@ namespace Pulumi.AzureNative.Kubernetes
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20200101preview:ConnectedCluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20210301:ConnectedCluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20210401preview:ConnectedCluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20211001:ConnectedCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20220501preview:ConnectedCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20221001preview:ConnectedCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20231101preview:ConnectedCluster" },
@@ -219,6 +215,19 @@ namespace Pulumi.AzureNative.Kubernetes
                     new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20240701preview:ConnectedCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20240715preview:ConnectedCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20241201preview:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20200101preview:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20210301:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20210401preview:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20211001:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20220501preview:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20221001preview:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20231101preview:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20240101:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20240201preview:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20240601preview:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20240701preview:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20240715preview:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetes_v20241201preview:kubernetes:ConnectedCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

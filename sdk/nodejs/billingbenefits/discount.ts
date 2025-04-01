@@ -212,7 +212,7 @@ export class Discount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:billingbenefits/v20241101preview:Discount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native_billingbenefits_v20241101preview:billingbenefits:Discount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Discount.__pulumiType, name, resourceInputs, opts);
     }

@@ -60,17 +60,26 @@ func ParseToken(tok string) (string, string, string, error) {
 	if len(parts) != 3 {
 		return "", "", "", errors.Errorf("malformed token '%s'", tok)
 	}
-	subparts := strings.Split(parts[1], "/")
-	if len(subparts) == 2 {
-		return subparts[0], subparts[1], parts[2], nil
+	provider, module, resource := parts[0], parts[1], parts[2]
+	if provider == "azure-native" {
+		return module, "", resource, nil
 	}
-	return parts[1], "", parts[2], nil
+	providerParts := strings.Split(provider, "_")
+	if len(providerParts) != 3 {
+		return "", "", "", errors.Errorf("malformed token '%s'", tok)
+	}
+	return module, providerParts[2], resource, nil
 }
 
 // BuildToken constructs a resource token from the given module, API version, and resource name.
 func BuildToken(mod string, apiVersion string, name string) string {
-	if apiVersion == "" {
-		return fmt.Sprintf("azure-native:%s:%s", mod, name)
+	providerName := "azure-native"
+	if apiVersion != "" {
+		providerName = parameterizedProviderName(mod, apiVersion)
 	}
-	return fmt.Sprintf("azure-native:%s/%s:%s", mod, apiVersion, name)
+	return strings.Join([]string{providerName, mod, name}, ":")
+}
+
+func parameterizedProviderName(targetModule, targetApiVersion string) string {
+	return strings.Join([]string{"azure-native", targetModule, targetApiVersion}, "_")
 }

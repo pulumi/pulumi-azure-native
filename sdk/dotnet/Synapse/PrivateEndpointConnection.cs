@@ -80,13 +80,15 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20190601preview:synapse:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20201201:synapse:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210301:synapse:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210401preview:synapse:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210501:synapse:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210601:synapse:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210601preview:synapse:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

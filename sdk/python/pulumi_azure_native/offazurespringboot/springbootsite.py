@@ -205,7 +205,7 @@ class Springbootsite(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazurespringboot/v20230101preview:Springbootsite"), pulumi.Alias(type_="azure-native:offazurespringboot/v20240401preview:Springbootsite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazurespringboot/v20230101preview:Springbootsite"), pulumi.Alias(type_="azure-native:offazurespringboot/v20240401preview:Springbootsite"), pulumi.Alias(type_="azure-native_offazurespringboot_v20230101preview:offazurespringboot:Springbootsite"), pulumi.Alias(type_="azure-native_offazurespringboot_v20240401preview:offazurespringboot:Springbootsite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Springbootsite, __self__).__init__(
             'azure-native:offazurespringboot:Springbootsite',

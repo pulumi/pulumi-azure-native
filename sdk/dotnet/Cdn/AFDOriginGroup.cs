@@ -108,15 +108,22 @@ namespace Pulumi.AzureNative.Cdn
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDOriginGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDOriginGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:AFDOriginGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:AFDOriginGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:AFDOriginGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:AFDOriginGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:AFDOriginGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:AFDOriginGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:AFDOriginGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20200901:cdn:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20210601:cdn:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20220501preview:cdn:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20221101preview:cdn:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20230501:cdn:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20230701preview:cdn:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240201:cdn:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240501preview:cdn:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240601preview:cdn:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240901:cdn:AFDOriginGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

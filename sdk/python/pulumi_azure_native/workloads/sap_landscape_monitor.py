@@ -166,7 +166,7 @@ class SapLandscapeMonitor(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20221101preview:SapLandscapeMonitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:SapLandscapeMonitor"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SapLandscapeMonitor"), pulumi.Alias(type_="azure-native:workloads/v20231201preview:SapLandscapeMonitor"), pulumi.Alias(type_="azure-native:workloads/v20240201preview:SapLandscapeMonitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20230401:SapLandscapeMonitor"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SapLandscapeMonitor"), pulumi.Alias(type_="azure-native:workloads/v20231201preview:SapLandscapeMonitor"), pulumi.Alias(type_="azure-native:workloads/v20240201preview:SapLandscapeMonitor"), pulumi.Alias(type_="azure-native_workloads_v20221101preview:workloads:SapLandscapeMonitor"), pulumi.Alias(type_="azure-native_workloads_v20230401:workloads:SapLandscapeMonitor"), pulumi.Alias(type_="azure-native_workloads_v20231001preview:workloads:SapLandscapeMonitor"), pulumi.Alias(type_="azure-native_workloads_v20231201preview:workloads:SapLandscapeMonitor"), pulumi.Alias(type_="azure-native_workloads_v20240201preview:workloads:SapLandscapeMonitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SapLandscapeMonitor, __self__).__init__(
             'azure-native:workloads:SapLandscapeMonitor',

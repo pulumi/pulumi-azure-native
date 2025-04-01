@@ -95,7 +95,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:Policy" }, { type: "azure-native:datareplication/v20240901:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:Policy" }, { type: "azure-native_datareplication_v20210216preview:datareplication:Policy" }, { type: "azure-native_datareplication_v20240901:datareplication:Policy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, resourceInputs, opts);
     }

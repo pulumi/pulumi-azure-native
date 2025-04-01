@@ -271,7 +271,7 @@ class Console(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machine_access_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20250201:Console")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:Console"), pulumi.Alias(type_="azure-native_networkcloud_v20230701:networkcloud:Console"), pulumi.Alias(type_="azure-native_networkcloud_v20231001preview:networkcloud:Console"), pulumi.Alias(type_="azure-native_networkcloud_v20240601preview:networkcloud:Console"), pulumi.Alias(type_="azure-native_networkcloud_v20240701:networkcloud:Console"), pulumi.Alias(type_="azure-native_networkcloud_v20241001preview:networkcloud:Console"), pulumi.Alias(type_="azure-native_networkcloud_v20250201:networkcloud:Console")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Console, __self__).__init__(
             'azure-native:networkcloud:Console',

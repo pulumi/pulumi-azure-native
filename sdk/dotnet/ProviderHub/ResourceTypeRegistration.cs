@@ -67,10 +67,11 @@ namespace Pulumi.AzureNative.ProviderHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20201120:ResourceTypeRegistration" },
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:ResourceTypeRegistration" },
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:ResourceTypeRegistration" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:ResourceTypeRegistration" },
+                    new global::Pulumi.Alias { Type = "azure-native_providerhub_v20201120:providerhub:ResourceTypeRegistration" },
+                    new global::Pulumi.Alias { Type = "azure-native_providerhub_v20210501preview:providerhub:ResourceTypeRegistration" },
+                    new global::Pulumi.Alias { Type = "azure-native_providerhub_v20210601preview:providerhub:ResourceTypeRegistration" },
+                    new global::Pulumi.Alias { Type = "azure-native_providerhub_v20210901preview:providerhub:ResourceTypeRegistration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

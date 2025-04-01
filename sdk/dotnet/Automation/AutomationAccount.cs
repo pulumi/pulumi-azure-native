@@ -158,14 +158,18 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:AutomationAccount" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:AutomationAccount" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:AutomationAccount" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20210622:AutomationAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:AutomationAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:AutomationAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:AutomationAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20151031:automation:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20190601:automation:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20200113preview:automation:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20210622:automation:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20220808:automation:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20230515preview:automation:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20231101:automation:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20241023:automation:AutomationAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

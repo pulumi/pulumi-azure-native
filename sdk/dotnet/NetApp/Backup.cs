@@ -134,7 +134,6 @@ namespace Pulumi.AzureNative.NetApp
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Backup" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:Backup" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:Backup" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:Backup" },
@@ -148,7 +147,20 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:Backup" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Backup" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:Backup" },
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901preview:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20221101preview:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20230501preview:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20230701preview:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20231101:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20231101preview:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20240101:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20240301:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20240301preview:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20240501:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20240501preview:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20240701:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20240701preview:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20240901:netapp:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native_netapp_v20240901preview:netapp:Backup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

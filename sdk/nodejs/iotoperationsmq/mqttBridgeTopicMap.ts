@@ -133,7 +133,7 @@ export class MqttBridgeTopicMap extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:MqttBridgeTopicMap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperationsmq/v20231004preview:MqttBridgeTopicMap" }, { type: "azure-native_iotoperationsmq_v20231004preview:iotoperationsmq:MqttBridgeTopicMap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MqttBridgeTopicMap.__pulumiType, name, resourceInputs, opts);
     }

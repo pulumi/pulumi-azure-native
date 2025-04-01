@@ -100,7 +100,7 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:Vault" }, { type: "azure-native:datareplication/v20240901:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:Vault" }, { type: "azure-native_datareplication_v20210216preview:datareplication:Vault" }, { type: "azure-native_datareplication_v20240901:datareplication:Vault" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Vault.__pulumiType, name, resourceInputs, opts);
     }

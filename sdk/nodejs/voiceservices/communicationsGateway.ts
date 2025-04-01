@@ -232,7 +232,7 @@ export class CommunicationsGateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:voiceservices/v20221201preview:CommunicationsGateway" }, { type: "azure-native:voiceservices/v20230131:CommunicationsGateway" }, { type: "azure-native:voiceservices/v20230403:CommunicationsGateway" }, { type: "azure-native:voiceservices/v20230901:CommunicationsGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:voiceservices/v20230403:CommunicationsGateway" }, { type: "azure-native:voiceservices/v20230901:CommunicationsGateway" }, { type: "azure-native_voiceservices_v20221201preview:voiceservices:CommunicationsGateway" }, { type: "azure-native_voiceservices_v20230131:voiceservices:CommunicationsGateway" }, { type: "azure-native_voiceservices_v20230403:voiceservices:CommunicationsGateway" }, { type: "azure-native_voiceservices_v20230901:voiceservices:CommunicationsGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommunicationsGateway.__pulumiType, name, resourceInputs, opts);
     }

@@ -231,7 +231,7 @@ class PowerShell72Module(pulumi.CustomResource):
             __props__.__dict__["size_in_bytes"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20231101:PowerShell72Module")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20231101:PowerShell72Module"), pulumi.Alias(type_="azure-native_automation_v20231101:automation:PowerShell72Module")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PowerShell72Module, __self__).__init__(
             'azure-native:automation:PowerShell72Module',

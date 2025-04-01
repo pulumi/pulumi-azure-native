@@ -245,7 +245,7 @@ class StaticSiteDatabaseConnection(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["configuration_files"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20220901:StaticSiteDatabaseConnection"), pulumi.Alias(type_="azure-native:web/v20230101:StaticSiteDatabaseConnection"), pulumi.Alias(type_="azure-native:web/v20231201:StaticSiteDatabaseConnection"), pulumi.Alias(type_="azure-native:web/v20240401:StaticSiteDatabaseConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20220901:StaticSiteDatabaseConnection"), pulumi.Alias(type_="azure-native:web/v20230101:StaticSiteDatabaseConnection"), pulumi.Alias(type_="azure-native:web/v20231201:StaticSiteDatabaseConnection"), pulumi.Alias(type_="azure-native:web/v20240401:StaticSiteDatabaseConnection"), pulumi.Alias(type_="azure-native_web_v20220901:web:StaticSiteDatabaseConnection"), pulumi.Alias(type_="azure-native_web_v20230101:web:StaticSiteDatabaseConnection"), pulumi.Alias(type_="azure-native_web_v20231201:web:StaticSiteDatabaseConnection"), pulumi.Alias(type_="azure-native_web_v20240401:web:StaticSiteDatabaseConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSiteDatabaseConnection, __self__).__init__(
             'azure-native:web:StaticSiteDatabaseConnection',

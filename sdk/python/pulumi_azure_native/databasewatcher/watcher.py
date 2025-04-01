@@ -227,7 +227,7 @@ class Watcher(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher/v20230901preview:Watcher"), pulumi.Alias(type_="azure-native:databasewatcher/v20240719preview:Watcher"), pulumi.Alias(type_="azure-native:databasewatcher/v20241001preview:Watcher"), pulumi.Alias(type_="azure-native:databasewatcher/v20250102:Watcher")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher/v20230901preview:Watcher"), pulumi.Alias(type_="azure-native:databasewatcher/v20240719preview:Watcher"), pulumi.Alias(type_="azure-native:databasewatcher/v20241001preview:Watcher"), pulumi.Alias(type_="azure-native:databasewatcher/v20250102:Watcher"), pulumi.Alias(type_="azure-native_databasewatcher_v20230901preview:databasewatcher:Watcher"), pulumi.Alias(type_="azure-native_databasewatcher_v20240719preview:databasewatcher:Watcher"), pulumi.Alias(type_="azure-native_databasewatcher_v20241001preview:databasewatcher:Watcher"), pulumi.Alias(type_="azure-native_databasewatcher_v20250102:databasewatcher:Watcher")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Watcher, __self__).__init__(
             'azure-native:databasewatcher:Watcher',

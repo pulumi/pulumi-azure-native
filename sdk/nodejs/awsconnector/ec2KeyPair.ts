@@ -100,7 +100,7 @@ export class Ec2KeyPair extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2KeyPair" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2KeyPair" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2KeyPair" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2KeyPair.__pulumiType, name, resourceInputs, opts);
     }

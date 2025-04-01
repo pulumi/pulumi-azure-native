@@ -164,7 +164,7 @@ class SolutionConfiguration(pulumi.CustomResource):
             __props__.__dict__["status_details"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridconnectivity/v20241201:SolutionConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridconnectivity/v20241201:SolutionConfiguration"), pulumi.Alias(type_="azure-native_hybridconnectivity_v20241201:hybridconnectivity:SolutionConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SolutionConfiguration, __self__).__init__(
             'azure-native:hybridconnectivity:SolutionConfiguration',

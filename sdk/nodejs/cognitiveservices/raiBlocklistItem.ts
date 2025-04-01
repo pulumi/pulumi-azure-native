@@ -111,7 +111,7 @@ export class RaiBlocklistItem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20231001preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20240401preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20240601preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20241001:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20250401preview:RaiBlocklistItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20231001preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20240401preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20240601preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20241001:RaiBlocklistItem" }, { type: "azure-native_cognitiveservices_v20231001preview:cognitiveservices:RaiBlocklistItem" }, { type: "azure-native_cognitiveservices_v20240401preview:cognitiveservices:RaiBlocklistItem" }, { type: "azure-native_cognitiveservices_v20240601preview:cognitiveservices:RaiBlocklistItem" }, { type: "azure-native_cognitiveservices_v20241001:cognitiveservices:RaiBlocklistItem" }, { type: "azure-native_cognitiveservices_v20250401preview:cognitiveservices:RaiBlocklistItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RaiBlocklistItem.__pulumiType, name, resourceInputs, opts);
     }

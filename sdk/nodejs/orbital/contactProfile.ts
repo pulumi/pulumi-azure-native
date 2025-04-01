@@ -143,7 +143,7 @@ export class ContactProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20220301:ContactProfile" }, { type: "azure-native:orbital/v20221101:ContactProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20220301:ContactProfile" }, { type: "azure-native:orbital/v20221101:ContactProfile" }, { type: "azure-native_orbital_v20220301:orbital:ContactProfile" }, { type: "azure-native_orbital_v20221101:orbital:ContactProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContactProfile.__pulumiType, name, resourceInputs, opts);
     }

@@ -73,10 +73,12 @@ namespace Pulumi.AzureNative.DigitalTwins
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20220531:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20221031:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20230131:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20201201:digitaltwins:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20210630preview:digitaltwins:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20220531:digitaltwins:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20221031:digitaltwins:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20230131:digitaltwins:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

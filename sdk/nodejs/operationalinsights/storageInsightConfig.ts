@@ -122,7 +122,7 @@ export class StorageInsightConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20200301preview:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20200801:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20230901:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20250201:StorageInsightConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20200801:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20230901:StorageInsightConfig" }, { type: "azure-native_operationalinsights_v20150320:operationalinsights:StorageInsightConfig" }, { type: "azure-native_operationalinsights_v20200301preview:operationalinsights:StorageInsightConfig" }, { type: "azure-native_operationalinsights_v20200801:operationalinsights:StorageInsightConfig" }, { type: "azure-native_operationalinsights_v20230901:operationalinsights:StorageInsightConfig" }, { type: "azure-native_operationalinsights_v20250201:operationalinsights:StorageInsightConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageInsightConfig.__pulumiType, name, resourceInputs, opts);
     }

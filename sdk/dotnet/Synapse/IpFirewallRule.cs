@@ -80,13 +80,15 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:IpFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:IpFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:IpFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:IpFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:IpFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:IpFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:IpFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20190601preview:synapse:IpFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20201201:synapse:IpFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210301:synapse:IpFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210401preview:synapse:IpFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210501:synapse:IpFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210601:synapse:IpFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210601preview:synapse:IpFirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

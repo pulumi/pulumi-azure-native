@@ -91,6 +91,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240301preview:VirtualEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240801:VirtualEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20241101preview:VirtualEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20230601preview:dbforpostgresql:VirtualEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20231201preview:dbforpostgresql:VirtualEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20240301preview:dbforpostgresql:VirtualEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20240801:dbforpostgresql:VirtualEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20241101preview:dbforpostgresql:VirtualEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

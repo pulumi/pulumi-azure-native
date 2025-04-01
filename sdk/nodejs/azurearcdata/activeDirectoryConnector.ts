@@ -98,7 +98,7 @@ export class ActiveDirectoryConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20240101:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20240501preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20250301preview:ActiveDirectoryConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20240101:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20240501preview:ActiveDirectoryConnector" }, { type: "azure-native_azurearcdata_v20220301preview:azurearcdata:ActiveDirectoryConnector" }, { type: "azure-native_azurearcdata_v20220615preview:azurearcdata:ActiveDirectoryConnector" }, { type: "azure-native_azurearcdata_v20230115preview:azurearcdata:ActiveDirectoryConnector" }, { type: "azure-native_azurearcdata_v20240101:azurearcdata:ActiveDirectoryConnector" }, { type: "azure-native_azurearcdata_v20240501preview:azurearcdata:ActiveDirectoryConnector" }, { type: "azure-native_azurearcdata_v20250301preview:azurearcdata:ActiveDirectoryConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActiveDirectoryConnector.__pulumiType, name, resourceInputs, opts);
     }

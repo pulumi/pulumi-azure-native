@@ -101,7 +101,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datadog/v20200201preview:Monitor" }, { type: "azure-native:datadog/v20210301:Monitor" }, { type: "azure-native:datadog/v20220601:Monitor" }, { type: "azure-native:datadog/v20220801:Monitor" }, { type: "azure-native:datadog/v20230101:Monitor" }, { type: "azure-native:datadog/v20230707:Monitor" }, { type: "azure-native:datadog/v20231020:Monitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datadog/v20220601:Monitor" }, { type: "azure-native:datadog/v20220801:Monitor" }, { type: "azure-native:datadog/v20230101:Monitor" }, { type: "azure-native:datadog/v20230707:Monitor" }, { type: "azure-native:datadog/v20231020:Monitor" }, { type: "azure-native_datadog_v20200201preview:datadog:Monitor" }, { type: "azure-native_datadog_v20210301:datadog:Monitor" }, { type: "azure-native_datadog_v20220601:datadog:Monitor" }, { type: "azure-native_datadog_v20220801:datadog:Monitor" }, { type: "azure-native_datadog_v20230101:datadog:Monitor" }, { type: "azure-native_datadog_v20230707:datadog:Monitor" }, { type: "azure-native_datadog_v20231020:datadog:Monitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
     }

@@ -114,7 +114,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection" }, { type: "azure-native:agfoodplatform/v20230601preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection" }, { type: "azure-native:agfoodplatform/v20230601preview:PrivateEndpointConnection" }, { type: "azure-native_agfoodplatform_v20210901preview:agfoodplatform:PrivateEndpointConnection" }, { type: "azure-native_agfoodplatform_v20230601preview:agfoodplatform:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

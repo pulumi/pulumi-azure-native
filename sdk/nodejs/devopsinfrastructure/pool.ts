@@ -154,7 +154,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devopsinfrastructure/v20231030preview:Pool" }, { type: "azure-native:devopsinfrastructure/v20231213preview:Pool" }, { type: "azure-native:devopsinfrastructure/v20240326preview:Pool" }, { type: "azure-native:devopsinfrastructure/v20240404preview:Pool" }, { type: "azure-native:devopsinfrastructure/v20241019:Pool" }, { type: "azure-native:devopsinfrastructure/v20250121:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devopsinfrastructure/v20231030preview:Pool" }, { type: "azure-native:devopsinfrastructure/v20231213preview:Pool" }, { type: "azure-native:devopsinfrastructure/v20240326preview:Pool" }, { type: "azure-native:devopsinfrastructure/v20240404preview:Pool" }, { type: "azure-native:devopsinfrastructure/v20241019:Pool" }, { type: "azure-native:devopsinfrastructure/v20250121:Pool" }, { type: "azure-native_devopsinfrastructure_v20231030preview:devopsinfrastructure:Pool" }, { type: "azure-native_devopsinfrastructure_v20231213preview:devopsinfrastructure:Pool" }, { type: "azure-native_devopsinfrastructure_v20240326preview:devopsinfrastructure:Pool" }, { type: "azure-native_devopsinfrastructure_v20240404preview:devopsinfrastructure:Pool" }, { type: "azure-native_devopsinfrastructure_v20241019:devopsinfrastructure:Pool" }, { type: "azure-native_devopsinfrastructure_v20250121:devopsinfrastructure:Pool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pool.__pulumiType, name, resourceInputs, opts);
     }
