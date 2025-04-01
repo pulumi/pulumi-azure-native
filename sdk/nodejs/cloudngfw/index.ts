@@ -249,27 +249,6 @@ utilities.lazyLoad(exports, ["PrefixListLocalRulestack"], () => require("./prefi
 // Export enums:
 export * from "../types/enums/cloudngfw";
 
-// Export sub-modules:
-import * as v20220829 from "./v20220829";
-import * as v20220829preview from "./v20220829preview";
-import * as v20230901 from "./v20230901";
-import * as v20230901preview from "./v20230901preview";
-import * as v20231010preview from "./v20231010preview";
-import * as v20240119preview from "./v20240119preview";
-import * as v20240207preview from "./v20240207preview";
-import * as v20250206preview from "./v20250206preview";
-
-export {
-    v20220829,
-    v20220829preview,
-    v20230901,
-    v20230901preview,
-    v20231010preview,
-    v20240119preview,
-    v20240207preview,
-    v20250206preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

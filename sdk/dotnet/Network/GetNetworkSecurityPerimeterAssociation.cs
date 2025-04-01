@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? AccessMode;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies if there are provisioning issues
         /// </summary>
         public readonly string HasProvisioningIssues;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.Network
         private GetNetworkSecurityPerimeterAssociationResult(
             string? accessMode,
 
+            string azureApiVersion,
+
             string hasProvisioningIssues,
 
             string id,
@@ -157,6 +163,7 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             AccessMode = accessMode;
+            AzureApiVersion = azureApiVersion;
             HasProvisioningIssues = hasProvisioningIssues;
             Id = id;
             Location = location;

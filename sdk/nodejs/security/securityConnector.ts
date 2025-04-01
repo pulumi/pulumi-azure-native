@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The security connector resource.
  *
- * Uses Azure REST API version 2023-03-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-07-01-preview.
+ * Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
  *
- * Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+ * Other available API versions: 2021-07-01-preview, 2021-12-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2023-03-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SecurityConnector extends pulumi.CustomResource {
     /**
@@ -42,9 +42,13 @@ export class SecurityConnector extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The security connector environment data.
      */
-    public readonly environmentData!: pulumi.Output<outputs.security.AwsEnvironmentDataResponse | outputs.security.AzureDevOpsScopeEnvironmentDataResponse | outputs.security.GcpProjectEnvironmentDataResponse | outputs.security.GithubScopeEnvironmentDataResponse | outputs.security.GitlabScopeEnvironmentDataResponse | undefined>;
+    public readonly environmentData!: pulumi.Output<outputs.security.AwsEnvironmentDataResponse | outputs.security.AzureDevOpsScopeEnvironmentDataResponse | outputs.security.DockerHubEnvironmentDataResponse | outputs.security.GcpProjectEnvironmentDataResponse | outputs.security.GithubScopeEnvironmentDataResponse | outputs.security.GitlabScopeEnvironmentDataResponse | outputs.security.JFrogEnvironmentDataResponse | undefined>;
     /**
      * The multi cloud resource's cloud name.
      */
@@ -76,7 +80,7 @@ export class SecurityConnector extends pulumi.CustomResource {
     /**
      * A collection of offerings for the security connector.
      */
-    public readonly offerings!: pulumi.Output<(outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.CspmMonitorAzureDevOpsOfferingResponse | outputs.security.CspmMonitorGcpOfferingResponse | outputs.security.CspmMonitorGitLabOfferingResponse | outputs.security.CspmMonitorGithubOfferingResponse | outputs.security.DefenderCspmAwsOfferingResponse | outputs.security.DefenderCspmGcpOfferingResponse | outputs.security.DefenderFoDatabasesAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForContainersGcpOfferingResponse | outputs.security.DefenderForDatabasesGcpOfferingResponse | outputs.security.DefenderForDevOpsAzureDevOpsOfferingResponse | outputs.security.DefenderForDevOpsGitLabOfferingResponse | outputs.security.DefenderForDevOpsGithubOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.DefenderForServersGcpOfferingResponse | outputs.security.InformationProtectionAwsOfferingResponse)[] | undefined>;
+    public readonly offerings!: pulumi.Output<(outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.CspmMonitorAzureDevOpsOfferingResponse | outputs.security.CspmMonitorDockerHubOfferingResponse | outputs.security.CspmMonitorGcpOfferingResponse | outputs.security.CspmMonitorGitLabOfferingResponse | outputs.security.CspmMonitorGithubOfferingResponse | outputs.security.CspmMonitorJFrogOfferingResponse | outputs.security.DefenderCspmAwsOfferingResponse | outputs.security.DefenderCspmDockerHubOfferingResponse | outputs.security.DefenderCspmGcpOfferingResponse | outputs.security.DefenderCspmJFrogOfferingResponse | outputs.security.DefenderFoDatabasesAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForContainersDockerHubOfferingResponse | outputs.security.DefenderForContainersGcpOfferingResponse | outputs.security.DefenderForContainersJFrogOfferingResponse | outputs.security.DefenderForDatabasesGcpOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.DefenderForServersGcpOfferingResponse)[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -113,12 +117,14 @@ export class SecurityConnector extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["securityConnectorName"] = args ? args.securityConnectorName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hierarchyIdentifierTrialEndDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["environmentData"] = undefined /*out*/;
             resourceInputs["environmentName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -146,7 +152,7 @@ export interface SecurityConnectorArgs {
     /**
      * The security connector environment data.
      */
-    environmentData?: pulumi.Input<inputs.security.AwsEnvironmentDataArgs | inputs.security.AzureDevOpsScopeEnvironmentDataArgs | inputs.security.GcpProjectEnvironmentDataArgs | inputs.security.GithubScopeEnvironmentDataArgs | inputs.security.GitlabScopeEnvironmentDataArgs>;
+    environmentData?: pulumi.Input<inputs.security.AwsEnvironmentDataArgs | inputs.security.AzureDevOpsScopeEnvironmentDataArgs | inputs.security.DockerHubEnvironmentDataArgs | inputs.security.GcpProjectEnvironmentDataArgs | inputs.security.GithubScopeEnvironmentDataArgs | inputs.security.GitlabScopeEnvironmentDataArgs | inputs.security.JFrogEnvironmentDataArgs>;
     /**
      * The multi cloud resource's cloud name.
      */
@@ -166,7 +172,7 @@ export interface SecurityConnectorArgs {
     /**
      * A collection of offerings for the security connector.
      */
-    offerings?: pulumi.Input<pulumi.Input<inputs.security.CspmMonitorAwsOfferingArgs | inputs.security.CspmMonitorAzureDevOpsOfferingArgs | inputs.security.CspmMonitorGcpOfferingArgs | inputs.security.CspmMonitorGitLabOfferingArgs | inputs.security.CspmMonitorGithubOfferingArgs | inputs.security.DefenderCspmAwsOfferingArgs | inputs.security.DefenderCspmGcpOfferingArgs | inputs.security.DefenderFoDatabasesAwsOfferingArgs | inputs.security.DefenderForContainersAwsOfferingArgs | inputs.security.DefenderForContainersGcpOfferingArgs | inputs.security.DefenderForDatabasesGcpOfferingArgs | inputs.security.DefenderForDevOpsAzureDevOpsOfferingArgs | inputs.security.DefenderForDevOpsGitLabOfferingArgs | inputs.security.DefenderForDevOpsGithubOfferingArgs | inputs.security.DefenderForServersAwsOfferingArgs | inputs.security.DefenderForServersGcpOfferingArgs | inputs.security.InformationProtectionAwsOfferingArgs>[]>;
+    offerings?: pulumi.Input<pulumi.Input<inputs.security.CspmMonitorAwsOfferingArgs | inputs.security.CspmMonitorAzureDevOpsOfferingArgs | inputs.security.CspmMonitorDockerHubOfferingArgs | inputs.security.CspmMonitorGcpOfferingArgs | inputs.security.CspmMonitorGitLabOfferingArgs | inputs.security.CspmMonitorGithubOfferingArgs | inputs.security.CspmMonitorJFrogOfferingArgs | inputs.security.DefenderCspmAwsOfferingArgs | inputs.security.DefenderCspmDockerHubOfferingArgs | inputs.security.DefenderCspmGcpOfferingArgs | inputs.security.DefenderCspmJFrogOfferingArgs | inputs.security.DefenderFoDatabasesAwsOfferingArgs | inputs.security.DefenderForContainersAwsOfferingArgs | inputs.security.DefenderForContainersDockerHubOfferingArgs | inputs.security.DefenderForContainersGcpOfferingArgs | inputs.security.DefenderForContainersJFrogOfferingArgs | inputs.security.DefenderForDatabasesGcpOfferingArgs | inputs.security.DefenderForServersAwsOfferingArgs | inputs.security.DefenderForServersGcpOfferingArgs>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

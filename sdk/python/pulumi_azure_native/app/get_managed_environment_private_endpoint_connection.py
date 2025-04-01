@@ -27,7 +27,10 @@ class GetManagedEnvironmentPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
     """
-    def __init__(__self__, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if group_ids and not isinstance(group_ids, list):
             raise TypeError("Expected argument 'group_ids' to be a list")
         pulumi.set(__self__, "group_ids", group_ids)
@@ -52,6 +55,14 @@ class GetManagedEnvironmentPrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupIds")
@@ -124,6 +135,7 @@ class AwaitableGetManagedEnvironmentPrivateEndpointConnectionResult(GetManagedEn
         if False:
             yield self
         return GetManagedEnvironmentPrivateEndpointConnectionResult(
+            azure_api_version=self.azure_api_version,
             group_ids=self.group_ids,
             id=self.id,
             name=self.name,
@@ -141,9 +153,9 @@ def get_managed_environment_private_endpoint_connection(environment_name: Option
     """
     The Private Endpoint Connection resource.
 
-    Uses Azure REST API version 2024-02-02-preview.
+    Uses Azure REST API version 2024-10-02-preview.
 
-    Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -158,6 +170,7 @@ def get_managed_environment_private_endpoint_connection(environment_name: Option
     __ret__ = pulumi.runtime.invoke('azure-native:app:getManagedEnvironmentPrivateEndpointConnection', __args__, opts=opts, typ=GetManagedEnvironmentPrivateEndpointConnectionResult).value
 
     return AwaitableGetManagedEnvironmentPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         group_ids=pulumi.get(__ret__, 'group_ids'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -173,9 +186,9 @@ def get_managed_environment_private_endpoint_connection_output(environment_name:
     """
     The Private Endpoint Connection resource.
 
-    Uses Azure REST API version 2024-02-02-preview.
+    Uses Azure REST API version 2024-10-02-preview.
 
-    Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2024-02-02-preview, 2024-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -189,6 +202,7 @@ def get_managed_environment_private_endpoint_connection_output(environment_name:
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getManagedEnvironmentPrivateEndpointConnection', __args__, opts=opts, typ=GetManagedEnvironmentPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetManagedEnvironmentPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         group_ids=pulumi.get(__response__, 'group_ids'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

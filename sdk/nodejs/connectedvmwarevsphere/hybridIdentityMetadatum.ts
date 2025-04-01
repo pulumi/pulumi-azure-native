@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Defines the HybridIdentityMetadata.
  *
- * Uses Azure REST API version 2022-07-15-preview. In version 1.x of the Azure Native provider, it used API version 2020-10-01-preview.
+ * Uses Azure REST API version 2023-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class HybridIdentityMetadatum extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The identity of the resource.
      */
     public /*out*/ readonly identity!: pulumi.Output<outputs.connectedvmwarevsphere.IdentityResponse>;
@@ -50,7 +54,7 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -58,7 +62,7 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
      */
     public readonly publicKey!: pulumi.Output<string | undefined>;
     /**
-     * The system data.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
     /**
@@ -92,12 +96,14 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
             resourceInputs["vmId"] = args ? args.vmId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -27,10 +27,13 @@ class GetPoolResult:
     """
     Concrete tracked resource types can be created by aliasing this type using a specific property type.
     """
-    def __init__(__self__, agent_profile=None, dev_center_project_resource_id=None, fabric_profile=None, id=None, identity=None, location=None, maximum_concurrency=None, name=None, organization_profile=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, agent_profile=None, azure_api_version=None, dev_center_project_resource_id=None, fabric_profile=None, id=None, identity=None, location=None, maximum_concurrency=None, name=None, organization_profile=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if agent_profile and not isinstance(agent_profile, dict):
             raise TypeError("Expected argument 'agent_profile' to be a dict")
         pulumi.set(__self__, "agent_profile", agent_profile)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if dev_center_project_resource_id and not isinstance(dev_center_project_resource_id, str):
             raise TypeError("Expected argument 'dev_center_project_resource_id' to be a str")
         pulumi.set(__self__, "dev_center_project_resource_id", dev_center_project_resource_id)
@@ -77,6 +80,14 @@ class GetPoolResult:
         return pulumi.get(self, "agent_profile")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="devCenterProjectResourceId")
     def dev_center_project_resource_id(self) -> str:
         """
@@ -96,7 +107,7 @@ class GetPoolResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -134,7 +145,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="organizationProfile")
-    def organization_profile(self) -> 'outputs.AzureDevOpsOrganizationProfileResponse':
+    def organization_profile(self) -> Any:
         """
         Defines the organization in which the pool will be used.
         """
@@ -180,6 +191,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             yield self
         return GetPoolResult(
             agent_profile=self.agent_profile,
+            azure_api_version=self.azure_api_version,
             dev_center_project_resource_id=self.dev_center_project_resource_id,
             fabric_profile=self.fabric_profile,
             id=self.id,
@@ -200,9 +212,9 @@ def get_pool(pool_name: Optional[str] = None,
     """
     Get a Pool
 
-    Uses Azure REST API version 2023-10-30-preview.
+    Uses Azure REST API version 2025-01-21.
 
-    Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
+    Other available API versions: 2023-10-30-preview, 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devopsinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str pool_name: Name of the pool. It needs to be globally unique.
@@ -216,6 +228,7 @@ def get_pool(pool_name: Optional[str] = None,
 
     return AwaitableGetPoolResult(
         agent_profile=pulumi.get(__ret__, 'agent_profile'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         dev_center_project_resource_id=pulumi.get(__ret__, 'dev_center_project_resource_id'),
         fabric_profile=pulumi.get(__ret__, 'fabric_profile'),
         id=pulumi.get(__ret__, 'id'),
@@ -234,9 +247,9 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Pool
 
-    Uses Azure REST API version 2023-10-30-preview.
+    Uses Azure REST API version 2025-01-21.
 
-    Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
+    Other available API versions: 2023-10-30-preview, 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devopsinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str pool_name: Name of the pool. It needs to be globally unique.
@@ -249,6 +262,7 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:devopsinfrastructure:getPool', __args__, opts=opts, typ=GetPoolResult)
     return __ret__.apply(lambda __response__: GetPoolResult(
         agent_profile=pulumi.get(__response__, 'agent_profile'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         dev_center_project_resource_id=pulumi.get(__response__, 'dev_center_project_resource_id'),
         fabric_profile=pulumi.get(__response__, 'fabric_profile'),
         id=pulumi.get(__response__, 'id'),

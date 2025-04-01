@@ -27,10 +27,13 @@ class GetManagedClusterApplicationTypeVersionResult:
     """
     An application type version resource for the specified application type name resource.
     """
-    def __init__(__self__, app_package_url=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, app_package_url=None, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if app_package_url and not isinstance(app_package_url, str):
             raise TypeError("Expected argument 'app_package_url' to be a str")
         pulumi.set(__self__, "app_package_url", app_package_url)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -60,6 +63,14 @@ class GetManagedClusterApplicationTypeVersionResult:
         The URL to the application package
         """
         return pulumi.get(self, "app_package_url")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -125,6 +136,7 @@ class AwaitableGetManagedClusterApplicationTypeVersionResult(GetManagedClusterAp
             yield self
         return GetManagedClusterApplicationTypeVersionResult(
             app_package_url=self.app_package_url,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -142,9 +154,9 @@ def get_managed_cluster_application_type_version(application_type_name: Optional
     """
     Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
 
-    Uses Azure REST API version 2023-03-01-preview.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str application_type_name: The name of the application type name resource.
@@ -162,6 +174,7 @@ def get_managed_cluster_application_type_version(application_type_name: Optional
 
     return AwaitableGetManagedClusterApplicationTypeVersionResult(
         app_package_url=pulumi.get(__ret__, 'app_package_url'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -177,9 +190,9 @@ def get_managed_cluster_application_type_version_output(application_type_name: O
     """
     Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
 
-    Uses Azure REST API version 2023-03-01-preview.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str application_type_name: The name of the application type name resource.
@@ -196,6 +209,7 @@ def get_managed_cluster_application_type_version_output(application_type_name: O
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric:getManagedClusterApplicationTypeVersion', __args__, opts=opts, typ=GetManagedClusterApplicationTypeVersionResult)
     return __ret__.apply(lambda __response__: GetManagedClusterApplicationTypeVersionResult(
         app_package_url=pulumi.get(__response__, 'app_package_url'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

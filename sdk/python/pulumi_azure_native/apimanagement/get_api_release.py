@@ -26,10 +26,13 @@ class GetApiReleaseResult:
     """
     ApiRelease details.
     """
-    def __init__(__self__, api_id=None, created_date_time=None, id=None, name=None, notes=None, type=None, updated_date_time=None):
+    def __init__(__self__, api_id=None, azure_api_version=None, created_date_time=None, id=None, name=None, notes=None, type=None, updated_date_time=None):
         if api_id and not isinstance(api_id, str):
             raise TypeError("Expected argument 'api_id' to be a str")
         pulumi.set(__self__, "api_id", api_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date_time and not isinstance(created_date_time, str):
             raise TypeError("Expected argument 'created_date_time' to be a str")
         pulumi.set(__self__, "created_date_time", created_date_time)
@@ -56,6 +59,14 @@ class GetApiReleaseResult:
         Identifier of the API the release belongs to.
         """
         return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDateTime")
@@ -113,6 +124,7 @@ class AwaitableGetApiReleaseResult(GetApiReleaseResult):
             yield self
         return GetApiReleaseResult(
             api_id=self.api_id,
+            azure_api_version=self.azure_api_version,
             created_date_time=self.created_date_time,
             id=self.id,
             name=self.name,
@@ -129,9 +141,9 @@ def get_api_release(api_id: Optional[str] = None,
     """
     Returns the details of an API release.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -149,6 +161,7 @@ def get_api_release(api_id: Optional[str] = None,
 
     return AwaitableGetApiReleaseResult(
         api_id=pulumi.get(__ret__, 'api_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date_time=pulumi.get(__ret__, 'created_date_time'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -163,9 +176,9 @@ def get_api_release_output(api_id: Optional[pulumi.Input[str]] = None,
     """
     Returns the details of an API release.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -182,6 +195,7 @@ def get_api_release_output(api_id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getApiRelease', __args__, opts=opts, typ=GetApiReleaseResult)
     return __ret__.apply(lambda __response__: GetApiReleaseResult(
         api_id=pulumi.get(__response__, 'api_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date_time=pulumi.get(__response__, 'created_date_time'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

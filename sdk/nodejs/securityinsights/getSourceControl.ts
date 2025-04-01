@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-05-01-preview.
  *
- * Other available API versions: 2021-03-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetSourceControlArgs {
  * Represents a SourceControl in Azure Security Insights.
  */
 export interface GetSourceControlResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Array of source control content types.
      */
@@ -100,7 +104,7 @@ export interface GetSourceControlResult {
  *
  * Uses Azure REST API version 2023-05-01-preview.
  *
- * Other available API versions: 2021-03-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

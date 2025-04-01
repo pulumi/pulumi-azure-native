@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// The security connector resource.
     /// 
-    /// Uses Azure REST API version 2023-03-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-07-01-preview.
+    /// Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
     /// 
-    /// Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+    /// Other available API versions: 2021-07-01-preview, 2021-12-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2023-03-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityConnector")]
     public partial class SecurityConnector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The security connector environment data.
         /// </summary>

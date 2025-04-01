@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Media
         /// 
         /// Uses Azure REST API version 2023-01-01.
         /// 
-        /// Other available API versions: 2015-10-01.
+        /// Other available API versions: 2015-10-01, 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMediaServiceResult> InvokeAsync(GetMediaServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-native:media:getMediaService", args ?? new GetMediaServiceArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Media
         /// 
         /// Uses Azure REST API version 2023-01-01.
         /// 
-        /// Other available API versions: 2015-10-01.
+        /// Other available API versions: 2015-10-01, 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMediaServiceResult> Invoke(GetMediaServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMediaServiceResult>("azure-native:media:getMediaService", args ?? new GetMediaServiceInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Media
         /// 
         /// Uses Azure REST API version 2023-01-01.
         /// 
-        /// Other available API versions: 2015-10-01.
+        /// Other available API versions: 2015-10-01, 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMediaServiceResult> Invoke(GetMediaServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMediaServiceResult>("azure-native:media:getMediaService", args ?? new GetMediaServiceInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.Media
     [OutputType]
     public sealed class GetMediaServiceResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The account encryption properties.
         /// </summary>
@@ -151,6 +155,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetMediaServiceResult(
+            string azureApiVersion,
+
             Outputs.AccountEncryptionResponse? encryption,
 
             string id,
@@ -183,6 +189,7 @@ namespace Pulumi.AzureNative.Media
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Encryption = encryption;
             Id = id;
             Identity = identity;

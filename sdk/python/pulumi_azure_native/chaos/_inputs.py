@@ -20,10 +20,14 @@ __all__ = [
     'BranchArgsDict',
     'ContinuousActionArgs',
     'ContinuousActionArgsDict',
+    'CustomerDataStoragePropertiesArgs',
+    'CustomerDataStoragePropertiesArgsDict',
     'DelayActionArgs',
     'DelayActionArgsDict',
     'DiscreteActionArgs',
     'DiscreteActionArgsDict',
+    'ExperimentIdentityArgs',
+    'ExperimentIdentityArgsDict',
     'ExperimentPropertiesArgs',
     'ExperimentPropertiesArgsDict',
     'KeyValuePairArgs',
@@ -32,8 +36,6 @@ __all__ = [
     'ListSelectorArgsDict',
     'QuerySelectorArgs',
     'QuerySelectorArgsDict',
-    'ResourceIdentityArgs',
-    'ResourceIdentityArgsDict',
     'SimpleFilterParametersArgs',
     'SimpleFilterParametersArgsDict',
     'SimpleFilterArgs',
@@ -49,7 +51,7 @@ MYPY = False
 if not MYPY:
     class BranchArgsDict(TypedDict):
         """
-        Model that represents a branch in the step.
+        Model that represents a branch in the step. 9 total per experiment.
         """
         actions: pulumi.Input[Sequence[pulumi.Input[Union['ContinuousActionArgsDict', 'DelayActionArgsDict', 'DiscreteActionArgsDict']]]]
         """
@@ -68,7 +70,7 @@ class BranchArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[Union['ContinuousActionArgs', 'DelayActionArgs', 'DiscreteActionArgs']]]],
                  name: pulumi.Input[str]):
         """
-        Model that represents a branch in the step.
+        Model that represents a branch in the step. 9 total per experiment.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContinuousActionArgs', 'DelayActionArgs', 'DiscreteActionArgs']]]] actions: List of actions.
         :param pulumi.Input[str] name: String of the branch name.
         """
@@ -212,6 +214,62 @@ class ContinuousActionArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class CustomerDataStoragePropertiesArgsDict(TypedDict):
+        """
+        Model that represents the Customer Managed Storage for an Experiment.
+        """
+        blob_container_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Azure Blob Storage container to use or create.
+        """
+        storage_account_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM Resource ID of the Storage account to use for Customer Data storage.
+        """
+elif False:
+    CustomerDataStoragePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomerDataStoragePropertiesArgs:
+    def __init__(__self__, *,
+                 blob_container_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Model that represents the Customer Managed Storage for an Experiment.
+        :param pulumi.Input[str] blob_container_name: Name of the Azure Blob Storage container to use or create.
+        :param pulumi.Input[str] storage_account_resource_id: ARM Resource ID of the Storage account to use for Customer Data storage.
+        """
+        if blob_container_name is not None:
+            pulumi.set(__self__, "blob_container_name", blob_container_name)
+        if storage_account_resource_id is not None:
+            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+
+    @property
+    @pulumi.getter(name="blobContainerName")
+    def blob_container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Azure Blob Storage container to use or create.
+        """
+        return pulumi.get(self, "blob_container_name")
+
+    @blob_container_name.setter
+    def blob_container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_container_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountResourceId")
+    def storage_account_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM Resource ID of the Storage account to use for Customer Data storage.
+        """
+        return pulumi.get(self, "storage_account_resource_id")
+
+    @storage_account_resource_id.setter
+    def storage_account_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_resource_id", value)
 
 
 if not MYPY:
@@ -386,6 +444,61 @@ class DiscreteActionArgs:
 
 
 if not MYPY:
+    class ExperimentIdentityArgsDict(TypedDict):
+        """
+        The identity of the experiment resource.
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ExperimentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExperimentIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The identity of the experiment resource.
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
     class ExperimentPropertiesArgsDict(TypedDict):
         """
         Model that represents the Experiment properties model.
@@ -398,9 +511,9 @@ if not MYPY:
         """
         List of steps.
         """
-        start_on_creation: NotRequired[pulumi.Input[bool]]
+        customer_data_storage: NotRequired[pulumi.Input['CustomerDataStoragePropertiesArgsDict']]
         """
-        A boolean value that indicates if experiment should be started on creation or not.
+        Optional customer-managed Storage account where Experiment schema will be stored.
         """
 elif False:
     ExperimentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -410,17 +523,17 @@ class ExperimentPropertiesArgs:
     def __init__(__self__, *,
                  selectors: pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgs', 'QuerySelectorArgs']]]],
                  steps: pulumi.Input[Sequence[pulumi.Input['StepArgs']]],
-                 start_on_creation: Optional[pulumi.Input[bool]] = None):
+                 customer_data_storage: Optional[pulumi.Input['CustomerDataStoragePropertiesArgs']] = None):
         """
         Model that represents the Experiment properties model.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgs', 'QuerySelectorArgs']]]] selectors: List of selectors.
         :param pulumi.Input[Sequence[pulumi.Input['StepArgs']]] steps: List of steps.
-        :param pulumi.Input[bool] start_on_creation: A boolean value that indicates if experiment should be started on creation or not.
+        :param pulumi.Input['CustomerDataStoragePropertiesArgs'] customer_data_storage: Optional customer-managed Storage account where Experiment schema will be stored.
         """
         pulumi.set(__self__, "selectors", selectors)
         pulumi.set(__self__, "steps", steps)
-        if start_on_creation is not None:
-            pulumi.set(__self__, "start_on_creation", start_on_creation)
+        if customer_data_storage is not None:
+            pulumi.set(__self__, "customer_data_storage", customer_data_storage)
 
     @property
     @pulumi.getter
@@ -447,16 +560,16 @@ class ExperimentPropertiesArgs:
         pulumi.set(self, "steps", value)
 
     @property
-    @pulumi.getter(name="startOnCreation")
-    def start_on_creation(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter(name="customerDataStorage")
+    def customer_data_storage(self) -> Optional[pulumi.Input['CustomerDataStoragePropertiesArgs']]:
         """
-        A boolean value that indicates if experiment should be started on creation or not.
+        Optional customer-managed Storage account where Experiment schema will be stored.
         """
-        return pulumi.get(self, "start_on_creation")
+        return pulumi.get(self, "customer_data_storage")
 
-    @start_on_creation.setter
-    def start_on_creation(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "start_on_creation", value)
+    @customer_data_storage.setter
+    def customer_data_storage(self, value: Optional[pulumi.Input['CustomerDataStoragePropertiesArgs']]):
+        pulumi.set(self, "customer_data_storage", value)
 
 
 if not MYPY:
@@ -722,61 +835,6 @@ class QuerySelectorArgs:
     @filter.setter
     def filter(self, value: Optional[pulumi.Input['SimpleFilterArgs']]):
         pulumi.set(self, "filter", value)
-
-
-if not MYPY:
-    class ResourceIdentityArgsDict(TypedDict):
-        """
-        The identity of a resource.
-        """
-        type: pulumi.Input['ResourceIdentityType']
-        """
-        String of the resource identity type.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ResourceIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input['ResourceIdentityType'],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The identity of a resource.
-        :param pulumi.Input['ResourceIdentityType'] type: String of the resource identity type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input['ResourceIdentityType']:
-        """
-        String of the resource identity type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input['ResourceIdentityType']):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "user_assigned_identities", value)
 
 
 if not MYPY:

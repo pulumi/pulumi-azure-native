@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetInferencePoolResult:
-    def __init__(__self__, id=None, identity=None, inference_pool_properties=None, kind=None, location=None, name=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, inference_pool_properties=None, kind=None, location=None, name=None, sku=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -55,6 +58,14 @@ class GetInferencePoolResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -143,6 +154,7 @@ class AwaitableGetInferencePoolResult(GetInferencePoolResult):
         if False:
             yield self
         return GetInferencePoolResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             inference_pool_properties=self.inference_pool_properties,
@@ -160,9 +172,9 @@ def get_inference_pool(inference_pool_name: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInferencePoolResult:
     """
-    Uses Azure REST API version 2023-08-01-preview.
+    Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str inference_pool_name: Name of InferencePool
@@ -177,6 +189,7 @@ def get_inference_pool(inference_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getInferencePool', __args__, opts=opts, typ=GetInferencePoolResult).value
 
     return AwaitableGetInferencePoolResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         inference_pool_properties=pulumi.get(__ret__, 'inference_pool_properties'),
@@ -192,9 +205,9 @@ def get_inference_pool_output(inference_pool_name: Optional[pulumi.Input[str]] =
                               workspace_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferencePoolResult]:
     """
-    Uses Azure REST API version 2023-08-01-preview.
+    Uses Azure REST API version 2025-01-01-preview.
 
-    Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str inference_pool_name: Name of InferencePool
@@ -208,6 +221,7 @@ def get_inference_pool_output(inference_pool_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getInferencePool', __args__, opts=opts, typ=GetInferencePoolResult)
     return __ret__.apply(lambda __response__: GetInferencePoolResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         inference_pool_properties=pulumi.get(__response__, 'inference_pool_properties'),

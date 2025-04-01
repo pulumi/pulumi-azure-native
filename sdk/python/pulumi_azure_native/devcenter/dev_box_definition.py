@@ -185,9 +185,9 @@ class DevBoxDefinition(pulumi.CustomResource):
         """
         Represents a definition for a Developer Machine.
 
-        Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+        Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,9 +210,9 @@ class DevBoxDefinition(pulumi.CustomResource):
         """
         Represents a definition for a Developer Machine.
 
-        Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+        Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DevBoxDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -265,12 +265,14 @@ class DevBoxDefinition(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["active_image_reference"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["image_validation_error_details"] = None
             __props__.__dict__["image_validation_status"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["validation_status"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20230401:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240201:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20250201:DevBoxDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DevBoxDefinition, __self__).__init__(
@@ -296,6 +298,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         __props__ = DevBoxDefinitionArgs.__new__(DevBoxDefinitionArgs)
 
         __props__.__dict__["active_image_reference"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["hibernate_support"] = None
         __props__.__dict__["image_reference"] = None
         __props__.__dict__["image_validation_error_details"] = None
@@ -308,6 +311,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["validation_status"] = None
         return DevBoxDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -317,6 +321,14 @@ class DevBoxDefinition(pulumi.CustomResource):
         Image reference information for the currently active image (only populated during updates).
         """
         return pulumi.get(self, "active_image_reference")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hibernateSupport")
@@ -413,4 +425,12 @@ class DevBoxDefinition(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="validationStatus")
+    def validation_status(self) -> pulumi.Output[str]:
+        """
+        Validation status for the Dev Box Definition.
+        """
+        return pulumi.get(self, "validation_status")
 

@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.ContainerResourceRequirementsResponse? ContainerResourceRequirements;
         /// <summary>
+        /// The mdc configuration, we disable mdc when it's null.
+        /// </summary>
+        public readonly Outputs.DataCollectorResponse? DataCollector;
+        /// <summary>
         /// Description of the endpoint deployment.
         /// </summary>
         public readonly string? Description;
@@ -50,7 +54,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
-        /// Compute instance type.
+        /// Compute instance type. Default: Standard_F4s_v2.
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
@@ -88,6 +92,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// and to DefaultScaleSettings for ManagedOnlineDeployment.
         /// </summary>
         public readonly Union<Outputs.DefaultScaleSettingsResponse, Outputs.TargetUtilizationScaleSettingsResponse>? ScaleSettings;
+        /// <summary>
+        /// Startup probe verify whether an application within a container has started successfully.
+        /// </summary>
+        public readonly Outputs.ProbeSettingsResponse? StartupProbe;
 
         [OutputConstructor]
         private KubernetesOnlineDeploymentResponse(
@@ -96,6 +104,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             Outputs.CodeConfigurationResponse? codeConfiguration,
 
             Outputs.ContainerResourceRequirementsResponse? containerResourceRequirements,
+
+            Outputs.DataCollectorResponse? dataCollector,
 
             string? description,
 
@@ -123,11 +133,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.OnlineRequestSettingsResponse? requestSettings,
 
-            Union<Outputs.DefaultScaleSettingsResponse, Outputs.TargetUtilizationScaleSettingsResponse>? scaleSettings)
+            Union<Outputs.DefaultScaleSettingsResponse, Outputs.TargetUtilizationScaleSettingsResponse>? scaleSettings,
+
+            Outputs.ProbeSettingsResponse? startupProbe)
         {
             AppInsightsEnabled = appInsightsEnabled;
             CodeConfiguration = codeConfiguration;
             ContainerResourceRequirements = containerResourceRequirements;
+            DataCollector = dataCollector;
             Description = description;
             EgressPublicNetworkAccess = egressPublicNetworkAccess;
             EndpointComputeType = endpointComputeType;
@@ -142,6 +155,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             ReadinessProbe = readinessProbe;
             RequestSettings = requestSettings;
             ScaleSettings = scaleSettings;
+            StartupProbe = startupProbe;
         }
     }
 }

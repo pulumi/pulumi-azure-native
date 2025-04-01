@@ -103,9 +103,9 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
         """
         Deployment information.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,9 +123,9 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
         """
         Deployment information.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DeploymentAtSubscriptionScopeArgs args: The arguments to use to populate this resource's properties.
@@ -161,6 +161,7 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20180501:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20190301:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20190501:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20190510:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20190701:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20190801:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20191001:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20200601:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20200801:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20201001:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20210101:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20210401:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20220901:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20230701:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20240301:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20240701:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azure-native:resources/v20241101:DeploymentAtSubscriptionScope")])
@@ -187,12 +188,21 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
 
         __props__ = DeploymentAtSubscriptionScopeArgs.__new__(DeploymentAtSubscriptionScopeArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DeploymentAtSubscriptionScope(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

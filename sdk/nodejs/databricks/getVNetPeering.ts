@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the workspace vNet Peering.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-05-01.
+ *
+ * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVNetPeering(args: GetVNetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVNetPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,6 +54,10 @@ export interface GetVNetPeeringResult {
      * Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
      */
     readonly allowVirtualNetworkAccess?: boolean;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The reference to the databricks virtual network address space.
      */
@@ -96,7 +102,9 @@ export interface GetVNetPeeringResult {
 /**
  * Gets the workspace vNet Peering.
  *
- * Uses Azure REST API version 2023-02-01.
+ * Uses Azure REST API version 2024-05-01.
+ *
+ * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVNetPeeringOutput(args: GetVNetPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVNetPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

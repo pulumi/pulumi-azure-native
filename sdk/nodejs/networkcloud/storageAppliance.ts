@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+ * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class StorageAppliance extends pulumi.CustomResource {
     /**
@@ -44,7 +44,11 @@ export class StorageAppliance extends pulumi.CustomResource {
      */
     public readonly administratorCredentials!: pulumi.Output<outputs.networkcloud.AdministrativeCredentialsResponse>;
     /**
-     * The total capacity of the storage appliance.
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * The total capacity of the storage appliance. Measured in GiB.
      */
     public /*out*/ readonly capacity!: pulumi.Output<number>;
     /**
@@ -52,7 +56,7 @@ export class StorageAppliance extends pulumi.CustomResource {
      */
     public /*out*/ readonly capacityUsed!: pulumi.Output<number>;
     /**
-     * The resource ID of the cluster this storage appliance is associated with.
+     * The resource ID of the cluster this storage appliance is associated with. Measured in GiB.
      */
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
     /**
@@ -63,6 +67,10 @@ export class StorageAppliance extends pulumi.CustomResource {
      * The descriptive message about the current detailed status.
      */
     public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
+    /**
+     * Resource ETag.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -75,6 +83,14 @@ export class StorageAppliance extends pulumi.CustomResource {
      * The endpoint for the management interface of the storage appliance.
      */
     public /*out*/ readonly managementIpv4Address!: pulumi.Output<string>;
+    /**
+     * The manufacturer of the storage appliance.
+     */
+    public /*out*/ readonly manufacturer!: pulumi.Output<string>;
+    /**
+     * The model of the storage appliance.
+     */
+    public /*out*/ readonly model!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -100,6 +116,10 @@ export class StorageAppliance extends pulumi.CustomResource {
      */
     public /*out*/ readonly remoteVendorManagementStatus!: pulumi.Output<string>;
     /**
+     * The list of statuses that represent secret rotation activity.
+     */
+    public /*out*/ readonly secretRotationStatus!: pulumi.Output<outputs.networkcloud.SecretRotationStatusResponse[]>;
+    /**
      * The serial number for the storage appliance.
      */
     public readonly serialNumber!: pulumi.Output<string>;
@@ -119,6 +139,10 @@ export class StorageAppliance extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The version of the storage appliance.
+     */
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a StorageAppliance resource with the given unique name, arguments, and options.
@@ -162,39 +186,51 @@ export class StorageAppliance extends pulumi.CustomResource {
             resourceInputs["storageApplianceName"] = args ? args.storageApplianceName : undefined;
             resourceInputs["storageApplianceSkuId"] = args ? args.storageApplianceSkuId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;
             resourceInputs["capacityUsed"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["managementIpv4Address"] = undefined /*out*/;
+            resourceInputs["manufacturer"] = undefined /*out*/;
+            resourceInputs["model"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["remoteVendorManagementFeature"] = undefined /*out*/;
             resourceInputs["remoteVendorManagementStatus"] = undefined /*out*/;
+            resourceInputs["secretRotationStatus"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["administratorCredentials"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;
             resourceInputs["capacityUsed"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managementIpv4Address"] = undefined /*out*/;
+            resourceInputs["manufacturer"] = undefined /*out*/;
+            resourceInputs["model"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["rackId"] = undefined /*out*/;
             resourceInputs["rackSlot"] = undefined /*out*/;
             resourceInputs["remoteVendorManagementFeature"] = undefined /*out*/;
             resourceInputs["remoteVendorManagementStatus"] = undefined /*out*/;
+            resourceInputs["secretRotationStatus"] = undefined /*out*/;
             resourceInputs["serialNumber"] = undefined /*out*/;
             resourceInputs["storageApplianceSkuId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:StorageAppliance" }, { type: "azure-native:networkcloud/v20231001preview:StorageAppliance" }, { type: "azure-native:networkcloud/v20240601preview:StorageAppliance" }, { type: "azure-native:networkcloud/v20240701:StorageAppliance" }, { type: "azure-native:networkcloud/v20241001preview:StorageAppliance" }, { type: "azure-native:networkcloud/v20250201:StorageAppliance" }] };

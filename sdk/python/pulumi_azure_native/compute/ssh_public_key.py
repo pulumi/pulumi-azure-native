@@ -117,9 +117,9 @@ class SshPublicKey(pulumi.CustomResource):
         """
         Specifies information about the SSH public key.
 
-        Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,9 +138,9 @@ class SshPublicKey(pulumi.CustomResource):
         """
         Specifies information about the SSH public key.
 
-        Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param SshPublicKeyInitArgs args: The arguments to use to populate this resource's properties.
@@ -178,6 +178,7 @@ class SshPublicKey(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["ssh_public_key_name"] = ssh_public_key_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20191201:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20200601:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20201201:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20210301:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20210401:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20210701:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20211101:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20220301:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20220801:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20221101:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20230301:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20230701:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20230901:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20240301:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20240701:SshPublicKey"), pulumi.Alias(type_="azure-native:compute/v20241101:SshPublicKey")])
@@ -204,12 +205,21 @@ class SshPublicKey(pulumi.CustomResource):
 
         __props__ = SshPublicKeyInitArgs.__new__(SshPublicKeyInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["public_key"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return SshPublicKey(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

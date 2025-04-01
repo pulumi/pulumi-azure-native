@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Education
     /// <summary>
     /// Lab details.
     /// 
-    /// Uses Azure REST API version 2021-12-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-12-01-preview.
+    /// Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:education:Lab")]
     public partial class Lab : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Default monetary cap for each student in this lab
         /// </summary>
@@ -82,6 +88,12 @@ namespace Pulumi.AzureNative.Education
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Total budget
+        /// </summary>
+        [Output("totalBudget")]
+        public Output<Outputs.AmountResponse> TotalBudget { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

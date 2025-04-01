@@ -177,6 +177,10 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly int? ManagedServiceIdentityId;
         /// <summary>
+        /// The minimum strength TLS cipher suite allowed for an application
+        /// </summary>
+        public readonly string? MinTlsCipherSuite;
+        /// <summary>
         /// MinTlsVersion: configures the minimum version of TLS required for SSL requests
         /// </summary>
         public readonly string? MinTlsVersion;
@@ -383,6 +387,8 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             int? managedServiceIdentityId,
 
+            string? minTlsCipherSuite,
+
             string? minTlsVersion,
 
             int? minimumElasticInstanceCount,
@@ -484,6 +490,7 @@ namespace Pulumi.AzureNative.Web.Outputs
             MachineKey = machineKey;
             ManagedPipelineMode = managedPipelineMode;
             ManagedServiceIdentityId = managedServiceIdentityId;
+            MinTlsCipherSuite = minTlsCipherSuite;
             MinTlsVersion = minTlsVersion;
             MinimumElasticInstanceCount = minimumElasticInstanceCount;
             NetFrameworkVersion = netFrameworkVersion;

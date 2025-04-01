@@ -27,7 +27,10 @@ class GetRoleManagementPolicyAssignmentResult:
     """
     Role management policy
     """
-    def __init__(__self__, effective_rules=None, id=None, name=None, policy_assignment_properties=None, policy_id=None, role_definition_id=None, scope=None, type=None):
+    def __init__(__self__, azure_api_version=None, effective_rules=None, id=None, name=None, policy_assignment_properties=None, policy_id=None, role_definition_id=None, scope=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if effective_rules and not isinstance(effective_rules, list):
             raise TypeError("Expected argument 'effective_rules' to be a list")
         pulumi.set(__self__, "effective_rules", effective_rules)
@@ -52,6 +55,14 @@ class GetRoleManagementPolicyAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="effectiveRules")
@@ -124,6 +135,7 @@ class AwaitableGetRoleManagementPolicyAssignmentResult(GetRoleManagementPolicyAs
         if False:
             yield self
         return GetRoleManagementPolicyAssignmentResult(
+            azure_api_version=self.azure_api_version,
             effective_rules=self.effective_rules,
             id=self.id,
             name=self.name,
@@ -140,9 +152,9 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
     """
     Get the specified role management policy assignment for a resource scope
 
-    Uses Azure REST API version 2020-10-01.
+    Uses Azure REST API version 2024-09-01-preview.
 
-    Other available API versions: 2020-10-01-preview, 2024-02-01-preview, 2024-09-01-preview.
+    Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to get.
@@ -155,6 +167,7 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getRoleManagementPolicyAssignment', __args__, opts=opts, typ=GetRoleManagementPolicyAssignmentResult).value
 
     return AwaitableGetRoleManagementPolicyAssignmentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         effective_rules=pulumi.get(__ret__, 'effective_rules'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -169,9 +182,9 @@ def get_role_management_policy_assignment_output(role_management_policy_assignme
     """
     Get the specified role management policy assignment for a resource scope
 
-    Uses Azure REST API version 2020-10-01.
+    Uses Azure REST API version 2024-09-01-preview.
 
-    Other available API versions: 2020-10-01-preview, 2024-02-01-preview, 2024-09-01-preview.
+    Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to get.
@@ -183,6 +196,7 @@ def get_role_management_policy_assignment_output(role_management_policy_assignme
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getRoleManagementPolicyAssignment', __args__, opts=opts, typ=GetRoleManagementPolicyAssignmentResult)
     return __ret__.apply(lambda __response__: GetRoleManagementPolicyAssignmentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         effective_rules=pulumi.get(__response__, 'effective_rules'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

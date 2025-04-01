@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * An object that represents a archive for a container registry.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Archife extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Archife extends pulumi.CustomResource {
         return obj['__pulumiType'] === Archife.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
@@ -95,12 +99,14 @@ export class Archife extends pulumi.CustomResource {
             resourceInputs["registryName"] = args ? args.registryName : undefined;
             resourceInputs["repositoryEndpointPrefix"] = args ? args.repositoryEndpointPrefix : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["repositoryEndpoint"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["packageSource"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

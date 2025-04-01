@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Batch
     /// <summary>
     /// Contains information about an application in a Batch account.
     /// 
-    /// Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+    /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    /// Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:Application")]
     public partial class Application : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Output("allowUpdates")]
         public Output<bool?> AllowUpdates { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
@@ -48,6 +54,12 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
@@ -157,6 +169,18 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ApplicationArgs()
         {

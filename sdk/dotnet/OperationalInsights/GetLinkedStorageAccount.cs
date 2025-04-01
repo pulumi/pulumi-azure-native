@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets all linked storage account of a specific data source type associated with the specified workspace.
         /// 
-        /// Uses Azure REST API version 2020-08-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetLinkedStorageAccountResult> InvokeAsync(GetLinkedStorageAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedStorageAccountResult>("azure-native:operationalinsights:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets all linked storage account of a specific data source type associated with the specified workspace.
         /// 
-        /// Uses Azure REST API version 2020-08-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLinkedStorageAccountResult> Invoke(GetLinkedStorageAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedStorageAccountResult>("azure-native:operationalinsights:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets all linked storage account of a specific data source type associated with the specified workspace.
         /// 
-        /// Uses Azure REST API version 2020-08-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLinkedStorageAccountResult> Invoke(GetLinkedStorageAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedStorageAccountResult>("azure-native:operationalinsights:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.OperationalInsights
     public sealed class GetLinkedStorageAccountResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Linked storage accounts type.
         /// </summary>
         public readonly string DataSourceType;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.OperationalInsights
 
         [OutputConstructor]
         private GetLinkedStorageAccountResult(
+            string azureApiVersion,
+
             string dataSourceType,
 
             string id,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataSourceType = dataSourceType;
             Id = id;
             Name = name;

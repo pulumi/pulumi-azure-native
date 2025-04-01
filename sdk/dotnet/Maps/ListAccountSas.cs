@@ -16,11 +16,11 @@ namespace Pulumi.AzureNative.Maps
         /// 
         /// Prerequisites:
         /// 1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account. 
-        /// 2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
+        /// 2. Create or update an Azure Maps account with the same Azure region as the User Assigned Managed Identity is placed.
         /// 
-        /// Uses Azure REST API version 2021-12-01-preview.
+        /// Uses Azure REST API version 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListAccountSasResult> InvokeAsync(ListAccountSasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccountSasResult>("azure-native:maps:listAccountSas", args ?? new ListAccountSasArgs(), options.WithDefaults());
@@ -30,11 +30,11 @@ namespace Pulumi.AzureNative.Maps
         /// 
         /// Prerequisites:
         /// 1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account. 
-        /// 2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
+        /// 2. Create or update an Azure Maps account with the same Azure region as the User Assigned Managed Identity is placed.
         /// 
-        /// Uses Azure REST API version 2021-12-01-preview.
+        /// Uses Azure REST API version 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListAccountSasResult> Invoke(ListAccountSasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccountSasResult>("azure-native:maps:listAccountSas", args ?? new ListAccountSasInvokeArgs(), options.WithDefaults());
@@ -44,11 +44,11 @@ namespace Pulumi.AzureNative.Maps
         /// 
         /// Prerequisites:
         /// 1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account. 
-        /// 2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
+        /// 2. Create or update an Azure Maps account with the same Azure region as the User Assigned Managed Identity is placed.
         /// 
-        /// Uses Azure REST API version 2021-12-01-preview.
+        /// Uses Azure REST API version 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListAccountSasResult> Invoke(ListAccountSasInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccountSasResult>("azure-native:maps:listAccountSas", args ?? new ListAccountSasInvokeArgs(), options.WithDefaults());
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.Maps
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z"
+        /// The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z". Maximum duration allowed is 24 hours between `start` and `expiry`.
         /// </summary>
         [Input("expiry", required: true)]
         public string Expiry { get; set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Maps
         public int MaxRatePerSecond { get; set; }
 
         /// <summary>
-        /// The principal Id also known as the object Id of a User Assigned Managed Identity currently assigned to the Map Account. To assign a Managed Identity of the account, use operation Create or Update an assign a User Assigned Identity resource Id.
+        /// The principal Id also known as the object Id of a User Assigned Managed Identity currently assigned to the Maps Account. To assign a Managed Identity of the account, use operation Create or Update an assign a User Assigned Identity resource Id.
         /// </summary>
         [Input("principalId", required: true)]
         public string PrincipalId { get; set; } = null!;
@@ -100,13 +100,13 @@ namespace Pulumi.AzureNative.Maps
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Map account key to use for signing.
+        /// The Maps account key to use for signing. Picking `primaryKey` or `secondaryKey` will use the Maps account Shared Keys, and using `managedIdentity` will use the auto-renewed private key to sign the SAS.
         /// </summary>
         [Input("signingKey", required: true)]
         public Union<string, Pulumi.AzureNative.Maps.SigningKey> SigningKey { get; set; } = null!;
 
         /// <summary>
-        /// The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z".
+        /// The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z". Maximum duration allowed is 24 hours between `start` and `expiry`.
         /// </summary>
         [Input("start", required: true)]
         public string Start { get; set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.Maps
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z"
+        /// The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z". Maximum duration allowed is 24 hours between `start` and `expiry`.
         /// </summary>
         [Input("expiry", required: true)]
         public Input<string> Expiry { get; set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.Maps
         public Input<int> MaxRatePerSecond { get; set; } = null!;
 
         /// <summary>
-        /// The principal Id also known as the object Id of a User Assigned Managed Identity currently assigned to the Map Account. To assign a Managed Identity of the account, use operation Create or Update an assign a User Assigned Identity resource Id.
+        /// The principal Id also known as the object Id of a User Assigned Managed Identity currently assigned to the Maps Account. To assign a Managed Identity of the account, use operation Create or Update an assign a User Assigned Identity resource Id.
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
@@ -163,13 +163,13 @@ namespace Pulumi.AzureNative.Maps
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Map account key to use for signing.
+        /// The Maps account key to use for signing. Picking `primaryKey` or `secondaryKey` will use the Maps account Shared Keys, and using `managedIdentity` will use the auto-renewed private key to sign the SAS.
         /// </summary>
         [Input("signingKey", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Maps.SigningKey> SigningKey { get; set; } = null!;
 
         /// <summary>
-        /// The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z".
+        /// The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z". Maximum duration allowed is 24 hours between `start` and `expiry`.
         /// </summary>
         [Input("start", required: true)]
         public Input<string> Start { get; set; } = null!;

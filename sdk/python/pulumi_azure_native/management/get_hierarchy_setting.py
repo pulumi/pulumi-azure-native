@@ -26,7 +26,10 @@ class GetHierarchySettingResult:
     """
     Settings defined at the Management Group scope.
     """
-    def __init__(__self__, default_management_group=None, id=None, name=None, require_authorization_for_group_creation=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, default_management_group=None, id=None, name=None, require_authorization_for_group_creation=None, tenant_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if default_management_group and not isinstance(default_management_group, str):
             raise TypeError("Expected argument 'default_management_group' to be a str")
         pulumi.set(__self__, "default_management_group", default_management_group)
@@ -45,6 +48,14 @@ class GetHierarchySettingResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultManagementGroup")
@@ -101,6 +112,7 @@ class AwaitableGetHierarchySettingResult(GetHierarchySettingResult):
         if False:
             yield self
         return GetHierarchySettingResult(
+            azure_api_version=self.azure_api_version,
             default_management_group=self.default_management_group,
             id=self.id,
             name=self.name,
@@ -114,9 +126,9 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
     """
     Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
 
-    Uses Azure REST API version 2021-04-01.
+    Uses Azure REST API version 2023-04-01.
 
-    Other available API versions: 2023-04-01.
+    Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str group_id: Management Group ID.
@@ -127,6 +139,7 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:management:getHierarchySetting', __args__, opts=opts, typ=GetHierarchySettingResult).value
 
     return AwaitableGetHierarchySettingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         default_management_group=pulumi.get(__ret__, 'default_management_group'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -138,9 +151,9 @@ def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
 
-    Uses Azure REST API version 2021-04-01.
+    Uses Azure REST API version 2023-04-01.
 
-    Other available API versions: 2023-04-01.
+    Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str group_id: Management Group ID.
@@ -150,6 +163,7 @@ def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:management:getHierarchySetting', __args__, opts=opts, typ=GetHierarchySettingResult)
     return __ret__.apply(lambda __response__: GetHierarchySettingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         default_management_group=pulumi.get(__response__, 'default_management_group'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

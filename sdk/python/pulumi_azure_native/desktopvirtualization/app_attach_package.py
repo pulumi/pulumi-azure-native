@@ -25,39 +25,22 @@ class AppAttachPackageArgs:
                  properties: pulumi.Input['AppAttachPackagePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  app_attach_package_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_by: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
-                 sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AppAttachPackage resource.
         :param pulumi.Input['AppAttachPackagePropertiesArgs'] properties: Detailed properties for App Attach Package
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] app_attach_package_name: The name of the App Attach package arm object
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[str] app_attach_package_name: The name of the App Attach package
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if app_attach_package_name is not None:
             pulumi.set(__self__, "app_attach_package_name", app_attach_package_name)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
-        if plan is not None:
-            pulumi.set(__self__, "plan", plan)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -89,34 +72,13 @@ class AppAttachPackageArgs:
     @pulumi.getter(name="appAttachPackageName")
     def app_attach_package_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the App Attach package arm object
+        The name of the App Attach package
         """
         return pulumi.get(self, "app_attach_package_name")
 
     @app_attach_package_name.setter
     def app_attach_package_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_attach_package_name", value)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']]:
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']]):
-        pulumi.set(self, "identity", value)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[str]]:
-        """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kind", value)
 
     @property
     @pulumi.getter
@@ -129,36 +91,6 @@ class AppAttachPackageArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        """
-        return pulumi.get(self, "managed_by")
-
-    @managed_by.setter
-    def managed_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "managed_by", value)
-
-    @property
-    @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']]:
-        return pulumi.get(self, "plan")
-
-    @plan.setter
-    def plan(self, value: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']]):
-        pulumi.set(self, "plan", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']]:
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']]):
-        pulumi.set(self, "sku", value)
 
     @property
     @pulumi.getter
@@ -179,29 +111,22 @@ class AppAttachPackage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_attach_package_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_by: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
                  properties: Optional[pulumi.Input[Union['AppAttachPackagePropertiesArgs', 'AppAttachPackagePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Schema for App Attach Package properties.
 
-        Uses Azure REST API version 2023-10-04-preview.
+        Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-        Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        Other available API versions: 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_attach_package_name: The name of the App Attach package arm object
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[str] app_attach_package_name: The name of the App Attach package
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[Union['AppAttachPackagePropertiesArgs', 'AppAttachPackagePropertiesArgsDict']] properties: Detailed properties for App Attach Package
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -215,9 +140,9 @@ class AppAttachPackage(pulumi.CustomResource):
         """
         Schema for App Attach Package properties.
 
-        Uses Azure REST API version 2023-10-04-preview.
+        Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-        Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+        Other available API versions: 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AppAttachPackageArgs args: The arguments to use to populate this resource's properties.
@@ -235,14 +160,9 @@ class AppAttachPackage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_attach_package_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_by: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
                  properties: Optional[pulumi.Input[Union['AppAttachPackagePropertiesArgs', 'AppAttachPackagePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -254,20 +174,15 @@ class AppAttachPackage(pulumi.CustomResource):
             __props__ = AppAttachPackageArgs.__new__(AppAttachPackageArgs)
 
             __props__.__dict__["app_attach_package_name"] = app_attach_package_name
-            __props__.__dict__["identity"] = identity
-            __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
-            __props__.__dict__["managed_by"] = managed_by
-            __props__.__dict__["plan"] = plan
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["etag"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -295,56 +210,30 @@ class AppAttachPackage(pulumi.CustomResource):
 
         __props__ = AppAttachPackageArgs.__new__(AppAttachPackageArgs)
 
-        __props__.__dict__["etag"] = None
-        __props__.__dict__["identity"] = None
-        __props__.__dict__["kind"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["managed_by"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["plan"] = None
         __props__.__dict__["properties"] = None
-        __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return AppAttachPackage(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "etag")
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ResourceModelWithAllowedPropertySetResponseIdentity']]:
-        return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Output[Optional[str]]:
-        """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-        """
-        return pulumi.get(self, "kind")
-
-    @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="managedBy")
-    def managed_by(self) -> pulumi.Output[Optional[str]]:
-        """
-        The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        """
-        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter
@@ -356,11 +245,6 @@ class AppAttachPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> pulumi.Output[Optional['outputs.ResourceModelWithAllowedPropertySetResponsePlan']]:
-        return pulumi.get(self, "plan")
-
-    @property
-    @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.AppAttachPackagePropertiesResponse']:
         """
         Detailed properties for App Attach Package
@@ -368,15 +252,10 @@ class AppAttachPackage(pulumi.CustomResource):
         return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']]:
-        return pulumi.get(self, "sku")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

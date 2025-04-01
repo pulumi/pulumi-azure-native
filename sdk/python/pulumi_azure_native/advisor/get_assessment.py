@@ -27,10 +27,13 @@ class GetAssessmentResult:
     """
     The Advisor assessment result data structure.
     """
-    def __init__(__self__, assessment_id=None, description=None, id=None, locale=None, name=None, score=None, state=None, system_data=None, type=None, type_id=None, type_version=None, workload_id=None, workload_name=None):
+    def __init__(__self__, assessment_id=None, azure_api_version=None, description=None, id=None, locale=None, name=None, score=None, state=None, system_data=None, type=None, type_id=None, type_version=None, workload_id=None, workload_name=None):
         if assessment_id and not isinstance(assessment_id, str):
             raise TypeError("Expected argument 'assessment_id' to be a str")
         pulumi.set(__self__, "assessment_id", assessment_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -75,6 +78,14 @@ class GetAssessmentResult:
         Assessment Id.
         """
         return pulumi.get(self, "assessment_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -180,6 +191,7 @@ class AwaitableGetAssessmentResult(GetAssessmentResult):
             yield self
         return GetAssessmentResult(
             assessment_id=self.assessment_id,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             id=self.id,
             locale=self.locale,
@@ -211,6 +223,7 @@ def get_assessment(assessment_name: Optional[str] = None,
 
     return AwaitableGetAssessmentResult(
         assessment_id=pulumi.get(__ret__, 'assessment_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         locale=pulumi.get(__ret__, 'locale'),
@@ -239,6 +252,7 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:advisor:getAssessment', __args__, opts=opts, typ=GetAssessmentResult)
     return __ret__.apply(lambda __response__: GetAssessmentResult(
         assessment_id=pulumi.get(__response__, 'assessment_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         locale=pulumi.get(__response__, 'locale'),

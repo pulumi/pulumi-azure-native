@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided the Kubernetes cluster.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetKubernetesClusterResult> InvokeAsync(GetKubernetesClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterResult>("azure-native:networkcloud:getKubernetesCluster", args ?? new GetKubernetesClusterArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided the Kubernetes cluster.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetKubernetesClusterResult> Invoke(GetKubernetesClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterResult>("azure-native:networkcloud:getKubernetesCluster", args ?? new GetKubernetesClusterInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided the Kubernetes cluster.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetKubernetesClusterResult> Invoke(GetKubernetesClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterResult>("azure-native:networkcloud:getKubernetesCluster", args ?? new GetKubernetesClusterInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.AvailableUpgradeResponse> AvailableUpgrades;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource ID of the Network Cloud cluster.
         /// </summary>
         public readonly string ClusterId;
@@ -128,6 +132,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string DetailedStatusMessage;
         /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -144,7 +152,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.InitialAgentPoolConfigurationResponse> InitialAgentPoolConfigurations;
         /// <summary>
-        /// The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.
+        /// The Kubernetes version for this cluster.
         /// </summary>
         public readonly string KubernetesVersion;
         /// <summary>
@@ -194,6 +202,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             ImmutableArray<Outputs.AvailableUpgradeResponse> availableUpgrades,
 
+            string azureApiVersion,
+
             string clusterId,
 
             string connectedClusterId,
@@ -205,6 +215,8 @@ namespace Pulumi.AzureNative.NetworkCloud
             string detailedStatus,
 
             string detailedStatusMessage,
+
+            string etag,
 
             Outputs.ExtendedLocationResponse extendedLocation,
 
@@ -238,12 +250,14 @@ namespace Pulumi.AzureNative.NetworkCloud
             AdministratorConfiguration = administratorConfiguration;
             AttachedNetworkIds = attachedNetworkIds;
             AvailableUpgrades = availableUpgrades;
+            AzureApiVersion = azureApiVersion;
             ClusterId = clusterId;
             ConnectedClusterId = connectedClusterId;
             ControlPlaneKubernetesVersion = controlPlaneKubernetesVersion;
             ControlPlaneNodeConfiguration = controlPlaneNodeConfiguration;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
+            Etag = etag;
             ExtendedLocation = extendedLocation;
             FeatureStatuses = featureStatuses;
             Id = id;

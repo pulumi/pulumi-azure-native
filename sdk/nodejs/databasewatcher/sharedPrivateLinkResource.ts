@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
  *
- * Uses Azure REST API version 2023-09-01-preview.
+ * Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
  *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+ * Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
         return obj['__pulumiType'] === SharedPrivateLinkResource.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'.
      */
@@ -111,12 +115,14 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sharedPrivateLinkResourceName"] = args ? args.sharedPrivateLinkResourceName : undefined;
             resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dnsZone"] = undefined /*out*/;
             resourceInputs["groupId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Sql
     /// <summary>
     /// An Azure SQL managed instance.
     /// 
-    /// Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+    /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
-    /// Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    /// Other available API versions: 2015-05-01-preview, 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedInstance")]
     public partial class ManagedInstance : global::Pulumi.CustomResource
@@ -26,10 +26,22 @@ namespace Pulumi.AzureNative.Sql
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Active Directory administrator of the server.
+        /// The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         /// </summary>
         [Output("administrators")]
         public Output<Outputs.ManagedInstanceExternalAdministratorResponse?> Administrators { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed instance's authentication metadata lookup mode.
+        /// </summary>
+        [Output("authenticationMetadata")]
+        public Output<string?> AuthenticationMetadata { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Collation of the managed instance.
@@ -38,10 +50,22 @@ namespace Pulumi.AzureNative.Sql
         public Output<string?> Collation { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the point in time (ISO8601 format) of the Managed Instance creation.
+        /// </summary>
+        [Output("createTime")]
+        public Output<string> CreateTime { get; private set; } = null!;
+
+        /// <summary>
         /// The storage account type used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
         /// </summary>
         [Output("currentBackupStorageRedundancy")]
         public Output<string> CurrentBackupStorageRedundancy { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the internal format of instance databases specific to the SQL engine version.
+        /// </summary>
+        [Output("databaseFormat")]
+        public Output<string?> DatabaseFormat { get; private set; } = null!;
 
         /// <summary>
         /// The Dns Zone that the managed instance is in.
@@ -50,10 +74,28 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> DnsZone { get; private set; } = null!;
 
         /// <summary>
+        /// Status of external governance.
+        /// </summary>
+        [Output("externalGovernanceStatus")]
+        public Output<string> ExternalGovernanceStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The fully qualified domain name of the managed instance.
         /// </summary>
         [Output("fullyQualifiedDomainName")]
         public Output<string> FullyQualifiedDomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
+        /// </summary>
+        [Output("hybridSecondaryUsage")]
+        public Output<string?> HybridSecondaryUsage { get; private set; } = null!;
+
+        /// <summary>
+        /// Hybrid secondary usage detected. Possible values are 'Active' (customer does not meet the requirements to use the secondary as Passive DR) and 'Passive' (customer meets the requirements to use the secondary as Passive DR).
+        /// </summary>
+        [Output("hybridSecondaryUsageDetected")]
+        public Output<string> HybridSecondaryUsageDetected { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Active Directory identity of the managed instance.
@@ -66,6 +108,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("instancePoolId")]
         public Output<string?> InstancePoolId { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not this is a GPv2 variant of General Purpose edition.
+        /// </summary>
+        [Output("isGeneralPurposeV2")]
+        public Output<bool?> IsGeneralPurposeV2 { get; private set; } = null!;
 
         /// <summary>
         /// A CMK URI of the key to use for encryption.
@@ -104,6 +152,12 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Pricing model of Managed Instance.
+        /// </summary>
+        [Output("pricingModel")]
+        public Output<string?> PricingModel { get; private set; } = null!;
+
+        /// <summary>
         /// The resource id of a user assigned identity to be used by default.
         /// </summary>
         [Output("primaryUserAssignedIdentityId")]
@@ -115,6 +169,9 @@ namespace Pulumi.AzureNative.Sql
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.ManagedInstancePecPropertyResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
+        /// <summary>
+        /// Provisioning state of managed instance.
+        /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
@@ -155,10 +212,22 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
+        /// Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        /// </summary>
+        [Output("storageIOps")]
+        public Output<int?> StorageIOps { get; private set; } = null!;
+
+        /// <summary>
         /// Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
         /// </summary>
         [Output("storageSizeInGB")]
         public Output<int?> StorageSizeInGB { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage throughput MBps parameter is not supported in the instance create/update operation.
+        /// </summary>
+        [Output("storageThroughputMBps")]
+        public Output<int?> StorageThroughputMBps { get; private set; } = null!;
 
         /// <summary>
         /// Subnet resource ID for the managed instance.
@@ -194,6 +263,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("vCores")]
         public Output<int?> VCores { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual cluster resource id for the Managed Instance.
+        /// </summary>
+        [Output("virtualClusterId")]
+        public Output<string> VirtualClusterId { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not the multi-az is enabled.
@@ -281,10 +356,16 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? AdministratorLoginPassword { get; set; }
 
         /// <summary>
-        /// The Azure Active Directory administrator of the server.
+        /// The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         /// </summary>
         [Input("administrators")]
         public Input<Inputs.ManagedInstanceExternalAdministratorArgs>? Administrators { get; set; }
+
+        /// <summary>
+        /// The managed instance's authentication metadata lookup mode.
+        /// </summary>
+        [Input("authenticationMetadata")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.AuthMetadataLookupModes>? AuthenticationMetadata { get; set; }
 
         /// <summary>
         /// Collation of the managed instance.
@@ -293,10 +374,22 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
+        /// Specifies the internal format of instance databases specific to the SQL engine version.
+        /// </summary>
+        [Input("databaseFormat")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.ManagedInstanceDatabaseFormat>? DatabaseFormat { get; set; }
+
+        /// <summary>
         /// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
         /// </summary>
         [Input("dnsZonePartner")]
         public Input<string>? DnsZonePartner { get; set; }
+
+        /// <summary>
+        /// Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
+        /// </summary>
+        [Input("hybridSecondaryUsage")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.HybridSecondaryUsage>? HybridSecondaryUsage { get; set; }
 
         /// <summary>
         /// The Azure Active Directory identity of the managed instance.
@@ -309,6 +402,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("instancePoolId")]
         public Input<string>? InstancePoolId { get; set; }
+
+        /// <summary>
+        /// Whether or not this is a GPv2 variant of General Purpose edition.
+        /// </summary>
+        [Input("isGeneralPurposeV2")]
+        public Input<bool>? IsGeneralPurposeV2 { get; set; }
 
         /// <summary>
         /// A CMK URI of the key to use for encryption.
@@ -355,6 +454,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("minimalTlsVersion")]
         public Input<string>? MinimalTlsVersion { get; set; }
+
+        /// <summary>
+        /// Pricing model of Managed Instance.
+        /// </summary>
+        [Input("pricingModel")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.PricingModel>? PricingModel { get; set; }
 
         /// <summary>
         /// The resource id of a user assigned identity to be used by default.
@@ -411,10 +516,22 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? SourceManagedInstanceId { get; set; }
 
         /// <summary>
+        /// Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        /// </summary>
+        [Input("storageIOps")]
+        public Input<int>? StorageIOps { get; set; }
+
+        /// <summary>
         /// Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
         /// </summary>
         [Input("storageSizeInGB")]
         public Input<int>? StorageSizeInGB { get; set; }
+
+        /// <summary>
+        /// Storage throughput MBps parameter is not supported in the instance create/update operation.
+        /// </summary>
+        [Input("storageThroughputMBps")]
+        public Input<int>? StorageThroughputMBps { get; set; }
 
         /// <summary>
         /// Subnet resource ID for the managed instance.

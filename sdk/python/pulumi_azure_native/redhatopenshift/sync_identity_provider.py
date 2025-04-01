@@ -96,9 +96,9 @@ class SyncIdentityProvider(pulumi.CustomResource):
         """
         SyncIdentityProvider represents a SyncIdentityProvider
 
-        Uses Azure REST API version 2022-09-04.
+        Uses Azure REST API version 2023-11-22. In version 2.x of the Azure Native provider, it used API version 2022-09-04.
 
-        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,9 +115,9 @@ class SyncIdentityProvider(pulumi.CustomResource):
         """
         SyncIdentityProvider represents a SyncIdentityProvider
 
-        Uses Azure REST API version 2022-09-04.
+        Uses Azure REST API version 2023-11-22. In version 2.x of the Azure Native provider, it used API version 2022-09-04.
 
-        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param SyncIdentityProviderArgs args: The arguments to use to populate this resource's properties.
@@ -155,6 +155,7 @@ class SyncIdentityProvider(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["resources"] = resources
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -182,11 +183,20 @@ class SyncIdentityProvider(pulumi.CustomResource):
 
         __props__ = SyncIdentityProviderArgs.__new__(SyncIdentityProviderArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["resources"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SyncIdentityProvider(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

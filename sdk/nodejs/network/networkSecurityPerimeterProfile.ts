@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The network security perimeter profile resource
  *
- * Uses Azure REST API version 2024-06-01-preview.
+ * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
  */
 export class NetworkSecurityPerimeterProfile extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class NetworkSecurityPerimeterProfile extends pulumi.CustomResource {
      * Version number that increases with every update to access rules within the profile.
      */
     public /*out*/ readonly accessRulesVersion!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Version number that increases with every update to diagnostic settings within the profile.
      */
@@ -85,11 +89,13 @@ export class NetworkSecurityPerimeterProfile extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accessRulesVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["diagnosticSettingsVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessRulesVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["diagnosticSettingsVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -97,7 +103,7 @@ export class NetworkSecurityPerimeterProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterProfile" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterProfile" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterProfile" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterProfile" }, { type: "azure-native:network/v20210201preview:NspProfile" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterProfile" }, { type: "azure-native:network/v20230701preview:NspProfile" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterProfile" }, { type: "azure-native:network/v20230801preview:NspProfile" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterProfile" }, { type: "azure-native:network:NspProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeterProfile.__pulumiType, name, resourceInputs, opts);
     }

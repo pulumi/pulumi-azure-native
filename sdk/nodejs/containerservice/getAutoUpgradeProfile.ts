@@ -41,6 +41,10 @@ export interface GetAutoUpgradeProfileArgs {
  */
 export interface GetAutoUpgradeProfileResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Configures how auto-upgrade will be run.
      */
     readonly channel: string;

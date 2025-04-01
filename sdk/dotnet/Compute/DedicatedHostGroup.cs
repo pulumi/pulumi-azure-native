@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Compute
     /// <summary>
     /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
     /// 
-    /// Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DedicatedHostGroup")]
     public partial class DedicatedHostGroup : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("additionalCapabilities")]
         public Output<Outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities?> AdditionalCapabilities { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// A list of references to all dedicated hosts in the dedicated host group.

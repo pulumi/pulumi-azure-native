@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.MySQLDiscovery
     public sealed class GetMySQLServerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// mysql server edition.
         /// </summary>
         public readonly string? Edition;
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNative.MySQLDiscovery
 
         [OutputConstructor]
         private GetMySQLServerResult(
+            string azureApiVersion,
+
             string? edition,
 
             ImmutableArray<Outputs.ErrorResponse> errors,
@@ -198,6 +204,7 @@ namespace Pulumi.AzureNative.MySQLDiscovery
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Edition = edition;
             Errors = errors;
             HostIp = hostIp;

@@ -154,15 +154,15 @@ def list_endpoint_ingress_gateway_credentials(endpoint_name: Optional[str] = Non
     """
     Gets the ingress gateway endpoint credentials
 
-    Uses Azure REST API version 2023-03-15.
+    Uses Azure REST API version 2024-12-01.
 
-    Other available API versions: 2024-12-01.
+    Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str endpoint_name: The endpoint name.
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
-    :param Union[str, 'ServiceName'] service_name: The name of the service.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
+    :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token.
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
@@ -190,15 +190,15 @@ def list_endpoint_ingress_gateway_credentials_output(endpoint_name: Optional[pul
     """
     Gets the ingress gateway endpoint credentials
 
-    Uses Azure REST API version 2023-03-15.
+    Uses Azure REST API version 2024-12-01.
 
-    Other available API versions: 2024-12-01.
+    Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str endpoint_name: The endpoint name.
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
-    :param Union[str, 'ServiceName'] service_name: The name of the service.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
+    :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token.
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name

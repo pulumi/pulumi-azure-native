@@ -53,6 +53,8 @@ def list_media_service_edge_policies(account_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-01-01.
 
+    Other available API versions: 2018-07-01, 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str account_name: The Media Services account name.
     :param str device_id: Unique identifier of the edge device.
@@ -75,6 +77,8 @@ def list_media_service_edge_policies_output(account_name: Optional[pulumi.Input[
     List all the media edge policies associated with the Media Services account.
 
     Uses Azure REST API version 2023-01-01.
+
+    Other available API versions: 2018-07-01, 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The Media Services account name.

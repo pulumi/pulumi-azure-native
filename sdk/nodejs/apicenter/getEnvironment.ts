@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Returns details of the environment.
  *
- * Uses Azure REST API version 2024-03-01.
+ * Uses Azure REST API version 2024-03-15-preview.
  *
- * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +47,10 @@ export interface GetEnvironmentArgs {
  * Environment entity.
  */
 export interface GetEnvironmentResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The custom metadata defined for API catalog entities.
      */
@@ -91,9 +95,9 @@ export interface GetEnvironmentResult {
 /**
  * Returns details of the environment.
  *
- * Uses Azure REST API version 2024-03-01.
+ * Uses Azure REST API version 2024-03-15-preview.
  *
- * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

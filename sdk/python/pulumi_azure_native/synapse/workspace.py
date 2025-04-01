@@ -381,9 +381,9 @@ class Workspace(pulumi.CustomResource):
         """
         A workspace
 
-        Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+        Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
-        Other available API versions: 2021-05-01, 2021-06-01-preview.
+        Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -418,9 +418,9 @@ class Workspace(pulumi.CustomResource):
         """
         A workspace
 
-        Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+        Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
-        Other available API versions: 2021-05-01, 2021-06-01-preview.
+        Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -493,6 +493,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["workspace_repository_configuration"] = workspace_repository_configuration
             __props__.__dict__["adla_resource_id"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["connectivity_endpoints"] = None
             __props__.__dict__["extra_properties"] = None
             __props__.__dict__["name"] = None
@@ -525,6 +526,7 @@ class Workspace(pulumi.CustomResource):
         __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
         __props__.__dict__["adla_resource_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["connectivity_endpoints"] = None
         __props__.__dict__["csp_workspace_admin_properties"] = None
         __props__.__dict__["default_data_lake_storage"] = None
@@ -558,6 +560,14 @@ class Workspace(pulumi.CustomResource):
         The ADLA resource ID.
         """
         return pulumi.get(self, "adla_resource_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectivityEndpoints")

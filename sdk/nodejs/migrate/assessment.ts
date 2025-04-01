@@ -10,9 +10,7 @@ import * as utilities from "../utilities";
 /**
  * An assessment created for a group in the Migration project.
  *
- * Uses Azure REST API version 2019-10-01. In version 1.x of the Azure Native provider, it used API version 2019-10-01.
- *
- * Other available API versions: 2018-02-02.
+ * Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
  */
 export class Assessment extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class Assessment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Assessment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * For optimistic concurrency control.
      */
@@ -87,16 +89,18 @@ export class Assessment extends pulumi.CustomResource {
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:Assessment" }, { type: "azure-native:migrate/v20230315:Assessment" }, { type: "azure-native:migrate/v20230401preview:Assessment" }, { type: "azure-native:migrate/v20230501preview:Assessment" }, { type: "azure-native:migrate/v20230909preview:Assessment" }, { type: "azure-native:migrate/v20240101preview:Assessment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20180202:Assessment" }, { type: "azure-native:migrate/v20191001:Assessment" }, { type: "azure-native:migrate/v20230315:Assessment" }, { type: "azure-native:migrate/v20230315:AssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:Assessment" }, { type: "azure-native:migrate/v20230401preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20230501preview:Assessment" }, { type: "azure-native:migrate/v20230501preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:Assessment" }, { type: "azure-native:migrate/v20230909preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20240101preview:Assessment" }, { type: "azure-native:migrate/v20240101preview:AssessmentsOperation" }, { type: "azure-native:migrate:AssessmentsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Assessment.__pulumiType, name, resourceInputs, opts);
     }

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// The network security perimeter profile resource
     /// 
-    /// Uses Azure REST API version 2024-06-01-preview.
+    /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityPerimeterProfile")]
     public partial class NetworkSecurityPerimeterProfile : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("accessRulesVersion")]
         public Output<string> AccessRulesVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Version number that increases with every update to diagnostic settings within the profile.
@@ -79,9 +85,13 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeterProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NetworkSecurityPerimeterProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NetworkSecurityPerimeterProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NetworkSecurityPerimeterProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:NspProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

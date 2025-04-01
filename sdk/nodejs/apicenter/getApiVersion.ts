@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Returns details of the API version.
  *
- * Uses Azure REST API version 2024-03-01.
+ * Uses Azure REST API version 2024-03-15-preview.
  *
- * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getApiVersion(args: GetApiVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,6 +53,10 @@ export interface GetApiVersionArgs {
  */
 export interface GetApiVersionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -80,9 +84,9 @@ export interface GetApiVersionResult {
 /**
  * Returns details of the API version.
  *
- * Uses Azure REST API version 2024-03-01.
+ * Uses Azure REST API version 2024-03-15-preview.
  *
- * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getApiVersionOutput(args: GetApiVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

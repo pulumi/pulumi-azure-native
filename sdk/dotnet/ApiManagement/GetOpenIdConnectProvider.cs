@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets specific OpenID Connect Provider without secrets.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetOpenIdConnectProviderResult> InvokeAsync(GetOpenIdConnectProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenIdConnectProviderResult>("azure-native:apimanagement:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets specific OpenID Connect Provider without secrets.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOpenIdConnectProviderResult> Invoke(GetOpenIdConnectProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenIdConnectProviderResult>("azure-native:apimanagement:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets specific OpenID Connect Provider without secrets.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOpenIdConnectProviderResult> Invoke(GetOpenIdConnectProviderInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenIdConnectProviderResult>("azure-native:apimanagement:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetOpenIdConnectProviderResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Client ID of developer console which is the client application.
         /// </summary>
         public readonly string ClientId;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetOpenIdConnectProviderResult(
+            string azureApiVersion,
+
             string clientId,
 
             string? clientSecret,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             bool? useInTestConsole)
         {
+            AzureApiVersion = azureApiVersion;
             ClientId = clientId;
             ClientSecret = clientSecret;
             Description = description;

@@ -10,15 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// The NetworkFabric resource definition.
+    /// The Network Fabric resource definition.
     /// 
-    /// Uses Azure REST API version 2023-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-02-01-preview.
+    /// Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
     /// 
-    /// Other available API versions: 2023-06-15.
+    /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkFabric")]
     public partial class NetworkFabric : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Administrative state of the resource.
+        /// </summary>
+        [Output("administrativeState")]
+        public Output<string> AdministrativeState { get; private set; } = null!;
+
         /// <summary>
         /// Switch configuration description.
         /// </summary>
@@ -26,31 +32,49 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string?> Annotation { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
+
+        /// <summary>
         /// ASN of CE devices for CE/PE connectivity.
         /// </summary>
         [Output("fabricASN")]
-        public Output<int> FabricASN { get; private set; } = null!;
+        public Output<double> FabricASN { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of Network Fabric.
+        /// </summary>
+        [Output("fabricVersion")]
+        public Output<string?> FabricVersion { get; private set; } = null!;
 
         /// <summary>
         /// IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         /// </summary>
         [Output("ipv4Prefix")]
-        public Output<string?> Ipv4Prefix { get; private set; } = null!;
+        public Output<string> Ipv4Prefix { get; private set; } = null!;
 
         /// <summary>
-        /// IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
+        /// IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
         /// </summary>
         [Output("ipv6Prefix")]
         public Output<string?> Ipv6Prefix { get; private set; } = null!;
 
         /// <summary>
-        /// List of L2IsolationDomain resource IDs under the Network Fabric.
+        /// List of L2 Isolation Domain resource IDs under the Network Fabric.
         /// </summary>
         [Output("l2IsolationDomains")]
         public Output<ImmutableArray<string>> L2IsolationDomains { get; private set; } = null!;
 
         /// <summary>
-        /// List of L3IsolationDomain resource IDs under the Network Fabric.
+        /// List of L3 Isolation Domain resource IDs under the Network Fabric.
         /// </summary>
         [Output("l3IsolationDomains")]
         public Output<ImmutableArray<string>> L3IsolationDomains { get; private set; } = null!;
@@ -65,7 +89,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// Configuration to be used to setup the management network.
         /// </summary>
         [Output("managementNetworkConfiguration")]
-        public Output<Outputs.ManagementNetworkConfigurationResponse> ManagementNetworkConfiguration { get; private set; } = null!;
+        public Output<Outputs.ManagementNetworkConfigurationPropertiesResponse> ManagementNetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -86,22 +110,16 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> NetworkFabricSku { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the operational state of the resource.
-        /// </summary>
-        [Output("operationalState")]
-        public Output<string> OperationalState { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provides you the latest status of the NFC service, whether it is Accepted, updating, Succeeded or Failed. During this process, the states keep changing based on the status of NFC provisioning.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Number of racks associated to Network Fabric.Possible values are from 2-8.
+        /// Number of compute racks associated to Network Fabric.
         /// </summary>
         [Output("rackCount")]
-        public Output<int> RackCount { get; private set; } = null!;
+        public Output<int?> RackCount { get; private set; } = null!;
 
         /// <summary>
         /// List of NetworkRack resource IDs under the Network Fabric. The number of racks allowed depends on the Network Fabric SKU.
@@ -110,10 +128,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<ImmutableArray<string>> Racks { get; private set; } = null!;
 
         /// <summary>
-        /// Router Id of CE to be used for MP-BGP between PE and CE
+        /// Array of router IDs.
         /// </summary>
-        [Output("routerId")]
-        public Output<string> RouterId { get; private set; } = null!;
+        [Output("routerIds")]
+        public Output<ImmutableArray<string>> RouterIds { get; private set; } = null!;
 
         /// <summary>
         /// Number of servers.Possible values are from 1-16.
@@ -205,16 +223,22 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// ASN of CE devices for CE/PE connectivity.
         /// </summary>
         [Input("fabricASN", required: true)]
-        public Input<int> FabricASN { get; set; } = null!;
+        public Input<double> FabricASN { get; set; } = null!;
+
+        /// <summary>
+        /// The version of Network Fabric.
+        /// </summary>
+        [Input("fabricVersion")]
+        public Input<string>? FabricVersion { get; set; }
 
         /// <summary>
         /// IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         /// </summary>
-        [Input("ipv4Prefix")]
-        public Input<string>? Ipv4Prefix { get; set; }
+        [Input("ipv4Prefix", required: true)]
+        public Input<string> Ipv4Prefix { get; set; } = null!;
 
         /// <summary>
-        /// IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
+        /// IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
         /// </summary>
         [Input("ipv6Prefix")]
         public Input<string>? Ipv6Prefix { get; set; }
@@ -229,7 +253,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// Configuration to be used to setup the management network.
         /// </summary>
         [Input("managementNetworkConfiguration", required: true)]
-        public Input<Inputs.ManagementNetworkConfigurationArgs> ManagementNetworkConfiguration { get; set; } = null!;
+        public Input<Inputs.ManagementNetworkConfigurationPropertiesArgs> ManagementNetworkConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Azure resource ID for the NetworkFabricController the NetworkFabric belongs.
@@ -238,7 +262,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string> NetworkFabricControllerId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Network Fabric
+        /// Name of the Network Fabric.
         /// </summary>
         [Input("networkFabricName")]
         public Input<string>? NetworkFabricName { get; set; }
@@ -250,10 +274,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string> NetworkFabricSku { get; set; } = null!;
 
         /// <summary>
-        /// Number of racks associated to Network Fabric.Possible values are from 2-8.
+        /// Number of compute racks associated to Network Fabric.
         /// </summary>
-        [Input("rackCount", required: true)]
-        public Input<int> RackCount { get; set; } = null!;
+        [Input("rackCount")]
+        public Input<int>? RackCount { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

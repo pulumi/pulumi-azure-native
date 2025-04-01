@@ -27,7 +27,10 @@ class GetSyncSetResult:
     """
     SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
     """
-    def __init__(__self__, id=None, name=None, resources=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, resources=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetSyncSetResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -91,6 +102,7 @@ class AwaitableGetSyncSetResult(GetSyncSetResult):
         if False:
             yield self
         return GetSyncSetResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             resources=self.resources,
@@ -105,9 +117,9 @@ def get_sync_set(child_resource_name: Optional[str] = None,
     """
     The operation returns properties of a SyncSet.
 
-    Uses Azure REST API version 2022-09-04.
+    Uses Azure REST API version 2023-11-22.
 
-    Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+    Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str child_resource_name: The name of the SyncSet resource.
@@ -122,6 +134,7 @@ def get_sync_set(child_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:redhatopenshift:getSyncSet', __args__, opts=opts, typ=GetSyncSetResult).value
 
     return AwaitableGetSyncSetResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         resources=pulumi.get(__ret__, 'resources'),
@@ -134,9 +147,9 @@ def get_sync_set_output(child_resource_name: Optional[pulumi.Input[str]] = None,
     """
     The operation returns properties of a SyncSet.
 
-    Uses Azure REST API version 2022-09-04.
+    Uses Azure REST API version 2023-11-22.
 
-    Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+    Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str child_resource_name: The name of the SyncSet resource.
@@ -150,6 +163,7 @@ def get_sync_set_output(child_resource_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:redhatopenshift:getSyncSet', __args__, opts=opts, typ=GetSyncSetResult)
     return __ret__.apply(lambda __response__: GetSyncSetResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         resources=pulumi.get(__response__, 'resources'),

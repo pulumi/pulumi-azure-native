@@ -10,9 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Customer creates a spacecraft resource to schedule a contact.
  *
- * Uses Azure REST API version 2022-11-01.
- *
- * Other available API versions: 2022-03-01.
+ * Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
  */
 export class Spacecraft extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class Spacecraft extends pulumi.CustomResource {
         return obj['__pulumiType'] === Spacecraft.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Immutable list of Spacecraft links.
      */
@@ -117,10 +119,12 @@ export class Spacecraft extends pulumi.CustomResource {
             resourceInputs["titleLine"] = args ? args.titleLine : undefined;
             resourceInputs["tleLine1"] = args ? args.tleLine1 : undefined;
             resourceInputs["tleLine2"] = args ? args.tleLine2 : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["links"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

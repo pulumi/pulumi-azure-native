@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.MachineLearning
     /// <summary>
     /// An object that represents a machine learning workspace.
     /// 
-    /// Uses Azure REST API version 2019-10-01. In version 1.x of the Azure Native provider, it used API version 2016-04-01.
+    /// Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearning:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The creation time for this workspace resource.
         /// </summary>

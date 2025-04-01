@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Consumption
         /// <summary>
         /// Gets the budget for the scope by budget name.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-08-01.
+        /// Other available API versions: 2023-05-01, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native consumption [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azure-native:consumption:getBudget", args ?? new GetBudgetArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Consumption
         /// <summary>
         /// Gets the budget for the scope by budget name.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-08-01.
+        /// Other available API versions: 2023-05-01, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native consumption [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:consumption:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Consumption
         /// <summary>
         /// Gets the budget for the scope by budget name.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-08-01.
+        /// Other available API versions: 2023-05-01, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native consumption [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:consumption:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Consumption
         /// </summary>
         public readonly double Amount;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The category of the budget, whether the budget tracks cost or usage.
         /// </summary>
         public readonly string Category;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.Consumption
         private GetBudgetResult(
             double amount,
 
+            string azureApiVersion,
+
             string category,
 
             Outputs.CurrentSpendResponse currentSpend,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNative.Consumption
             string type)
         {
             Amount = amount;
+            AzureApiVersion = azureApiVersion;
             Category = category;
             CurrentSpend = currentSpend;
             ETag = eTag;

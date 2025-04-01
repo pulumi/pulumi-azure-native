@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Represents a devcenter plan member resource.
  *
- * Uses Azure REST API version 2024-05-01-preview.
+ * Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
  *
- * Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PlanMember extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class PlanMember extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The unique id of the member.
      */
     public readonly memberId!: pulumi.Output<string | undefined>;
@@ -58,6 +62,10 @@ export class PlanMember extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The sync status of the member.
+     */
+    public /*out*/ readonly syncStatus!: pulumi.Output<outputs.devcenter.PlanMemberSyncStatusResponse>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.devcenter.SystemDataResponse>;
@@ -65,6 +73,10 @@ export class PlanMember extends pulumi.CustomResource {
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The tier of the member.
+     */
+    public readonly tier!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -93,17 +105,23 @@ export class PlanMember extends pulumi.CustomResource {
             resourceInputs["planName"] = args ? args.planName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["syncStatus"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["memberId"] = undefined /*out*/;
             resourceInputs["memberType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["syncStatus"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tier"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -141,4 +159,8 @@ export interface PlanMemberArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The tier of the member.
+     */
+    tier?: pulumi.Input<string>;
 }

@@ -27,7 +27,10 @@ class GetJobScheduleResult:
     """
     Definition of the job schedule.
     """
-    def __init__(__self__, id=None, job_schedule_id=None, name=None, parameters=None, run_on=None, runbook=None, schedule=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, job_schedule_id=None, name=None, parameters=None, run_on=None, runbook=None, schedule=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +55,14 @@ class GetJobScheduleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -124,6 +135,7 @@ class AwaitableGetJobScheduleResult(GetJobScheduleResult):
         if False:
             yield self
         return GetJobScheduleResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             job_schedule_id=self.job_schedule_id,
             name=self.name,
@@ -141,9 +153,9 @@ def get_job_schedule(automation_account_name: Optional[str] = None,
     """
     Retrieve the job schedule identified by job schedule name.
 
-    Uses Azure REST API version 2022-08-08.
+    Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -158,6 +170,7 @@ def get_job_schedule(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getJobSchedule', __args__, opts=opts, typ=GetJobScheduleResult).value
 
     return AwaitableGetJobScheduleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         job_schedule_id=pulumi.get(__ret__, 'job_schedule_id'),
         name=pulumi.get(__ret__, 'name'),
@@ -173,9 +186,9 @@ def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[str]]
     """
     Retrieve the job schedule identified by job schedule name.
 
-    Uses Azure REST API version 2022-08-08.
+    Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -189,6 +202,7 @@ def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getJobSchedule', __args__, opts=opts, typ=GetJobScheduleResult)
     return __ret__.apply(lambda __response__: GetJobScheduleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         job_schedule_id=pulumi.get(__response__, 'job_schedule_id'),
         name=pulumi.get(__response__, 'name'),

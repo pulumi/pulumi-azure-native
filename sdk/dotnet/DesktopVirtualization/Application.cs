@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// <summary>
     /// Schema for Application properties.
     /// 
-    /// Uses Azure REST API version 2022-09-09. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+    /// Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
     /// 
-    /// Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+    /// Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:Application")]
     public partial class Application : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Output("applicationType")]
         public Output<string?> ApplicationType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Command Line Arguments for Application.
@@ -110,7 +116,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<bool?> ShowInPortal { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:Application" },

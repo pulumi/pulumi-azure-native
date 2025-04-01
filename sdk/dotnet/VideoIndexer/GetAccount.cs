@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// <summary>
         /// Gets the properties of an Azure Video Indexer account.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01, 2025-03-01.
+        /// Other available API versions: 2022-08-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native videoindexer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:videoindexer:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// <summary>
         /// Gets the properties of an Azure Video Indexer account.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01, 2025-03-01.
+        /// Other available API versions: 2022-08-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native videoindexer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:videoindexer:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// <summary>
         /// Gets the properties of an Azure Video Indexer account.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01, 2025-03-01.
+        /// Other available API versions: 2022-08-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native videoindexer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:videoindexer:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// </summary>
         public readonly string AccountName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -108,10 +112,6 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The media services details
-        /// </summary>
-        public readonly Outputs.MediaServicesForPutRequestResponse? MediaServices;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -119,6 +119,10 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// Gets the status of the account at the time the operation was called.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The storage services details
+        /// </summary>
+        public readonly Outputs.StorageServicesForPutRequestResponse? StorageServices;
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
@@ -146,17 +150,19 @@ namespace Pulumi.AzureNative.VideoIndexer
 
             string accountName,
 
+            string azureApiVersion,
+
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
-            Outputs.MediaServicesForPutRequestResponse? mediaServices,
-
             string name,
 
             string provisioningState,
+
+            Outputs.StorageServicesForPutRequestResponse? storageServices,
 
             Outputs.SystemDataResponse systemData,
 
@@ -170,12 +176,13 @@ namespace Pulumi.AzureNative.VideoIndexer
         {
             AccountId = accountId;
             AccountName = accountName;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;
-            MediaServices = mediaServices;
             Name = name;
             ProvisioningState = provisioningState;
+            StorageServices = storageServices;
             SystemData = systemData;
             Tags = tags;
             TenantId = tenantId;

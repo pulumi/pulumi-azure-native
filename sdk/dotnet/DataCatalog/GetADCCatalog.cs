@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.DataCatalog
         /// </summary>
         public readonly ImmutableArray<Outputs.PrincipalsResponse> Admins;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Automatic unit adjustment enabled or not.
         /// </summary>
         public readonly bool? EnableAutomaticUnitAdjustment;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.DataCatalog
         private GetADCCatalogResult(
             ImmutableArray<Outputs.PrincipalsResponse> admins,
 
+            string azureApiVersion,
+
             bool? enableAutomaticUnitAdjustment,
 
             string? etag,
@@ -157,6 +163,7 @@ namespace Pulumi.AzureNative.DataCatalog
             ImmutableArray<Outputs.PrincipalsResponse> users)
         {
             Admins = admins;
+            AzureApiVersion = azureApiVersion;
             EnableAutomaticUnitAdjustment = enableAutomaticUnitAdjustment;
             Etag = etag;
             Id = id;

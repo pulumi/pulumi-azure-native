@@ -53,9 +53,9 @@ def get_get_private_dns_zone_suffix_execute(opts: Optional[pulumi.InvokeOptions]
     """
     Get private DNS zone suffix in the cloud.
 
-    Uses Azure REST API version 2022-01-01.
+    Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2023-12-30, 2024-10-01-preview.
+    Other available API versions: 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2023-12-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -67,9 +67,9 @@ def get_get_private_dns_zone_suffix_execute_output(opts: Optional[Union[pulumi.I
     """
     Get private DNS zone suffix in the cloud.
 
-    Uses Azure REST API version 2022-01-01.
+    Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2023-12-30, 2024-10-01-preview.
+    Other available API versions: 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2023-12-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A class represent an AppComplianceAutomation evidence resource.
  *
- * Uses Azure REST API version 2024-06-27.
+ * Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
  */
 export class Evidence extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Evidence extends pulumi.CustomResource {
         return obj['__pulumiType'] === Evidence.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Control id.
      */
@@ -102,11 +106,13 @@ export class Evidence extends pulumi.CustomResource {
             resourceInputs["reportCreatorTenantId"] = args ? args.reportCreatorTenantId : undefined;
             resourceInputs["reportName"] = args ? args.reportName : undefined;
             resourceInputs["responsibilityId"] = args ? args.responsibilityId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["controlId"] = undefined /*out*/;
             resourceInputs["evidenceType"] = undefined /*out*/;
             resourceInputs["extraData"] = undefined /*out*/;

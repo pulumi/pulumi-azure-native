@@ -93,6 +93,10 @@ namespace Pulumi.AzureNative.Migrate
     [OutputType]
     public sealed class GetHyperVCollectorResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         public readonly string? ETag;
         public readonly string Id;
         public readonly string Name;
@@ -101,6 +105,8 @@ namespace Pulumi.AzureNative.Migrate
 
         [OutputConstructor]
         private GetHyperVCollectorResult(
+            string azureApiVersion,
+
             string? eTag,
 
             string id,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.Migrate
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             Name = name;

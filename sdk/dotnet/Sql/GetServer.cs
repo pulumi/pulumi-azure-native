@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a server.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2014-04-01, 2015-05-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:sql:getServer", args ?? new GetServerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a server.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2014-04-01, 2015-05-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:sql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a server.
         /// 
-        /// Uses Azure REST API version 2021-11-01.
+        /// Uses Azure REST API version 2023-08-01.
         /// 
-        /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2014-04-01, 2015-05-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:sql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -104,9 +104,17 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// The Azure Active Directory administrator of the server.
+        /// The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         /// </summary>
         public readonly Outputs.ServerExternalAdministratorResponse? Administrators;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Status of external governance.
+        /// </summary>
+        public readonly string ExternalGovernanceStatus;
         /// <summary>
         /// The Client id used for cross tenant CMK scenario
         /// </summary>
@@ -124,6 +132,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
+        /// Whether or not to enable IPv6 support for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        public readonly string? IsIPv6Enabled;
+        /// <summary>
         /// A CMK URI of the key to use for encryption.
         /// </summary>
         public readonly string? KeyId;
@@ -136,7 +148,7 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        /// Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         /// </summary>
         public readonly string? MinimalTlsVersion;
         /// <summary>
@@ -152,7 +164,7 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
-        /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
@@ -186,6 +198,10 @@ namespace Pulumi.AzureNative.Sql
 
             Outputs.ServerExternalAdministratorResponse? administrators,
 
+            string azureApiVersion,
+
+            string externalGovernanceStatus,
+
             string? federatedClientId,
 
             string fullyQualifiedDomainName,
@@ -193,6 +209,8 @@ namespace Pulumi.AzureNative.Sql
             string id,
 
             Outputs.ResourceIdentityResponse? identity,
+
+            string? isIPv6Enabled,
 
             string? keyId,
 
@@ -224,10 +242,13 @@ namespace Pulumi.AzureNative.Sql
         {
             AdministratorLogin = administratorLogin;
             Administrators = administrators;
+            AzureApiVersion = azureApiVersion;
+            ExternalGovernanceStatus = externalGovernanceStatus;
             FederatedClientId = federatedClientId;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Id = id;
             Identity = identity;
+            IsIPv6Enabled = isIPv6Enabled;
             KeyId = keyId;
             Kind = kind;
             Location = location;

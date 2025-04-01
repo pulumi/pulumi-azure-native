@@ -68,9 +68,9 @@ def list_sites_controller_health_summary(resource_group_name: Optional[str] = No
     """
     Method to get site health summary.
 
-    Uses Azure REST API version 2023-06-06.
+    Uses Azure REST API version 2023-10-01-preview.
 
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -91,9 +91,9 @@ def list_sites_controller_health_summary_output(resource_group_name: Optional[pu
     """
     Method to get site health summary.
 
-    Uses Azure REST API version 2023-06-06.
+    Uses Azure REST API version 2023-10-01-preview.
 
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

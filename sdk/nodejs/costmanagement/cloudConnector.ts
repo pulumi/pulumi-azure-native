@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The Connector model definition
  *
- * Uses Azure REST API version 2019-03-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-03-01-preview.
+ * Uses Azure REST API version 2019-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-03-01-preview.
  */
 export class CloudConnector extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class CloudConnector extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudConnector.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Connector billing model
      */
@@ -128,6 +132,7 @@ export class CloudConnector extends pulumi.CustomResource {
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["reportId"] = args ? args.reportId : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["collectionInfo"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["daysTrialRemaining"] = undefined /*out*/;
@@ -139,6 +144,7 @@ export class CloudConnector extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["collectionInfo"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
@@ -158,7 +164,7 @@ export class CloudConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20180801preview:CloudConnector" }, { type: "azure-native:costmanagement/v20190301preview:CloudConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20180801preview:CloudConnector" }, { type: "azure-native:costmanagement/v20180801preview:Connector" }, { type: "azure-native:costmanagement/v20190301preview:CloudConnector" }, { type: "azure-native:costmanagement:Connector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudConnector.__pulumiType, name, resourceInputs, opts);
     }

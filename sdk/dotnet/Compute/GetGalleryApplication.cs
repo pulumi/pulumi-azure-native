@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about a gallery Application Definition.
         /// 
-        /// Uses Azure REST API version 2022-03-03.
+        /// Uses Azure REST API version 2024-03-03.
         /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetGalleryApplicationResult> InvokeAsync(GetGalleryApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryApplicationResult>("azure-native:compute:getGalleryApplication", args ?? new GetGalleryApplicationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about a gallery Application Definition.
         /// 
-        /// Uses Azure REST API version 2022-03-03.
+        /// Uses Azure REST API version 2024-03-03.
         /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGalleryApplicationResult> Invoke(GetGalleryApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationResult>("azure-native:compute:getGalleryApplication", args ?? new GetGalleryApplicationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Retrieves information about a gallery Application Definition.
         /// 
-        /// Uses Azure REST API version 2022-03-03.
+        /// Uses Azure REST API version 2024-03-03.
         /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGalleryApplicationResult> Invoke(GetGalleryApplicationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationResult>("azure-native:compute:getGalleryApplication", args ?? new GetGalleryApplicationInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetGalleryApplicationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
         /// </summary>
         public readonly ImmutableArray<Outputs.GalleryApplicationCustomActionResponse> CustomActions;
@@ -136,7 +140,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string? ReleaseNoteUri;
         /// <summary>
-        /// This property allows you to specify the supported type of the OS that application is built for. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+        /// This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
         /// </summary>
         public readonly string SupportedOSType;
         /// <summary>
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetGalleryApplicationResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.GalleryApplicationCustomActionResponse> customActions,
 
             string? description,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.Compute
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CustomActions = customActions;
             Description = description;
             EndOfLifeDate = endOfLifeDate;

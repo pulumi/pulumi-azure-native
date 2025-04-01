@@ -82,7 +82,7 @@ class WorkspaceSetting(pulumi.CustomResource):
         """
         Configures where to store the OMS agent data for workspaces under a scope
 
-        Uses Azure REST API version 2017-08-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-08-01-preview.
+        Uses Azure REST API version 2017-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2017-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,7 +99,7 @@ class WorkspaceSetting(pulumi.CustomResource):
         """
         Configures where to store the OMS agent data for workspaces under a scope
 
-        Uses Azure REST API version 2017-08-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-08-01-preview.
+        Uses Azure REST API version 2017-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2017-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceSettingArgs args: The arguments to use to populate this resource's properties.
@@ -135,6 +135,7 @@ class WorkspaceSetting(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["workspace_setting_name"] = workspace_setting_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20170801preview:WorkspaceSetting")])
@@ -161,11 +162,20 @@ class WorkspaceSetting(pulumi.CustomResource):
 
         __props__ = WorkspaceSettingArgs.__new__(WorkspaceSettingArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["scope"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["workspace_id"] = None
         return WorkspaceSetting(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.PowerPlatform
     /// <summary>
     /// Definition of the account.
     /// 
-    /// Uses Azure REST API version 2020-10-30-preview. In version 1.x of the Azure Native provider, it used API version 2020-10-30-preview.
+    /// Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerplatform:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The description of the account.
         /// </summary>

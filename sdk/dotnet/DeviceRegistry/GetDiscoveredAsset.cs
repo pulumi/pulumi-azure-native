@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         public readonly string AssetEndpointProfileRef;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Array of datasets that are part of the asset. Each dataset spec describes the data points that make up the set.
         /// </summary>
         public readonly ImmutableArray<Outputs.DiscoveredDatasetResponse> Datasets;
@@ -182,6 +186,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         private GetDiscoveredAssetResult(
             string assetEndpointProfileRef,
 
+            string azureApiVersion,
+
             ImmutableArray<Outputs.DiscoveredDatasetResponse> datasets,
 
             string? defaultDatasetsConfiguration,
@@ -229,6 +235,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
             double version)
         {
             AssetEndpointProfileRef = assetEndpointProfileRef;
+            AzureApiVersion = azureApiVersion;
             Datasets = datasets;
             DefaultDatasetsConfiguration = defaultDatasetsConfiguration;
             DefaultEventsConfiguration = defaultEventsConfiguration;

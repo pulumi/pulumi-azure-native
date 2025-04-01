@@ -27,7 +27,10 @@ class GetEventHubResult:
     """
     Single item in List or Get Event Hub operation
     """
-    def __init__(__self__, capture_description=None, created_at=None, id=None, location=None, message_retention_in_days=None, name=None, partition_count=None, partition_ids=None, retention_description=None, status=None, system_data=None, type=None, updated_at=None):
+    def __init__(__self__, azure_api_version=None, capture_description=None, created_at=None, id=None, location=None, message_retention_in_days=None, name=None, partition_count=None, partition_ids=None, retention_description=None, status=None, system_data=None, type=None, updated_at=None, user_metadata=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if capture_description and not isinstance(capture_description, dict):
             raise TypeError("Expected argument 'capture_description' to be a dict")
         pulumi.set(__self__, "capture_description", capture_description)
@@ -67,6 +70,17 @@ class GetEventHubResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+        if user_metadata and not isinstance(user_metadata, str):
+            raise TypeError("Expected argument 'user_metadata' to be a str")
+        pulumi.set(__self__, "user_metadata", user_metadata)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="captureDescription")
@@ -172,6 +186,14 @@ class GetEventHubResult:
         """
         return pulumi.get(self, "updated_at")
 
+    @property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> Optional[str]:
+        """
+        Gets and Sets Metadata of User.
+        """
+        return pulumi.get(self, "user_metadata")
+
 
 class AwaitableGetEventHubResult(GetEventHubResult):
     # pylint: disable=using-constant-test
@@ -179,6 +201,7 @@ class AwaitableGetEventHubResult(GetEventHubResult):
         if False:
             yield self
         return GetEventHubResult(
+            azure_api_version=self.azure_api_version,
             capture_description=self.capture_description,
             created_at=self.created_at,
             id=self.id,
@@ -191,7 +214,8 @@ class AwaitableGetEventHubResult(GetEventHubResult):
             status=self.status,
             system_data=self.system_data,
             type=self.type,
-            updated_at=self.updated_at)
+            updated_at=self.updated_at,
+            user_metadata=self.user_metadata)
 
 
 def get_event_hub(event_hub_name: Optional[str] = None,
@@ -201,9 +225,9 @@ def get_event_hub(event_hub_name: Optional[str] = None,
     """
     Gets an Event Hubs description for the specified Event Hub.
 
-    Uses Azure REST API version 2022-10-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str event_hub_name: The Event Hub name
@@ -218,6 +242,7 @@ def get_event_hub(event_hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventhub:getEventHub', __args__, opts=opts, typ=GetEventHubResult).value
 
     return AwaitableGetEventHubResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         capture_description=pulumi.get(__ret__, 'capture_description'),
         created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
@@ -230,7 +255,8 @@ def get_event_hub(event_hub_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
-        updated_at=pulumi.get(__ret__, 'updated_at'))
+        updated_at=pulumi.get(__ret__, 'updated_at'),
+        user_metadata=pulumi.get(__ret__, 'user_metadata'))
 def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
                          namespace_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -238,9 +264,9 @@ def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
     """
     Gets an Event Hubs description for the specified Event Hub.
 
-    Uses Azure REST API version 2022-10-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str event_hub_name: The Event Hub name
@@ -254,6 +280,7 @@ def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub:getEventHub', __args__, opts=opts, typ=GetEventHubResult)
     return __ret__.apply(lambda __response__: GetEventHubResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         capture_description=pulumi.get(__response__, 'capture_description'),
         created_at=pulumi.get(__response__, 'created_at'),
         id=pulumi.get(__response__, 'id'),
@@ -266,4 +293,5 @@ def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
         status=pulumi.get(__response__, 'status'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
-        updated_at=pulumi.get(__response__, 'updated_at')))
+        updated_at=pulumi.get(__response__, 'updated_at'),
+        user_metadata=pulumi.get(__response__, 'user_metadata')))

@@ -27,10 +27,13 @@ class GetKeyResult:
     """
     The key resource.
     """
-    def __init__(__self__, attributes=None, curve_name=None, id=None, key_ops=None, key_size=None, key_uri=None, key_uri_with_version=None, kty=None, location=None, name=None, release_policy=None, rotation_policy=None, tags=None, type=None):
+    def __init__(__self__, attributes=None, azure_api_version=None, curve_name=None, id=None, key_ops=None, key_size=None, key_uri=None, key_uri_with_version=None, kty=None, location=None, name=None, release_policy=None, rotation_policy=None, tags=None, type=None):
         if attributes and not isinstance(attributes, dict):
             raise TypeError("Expected argument 'attributes' to be a dict")
         pulumi.set(__self__, "attributes", attributes)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if curve_name and not isinstance(curve_name, str):
             raise TypeError("Expected argument 'curve_name' to be a str")
         pulumi.set(__self__, "curve_name", curve_name)
@@ -80,10 +83,18 @@ class GetKeyResult:
         return pulumi.get(self, "attributes")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="curveName")
     def curve_name(self) -> Optional[str]:
         """
-        The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+        The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
         """
         return pulumi.get(self, "curve_name")
 
@@ -104,7 +115,7 @@ class GetKeyResult:
     @pulumi.getter(name="keySize")
     def key_size(self) -> Optional[int]:
         """
-        The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
         """
         return pulumi.get(self, "key_size")
 
@@ -188,6 +199,7 @@ class AwaitableGetKeyResult(GetKeyResult):
             yield self
         return GetKeyResult(
             attributes=self.attributes,
+            azure_api_version=self.azure_api_version,
             curve_name=self.curve_name,
             id=self.id,
             key_ops=self.key_ops,
@@ -210,9 +222,9 @@ def get_key(key_name: Optional[str] = None,
     """
     Gets the current version of the specified key from the specified key vault.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+    Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str key_name: The name of the key to be retrieved.
@@ -228,6 +240,7 @@ def get_key(key_name: Optional[str] = None,
 
     return AwaitableGetKeyResult(
         attributes=pulumi.get(__ret__, 'attributes'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         curve_name=pulumi.get(__ret__, 'curve_name'),
         id=pulumi.get(__ret__, 'id'),
         key_ops=pulumi.get(__ret__, 'key_ops'),
@@ -248,9 +261,9 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the current version of the specified key from the specified key vault.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+    Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str key_name: The name of the key to be retrieved.
@@ -265,6 +278,7 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:keyvault:getKey', __args__, opts=opts, typ=GetKeyResult)
     return __ret__.apply(lambda __response__: GetKeyResult(
         attributes=pulumi.get(__response__, 'attributes'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         curve_name=pulumi.get(__response__, 'curve_name'),
         id=pulumi.get(__response__, 'id'),
         key_ops=pulumi.get(__response__, 'key_ops'),

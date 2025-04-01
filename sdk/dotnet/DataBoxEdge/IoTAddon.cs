@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// <summary>
     /// IoT Addon.
     /// 
-    /// Uses Azure REST API version 2022-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+    /// Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:IoTAddon")]
     public partial class IoTAddon : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Host OS supported by the IoT addon.
         /// </summary>
@@ -120,9 +126,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:IoTAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:IoTAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:IoTAddon" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:IoTAddon" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:IoTAddon" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:IoTAddon" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:ArcAddon" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

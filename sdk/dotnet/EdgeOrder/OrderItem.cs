@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.EdgeOrder
     /// <summary>
     /// Represents order item resource.
     /// 
-    /// Uses Azure REST API version 2022-05-01-preview.
+    /// Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
     /// 
-    /// Other available API versions: 2024-02-01.
+    /// Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:edgeorder:OrderItem")]
     public partial class OrderItem : global::Pulumi.CustomResource
@@ -23,7 +23,19 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// Represents shipping and return address for order item.
         /// </summary>
         [Output("addressDetails")]
-        public Output<Outputs.AddressDetailsResponse> AddressDetails { get; private set; } = null!;
+        public Output<Outputs.AddressDetailsResponse?> AddressDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Msi identity of the resource
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -50,13 +62,19 @@ namespace Pulumi.AzureNative.EdgeOrder
         public Output<Outputs.OrderItemDetailsResponse> OrderItemDetails { get; private set; } = null!;
 
         /// <summary>
+        /// Provisioning state
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
         /// Start time of order item.
         /// </summary>
         [Output("startTime")]
         public Output<string> StartTime { get; private set; } = null!;
 
         /// <summary>
-        /// Represents resource creation and update time.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -100,8 +118,10 @@ namespace Pulumi.AzureNative.EdgeOrder
                 {
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderItem" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:OrderItem" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:OrderItemByName" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20220501preview:OrderItem" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20240201:OrderItem" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder:OrderItemByName" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,8 +148,14 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// Represents shipping and return address for order item.
         /// </summary>
-        [Input("addressDetails", required: true)]
-        public Input<Inputs.AddressDetailsArgs> AddressDetails { get; set; } = null!;
+        [Input("addressDetails")]
+        public Input<Inputs.AddressDetailsArgs>? AddressDetails { get; set; }
+
+        /// <summary>
+        /// Msi identity of the resource
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

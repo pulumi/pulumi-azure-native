@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.Confluent
     public static class ListAccessEnvironments
     {
         /// <summary>
-        /// List environments success response
+        /// Details of the environments returned on successful response
         /// 
-        /// Uses Azure REST API version 2023-08-22.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Other available API versions: 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListAccessEnvironmentsResult> InvokeAsync(ListAccessEnvironmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessEnvironmentsResult>("azure-native:confluent:listAccessEnvironments", args ?? new ListAccessEnvironmentsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List environments success response
+        /// Details of the environments returned on successful response
         /// 
-        /// Uses Azure REST API version 2023-08-22.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Other available API versions: 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListAccessEnvironmentsResult> Invoke(ListAccessEnvironmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessEnvironmentsResult>("azure-native:confluent:listAccessEnvironments", args ?? new ListAccessEnvironmentsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List environments success response
+        /// Details of the environments returned on successful response
         /// 
-        /// Uses Azure REST API version 2023-08-22.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Other available API versions: 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListAccessEnvironmentsResult> Invoke(ListAccessEnvironmentsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessEnvironmentsResult>("azure-native:confluent:listAccessEnvironments", args ?? new ListAccessEnvironmentsInvokeArgs(), options.WithDefaults());
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Confluent
     public sealed class ListAccessEnvironmentsResult
     {
         /// <summary>
-        /// Data of the environments list
+        /// Environment list data
         /// </summary>
         public readonly ImmutableArray<Outputs.EnvironmentRecordResponse> Data;
         /// <summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// Metadata of the list
+        /// Metadata of the  environment list
         /// </summary>
         public readonly Outputs.ConfluentListMetadataResponse? Metadata;
 

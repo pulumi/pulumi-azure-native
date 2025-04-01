@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Solutions
         /// 
         /// Uses Azure REST API version 2021-07-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListApplicationTokensResult> InvokeAsync(ListApplicationTokensArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplicationTokensResult>("azure-native:solutions:listApplicationTokens", args ?? new ListApplicationTokensArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Solutions
         /// 
         /// Uses Azure REST API version 2021-07-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListApplicationTokensResult> Invoke(ListApplicationTokensInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplicationTokensResult>("azure-native:solutions:listApplicationTokens", args ?? new ListApplicationTokensInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Solutions
         /// 
         /// Uses Azure REST API version 2021-07-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListApplicationTokensResult> Invoke(ListApplicationTokensInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplicationTokensResult>("azure-native:solutions:listApplicationTokens", args ?? new ListApplicationTokensInvokeArgs(), options.WithDefaults());

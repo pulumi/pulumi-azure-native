@@ -72,9 +72,9 @@ def list_products_and_configuration_product_families(customer_subscription_detai
     """
     List product families for the given subscription.
 
-    Uses Azure REST API version 2022-05-01-preview.
+    Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2024-02-01.
+    Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.
@@ -101,9 +101,9 @@ def list_products_and_configuration_product_families_output(customer_subscriptio
     """
     List product families for the given subscription.
 
-    Uses Azure REST API version 2022-05-01-preview.
+    Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2024-02-01.
+    Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.

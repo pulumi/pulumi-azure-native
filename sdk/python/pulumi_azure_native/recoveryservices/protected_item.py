@@ -185,9 +185,9 @@ class ProtectedItem(pulumi.CustomResource):
         """
         Base class for backup items.
 
-        Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
+        Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,9 +210,9 @@ class ProtectedItem(pulumi.CustomResource):
         """
         Base class for backup items.
 
-        Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01, 2024-11-01-preview.
+        Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ProtectedItemArgs args: The arguments to use to populate this resource's properties.
@@ -264,6 +264,7 @@ class ProtectedItem(pulumi.CustomResource):
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20160601:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20190513:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20190615:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20201001:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20201201:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20210101:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201preview:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20220601preview:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20220901preview:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20220930preview:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20230401:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20230601:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20230801:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20240101:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20240201:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20240401:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20240430preview:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20240730preview:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20241001:ProtectedItem"), pulumi.Alias(type_="azure-native:recoveryservices/v20241101preview:ProtectedItem")])
@@ -290,6 +291,7 @@ class ProtectedItem(pulumi.CustomResource):
 
         __props__ = ProtectedItemArgs.__new__(ProtectedItemArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -297,6 +299,14 @@ class ProtectedItem(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ProtectedItem(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")

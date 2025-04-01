@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get the customized accelerator.
  *
- * Uses Azure REST API version 2023-05-01-preview.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCustomizedAccelerator(args: GetCustomizedAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomizedAcceleratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +48,10 @@ export interface GetCustomizedAcceleratorArgs {
  */
 export interface GetCustomizedAcceleratorResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource Id for the resource.
      */
     readonly id: string;
@@ -75,9 +79,9 @@ export interface GetCustomizedAcceleratorResult {
 /**
  * Get the customized accelerator.
  *
- * Uses Azure REST API version 2023-05-01-preview.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCustomizedAcceleratorOutput(args: GetCustomizedAcceleratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomizedAcceleratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

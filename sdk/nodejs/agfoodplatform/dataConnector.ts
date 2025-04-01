@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * DataConnector Model.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  */
 export class DataConnector extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class DataConnector extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataConnector.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The ETag value to implement optimistic concurrency.
      */
@@ -84,11 +88,13 @@ export class DataConnector extends pulumi.CustomResource {
             resourceInputs["dataManagerForAgricultureResourceName"] = args ? args.dataManagerForAgricultureResourceName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

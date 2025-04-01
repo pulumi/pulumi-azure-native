@@ -151,7 +151,7 @@ class IoTAddon(pulumi.CustomResource):
         """
         IoT Addon.
 
-        Uses Azure REST API version 2022-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,7 +173,7 @@ class IoTAddon(pulumi.CustomResource):
         """
         IoT Addon.
 
-        Uses Azure REST API version 2022-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param IoTAddonArgs args: The arguments to use to populate this resource's properties.
@@ -225,6 +225,7 @@ class IoTAddon(pulumi.CustomResource):
             if role_name is None and not opts.urn:
                 raise TypeError("Missing required property 'role_name'")
             __props__.__dict__["role_name"] = role_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["host_platform"] = None
             __props__.__dict__["host_platform_type"] = None
             __props__.__dict__["name"] = None
@@ -232,7 +233,7 @@ class IoTAddon(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20200901:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:IoTAddon")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20200901:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:ArcAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge:ArcAddon")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IoTAddon, __self__).__init__(
             'azure-native:databoxedge:IoTAddon',
@@ -256,6 +257,7 @@ class IoTAddon(pulumi.CustomResource):
 
         __props__ = IoTAddonArgs.__new__(IoTAddonArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["host_platform"] = None
         __props__.__dict__["host_platform_type"] = None
         __props__.__dict__["io_t_device_details"] = None
@@ -267,6 +269,14 @@ class IoTAddon(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
         return IoTAddon(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hostPlatform")

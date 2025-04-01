@@ -290,7 +290,7 @@ class Account(pulumi.CustomResource):
         """
         Data Lake Store account information.
 
-        Uses Azure REST API version 2016-11-01. In version 1.x of the Azure Native provider, it used API version 2016-11-01.
+        Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,7 +319,7 @@ class Account(pulumi.CustomResource):
         """
         Data Lake Store account information.
 
-        Uses Azure REST API version 2016-11-01. In version 1.x of the Azure Native provider, it used API version 2016-11-01.
+        Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -378,6 +378,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["trusted_id_providers"] = trusted_id_providers
             __props__.__dict__["virtual_network_rules"] = virtual_network_rules
             __props__.__dict__["account_id"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["current_tier"] = None
             __props__.__dict__["encryption_provisioning_state"] = None
@@ -412,6 +413,7 @@ class Account(pulumi.CustomResource):
         __props__ = AccountArgs.__new__(AccountArgs)
 
         __props__.__dict__["account_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["current_tier"] = None
         __props__.__dict__["default_group"] = None
@@ -443,6 +445,14 @@ class Account(pulumi.CustomResource):
         The unique identifier associated with this Data Lake Store account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")

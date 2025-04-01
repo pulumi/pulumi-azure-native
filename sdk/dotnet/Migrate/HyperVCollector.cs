@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
-    /// Uses Azure REST API version 2019-10-01. In version 1.x of the Azure Native provider, it used API version 2019-10-01.
+    /// Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:HyperVCollector")]
     public partial class HyperVCollector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
 
@@ -54,10 +60,16 @@ namespace Pulumi.AzureNative.Migrate
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:HyperVCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:HyperVCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:HypervCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:HyperVCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:HypervCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:HyperVCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:HypervCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:HyperVCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:HypervCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:HyperVCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:HypervCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:HypervCollectorsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

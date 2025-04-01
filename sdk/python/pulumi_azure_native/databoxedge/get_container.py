@@ -27,7 +27,10 @@ class GetContainerResult:
     """
     Represents a container on the  Data Box Edge/Gateway device.
     """
-    def __init__(__self__, container_status=None, created_date_time=None, data_format=None, id=None, name=None, refresh_details=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, container_status=None, created_date_time=None, data_format=None, id=None, name=None, refresh_details=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if container_status and not isinstance(container_status, str):
             raise TypeError("Expected argument 'container_status' to be a str")
         pulumi.set(__self__, "container_status", container_status)
@@ -52,6 +55,14 @@ class GetContainerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="containerStatus")
@@ -124,6 +135,7 @@ class AwaitableGetContainerResult(GetContainerResult):
         if False:
             yield self
         return GetContainerResult(
+            azure_api_version=self.azure_api_version,
             container_status=self.container_status,
             created_date_time=self.created_date_time,
             data_format=self.data_format,
@@ -142,9 +154,9 @@ def get_container(container_name: Optional[str] = None,
     """
     Represents a container on the  Data Box Edge/Gateway device.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str container_name: The container Name
@@ -161,6 +173,7 @@ def get_container(container_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getContainer', __args__, opts=opts, typ=GetContainerResult).value
 
     return AwaitableGetContainerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         container_status=pulumi.get(__ret__, 'container_status'),
         created_date_time=pulumi.get(__ret__, 'created_date_time'),
         data_format=pulumi.get(__ret__, 'data_format'),
@@ -177,9 +190,9 @@ def get_container_output(container_name: Optional[pulumi.Input[str]] = None,
     """
     Represents a container on the  Data Box Edge/Gateway device.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str container_name: The container Name
@@ -195,6 +208,7 @@ def get_container_output(container_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getContainer', __args__, opts=opts, typ=GetContainerResult)
     return __ret__.apply(lambda __response__: GetContainerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         container_status=pulumi.get(__response__, 'container_status'),
         created_date_time=pulumi.get(__response__, 'created_date_time'),
         data_format=pulumi.get(__response__, 'data_format'),

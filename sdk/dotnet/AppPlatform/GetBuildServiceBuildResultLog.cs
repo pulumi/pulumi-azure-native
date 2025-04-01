@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get a KPack build result log download URL.
         /// 
-        /// Uses Azure REST API version 2023-05-01-preview.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBuildServiceBuildResultLogResult> InvokeAsync(GetBuildServiceBuildResultLogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceBuildResultLogResult>("azure-native:appplatform:getBuildServiceBuildResultLog", args ?? new GetBuildServiceBuildResultLogArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get a KPack build result log download URL.
         /// 
-        /// Uses Azure REST API version 2023-05-01-preview.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBuildServiceBuildResultLogResult> Invoke(GetBuildServiceBuildResultLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceBuildResultLogResult>("azure-native:appplatform:getBuildServiceBuildResultLog", args ?? new GetBuildServiceBuildResultLogInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Get a KPack build result log download URL.
         /// 
-        /// Uses Azure REST API version 2023-05-01-preview.
+        /// Uses Azure REST API version 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBuildServiceBuildResultLogResult> Invoke(GetBuildServiceBuildResultLogInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceBuildResultLogResult>("azure-native:appplatform:getBuildServiceBuildResultLog", args ?? new GetBuildServiceBuildResultLogInvokeArgs(), options.WithDefaults());

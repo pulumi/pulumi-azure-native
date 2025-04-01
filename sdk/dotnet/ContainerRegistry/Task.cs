@@ -13,9 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// The task that has the ARM resource and task properties.
     /// The task will have all information to schedule a run against it.
     /// 
-    /// Uses Azure REST API version 2019-06-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-06-01-preview.
-    /// 
-    /// Other available API versions: 2018-09-01, 2019-04-01.
+    /// Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Task")]
     public partial class Task : global::Pulumi.CustomResource
@@ -31,6 +29,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Output("agentPoolName")]
         public Output<string?> AgentPoolName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The creation date of task.

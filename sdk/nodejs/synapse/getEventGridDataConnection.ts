@@ -51,6 +51,10 @@ export interface GetEventGridDataConnectionArgs {
  */
 export interface GetEventGridDataConnectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The name of blob storage event type to process.
      */
     readonly blobStorageEventType?: string;

@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
     public sealed class GetPrivateEndpointConnectionProxyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// ETag from NRP.
         /// </summary>
         public readonly string ETag;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionProxyResult(
+            string azureApiVersion,
+
             string eTag,
 
             string id,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             Name = name;

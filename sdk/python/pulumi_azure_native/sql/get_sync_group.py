@@ -27,7 +27,10 @@ class GetSyncGroupResult:
     """
     An Azure SQL Database sync group.
     """
-    def __init__(__self__, conflict_logging_retention_in_days=None, conflict_resolution_policy=None, enable_conflict_logging=None, hub_database_user_name=None, id=None, interval=None, last_sync_time=None, name=None, private_endpoint_name=None, schema=None, sku=None, sync_database_id=None, sync_state=None, type=None, use_private_link_connection=None):
+    def __init__(__self__, azure_api_version=None, conflict_logging_retention_in_days=None, conflict_resolution_policy=None, enable_conflict_logging=None, hub_database_user_name=None, id=None, interval=None, last_sync_time=None, name=None, private_endpoint_name=None, schema=None, sku=None, sync_database_id=None, sync_state=None, type=None, use_private_link_connection=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if conflict_logging_retention_in_days and not isinstance(conflict_logging_retention_in_days, int):
             raise TypeError("Expected argument 'conflict_logging_retention_in_days' to be a int")
         pulumi.set(__self__, "conflict_logging_retention_in_days", conflict_logging_retention_in_days)
@@ -73,6 +76,14 @@ class GetSyncGroupResult:
         if use_private_link_connection and not isinstance(use_private_link_connection, bool):
             raise TypeError("Expected argument 'use_private_link_connection' to be a bool")
         pulumi.set(__self__, "use_private_link_connection", use_private_link_connection)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="conflictLoggingRetentionInDays")
@@ -201,6 +212,7 @@ class AwaitableGetSyncGroupResult(GetSyncGroupResult):
         if False:
             yield self
         return GetSyncGroupResult(
+            azure_api_version=self.azure_api_version,
             conflict_logging_retention_in_days=self.conflict_logging_retention_in_days,
             conflict_resolution_policy=self.conflict_resolution_policy,
             enable_conflict_logging=self.enable_conflict_logging,
@@ -226,9 +238,9 @@ def get_sync_group(database_name: Optional[str] = None,
     """
     Gets a sync group.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2015-05-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str database_name: The name of the database on which the sync group is hosted.
@@ -245,6 +257,7 @@ def get_sync_group(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult).value
 
     return AwaitableGetSyncGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         conflict_logging_retention_in_days=pulumi.get(__ret__, 'conflict_logging_retention_in_days'),
         conflict_resolution_policy=pulumi.get(__ret__, 'conflict_resolution_policy'),
         enable_conflict_logging=pulumi.get(__ret__, 'enable_conflict_logging'),
@@ -268,9 +281,9 @@ def get_sync_group_output(database_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a sync group.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2015-05-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str database_name: The name of the database on which the sync group is hosted.
@@ -286,6 +299,7 @@ def get_sync_group_output(database_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult)
     return __ret__.apply(lambda __response__: GetSyncGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         conflict_logging_retention_in_days=pulumi.get(__response__, 'conflict_logging_retention_in_days'),
         conflict_resolution_policy=pulumi.get(__response__, 'conflict_resolution_policy'),
         enable_conflict_logging=pulumi.get(__response__, 'enable_conflict_logging'),

@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot.Outputs
         /// </summary>
         public readonly ImmutableArray<string> FqdnAndIpAddressList;
         /// <summary>
+        /// Resource labels
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Labels;
+        /// <summary>
         /// The machine Id from ARM
         /// </summary>
         public readonly string? MachineArmId;
@@ -55,6 +59,8 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot.Outputs
 
             ImmutableArray<string> fqdnAndIpAddressList,
 
+            ImmutableDictionary<string, string>? labels,
+
             string? machineArmId,
 
             int? port,
@@ -69,6 +75,7 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot.Outputs
         {
             Errors = errors;
             FqdnAndIpAddressList = fqdnAndIpAddressList;
+            Labels = labels;
             MachineArmId = machineArmId;
             Port = port;
             ProvisioningState = provisioningState;

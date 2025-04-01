@@ -6,7 +6,8 @@ from enum import Enum
 
 __all__ = [
     'FilterType',
-    'ResourceIdentityType',
+    'ManagedServiceIdentityType',
+    'PublicNetworkAccessOption',
     'SelectorType',
     'TargetReferenceType',
 ]
@@ -19,13 +20,22 @@ class FilterType(str, Enum):
     SIMPLE = "Simple"
 
 
-class ResourceIdentityType(str, Enum):
+class ManagedServiceIdentityType(str, Enum):
     """
-    String of the resource identity type.
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class PublicNetworkAccessOption(str, Enum):
+    """
+    Public Network Access Control for PrivateAccess resource.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SelectorType(str, Enum):

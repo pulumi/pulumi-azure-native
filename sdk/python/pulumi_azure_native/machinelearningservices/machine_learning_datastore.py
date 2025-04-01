@@ -614,7 +614,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
         """
         Machine Learning datastore object wrapped into ARM resource envelope.
 
-        Uses Azure REST API version 2020-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-05-01-preview.
+        Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -662,7 +662,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
         """
         Machine Learning datastore object wrapped into ARM resource envelope.
 
-        Uses Azure REST API version 2020-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-05-01-preview.
+        Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MachineLearningDatastoreArgs args: The arguments to use to populate this resource's properties.
@@ -766,13 +766,14 @@ class MachineLearningDatastore(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["workspace_system_assigned_identity"] = workspace_system_assigned_identity
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["identity"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["sku"] = None
             __props__.__dict__["tags"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:MachineLearningDatastore")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices:Datastore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineLearningDatastore, __self__).__init__(
             'azure-native:machinelearningservices:MachineLearningDatastore',
@@ -796,6 +797,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
 
         __props__ = MachineLearningDatastoreArgs.__new__(MachineLearningDatastoreArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -804,6 +806,14 @@ class MachineLearningDatastore(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return MachineLearningDatastore(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

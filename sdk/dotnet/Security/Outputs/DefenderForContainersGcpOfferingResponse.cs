@@ -17,21 +17,33 @@ namespace Pulumi.AzureNative.Security.Outputs
     public sealed class DefenderForContainersGcpOfferingResponse
     {
         /// <summary>
-        /// Is audit logs data collection enabled
-        /// </summary>
-        public readonly bool? AuditLogsAutoProvisioningFlag;
-        /// <summary>
         /// The native cloud connection configuration
         /// </summary>
         public readonly Outputs.DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection? DataPipelineNativeCloudConnection;
         /// <summary>
-        /// Is Microsoft Defender for Cloud Kubernetes agent auto provisioning enabled
-        /// </summary>
-        public readonly bool? DefenderAgentAutoProvisioningFlag;
-        /// <summary>
         /// The offering description.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Is audit logs data collection enabled
+        /// </summary>
+        public readonly bool? EnableAuditLogsAutoProvisioning;
+        /// <summary>
+        /// Is Microsoft Defender for Cloud Kubernetes agent auto provisioning enabled
+        /// </summary>
+        public readonly bool? EnableDefenderAgentAutoProvisioning;
+        /// <summary>
+        /// Is Policy Kubernetes agent auto provisioning enabled
+        /// </summary>
+        public readonly bool? EnablePolicyAgentAutoProvisioning;
+        /// <summary>
+        /// The Microsoft Defender Container agentless discovery configuration
+        /// </summary>
+        public readonly Outputs.DefenderForContainersGcpOfferingResponseMdcContainersAgentlessDiscoveryK8s? MdcContainersAgentlessDiscoveryK8s;
+        /// <summary>
+        /// The Microsoft Defender Container image assessment configuration
+        /// </summary>
+        public readonly Outputs.DefenderForContainersGcpOfferingResponseMdcContainersImageAssessment? MdcContainersImageAssessment;
         /// <summary>
         /// The native cloud connection configuration
         /// </summary>
@@ -42,33 +54,42 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// </summary>
         public readonly string OfferingType;
         /// <summary>
-        /// Is Policy Kubernetes agent auto provisioning enabled
+        /// The Microsoft Defender for Container K8s VM host scanning configuration
         /// </summary>
-        public readonly bool? PolicyAgentAutoProvisioningFlag;
+        public readonly Outputs.DefenderForContainersGcpOfferingResponseVmScanners? VmScanners;
 
         [OutputConstructor]
         private DefenderForContainersGcpOfferingResponse(
-            bool? auditLogsAutoProvisioningFlag,
-
             Outputs.DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection? dataPipelineNativeCloudConnection,
 
-            bool? defenderAgentAutoProvisioningFlag,
-
             string description,
+
+            bool? enableAuditLogsAutoProvisioning,
+
+            bool? enableDefenderAgentAutoProvisioning,
+
+            bool? enablePolicyAgentAutoProvisioning,
+
+            Outputs.DefenderForContainersGcpOfferingResponseMdcContainersAgentlessDiscoveryK8s? mdcContainersAgentlessDiscoveryK8s,
+
+            Outputs.DefenderForContainersGcpOfferingResponseMdcContainersImageAssessment? mdcContainersImageAssessment,
 
             Outputs.DefenderForContainersGcpOfferingResponseNativeCloudConnection? nativeCloudConnection,
 
             string offeringType,
 
-            bool? policyAgentAutoProvisioningFlag)
+            Outputs.DefenderForContainersGcpOfferingResponseVmScanners? vmScanners)
         {
-            AuditLogsAutoProvisioningFlag = auditLogsAutoProvisioningFlag;
             DataPipelineNativeCloudConnection = dataPipelineNativeCloudConnection;
-            DefenderAgentAutoProvisioningFlag = defenderAgentAutoProvisioningFlag;
             Description = description;
+            EnableAuditLogsAutoProvisioning = enableAuditLogsAutoProvisioning;
+            EnableDefenderAgentAutoProvisioning = enableDefenderAgentAutoProvisioning;
+            EnablePolicyAgentAutoProvisioning = enablePolicyAgentAutoProvisioning;
+            MdcContainersAgentlessDiscoveryK8s = mdcContainersAgentlessDiscoveryK8s;
+            MdcContainersImageAssessment = mdcContainersImageAssessment;
             NativeCloudConnection = nativeCloudConnection;
             OfferingType = offeringType;
-            PolicyAgentAutoProvisioningFlag = policyAgentAutoProvisioningFlag;
+            VmScanners = vmScanners;
         }
     }
 }

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Class representing an event hub data connection.
  *
- * Uses Azure REST API version 2021-06-01-preview.
+ * Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
  */
 export class EventHubDataConnection extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class EventHubDataConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventHubDataConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The event hub messages compression type
      */
@@ -144,11 +148,13 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["compression"] = undefined /*out*/;
             resourceInputs["consumerGroup"] = undefined /*out*/;
             resourceInputs["dataFormat"] = undefined /*out*/;
@@ -165,7 +171,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:EventHubDataConnection" }, { type: "azure-native:synapse/v20210601preview:EventHubDataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:EventHubDataConnection" }, { type: "azure-native:synapse/v20210601preview:EventGridDataConnection" }, { type: "azure-native:synapse/v20210601preview:EventHubDataConnection" }, { type: "azure-native:synapse/v20210601preview:IotHubDataConnection" }, { type: "azure-native:synapse:EventGridDataConnection" }, { type: "azure-native:synapse:IotHubDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubDataConnection.__pulumiType, name, resourceInputs, opts);
     }

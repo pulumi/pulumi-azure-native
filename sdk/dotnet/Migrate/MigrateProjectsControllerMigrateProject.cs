@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// Migrate project.
     /// 
-    /// Uses Azure REST API version 2020-05-01.
+    /// Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
     /// 
-    /// Other available API versions: 2023-01-01.
+    /// Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MigrateProjectsControllerMigrateProject")]
     public partial class MigrateProjectsControllerMigrateProject : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// For optimistic concurrency control.
         /// </summary>
@@ -80,9 +86,11 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:MigrateProject" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:MigrateProjectsControllerMigrateProject" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230101:MigrateProjectsControllerMigrateProject" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:MigrateProject" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

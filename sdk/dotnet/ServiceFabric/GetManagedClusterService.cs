@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
         /// 
-        /// Uses Azure REST API version 2023-03-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetManagedClusterServiceResult> InvokeAsync(GetManagedClusterServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterServiceResult>("azure-native:servicefabric:getManagedClusterService", args ?? new GetManagedClusterServiceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
         /// 
-        /// Uses Azure REST API version 2023-03-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetManagedClusterServiceResult> Invoke(GetManagedClusterServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterServiceResult>("azure-native:servicefabric:getManagedClusterService", args ?? new GetManagedClusterServiceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
         /// 
-        /// Uses Azure REST API version 2023-03-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetManagedClusterServiceResult> Invoke(GetManagedClusterServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterServiceResult>("azure-native:servicefabric:getManagedClusterService", args ?? new GetManagedClusterServiceInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.ServiceFabric
     public sealed class GetManagedClusterServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Azure resource identifier.
         /// </summary>
         public readonly string Id;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.ServiceFabric
 
         [OutputConstructor]
         private GetManagedClusterServiceResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

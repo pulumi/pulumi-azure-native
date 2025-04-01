@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Azure OpenAI Content Filters resource.
     /// 
-    /// Uses Azure REST API version 2024-04-01-preview.
+    /// Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
     /// 
-    /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    /// Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ConnectionRaiPolicy")]
     public partial class ConnectionRaiPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -106,6 +112,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Input("properties", required: true)]
         public Input<Inputs.RaiPolicyPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
+        /// Api version used by proxy call
+        /// </summary>
+        [Input("proxyApiVersion")]
+        public Input<string>? ProxyApiVersion { get; set; }
 
         /// <summary>
         /// Name of the Rai Policy.

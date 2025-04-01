@@ -27,7 +27,10 @@ class GetCapabilityResult:
     """
     Model that represents a Capability resource.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -45,10 +48,18 @@ class GetCapabilityResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -72,7 +83,7 @@ class GetCapabilityResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The standard system metadata of a resource type.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -91,6 +102,7 @@ class AwaitableGetCapabilityResult(GetCapabilityResult):
         if False:
             yield self
         return GetCapabilityResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             properties=self.properties,
@@ -108,9 +120,9 @@ def get_capability(capability_name: Optional[str] = None,
     """
     Get a Capability resource that extends a Target resource.
 
-    Uses Azure REST API version 2023-04-15-preview.
+    Uses Azure REST API version 2024-03-22-preview.
 
-    Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+    Other available API versions: 2023-04-15-preview, 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-11-01-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str capability_name: String that represents a Capability resource name.
@@ -131,6 +143,7 @@ def get_capability(capability_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:chaos:getCapability', __args__, opts=opts, typ=GetCapabilityResult).value
 
     return AwaitableGetCapabilityResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
@@ -146,9 +159,9 @@ def get_capability_output(capability_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Capability resource that extends a Target resource.
 
-    Uses Azure REST API version 2023-04-15-preview.
+    Uses Azure REST API version 2024-03-22-preview.
 
-    Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+    Other available API versions: 2023-04-15-preview, 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-11-01-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str capability_name: String that represents a Capability resource name.
@@ -168,6 +181,7 @@ def get_capability_output(capability_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:chaos:getCapability', __args__, opts=opts, typ=GetCapabilityResult)
     return __ret__.apply(lambda __response__: GetCapabilityResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),

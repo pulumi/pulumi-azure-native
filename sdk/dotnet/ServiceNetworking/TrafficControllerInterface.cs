@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.ServiceNetworking
     /// <summary>
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
     /// 
-    /// Uses Azure REST API version 2023-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-10-01-preview.
+    /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
-    /// Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01, 2025-03-01-preview.
+    /// Other available API versions: 2023-05-01-preview, 2023-11-01, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:TrafficControllerInterface")]
     public partial class TrafficControllerInterface : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// </summary>
         [Output("associations")]
         public Output<ImmutableArray<Outputs.ResourceIdResponse>> Associations { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Configuration Endpoints.
@@ -54,6 +60,18 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Security Policies References List
+        /// </summary>
+        [Output("securityPolicies")]
+        public Output<ImmutableArray<Outputs.ResourceIdResponse>> SecurityPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// Security Policy Configuration
+        /// </summary>
+        [Output("securityPolicyConfigurations")]
+        public Output<Outputs.SecurityPolicyConfigurationsResponse?> SecurityPolicyConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -138,6 +156,12 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Security Policy Configuration
+        /// </summary>
+        [Input("securityPolicyConfigurations")]
+        public Input<Inputs.SecurityPolicyConfigurationsArgs>? SecurityPolicyConfigurations { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

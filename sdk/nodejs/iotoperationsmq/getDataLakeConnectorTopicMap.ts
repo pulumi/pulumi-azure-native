@@ -46,6 +46,10 @@ export interface GetDataLakeConnectorTopicMapArgs {
  */
 export interface GetDataLakeConnectorTopicMapResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * DataLake Connector CRD to use.
      */
     readonly dataLakeConnectorRef: string;

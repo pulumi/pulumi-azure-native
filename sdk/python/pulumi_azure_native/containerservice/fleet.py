@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FleetArgs', 'Fleet']
@@ -24,6 +25,7 @@ class FleetArgs:
                  resource_group_name: pulumi.Input[str],
                  fleet_name: Optional[pulumi.Input[str]] = None,
                  hub_profile: Optional[pulumi.Input['FleetHubProfileArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -31,6 +33,7 @@ class FleetArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] fleet_name: The name of the Fleet resource.
         :param pulumi.Input['FleetHubProfileArgs'] hub_profile: The FleetHubProfile configures the Fleet's hub.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -39,6 +42,8 @@ class FleetArgs:
             pulumi.set(__self__, "fleet_name", fleet_name)
         if hub_profile is not None:
             pulumi.set(__self__, "hub_profile", hub_profile)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -82,6 +87,18 @@ class FleetArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        Managed identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The geo-location where the resource lives
@@ -112,6 +129,7 @@ class Fleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fleet_name: Optional[pulumi.Input[str]] = None,
                  hub_profile: Optional[pulumi.Input[Union['FleetHubProfileArgs', 'FleetHubProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -119,14 +137,15 @@ class Fleet(pulumi.CustomResource):
         """
         The Fleet resource.
 
-        Uses Azure REST API version 2023-03-15-preview.
+        Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15-preview.
 
-        Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fleet_name: The name of the Fleet resource.
         :param pulumi.Input[Union['FleetHubProfileArgs', 'FleetHubProfileArgsDict']] hub_profile: The FleetHubProfile configures the Fleet's hub.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identity.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -140,9 +159,9 @@ class Fleet(pulumi.CustomResource):
         """
         The Fleet resource.
 
-        Uses Azure REST API version 2023-03-15-preview.
+        Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15-preview.
 
-        Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.
@@ -161,6 +180,7 @@ class Fleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fleet_name: Optional[pulumi.Input[str]] = None,
                  hub_profile: Optional[pulumi.Input[Union['FleetHubProfileArgs', 'FleetHubProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -175,11 +195,13 @@ class Fleet(pulumi.CustomResource):
 
             __props__.__dict__["fleet_name"] = fleet_name
             __props__.__dict__["hub_profile"] = hub_profile
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -209,8 +231,10 @@ class Fleet(pulumi.CustomResource):
 
         __props__ = FleetArgs.__new__(FleetArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["hub_profile"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -218,6 +242,14 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Fleet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")
@@ -234,6 +266,14 @@ class Fleet(pulumi.CustomResource):
         The FleetHubProfile configures the Fleet's hub.
         """
         return pulumi.get(self, "hub_profile")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Managed identity.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

@@ -59,29 +59,6 @@ utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./priv
 // Export enums:
 export * from "../types/enums/maps";
 
-// Export sub-modules:
-import * as v20180501 from "./v20180501";
-import * as v20200201preview from "./v20200201preview";
-import * as v20210201 from "./v20210201";
-import * as v20211201preview from "./v20211201preview";
-import * as v20230601 from "./v20230601";
-import * as v20230801preview from "./v20230801preview";
-import * as v20231201preview from "./v20231201preview";
-import * as v20240101preview from "./v20240101preview";
-import * as v20240701preview from "./v20240701preview";
-
-export {
-    v20180501,
-    v20200201preview,
-    v20210201,
-    v20211201preview,
-    v20230601,
-    v20230801preview,
-    v20231201preview,
-    v20240101preview,
-    v20240701preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

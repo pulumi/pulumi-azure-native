@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The Client resource.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Client extends pulumi.CustomResource {
     /**
@@ -48,13 +48,13 @@ export class Client extends pulumi.CustomResource {
      */
     public readonly attributes!: pulumi.Output<any | undefined>;
     /**
-     * Authentication information for the client.
-     */
-    public readonly authentication!: pulumi.Output<outputs.eventgrid.ClientAuthenticationResponse | undefined>;
-    /**
      * The name presented by the client for authentication. The default value is the name of the resource.
      */
     public readonly authenticationName!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The client certificate authentication information.
      */
@@ -76,7 +76,7 @@ export class Client extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to the Client resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -102,7 +102,6 @@ export class Client extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
             resourceInputs["authenticationName"] = args ? args.authenticationName : undefined;
             resourceInputs["clientCertificateAuthentication"] = args ? args.clientCertificateAuthentication : undefined;
             resourceInputs["clientName"] = args ? args.clientName : undefined;
@@ -110,14 +109,15 @@ export class Client extends pulumi.CustomResource {
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["state"] = (args ? args.state : undefined) ?? "Enabled";
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["attributes"] = undefined /*out*/;
-            resourceInputs["authentication"] = undefined /*out*/;
             resourceInputs["authenticationName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientCertificateAuthentication"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -143,10 +143,6 @@ export interface ClientArgs {
      * "attributes": { "room": "345", "floor": 12, "deviceTypes": ["Fan", "Light"] }
      */
     attributes?: any;
-    /**
-     * Authentication information for the client.
-     */
-    authentication?: pulumi.Input<inputs.eventgrid.ClientAuthenticationArgs>;
     /**
      * The name presented by the client for authentication. The default value is the name of the resource.
      */

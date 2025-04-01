@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-06-01.
         /// </summary>
         public static Task<GetApplicationTypeVersionResult> InvokeAsync(GetApplicationTypeVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeVersionResult>("azure-native:servicefabric:getApplicationTypeVersion", args ?? new GetApplicationTypeVersionArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-06-01.
         /// </summary>
         public static Output<GetApplicationTypeVersionResult> Invoke(GetApplicationTypeVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationTypeVersionResult>("azure-native:servicefabric:getApplicationTypeVersion", args ?? new GetApplicationTypeVersionInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-06-01.
         /// </summary>
         public static Output<GetApplicationTypeVersionResult> Invoke(GetApplicationTypeVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationTypeVersionResult>("azure-native:servicefabric:getApplicationTypeVersion", args ?? new GetApplicationTypeVersionInvokeArgs(), options.WithDefaults());
@@ -116,6 +110,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string AppPackageUrl;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -148,6 +146,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         private GetApplicationTypeVersionResult(
             string appPackageUrl,
 
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -163,6 +163,7 @@ namespace Pulumi.AzureNative.ServiceFabric
             string type)
         {
             AppPackageUrl = appPackageUrl;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

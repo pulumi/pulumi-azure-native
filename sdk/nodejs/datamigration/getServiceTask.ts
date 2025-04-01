@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
+ * The service tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a service task.
  *
- * Uses Azure REST API version 2021-06-30.
+ * Uses Azure REST API version 2023-07-15-preview.
  *
- * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+ * Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getServiceTask(args: GetServiceTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +48,10 @@ export interface GetServiceTaskArgs {
  */
 export interface GetServiceTaskResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * HTTP strong entity tag value. This is ignored if submitted.
      */
     readonly etag?: string;
@@ -73,11 +77,11 @@ export interface GetServiceTaskResult {
     readonly type: string;
 }
 /**
- * The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
+ * The service tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a service task.
  *
- * Uses Azure REST API version 2021-06-30.
+ * Uses Azure REST API version 2023-07-15-preview.
  *
- * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+ * Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getServiceTaskOutput(args: GetServiceTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

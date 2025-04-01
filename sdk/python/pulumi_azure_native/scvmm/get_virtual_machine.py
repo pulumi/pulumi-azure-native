@@ -27,10 +27,13 @@ class GetVirtualMachineResult:
     """
     The VirtualMachines resource definition.
     """
-    def __init__(__self__, availability_sets=None, checkpoint_type=None, checkpoints=None, cloud_id=None, extended_location=None, generation=None, guest_agent_profile=None, hardware_profile=None, id=None, identity=None, inventory_item_id=None, last_restored_vm_checkpoint=None, location=None, name=None, network_profile=None, os_profile=None, power_state=None, provisioning_state=None, storage_profile=None, system_data=None, tags=None, template_id=None, type=None, uuid=None, vm_name=None, vmm_server_id=None):
+    def __init__(__self__, availability_sets=None, azure_api_version=None, checkpoint_type=None, checkpoints=None, cloud_id=None, extended_location=None, generation=None, guest_agent_profile=None, hardware_profile=None, id=None, identity=None, inventory_item_id=None, last_restored_vm_checkpoint=None, location=None, name=None, network_profile=None, os_profile=None, power_state=None, provisioning_state=None, storage_profile=None, system_data=None, tags=None, template_id=None, type=None, uuid=None, vm_name=None, vmm_server_id=None):
         if availability_sets and not isinstance(availability_sets, list):
             raise TypeError("Expected argument 'availability_sets' to be a list")
         pulumi.set(__self__, "availability_sets", availability_sets)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if checkpoint_type and not isinstance(checkpoint_type, str):
             raise TypeError("Expected argument 'checkpoint_type' to be a str")
         pulumi.set(__self__, "checkpoint_type", checkpoint_type)
@@ -114,6 +117,14 @@ class GetVirtualMachineResult:
         Availability Sets in vm.
         """
         return pulumi.get(self, "availability_sets")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="checkpointType")
@@ -323,6 +334,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             yield self
         return GetVirtualMachineResult(
             availability_sets=self.availability_sets,
+            azure_api_version=self.azure_api_version,
             checkpoint_type=self.checkpoint_type,
             checkpoints=self.checkpoints,
             cloud_id=self.cloud_id,
@@ -356,9 +368,9 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     """
     Implements VirtualMachine GET method.
 
-    Uses Azure REST API version 2022-05-21-preview.
+    Uses Azure REST API version 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview.
+    Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -372,6 +384,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
 
     return AwaitableGetVirtualMachineResult(
         availability_sets=pulumi.get(__ret__, 'availability_sets'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         checkpoint_type=pulumi.get(__ret__, 'checkpoint_type'),
         checkpoints=pulumi.get(__ret__, 'checkpoints'),
         cloud_id=pulumi.get(__ret__, 'cloud_id'),
@@ -403,9 +416,9 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     """
     Implements VirtualMachine GET method.
 
-    Uses Azure REST API version 2022-05-21-preview.
+    Uses Azure REST API version 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview.
+    Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -418,6 +431,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineResult(
         availability_sets=pulumi.get(__response__, 'availability_sets'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         checkpoint_type=pulumi.get(__response__, 'checkpoint_type'),
         checkpoints=pulumi.get(__response__, 'checkpoints'),
         cloud_id=pulumi.get(__response__, 'cloud_id'),

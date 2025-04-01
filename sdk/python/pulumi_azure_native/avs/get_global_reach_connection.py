@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetGlobalReachConnectionResult',
@@ -26,13 +27,16 @@ class GetGlobalReachConnectionResult:
     """
     A global reach connection resource
     """
-    def __init__(__self__, address_prefix=None, authorization_key=None, circuit_connection_status=None, express_route_id=None, id=None, name=None, peer_express_route_circuit=None, provisioning_state=None, type=None):
+    def __init__(__self__, address_prefix=None, authorization_key=None, azure_api_version=None, circuit_connection_status=None, express_route_id=None, id=None, name=None, peer_express_route_circuit=None, provisioning_state=None, system_data=None, type=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if circuit_connection_status and not isinstance(circuit_connection_status, str):
             raise TypeError("Expected argument 'circuit_connection_status' to be a str")
         pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
@@ -51,6 +55,9 @@ class GetGlobalReachConnectionResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -59,7 +66,8 @@ class GetGlobalReachConnectionResult:
     @pulumi.getter(name="addressPrefix")
     def address_prefix(self) -> str:
         """
-        The network used for global reach carved out from the original network block provided for the private cloud
+        The network used for global reach carved out from the original network block
+        provided for the private cloud
         """
         return pulumi.get(self, "address_prefix")
 
@@ -67,9 +75,18 @@ class GetGlobalReachConnectionResult:
     @pulumi.getter(name="authorizationKey")
     def authorization_key(self) -> Optional[str]:
         """
-        Authorization key from the peer express route used for the global reach connection
+        Authorization key from the peer express route used for the global reach
+        connection
         """
         return pulumi.get(self, "authorization_key")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="circuitConnectionStatus")
@@ -83,7 +100,8 @@ class GetGlobalReachConnectionResult:
     @pulumi.getter(name="expressRouteId")
     def express_route_id(self) -> Optional[str]:
         """
-        The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+        The ID of the Private Cloud's ExpressRoute Circuit that is participating in the
+        global reach connection
         """
         return pulumi.get(self, "express_route_id")
 
@@ -91,7 +109,7 @@ class GetGlobalReachConnectionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -99,7 +117,7 @@ class GetGlobalReachConnectionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -107,7 +125,8 @@ class GetGlobalReachConnectionResult:
     @pulumi.getter(name="peerExpressRouteCircuit")
     def peer_express_route_circuit(self) -> Optional[str]:
         """
-        Identifier of the ExpressRoute Circuit to peer with in the global reach connection
+        Identifier of the ExpressRoute Circuit to peer with in the global reach
+        connection
         """
         return pulumi.get(self, "peer_express_route_circuit")
 
@@ -120,10 +139,18 @@ class GetGlobalReachConnectionResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -136,12 +163,14 @@ class AwaitableGetGlobalReachConnectionResult(GetGlobalReachConnectionResult):
         return GetGlobalReachConnectionResult(
             address_prefix=self.address_prefix,
             authorization_key=self.authorization_key,
+            azure_api_version=self.azure_api_version,
             circuit_connection_status=self.circuit_connection_status,
             express_route_id=self.express_route_id,
             id=self.id,
             name=self.name,
             peer_express_route_circuit=self.peer_express_route_circuit,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -150,14 +179,14 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalReachConnectionResult:
     """
-    A global reach connection resource
+    Get a GlobalReachConnection
 
-    Uses Azure REST API version 2022-05-01.
+    Uses Azure REST API version 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str global_reach_connection_name: Name of the global reach connection in the private cloud
+    :param str global_reach_connection_name: Name of the global reach connection
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -171,26 +200,28 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
     return AwaitableGetGlobalReachConnectionResult(
         address_prefix=pulumi.get(__ret__, 'address_prefix'),
         authorization_key=pulumi.get(__ret__, 'authorization_key'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         circuit_connection_status=pulumi.get(__ret__, 'circuit_connection_status'),
         express_route_id=pulumi.get(__ret__, 'express_route_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         peer_express_route_circuit=pulumi.get(__ret__, 'peer_express_route_circuit'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_global_reach_connection_output(global_reach_connection_name: Optional[pulumi.Input[str]] = None,
                                        private_cloud_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalReachConnectionResult]:
     """
-    A global reach connection resource
+    Get a GlobalReachConnection
 
-    Uses Azure REST API version 2022-05-01.
+    Uses Azure REST API version 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str global_reach_connection_name: Name of the global reach connection in the private cloud
+    :param str global_reach_connection_name: Name of the global reach connection
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -203,10 +234,12 @@ def get_global_reach_connection_output(global_reach_connection_name: Optional[pu
     return __ret__.apply(lambda __response__: GetGlobalReachConnectionResult(
         address_prefix=pulumi.get(__response__, 'address_prefix'),
         authorization_key=pulumi.get(__response__, 'authorization_key'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         circuit_connection_status=pulumi.get(__response__, 'circuit_connection_status'),
         express_route_id=pulumi.get(__response__, 'express_route_id'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         peer_express_route_circuit=pulumi.get(__response__, 'peer_express_route_circuit'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

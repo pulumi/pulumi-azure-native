@@ -249,7 +249,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
         """
         The integration account RosettaNet process configuration.
 
-        Uses Azure REST API version 2016-06-01. In version 1.x of the Azure Native provider, it used API version 2016-06-01.
+        Uses Azure REST API version 2016-06-01. In version 2.x of the Azure Native provider, it used API version 2016-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -276,7 +276,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
         """
         The integration account RosettaNet process configuration.
 
-        Uses Azure REST API version 2016-06-01. In version 1.x of the Azure Native provider, it used API version 2016-06-01.
+        Uses Azure REST API version 2016-06-01. In version 2.x of the Azure Native provider, it used API version 2016-06-01.
 
         :param str resource_name: The name of the resource.
         :param RosettaNetProcessConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -344,6 +344,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
             __props__.__dict__["responder_role_settings"] = responder_role_settings
             __props__.__dict__["rosetta_net_process_configuration_name"] = rosetta_net_process_configuration_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["changed_time"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
@@ -373,6 +374,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
         __props__ = RosettaNetProcessConfigurationArgs.__new__(RosettaNetProcessConfigurationArgs)
 
         __props__.__dict__["activity_settings"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["changed_time"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["description"] = None
@@ -395,6 +397,14 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
         The RosettaNet process configuration activity settings.
         """
         return pulumi.get(self, "activity_settings")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="changedTime")

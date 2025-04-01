@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a workspace instance.
         /// 
-        /// Uses Azure REST API version 2022-10-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a workspace instance.
         /// 
-        /// Uses Azure REST API version 2022-10-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a workspace instance.
         /// 
-        /// Uses Azure REST API version 2022-10-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01, 2025-02-01.
+        /// Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2022-10-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.OperationalInsights
     [OutputType]
     public sealed class GetWorkspaceResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Workspace creation date.
         /// </summary>
@@ -174,6 +178,8 @@ namespace Pulumi.AzureNative.OperationalInsights
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string azureApiVersion,
+
             string createdDate,
 
             string customerId,
@@ -216,6 +222,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             Outputs.WorkspaceCappingResponse? workspaceCapping)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedDate = createdDate;
             CustomerId = customerId;
             DefaultDataCollectionRuleResourceId = defaultDataCollectionRuleResourceId;

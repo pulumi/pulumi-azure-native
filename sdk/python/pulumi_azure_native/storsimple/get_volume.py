@@ -26,10 +26,13 @@ class GetVolumeResult:
     """
     The volume.
     """
-    def __init__(__self__, access_control_record_ids=None, backup_policy_ids=None, backup_status=None, id=None, kind=None, monitoring_status=None, name=None, operation_status=None, size_in_bytes=None, type=None, volume_container_id=None, volume_status=None, volume_type=None):
+    def __init__(__self__, access_control_record_ids=None, azure_api_version=None, backup_policy_ids=None, backup_status=None, id=None, kind=None, monitoring_status=None, name=None, operation_status=None, size_in_bytes=None, type=None, volume_container_id=None, volume_status=None, volume_type=None):
         if access_control_record_ids and not isinstance(access_control_record_ids, list):
             raise TypeError("Expected argument 'access_control_record_ids' to be a list")
         pulumi.set(__self__, "access_control_record_ids", access_control_record_ids)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backup_policy_ids and not isinstance(backup_policy_ids, list):
             raise TypeError("Expected argument 'backup_policy_ids' to be a list")
         pulumi.set(__self__, "backup_policy_ids", backup_policy_ids)
@@ -74,6 +77,14 @@ class GetVolumeResult:
         The IDs of the access control records, associated with the volume.
         """
         return pulumi.get(self, "access_control_record_ids")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backupPolicyIds")
@@ -179,6 +190,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             yield self
         return GetVolumeResult(
             access_control_record_ids=self.access_control_record_ids,
+            azure_api_version=self.azure_api_version,
             backup_policy_ids=self.backup_policy_ids,
             backup_status=self.backup_status,
             id=self.id,
@@ -222,6 +234,7 @@ def get_volume(device_name: Optional[str] = None,
 
     return AwaitableGetVolumeResult(
         access_control_record_ids=pulumi.get(__ret__, 'access_control_record_ids'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backup_policy_ids=pulumi.get(__ret__, 'backup_policy_ids'),
         backup_status=pulumi.get(__ret__, 'backup_status'),
         id=pulumi.get(__ret__, 'id'),
@@ -262,6 +275,7 @@ def get_volume_output(device_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getVolume', __args__, opts=opts, typ=GetVolumeResult)
     return __ret__.apply(lambda __response__: GetVolumeResult(
         access_control_record_ids=pulumi.get(__response__, 'access_control_record_ids'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backup_policy_ids=pulumi.get(__response__, 'backup_policy_ids'),
         backup_status=pulumi.get(__response__, 'backup_status'),
         id=pulumi.get(__response__, 'id'),

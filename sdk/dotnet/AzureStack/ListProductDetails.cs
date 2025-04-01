@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.AzureStack
         /// 
         /// Uses Azure REST API version 2022-06-01.
         /// 
-        /// Other available API versions: 2020-06-01-preview.
+        /// Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListProductDetailsResult> InvokeAsync(ListProductDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-native:azurestack:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.AzureStack
         /// 
         /// Uses Azure REST API version 2022-06-01.
         /// 
-        /// Other available API versions: 2020-06-01-preview.
+        /// Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListProductDetailsResult> Invoke(ListProductDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProductDetailsResult>("azure-native:azurestack:listProductDetails", args ?? new ListProductDetailsInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.AzureStack
         /// 
         /// Uses Azure REST API version 2022-06-01.
         /// 
-        /// Other available API versions: 2020-06-01-preview.
+        /// Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListProductDetailsResult> Invoke(ListProductDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListProductDetailsResult>("azure-native:azurestack:listProductDetails", args ?? new ListProductDetailsInvokeArgs(), options.WithDefaults());

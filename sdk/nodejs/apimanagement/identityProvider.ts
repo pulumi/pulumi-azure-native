@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Identity Provider details.
  *
- * Uses Azure REST API version 2022-08-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+ * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
- * Other available API versions: 2016-10-10, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class IdentityProvider extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class IdentityProvider extends pulumi.CustomResource {
      * OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
      */
     public readonly authority!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
      */
@@ -127,10 +131,12 @@ export class IdentityProvider extends pulumi.CustomResource {
             resourceInputs["signinTenant"] = args ? args.signinTenant : undefined;
             resourceInputs["signupPolicyName"] = args ? args.signupPolicyName : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
             resourceInputs["allowedTenants"] = undefined /*out*/;
             resourceInputs["authority"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["clientLibrary"] = undefined /*out*/;
             resourceInputs["clientSecret"] = undefined /*out*/;

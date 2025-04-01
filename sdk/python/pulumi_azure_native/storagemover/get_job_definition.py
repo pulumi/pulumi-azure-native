@@ -27,13 +27,16 @@ class GetJobDefinitionResult:
     """
     The Job Definition resource.
     """
-    def __init__(__self__, agent_name=None, agent_resource_id=None, copy_mode=None, description=None, id=None, latest_job_run_name=None, latest_job_run_resource_id=None, latest_job_run_status=None, name=None, provisioning_state=None, source_name=None, source_resource_id=None, source_subpath=None, system_data=None, target_name=None, target_resource_id=None, target_subpath=None, type=None):
+    def __init__(__self__, agent_name=None, agent_resource_id=None, azure_api_version=None, copy_mode=None, description=None, id=None, latest_job_run_name=None, latest_job_run_resource_id=None, latest_job_run_status=None, name=None, provisioning_state=None, source_name=None, source_resource_id=None, source_subpath=None, system_data=None, target_name=None, target_resource_id=None, target_subpath=None, type=None):
         if agent_name and not isinstance(agent_name, str):
             raise TypeError("Expected argument 'agent_name' to be a str")
         pulumi.set(__self__, "agent_name", agent_name)
         if agent_resource_id and not isinstance(agent_resource_id, str):
             raise TypeError("Expected argument 'agent_resource_id' to be a str")
         pulumi.set(__self__, "agent_resource_id", agent_resource_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if copy_mode and not isinstance(copy_mode, str):
             raise TypeError("Expected argument 'copy_mode' to be a str")
         pulumi.set(__self__, "copy_mode", copy_mode)
@@ -98,6 +101,14 @@ class GetJobDefinitionResult:
         Fully qualified resource id of the Agent to assign for new Job Runs of this Job Definition.
         """
         return pulumi.get(self, "agent_resource_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="copyMode")
@@ -191,7 +202,7 @@ class GetJobDefinitionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Resource system metadata.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -236,6 +247,7 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
         return GetJobDefinitionResult(
             agent_name=self.agent_name,
             agent_resource_id=self.agent_resource_id,
+            azure_api_version=self.azure_api_version,
             copy_mode=self.copy_mode,
             description=self.description,
             id=self.id,
@@ -262,9 +274,9 @@ def get_job_definition(job_definition_name: Optional[str] = None,
     """
     Gets a Job Definition resource.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+    Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str job_definition_name: The name of the Job Definition resource.
@@ -283,6 +295,7 @@ def get_job_definition(job_definition_name: Optional[str] = None,
     return AwaitableGetJobDefinitionResult(
         agent_name=pulumi.get(__ret__, 'agent_name'),
         agent_resource_id=pulumi.get(__ret__, 'agent_resource_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         copy_mode=pulumi.get(__ret__, 'copy_mode'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -307,9 +320,9 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
     """
     Gets a Job Definition resource.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+    Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str job_definition_name: The name of the Job Definition resource.
@@ -327,6 +340,7 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
     return __ret__.apply(lambda __response__: GetJobDefinitionResult(
         agent_name=pulumi.get(__response__, 'agent_name'),
         agent_resource_id=pulumi.get(__response__, 'agent_resource_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         copy_mode=pulumi.get(__response__, 'copy_mode'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),

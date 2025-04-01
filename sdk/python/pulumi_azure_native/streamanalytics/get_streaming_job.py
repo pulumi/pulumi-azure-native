@@ -27,7 +27,10 @@ class GetStreamingJobResult:
     """
     A streaming job object, containing all information associated with the named streaming job.
     """
-    def __init__(__self__, cluster=None, compatibility_level=None, content_storage_policy=None, created_date=None, data_locale=None, etag=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, functions=None, id=None, identity=None, inputs=None, job_id=None, job_state=None, job_storage_account=None, job_type=None, last_output_event_time=None, location=None, name=None, output_error_policy=None, output_start_mode=None, output_start_time=None, outputs=None, provisioning_state=None, sku=None, tags=None, transformation=None, type=None):
+    def __init__(__self__, azure_api_version=None, cluster=None, compatibility_level=None, content_storage_policy=None, created_date=None, data_locale=None, etag=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, functions=None, id=None, identity=None, inputs=None, job_id=None, job_state=None, job_storage_account=None, job_type=None, last_output_event_time=None, location=None, name=None, output_error_policy=None, output_start_mode=None, output_start_time=None, outputs=None, provisioning_state=None, sku=None, tags=None, transformation=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster and not isinstance(cluster, dict):
             raise TypeError("Expected argument 'cluster' to be a dict")
         pulumi.set(__self__, "cluster", cluster)
@@ -115,6 +118,14 @@ class GetStreamingJobResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -355,6 +366,7 @@ class AwaitableGetStreamingJobResult(GetStreamingJobResult):
         if False:
             yield self
         return GetStreamingJobResult(
+            azure_api_version=self.azure_api_version,
             cluster=self.cluster,
             compatibility_level=self.compatibility_level,
             content_storage_policy=self.content_storage_policy,
@@ -395,7 +407,7 @@ def get_streaming_job(expand: Optional[str] = None,
 
     Uses Azure REST API version 2020-03-01.
 
-    Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
+    Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
@@ -410,6 +422,7 @@ def get_streaming_job(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:streamanalytics:getStreamingJob', __args__, opts=opts, typ=GetStreamingJobResult).value
 
     return AwaitableGetStreamingJobResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster=pulumi.get(__ret__, 'cluster'),
         compatibility_level=pulumi.get(__ret__, 'compatibility_level'),
         content_storage_policy=pulumi.get(__ret__, 'content_storage_policy'),
@@ -448,7 +461,7 @@ def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
 
     Uses Azure REST API version 2020-03-01.
 
-    Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
+    Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
@@ -462,6 +475,7 @@ def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:streamanalytics:getStreamingJob', __args__, opts=opts, typ=GetStreamingJobResult)
     return __ret__.apply(lambda __response__: GetStreamingJobResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster=pulumi.get(__response__, 'cluster'),
         compatibility_level=pulumi.get(__response__, 'compatibility_level'),
         content_storage_policy=pulumi.get(__response__, 'content_storage_policy'),

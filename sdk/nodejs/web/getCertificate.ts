@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Description for Get a certificate.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2016-03-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetCertificateArgs {
  * SSL certificate for an app.
  */
 export interface GetCertificateResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * CNAME of the certificate to be issued via free certificate
      */
@@ -90,7 +94,7 @@ export interface GetCertificateResult {
      */
     readonly keyVaultSecretStatus: string;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     readonly kind?: string;
     /**
@@ -145,9 +149,9 @@ export interface GetCertificateResult {
 /**
  * Description for Get a certificate.
  *
- * Uses Azure REST API version 2022-09-01.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2016-03-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

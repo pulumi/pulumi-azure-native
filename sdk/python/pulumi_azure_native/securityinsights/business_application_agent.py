@@ -113,9 +113,9 @@ class BusinessApplicationAgent(pulumi.CustomResource):
         """
         Describes the configuration of a Business Application Agent.
 
-        Uses Azure REST API version 2024-04-01-preview.
+        Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
 
-        Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+        Other available API versions: 2024-04-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,9 +133,9 @@ class BusinessApplicationAgent(pulumi.CustomResource):
         """
         Describes the configuration of a Business Application Agent.
 
-        Uses Azure REST API version 2024-04-01-preview.
+        Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
 
-        Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+        Other available API versions: 2024-04-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param BusinessApplicationAgentArgs args: The arguments to use to populate this resource's properties.
@@ -180,6 +180,7 @@ class BusinessApplicationAgent(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["agent_systems"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_time_utc"] = None
             __props__.__dict__["name"] = None
@@ -210,6 +211,7 @@ class BusinessApplicationAgent(pulumi.CustomResource):
         __props__ = BusinessApplicationAgentArgs.__new__(BusinessApplicationAgentArgs)
 
         __props__.__dict__["agent_systems"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["configuration"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
@@ -223,6 +225,14 @@ class BusinessApplicationAgent(pulumi.CustomResource):
     @pulumi.getter(name="agentSystems")
     def agent_systems(self) -> pulumi.Output[Sequence['outputs.AgentSystemResponse']]:
         return pulumi.get(self, "agent_systems")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

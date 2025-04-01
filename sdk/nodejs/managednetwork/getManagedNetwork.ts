@@ -36,6 +36,10 @@ export interface GetManagedNetworkArgs {
  */
 export interface GetManagedNetworkResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The collection of groups and policies concerned with connectivity
      */
     readonly connectivity: outputs.managednetwork.ConnectivityCollectionResponse;

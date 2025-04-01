@@ -129,15 +129,15 @@ def list_disaster_recovery_config_keys(alias: Optional[str] = None,
     """
     Gets the primary and secondary connection strings for the namespace.
 
-    Uses Azure REST API version 2022-01-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str alias: The Disaster Recovery configuration name
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['alias'] = alias
@@ -163,15 +163,15 @@ def list_disaster_recovery_config_keys_output(alias: Optional[pulumi.Input[str]]
     """
     Gets the primary and secondary connection strings for the namespace.
 
-    Uses Azure REST API version 2022-01-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str alias: The Disaster Recovery configuration name
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['alias'] = alias

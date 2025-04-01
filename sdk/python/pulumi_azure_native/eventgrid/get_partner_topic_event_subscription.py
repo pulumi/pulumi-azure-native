@@ -25,9 +25,12 @@ __all__ = [
 @pulumi.output_type
 class GetPartnerTopicEventSubscriptionResult:
     """
-    Event Subscription
+    Event Subscription.
     """
-    def __init__(__self__, dead_letter_destination=None, dead_letter_with_resource_identity=None, delivery_with_resource_identity=None, destination=None, event_delivery_schema=None, expiration_time_utc=None, filter=None, id=None, labels=None, name=None, provisioning_state=None, retry_policy=None, system_data=None, topic=None, type=None):
+    def __init__(__self__, azure_api_version=None, dead_letter_destination=None, dead_letter_with_resource_identity=None, delivery_with_resource_identity=None, destination=None, event_delivery_schema=None, expiration_time_utc=None, filter=None, id=None, labels=None, name=None, provisioning_state=None, retry_policy=None, system_data=None, topic=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if dead_letter_destination and not isinstance(dead_letter_destination, dict):
             raise TypeError("Expected argument 'dead_letter_destination' to be a dict")
         pulumi.set(__self__, "dead_letter_destination", dead_letter_destination)
@@ -73,6 +76,14 @@ class GetPartnerTopicEventSubscriptionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deadLetterDestination")
@@ -178,7 +189,7 @@ class GetPartnerTopicEventSubscriptionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to Event Subscription resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -205,6 +216,7 @@ class AwaitableGetPartnerTopicEventSubscriptionResult(GetPartnerTopicEventSubscr
         if False:
             yield self
         return GetPartnerTopicEventSubscriptionResult(
+            azure_api_version=self.azure_api_version,
             dead_letter_destination=self.dead_letter_destination,
             dead_letter_with_resource_identity=self.dead_letter_with_resource_identity,
             delivery_with_resource_identity=self.delivery_with_resource_identity,
@@ -229,12 +241,12 @@ def get_partner_topic_event_subscription(event_subscription_name: Optional[str] 
     """
     Get properties of an event subscription of a partner topic.
 
-    Uses Azure REST API version 2022-06-15.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str event_subscription_name: Name of the event subscription to be found. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+    :param str event_subscription_name: Name of the event subscription to be found.
     :param str partner_topic_name: Name of the partner topic.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
@@ -246,6 +258,7 @@ def get_partner_topic_event_subscription(event_subscription_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getPartnerTopicEventSubscription', __args__, opts=opts, typ=GetPartnerTopicEventSubscriptionResult).value
 
     return AwaitableGetPartnerTopicEventSubscriptionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         dead_letter_destination=pulumi.get(__ret__, 'dead_letter_destination'),
         dead_letter_with_resource_identity=pulumi.get(__ret__, 'dead_letter_with_resource_identity'),
         delivery_with_resource_identity=pulumi.get(__ret__, 'delivery_with_resource_identity'),
@@ -268,12 +281,12 @@ def get_partner_topic_event_subscription_output(event_subscription_name: Optiona
     """
     Get properties of an event subscription of a partner topic.
 
-    Uses Azure REST API version 2022-06-15.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str event_subscription_name: Name of the event subscription to be found. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+    :param str event_subscription_name: Name of the event subscription to be found.
     :param str partner_topic_name: Name of the partner topic.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
@@ -284,6 +297,7 @@ def get_partner_topic_event_subscription_output(event_subscription_name: Optiona
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getPartnerTopicEventSubscription', __args__, opts=opts, typ=GetPartnerTopicEventSubscriptionResult)
     return __ret__.apply(lambda __response__: GetPartnerTopicEventSubscriptionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         dead_letter_destination=pulumi.get(__response__, 'dead_letter_destination'),
         dead_letter_with_resource_identity=pulumi.get(__response__, 'dead_letter_with_resource_identity'),
         delivery_with_resource_identity=pulumi.get(__response__, 'delivery_with_resource_identity'),

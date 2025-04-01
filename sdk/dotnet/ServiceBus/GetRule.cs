@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Retrieves the description for the specified rule.
         /// 
-        /// Uses Azure REST API version 2022-01-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-native:servicebus:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Retrieves the description for the specified rule.
         /// 
-        /// Uses Azure REST API version 2022-01-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:servicebus:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Retrieves the description for the specified rule.
         /// 
-        /// Uses Azure REST API version 2022-01-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:servicebus:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public string NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -128,6 +128,10 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly Outputs.ActionResponse? Action;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Properties of correlationFilter
         /// </summary>
         public readonly Outputs.CorrelationFilterResponse? CorrelationFilter;
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNative.ServiceBus
         private GetRuleResult(
             Outputs.ActionResponse? action,
 
+            string azureApiVersion,
+
             Outputs.CorrelationFilterResponse? correlationFilter,
 
             string? filterType,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.ServiceBus
             string type)
         {
             Action = action;
+            AzureApiVersion = azureApiVersion;
             CorrelationFilter = correlationFilter;
             FilterType = filterType;
             Id = id;

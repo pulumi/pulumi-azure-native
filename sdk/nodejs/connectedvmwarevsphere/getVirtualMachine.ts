@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Implements virtual machine GET method.
  *
- * Uses Azure REST API version 2022-07-15-preview.
+ * Uses Azure REST API version 2023-03-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetVirtualMachineArgs {
  * Define the virtualMachine.
  */
 export interface GetVirtualMachineResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets the name of the corresponding resource in Kubernetes.
      */
@@ -114,7 +118,7 @@ export interface GetVirtualMachineResult {
      */
     readonly powerState: string;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     readonly provisioningState: string;
     /**
@@ -170,9 +174,9 @@ export interface GetVirtualMachineResult {
 /**
  * Implements virtual machine GET method.
  *
- * Uses Azure REST API version 2022-07-15-preview.
+ * Uses Azure REST API version 2023-03-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

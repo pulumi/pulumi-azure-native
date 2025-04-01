@@ -187,7 +187,7 @@ class CustomRecommendation(pulumi.CustomResource):
         """
         Custom Recommendation
 
-        Uses Azure REST API version 2024-08-01.
+        Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,7 +210,7 @@ class CustomRecommendation(pulumi.CustomResource):
         """
         Custom Recommendation
 
-        Uses Azure REST API version 2024-08-01.
+        Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
 
         :param str resource_name: The name of the resource.
         :param CustomRecommendationArgs args: The arguments to use to populate this resource's properties.
@@ -257,6 +257,7 @@ class CustomRecommendation(pulumi.CustomResource):
             __props__.__dict__["security_issue"] = security_issue
             __props__.__dict__["severity"] = severity
             __props__.__dict__["assessment_key"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -285,6 +286,7 @@ class CustomRecommendation(pulumi.CustomResource):
         __props__ = CustomRecommendationArgs.__new__(CustomRecommendationArgs)
 
         __props__.__dict__["assessment_key"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cloud_providers"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -304,6 +306,14 @@ class CustomRecommendation(pulumi.CustomResource):
         The assessment metadata key used when an assessment is generated for this Recommendation.
         """
         return pulumi.get(self, "assessment_key")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudProviders")

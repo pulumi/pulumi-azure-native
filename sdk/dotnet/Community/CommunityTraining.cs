@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Community
     /// <summary>
     /// A CommunityProviderHub resource
     /// 
-    /// Uses Azure REST API version 2023-11-01.
+    /// Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:community:CommunityTraining")]
     public partial class CommunityTraining : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// To indicate whether the Community Training instance has Disaster Recovery enabled
         /// </summary>

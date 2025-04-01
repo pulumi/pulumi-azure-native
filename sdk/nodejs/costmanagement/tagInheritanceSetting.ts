@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Tag Inheritance Setting definition.
  *
- * Uses Azure REST API version 2022-10-05-preview.
+ * Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-10-05-preview.
  */
 export class TagInheritanceSetting extends pulumi.CustomResource {
     /**
@@ -40,16 +40,16 @@ export class TagInheritanceSetting extends pulumi.CustomResource {
     }
 
     /**
-     * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+     * The Azure API version of the resource.
      */
-    public readonly eTag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies the kind of settings.
      * Expected value is 'taginheritance'.
      */
     public readonly kind!: pulumi.Output<"taginheritance">;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -57,7 +57,7 @@ export class TagInheritanceSetting extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.costmanagement.TagInheritancePropertiesResponse>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -78,14 +78,14 @@ export class TagInheritanceSetting extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
             resourceInputs["kind"] = "taginheritance";
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
-            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -102,10 +102,6 @@ export class TagInheritanceSetting extends pulumi.CustomResource {
  * The set of arguments for constructing a TagInheritanceSetting resource.
  */
 export interface TagInheritanceSettingArgs {
-    /**
-     * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-     */
-    eTag?: pulumi.Input<string>;
     /**
      * Specifies the kind of settings.
      * Expected value is 'taginheritance'.

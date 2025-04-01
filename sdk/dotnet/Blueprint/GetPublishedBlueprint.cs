@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Blueprint
     public sealed class GetPublishedBlueprintResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Name of the published blueprint definition.
         /// </summary>
         public readonly string? BlueprintName;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.Blueprint
 
         [OutputConstructor]
         private GetPublishedBlueprintResult(
+            string azureApiVersion,
+
             string? blueprintName,
 
             string? changeNotes,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.Blueprint
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BlueprintName = blueprintName;
             ChangeNotes = changeNotes;
             Description = description;

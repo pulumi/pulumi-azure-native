@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a Dev Box definition
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDevBoxDefinitionResult> InvokeAsync(GetDevBoxDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevBoxDefinitionResult>("azure-native:devcenter:getDevBoxDefinition", args ?? new GetDevBoxDefinitionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a Dev Box definition
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDevBoxDefinitionResult> Invoke(GetDevBoxDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevBoxDefinitionResult>("azure-native:devcenter:getDevBoxDefinition", args ?? new GetDevBoxDefinitionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a Dev Box definition
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDevBoxDefinitionResult> Invoke(GetDevBoxDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevBoxDefinitionResult>("azure-native:devcenter:getDevBoxDefinition", args ?? new GetDevBoxDefinitionInvokeArgs(), options.WithDefaults());
@@ -104,11 +104,15 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly Outputs.ImageReferenceResponse ActiveImageReference;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
         /// </summary>
         public readonly string? HibernateSupport;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -155,10 +159,16 @@ namespace Pulumi.AzureNative.DevCenter
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Validation status for the Dev Box Definition.
+        /// </summary>
+        public readonly string ValidationStatus;
 
         [OutputConstructor]
         private GetDevBoxDefinitionResult(
             Outputs.ImageReferenceResponse activeImageReference,
+
+            string azureApiVersion,
 
             string? hibernateSupport,
 
@@ -184,9 +194,12 @@ namespace Pulumi.AzureNative.DevCenter
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string validationStatus)
         {
             ActiveImageReference = activeImageReference;
+            AzureApiVersion = azureApiVersion;
             HibernateSupport = hibernateSupport;
             Id = id;
             ImageReference = imageReference;
@@ -200,6 +213,7 @@ namespace Pulumi.AzureNative.DevCenter
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            ValidationStatus = validationStatus;
         }
     }
 }

@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// <summary>
     /// Represents a Database.
     /// 
-    /// Uses Azure REST API version 2022-01-01. In version 1.x of the Azure Native provider, it used API version 2017-12-01.
+    /// Uses Azure REST API version 2023-12-30. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
     /// 
-    /// Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+    /// Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Database")]
     public partial class Database : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The charset of the database.
         /// </summary>
@@ -38,7 +44,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -74,6 +80,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Database" },

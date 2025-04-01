@@ -38,6 +38,10 @@ export interface GetAccessControlRecordArgs {
  */
 export interface GetAccessControlRecordResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;

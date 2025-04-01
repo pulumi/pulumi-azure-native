@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Peerings in a virtual network resource.
  *
- * Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+ * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
- * Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
@@ -54,17 +54,41 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      */
     public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * If we need to verify the provisioning state of the remote gateway.
      */
     public readonly doNotVerifyRemoteGateways!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether only Ipv6 address space is peered for subnet peering.
+     */
+    public readonly enableOnlyIPv6Peering!: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The local address space of the local virtual network that is peered.
+     */
+    public readonly localAddressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
+    /**
+     * List of local subnet names that are subnet peered with remote virtual network.
+     */
+    public readonly localSubnetNames!: pulumi.Output<string[] | undefined>;
+    /**
+     * The current local address space of the local virtual network that is peered.
+     */
+    public readonly localVirtualNetworkAddressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
+    /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Whether complete virtual network address space is peered.
+     */
+    public readonly peerCompleteVnets!: pulumi.Output<boolean | undefined>;
     /**
      * The status of the virtual network peering.
      */
@@ -85,6 +109,10 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * The reference to the remote virtual network's Bgp Communities.
      */
     public readonly remoteBgpCommunities!: pulumi.Output<outputs.network.VirtualNetworkBgpCommunitiesResponse | undefined>;
+    /**
+     * List of remote subnet names from remote virtual network that are subnet peered.
+     */
+    public readonly remoteSubnetNames!: pulumi.Output<string[] | undefined>;
     /**
      * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
      */
@@ -131,12 +159,18 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             resourceInputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
             resourceInputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
             resourceInputs["doNotVerifyRemoteGateways"] = args ? args.doNotVerifyRemoteGateways : undefined;
+            resourceInputs["enableOnlyIPv6Peering"] = args ? args.enableOnlyIPv6Peering : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["localAddressSpace"] = args ? args.localAddressSpace : undefined;
+            resourceInputs["localSubnetNames"] = args ? args.localSubnetNames : undefined;
+            resourceInputs["localVirtualNetworkAddressSpace"] = args ? args.localVirtualNetworkAddressSpace : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["peerCompleteVnets"] = args ? args.peerCompleteVnets : undefined;
             resourceInputs["peeringState"] = args ? args.peeringState : undefined;
             resourceInputs["peeringSyncLevel"] = args ? args.peeringSyncLevel : undefined;
             resourceInputs["remoteAddressSpace"] = args ? args.remoteAddressSpace : undefined;
             resourceInputs["remoteBgpCommunities"] = args ? args.remoteBgpCommunities : undefined;
+            resourceInputs["remoteSubnetNames"] = args ? args.remoteSubnetNames : undefined;
             resourceInputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
             resourceInputs["remoteVirtualNetworkAddressSpace"] = args ? args.remoteVirtualNetworkAddressSpace : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -145,6 +179,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             resourceInputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             resourceInputs["virtualNetworkPeeringName"] = args ? args.virtualNetworkPeeringName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["remoteVirtualNetworkEncryption"] = undefined /*out*/;
@@ -153,14 +188,21 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             resourceInputs["allowForwardedTraffic"] = undefined /*out*/;
             resourceInputs["allowGatewayTransit"] = undefined /*out*/;
             resourceInputs["allowVirtualNetworkAccess"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["doNotVerifyRemoteGateways"] = undefined /*out*/;
+            resourceInputs["enableOnlyIPv6Peering"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["localAddressSpace"] = undefined /*out*/;
+            resourceInputs["localSubnetNames"] = undefined /*out*/;
+            resourceInputs["localVirtualNetworkAddressSpace"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peerCompleteVnets"] = undefined /*out*/;
             resourceInputs["peeringState"] = undefined /*out*/;
             resourceInputs["peeringSyncLevel"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["remoteAddressSpace"] = undefined /*out*/;
             resourceInputs["remoteBgpCommunities"] = undefined /*out*/;
+            resourceInputs["remoteSubnetNames"] = undefined /*out*/;
             resourceInputs["remoteVirtualNetwork"] = undefined /*out*/;
             resourceInputs["remoteVirtualNetworkAddressSpace"] = undefined /*out*/;
             resourceInputs["remoteVirtualNetworkEncryption"] = undefined /*out*/;
@@ -196,13 +238,33 @@ export interface VirtualNetworkPeeringArgs {
      */
     doNotVerifyRemoteGateways?: pulumi.Input<boolean>;
     /**
+     * Whether only Ipv6 address space is peered for subnet peering.
+     */
+    enableOnlyIPv6Peering?: pulumi.Input<boolean>;
+    /**
      * Resource ID.
      */
     id?: pulumi.Input<string>;
     /**
+     * The local address space of the local virtual network that is peered.
+     */
+    localAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
+    /**
+     * List of local subnet names that are subnet peered with remote virtual network.
+     */
+    localSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The current local address space of the local virtual network that is peered.
+     */
+    localVirtualNetworkAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
+    /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether complete virtual network address space is peered.
+     */
+    peerCompleteVnets?: pulumi.Input<boolean>;
     /**
      * The status of the virtual network peering.
      */
@@ -219,6 +281,10 @@ export interface VirtualNetworkPeeringArgs {
      * The reference to the remote virtual network's Bgp Communities.
      */
     remoteBgpCommunities?: pulumi.Input<inputs.network.VirtualNetworkBgpCommunitiesArgs>;
+    /**
+     * List of remote subnet names from remote virtual network that are subnet peered.
+     */
+    remoteSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
      */

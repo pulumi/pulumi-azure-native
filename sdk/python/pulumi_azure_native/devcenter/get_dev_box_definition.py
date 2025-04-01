@@ -27,10 +27,13 @@ class GetDevBoxDefinitionResult:
     """
     Represents a definition for a Developer Machine.
     """
-    def __init__(__self__, active_image_reference=None, hibernate_support=None, id=None, image_reference=None, image_validation_error_details=None, image_validation_status=None, location=None, name=None, os_storage_type=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, active_image_reference=None, azure_api_version=None, hibernate_support=None, id=None, image_reference=None, image_validation_error_details=None, image_validation_status=None, location=None, name=None, os_storage_type=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None, validation_status=None):
         if active_image_reference and not isinstance(active_image_reference, dict):
             raise TypeError("Expected argument 'active_image_reference' to be a dict")
         pulumi.set(__self__, "active_image_reference", active_image_reference)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if hibernate_support and not isinstance(hibernate_support, str):
             raise TypeError("Expected argument 'hibernate_support' to be a str")
         pulumi.set(__self__, "hibernate_support", hibernate_support)
@@ -70,6 +73,9 @@ class GetDevBoxDefinitionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if validation_status and not isinstance(validation_status, str):
+            raise TypeError("Expected argument 'validation_status' to be a str")
+        pulumi.set(__self__, "validation_status", validation_status)
 
     @property
     @pulumi.getter(name="activeImageReference")
@@ -78,6 +84,14 @@ class GetDevBoxDefinitionResult:
         Image reference information for the currently active image (only populated during updates).
         """
         return pulumi.get(self, "active_image_reference")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hibernateSupport")
@@ -91,7 +105,7 @@ class GetDevBoxDefinitionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -183,6 +197,14 @@ class GetDevBoxDefinitionResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="validationStatus")
+    def validation_status(self) -> str:
+        """
+        Validation status for the Dev Box Definition.
+        """
+        return pulumi.get(self, "validation_status")
+
 
 class AwaitableGetDevBoxDefinitionResult(GetDevBoxDefinitionResult):
     # pylint: disable=using-constant-test
@@ -191,6 +213,7 @@ class AwaitableGetDevBoxDefinitionResult(GetDevBoxDefinitionResult):
             yield self
         return GetDevBoxDefinitionResult(
             active_image_reference=self.active_image_reference,
+            azure_api_version=self.azure_api_version,
             hibernate_support=self.hibernate_support,
             id=self.id,
             image_reference=self.image_reference,
@@ -203,7 +226,8 @@ class AwaitableGetDevBoxDefinitionResult(GetDevBoxDefinitionResult):
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            validation_status=self.validation_status)
 
 
 def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
@@ -213,9 +237,9 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
     """
     Gets a Dev Box definition
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str dev_box_definition_name: The name of the Dev Box definition.
@@ -231,6 +255,7 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
 
     return AwaitableGetDevBoxDefinitionResult(
         active_image_reference=pulumi.get(__ret__, 'active_image_reference'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         hibernate_support=pulumi.get(__ret__, 'hibernate_support'),
         id=pulumi.get(__ret__, 'id'),
         image_reference=pulumi.get(__ret__, 'image_reference'),
@@ -243,7 +268,8 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        validation_status=pulumi.get(__ret__, 'validation_status'))
 def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input[str]] = None,
                                   dev_center_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -251,9 +277,9 @@ def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input
     """
     Gets a Dev Box definition
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+    Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str dev_box_definition_name: The name of the Dev Box definition.
@@ -268,6 +294,7 @@ def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getDevBoxDefinition', __args__, opts=opts, typ=GetDevBoxDefinitionResult)
     return __ret__.apply(lambda __response__: GetDevBoxDefinitionResult(
         active_image_reference=pulumi.get(__response__, 'active_image_reference'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         hibernate_support=pulumi.get(__response__, 'hibernate_support'),
         id=pulumi.get(__response__, 'id'),
         image_reference=pulumi.get(__response__, 'image_reference'),
@@ -280,4 +307,5 @@ def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input
         sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        validation_status=pulumi.get(__response__, 'validation_status')))

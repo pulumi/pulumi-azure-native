@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get properties of an event subscription of a namespace topic.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNamespaceTopicEventSubscription(args: GetNamespaceTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -26,7 +26,7 @@ export function getNamespaceTopicEventSubscription(args: GetNamespaceTopicEventS
 
 export interface GetNamespaceTopicEventSubscriptionArgs {
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription to be found.
      */
     eventSubscriptionName: string;
     /**
@@ -48,6 +48,10 @@ export interface GetNamespaceTopicEventSubscriptionArgs {
  */
 export interface GetNamespaceTopicEventSubscriptionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Information about the delivery configuration of the event subscription.
      */
     readonly deliveryConfiguration?: outputs.eventgrid.DeliveryConfigurationResponse;
@@ -55,6 +59,10 @@ export interface GetNamespaceTopicEventSubscriptionResult {
      * The event delivery schema for the event subscription.
      */
     readonly eventDeliverySchema?: string;
+    /**
+     * Expiration time of the event subscription.
+     */
+    readonly expirationTimeUtc?: string;
     /**
      * Information about the filter for the event subscription.
      */
@@ -72,7 +80,7 @@ export interface GetNamespaceTopicEventSubscriptionResult {
      */
     readonly provisioningState: string;
     /**
-     * The system metadata relating to Event Subscription resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -83,9 +91,9 @@ export interface GetNamespaceTopicEventSubscriptionResult {
 /**
  * Get properties of an event subscription of a namespace topic.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNamespaceTopicEventSubscriptionOutput(args: GetNamespaceTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceTopicEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -99,7 +107,7 @@ export function getNamespaceTopicEventSubscriptionOutput(args: GetNamespaceTopic
 
 export interface GetNamespaceTopicEventSubscriptionOutputArgs {
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription to be found.
      */
     eventSubscriptionName: pulumi.Input<string>;
     /**

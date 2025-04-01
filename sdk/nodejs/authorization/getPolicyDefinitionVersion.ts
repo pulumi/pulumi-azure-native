@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * This operation retrieves the policy definition version in the given subscription with the given name.
  *
- * Uses Azure REST API version 2023-04-01.
+ * Uses Azure REST API version 2025-01-01.
  *
- * Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
+ * Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPolicyDefinitionVersion(args: GetPolicyDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetPolicyDefinitionVersionArgs {
  * The ID of the policy definition version.
  */
 export interface GetPolicyDefinitionVersionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The policy definition description.
      */
@@ -89,9 +93,9 @@ export interface GetPolicyDefinitionVersionResult {
 /**
  * This operation retrieves the policy definition version in the given subscription with the given name.
  *
- * Uses Azure REST API version 2023-04-01.
+ * Uses Azure REST API version 2025-01-01.
  *
- * Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
+ * Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPolicyDefinitionVersionOutput(args: GetPolicyDefinitionVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyDefinitionVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

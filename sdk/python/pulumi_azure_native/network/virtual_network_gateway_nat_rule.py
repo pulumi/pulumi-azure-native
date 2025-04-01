@@ -204,9 +204,9 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         """
         VirtualNetworkGatewayNatRule Resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,9 +230,9 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         """
         VirtualNetworkGatewayNatRule Resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayNatRuleInitArgs args: The arguments to use to populate this resource's properties.
@@ -282,6 +282,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             if virtual_network_gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_gateway_name'")
             __props__.__dict__["virtual_network_gateway_name"] = virtual_network_gateway_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230201:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230401:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230501:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230601:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230901:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20231101:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20240101:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20240301:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20240501:VirtualNetworkGatewayNatRule")])
@@ -308,6 +309,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
 
         __props__ = VirtualNetworkGatewayNatRuleInitArgs.__new__(VirtualNetworkGatewayNatRuleInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["external_mappings"] = None
         __props__.__dict__["internal_mappings"] = None
@@ -317,6 +319,14 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["type"] = None
         return VirtualNetworkGatewayNatRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

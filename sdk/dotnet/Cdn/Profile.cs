@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Cdn
     /// <summary>
     /// A profile is a logical grouping of endpoints that share the same settings.
     /// 
-    /// Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+    /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Profile")]
     public partial class Profile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Key-Value pair representing additional properties for profiles.
         /// </summary>
@@ -48,6 +54,12 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
+        /// </summary>
+        [Output("logScrubbing")]
+        public Output<Outputs.ProfileLogScrubbingResponse?> LogScrubbing { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -177,6 +189,12 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
+        /// </summary>
+        [Input("logScrubbing")]
+        public Input<Inputs.ProfileLogScrubbingArgs>? LogScrubbing { get; set; }
 
         /// <summary>
         /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.

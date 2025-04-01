@@ -27,7 +27,10 @@ class GetDiagnosticServiceResult:
     """
     MQ diagnostic services resource
     """
-    def __init__(__self__, data_export_frequency_seconds=None, extended_location=None, id=None, image=None, location=None, log_format=None, log_level=None, max_data_storage_size=None, metrics_port=None, name=None, open_telemetry_traces_collector_addr=None, provisioning_state=None, stale_data_timeout_seconds=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_export_frequency_seconds=None, extended_location=None, id=None, image=None, location=None, log_format=None, log_level=None, max_data_storage_size=None, metrics_port=None, name=None, open_telemetry_traces_collector_addr=None, provisioning_state=None, stale_data_timeout_seconds=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_export_frequency_seconds and not isinstance(data_export_frequency_seconds, int):
             raise TypeError("Expected argument 'data_export_frequency_seconds' to be a int")
         pulumi.set(__self__, "data_export_frequency_seconds", data_export_frequency_seconds)
@@ -76,6 +79,14 @@ class GetDiagnosticServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataExportFrequencySeconds")
@@ -212,6 +223,7 @@ class AwaitableGetDiagnosticServiceResult(GetDiagnosticServiceResult):
         if False:
             yield self
         return GetDiagnosticServiceResult(
+            azure_api_version=self.azure_api_version,
             data_export_frequency_seconds=self.data_export_frequency_seconds,
             extended_location=self.extended_location,
             id=self.id,
@@ -252,6 +264,7 @@ def get_diagnostic_service(diagnostic_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:iotoperationsmq:getDiagnosticService', __args__, opts=opts, typ=GetDiagnosticServiceResult).value
 
     return AwaitableGetDiagnosticServiceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_export_frequency_seconds=pulumi.get(__ret__, 'data_export_frequency_seconds'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
@@ -289,6 +302,7 @@ def get_diagnostic_service_output(diagnostic_service_name: Optional[pulumi.Input
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq:getDiagnosticService', __args__, opts=opts, typ=GetDiagnosticServiceResult)
     return __ret__.apply(lambda __response__: GetDiagnosticServiceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_export_frequency_seconds=pulumi.get(__response__, 'data_export_frequency_seconds'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),

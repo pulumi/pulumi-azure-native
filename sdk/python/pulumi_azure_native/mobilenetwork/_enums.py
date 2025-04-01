@@ -11,6 +11,7 @@ __all__ = [
     'DesiredInstallationState',
     'ManagedServiceIdentityType',
     'NaptEnabled',
+    'NasEncryptionType',
     'PduSessionType',
     'PlatformType',
     'PreemptionCapability',
@@ -111,6 +112,24 @@ class NaptEnabled(str, Enum):
     DISABLED = "Disabled"
     """
     NAPT is disabled
+    """
+
+
+class NasEncryptionType(str, Enum):
+    """
+    The supported NAS Encryption types.
+    """
+    NEA0_EEA0 = "NEA0/EEA0"
+    """
+    NAS signaling is not encrypted.
+    """
+    NEA1_EEA1 = "NEA1/EEA1"
+    """
+    NAS signaling is encrypted with SNOW 3G cipher.
+    """
+    NEA2_EEA2 = "NEA2/EEA2"
+    """
+     NAS signaling is encrypted with AES cipher.
     """
 
 

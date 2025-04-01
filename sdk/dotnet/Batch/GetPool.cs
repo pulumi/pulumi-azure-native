@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// Gets information about the specified pool.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        /// Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:batch:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// Gets information about the specified pool.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        /// Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// Gets information about the specified pool.
         /// 
-        /// Uses Azure REST API version 2023-05-01.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        /// Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -114,6 +114,10 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly Outputs.AutoScaleRunResponse AutoScaleRun;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         /// 
         /// Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
@@ -123,9 +127,6 @@ namespace Pulumi.AzureNative.Batch
         public readonly int CurrentDedicatedNodes;
         public readonly int CurrentLowPriorityNodes;
         public readonly string CurrentNodeCommunicationMode;
-        /// <summary>
-        /// Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
-        /// </summary>
         public readonly Outputs.DeploymentConfigurationResponse? DeploymentConfiguration;
         /// <summary>
         /// The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
@@ -174,6 +175,10 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly Outputs.ResizeOperationStatusResponse ResizeOperationStatus;
         /// <summary>
+        /// The user-defined tags to be associated with the Azure Batch Pool. When specified, these tags are propagated to the backing Azure resources associated with the pool. This property can only be specified when the Batch account was created with the poolAllocationMode property set to 'UserSubscription'.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ResourceTags;
+        /// <summary>
         /// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         /// </summary>
         public readonly Outputs.ScaleSettingsResponse? ScaleSettings;
@@ -181,6 +186,10 @@ namespace Pulumi.AzureNative.Batch
         /// In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
         /// </summary>
         public readonly Outputs.StartTaskResponse? StartTask;
+        /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// If omitted, the default value is Default.
         /// </summary>
@@ -197,9 +206,13 @@ namespace Pulumi.AzureNative.Batch
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Describes an upgrade policy - automatic, manual, or rolling.
+        /// </summary>
+        public readonly Outputs.UpgradePolicyResponse? UpgradePolicy;
         public readonly ImmutableArray<Outputs.UserAccountResponse> UserAccounts;
         /// <summary>
-        /// For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        /// For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         /// </summary>
         public readonly string? VmSize;
 
@@ -214,6 +227,8 @@ namespace Pulumi.AzureNative.Batch
             ImmutableArray<Outputs.ApplicationPackageReferenceResponse> applicationPackages,
 
             Outputs.AutoScaleRunResponse autoScaleRun,
+
+            string azureApiVersion,
 
             ImmutableArray<Outputs.CertificateReferenceResponse> certificates,
 
@@ -253,9 +268,13 @@ namespace Pulumi.AzureNative.Batch
 
             Outputs.ResizeOperationStatusResponse resizeOperationStatus,
 
+            ImmutableDictionary<string, string>? resourceTags,
+
             Outputs.ScaleSettingsResponse? scaleSettings,
 
             Outputs.StartTaskResponse? startTask,
+
+            ImmutableDictionary<string, string>? tags,
 
             string? targetNodeCommunicationMode,
 
@@ -264,6 +283,8 @@ namespace Pulumi.AzureNative.Batch
             int? taskSlotsPerNode,
 
             string type,
+
+            Outputs.UpgradePolicyResponse? upgradePolicy,
 
             ImmutableArray<Outputs.UserAccountResponse> userAccounts,
 
@@ -274,6 +295,7 @@ namespace Pulumi.AzureNative.Batch
             ApplicationLicenses = applicationLicenses;
             ApplicationPackages = applicationPackages;
             AutoScaleRun = autoScaleRun;
+            AzureApiVersion = azureApiVersion;
             Certificates = certificates;
             CreationTime = creationTime;
             CurrentDedicatedNodes = currentDedicatedNodes;
@@ -293,12 +315,15 @@ namespace Pulumi.AzureNative.Batch
             ProvisioningState = provisioningState;
             ProvisioningStateTransitionTime = provisioningStateTransitionTime;
             ResizeOperationStatus = resizeOperationStatus;
+            ResourceTags = resourceTags;
             ScaleSettings = scaleSettings;
             StartTask = startTask;
+            Tags = tags;
             TargetNodeCommunicationMode = targetNodeCommunicationMode;
             TaskSchedulingPolicy = taskSchedulingPolicy;
             TaskSlotsPerNode = taskSlotsPerNode;
             Type = type;
+            UpgradePolicy = upgradePolicy;
             UserAccounts = userAccounts;
             VmSize = vmSize;
         }

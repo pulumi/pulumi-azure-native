@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
  *
- * Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+ * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AvailabilitySet extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class AvailabilitySet extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -62,6 +66,10 @@ export class AvailabilitySet extends pulumi.CustomResource {
      */
     public readonly proximityPlacementGroup!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
+     * Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
+     */
+    public readonly scheduledEventsPolicy!: pulumi.Output<outputs.compute.ScheduledEventsPolicyResponse | undefined>;
+    /**
      * Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
      */
     public readonly sku!: pulumi.Output<outputs.compute.SkuResponse | undefined>;
@@ -77,6 +85,10 @@ export class AvailabilitySet extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Describes the migration properties on the Availability Set.
+     */
+    public /*out*/ readonly virtualMachineScaleSetMigrationInfo!: pulumi.Output<outputs.compute.VirtualMachineScaleSetMigrationInfoResponse>;
     /**
      * A list of references to all virtual machines in the availability set.
      */
@@ -102,22 +114,28 @@ export class AvailabilitySet extends pulumi.CustomResource {
             resourceInputs["platformUpdateDomainCount"] = args ? args.platformUpdateDomainCount : undefined;
             resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scheduledEventsPolicy"] = args ? args.scheduledEventsPolicy : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualMachines"] = args ? args.virtualMachines : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachineScaleSetMigrationInfo"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["platformFaultDomainCount"] = undefined /*out*/;
             resourceInputs["platformUpdateDomainCount"] = undefined /*out*/;
             resourceInputs["proximityPlacementGroup"] = undefined /*out*/;
+            resourceInputs["scheduledEventsPolicy"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachineScaleSetMigrationInfo"] = undefined /*out*/;
             resourceInputs["virtualMachines"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -155,6 +173,10 @@ export interface AvailabilitySetArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
+     */
+    scheduledEventsPolicy?: pulumi.Input<inputs.compute.ScheduledEventsPolicyArgs>;
     /**
      * Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
      */

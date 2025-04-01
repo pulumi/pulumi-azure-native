@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a client.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2025-02-15.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetClientResult> InvokeAsync(GetClientArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClientResult>("azure-native:eventgrid:getClient", args ?? new GetClientArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a client.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2025-02-15.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClientResult> Invoke(GetClientInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientResult>("azure-native:eventgrid:getClient", args ?? new GetClientInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a client.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2025-02-15.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetClientResult> Invoke(GetClientInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientResult>("azure-native:eventgrid:getClient", args ?? new GetClientInvokeArgs(), options.WithDefaults());
@@ -106,13 +106,13 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly object? Attributes;
         /// <summary>
-        /// Authentication information for the client.
-        /// </summary>
-        public readonly Outputs.ClientAuthenticationResponse? Authentication;
-        /// <summary>
         /// The name presented by the client for authentication. The default value is the name of the resource.
         /// </summary>
         public readonly string? AuthenticationName;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The client certificate authentication information.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? State;
         /// <summary>
-        /// The system metadata relating to the Client resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -150,9 +150,9 @@ namespace Pulumi.AzureNative.EventGrid
         private GetClientResult(
             object? attributes,
 
-            Outputs.ClientAuthenticationResponse? authentication,
-
             string? authenticationName,
+
+            string azureApiVersion,
 
             Outputs.ClientCertificateAuthenticationResponse? clientCertificateAuthentication,
 
@@ -171,8 +171,8 @@ namespace Pulumi.AzureNative.EventGrid
             string type)
         {
             Attributes = attributes;
-            Authentication = authentication;
             AuthenticationName = authenticationName;
+            AzureApiVersion = azureApiVersion;
             ClientCertificateAuthentication = clientCertificateAuthentication;
             Description = description;
             Id = id;

@@ -12,11 +12,19 @@ namespace Pulumi.AzureNative.Automanage
     /// <summary>
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
     /// 
-    /// Uses Azure REST API version 2022-05-04.
+    /// Uses Azure REST API version 2022-05-04. In version 2.x of the Azure Native provider, it used API version 2022-05-04.
+    /// 
+    /// Other available API versions: 2021-04-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automanage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage:ConfigurationProfileHCIAssignment")]
     public partial class ConfigurationProfileHCIAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Azure resource id. Indicates if this resource is managed by another Azure resource.
         /// </summary>

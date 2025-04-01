@@ -27,10 +27,13 @@ class GetContactResult:
     """
     Customer creates a contact resource for a spacecraft resource.
     """
-    def __init__(__self__, antenna_configuration=None, contact_profile=None, end_azimuth_degrees=None, end_elevation_degrees=None, error_message=None, ground_station_name=None, id=None, maximum_elevation_degrees=None, name=None, reservation_end_time=None, reservation_start_time=None, rx_end_time=None, rx_start_time=None, start_azimuth_degrees=None, start_elevation_degrees=None, status=None, system_data=None, tx_end_time=None, tx_start_time=None, type=None):
+    def __init__(__self__, antenna_configuration=None, azure_api_version=None, contact_profile=None, end_azimuth_degrees=None, end_elevation_degrees=None, error_message=None, ground_station_name=None, id=None, maximum_elevation_degrees=None, name=None, reservation_end_time=None, reservation_start_time=None, rx_end_time=None, rx_start_time=None, start_azimuth_degrees=None, start_elevation_degrees=None, status=None, system_data=None, tx_end_time=None, tx_start_time=None, type=None):
         if antenna_configuration and not isinstance(antenna_configuration, dict):
             raise TypeError("Expected argument 'antenna_configuration' to be a dict")
         pulumi.set(__self__, "antenna_configuration", antenna_configuration)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if contact_profile and not isinstance(contact_profile, dict):
             raise TypeError("Expected argument 'contact_profile' to be a dict")
         pulumi.set(__self__, "contact_profile", contact_profile)
@@ -96,6 +99,14 @@ class GetContactResult:
         The configuration associated with the allocated antenna.
         """
         return pulumi.get(self, "antenna_configuration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contactProfile")
@@ -257,6 +268,7 @@ class AwaitableGetContactResult(GetContactResult):
             yield self
         return GetContactResult(
             antenna_configuration=self.antenna_configuration,
+            azure_api_version=self.azure_api_version,
             contact_profile=self.contact_profile,
             end_azimuth_degrees=self.end_azimuth_degrees,
             end_elevation_degrees=self.end_elevation_degrees,
@@ -287,8 +299,6 @@ def get_contact(contact_name: Optional[str] = None,
 
     Uses Azure REST API version 2022-11-01.
 
-    Other available API versions: 2022-03-01.
-
 
     :param str contact_name: Contact name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -303,6 +313,7 @@ def get_contact(contact_name: Optional[str] = None,
 
     return AwaitableGetContactResult(
         antenna_configuration=pulumi.get(__ret__, 'antenna_configuration'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         contact_profile=pulumi.get(__ret__, 'contact_profile'),
         end_azimuth_degrees=pulumi.get(__ret__, 'end_azimuth_degrees'),
         end_elevation_degrees=pulumi.get(__ret__, 'end_elevation_degrees'),
@@ -331,8 +342,6 @@ def get_contact_output(contact_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2022-11-01.
 
-    Other available API versions: 2022-03-01.
-
 
     :param str contact_name: Contact name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -346,6 +355,7 @@ def get_contact_output(contact_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:orbital:getContact', __args__, opts=opts, typ=GetContactResult)
     return __ret__.apply(lambda __response__: GetContactResult(
         antenna_configuration=pulumi.get(__response__, 'antenna_configuration'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         contact_profile=pulumi.get(__response__, 'contact_profile'),
         end_azimuth_degrees=pulumi.get(__response__, 'end_azimuth_degrees'),
         end_elevation_degrees=pulumi.get(__response__, 'end_elevation_degrees'),

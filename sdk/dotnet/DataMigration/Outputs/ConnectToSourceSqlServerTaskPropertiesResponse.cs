@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly string State;
         /// <summary>
+        /// Task id 
+        /// </summary>
+        public readonly string? TaskId;
+        /// <summary>
         /// Task type.
         /// Expected value is 'ConnectToSource.SqlServer'.
         /// </summary>
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string state,
 
+            string? taskId,
+
             string taskType)
         {
             ClientData = clientData;
@@ -68,6 +74,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
             Input = input;
             Output = output;
             State = state;
+            TaskId = taskId;
             TaskType = taskType;
         }
     }

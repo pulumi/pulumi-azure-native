@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get the content callback url.
  *
  * Uses Azure REST API version 2019-05-01.
+ *
+ * Other available API versions: 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listIntegrationAccountMapContentCallbackUrl(args: ListIntegrationAccountMapContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountMapContentCallbackUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,6 +81,8 @@ export interface ListIntegrationAccountMapContentCallbackUrlResult {
  * Get the content callback url.
  *
  * Uses Azure REST API version 2019-05-01.
+ *
+ * Other available API versions: 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listIntegrationAccountMapContentCallbackUrlOutput(args: ListIntegrationAccountMapContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIntegrationAccountMapContentCallbackUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

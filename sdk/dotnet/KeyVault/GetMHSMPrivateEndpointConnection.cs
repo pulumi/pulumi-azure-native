@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// Gets the specified private endpoint connection associated with the managed HSM Pool.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMHSMPrivateEndpointConnectionResult> InvokeAsync(GetMHSMPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMHSMPrivateEndpointConnectionResult>("azure-native:keyvault:getMHSMPrivateEndpointConnection", args ?? new GetMHSMPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// Gets the specified private endpoint connection associated with the managed HSM Pool.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMHSMPrivateEndpointConnectionResult> Invoke(GetMHSMPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMHSMPrivateEndpointConnectionResult>("azure-native:keyvault:getMHSMPrivateEndpointConnection", args ?? new GetMHSMPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// Gets the specified private endpoint connection associated with the managed HSM Pool.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMHSMPrivateEndpointConnectionResult> Invoke(GetMHSMPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMHSMPrivateEndpointConnectionResult>("azure-native:keyvault:getMHSMPrivateEndpointConnection", args ?? new GetMHSMPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.KeyVault
     public sealed class GetMHSMPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Modified whenever there is a change in the state of private endpoint connection.
         /// </summary>
         public readonly string? Etag;
@@ -107,6 +111,10 @@ namespace Pulumi.AzureNative.KeyVault
         /// The Azure Resource Manager resource ID for the managed HSM Pool.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities)
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The supported Azure location where the managed HSM Pool should be created.
         /// </summary>
@@ -146,9 +154,13 @@ namespace Pulumi.AzureNative.KeyVault
 
         [OutputConstructor]
         private GetMHSMPrivateEndpointConnectionResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
 
@@ -168,8 +180,10 @@ namespace Pulumi.AzureNative.KeyVault
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             PrivateEndpoint = privateEndpoint;

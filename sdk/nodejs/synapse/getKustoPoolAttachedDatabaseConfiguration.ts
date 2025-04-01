@@ -50,6 +50,10 @@ export interface GetKustoPoolAttachedDatabaseConfigurationResult {
      */
     readonly attachedDatabaseNames: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
      */
     readonly databaseName: string;

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2023-11-01-preview.
+ * Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
  */
 export class ActionRequest extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class ActionRequest extends pulumi.CustomResource {
         return obj['__pulumiType'] === ActionRequest.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * The name of the resource
@@ -83,6 +87,7 @@ export class ActionRequest extends pulumi.CustomResource {
             resourceInputs["requestType"] = args ? args.requestType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -90,6 +95,7 @@ export class ActionRequest extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["preReleaseAccessRequestSpec"] = undefined /*out*/;

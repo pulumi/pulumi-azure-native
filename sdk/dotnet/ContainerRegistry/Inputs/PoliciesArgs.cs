@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     public sealed class PoliciesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The policy for using ARM audience token for a container registry.
+        /// </summary>
+        [Input("azureADAuthenticationAsArmPolicy")]
+        public Input<Inputs.AzureADAuthenticationAsArmPolicyArgs>? AzureADAuthenticationAsArmPolicy { get; set; }
+
+        /// <summary>
         /// The export policy for a container registry.
         /// </summary>
         [Input("exportPolicy")]
@@ -32,6 +38,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.RetentionPolicyArgs>? RetentionPolicy { get; set; }
+
+        /// <summary>
+        /// The soft delete policy for a container registry.
+        /// </summary>
+        [Input("softDeletePolicy")]
+        public Input<Inputs.SoftDeletePolicyArgs>? SoftDeletePolicy { get; set; }
 
         /// <summary>
         /// The content trust policy for a container registry.

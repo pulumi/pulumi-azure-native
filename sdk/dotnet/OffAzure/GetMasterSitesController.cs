@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Get a MasterSite
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMasterSitesControllerResult> InvokeAsync(GetMasterSitesControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMasterSitesControllerResult>("azure-native:offazure:getMasterSitesController", args ?? new GetMasterSitesControllerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Get a MasterSite
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMasterSitesControllerResult> Invoke(GetMasterSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMasterSitesControllerResult>("azure-native:offazure:getMasterSitesController", args ?? new GetMasterSitesControllerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Get a MasterSite
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMasterSitesControllerResult> Invoke(GetMasterSitesControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMasterSitesControllerResult>("azure-native:offazure:getMasterSitesController", args ?? new GetMasterSitesControllerInvokeArgs(), options.WithDefaults());
@@ -93,6 +93,10 @@ namespace Pulumi.AzureNative.OffAzure
         /// </summary>
         public readonly bool? AllowMultipleSites;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets a value for customer storage account ARM id.
         /// </summary>
         public readonly string? CustomerStorageAccountArmId;
@@ -147,6 +151,8 @@ namespace Pulumi.AzureNative.OffAzure
         private GetMasterSitesControllerResult(
             bool? allowMultipleSites,
 
+            string azureApiVersion,
+
             string? customerStorageAccountArmId,
 
             string id,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNative.OffAzure
             string type)
         {
             AllowMultipleSites = allowMultipleSites;
+            AzureApiVersion = azureApiVersion;
             CustomerStorageAccountArmId = customerStorageAccountArmId;
             Id = id;
             Location = location;

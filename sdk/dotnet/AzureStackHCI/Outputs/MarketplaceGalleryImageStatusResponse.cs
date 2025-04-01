@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// The download status of the gallery image
         /// </summary>
-        public readonly Outputs.MarketplaceGalleryImageStatusResponseDownloadStatus? DownloadStatus;
+        public readonly Outputs.MarketplaceGalleryImageStatusDownloadStatusResponse? DownloadStatus;
         /// <summary>
         /// MarketplaceGalleryImage provisioning error code
         /// </summary>
@@ -32,11 +32,14 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// The progress of the operation in percentage
         /// </summary>
         public readonly double? ProgressPercentage;
-        public readonly Outputs.MarketplaceGalleryImageStatusResponseProvisioningStatus? ProvisioningStatus;
+        /// <summary>
+        /// Provisioning status of marketplace gallery image
+        /// </summary>
+        public readonly Outputs.MarketplaceGalleryImageStatusProvisioningStatusResponse? ProvisioningStatus;
 
         [OutputConstructor]
         private MarketplaceGalleryImageStatusResponse(
-            Outputs.MarketplaceGalleryImageStatusResponseDownloadStatus? downloadStatus,
+            Outputs.MarketplaceGalleryImageStatusDownloadStatusResponse? downloadStatus,
 
             string? errorCode,
 
@@ -44,7 +47,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             double? progressPercentage,
 
-            Outputs.MarketplaceGalleryImageStatusResponseProvisioningStatus? provisioningStatus)
+            Outputs.MarketplaceGalleryImageStatusProvisioningStatusResponse? provisioningStatus)
         {
             DownloadStatus = downloadStatus;
             ErrorCode = errorCode;

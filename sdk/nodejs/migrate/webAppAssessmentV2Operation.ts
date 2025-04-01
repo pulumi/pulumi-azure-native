@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Web app Assessment REST resource.
  *
- * Uses Azure REST API version 2023-04-01-preview.
+ * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
  *
- * Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WebAppAssessmentV2Operation extends pulumi.CustomResource {
     /**
@@ -53,6 +53,10 @@ export class WebAppAssessmentV2Operation extends pulumi.CustomResource {
      * Assessment type of the assessment.
      */
     public readonly assessmentType!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
@@ -215,6 +219,7 @@ export class WebAppAssessmentV2Operation extends pulumi.CustomResource {
             resourceInputs["scalingFactor"] = args ? args.scalingFactor : undefined;
             resourceInputs["sizingCriterion"] = args ? args.sizingCriterion : undefined;
             resourceInputs["timeRange"] = args ? args.timeRange : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["pricesTimestamp"] = undefined /*out*/;
@@ -229,6 +234,7 @@ export class WebAppAssessmentV2Operation extends pulumi.CustomResource {
             resourceInputs["appSvcContainerSettings"] = undefined /*out*/;
             resourceInputs["appSvcNativeSettings"] = undefined /*out*/;
             resourceInputs["assessmentType"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureLocation"] = undefined /*out*/;
             resourceInputs["azureOfferCode"] = undefined /*out*/;
             resourceInputs["azureSecurityOfferingType"] = undefined /*out*/;

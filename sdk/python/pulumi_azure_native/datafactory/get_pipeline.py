@@ -27,13 +27,16 @@ class GetPipelineResult:
     """
     Pipeline resource type.
     """
-    def __init__(__self__, activities=None, annotations=None, concurrency=None, description=None, etag=None, folder=None, id=None, name=None, parameters=None, policy=None, run_dimensions=None, type=None, variables=None):
+    def __init__(__self__, activities=None, annotations=None, azure_api_version=None, concurrency=None, description=None, etag=None, folder=None, id=None, name=None, parameters=None, policy=None, run_dimensions=None, type=None, variables=None):
         if activities and not isinstance(activities, list):
             raise TypeError("Expected argument 'activities' to be a list")
         pulumi.set(__self__, "activities", activities)
         if annotations and not isinstance(annotations, list):
             raise TypeError("Expected argument 'annotations' to be a list")
         pulumi.set(__self__, "annotations", annotations)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if concurrency and not isinstance(concurrency, int):
             raise TypeError("Expected argument 'concurrency' to be a int")
         pulumi.set(__self__, "concurrency", concurrency)
@@ -83,6 +86,14 @@ class GetPipelineResult:
         List of tags that can be used for describing the Pipeline.
         """
         return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -181,6 +192,7 @@ class AwaitableGetPipelineResult(GetPipelineResult):
         return GetPipelineResult(
             activities=self.activities,
             annotations=self.annotations,
+            azure_api_version=self.azure_api_version,
             concurrency=self.concurrency,
             description=self.description,
             etag=self.etag,
@@ -218,6 +230,7 @@ def get_pipeline(factory_name: Optional[str] = None,
     return AwaitableGetPipelineResult(
         activities=pulumi.get(__ret__, 'activities'),
         annotations=pulumi.get(__ret__, 'annotations'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         concurrency=pulumi.get(__ret__, 'concurrency'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -252,6 +265,7 @@ def get_pipeline_output(factory_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetPipelineResult(
         activities=pulumi.get(__response__, 'activities'),
         annotations=pulumi.get(__response__, 'annotations'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         concurrency=pulumi.get(__response__, 'concurrency'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),

@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.EventGrid
     /// <summary>
     /// The Client group resource.
     /// 
-    /// Uses Azure REST API version 2023-06-01-preview.
+    /// Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:ClientGroup")]
     public partial class ClientGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Description for the Client Group resource.
         /// </summary>
@@ -45,7 +51,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string?> Query { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to the ClientGroup resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

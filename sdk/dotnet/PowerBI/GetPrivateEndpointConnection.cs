@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.PowerBI
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies the id of the resource.
         /// </summary>
         public readonly string Id;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.PowerBI
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.PowerBI
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;

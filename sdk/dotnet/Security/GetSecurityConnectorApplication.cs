@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetSecurityConnectorApplicationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// description of the application
         /// </summary>
         public readonly string? Description;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetSecurityConnectorApplicationResult(
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.Security
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Id = id;

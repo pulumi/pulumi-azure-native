@@ -311,7 +311,7 @@ def get_product(product_name: Optional[str] = None,
 
     Uses Azure REST API version 2022-06-01.
 
-    Other available API versions: 2020-06-01-preview.
+    Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str product_name: Name of the product.
@@ -357,7 +357,7 @@ def get_product_output(product_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2022-06-01.
 
-    Other available API versions: 2020-06-01-preview.
+    Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str product_name: Name of the product.

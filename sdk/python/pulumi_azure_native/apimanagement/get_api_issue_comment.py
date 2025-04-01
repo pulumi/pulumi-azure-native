@@ -26,7 +26,10 @@ class GetApiIssueCommentResult:
     """
     Issue Comment Contract details.
     """
-    def __init__(__self__, created_date=None, id=None, name=None, text=None, type=None, user_id=None):
+    def __init__(__self__, azure_api_version=None, created_date=None, id=None, name=None, text=None, type=None, user_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -45,6 +48,14 @@ class GetApiIssueCommentResult:
         if user_id and not isinstance(user_id, str):
             raise TypeError("Expected argument 'user_id' to be a str")
         pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -101,6 +112,7 @@ class AwaitableGetApiIssueCommentResult(GetApiIssueCommentResult):
         if False:
             yield self
         return GetApiIssueCommentResult(
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             id=self.id,
             name=self.name,
@@ -118,9 +130,9 @@ def get_api_issue_comment(api_id: Optional[str] = None,
     """
     Gets the details of the issue Comment for an API specified by its identifier.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -139,6 +151,7 @@ def get_api_issue_comment(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getApiIssueComment', __args__, opts=opts, typ=GetApiIssueCommentResult).value
 
     return AwaitableGetApiIssueCommentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -154,9 +167,9 @@ def get_api_issue_comment_output(api_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the details of the issue Comment for an API specified by its identifier.
 
-    Uses Azure REST API version 2022-08-01.
+    Uses Azure REST API version 2022-09-01-preview.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -174,6 +187,7 @@ def get_api_issue_comment_output(api_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getApiIssueComment', __args__, opts=opts, typ=GetApiIssueCommentResult)
     return __ret__.apply(lambda __response__: GetApiIssueCommentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

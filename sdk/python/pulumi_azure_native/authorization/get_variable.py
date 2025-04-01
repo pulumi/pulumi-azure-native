@@ -27,7 +27,10 @@ class GetVariableResult:
     """
     The variable.
     """
-    def __init__(__self__, columns=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, columns=None, id=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if columns and not isinstance(columns, list):
             raise TypeError("Expected argument 'columns' to be a list")
         pulumi.set(__self__, "columns", columns)
@@ -43,6 +46,14 @@ class GetVariableResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -91,6 +102,7 @@ class AwaitableGetVariableResult(GetVariableResult):
         if False:
             yield self
         return GetVariableResult(
+            azure_api_version=self.azure_api_version,
             columns=self.columns,
             id=self.id,
             name=self.name,
@@ -105,7 +117,7 @@ def get_variable(variable_name: Optional[str] = None,
 
     Uses Azure REST API version 2022-08-01-preview.
 
-    Other available API versions: 2024-12-01-preview.
+    Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str variable_name: The name of the variable to operate on.
@@ -116,6 +128,7 @@ def get_variable(variable_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getVariable', __args__, opts=opts, typ=GetVariableResult).value
 
     return AwaitableGetVariableResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         columns=pulumi.get(__ret__, 'columns'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -128,7 +141,7 @@ def get_variable_output(variable_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2022-08-01-preview.
 
-    Other available API versions: 2024-12-01-preview.
+    Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str variable_name: The name of the variable to operate on.
@@ -138,6 +151,7 @@ def get_variable_output(variable_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getVariable', __args__, opts=opts, typ=GetVariableResult)
     return __ret__.apply(lambda __response__: GetVariableResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         columns=pulumi.get(__response__, 'columns'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

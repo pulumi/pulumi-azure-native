@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
+ * Gets an Azure Bare Metal Storage instance for the specified subscription, resource group, and instance name.
  *
- * Uses Azure REST API version 2023-04-06.
+ * Uses Azure REST API version 2024-08-01-preview.
  *
- * Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
+ * Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native baremetalinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAzureBareMetalStorageInstance(args: GetAzureBareMetalStorageInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureBareMetalStorageInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +24,7 @@ export function getAzureBareMetalStorageInstance(args: GetAzureBareMetalStorageI
 
 export interface GetAzureBareMetalStorageInstanceArgs {
     /**
-     * Name of the AzureBareMetalStorage on Azure instance.
+     * Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
      */
     azureBareMetalStorageInstanceName: string;
     /**
@@ -38,13 +38,21 @@ export interface GetAzureBareMetalStorageInstanceArgs {
  */
 export interface GetAzureBareMetalStorageInstanceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Specifies the AzureBareMetaStorageInstance unique ID.
      */
     readonly azureBareMetalStorageInstanceUniqueIdentifier?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * The identity of Azure Bare Metal Storage Instance, if configured.
+     */
+    readonly identity?: outputs.baremetalinfrastructure.AzureBareMetalStorageInstanceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -58,7 +66,7 @@ export interface GetAzureBareMetalStorageInstanceResult {
      */
     readonly storageProperties?: outputs.baremetalinfrastructure.StoragePropertiesResponse;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.baremetalinfrastructure.SystemDataResponse;
     /**
@@ -71,11 +79,11 @@ export interface GetAzureBareMetalStorageInstanceResult {
     readonly type: string;
 }
 /**
- * Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
+ * Gets an Azure Bare Metal Storage instance for the specified subscription, resource group, and instance name.
  *
- * Uses Azure REST API version 2023-04-06.
+ * Uses Azure REST API version 2024-08-01-preview.
  *
- * Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
+ * Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native baremetalinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAzureBareMetalStorageInstanceOutput(args: GetAzureBareMetalStorageInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureBareMetalStorageInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,7 +95,7 @@ export function getAzureBareMetalStorageInstanceOutput(args: GetAzureBareMetalSt
 
 export interface GetAzureBareMetalStorageInstanceOutputArgs {
     /**
-     * Name of the AzureBareMetalStorage on Azure instance.
+     * Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
      */
     azureBareMetalStorageInstanceName: pulumi.Input<string>;
     /**

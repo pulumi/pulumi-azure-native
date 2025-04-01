@@ -27,7 +27,10 @@ class GetSecurityUserRuleResult:
     """
     Network security user rule.
     """
-    def __init__(__self__, description=None, destination_port_ranges=None, destinations=None, direction=None, etag=None, id=None, name=None, protocol=None, provisioning_state=None, resource_guid=None, source_port_ranges=None, sources=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, destination_port_ranges=None, destinations=None, direction=None, etag=None, id=None, name=None, protocol=None, provisioning_state=None, resource_guid=None, source_port_ranges=None, sources=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -70,6 +73,14 @@ class GetSecurityUserRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -190,6 +201,7 @@ class AwaitableGetSecurityUserRuleResult(GetSecurityUserRuleResult):
         if False:
             yield self
         return GetSecurityUserRuleResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             destination_port_ranges=self.destination_port_ranges,
             destinations=self.destinations,
@@ -215,9 +227,9 @@ def get_security_user_rule(configuration_name: Optional[str] = None,
     """
     Gets a security user rule.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -236,6 +248,7 @@ def get_security_user_rule(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getSecurityUserRule', __args__, opts=opts, typ=GetSecurityUserRuleResult).value
 
     return AwaitableGetSecurityUserRuleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         destination_port_ranges=pulumi.get(__ret__, 'destination_port_ranges'),
         destinations=pulumi.get(__ret__, 'destinations'),
@@ -259,9 +272,9 @@ def get_security_user_rule_output(configuration_name: Optional[pulumi.Input[str]
     """
     Gets a security user rule.
 
-    Uses Azure REST API version 2024-03-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -279,6 +292,7 @@ def get_security_user_rule_output(configuration_name: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getSecurityUserRule', __args__, opts=opts, typ=GetSecurityUserRuleResult)
     return __ret__.apply(lambda __response__: GetSecurityUserRuleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         destination_port_ranges=pulumi.get(__response__, 'destination_port_ranges'),
         destinations=pulumi.get(__response__, 'destinations'),

@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Compute
     /// <summary>
     /// Specifies information about the Shared Image Gallery that you want to create or update.
     /// 
-    /// Uses Azure REST API version 2022-03-03. In version 1.x of the Azure Native provider, it used API version 2020-09-30.
+    /// Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
     /// 
-    /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    /// Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Gallery")]
     public partial class Gallery : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The description of this Shared Image Gallery resource. This property is updatable.
         /// </summary>
@@ -30,6 +36,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("identifier")]
         public Output<Outputs.GalleryIdentifierResponse?> Identifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity of the gallery, if configured.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.GalleryIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -150,6 +162,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("galleryName")]
         public Input<string>? GalleryName { get; set; }
+
+        /// <summary>
+        /// The identity of the gallery, if configured.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.GalleryIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Resource location

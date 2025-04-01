@@ -27,7 +27,10 @@ class GetVideoAnalyzerResult:
     """
     The Video Analyzer account.
     """
-    def __init__(__self__, encryption=None, endpoints=None, id=None, identity=None, iot_hubs=None, location=None, name=None, network_access_control=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, storage_accounts=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, encryption=None, endpoints=None, id=None, identity=None, iot_hubs=None, location=None, name=None, network_access_control=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, storage_accounts=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -73,6 +76,14 @@ class GetVideoAnalyzerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -201,6 +212,7 @@ class AwaitableGetVideoAnalyzerResult(GetVideoAnalyzerResult):
         if False:
             yield self
         return GetVideoAnalyzerResult(
+            azure_api_version=self.azure_api_version,
             encryption=self.encryption,
             endpoints=self.endpoints,
             id=self.id,
@@ -226,8 +238,6 @@ def get_video_analyzer(account_name: Optional[str] = None,
 
     Uses Azure REST API version 2021-11-01-preview.
 
-    Other available API versions: 2021-05-01-preview.
-
 
     :param str account_name: The Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -239,6 +249,7 @@ def get_video_analyzer(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:videoanalyzer:getVideoAnalyzer', __args__, opts=opts, typ=GetVideoAnalyzerResult).value
 
     return AwaitableGetVideoAnalyzerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         encryption=pulumi.get(__ret__, 'encryption'),
         endpoints=pulumi.get(__ret__, 'endpoints'),
         id=pulumi.get(__ret__, 'id'),
@@ -262,8 +273,6 @@ def get_video_analyzer_output(account_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2021-11-01-preview.
 
-    Other available API versions: 2021-05-01-preview.
-
 
     :param str account_name: The Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -274,6 +283,7 @@ def get_video_analyzer_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer:getVideoAnalyzer', __args__, opts=opts, typ=GetVideoAnalyzerResult)
     return __ret__.apply(lambda __response__: GetVideoAnalyzerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         encryption=pulumi.get(__response__, 'encryption'),
         endpoints=pulumi.get(__response__, 'endpoints'),
         id=pulumi.get(__response__, 'id'),

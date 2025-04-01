@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get an app attach package.
  *
- * Uses Azure REST API version 2023-10-04-preview.
+ * Uses Azure REST API version 2024-04-03.
  *
- * Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAppAttachPackage(args: GetAppAttachPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetAppAttachPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +24,7 @@ export function getAppAttachPackage(args: GetAppAttachPackageArgs, opts?: pulumi
 
 export interface GetAppAttachPackageArgs {
     /**
-     * The name of the App Attach package arm object
+     * The name of the App Attach package
      */
     appAttachPackageName: string;
     /**
@@ -38,38 +38,27 @@ export interface GetAppAttachPackageArgs {
  */
 export interface GetAppAttachPackageResult {
     /**
-     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     * The Azure API version of the resource.
      */
-    readonly etag: string;
+    readonly azureApiVersion: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
-    readonly identity?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity;
-    /**
-     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-     */
-    readonly kind?: string;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: string;
-    /**
-     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-     */
-    readonly managedBy?: string;
+    readonly location: string;
     /**
      * The name of the resource
      */
     readonly name: string;
-    readonly plan?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan;
     /**
      * Detailed properties for App Attach Package
      */
     readonly properties: outputs.desktopvirtualization.AppAttachPackagePropertiesResponse;
-    readonly sku?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.desktopvirtualization.SystemDataResponse;
     /**
@@ -84,9 +73,9 @@ export interface GetAppAttachPackageResult {
 /**
  * Get an app attach package.
  *
- * Uses Azure REST API version 2023-10-04-preview.
+ * Uses Azure REST API version 2024-04-03.
  *
- * Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAppAttachPackageOutput(args: GetAppAttachPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppAttachPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -98,7 +87,7 @@ export function getAppAttachPackageOutput(args: GetAppAttachPackageOutputArgs, o
 
 export interface GetAppAttachPackageOutputArgs {
     /**
-     * The name of the App Attach package arm object
+     * The name of the App Attach package
      */
     appAttachPackageName: pulumi.Input<string>;
     /**

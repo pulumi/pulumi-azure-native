@@ -14,11 +14,3 @@ from .landing_zone_configuration_operation import *
 from .landing_zone_registration_operation import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.sovereign.v20250227preview as __v20250227preview
-    v20250227preview = __v20250227preview
-else:
-    v20250227preview = _utilities.lazy_import('pulumi_azure_native.sovereign.v20250227preview')
-

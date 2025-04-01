@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.AVS
     public static class GetWorkloadNetworkVMGroup
     {
         /// <summary>
-        /// NSX VM Group
+        /// Get a WorkloadNetworkVMGroup
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWorkloadNetworkVMGroupResult> InvokeAsync(GetWorkloadNetworkVMGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkVMGroupResult>("azure-native:avs:getWorkloadNetworkVMGroup", args ?? new GetWorkloadNetworkVMGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NSX VM Group
+        /// Get a WorkloadNetworkVMGroup
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkloadNetworkVMGroupResult> Invoke(GetWorkloadNetworkVMGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkVMGroupResult>("azure-native:avs:getWorkloadNetworkVMGroup", args ?? new GetWorkloadNetworkVMGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NSX VM Group
+        /// Get a WorkloadNetworkVMGroup
         /// 
-        /// Uses Azure REST API version 2022-05-01.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkloadNetworkVMGroupResult> Invoke(GetWorkloadNetworkVMGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkVMGroupResult>("azure-native:avs:getWorkloadNetworkVMGroup", args ?? new GetWorkloadNetworkVMGroupInvokeArgs(), options.WithDefaults());
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.AVS
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// NSX VM Group identifier. Generally the same as the VM Group's display name
+        /// ID of the VM group.
         /// </summary>
         [Input("vmGroupId", required: true)]
         public string VmGroupId { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.AVS
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// NSX VM Group identifier. Generally the same as the VM Group's display name
+        /// ID of the VM group.
         /// </summary>
         [Input("vmGroupId", required: true)]
         public Input<string> VmGroupId { get; set; } = null!;
@@ -100,11 +100,15 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetWorkloadNetworkVMGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Display name of the VM group.
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -112,7 +116,7 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly ImmutableArray<string> Members;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -128,12 +132,18 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetWorkloadNetworkVMGroupResult(
+            string azureApiVersion,
+
             string? displayName,
 
             string id,
@@ -148,8 +158,11 @@ namespace Pulumi.AzureNative.AVS
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DisplayName = displayName;
             Id = id;
             Members = members;
@@ -157,6 +170,7 @@ namespace Pulumi.AzureNative.AVS
             ProvisioningState = provisioningState;
             Revision = revision;
             Status = status;
+            SystemData = systemData;
             Type = type;
         }
     }

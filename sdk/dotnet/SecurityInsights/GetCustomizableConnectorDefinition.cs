@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a data connector definition.
         /// 
-        /// Uses Azure REST API version 2023-07-01-preview.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Task<GetCustomizableConnectorDefinitionResult> InvokeAsync(GetCustomizableConnectorDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomizableConnectorDefinitionResult>("azure-native:securityinsights:getCustomizableConnectorDefinition", args ?? new GetCustomizableConnectorDefinitionArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a data connector definition.
         /// 
-        /// Uses Azure REST API version 2023-07-01-preview.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetCustomizableConnectorDefinitionResult> Invoke(GetCustomizableConnectorDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomizableConnectorDefinitionResult>("azure-native:securityinsights:getCustomizableConnectorDefinition", args ?? new GetCustomizableConnectorDefinitionInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a data connector definition.
         /// 
-        /// Uses Azure REST API version 2023-07-01-preview.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetCustomizableConnectorDefinitionResult> Invoke(GetCustomizableConnectorDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomizableConnectorDefinitionResult>("azure-native:securityinsights:getCustomizableConnectorDefinition", args ?? new GetCustomizableConnectorDefinitionInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetCustomizableConnectorDefinitionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The UiConfig for 'Customizable' connector definition kind.
         /// </summary>
         public readonly Outputs.CustomizableConnectionsConfigResponse? ConnectionsConfig;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
         [OutputConstructor]
         private GetCustomizableConnectorDefinitionResult(
+            string azureApiVersion,
+
             Outputs.CustomizableConnectionsConfigResponse? connectionsConfig,
 
             Outputs.CustomizableConnectorUiConfigResponse connectorUiConfig,
@@ -157,6 +163,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ConnectionsConfig = connectionsConfig;
             ConnectorUiConfig = connectorUiConfig;
             CreatedTimeUtc = createdTimeUtc;

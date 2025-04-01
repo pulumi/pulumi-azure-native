@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string ConnectionStatus;
         /// <summary>
+        /// Dead Peer Detection timeout in seconds for VpnLink connection.
+        /// </summary>
+        public readonly int? DpdTimeoutSeconds;
+        /// <summary>
         /// Egress bytes transferred.
         /// </summary>
         public readonly double EgressBytesTransferred;
@@ -111,6 +115,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string connectionStatus,
 
+            int? dpdTimeoutSeconds,
+
             double egressBytesTransferred,
 
             ImmutableArray<Outputs.SubResourceResponse> egressNatRules,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         {
             ConnectionBandwidth = connectionBandwidth;
             ConnectionStatus = connectionStatus;
+            DpdTimeoutSeconds = dpdTimeoutSeconds;
             EgressBytesTransferred = egressBytesTransferred;
             EgressNatRules = egressNatRules;
             EnableBgp = enableBgp;

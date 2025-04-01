@@ -61,9 +61,17 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ImageInformationResponse> ImageInformation;
         /// <summary>
+        /// Determining nature of provisioning that the configuration supports.
+        /// </summary>
+        public readonly string ProvisioningSupport;
+        /// <summary>
         /// Specifications of the configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.SpecificationResponse> Specifications;
+        /// <summary>
+        /// The Term Commitment Durations that are supported for a configuration.
+        /// </summary>
+        public readonly ImmutableArray<string> SupportedTermCommitmentDurations;
 
         [OutputConstructor]
         private ConfigurationResponse(
@@ -89,7 +97,11 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             ImmutableArray<Outputs.ImageInformationResponse> imageInformation,
 
-            ImmutableArray<Outputs.SpecificationResponse> specifications)
+            string provisioningSupport,
+
+            ImmutableArray<Outputs.SpecificationResponse> specifications,
+
+            ImmutableArray<string> supportedTermCommitmentDurations)
         {
             AvailabilityInformation = availabilityInformation;
             ChildConfigurationTypes = childConfigurationTypes;
@@ -102,7 +114,9 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
             GroupedChildConfigurations = groupedChildConfigurations;
             HierarchyInformation = hierarchyInformation;
             ImageInformation = imageInformation;
+            ProvisioningSupport = provisioningSupport;
             Specifications = specifications;
+            SupportedTermCommitmentDurations = supportedTermCommitmentDurations;
         }
     }
 }

@@ -33,6 +33,10 @@ export interface GetAssociationArgs {
  */
 export interface GetAssociationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The association id.
      */
     readonly id: string;

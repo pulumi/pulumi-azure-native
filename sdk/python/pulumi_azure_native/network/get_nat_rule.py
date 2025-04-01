@@ -27,7 +27,10 @@ class GetNatRuleResult:
     """
     VpnGatewayNatRule Resource.
     """
-    def __init__(__self__, egress_vpn_site_link_connections=None, etag=None, external_mappings=None, id=None, ingress_vpn_site_link_connections=None, internal_mappings=None, ip_configuration_id=None, mode=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, egress_vpn_site_link_connections=None, etag=None, external_mappings=None, id=None, ingress_vpn_site_link_connections=None, internal_mappings=None, ip_configuration_id=None, mode=None, name=None, provisioning_state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if egress_vpn_site_link_connections and not isinstance(egress_vpn_site_link_connections, list):
             raise TypeError("Expected argument 'egress_vpn_site_link_connections' to be a list")
         pulumi.set(__self__, "egress_vpn_site_link_connections", egress_vpn_site_link_connections)
@@ -61,6 +64,14 @@ class GetNatRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="egressVpnSiteLinkConnections")
@@ -157,6 +168,7 @@ class AwaitableGetNatRuleResult(GetNatRuleResult):
         if False:
             yield self
         return GetNatRuleResult(
+            azure_api_version=self.azure_api_version,
             egress_vpn_site_link_connections=self.egress_vpn_site_link_connections,
             etag=self.etag,
             external_mappings=self.external_mappings,
@@ -177,9 +189,9 @@ def get_nat_rule(gateway_name: Optional[str] = None,
     """
     Retrieves the details of a nat ruleGet.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str gateway_name: The name of the gateway.
@@ -194,6 +206,7 @@ def get_nat_rule(gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNatRule', __args__, opts=opts, typ=GetNatRuleResult).value
 
     return AwaitableGetNatRuleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         egress_vpn_site_link_connections=pulumi.get(__ret__, 'egress_vpn_site_link_connections'),
         etag=pulumi.get(__ret__, 'etag'),
         external_mappings=pulumi.get(__ret__, 'external_mappings'),
@@ -212,9 +225,9 @@ def get_nat_rule_output(gateway_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves the details of a nat ruleGet.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str gateway_name: The name of the gateway.
@@ -228,6 +241,7 @@ def get_nat_rule_output(gateway_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNatRule', __args__, opts=opts, typ=GetNatRuleResult)
     return __ret__.apply(lambda __response__: GetNatRuleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         egress_vpn_site_link_connections=pulumi.get(__response__, 'egress_vpn_site_link_connections'),
         etag=pulumi.get(__response__, 'etag'),
         external_mappings=pulumi.get(__response__, 'external_mappings'),

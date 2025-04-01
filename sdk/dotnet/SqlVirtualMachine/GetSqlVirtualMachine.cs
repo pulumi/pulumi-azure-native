@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Gets a SQL virtual machine.
         /// 
-        /// Uses Azure REST API version 2022-02-01.
+        /// Uses Azure REST API version 2023-10-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-10-01.
+        /// Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSqlVirtualMachineResult> InvokeAsync(GetSqlVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Gets a SQL virtual machine.
         /// 
-        /// Uses Azure REST API version 2022-02-01.
+        /// Uses Azure REST API version 2023-10-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-10-01.
+        /// Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSqlVirtualMachineResult> Invoke(GetSqlVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Gets a SQL virtual machine.
         /// 
-        /// Uses Azure REST API version 2022-02-01.
+        /// Uses Azure REST API version 2023-10-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-10-01.
+        /// Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSqlVirtualMachineResult> Invoke(GetSqlVirtualMachineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineInvokeArgs(), options.WithDefaults());
@@ -100,7 +100,11 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     public sealed class GetSqlVirtualMachineResult
     {
         /// <summary>
-        /// Assessment Settings.
+        /// Additional VM Patching solution enabled on the Virtual Machine
+        /// </summary>
+        public readonly string AdditionalVmPatch;
+        /// <summary>
+        /// SQL best practices Assessment Settings.
         /// </summary>
         public readonly Outputs.AssessmentSettingsResponse? AssessmentSettings;
         /// <summary>
@@ -112,17 +116,29 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         public readonly Outputs.AutoPatchingSettingsResponse? AutoPatchingSettings;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Enable automatic upgrade of Sql IaaS extension Agent.
+        /// </summary>
+        public readonly bool? EnableAutomaticUpgrade;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Azure Active Directory identity of the server.
+        /// DO NOT USE. This value will be deprecated. Azure Active Directory identity of the server.
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
         /// Key vault credential settings.
         /// </summary>
         public readonly Outputs.KeyVaultCredentialSettingsResponse? KeyVaultCredentialSettings;
+        /// <summary>
+        /// SQL IaaS Agent least privilege mode.
+        /// </summary>
+        public readonly string? LeastPrivilegeMode;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -131,6 +147,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Operating System of the current SQL Virtual Machine.
+        /// </summary>
+        public readonly string OsType;
         /// <summary>
         /// Provisioning state to track the async operation status.
         /// </summary>
@@ -148,7 +168,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         public readonly string? SqlImageSku;
         /// <summary>
-        /// SQL Server Management type.
+        /// SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
         /// </summary>
         public readonly string? SqlManagement;
         /// <summary>
@@ -172,9 +192,17 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Troubleshooting status
+        /// </summary>
+        public readonly Outputs.TroubleshootingStatusResponse TroubleshootingStatus;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Virtual Machine Identity details used for Sql IaaS extension configurations.
+        /// </summary>
+        public readonly Outputs.VirtualMachineIdentityResponse? VirtualMachineIdentitySettings;
         /// <summary>
         /// ARM Resource id of underlying virtual machine created from SQL marketplace image.
         /// </summary>
@@ -190,11 +218,17 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 
         [OutputConstructor]
         private GetSqlVirtualMachineResult(
+            string additionalVmPatch,
+
             Outputs.AssessmentSettingsResponse? assessmentSettings,
 
             Outputs.AutoBackupSettingsResponse? autoBackupSettings,
 
             Outputs.AutoPatchingSettingsResponse? autoPatchingSettings,
+
+            string azureApiVersion,
+
+            bool? enableAutomaticUpgrade,
 
             string id,
 
@@ -202,9 +236,13 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 
             Outputs.KeyVaultCredentialSettingsResponse? keyVaultCredentialSettings,
 
+            string? leastPrivilegeMode,
+
             string location,
 
             string name,
+
+            string osType,
 
             string provisioningState,
 
@@ -226,7 +264,11 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 
             ImmutableDictionary<string, string>? tags,
 
+            Outputs.TroubleshootingStatusResponse troubleshootingStatus,
+
             string type,
+
+            Outputs.VirtualMachineIdentityResponse? virtualMachineIdentitySettings,
 
             string? virtualMachineResourceId,
 
@@ -234,14 +276,19 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 
             string? wsfcStaticIp)
         {
+            AdditionalVmPatch = additionalVmPatch;
             AssessmentSettings = assessmentSettings;
             AutoBackupSettings = autoBackupSettings;
             AutoPatchingSettings = autoPatchingSettings;
+            AzureApiVersion = azureApiVersion;
+            EnableAutomaticUpgrade = enableAutomaticUpgrade;
             Id = id;
             Identity = identity;
             KeyVaultCredentialSettings = keyVaultCredentialSettings;
+            LeastPrivilegeMode = leastPrivilegeMode;
             Location = location;
             Name = name;
+            OsType = osType;
             ProvisioningState = provisioningState;
             ServerConfigurationsManagementSettings = serverConfigurationsManagementSettings;
             SqlImageOffer = sqlImageOffer;
@@ -252,7 +299,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
             StorageConfigurationSettings = storageConfigurationSettings;
             SystemData = systemData;
             Tags = tags;
+            TroubleshootingStatus = troubleshootingStatus;
             Type = type;
+            VirtualMachineIdentitySettings = virtualMachineIdentitySettings;
             VirtualMachineResourceId = virtualMachineResourceId;
             WsfcDomainCredentials = wsfcDomainCredentials;
             WsfcStaticIp = wsfcStaticIp;

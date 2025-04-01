@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get a specific trigger by name.
  *
- * Uses Azure REST API version 2022-03-01.
+ * Uses Azure REST API version 2023-07-01.
  */
 export function getFileEventTrigger(args: GetFileEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileEventTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +40,10 @@ export interface GetFileEventTriggerArgs {
  * Trigger details.
  */
 export interface GetFileEventTriggerResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
      */
@@ -77,7 +81,7 @@ export interface GetFileEventTriggerResult {
 /**
  * Get a specific trigger by name.
  *
- * Uses Azure REST API version 2022-03-01.
+ * Uses Azure REST API version 2023-07-01.
  */
 export function getFileEventTriggerOutput(args: GetFileEventTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileEventTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

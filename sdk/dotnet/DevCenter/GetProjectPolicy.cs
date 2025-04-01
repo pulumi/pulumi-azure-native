@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// 
         /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2025-02-01.
+        /// Other available API versions: 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetProjectPolicyResult> InvokeAsync(GetProjectPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectPolicyResult>("azure-native:devcenter:getProjectPolicy", args ?? new GetProjectPolicyArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// 
         /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2025-02-01.
+        /// Other available API versions: 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetProjectPolicyResult> Invoke(GetProjectPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectPolicyResult>("azure-native:devcenter:getProjectPolicy", args ?? new GetProjectPolicyInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// 
         /// Uses Azure REST API version 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2025-02-01.
+        /// Other available API versions: 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetProjectPolicyResult> Invoke(GetProjectPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectPolicyResult>("azure-native:devcenter:getProjectPolicy", args ?? new GetProjectPolicyInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.DevCenter
     public sealed class GetProjectPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.DevCenter
 
         [OutputConstructor]
         private GetProjectPolicyResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.DevCenter
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

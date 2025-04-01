@@ -284,9 +284,9 @@ class AdminRule(pulumi.CustomResource):
         """
         Network admin rule.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+        Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,9 +316,9 @@ class AdminRule(pulumi.CustomResource):
         """
         Network admin rule.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+        Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AdminRuleArgs args: The arguments to use to populate this resource's properties.
@@ -392,13 +392,14 @@ class AdminRule(pulumi.CustomResource):
             __props__.__dict__["rule_name"] = rule_name
             __props__.__dict__["source_port_ranges"] = source_port_ranges
             __props__.__dict__["sources"] = sources
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220101:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220501:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220701:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220901:AdminRule"), pulumi.Alias(type_="azure-native:network/v20221101:AdminRule"), pulumi.Alias(type_="azure-native:network/v20230201:AdminRule"), pulumi.Alias(type_="azure-native:network/v20230401:AdminRule"), pulumi.Alias(type_="azure-native:network/v20230501:AdminRule"), pulumi.Alias(type_="azure-native:network/v20230601:AdminRule"), pulumi.Alias(type_="azure-native:network/v20230901:AdminRule"), pulumi.Alias(type_="azure-native:network/v20231101:AdminRule"), pulumi.Alias(type_="azure-native:network/v20240101:AdminRule"), pulumi.Alias(type_="azure-native:network/v20240101preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20240301:AdminRule"), pulumi.Alias(type_="azure-native:network/v20240501:AdminRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220101:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220501:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220701:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220901:AdminRule"), pulumi.Alias(type_="azure-native:network/v20221101:AdminRule"), pulumi.Alias(type_="azure-native:network/v20230201:AdminRule"), pulumi.Alias(type_="azure-native:network/v20230201:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20230401:AdminRule"), pulumi.Alias(type_="azure-native:network/v20230401:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20230501:AdminRule"), pulumi.Alias(type_="azure-native:network/v20230501:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20230601:AdminRule"), pulumi.Alias(type_="azure-native:network/v20230601:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20230901:AdminRule"), pulumi.Alias(type_="azure-native:network/v20230901:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20231101:AdminRule"), pulumi.Alias(type_="azure-native:network/v20231101:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20240101:AdminRule"), pulumi.Alias(type_="azure-native:network/v20240101:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20240101preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20240101preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20240301:AdminRule"), pulumi.Alias(type_="azure-native:network/v20240301:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20240501:AdminRule"), pulumi.Alias(type_="azure-native:network/v20240501:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network:DefaultAdminRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AdminRule, __self__).__init__(
             'azure-native:network:AdminRule',
@@ -423,6 +424,7 @@ class AdminRule(pulumi.CustomResource):
         __props__ = AdminRuleArgs.__new__(AdminRuleArgs)
 
         __props__.__dict__["access"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["destination_port_ranges"] = None
         __props__.__dict__["destinations"] = None
@@ -447,6 +449,14 @@ class AdminRule(pulumi.CustomResource):
         Indicates the access allowed for this particular rule
         """
         return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

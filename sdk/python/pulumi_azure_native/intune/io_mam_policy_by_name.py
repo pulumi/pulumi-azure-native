@@ -342,9 +342,7 @@ class IoMAMPolicyByName(pulumi.CustomResource):
         """
         iOS Policy entity for Intune MAM.
 
-        Uses Azure REST API version 2015-01-14-preview. In version 1.x of the Azure Native provider, it used API version 2015-01-14-preview.
-
-        Other available API versions: 2015-01-14-privatepreview.
+        Uses Azure REST API version 2015-01-14-preview. In version 2.x of the Azure Native provider, it used API version 2015-01-14-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -362,9 +360,7 @@ class IoMAMPolicyByName(pulumi.CustomResource):
         """
         iOS Policy entity for Intune MAM.
 
-        Uses Azure REST API version 2015-01-14-preview. In version 1.x of the Azure Native provider, it used API version 2015-01-14-preview.
-
-        Other available API versions: 2015-01-14-privatepreview.
+        Uses Azure REST API version 2015-01-14-preview. In version 2.x of the Azure Native provider, it used API version 2015-01-14-preview.
 
         :param str resource_name: The name of the resource.
         :param IoMAMPolicyByNameArgs args: The arguments to use to populate this resource's properties.
@@ -458,6 +454,7 @@ class IoMAMPolicyByName(pulumi.CustomResource):
             if touch_id is None:
                 touch_id = 'enable'
             __props__.__dict__["touch_id"] = touch_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["group_status"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["name"] = None
@@ -492,6 +489,7 @@ class IoMAMPolicyByName(pulumi.CustomResource):
         __props__.__dict__["app_sharing_from_level"] = None
         __props__.__dict__["app_sharing_to_level"] = None
         __props__.__dict__["authentication"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["clipboard_sharing_level"] = None
         __props__.__dict__["data_backup"] = None
         __props__.__dict__["description"] = None
@@ -537,6 +535,14 @@ class IoMAMPolicyByName(pulumi.CustomResource):
     @pulumi.getter
     def authentication(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clipboardSharingLevel")

@@ -27,13 +27,16 @@ class GetApplicationGatewayResult:
     """
     Application gateway resource.
     """
-    def __init__(__self__, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings_collection=None, backend_settings_collection=None, custom_error_configurations=None, default_predefined_ssl_policy=None, enable_fips=None, enable_http2=None, etag=None, firewall_policy=None, force_firewall_policy_association=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, global_configuration=None, http_listeners=None, id=None, identity=None, listeners=None, load_distribution_policies=None, location=None, name=None, operational_state=None, private_endpoint_connections=None, private_link_configurations=None, probes=None, provisioning_state=None, redirect_configurations=None, request_routing_rules=None, resource_guid=None, rewrite_rule_sets=None, routing_rules=None, sku=None, ssl_certificates=None, ssl_policy=None, ssl_profiles=None, tags=None, trusted_client_certificates=None, trusted_root_certificates=None, type=None, url_path_maps=None, web_application_firewall_configuration=None, zones=None):
+    def __init__(__self__, authentication_certificates=None, autoscale_configuration=None, azure_api_version=None, backend_address_pools=None, backend_http_settings_collection=None, backend_settings_collection=None, custom_error_configurations=None, default_predefined_ssl_policy=None, enable_fips=None, enable_http2=None, etag=None, firewall_policy=None, force_firewall_policy_association=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, global_configuration=None, http_listeners=None, id=None, identity=None, listeners=None, load_distribution_policies=None, location=None, name=None, operational_state=None, private_endpoint_connections=None, private_link_configurations=None, probes=None, provisioning_state=None, redirect_configurations=None, request_routing_rules=None, resource_guid=None, rewrite_rule_sets=None, routing_rules=None, sku=None, ssl_certificates=None, ssl_policy=None, ssl_profiles=None, tags=None, trusted_client_certificates=None, trusted_root_certificates=None, type=None, url_path_maps=None, web_application_firewall_configuration=None, zones=None):
         if authentication_certificates and not isinstance(authentication_certificates, list):
             raise TypeError("Expected argument 'authentication_certificates' to be a list")
         pulumi.set(__self__, "authentication_certificates", authentication_certificates)
         if autoscale_configuration and not isinstance(autoscale_configuration, dict):
             raise TypeError("Expected argument 'autoscale_configuration' to be a dict")
         pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backend_address_pools and not isinstance(backend_address_pools, list):
             raise TypeError("Expected argument 'backend_address_pools' to be a list")
         pulumi.set(__self__, "backend_address_pools", backend_address_pools)
@@ -176,6 +179,14 @@ class GetApplicationGatewayResult:
         Autoscale Configuration.
         """
         return pulumi.get(self, "autoscale_configuration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backendAddressPools")
@@ -522,6 +533,7 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
         return GetApplicationGatewayResult(
             authentication_certificates=self.authentication_certificates,
             autoscale_configuration=self.autoscale_configuration,
+            azure_api_version=self.azure_api_version,
             backend_address_pools=self.backend_address_pools,
             backend_http_settings_collection=self.backend_http_settings_collection,
             backend_settings_collection=self.backend_settings_collection,
@@ -572,9 +584,9 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
     """
     Gets the specified application gateway.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str application_gateway_name: The name of the application gateway.
@@ -589,6 +601,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
     return AwaitableGetApplicationGatewayResult(
         authentication_certificates=pulumi.get(__ret__, 'authentication_certificates'),
         autoscale_configuration=pulumi.get(__ret__, 'autoscale_configuration'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backend_address_pools=pulumi.get(__ret__, 'backend_address_pools'),
         backend_http_settings_collection=pulumi.get(__ret__, 'backend_http_settings_collection'),
         backend_settings_collection=pulumi.get(__ret__, 'backend_settings_collection'),
@@ -637,9 +650,9 @@ def get_application_gateway_output(application_gateway_name: Optional[pulumi.Inp
     """
     Gets the specified application gateway.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str application_gateway_name: The name of the application gateway.
@@ -653,6 +666,7 @@ def get_application_gateway_output(application_gateway_name: Optional[pulumi.Inp
     return __ret__.apply(lambda __response__: GetApplicationGatewayResult(
         authentication_certificates=pulumi.get(__response__, 'authentication_certificates'),
         autoscale_configuration=pulumi.get(__response__, 'autoscale_configuration'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backend_address_pools=pulumi.get(__response__, 'backend_address_pools'),
         backend_http_settings_collection=pulumi.get(__response__, 'backend_http_settings_collection'),
         backend_settings_collection=pulumi.get(__response__, 'backend_settings_collection'),

@@ -40,6 +40,10 @@ export interface GetCustomRecommendationResult {
      */
     readonly assessmentKey: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * List of all standard supported clouds.
      */
     readonly cloudProviders?: string[];

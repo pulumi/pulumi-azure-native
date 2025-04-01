@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get properties of a CA certificate.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCaCertificate(args: GetCaCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCaCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetCaCertificateArgs {
  */
 export interface GetCaCertificateResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Description for the CA Certificate resource.
      */
     readonly description?: string;
@@ -71,7 +75,7 @@ export interface GetCaCertificateResult {
      */
     readonly provisioningState: string;
     /**
-     * The system metadata relating to the CaCertificate resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -82,9 +86,9 @@ export interface GetCaCertificateResult {
 /**
  * Get properties of a CA certificate.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCaCertificateOutput(args: GetCaCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCaCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

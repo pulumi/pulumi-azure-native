@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
     public sealed class AutoPatchingSettingsResponse
     {
         /// <summary>
+        /// Additional Patch to be enable or enabled on the SQL Virtual Machine.
+        /// </summary>
+        public readonly string? AdditionalVmPatch;
+        /// <summary>
         /// Day of week to apply the patch on.
         /// </summary>
         public readonly string? DayOfWeek;
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 
         [OutputConstructor]
         private AutoPatchingSettingsResponse(
+            string? additionalVmPatch,
+
             string? dayOfWeek,
 
             bool? enable,
@@ -43,6 +49,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 
             int? maintenanceWindowStartingHour)
         {
+            AdditionalVmPatch = additionalVmPatch;
             DayOfWeek = dayOfWeek;
             Enable = enable;
             MaintenanceWindowDuration = maintenanceWindowDuration;

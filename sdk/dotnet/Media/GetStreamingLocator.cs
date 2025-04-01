@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Media
         /// 
         /// Uses Azure REST API version 2023-01-01.
         /// 
-        /// Other available API versions: 2018-03-30-preview.
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStreamingLocatorResult> InvokeAsync(GetStreamingLocatorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamingLocatorResult>("azure-native:media:getStreamingLocator", args ?? new GetStreamingLocatorArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Media
         /// 
         /// Uses Azure REST API version 2023-01-01.
         /// 
-        /// Other available API versions: 2018-03-30-preview.
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStreamingLocatorResult> Invoke(GetStreamingLocatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingLocatorResult>("azure-native:media:getStreamingLocator", args ?? new GetStreamingLocatorInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Media
         /// 
         /// Uses Azure REST API version 2023-01-01.
         /// 
-        /// Other available API versions: 2018-03-30-preview.
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStreamingLocatorResult> Invoke(GetStreamingLocatorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingLocatorResult>("azure-native:media:getStreamingLocator", args ?? new GetStreamingLocatorInvokeArgs(), options.WithDefaults());
@@ -108,6 +108,10 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public readonly string AssetName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ContentKeys used by this Streaming Locator.
         /// </summary>
         public readonly ImmutableArray<Outputs.StreamingLocatorContentKeyResponse> ContentKeys;
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNative.Media
 
             string assetName,
 
+            string azureApiVersion,
+
             ImmutableArray<Outputs.StreamingLocatorContentKeyResponse> contentKeys,
 
             string created,
@@ -188,6 +194,7 @@ namespace Pulumi.AzureNative.Media
         {
             AlternativeMediaId = alternativeMediaId;
             AssetName = assetName;
+            AzureApiVersion = azureApiVersion;
             ContentKeys = contentKeys;
             Created = created;
             DefaultContentKeyPolicyName = defaultContentKeyPolicyName;

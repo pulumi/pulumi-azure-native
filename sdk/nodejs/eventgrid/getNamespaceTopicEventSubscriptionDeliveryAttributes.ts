@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get all delivery attributes for an event subscription of a namespace topic.
  *
- * Uses Azure REST API version 2023-12-15-preview.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNamespaceTopicEventSubscriptionDeliveryAttributes(args: GetNamespaceTopicEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -26,7 +26,7 @@ export function getNamespaceTopicEventSubscriptionDeliveryAttributes(args: GetNa
 
 export interface GetNamespaceTopicEventSubscriptionDeliveryAttributesArgs {
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription.
      */
     eventSubscriptionName: string;
     /**
@@ -55,9 +55,9 @@ export interface GetNamespaceTopicEventSubscriptionDeliveryAttributesResult {
 /**
  * Get all delivery attributes for an event subscription of a namespace topic.
  *
- * Uses Azure REST API version 2023-12-15-preview.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNamespaceTopicEventSubscriptionDeliveryAttributesOutput(args: GetNamespaceTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,7 +71,7 @@ export function getNamespaceTopicEventSubscriptionDeliveryAttributesOutput(args:
 
 export interface GetNamespaceTopicEventSubscriptionDeliveryAttributesOutputArgs {
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription.
      */
     eventSubscriptionName: pulumi.Input<string>;
     /**

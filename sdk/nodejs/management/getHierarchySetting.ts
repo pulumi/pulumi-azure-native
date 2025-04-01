@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
  *
- * Uses Azure REST API version 2021-04-01.
+ * Uses Azure REST API version 2023-04-01.
  *
- * Other available API versions: 2023-04-01.
+ * Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getHierarchySetting(args: GetHierarchySettingArgs, opts?: pulumi.InvokeOptions): Promise<GetHierarchySettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -29,6 +29,10 @@ export interface GetHierarchySettingArgs {
  * Settings defined at the Management Group scope.
  */
 export interface GetHierarchySettingResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
      */
@@ -57,9 +61,9 @@ export interface GetHierarchySettingResult {
 /**
  * Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
  *
- * Uses Azure REST API version 2021-04-01.
+ * Uses Azure REST API version 2023-04-01.
  *
- * Other available API versions: 2023-04-01.
+ * Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getHierarchySettingOutput(args: GetHierarchySettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHierarchySettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

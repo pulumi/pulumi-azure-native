@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Cloudngfw.Outputs
         /// </summary>
         public readonly string NetworkType;
         /// <summary>
+        /// Array of ipv4 destination address for which source NAT is to be performed
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateSourceNatRulesDestination;
+        /// <summary>
         /// List of IPs associated with the Firewall
         /// </summary>
         public readonly ImmutableArray<Outputs.IPAddressResponse> PublicIps;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.Cloudngfw.Outputs
 
             string networkType,
 
+            ImmutableArray<string> privateSourceNatRulesDestination,
+
             ImmutableArray<Outputs.IPAddressResponse> publicIps,
 
             ImmutableArray<string> trustedRanges,
@@ -64,6 +70,7 @@ namespace Pulumi.AzureNative.Cloudngfw.Outputs
             EgressNatIp = egressNatIp;
             EnableEgressNat = enableEgressNat;
             NetworkType = networkType;
+            PrivateSourceNatRulesDestination = privateSourceNatRulesDestination;
             PublicIps = publicIps;
             TrustedRanges = trustedRanges;
             VnetConfiguration = vnetConfiguration;

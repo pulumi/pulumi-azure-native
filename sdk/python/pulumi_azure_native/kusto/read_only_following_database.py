@@ -32,7 +32,7 @@ class ReadOnlyFollowingDatabaseArgs:
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] kind: Kind of the database
                Expected value is 'ReadOnlyFollowing'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] caller_role: By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] hot_cache_period: The time the data should be kept in cache for fast queries in TimeSpan.
@@ -79,7 +79,7 @@ class ReadOnlyFollowingDatabaseArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Kusto cluster.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -152,7 +152,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         """
         Class representing a read only following database.
 
-        Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +163,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Kind of the database
                Expected value is 'ReadOnlyFollowing'.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -174,7 +174,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         """
         Class representing a read only following database.
 
-        Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param ReadOnlyFollowingDatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -221,6 +221,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["attached_database_configuration_name"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["database_share_origin"] = None
             __props__.__dict__["leader_cluster_resource_id"] = None
             __props__.__dict__["name"] = None
@@ -229,9 +230,10 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["soft_delete_period"] = None
             __props__.__dict__["statistics"] = None
+            __props__.__dict__["suspension_details"] = None
             __props__.__dict__["table_level_sharing_properties"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190121:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190515:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190907:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20191109:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200215:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200614:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200918:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20210101:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20210827:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20220201:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20220707:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20221111:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20221229:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20230502:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20230815:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20240413:ReadOnlyFollowingDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:Database"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190121:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190515:Database"), pulumi.Alias(type_="azure-native:kusto/v20190515:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190907:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190907:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20191109:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20191109:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200215:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200614:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200918:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20210101:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20210827:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20220201:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20220707:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20221111:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20221229:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20221229:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20230502:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20230502:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20230815:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20230815:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto/v20240413:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20240413:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:kusto:ReadWriteDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReadOnlyFollowingDatabase, __self__).__init__(
             'azure-native:kusto:ReadOnlyFollowingDatabase',
@@ -256,6 +258,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         __props__ = ReadOnlyFollowingDatabaseArgs.__new__(ReadOnlyFollowingDatabaseArgs)
 
         __props__.__dict__["attached_database_configuration_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["database_share_origin"] = None
         __props__.__dict__["hot_cache_period"] = None
         __props__.__dict__["kind"] = None
@@ -267,6 +270,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["soft_delete_period"] = None
         __props__.__dict__["statistics"] = None
+        __props__.__dict__["suspension_details"] = None
         __props__.__dict__["table_level_sharing_properties"] = None
         __props__.__dict__["type"] = None
         return ReadOnlyFollowingDatabase(resource_name, opts=opts, __props__=__props__)
@@ -278,6 +282,14 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         The name of the attached database configuration cluster
         """
         return pulumi.get(self, "attached_database_configuration_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="databaseShareOrigin")
@@ -367,6 +379,14 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         The statistics of the database.
         """
         return pulumi.get(self, "statistics")
+
+    @property
+    @pulumi.getter(name="suspensionDetails")
+    def suspension_details(self) -> pulumi.Output['outputs.SuspensionDetailsResponse']:
+        """
+        The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+        """
+        return pulumi.get(self, "suspension_details")
 
     @property
     @pulumi.getter(name="tableLevelSharingProperties")

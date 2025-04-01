@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.ContainerStorage
     /// <summary>
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
     /// 
-    /// Uses Azure REST API version 2023-07-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-03-01-preview.
+    /// Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerstorage:Volume")]
     public partial class Volume : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Requested capacity in GiB
         /// </summary>

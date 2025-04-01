@@ -137,9 +137,9 @@ class ConfigurationAssignmentsForResourceGroup(pulumi.CustomResource):
         """
         Configuration Assignment
 
-        Uses Azure REST API version 2023-04-01.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+        Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,9 +159,9 @@ class ConfigurationAssignmentsForResourceGroup(pulumi.CustomResource):
         """
         Configuration Assignment
 
-        Uses Azure REST API version 2023-04-01.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+        Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationAssignmentsForResourceGroupArgs args: The arguments to use to populate this resource's properties.
@@ -201,6 +201,7 @@ class ConfigurationAssignmentsForResourceGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_id"] = resource_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -228,6 +229,7 @@ class ConfigurationAssignmentsForResourceGroup(pulumi.CustomResource):
 
         __props__ = ConfigurationAssignmentsForResourceGroupArgs.__new__(ConfigurationAssignmentsForResourceGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["filter"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["maintenance_configuration_id"] = None
@@ -236,6 +238,14 @@ class ConfigurationAssignmentsForResourceGroup(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ConfigurationAssignmentsForResourceGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

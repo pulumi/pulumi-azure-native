@@ -19,13 +19,6 @@ utilities.lazyLoad(exports, ["getDiscount","getDiscountOutput"], () => require("
 // Export enums:
 export * from "../types/enums/billingbenefits";
 
-// Export sub-modules:
-import * as v20241101preview from "./v20241101preview";
-
-export {
-    v20241101preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

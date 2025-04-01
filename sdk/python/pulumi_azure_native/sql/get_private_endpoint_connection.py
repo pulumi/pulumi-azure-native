@@ -27,7 +27,10 @@ class GetPrivateEndpointConnectionResult:
     """
     A private endpoint connection
     """
-    def __init__(__self__, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if group_ids and not isinstance(group_ids, list):
             raise TypeError("Expected argument 'group_ids' to be a list")
         pulumi.set(__self__, "group_ids", group_ids)
@@ -49,6 +52,14 @@ class GetPrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupIds")
@@ -113,6 +124,7 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
         if False:
             yield self
         return GetPrivateEndpointConnectionResult(
+            azure_api_version=self.azure_api_version,
             group_ids=self.group_ids,
             id=self.id,
             name=self.name,
@@ -129,9 +141,9 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     """
     Gets a private endpoint connection.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
@@ -146,6 +158,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         group_ids=pulumi.get(__ret__, 'group_ids'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -160,9 +173,9 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     """
     Gets a private endpoint connection.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
@@ -176,6 +189,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         group_ids=pulumi.get(__response__, 'group_ids'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

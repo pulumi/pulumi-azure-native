@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// <summary>
         /// Get information about a virtual machine image template
         /// 
-        /// Uses Azure REST API version 2022-07-01.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-02-01.
+        /// Other available API versions: 2022-07-01, 2023-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVirtualMachineImageTemplateResult> InvokeAsync(GetVirtualMachineImageTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// <summary>
         /// Get information about a virtual machine image template
         /// 
-        /// Uses Azure REST API version 2022-07-01.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-02-01.
+        /// Other available API versions: 2022-07-01, 2023-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualMachineImageTemplateResult> Invoke(GetVirtualMachineImageTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// <summary>
         /// Get information about a virtual machine image template
         /// 
-        /// Uses Azure REST API version 2022-07-01.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-02-01.
+        /// Other available API versions: 2022-07-01, 2023-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualMachineImageTemplateResult> Invoke(GetVirtualMachineImageTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,14 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     public sealed class GetVirtualMachineImageTemplateResult
     {
         /// <summary>
+        /// Indicates whether or not to automatically run the image template build on template creation or update.
+        /// </summary>
+        public readonly Outputs.ImageTemplateAutoRunResponse? AutoRun;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
         /// </summary>
         public readonly int? BuildTimeoutInMinutes;
@@ -99,6 +107,10 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// The distribution targets where the image output needs to go to.
         /// </summary>
         public readonly ImmutableArray<object> Distribute;
+        /// <summary>
+        /// Error handling options upon a build failure
+        /// </summary>
+        public readonly Outputs.ImageTemplatePropertiesResponseErrorHandling? ErrorHandling;
         /// <summary>
         /// The staging resource group id in the same subscription as the image template that will be used to build the image. This read-only field differs from 'stagingResourceGroup' only if the value specified in the 'stagingResourceGroup' field is empty.
         /// </summary>
@@ -119,6 +131,10 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Tags that will be applied to the resource group and/or resources created by the service.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ManagedResourceTags;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -166,11 +182,17 @@ namespace Pulumi.AzureNative.VirtualMachineImages
 
         [OutputConstructor]
         private GetVirtualMachineImageTemplateResult(
+            Outputs.ImageTemplateAutoRunResponse? autoRun,
+
+            string azureApiVersion,
+
             int? buildTimeoutInMinutes,
 
             ImmutableArray<object> customize,
 
             ImmutableArray<object> distribute,
+
+            Outputs.ImageTemplatePropertiesResponseErrorHandling? errorHandling,
 
             string exactStagingResourceGroup,
 
@@ -181,6 +203,8 @@ namespace Pulumi.AzureNative.VirtualMachineImages
             Outputs.ImageTemplateLastRunStatusResponse lastRunStatus,
 
             string location,
+
+            ImmutableDictionary<string, string>? managedResourceTags,
 
             string name,
 
@@ -204,14 +228,18 @@ namespace Pulumi.AzureNative.VirtualMachineImages
 
             Outputs.ImageTemplateVmProfileResponse? vmProfile)
         {
+            AutoRun = autoRun;
+            AzureApiVersion = azureApiVersion;
             BuildTimeoutInMinutes = buildTimeoutInMinutes;
             Customize = customize;
             Distribute = distribute;
+            ErrorHandling = errorHandling;
             ExactStagingResourceGroup = exactStagingResourceGroup;
             Id = id;
             Identity = identity;
             LastRunStatus = lastRunStatus;
             Location = location;
+            ManagedResourceTags = managedResourceTags;
             Name = name;
             Optimize = optimize;
             ProvisioningError = provisioningError;

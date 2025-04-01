@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the specified container registry.
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2023-01-01-preview.
         /// 
-        /// Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure-native:containerregistry:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the specified container registry.
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2023-01-01-preview.
         /// 
-        /// Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure-native:containerregistry:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the specified container registry.
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2023-01-01-preview.
         /// 
-        /// Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure-native:containerregistry:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// The value that indicates whether the admin user is enabled.
         /// </summary>
         public readonly bool? AdminUserEnabled;
+        /// <summary>
+        /// Enables registry-wide pull from unauthenticated clients.
+        /// </summary>
+        public readonly bool? AnonymousPullEnabled;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The creation date of the container registry in ISO8601 format.
         /// </summary>
@@ -180,6 +188,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         private GetRegistryResult(
             bool? adminUserEnabled,
 
+            bool? anonymousPullEnabled,
+
+            string azureApiVersion,
+
             string creationDate,
 
             bool? dataEndpointEnabled,
@@ -223,6 +235,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
             string? zoneRedundancy)
         {
             AdminUserEnabled = adminUserEnabled;
+            AnonymousPullEnabled = anonymousPullEnabled;
+            AzureApiVersion = azureApiVersion;
             CreationDate = creationDate;
             DataEndpointEnabled = dataEndpointEnabled;
             DataEndpointHostNames = dataEndpointHostNames;

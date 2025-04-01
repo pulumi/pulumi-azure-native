@@ -29,7 +29,7 @@ class PrivateEndpointConnectionArgs:
         The set of arguments for constructing a PrivateEndpointConnection resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs'] private_link_service_connection_state: Connection State of the Private Endpoint Connection.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -66,7 +66,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Kusto cluster.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -100,16 +100,16 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection
 
-        Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-08-27.
+        Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
-        Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        Other available API versions: 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
         :param pulumi.Input[Union['PrivateLinkServiceConnectionStatePropertyArgs', 'PrivateLinkServiceConnectionStatePropertyArgsDict']] private_link_service_connection_state: Connection State of the Private Endpoint Connection.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -120,9 +120,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection
 
-        Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-08-27.
+        Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
-        Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        Other available API versions: 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -162,6 +162,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["group_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint"] = None
@@ -192,6 +193,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["group_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
@@ -200,6 +202,14 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupId")

@@ -27,10 +27,13 @@ class GetWebAppDiagnosticLogsConfigurationResult:
     """
     Configuration of App Service site logs.
     """
-    def __init__(__self__, application_logs=None, detailed_error_messages=None, failed_requests_tracing=None, http_logs=None, id=None, kind=None, name=None, type=None):
+    def __init__(__self__, application_logs=None, azure_api_version=None, detailed_error_messages=None, failed_requests_tracing=None, http_logs=None, id=None, kind=None, name=None, type=None):
         if application_logs and not isinstance(application_logs, dict):
             raise TypeError("Expected argument 'application_logs' to be a dict")
         pulumi.set(__self__, "application_logs", application_logs)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if detailed_error_messages and not isinstance(detailed_error_messages, dict):
             raise TypeError("Expected argument 'detailed_error_messages' to be a dict")
         pulumi.set(__self__, "detailed_error_messages", detailed_error_messages)
@@ -60,6 +63,14 @@ class GetWebAppDiagnosticLogsConfigurationResult:
         Application logs configuration.
         """
         return pulumi.get(self, "application_logs")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="detailedErrorMessages")
@@ -125,6 +136,7 @@ class AwaitableGetWebAppDiagnosticLogsConfigurationResult(GetWebAppDiagnosticLog
             yield self
         return GetWebAppDiagnosticLogsConfigurationResult(
             application_logs=self.application_logs,
+            azure_api_version=self.azure_api_version,
             detailed_error_messages=self.detailed_error_messages,
             failed_requests_tracing=self.failed_requests_tracing,
             http_logs=self.http_logs,
@@ -140,9 +152,9 @@ def get_web_app_diagnostic_logs_configuration(name: Optional[str] = None,
     """
     Description for Gets the logging configuration of an app.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the app.
@@ -156,6 +168,7 @@ def get_web_app_diagnostic_logs_configuration(name: Optional[str] = None,
 
     return AwaitableGetWebAppDiagnosticLogsConfigurationResult(
         application_logs=pulumi.get(__ret__, 'application_logs'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         detailed_error_messages=pulumi.get(__ret__, 'detailed_error_messages'),
         failed_requests_tracing=pulumi.get(__ret__, 'failed_requests_tracing'),
         http_logs=pulumi.get(__ret__, 'http_logs'),
@@ -169,9 +182,9 @@ def get_web_app_diagnostic_logs_configuration_output(name: Optional[pulumi.Input
     """
     Description for Gets the logging configuration of an app.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the app.
@@ -184,6 +197,7 @@ def get_web_app_diagnostic_logs_configuration_output(name: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppDiagnosticLogsConfiguration', __args__, opts=opts, typ=GetWebAppDiagnosticLogsConfigurationResult)
     return __ret__.apply(lambda __response__: GetWebAppDiagnosticLogsConfigurationResult(
         application_logs=pulumi.get(__response__, 'application_logs'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         detailed_error_messages=pulumi.get(__response__, 'detailed_error_messages'),
         failed_requests_tracing=pulumi.get(__response__, 'failed_requests_tracing'),
         http_logs=pulumi.get(__response__, 'http_logs'),

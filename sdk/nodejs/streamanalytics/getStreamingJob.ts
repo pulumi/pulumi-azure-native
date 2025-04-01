@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2020-03-01.
  *
- * Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
+ * Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStreamingJob(args: GetStreamingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetStreamingJobArgs {
  * A streaming job object, containing all information associated with the named streaming job.
  */
 export interface GetStreamingJobResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The cluster which streaming jobs will run on.
      */
@@ -164,7 +168,7 @@ export interface GetStreamingJobResult {
  *
  * Uses Azure REST API version 2020-03-01.
  *
- * Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
+ * Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStreamingJobOutput(args: GetStreamingJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamingJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

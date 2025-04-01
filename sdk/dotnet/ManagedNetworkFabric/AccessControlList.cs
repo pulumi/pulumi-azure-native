@@ -10,20 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// The AccessControlList resource definition.
+    /// The Access Control List resource definition.
     /// 
-    /// Uses Azure REST API version 2023-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2023-02-01-preview.
+    /// Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
     /// 
-    /// Other available API versions: 2023-06-15.
+    /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:AccessControlList")]
     public partial class AccessControlList : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// IP address family. Example: ipv4 | ipv6.
+        /// Access Control List file URL.
         /// </summary>
-        [Output("addressFamily")]
-        public Output<string> AddressFamily { get; private set; } = null!;
+        [Output("aclsUrl")]
+        public Output<string?> AclsUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Administrative state of the resource.
+        /// </summary>
+        [Output("administrativeState")]
+        public Output<string> AdministrativeState { get; private set; } = null!;
 
         /// <summary>
         /// Switch configuration description.
@@ -32,10 +38,40 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string?> Annotation { get; private set; } = null!;
 
         /// <summary>
-        /// Access Control List conditions.
+        /// The Azure API version of the resource.
         /// </summary>
-        [Output("conditions")]
-        public Output<ImmutableArray<Outputs.AccessControlListConditionPropertiesResponse>> Conditions { get; private set; } = null!;
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
+
+        /// <summary>
+        /// Input method to configure Access Control List.
+        /// </summary>
+        [Output("configurationType")]
+        public Output<string> ConfigurationType { get; private set; } = null!;
+
+        /// <summary>
+        /// Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+        /// </summary>
+        [Output("defaultAction")]
+        public Output<string?> DefaultAction { get; private set; } = null!;
+
+        /// <summary>
+        /// List of dynamic match configurations.
+        /// </summary>
+        [Output("dynamicMatchConfigurations")]
+        public Output<ImmutableArray<Outputs.CommonDynamicMatchConfigurationResponse>> DynamicMatchConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// The last synced timestamp.
+        /// </summary>
+        [Output("lastSyncedTime")]
+        public Output<string> LastSyncedTime { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -44,13 +80,19 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// List of match configurations.
+        /// </summary>
+        [Output("matchConfigurations")]
+        public Output<ImmutableArray<Outputs.AccessControlListMatchConfigurationResponse>> MatchConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -124,16 +166,16 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class AccessControlListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Access Control List
+        /// Name of the Access Control List.
         /// </summary>
         [Input("accessControlListName")]
         public Input<string>? AccessControlListName { get; set; }
 
         /// <summary>
-        /// IP address family. Example: ipv4 | ipv6.
+        /// Access Control List file URL.
         /// </summary>
-        [Input("addressFamily", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.AddressFamily> AddressFamily { get; set; } = null!;
+        [Input("aclsUrl")]
+        public Input<string>? AclsUrl { get; set; }
 
         /// <summary>
         /// Switch configuration description.
@@ -141,16 +183,28 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         [Input("annotation")]
         public Input<string>? Annotation { get; set; }
 
-        [Input("conditions", required: true)]
-        private InputList<Inputs.AccessControlListConditionPropertiesArgs>? _conditions;
+        /// <summary>
+        /// Input method to configure Access Control List.
+        /// </summary>
+        [Input("configurationType", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.ConfigurationType> ConfigurationType { get; set; } = null!;
 
         /// <summary>
-        /// Access Control List conditions.
+        /// Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
         /// </summary>
-        public InputList<Inputs.AccessControlListConditionPropertiesArgs> Conditions
+        [Input("defaultAction")]
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.CommunityActionTypes>? DefaultAction { get; set; }
+
+        [Input("dynamicMatchConfigurations")]
+        private InputList<Inputs.CommonDynamicMatchConfigurationArgs>? _dynamicMatchConfigurations;
+
+        /// <summary>
+        /// List of dynamic match configurations.
+        /// </summary>
+        public InputList<Inputs.CommonDynamicMatchConfigurationArgs> DynamicMatchConfigurations
         {
-            get => _conditions ?? (_conditions = new InputList<Inputs.AccessControlListConditionPropertiesArgs>());
-            set => _conditions = value;
+            get => _dynamicMatchConfigurations ?? (_dynamicMatchConfigurations = new InputList<Inputs.CommonDynamicMatchConfigurationArgs>());
+            set => _dynamicMatchConfigurations = value;
         }
 
         /// <summary>
@@ -158,6 +212,18 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("matchConfigurations")]
+        private InputList<Inputs.AccessControlListMatchConfigurationArgs>? _matchConfigurations;
+
+        /// <summary>
+        /// List of match configurations.
+        /// </summary>
+        public InputList<Inputs.AccessControlListMatchConfigurationArgs> MatchConfigurations
+        {
+            get => _matchConfigurations ?? (_matchConfigurations = new InputList<Inputs.AccessControlListMatchConfigurationArgs>());
+            set => _matchConfigurations = value;
+        }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -179,6 +245,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
         public AccessControlListArgs()
         {
+            DefaultAction = "Permit";
         }
         public static new AccessControlListArgs Empty => new AccessControlListArgs();
     }

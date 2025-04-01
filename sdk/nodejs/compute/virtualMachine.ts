@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Describes a Virtual Machine.
  *
- * Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+ * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -54,6 +54,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly availabilitySet!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Specifies the billing related details of a Azure Spot virtual machine. Minimum api-version: 2019-03-01.
      */
     public readonly billingProfile!: pulumi.Output<outputs.compute.BillingProfileResponse | undefined>;
@@ -65,6 +69,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      * Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
      */
     public readonly diagnosticsProfile!: pulumi.Output<outputs.compute.DiagnosticsProfileResponse | undefined>;
+    /**
+     * Etag is property returned in Create/Update/Get response of the VM, so that customer can supply it in the header to ensure optimistic updates.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
      */
@@ -106,6 +114,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * ManagedBy is set to Virtual Machine Scale Set(VMSS) flex ARM resourceID, if the VM is part of the VMSS. This property is used by platform for internal resource group delete optimization.
+     */
+    public /*out*/ readonly managedBy!: pulumi.Output<string>;
+    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -117,6 +129,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      * Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
      */
     public readonly osProfile!: pulumi.Output<outputs.compute.OSProfileResponse | undefined>;
+    /**
+     * Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
+     */
+    public readonly placement!: pulumi.Output<outputs.compute.PlacementResponse | undefined>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
@@ -141,6 +157,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      * The virtual machine child extension resources.
      */
     public /*out*/ readonly resources!: pulumi.Output<outputs.compute.VirtualMachineExtensionResponse[]>;
+    /**
+     * Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+     */
+    public readonly scheduledEventsPolicy!: pulumi.Output<outputs.compute.ScheduledEventsPolicyResponse | undefined>;
     /**
      * Specifies Scheduled Event related configurations.
      */
@@ -213,11 +233,13 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["osProfile"] = args ? args.osProfile : undefined;
+            resourceInputs["placement"] = args ? args.placement : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scheduledEventsPolicy"] = args ? args.scheduledEventsPolicy : undefined;
             resourceInputs["scheduledEventsProfile"] = args ? args.scheduledEventsProfile : undefined;
             resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
@@ -226,7 +248,10 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["virtualMachineScaleSet"] = args ? args.virtualMachineScaleSet : undefined;
             resourceInputs["vmName"] = args ? args.vmName : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
@@ -237,9 +262,11 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["additionalCapabilities"] = undefined /*out*/;
             resourceInputs["applicationProfile"] = undefined /*out*/;
             resourceInputs["availabilitySet"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingProfile"] = undefined /*out*/;
             resourceInputs["capacityReservation"] = undefined /*out*/;
             resourceInputs["diagnosticsProfile"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["evictionPolicy"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["extensionsTimeBudget"] = undefined /*out*/;
@@ -250,15 +277,18 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["licenseType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkProfile"] = undefined /*out*/;
             resourceInputs["osProfile"] = undefined /*out*/;
+            resourceInputs["placement"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
             resourceInputs["platformFaultDomain"] = undefined /*out*/;
             resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["proximityPlacementGroup"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
+            resourceInputs["scheduledEventsPolicy"] = undefined /*out*/;
             resourceInputs["scheduledEventsProfile"] = undefined /*out*/;
             resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["storageProfile"] = undefined /*out*/;
@@ -350,6 +380,10 @@ export interface VirtualMachineArgs {
      */
     osProfile?: pulumi.Input<inputs.compute.OSProfileArgs>;
     /**
+     * Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
+     */
+    placement?: pulumi.Input<inputs.compute.PlacementArgs>;
+    /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
     plan?: pulumi.Input<inputs.compute.PlanArgs>;
@@ -369,6 +403,10 @@ export interface VirtualMachineArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+     */
+    scheduledEventsPolicy?: pulumi.Input<inputs.compute.ScheduledEventsPolicyArgs>;
     /**
      * Specifies Scheduled Event related configurations.
      */

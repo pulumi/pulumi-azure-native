@@ -29,9 +29,17 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? ReplicaDiskType;
         /// <summary>
+        /// The logical sector size (in bytes), 512 by default.
+        /// </summary>
+        public readonly int? SectorSizeInBytes;
+        /// <summary>
         /// Seed managed disk Id.
         /// </summary>
         public readonly string? SeedManagedDiskId;
+        /// <summary>
+        /// The disk type.
+        /// </summary>
+        public readonly string? TargetDiskAccountType;
 
         [OutputConstructor]
         private HyperVReplicaAzureManagedDiskDetailsResponse(
@@ -41,12 +49,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? replicaDiskType,
 
-            string? seedManagedDiskId)
+            int? sectorSizeInBytes,
+
+            string? seedManagedDiskId,
+
+            string? targetDiskAccountType)
         {
             DiskEncryptionSetId = diskEncryptionSetId;
             DiskId = diskId;
             ReplicaDiskType = replicaDiskType;
+            SectorSizeInBytes = sectorSizeInBytes;
             SeedManagedDiskId = seedManagedDiskId;
+            TargetDiskAccountType = targetDiskAccountType;
         }
     }
 }

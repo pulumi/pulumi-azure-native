@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Class representing a Kusto sandbox custom image.
  *
- * Uses Azure REST API version 2023-08-15.
+ * Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2023-08-15.
  *
- * Other available API versions: 2024-04-13.
+ * Other available API versions: 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SandboxCustomImage extends pulumi.CustomResource {
     /**
@@ -42,13 +42,21 @@ export class SandboxCustomImage extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
+     */
+    public readonly baseImageName!: pulumi.Output<string | undefined>;
+    /**
      * The language name, for example Python.
      */
     public readonly language!: pulumi.Output<string>;
     /**
-     * The version of the language.
+     * The version of the language. Either this property or baseImageName should be specified.
      */
-    public readonly languageVersion!: pulumi.Output<string>;
+    public readonly languageVersion!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -83,22 +91,23 @@ export class SandboxCustomImage extends pulumi.CustomResource {
             if ((!args || args.language === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'language'");
             }
-            if ((!args || args.languageVersion === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'languageVersion'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["baseImageName"] = args ? args.baseImageName : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["language"] = args ? args.language : undefined;
             resourceInputs["languageVersion"] = args ? args.languageVersion : undefined;
             resourceInputs["requirementsFileContent"] = args ? args.requirementsFileContent : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sandboxCustomImageName"] = args ? args.sandboxCustomImageName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["baseImageName"] = undefined /*out*/;
             resourceInputs["language"] = undefined /*out*/;
             resourceInputs["languageVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -118,6 +127,10 @@ export class SandboxCustomImage extends pulumi.CustomResource {
  */
 export interface SandboxCustomImageArgs {
     /**
+     * The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
+     */
+    baseImageName?: pulumi.Input<string>;
+    /**
      * The name of the Kusto cluster.
      */
     clusterName: pulumi.Input<string>;
@@ -126,9 +139,9 @@ export interface SandboxCustomImageArgs {
      */
     language: pulumi.Input<string | enums.kusto.Language>;
     /**
-     * The version of the language.
+     * The version of the language. Either this property or baseImageName should be specified.
      */
-    languageVersion: pulumi.Input<string>;
+    languageVersion?: pulumi.Input<string>;
     /**
      * The requirements file content.
      */

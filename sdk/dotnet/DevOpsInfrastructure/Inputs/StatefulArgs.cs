@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Inputs
     public sealed class StatefulArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// How long should the machine be kept around after it ran a workload when there are no stand-by agents. The maximum is one week.
+        /// </summary>
+        [Input("gracePeriodTimeSpan")]
+        public Input<string>? GracePeriodTimeSpan { get; set; }
+
+        /// <summary>
         /// Discriminator property for AgentProfile.
         /// Expected value is 'Stateful'.
         /// </summary>
@@ -25,14 +31,20 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Inputs
         /// <summary>
         /// How long should stateful machines be kept around. The maximum is one week.
         /// </summary>
-        [Input("maxAgentLifetime", required: true)]
-        public Input<string> MaxAgentLifetime { get; set; } = null!;
+        [Input("maxAgentLifetime")]
+        public Input<string>? MaxAgentLifetime { get; set; }
 
         /// <summary>
-        /// Defines pool buffer.
+        /// Defines pool buffer/stand-by agents.
         /// </summary>
         [Input("resourcePredictions")]
         public Input<object>? ResourcePredictions { get; set; }
+
+        /// <summary>
+        /// Defines how the pool buffer/stand-by agents is provided.
+        /// </summary>
+        [Input("resourcePredictionsProfile")]
+        public InputUnion<Inputs.AutomaticResourcePredictionsProfileArgs, Inputs.ManualResourcePredictionsProfileArgs>? ResourcePredictionsProfile { get; set; }
 
         public StatefulArgs()
         {

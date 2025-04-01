@@ -10,11 +10,3 @@ from .get_instance import *
 from .instance import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.weightsandbiases.v20240918preview as __v20240918preview
-    v20240918preview = __v20240918preview
-else:
-    v20240918preview = _utilities.lazy_import('pulumi_azure_native.weightsandbiases.v20240918preview')
-

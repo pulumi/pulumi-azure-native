@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Object model for the Azure CLI script.
  *
- * Uses Azure REST API version 2020-10-01. In version 1.x of the Azure Native provider, it used API version 2020-10-01.
+ * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
  */
 export class AzureCliScript extends pulumi.CustomResource {
     /**
@@ -47,6 +47,10 @@ export class AzureCliScript extends pulumi.CustomResource {
      * Azure CLI module version to be used.
      */
     public readonly azCliVersion!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
      */
@@ -170,6 +174,7 @@ export class AzureCliScript extends pulumi.CustomResource {
             resourceInputs["supportingScriptUris"] = args ? args.supportingScriptUris : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? "P1D";
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outputs"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -179,6 +184,7 @@ export class AzureCliScript extends pulumi.CustomResource {
         } else {
             resourceInputs["arguments"] = undefined /*out*/;
             resourceInputs["azCliVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cleanupPreference"] = undefined /*out*/;
             resourceInputs["containerSettings"] = undefined /*out*/;
             resourceInputs["environmentVariables"] = undefined /*out*/;
@@ -201,7 +207,7 @@ export class AzureCliScript extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20191001preview:AzureCliScript" }, { type: "azure-native:resources/v20201001:AzureCliScript" }, { type: "azure-native:resources/v20230801:AzureCliScript" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20191001preview:AzureCliScript" }, { type: "azure-native:resources/v20191001preview:AzurePowerShellScript" }, { type: "azure-native:resources/v20201001:AzureCliScript" }, { type: "azure-native:resources/v20201001:AzurePowerShellScript" }, { type: "azure-native:resources/v20230801:AzureCliScript" }, { type: "azure-native:resources/v20230801:AzurePowerShellScript" }, { type: "azure-native:resources:AzurePowerShellScript" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureCliScript.__pulumiType, name, resourceInputs, opts);
     }

@@ -26,7 +26,10 @@ class GetVirtualNetworkRuleResult:
     """
     A virtual network rule.
     """
-    def __init__(__self__, id=None, ignore_missing_vnet_service_endpoint=None, name=None, state=None, type=None, virtual_network_subnet_id=None):
+    def __init__(__self__, azure_api_version=None, id=None, ignore_missing_vnet_service_endpoint=None, name=None, state=None, type=None, virtual_network_subnet_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -45,6 +48,14 @@ class GetVirtualNetworkRuleResult:
         if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
             raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -101,6 +112,7 @@ class AwaitableGetVirtualNetworkRuleResult(GetVirtualNetworkRuleResult):
         if False:
             yield self
         return GetVirtualNetworkRuleResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             ignore_missing_vnet_service_endpoint=self.ignore_missing_vnet_service_endpoint,
             name=self.name,
@@ -118,8 +130,6 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
 
     Uses Azure REST API version 2018-06-01.
 
-    Other available API versions: 2018-06-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
@@ -133,6 +143,7 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dbformariadb:getVirtualNetworkRule', __args__, opts=opts, typ=GetVirtualNetworkRuleResult).value
 
     return AwaitableGetVirtualNetworkRuleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         ignore_missing_vnet_service_endpoint=pulumi.get(__ret__, 'ignore_missing_vnet_service_endpoint'),
         name=pulumi.get(__ret__, 'name'),
@@ -148,8 +159,6 @@ def get_virtual_network_rule_output(resource_group_name: Optional[pulumi.Input[s
 
     Uses Azure REST API version 2018-06-01.
 
-    Other available API versions: 2018-06-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
@@ -162,6 +171,7 @@ def get_virtual_network_rule_output(resource_group_name: Optional[pulumi.Input[s
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbformariadb:getVirtualNetworkRule', __args__, opts=opts, typ=GetVirtualNetworkRuleResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkRuleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         ignore_missing_vnet_service_endpoint=pulumi.get(__response__, 'ignore_missing_vnet_service_endpoint'),
         name=pulumi.get(__response__, 'name'),

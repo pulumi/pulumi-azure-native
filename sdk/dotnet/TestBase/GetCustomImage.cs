@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.TestBase
     public sealed class GetCustomImageResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The UTC timestamp when the custom image was published.
         /// </summary>
         public readonly string CreationTime;
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNative.TestBase
 
         [OutputConstructor]
         private GetCustomImageResult(
+            string azureApiVersion,
+
             string creationTime,
 
             string definitionName,
@@ -198,6 +204,7 @@ namespace Pulumi.AzureNative.TestBase
 
             string? vhdId)
         {
+            AzureApiVersion = azureApiVersion;
             CreationTime = creationTime;
             DefinitionName = definitionName;
             Id = id;

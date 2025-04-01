@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// Gets list of items that violate tenant's configuration.
         /// 
-        /// Uses Azure REST API version 2020-09-01-preview.
+        /// Uses Azure REST API version 2022-12-01-preview.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListListTenantConfigurationViolationResult> InvokeAsync(ListListTenantConfigurationViolationArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListListTenantConfigurationViolationResult>("azure-native:portal:listListTenantConfigurationViolation", args ?? new ListListTenantConfigurationViolationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// Gets list of items that violate tenant's configuration.
         /// 
-        /// Uses Azure REST API version 2020-09-01-preview.
+        /// Uses Azure REST API version 2022-12-01-preview.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListListTenantConfigurationViolationResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListListTenantConfigurationViolationResult>("azure-native:portal:listListTenantConfigurationViolation", InvokeArgs.Empty, options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// Gets list of items that violate tenant's configuration.
         /// 
-        /// Uses Azure REST API version 2020-09-01-preview.
+        /// Uses Azure REST API version 2022-12-01-preview.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2025-04-01-preview.
+        /// Other available API versions: 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListListTenantConfigurationViolationResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListListTenantConfigurationViolationResult>("azure-native:portal:listListTenantConfigurationViolation", InvokeArgs.Empty, options.WithDefaults());

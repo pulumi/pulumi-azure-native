@@ -135,9 +135,9 @@ class CertificateObjectGlobalRulestack(pulumi.CustomResource):
         """
         GlobalRulestack Certificate Object
 
-        Uses Azure REST API version 2023-09-01.
+        Uses Azure REST API version 2025-02-06-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
-        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,9 +157,9 @@ class CertificateObjectGlobalRulestack(pulumi.CustomResource):
         """
         GlobalRulestack Certificate Object
 
-        Uses Azure REST API version 2023-09-01.
+        Uses Azure REST API version 2025-02-06-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
-        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param CertificateObjectGlobalRulestackArgs args: The arguments to use to populate this resource's properties.
@@ -201,6 +201,7 @@ class CertificateObjectGlobalRulestack(pulumi.CustomResource):
                 raise TypeError("Missing required property 'global_rulestack_name'")
             __props__.__dict__["global_rulestack_name"] = global_rulestack_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -230,6 +231,7 @@ class CertificateObjectGlobalRulestack(pulumi.CustomResource):
         __props__ = CertificateObjectGlobalRulestackArgs.__new__(CertificateObjectGlobalRulestackArgs)
 
         __props__.__dict__["audit_comment"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["certificate_self_signed"] = None
         __props__.__dict__["certificate_signer_resource_id"] = None
         __props__.__dict__["description"] = None
@@ -247,6 +249,14 @@ class CertificateObjectGlobalRulestack(pulumi.CustomResource):
         comment for this object
         """
         return pulumi.get(self, "audit_comment")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="certificateSelfSigned")

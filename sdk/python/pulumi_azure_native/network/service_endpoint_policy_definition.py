@@ -184,9 +184,9 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
         """
         Service Endpoint policy definitions.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,9 +209,9 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
         """
         Service Endpoint policy definitions.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointPolicyDefinitionInitArgs args: The arguments to use to populate this resource's properties.
@@ -259,6 +259,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
             __props__.__dict__["service_endpoint_policy_name"] = service_endpoint_policy_name
             __props__.__dict__["service_resources"] = service_resources
             __props__.__dict__["type"] = type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180701:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20180801:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20181001:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20181101:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20181201:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20190201:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20190401:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20190601:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20190701:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20190801:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20190901:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20191101:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20191201:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20200301:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20200401:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20200501:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20200601:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20200701:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20200801:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20201101:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20210201:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20210301:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20210501:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20210801:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20220101:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20220501:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20220701:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20220901:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20221101:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20230201:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20230401:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20230501:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20230601:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20230901:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20231101:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20240101:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20240301:ServiceEndpointPolicyDefinition"), pulumi.Alias(type_="azure-native:network/v20240501:ServiceEndpointPolicyDefinition")])
@@ -285,6 +286,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
 
         __props__ = ServiceEndpointPolicyDefinitionInitArgs.__new__(ServiceEndpointPolicyDefinitionInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
@@ -293,6 +295,14 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
         __props__.__dict__["service_resources"] = None
         __props__.__dict__["type"] = None
         return ServiceEndpointPolicyDefinition(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

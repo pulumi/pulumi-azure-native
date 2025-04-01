@@ -24,13 +24,6 @@ utilities.lazyLoad(exports, ["ManufacturingDataService"], () => require("./manuf
 // Export enums:
 export * from "../types/enums/manufacturingplatform";
 
-// Export sub-modules:
-import * as v20250301 from "./v20250301";
-
-export {
-    v20250301,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

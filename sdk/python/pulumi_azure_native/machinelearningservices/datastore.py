@@ -22,14 +22,14 @@ __all__ = ['DatastoreArgs', 'Datastore']
 @pulumi.input_type
 class DatastoreArgs:
     def __init__(__self__, *,
-                 datastore_properties: pulumi.Input[Union['AzureBlobDatastoreArgs', 'AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen2DatastoreArgs', 'AzureFileDatastoreArgs']],
+                 datastore_properties: pulumi.Input[Union['AzureBlobDatastoreArgs', 'AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen2DatastoreArgs', 'AzureFileDatastoreArgs', 'OneLakeDatastoreArgs']],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Datastore resource.
-        :param pulumi.Input[Union['AzureBlobDatastoreArgs', 'AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen2DatastoreArgs', 'AzureFileDatastoreArgs']] datastore_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[Union['AzureBlobDatastoreArgs', 'AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen2DatastoreArgs', 'AzureFileDatastoreArgs', 'OneLakeDatastoreArgs']] datastore_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] name: Datastore name.
@@ -45,14 +45,14 @@ class DatastoreArgs:
 
     @property
     @pulumi.getter(name="datastoreProperties")
-    def datastore_properties(self) -> pulumi.Input[Union['AzureBlobDatastoreArgs', 'AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen2DatastoreArgs', 'AzureFileDatastoreArgs']]:
+    def datastore_properties(self) -> pulumi.Input[Union['AzureBlobDatastoreArgs', 'AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen2DatastoreArgs', 'AzureFileDatastoreArgs', 'OneLakeDatastoreArgs']]:
         """
         [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "datastore_properties")
 
     @datastore_properties.setter
-    def datastore_properties(self, value: pulumi.Input[Union['AzureBlobDatastoreArgs', 'AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen2DatastoreArgs', 'AzureFileDatastoreArgs']]):
+    def datastore_properties(self, value: pulumi.Input[Union['AzureBlobDatastoreArgs', 'AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen2DatastoreArgs', 'AzureFileDatastoreArgs', 'OneLakeDatastoreArgs']]):
         pulumi.set(self, "datastore_properties", value)
 
     @property
@@ -109,7 +109,7 @@ class Datastore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datastore_properties: Optional[pulumi.Input[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict']]]] = None,
+                 datastore_properties: Optional[pulumi.Input[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict'], Union['OneLakeDatastoreArgs', 'OneLakeDatastoreArgsDict']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
@@ -118,13 +118,13 @@ class Datastore(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2023-04-01.
+        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict']]] datastore_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict'], Union['OneLakeDatastoreArgs', 'OneLakeDatastoreArgsDict']]] datastore_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] name: Datastore name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] skip_validation: Flag to skip validation.
@@ -139,9 +139,9 @@ class Datastore(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2023-04-01.
+        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DatastoreArgs args: The arguments to use to populate this resource's properties.
@@ -158,7 +158,7 @@ class Datastore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datastore_properties: Optional[pulumi.Input[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict']]]] = None,
+                 datastore_properties: Optional[pulumi.Input[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict'], Union['OneLakeDatastoreArgs', 'OneLakeDatastoreArgsDict']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
@@ -183,9 +183,10 @@ class Datastore(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:Datastore")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:Datastore"), pulumi.Alias(type_="azure-native:machinelearningservices:MachineLearningDatastore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Datastore, __self__).__init__(
             'azure-native:machinelearningservices:Datastore',
@@ -209,11 +210,20 @@ class Datastore(pulumi.CustomResource):
 
         __props__ = DatastoreArgs.__new__(DatastoreArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["datastore_properties"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Datastore(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="datastoreProperties")

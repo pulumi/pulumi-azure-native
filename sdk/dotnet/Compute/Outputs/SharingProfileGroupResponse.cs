@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         /// <summary>
-        /// This property allows you to specify the type of sharing group. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Subscriptions** &lt;br&gt;&lt;br&gt; **AADTenants**
+        /// This property allows you to specify the type of sharing group. Possible values are: **Subscriptions,** **AADTenants.**
         /// </summary>
         public readonly string? Type;
 

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified authorization from the specified express route port.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetExpressRoutePortAuthorizationResult> InvokeAsync(GetExpressRoutePortAuthorizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRoutePortAuthorizationResult>("azure-native:network:getExpressRoutePortAuthorization", args ?? new GetExpressRoutePortAuthorizationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified authorization from the specified express route port.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetExpressRoutePortAuthorizationResult> Invoke(GetExpressRoutePortAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortAuthorizationResult>("azure-native:network:getExpressRoutePortAuthorization", args ?? new GetExpressRoutePortAuthorizationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the specified authorization from the specified express route port.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetExpressRoutePortAuthorizationResult> Invoke(GetExpressRoutePortAuthorizationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortAuthorizationResult>("azure-native:network:getExpressRoutePortAuthorization", args ?? new GetExpressRoutePortAuthorizationInvokeArgs(), options.WithDefaults());
@@ -108,6 +108,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string AuthorizationUseStatus;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The reference to the ExpressRoute circuit resource using the authorization.
         /// </summary>
         public readonly string CircuitResourceUri;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.Network
 
             string authorizationUseStatus,
 
+            string azureApiVersion,
+
             string circuitResourceUri,
 
             string etag,
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNative.Network
         {
             AuthorizationKey = authorizationKey;
             AuthorizationUseStatus = authorizationUseStatus;
+            AzureApiVersion = azureApiVersion;
             CircuitResourceUri = circuitResourceUri;
             Etag = etag;
             Id = id;

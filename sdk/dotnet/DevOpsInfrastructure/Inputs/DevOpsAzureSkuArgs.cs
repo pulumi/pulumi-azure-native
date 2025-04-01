@@ -21,15 +21,8 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The Azure SKU tier of the machines in the pool.
-        /// </summary>
-        [Input("tier")]
-        public Input<string>? Tier { get; set; }
-
         public DevOpsAzureSkuArgs()
         {
-            Tier = "Standard";
         }
         public static new DevOpsAzureSkuArgs Empty => new DevOpsAzureSkuArgs();
     }

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// <summary>
     /// Represents a Administrator.
     /// 
-    /// Uses Azure REST API version 2022-01-01.
+    /// Uses Azure REST API version 2023-12-30. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
     /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+    /// Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:AzureADAdministrator")]
     public partial class AzureADAdministrator : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         [Output("administratorType")]
         public Output<string?> AdministratorType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The resource id of the identity used for AAD Authentication.
@@ -50,7 +56,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Output<string?> Sid { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

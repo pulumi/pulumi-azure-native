@@ -10,26 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// The IpExtendedCommunity resource definition.
+    /// The IP Extended Community resource definition.
     /// 
-    /// Uses Azure REST API version 2023-02-01-preview.
+    /// Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
     /// 
-    /// Other available API versions: 2023-06-15.
+    /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:IpExtendedCommunity")]
     public partial class IpExtendedCommunity : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Action to be taken on the configuration. Example: Permit | Deny.
+        /// Administrative state of the resource.
         /// </summary>
-        [Output("action")]
-        public Output<string> Action { get; private set; } = null!;
+        [Output("administrativeState")]
+        public Output<string> AdministrativeState { get; private set; } = null!;
 
         /// <summary>
         /// Switch configuration description.
         /// </summary>
         [Output("annotation")]
         public Output<string?> Annotation { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
+
+        /// <summary>
+        /// List of IP Extended Community Rules.
+        /// </summary>
+        [Output("ipExtendedCommunityRules")]
+        public Output<ImmutableArray<Outputs.IpExtendedCommunityRuleResponse>> IpExtendedCommunityRules { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -44,16 +62,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Route Target List.The expected formats are ASN(plain):NN &gt;&gt; example 4294967294:50, ASN.ASN:NN &gt;&gt; example 65533.65333:40, IP-address:NN &gt;&gt; example 10.10.10.10:65535. The possible values of ASN,NN are in range of 0-65535, ASN(plain) is in range of 0-4294967295.
-        /// </summary>
-        [Output("routeTargets")]
-        public Output<ImmutableArray<string>> RouteTargets { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -124,22 +136,28 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class IpExtendedCommunityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action to be taken on the configuration. Example: Permit | Deny.
-        /// </summary>
-        [Input("action", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.CommunityActionTypes> Action { get; set; } = null!;
-
-        /// <summary>
         /// Switch configuration description.
         /// </summary>
         [Input("annotation")]
         public Input<string>? Annotation { get; set; }
 
         /// <summary>
-        /// Name of the IP Extended Community
+        /// Name of the IP Extended Community.
         /// </summary>
         [Input("ipExtendedCommunityName")]
         public Input<string>? IpExtendedCommunityName { get; set; }
+
+        [Input("ipExtendedCommunityRules", required: true)]
+        private InputList<Inputs.IpExtendedCommunityRuleArgs>? _ipExtendedCommunityRules;
+
+        /// <summary>
+        /// List of IP Extended Community Rules.
+        /// </summary>
+        public InputList<Inputs.IpExtendedCommunityRuleArgs> IpExtendedCommunityRules
+        {
+            get => _ipExtendedCommunityRules ?? (_ipExtendedCommunityRules = new InputList<Inputs.IpExtendedCommunityRuleArgs>());
+            set => _ipExtendedCommunityRules = value;
+        }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -152,18 +170,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("routeTargets", required: true)]
-        private InputList<string>? _routeTargets;
-
-        /// <summary>
-        /// Route Target List.The expected formats are ASN(plain):NN &gt;&gt; example 4294967294:50, ASN.ASN:NN &gt;&gt; example 65533.65333:40, IP-address:NN &gt;&gt; example 10.10.10.10:65535. The possible values of ASN,NN are in range of 0-65535, ASN(plain) is in range of 0-4294967295.
-        /// </summary>
-        public InputList<string> RouteTargets
-        {
-            get => _routeTargets ?? (_routeTargets = new InputList<string>());
-            set => _routeTargets = value;
-        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -45,7 +45,7 @@ func TestPortalDashboardGen(t *testing.T) {
 			"azure-native:portal:Dashboard":                  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Portal/dashboards/{dashboardName}",
 		},
 	}
-	generationResult, err := PulumiSchema(rootDir, modules, versioning, semver.MustParse("3.0.0"))
+	generationResult, err := PulumiSchema(rootDir, modules, versioning, semver.MustParse("3.0.0"), false /* onlyExplicitVersions */)
 	if err != nil {
 		t.Fatal(err)
 	}

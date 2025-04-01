@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.DeviceRegistry
     public sealed class GetSchemaRegistryResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Human-readable description of the schema registry.
         /// </summary>
         public readonly string? Description;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
 
         [OutputConstructor]
         private GetSchemaRegistryResult(
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
 
             string uuid)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Id = id;

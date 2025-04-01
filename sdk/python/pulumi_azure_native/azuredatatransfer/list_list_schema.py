@@ -53,35 +53,44 @@ class AwaitableListListSchemaResult(ListListSchemaResult):
 
 def list_list_schema(connection_id: Optional[str] = None,
                      content: Optional[str] = None,
+                     direction: Optional[Union[str, 'SchemaDirection']] = None,
                      id: Optional[str] = None,
                      name: Optional[str] = None,
                      pipeline_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
+                     schema_type: Optional[Union[str, 'SchemaType']] = None,
+                     schema_uri: Optional[str] = None,
                      status: Optional[Union[str, 'SchemaStatus']] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListListSchemaResult:
     """
     Lists the schemas for the specified connection in a pipeline.
 
-    Uses Azure REST API version 2023-10-11-preview.
+    Uses Azure REST API version 2024-09-27.
 
-    Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
+    Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connection_id: Connection ID associated with this schema
     :param str content: Content of the schema
+    :param Union[str, 'SchemaDirection'] direction: The direction of the schema.
     :param str id: ID associated with this schema
     :param str name: Name of the schema
     :param str pipeline_name: The name for the pipeline that is to be requested.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param Union[str, 'SchemaType'] schema_type: The Schema Type
+    :param str schema_uri: Uri containing SAS token for the zipped schema
     :param Union[str, 'SchemaStatus'] status: Status of the schema
     """
     __args__ = dict()
     __args__['connectionId'] = connection_id
     __args__['content'] = content
+    __args__['direction'] = direction
     __args__['id'] = id
     __args__['name'] = name
     __args__['pipelineName'] = pipeline_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['schemaType'] = schema_type
+    __args__['schemaUri'] = schema_uri
     __args__['status'] = status
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:azuredatatransfer:listListSchema', __args__, opts=opts, typ=ListListSchemaResult).value
@@ -90,35 +99,44 @@ def list_list_schema(connection_id: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_list_schema_output(connection_id: Optional[pulumi.Input[Optional[str]]] = None,
                             content: Optional[pulumi.Input[Optional[str]]] = None,
+                            direction: Optional[pulumi.Input[Optional[Union[str, 'SchemaDirection']]]] = None,
                             id: Optional[pulumi.Input[Optional[str]]] = None,
                             name: Optional[pulumi.Input[Optional[str]]] = None,
                             pipeline_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                            schema_type: Optional[pulumi.Input[Optional[Union[str, 'SchemaType']]]] = None,
+                            schema_uri: Optional[pulumi.Input[Optional[str]]] = None,
                             status: Optional[pulumi.Input[Optional[Union[str, 'SchemaStatus']]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListSchemaResult]:
     """
     Lists the schemas for the specified connection in a pipeline.
 
-    Uses Azure REST API version 2023-10-11-preview.
+    Uses Azure REST API version 2024-09-27.
 
-    Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27, 2025-03-01-preview.
+    Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connection_id: Connection ID associated with this schema
     :param str content: Content of the schema
+    :param Union[str, 'SchemaDirection'] direction: The direction of the schema.
     :param str id: ID associated with this schema
     :param str name: Name of the schema
     :param str pipeline_name: The name for the pipeline that is to be requested.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param Union[str, 'SchemaType'] schema_type: The Schema Type
+    :param str schema_uri: Uri containing SAS token for the zipped schema
     :param Union[str, 'SchemaStatus'] status: Status of the schema
     """
     __args__ = dict()
     __args__['connectionId'] = connection_id
     __args__['content'] = content
+    __args__['direction'] = direction
     __args__['id'] = id
     __args__['name'] = name
     __args__['pipelineName'] = pipeline_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['schemaType'] = schema_type
+    __args__['schemaUri'] = schema_uri
     __args__['status'] = status
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuredatatransfer:listListSchema', __args__, opts=opts, typ=ListListSchemaResult)

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided Kubernetes cluster agent pool.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:networkcloud:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided Kubernetes cluster agent pool.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:networkcloud:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided Kubernetes cluster agent pool.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2025-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:networkcloud:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The number of virtual machines that use this configuration.
         /// </summary>
         public readonly double Count;
@@ -127,6 +131,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The descriptive message about the current detailed status.
         /// </summary>
         public readonly string DetailedStatusMessage;
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
@@ -194,11 +202,15 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             ImmutableArray<string> availabilityZones,
 
+            string azureApiVersion,
+
             double count,
 
             string detailedStatus,
 
             string detailedStatusMessage,
+
+            string etag,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 
@@ -232,9 +244,11 @@ namespace Pulumi.AzureNative.NetworkCloud
             AgentOptions = agentOptions;
             AttachedNetworkConfiguration = attachedNetworkConfiguration;
             AvailabilityZones = availabilityZones;
+            AzureApiVersion = azureApiVersion;
             Count = count;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
+            Etag = etag;
             ExtendedLocation = extendedLocation;
             Id = id;
             KubernetesVersion = kubernetesVersion;

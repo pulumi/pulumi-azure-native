@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The MySQLSite resource definition.
  *
- * Uses Azure REST API version 2024-09-30-preview.
+ * Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-30-preview.
  */
 export class MySQLSite extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class MySQLSite extends pulumi.CustomResource {
         return obj['__pulumiType'] === MySQLSite.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The extended location.
      */
@@ -107,10 +111,12 @@ export class MySQLSite extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["masterSiteId"] = undefined /*out*/;

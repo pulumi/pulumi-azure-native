@@ -16,8 +16,7 @@ import (
 
 func TestFlattenParams(t *testing.T) {
 	var metadata resources.AzureAPIMetadata
-	// TODO - Requires `make generate_schema` to be run first
-	// turn this into a proper unit test instead
+	// TODO - Requires `make schema` to be run first. Turn this into a proper unit test instead.
 	f, err := os.Open("../../../bin/metadata-compact.json")
 	require.NoError(t, err)
 	require.NoError(t, json.NewDecoder(f).Decode(&metadata))
@@ -226,11 +225,10 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:apimanagement/v20180101:Backend",
+			resourceName: "azure-native:apimanagement:Backend",
 			expected: map[string]interface{}{
 				"serviceName":       "apimService1",
 				"resourceGroupName": "rg1",
-				"backendid":         "proxybackend",
 				"description":       "description5308",
 				"url":               "https://backendname2644/",
 				"protocol":          "http",
@@ -297,11 +295,10 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:apimanagement/v20180101:Backend",
+			resourceName: "azure-native:apimanagement:Backend",
 			expected: map[string]interface{}{
 				"serviceName":       "apimService1",
 				"resourceGroupName": "rg1",
-				"backendid":         "sfbackend",
 				"description":       "Service Fabric Test App 1",
 				"protocol":          "http",
 				"url":               "fabric:/mytestapp/mytestservice",
@@ -706,7 +703,7 @@ func TestFlattenParams(t *testing.T) {
     }
   }
 }`),
-			resourceName: "azure-native:documentdb/v20230415:DatabaseAccount",
+			resourceName: "azure-native:cosmosdb:DatabaseAccount",
 			expected: map[string]interface{}{
 				"backupPolicy": map[string]interface{}{
 					"periodicModeProperties": map[string]interface{}{

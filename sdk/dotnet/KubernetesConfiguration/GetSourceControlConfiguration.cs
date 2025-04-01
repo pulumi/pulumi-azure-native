@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Gets details of the Source Control Configuration.
         /// 
         /// Uses Azure REST API version 2023-05-01.
+        /// 
+        /// Other available API versions: 2022-07-01, 2022-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSourceControlConfigurationResult> InvokeAsync(GetSourceControlConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Gets details of the Source Control Configuration.
         /// 
         /// Uses Azure REST API version 2023-05-01.
+        /// 
+        /// Other available API versions: 2022-07-01, 2022-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSourceControlConfigurationResult> Invoke(GetSourceControlConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Gets details of the Source Control Configuration.
         /// 
         /// Uses Azure REST API version 2023-05-01.
+        /// 
+        /// Other available API versions: 2022-07-01, 2022-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSourceControlConfigurationResult> Invoke(GetSourceControlConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationInvokeArgs(), options.WithDefaults());
@@ -118,6 +124,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     public sealed class GetSourceControlConfigurationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Compliance Status of the Configuration
         /// </summary>
         public readonly Outputs.ComplianceStatusResponse ComplianceStatus;
@@ -188,6 +198,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
         [OutputConstructor]
         private GetSourceControlConfigurationResult(
+            string azureApiVersion,
+
             Outputs.ComplianceStatusResponse complianceStatus,
 
             ImmutableDictionary<string, string>? configurationProtectedSettings,
@@ -222,6 +234,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ComplianceStatus = complianceStatus;
             ConfigurationProtectedSettings = configurationProtectedSettings;
             EnableHelmOperator = enableHelmOperator;

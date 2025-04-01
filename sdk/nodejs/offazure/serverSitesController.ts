@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A ServerSiteResource
  *
- * Uses Azure REST API version 2023-06-06.
+ * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
  *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ServerSitesController extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class ServerSitesController extends pulumi.CustomResource {
      * Gets or sets the Appliance Name.
      */
     public readonly applianceName!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the ARM ID of migration hub solution for SDS.
      */
@@ -114,6 +118,7 @@ export class ServerSitesController extends pulumi.CustomResource {
             resourceInputs["servicePrincipalIdentityDetails"] = args ? args.servicePrincipalIdentityDetails : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["masterSiteId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -123,6 +128,7 @@ export class ServerSitesController extends pulumi.CustomResource {
         } else {
             resourceInputs["agentDetails"] = undefined /*out*/;
             resourceInputs["applianceName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["discoverySolutionId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["masterSiteId"] = undefined /*out*/;

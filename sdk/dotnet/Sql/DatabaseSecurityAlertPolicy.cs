@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Sql
     /// <summary>
     /// A database security alert policy.
     /// 
-    /// Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+    /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
-    /// Other available API versions: 2018-06-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    /// Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DatabaseSecurityAlertPolicy")]
     public partial class DatabaseSecurityAlertPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the UTC creation time of the policy.
         /// </summary>
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:DatabaseSecurityAlertPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:DatabaseSecurityAlertPolicy" },
@@ -129,6 +136,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:DatabaseSecurityAlertPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:DatabaseThreatDetectionPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

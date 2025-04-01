@@ -150,9 +150,9 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
         """
         Public certificate object
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,9 +173,9 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
         """
         Public certificate object
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WebAppPublicCertificateSlotArgs args: The arguments to use to populate this resource's properties.
@@ -221,6 +221,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__.__dict__["slot"] = slot
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppPublicCertificateSlot")])
@@ -247,6 +248,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
 
         __props__ = WebAppPublicCertificateSlotArgs.__new__(WebAppPublicCertificateSlotArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["blob"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
@@ -254,6 +256,14 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
         __props__.__dict__["thumbprint"] = None
         __props__.__dict__["type"] = None
         return WebAppPublicCertificateSlot(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

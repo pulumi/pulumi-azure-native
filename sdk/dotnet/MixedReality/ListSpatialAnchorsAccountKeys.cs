@@ -22,9 +22,9 @@ namespace Pulumi.AzureNative.MixedReality
         /// 
         ///  List Both of the 2 Keys of a Spatial Anchors Account
         /// 
-        /// Uses Azure REST API version 2021-01-01.
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// Other available API versions: 2021-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListSpatialAnchorsAccountKeysResult> InvokeAsync(ListSpatialAnchorsAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSpatialAnchorsAccountKeysResult>("azure-native:mixedreality:listSpatialAnchorsAccountKeys", args ?? new ListSpatialAnchorsAccountKeysArgs(), options.WithDefaults());
@@ -40,9 +40,9 @@ namespace Pulumi.AzureNative.MixedReality
         /// 
         ///  List Both of the 2 Keys of a Spatial Anchors Account
         /// 
-        /// Uses Azure REST API version 2021-01-01.
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// Other available API versions: 2021-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListSpatialAnchorsAccountKeysResult> Invoke(ListSpatialAnchorsAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSpatialAnchorsAccountKeysResult>("azure-native:mixedreality:listSpatialAnchorsAccountKeys", args ?? new ListSpatialAnchorsAccountKeysInvokeArgs(), options.WithDefaults());
@@ -58,9 +58,9 @@ namespace Pulumi.AzureNative.MixedReality
         /// 
         ///  List Both of the 2 Keys of a Spatial Anchors Account
         /// 
-        /// Uses Azure REST API version 2021-01-01.
+        /// Uses Azure REST API version 2021-03-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01-preview.
+        /// Other available API versions: 2021-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mixedreality [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListSpatialAnchorsAccountKeysResult> Invoke(ListSpatialAnchorsAccountKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListSpatialAnchorsAccountKeysResult>("azure-native:mixedreality:listSpatialAnchorsAccountKeys", args ?? new ListSpatialAnchorsAccountKeysInvokeArgs(), options.WithDefaults());

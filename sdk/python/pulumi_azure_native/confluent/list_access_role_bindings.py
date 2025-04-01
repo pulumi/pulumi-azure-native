@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class ListAccessRoleBindingsResult:
     """
-    List cluster success response
+    Details of the role bindings returned on successful response
     """
     def __init__(__self__, data=None, kind=None, metadata=None):
         if data and not isinstance(data, list):
@@ -42,7 +42,7 @@ class ListAccessRoleBindingsResult:
     @pulumi.getter
     def data(self) -> Optional[Sequence['outputs.RoleBindingRecordResponse']]:
         """
-        Data of the environments list
+        List of role binding
         """
         return pulumi.get(self, "data")
 
@@ -79,11 +79,11 @@ def list_access_role_bindings(organization_name: Optional[str] = None,
                               search_filters: Optional[Mapping[str, str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccessRoleBindingsResult:
     """
-    List cluster success response
+    Details of the role bindings returned on successful response
 
-    Uses Azure REST API version 2023-08-22.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2024-02-13, 2024-07-01.
+    Other available API versions: 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str organization_name: Organization resource name
@@ -106,11 +106,11 @@ def list_access_role_bindings_output(organization_name: Optional[pulumi.Input[st
                                      search_filters: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccessRoleBindingsResult]:
     """
-    List cluster success response
+    Details of the role bindings returned on successful response
 
-    Uses Azure REST API version 2023-08-22.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2024-02-13, 2024-07-01.
+    Other available API versions: 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str organization_name: Organization resource name

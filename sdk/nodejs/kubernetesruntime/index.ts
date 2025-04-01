@@ -49,15 +49,6 @@ utilities.lazyLoad(exports, ["StorageClass"], () => require("./storageClass"));
 // Export enums:
 export * from "../types/enums/kubernetesruntime";
 
-// Export sub-modules:
-import * as v20231001preview from "./v20231001preview";
-import * as v20240301 from "./v20240301";
-
-export {
-    v20231001preview,
-    v20240301,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

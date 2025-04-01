@@ -41,6 +41,10 @@ export interface GetRelationshipLinkArgs {
  */
 export interface GetRelationshipLinkResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Localized descriptions for the Relationship Link.
      */
     readonly description?: {[key: string]: string};

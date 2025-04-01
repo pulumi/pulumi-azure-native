@@ -27,10 +27,13 @@ class GetReadOnlyFollowingDatabaseResult:
     """
     Class representing a read only following database.
     """
-    def __init__(__self__, attached_database_configuration_name=None, hot_cache_period=None, id=None, kind=None, leader_cluster_resource_id=None, location=None, name=None, principals_modification_kind=None, provisioning_state=None, soft_delete_period=None, statistics=None, system_data=None, type=None):
+    def __init__(__self__, attached_database_configuration_name=None, azure_api_version=None, hot_cache_period=None, id=None, kind=None, leader_cluster_resource_id=None, location=None, name=None, principals_modification_kind=None, provisioning_state=None, soft_delete_period=None, statistics=None, system_data=None, type=None):
         if attached_database_configuration_name and not isinstance(attached_database_configuration_name, str):
             raise TypeError("Expected argument 'attached_database_configuration_name' to be a str")
         pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if hot_cache_period and not isinstance(hot_cache_period, str):
             raise TypeError("Expected argument 'hot_cache_period' to be a str")
         pulumi.set(__self__, "hot_cache_period", hot_cache_period)
@@ -75,6 +78,14 @@ class GetReadOnlyFollowingDatabaseResult:
         The name of the attached database configuration cluster
         """
         return pulumi.get(self, "attached_database_configuration_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hotCachePeriod")
@@ -181,6 +192,7 @@ class AwaitableGetReadOnlyFollowingDatabaseResult(GetReadOnlyFollowingDatabaseRe
             yield self
         return GetReadOnlyFollowingDatabaseResult(
             attached_database_configuration_name=self.attached_database_configuration_name,
+            azure_api_version=self.azure_api_version,
             hot_cache_period=self.hot_cache_period,
             id=self.id,
             kind=self.kind,
@@ -221,6 +233,7 @@ def get_read_only_following_database(database_name: Optional[str] = None,
 
     return AwaitableGetReadOnlyFollowingDatabaseResult(
         attached_database_configuration_name=pulumi.get(__ret__, 'attached_database_configuration_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         hot_cache_period=pulumi.get(__ret__, 'hot_cache_period'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -258,6 +271,7 @@ def get_read_only_following_database_output(database_name: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getReadOnlyFollowingDatabase', __args__, opts=opts, typ=GetReadOnlyFollowingDatabaseResult)
     return __ret__.apply(lambda __response__: GetReadOnlyFollowingDatabaseResult(
         attached_database_configuration_name=pulumi.get(__response__, 'attached_database_configuration_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         hot_cache_period=pulumi.get(__response__, 'hot_cache_period'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

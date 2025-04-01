@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     public sealed class GetDiagnosticServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The frequency at which the data will be exported.
         /// </summary>
         public readonly int? DataExportFrequencySeconds;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
         [OutputConstructor]
         private GetDiagnosticServiceResult(
+            string azureApiVersion,
+
             int? dataExportFrequencySeconds,
 
             Outputs.ExtendedLocationPropertyResponse extendedLocation,
@@ -192,6 +198,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataExportFrequencySeconds = dataExportFrequencySeconds;
             ExtendedLocation = extendedLocation;
             Id = id;

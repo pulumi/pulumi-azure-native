@@ -22,22 +22,22 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public InputUnion<string, Pulumi.AzureNative.NetApp.EndpointType>? EndpointType { get; set; }
 
         /// <summary>
+        /// The full path to a volume that is to be migrated into ANF. Required for Migration volumes
+        /// </summary>
+        [Input("remotePath")]
+        public Input<Inputs.RemotePathArgs>? RemotePath { get; set; }
+
+        /// <summary>
         /// The remote region for the other end of the Volume Replication.
         /// </summary>
         [Input("remoteVolumeRegion")]
         public Input<string>? RemoteVolumeRegion { get; set; }
 
         /// <summary>
-        /// The resource ID of the remote volume.
+        /// The resource ID of the remote volume. Required for cross region and cross zone replication
         /// </summary>
-        [Input("remoteVolumeResourceId", required: true)]
-        public Input<string> RemoteVolumeResourceId { get; set; } = null!;
-
-        /// <summary>
-        /// Id
-        /// </summary>
-        [Input("replicationId")]
-        public Input<string>? ReplicationId { get; set; }
+        [Input("remoteVolumeResourceId")]
+        public Input<string>? RemoteVolumeResourceId { get; set; }
 
         /// <summary>
         /// Schedule

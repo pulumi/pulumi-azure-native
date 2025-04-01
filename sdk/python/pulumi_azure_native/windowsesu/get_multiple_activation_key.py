@@ -26,10 +26,13 @@ class GetMultipleActivationKeyResult:
     """
     MAK key details.
     """
-    def __init__(__self__, agreement_number=None, expiration_date=None, id=None, installed_server_number=None, is_eligible=None, location=None, multiple_activation_key=None, name=None, os_type=None, provisioning_state=None, support_type=None, tags=None, type=None):
+    def __init__(__self__, agreement_number=None, azure_api_version=None, expiration_date=None, id=None, installed_server_number=None, is_eligible=None, location=None, multiple_activation_key=None, name=None, os_type=None, provisioning_state=None, support_type=None, tags=None, type=None):
         if agreement_number and not isinstance(agreement_number, str):
             raise TypeError("Expected argument 'agreement_number' to be a str")
         pulumi.set(__self__, "agreement_number", agreement_number)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if expiration_date and not isinstance(expiration_date, str):
             raise TypeError("Expected argument 'expiration_date' to be a str")
         pulumi.set(__self__, "expiration_date", expiration_date)
@@ -74,6 +77,14 @@ class GetMultipleActivationKeyResult:
         Agreement number under which the key is requested.
         """
         return pulumi.get(self, "agreement_number")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="expirationDate")
@@ -176,6 +187,7 @@ class AwaitableGetMultipleActivationKeyResult(GetMultipleActivationKeyResult):
             yield self
         return GetMultipleActivationKeyResult(
             agreement_number=self.agreement_number,
+            azure_api_version=self.azure_api_version,
             expiration_date=self.expiration_date,
             id=self.id,
             installed_server_number=self.installed_server_number,
@@ -210,6 +222,7 @@ def get_multiple_activation_key(multiple_activation_key_name: Optional[str] = No
 
     return AwaitableGetMultipleActivationKeyResult(
         agreement_number=pulumi.get(__ret__, 'agreement_number'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         expiration_date=pulumi.get(__ret__, 'expiration_date'),
         id=pulumi.get(__ret__, 'id'),
         installed_server_number=pulumi.get(__ret__, 'installed_server_number'),
@@ -241,6 +254,7 @@ def get_multiple_activation_key_output(multiple_activation_key_name: Optional[pu
     __ret__ = pulumi.runtime.invoke_output('azure-native:windowsesu:getMultipleActivationKey', __args__, opts=opts, typ=GetMultipleActivationKeyResult)
     return __ret__.apply(lambda __response__: GetMultipleActivationKeyResult(
         agreement_number=pulumi.get(__response__, 'agreement_number'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         expiration_date=pulumi.get(__response__, 'expiration_date'),
         id=pulumi.get(__response__, 'id'),
         installed_server_number=pulumi.get(__response__, 'installed_server_number'),

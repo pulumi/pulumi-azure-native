@@ -41,6 +41,10 @@ export interface GetDataConnectorArgs {
  */
 export interface GetDataConnectorResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The ETag value to implement optimistic concurrency.
      */
     readonly eTag: string;

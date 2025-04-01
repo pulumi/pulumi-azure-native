@@ -27,7 +27,10 @@ class GetOriginResult:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     """
-    def __init__(__self__, enabled=None, host_name=None, http_port=None, https_port=None, id=None, name=None, origin_host_header=None, priority=None, private_endpoint_status=None, private_link_alias=None, private_link_approval_message=None, private_link_location=None, private_link_resource_id=None, provisioning_state=None, resource_state=None, system_data=None, type=None, weight=None):
+    def __init__(__self__, azure_api_version=None, enabled=None, host_name=None, http_port=None, https_port=None, id=None, name=None, origin_host_header=None, priority=None, private_endpoint_status=None, private_link_alias=None, private_link_approval_message=None, private_link_location=None, private_link_resource_id=None, provisioning_state=None, resource_state=None, system_data=None, type=None, weight=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -82,6 +85,14 @@ class GetOriginResult:
         if weight and not isinstance(weight, int):
             raise TypeError("Expected argument 'weight' to be a int")
         pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -234,6 +245,7 @@ class AwaitableGetOriginResult(GetOriginResult):
         if False:
             yield self
         return GetOriginResult(
+            azure_api_version=self.azure_api_version,
             enabled=self.enabled,
             host_name=self.host_name,
             http_port=self.http_port,
@@ -262,9 +274,9 @@ def get_origin(endpoint_name: Optional[str] = None,
     """
     Gets an existing origin within an endpoint.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -281,6 +293,7 @@ def get_origin(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getOrigin', __args__, opts=opts, typ=GetOriginResult).value
 
     return AwaitableGetOriginResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         enabled=pulumi.get(__ret__, 'enabled'),
         host_name=pulumi.get(__ret__, 'host_name'),
         http_port=pulumi.get(__ret__, 'http_port'),
@@ -307,9 +320,9 @@ def get_origin_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     """
     Gets an existing origin within an endpoint.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -325,6 +338,7 @@ def get_origin_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getOrigin', __args__, opts=opts, typ=GetOriginResult)
     return __ret__.apply(lambda __response__: GetOriginResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         enabled=pulumi.get(__response__, 'enabled'),
         host_name=pulumi.get(__response__, 'host_name'),
         http_port=pulumi.get(__response__, 'http_port'),

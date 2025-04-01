@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Logic
         /// Get a batch configuration for an integration account.
         /// 
         /// Uses Azure REST API version 2019-05-01.
+        /// 
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetIntegrationAccountBatchConfigurationResult> InvokeAsync(GetIntegrationAccountBatchConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountBatchConfigurationResult>("azure-native:logic:getIntegrationAccountBatchConfiguration", args ?? new GetIntegrationAccountBatchConfigurationArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Logic
         /// Get a batch configuration for an integration account.
         /// 
         /// Uses Azure REST API version 2019-05-01.
+        /// 
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIntegrationAccountBatchConfigurationResult> Invoke(GetIntegrationAccountBatchConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountBatchConfigurationResult>("azure-native:logic:getIntegrationAccountBatchConfiguration", args ?? new GetIntegrationAccountBatchConfigurationInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Logic
         /// Get a batch configuration for an integration account.
         /// 
         /// Uses Azure REST API version 2019-05-01.
+        /// 
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIntegrationAccountBatchConfigurationResult> Invoke(GetIntegrationAccountBatchConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountBatchConfigurationResult>("azure-native:logic:getIntegrationAccountBatchConfiguration", args ?? new GetIntegrationAccountBatchConfigurationInvokeArgs(), options.WithDefaults());
@@ -94,6 +100,10 @@ namespace Pulumi.AzureNative.Logic
     public sealed class GetIntegrationAccountBatchConfigurationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
@@ -120,6 +130,8 @@ namespace Pulumi.AzureNative.Logic
 
         [OutputConstructor]
         private GetIntegrationAccountBatchConfigurationResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -132,6 +144,7 @@ namespace Pulumi.AzureNative.Logic
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

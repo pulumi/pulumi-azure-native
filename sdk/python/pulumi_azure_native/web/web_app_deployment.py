@@ -252,9 +252,9 @@ class WebAppDeployment(pulumi.CustomResource):
         """
         User credentials used for publishing activity.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,9 +281,9 @@ class WebAppDeployment(pulumi.CustomResource):
         """
         User credentials used for publishing activity.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WebAppDeploymentArgs args: The arguments to use to populate this resource's properties.
@@ -339,6 +339,7 @@ class WebAppDeployment(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["start_time"] = start_time
             __props__.__dict__["status"] = status
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppDeployment"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppDeployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -367,6 +368,7 @@ class WebAppDeployment(pulumi.CustomResource):
         __props__.__dict__["active"] = None
         __props__.__dict__["author"] = None
         __props__.__dict__["author_email"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["deployer"] = None
         __props__.__dict__["details"] = None
         __props__.__dict__["end_time"] = None
@@ -401,6 +403,14 @@ class WebAppDeployment(pulumi.CustomResource):
         Author email.
         """
         return pulumi.get(self, "author_email")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ServerTrustGroupArgs', 'ServerTrustGroup']
@@ -24,14 +25,14 @@ class ServerTrustGroupArgs:
                  group_members: pulumi.Input[Sequence[pulumi.Input['ServerInfoArgs']]],
                  location_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 trust_scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 trust_scopes: pulumi.Input[Sequence[pulumi.Input[Union[str, 'TrustScope']]]],
                  server_trust_group_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerTrustGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['ServerInfoArgs']]] group_members: Group members information for the server trust group.
         :param pulumi.Input[str] location_name: The name of the region where the resource is located.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] trust_scopes: Trust scope of the server trust group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'TrustScope']]]] trust_scopes: Trust scope of the server trust group.
         :param pulumi.Input[str] server_trust_group_name: The name of the server trust group.
         """
         pulumi.set(__self__, "group_members", group_members)
@@ -79,14 +80,14 @@ class ServerTrustGroupArgs:
 
     @property
     @pulumi.getter(name="trustScopes")
-    def trust_scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def trust_scopes(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'TrustScope']]]]:
         """
         Trust scope of the server trust group.
         """
         return pulumi.get(self, "trust_scopes")
 
     @trust_scopes.setter
-    def trust_scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def trust_scopes(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'TrustScope']]]]):
         pulumi.set(self, "trust_scopes", value)
 
     @property
@@ -111,14 +112,14 @@ class ServerTrustGroup(pulumi.CustomResource):
                  location_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_trust_group_name: Optional[pulumi.Input[str]] = None,
-                 trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'TrustScope']]]]] = None,
                  __props__=None):
         """
         A server trust group.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +127,7 @@ class ServerTrustGroup(pulumi.CustomResource):
         :param pulumi.Input[str] location_name: The name of the region where the resource is located.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_trust_group_name: The name of the server trust group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] trust_scopes: Trust scope of the server trust group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'TrustScope']]]] trust_scopes: Trust scope of the server trust group.
         """
         ...
     @overload
@@ -137,9 +138,9 @@ class ServerTrustGroup(pulumi.CustomResource):
         """
         A server trust group.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ServerTrustGroupArgs args: The arguments to use to populate this resource's properties.
@@ -160,7 +161,7 @@ class ServerTrustGroup(pulumi.CustomResource):
                  location_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_trust_group_name: Optional[pulumi.Input[str]] = None,
-                 trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'TrustScope']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -183,6 +184,7 @@ class ServerTrustGroup(pulumi.CustomResource):
             if trust_scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'trust_scopes'")
             __props__.__dict__["trust_scopes"] = trust_scopes
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20211101:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20230201preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20230501preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20230801:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20230801preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20240501preview:ServerTrustGroup")])
@@ -209,11 +211,20 @@ class ServerTrustGroup(pulumi.CustomResource):
 
         __props__ = ServerTrustGroupArgs.__new__(ServerTrustGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["group_members"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["trust_scopes"] = None
         __props__.__dict__["type"] = None
         return ServerTrustGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupMembers")

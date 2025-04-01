@@ -68,9 +68,9 @@ def list_remediation_deployments_at_subscription(remediation_name: Optional[str]
     """
     Gets all deployments for a remediation at subscription scope.
 
-    Uses Azure REST API version 2021-10-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2024-10-01.
+    Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str remediation_name: The name of the remediation.
@@ -91,9 +91,9 @@ def list_remediation_deployments_at_subscription_output(remediation_name: Option
     """
     Gets all deployments for a remediation at subscription scope.
 
-    Uses Azure REST API version 2021-10-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2024-10-01.
+    Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str remediation_name: The name of the remediation.

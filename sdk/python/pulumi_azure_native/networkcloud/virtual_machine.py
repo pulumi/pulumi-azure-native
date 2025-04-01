@@ -31,6 +31,7 @@ class VirtualMachineArgs:
                  storage_profile: pulumi.Input['StorageProfileArgs'],
                  vm_image: pulumi.Input[str],
                  boot_method: Optional[pulumi.Input[Union[str, 'VirtualMachineBootMethod']]] = None,
+                 console_extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  isolate_emulator_thread: Optional[pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAttachmentArgs']]]] = None,
@@ -49,11 +50,12 @@ class VirtualMachineArgs:
         :param pulumi.Input['NetworkAttachmentArgs'] cloud_services_network_attachment: The cloud service network that provides platform-level services for the virtual machine.
         :param pulumi.Input[float] cpu_cores: The number of CPU cores in the virtual machine.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
-        :param pulumi.Input[float] memory_size_gb: The memory size of the virtual machine in GB.
+        :param pulumi.Input[float] memory_size_gb: The memory size of the virtual machine. Allocations are measured in gibibytes.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: The storage profile that specifies size and other parameters about the disks related to the virtual machine.
         :param pulumi.Input[str] vm_image: The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
         :param pulumi.Input[Union[str, 'VirtualMachineBootMethod']] boot_method: Selects the boot method for the virtual machine.
+        :param pulumi.Input['ExtendedLocationArgs'] console_extended_location: The extended location to use for creation of a VM console resource.
         :param pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']] isolate_emulator_thread: Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAttachmentArgs']]] network_attachments: The list of network attachments to the virtual machine.
@@ -79,6 +81,8 @@ class VirtualMachineArgs:
             boot_method = 'UEFI'
         if boot_method is not None:
             pulumi.set(__self__, "boot_method", boot_method)
+        if console_extended_location is not None:
+            pulumi.set(__self__, "console_extended_location", console_extended_location)
         if isolate_emulator_thread is None:
             isolate_emulator_thread = 'True'
         if isolate_emulator_thread is not None:
@@ -162,7 +166,7 @@ class VirtualMachineArgs:
     @pulumi.getter(name="memorySizeGB")
     def memory_size_gb(self) -> pulumi.Input[float]:
         """
-        The memory size of the virtual machine in GB.
+        The memory size of the virtual machine. Allocations are measured in gibibytes.
         """
         return pulumi.get(self, "memory_size_gb")
 
@@ -217,6 +221,18 @@ class VirtualMachineArgs:
     @boot_method.setter
     def boot_method(self, value: Optional[pulumi.Input[Union[str, 'VirtualMachineBootMethod']]]):
         pulumi.set(self, "boot_method", value)
+
+    @property
+    @pulumi.getter(name="consoleExtendedLocation")
+    def console_extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        The extended location to use for creation of a VM console resource.
+        """
+        return pulumi.get(self, "console_extended_location")
+
+    @console_extended_location.setter
+    def console_extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "console_extended_location", value)
 
     @property
     @pulumi.getter(name="isolateEmulatorThread")
@@ -371,6 +387,7 @@ class VirtualMachine(pulumi.CustomResource):
                  admin_username: Optional[pulumi.Input[str]] = None,
                  boot_method: Optional[pulumi.Input[Union[str, 'VirtualMachineBootMethod']]] = None,
                  cloud_services_network_attachment: Optional[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]] = None,
+                 console_extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  cpu_cores: Optional[pulumi.Input[float]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  isolate_emulator_thread: Optional[pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']]] = None,
@@ -391,20 +408,21 @@ class VirtualMachine(pulumi.CustomResource):
                  vm_image_repository_credentials: Optional[pulumi.Input[Union['ImageRepositoryCredentialsArgs', 'ImageRepositoryCredentialsArgsDict']]] = None,
                  __props__=None):
         """
-        Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+        Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_username: The name of the administrator to which the ssh public keys will be added into the authorized keys.
         :param pulumi.Input[Union[str, 'VirtualMachineBootMethod']] boot_method: Selects the boot method for the virtual machine.
         :param pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']] cloud_services_network_attachment: The cloud service network that provides platform-level services for the virtual machine.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] console_extended_location: The extended location to use for creation of a VM console resource.
         :param pulumi.Input[float] cpu_cores: The number of CPU cores in the virtual machine.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']] isolate_emulator_thread: Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[float] memory_size_gb: The memory size of the virtual machine in GB.
+        :param pulumi.Input[float] memory_size_gb: The memory size of the virtual machine. Allocations are measured in gibibytes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]]] network_attachments: The list of network attachments to the virtual machine.
         :param pulumi.Input[str] network_data: The Base64 encoded cloud-init network data.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachinePlacementHintArgs', 'VirtualMachinePlacementHintArgsDict']]]] placement_hints: The scheduling hints for the virtual machine.
@@ -426,9 +444,9 @@ class VirtualMachine(pulumi.CustomResource):
                  args: VirtualMachineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+        Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -448,6 +466,7 @@ class VirtualMachine(pulumi.CustomResource):
                  admin_username: Optional[pulumi.Input[str]] = None,
                  boot_method: Optional[pulumi.Input[Union[str, 'VirtualMachineBootMethod']]] = None,
                  cloud_services_network_attachment: Optional[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]] = None,
+                 console_extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  cpu_cores: Optional[pulumi.Input[float]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  isolate_emulator_thread: Optional[pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']]] = None,
@@ -484,6 +503,7 @@ class VirtualMachine(pulumi.CustomResource):
             if cloud_services_network_attachment is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud_services_network_attachment'")
             __props__.__dict__["cloud_services_network_attachment"] = cloud_services_network_attachment
+            __props__.__dict__["console_extended_location"] = console_extended_location
             if cpu_cores is None and not opts.urn:
                 raise TypeError("Missing required property 'cpu_cores'")
             __props__.__dict__["cpu_cores"] = cpu_cores
@@ -521,10 +541,12 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["vm_image"] = vm_image
             __props__.__dict__["vm_image_repository_credentials"] = vm_image_repository_credentials
             __props__.__dict__["availability_zone"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["bare_metal_machine_id"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["detailed_status"] = None
             __props__.__dict__["detailed_status_message"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["power_state"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -557,13 +579,16 @@ class VirtualMachine(pulumi.CustomResource):
 
         __props__.__dict__["admin_username"] = None
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["bare_metal_machine_id"] = None
         __props__.__dict__["boot_method"] = None
         __props__.__dict__["cloud_services_network_attachment"] = None
         __props__.__dict__["cluster_id"] = None
+        __props__.__dict__["console_extended_location"] = None
         __props__.__dict__["cpu_cores"] = None
         __props__.__dict__["detailed_status"] = None
         __props__.__dict__["detailed_status_message"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["isolate_emulator_thread"] = None
         __props__.__dict__["location"] = None
@@ -604,6 +629,14 @@ class VirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "availability_zone")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="bareMetalMachineId")
     def bare_metal_machine_id(self) -> pulumi.Output[str]:
         """
@@ -636,6 +669,14 @@ class VirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "cluster_id")
 
     @property
+    @pulumi.getter(name="consoleExtendedLocation")
+    def console_extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location to use for creation of a VM console resource.
+        """
+        return pulumi.get(self, "console_extended_location")
+
+    @property
     @pulumi.getter(name="cpuCores")
     def cpu_cores(self) -> pulumi.Output[float]:
         """
@@ -658,6 +699,14 @@ class VirtualMachine(pulumi.CustomResource):
         The descriptive message about the current detailed status.
         """
         return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -687,7 +736,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="memorySizeGB")
     def memory_size_gb(self) -> pulumi.Output[float]:
         """
-        The memory size of the virtual machine in GB.
+        The memory size of the virtual machine. Allocations are measured in gibibytes.
         """
         return pulumi.get(self, "memory_size_gb")
 

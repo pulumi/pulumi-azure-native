@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * MQ mqttBridgeTopicMap resource
  *
- * Uses Azure REST API version 2023-10-04-preview.
+ * Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
  */
 export class MqttBridgeTopicMap extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class MqttBridgeTopicMap extends pulumi.CustomResource {
         return obj['__pulumiType'] === MqttBridgeTopicMap.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Extended Location
      */
@@ -111,11 +115,13 @@ export class MqttBridgeTopicMap extends pulumi.CustomResource {
             resourceInputs["routes"] = args ? args.routes : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["topicMapName"] = args ? args.topicMapName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["mqttBridgeConnectorRef"] = undefined /*out*/;

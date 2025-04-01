@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// The properties of a Instance resource.
+    /// The properties of the Instance resource.
     /// </summary>
     public sealed class InstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
@@ -20,6 +20,12 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The reference to the Schema Registry for this AIO Instance.
+        /// </summary>
+        [Input("schemaRegistryRef", required: true)]
+        public Input<Inputs.SchemaRegistryRefArgs> SchemaRegistryRef { get; set; } = null!;
 
         public InstancePropertiesArgs()
         {

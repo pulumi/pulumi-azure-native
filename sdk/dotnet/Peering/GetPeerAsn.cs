@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.Peering
         /// Gets the peer ASN with the specified name under the given subscription.
         /// 
         /// Uses Azure REST API version 2022-10-01.
-        /// 
-        /// Other available API versions: 2021-01-01.
         /// </summary>
         public static Task<GetPeerAsnResult> InvokeAsync(GetPeerAsnArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeerAsnResult>("azure-native:peering:getPeerAsn", args ?? new GetPeerAsnArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.Peering
         /// Gets the peer ASN with the specified name under the given subscription.
         /// 
         /// Uses Azure REST API version 2022-10-01.
-        /// 
-        /// Other available API versions: 2021-01-01.
         /// </summary>
         public static Output<GetPeerAsnResult> Invoke(GetPeerAsnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeerAsnResult>("azure-native:peering:getPeerAsn", args ?? new GetPeerAsnInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.Peering
         /// Gets the peer ASN with the specified name under the given subscription.
         /// 
         /// Uses Azure REST API version 2022-10-01.
-        /// 
-        /// Other available API versions: 2021-01-01.
         /// </summary>
         public static Output<GetPeerAsnResult> Invoke(GetPeerAsnInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeerAsnResult>("azure-native:peering:getPeerAsn", args ?? new GetPeerAsnInvokeArgs(), options.WithDefaults());
@@ -76,6 +70,10 @@ namespace Pulumi.AzureNative.Peering
     public sealed class GetPeerAsnResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The error message for the validation state
         /// </summary>
         public readonly string ErrorMessage;
@@ -110,6 +108,8 @@ namespace Pulumi.AzureNative.Peering
 
         [OutputConstructor]
         private GetPeerAsnResult(
+            string azureApiVersion,
+
             string errorMessage,
 
             string id,
@@ -126,6 +126,7 @@ namespace Pulumi.AzureNative.Peering
 
             string validationState)
         {
+            AzureApiVersion = azureApiVersion;
             ErrorMessage = errorMessage;
             Id = id;
             Name = name;

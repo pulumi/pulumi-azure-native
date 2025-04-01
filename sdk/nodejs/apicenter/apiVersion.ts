@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * API version entity.
  *
- * Uses Azure REST API version 2024-03-01.
+ * Uses Azure REST API version 2024-03-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
  *
- * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ApiVersion extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class ApiVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApiVersion.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Current lifecycle stage of the API.
      */
@@ -98,10 +102,12 @@ export class ApiVersion extends pulumi.CustomResource {
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["versionName"] = args ? args.versionName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lifecycleStage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

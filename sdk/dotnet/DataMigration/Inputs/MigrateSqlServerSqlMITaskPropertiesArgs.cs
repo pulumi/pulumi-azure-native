@@ -28,10 +28,34 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         }
 
         /// <summary>
+        /// DateTime in UTC when the task was created
+        /// </summary>
+        [Input("createdOn")]
+        public Input<string>? CreatedOn { get; set; }
+
+        /// <summary>
         /// Task input
         /// </summary>
         [Input("input")]
         public Input<Inputs.MigrateSqlServerSqlMITaskInputArgs>? Input { get; set; }
+
+        /// <summary>
+        /// whether the task can be cloned or not
+        /// </summary>
+        [Input("isCloneable")]
+        public Input<bool>? IsCloneable { get; set; }
+
+        /// <summary>
+        /// parent task id
+        /// </summary>
+        [Input("parentTaskId")]
+        public Input<string>? ParentTaskId { get; set; }
+
+        /// <summary>
+        /// task id
+        /// </summary>
+        [Input("taskId")]
+        public Input<string>? TaskId { get; set; }
 
         /// <summary>
         /// Task type.

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a server.
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAdministratorResult> InvokeAsync(GetAdministratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdministratorResult>("azure-native:dbforpostgresql:getAdministrator", args ?? new GetAdministratorArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a server.
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAdministratorResult> Invoke(GetAdministratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdministratorResult>("azure-native:dbforpostgresql:getAdministrator", args ?? new GetAdministratorInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a server.
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAdministratorResult> Invoke(GetAdministratorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdministratorResult>("azure-native:dbforpostgresql:getAdministrator", args ?? new GetAdministratorInvokeArgs(), options.WithDefaults());
@@ -100,7 +100,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetAdministratorResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
         [OutputConstructor]
         private GetAdministratorResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ObjectId = objectId;

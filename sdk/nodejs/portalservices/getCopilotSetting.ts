@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a CopilotSettingsResource
  *
- * Uses Azure REST API version 2024-04-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portalservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCopilotSetting(args?: GetCopilotSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetCopilotSettingResult> {
     args = args || {};
@@ -32,6 +32,10 @@ export interface GetCopilotSettingResult {
      * Boolean indicating if role-based access control is enabled for copilot in this tenant.
      */
     readonly accessControlEnabled: boolean;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -56,9 +60,9 @@ export interface GetCopilotSettingResult {
 /**
  * Get a CopilotSettingsResource
  *
- * Uses Azure REST API version 2024-04-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portalservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCopilotSettingOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCopilotSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

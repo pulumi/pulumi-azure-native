@@ -39,6 +39,38 @@ namespace Pulumi.AzureNative.StorageCache
     }
 
     /// <summary>
+    /// Squash mode of the AML file system. 'All': User and Group IDs on files will be squashed to the provided values for all users on non-trusted systems. 'RootOnly': User and Group IDs on files will be squashed to provided values for solely the root user on non-trusted systems. 'None': No squashing of User and Group IDs is performed for any users on any systems.
+    /// </summary>
+    [EnumType]
+    public readonly struct AmlFilesystemSquashMode : IEquatable<AmlFilesystemSquashMode>
+    {
+        private readonly string _value;
+
+        private AmlFilesystemSquashMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AmlFilesystemSquashMode None { get; } = new AmlFilesystemSquashMode("None");
+        public static AmlFilesystemSquashMode RootOnly { get; } = new AmlFilesystemSquashMode("RootOnly");
+        public static AmlFilesystemSquashMode All { get; } = new AmlFilesystemSquashMode("All");
+
+        public static bool operator ==(AmlFilesystemSquashMode left, AmlFilesystemSquashMode right) => left.Equals(right);
+        public static bool operator !=(AmlFilesystemSquashMode left, AmlFilesystemSquashMode right) => !left.Equals(right);
+
+        public static explicit operator string(AmlFilesystemSquashMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AmlFilesystemSquashMode other && Equals(other);
+        public bool Equals(AmlFilesystemSquashMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of identity used for the cache
     /// </summary>
     [EnumType]

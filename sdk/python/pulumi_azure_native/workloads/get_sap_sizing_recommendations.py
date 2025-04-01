@@ -64,9 +64,9 @@ def get_sap_sizing_recommendations(app_location: Optional[str] = None,
     """
     Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2023-10-01-preview.
 
-    Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+    Other available API versions: 2023-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str app_location: The geo-location where the resource is to be created.
@@ -110,9 +110,9 @@ def get_sap_sizing_recommendations_output(app_location: Optional[pulumi.Input[st
     """
     Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
 
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2023-10-01-preview.
 
-    Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+    Other available API versions: 2023-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str app_location: The geo-location where the resource is to be created.

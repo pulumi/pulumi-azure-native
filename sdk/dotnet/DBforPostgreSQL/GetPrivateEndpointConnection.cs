@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// Gets private endpoint connection.
+        /// Gets a private endpoint connection.
         /// 
-        /// Uses Azure REST API version 2022-11-08.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2018-06-01-privatepreview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:dbforpostgresql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets private endpoint connection.
+        /// Gets a private endpoint connection.
         /// 
-        /// Uses Azure REST API version 2022-11-08.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2018-06-01-privatepreview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:dbforpostgresql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets private endpoint connection.
+        /// Gets a private endpoint connection.
         /// 
-        /// Uses Azure REST API version 2022-11-08.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2018-06-01-privatepreview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:dbforpostgresql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -46,13 +46,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster.
-        /// </summary>
-        [Input("clusterName", required: true)]
-        public string ClusterName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the private endpoint connection associated with the cluster.
+        /// The name of the private endpoint connection.
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public string PrivateEndpointConnectionName { get; set; } = null!;
@@ -63,6 +57,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public string ServerName { get; set; } = null!;
+
         public GetPrivateEndpointConnectionArgs()
         {
         }
@@ -72,13 +72,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster.
-        /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the private endpoint connection associated with the cluster.
+        /// The name of the private endpoint connection.
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
@@ -88,6 +82,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
 
         public GetPrivateEndpointConnectionInvokeArgs()
         {
@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     [OutputType]
     public sealed class GetPrivateEndpointConnectionResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The group ids for the private endpoint resource.
         /// </summary>
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string azureApiVersion,
+
             ImmutableArray<string> groupIds,
 
             string id,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             GroupIds = groupIds;
             Id = id;
             Name = name;

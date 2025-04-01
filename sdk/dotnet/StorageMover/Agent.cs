@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.StorageMover
     /// <summary>
     /// The Agent resource.
     /// 
-    /// Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2022-07-01-preview.
+    /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+    /// Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover:Agent")]
     public partial class Agent : global::Pulumi.CustomResource
@@ -42,6 +42,12 @@ namespace Pulumi.AzureNative.StorageMover
         /// </summary>
         [Output("arcVmUuid")]
         public Output<string> ArcVmUuid { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// A description for the Agent.
@@ -89,16 +95,28 @@ namespace Pulumi.AzureNative.StorageMover
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource system metadata.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The agent's local time zone represented in Windows format.
+        /// </summary>
+        [Output("timeZone")]
+        public Output<string> TimeZone { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
+        /// </summary>
+        [Output("uploadLimitSchedule")]
+        public Output<Outputs.UploadLimitScheduleResponse?> UploadLimitSchedule { get; private set; } = null!;
 
         /// <summary>
         /// Uptime of the Agent in seconds.
@@ -194,6 +212,12 @@ namespace Pulumi.AzureNative.StorageMover
         /// </summary>
         [Input("storageMoverName", required: true)]
         public Input<string> StorageMoverName { get; set; } = null!;
+
+        /// <summary>
+        /// The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
+        /// </summary>
+        [Input("uploadLimitSchedule")]
+        public Input<Inputs.UploadLimitScheduleArgs>? UploadLimitSchedule { get; set; }
 
         public AgentArgs()
         {

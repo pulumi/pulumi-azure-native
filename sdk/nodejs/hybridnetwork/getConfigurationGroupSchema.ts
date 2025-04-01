@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets information about the specified configuration group schema.
  *
- * Uses Azure REST API version 2023-09-01.
+ * Uses Azure REST API version 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConfigurationGroupSchema(args: GetConfigurationGroupSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationGroupSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetConfigurationGroupSchemaArgs {
  * Configuration group schema resource.
  */
 export interface GetConfigurationGroupSchemaResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -74,9 +78,9 @@ export interface GetConfigurationGroupSchemaResult {
 /**
  * Gets information about the specified configuration group schema.
  *
- * Uses Azure REST API version 2023-09-01.
+ * Uses Azure REST API version 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConfigurationGroupSchemaOutput(args: GetConfigurationGroupSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationGroupSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

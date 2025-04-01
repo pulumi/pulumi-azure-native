@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets information about a disk encryption set.
  *
- * Uses Azure REST API version 2022-07-02.
+ * Uses Azure REST API version 2024-03-02.
  *
- * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+ * Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +45,10 @@ export interface GetDiskEncryptionSetResult {
      * The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
      */
     readonly autoKeyRotationError: outputs.compute.ApiErrorResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The type of key used to encrypt the data of the disk.
      */
@@ -97,9 +101,9 @@ export interface GetDiskEncryptionSetResult {
 /**
  * Gets information about a disk encryption set.
  *
- * Uses Azure REST API version 2022-07-02.
+ * Uses Azure REST API version 2024-03-02.
  *
- * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+ * Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiskEncryptionSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

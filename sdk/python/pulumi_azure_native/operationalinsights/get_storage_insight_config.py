@@ -27,7 +27,10 @@ class GetStorageInsightConfigResult:
     """
     The top level storage insight resource container.
     """
-    def __init__(__self__, containers=None, e_tag=None, id=None, name=None, status=None, storage_account=None, tables=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, containers=None, e_tag=None, id=None, name=None, status=None, storage_account=None, tables=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if containers and not isinstance(containers, list):
             raise TypeError("Expected argument 'containers' to be a list")
         pulumi.set(__self__, "containers", containers)
@@ -55,6 +58,14 @@ class GetStorageInsightConfigResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetStorageInsightConfigResult(GetStorageInsightConfigResult):
         if False:
             yield self
         return GetStorageInsightConfigResult(
+            azure_api_version=self.azure_api_version,
             containers=self.containers,
             e_tag=self.e_tag,
             id=self.id,
@@ -153,9 +165,9 @@ def get_storage_insight_config(resource_group_name: Optional[str] = None,
     """
     Gets a storage insight instance.
 
-    Uses Azure REST API version 2020-08-01.
+    Uses Azure REST API version 2023-09-01.
 
-    Other available API versions: 2023-09-01, 2025-02-01.
+    Other available API versions: 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -170,6 +182,7 @@ def get_storage_insight_config(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights:getStorageInsightConfig', __args__, opts=opts, typ=GetStorageInsightConfigResult).value
 
     return AwaitableGetStorageInsightConfigResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         containers=pulumi.get(__ret__, 'containers'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         id=pulumi.get(__ret__, 'id'),
@@ -186,9 +199,9 @@ def get_storage_insight_config_output(resource_group_name: Optional[pulumi.Input
     """
     Gets a storage insight instance.
 
-    Uses Azure REST API version 2020-08-01.
+    Uses Azure REST API version 2023-09-01.
 
-    Other available API versions: 2023-09-01, 2025-02-01.
+    Other available API versions: 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -202,6 +215,7 @@ def get_storage_insight_config_output(resource_group_name: Optional[pulumi.Input
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights:getStorageInsightConfig', __args__, opts=opts, typ=GetStorageInsightConfigResult)
     return __ret__.apply(lambda __response__: GetStorageInsightConfigResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         containers=pulumi.get(__response__, 'containers'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         id=pulumi.get(__response__, 'id'),

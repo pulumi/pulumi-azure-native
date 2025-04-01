@@ -27,10 +27,13 @@ class GetStorageTaskResult:
     """
     Represents Storage Task.
     """
-    def __init__(__self__, action=None, creation_time_in_utc=None, description=None, enabled=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, task_version=None, type=None):
+    def __init__(__self__, action=None, azure_api_version=None, creation_time_in_utc=None, description=None, enabled=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, task_version=None, type=None):
         if action and not isinstance(action, dict):
             raise TypeError("Expected argument 'action' to be a dict")
         pulumi.set(__self__, "action", action)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time_in_utc and not isinstance(creation_time_in_utc, str):
             raise TypeError("Expected argument 'creation_time_in_utc' to be a str")
         pulumi.set(__self__, "creation_time_in_utc", creation_time_in_utc)
@@ -75,6 +78,14 @@ class GetStorageTaskResult:
         The storage task action that is executed
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTimeInUtc")
@@ -180,6 +191,7 @@ class AwaitableGetStorageTaskResult(GetStorageTaskResult):
             yield self
         return GetStorageTaskResult(
             action=self.action,
+            azure_api_version=self.azure_api_version,
             creation_time_in_utc=self.creation_time_in_utc,
             description=self.description,
             enabled=self.enabled,
@@ -214,6 +226,7 @@ def get_storage_task(resource_group_name: Optional[str] = None,
 
     return AwaitableGetStorageTaskResult(
         action=pulumi.get(__ret__, 'action'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time_in_utc=pulumi.get(__ret__, 'creation_time_in_utc'),
         description=pulumi.get(__ret__, 'description'),
         enabled=pulumi.get(__ret__, 'enabled'),
@@ -245,6 +258,7 @@ def get_storage_task_output(resource_group_name: Optional[pulumi.Input[str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:storageactions:getStorageTask', __args__, opts=opts, typ=GetStorageTaskResult)
     return __ret__.apply(lambda __response__: GetStorageTaskResult(
         action=pulumi.get(__response__, 'action'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time_in_utc=pulumi.get(__response__, 'creation_time_in_utc'),
         description=pulumi.get(__response__, 'description'),
         enabled=pulumi.get(__response__, 'enabled'),

@@ -46,6 +46,10 @@ export interface GetKustoTableDataSetMappingArgs {
  */
 export interface GetKustoTableDataSetMappingResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The id of the source data set.
      */
     readonly dataSetId: string;

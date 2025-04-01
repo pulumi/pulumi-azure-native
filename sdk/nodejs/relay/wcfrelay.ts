@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Description of the WCF relay resource.
  *
- * Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+ * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
- * Other available API versions: 2024-01-01.
+ * Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WCFRelay extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class WCFRelay extends pulumi.CustomResource {
         return obj['__pulumiType'] === WCFRelay.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The time the WCF relay was created.
      */
@@ -114,6 +118,7 @@ export class WCFRelay extends pulumi.CustomResource {
             resourceInputs["requiresTransportSecurity"] = args ? args.requiresTransportSecurity : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["isDynamic"] = undefined /*out*/;
             resourceInputs["listenerCount"] = undefined /*out*/;
@@ -123,6 +128,7 @@ export class WCFRelay extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["isDynamic"] = undefined /*out*/;
             resourceInputs["listenerCount"] = undefined /*out*/;

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Business case resource.
  *
- * Uses Azure REST API version 2023-04-01-preview.
+ * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
  *
- * Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class BusinessCaseOperation extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class BusinessCaseOperation extends pulumi.CustomResource {
         return obj['__pulumiType'] === BusinessCaseOperation.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -91,6 +95,7 @@ export class BusinessCaseOperation extends pulumi.CustomResource {
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["settings"] = args ? (args.settings ? pulumi.output(args.settings).apply(inputs.migrate.settingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["reportStatusDetails"] = undefined /*out*/;
@@ -98,6 +103,7 @@ export class BusinessCaseOperation extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["reportStatusDetails"] = undefined /*out*/;

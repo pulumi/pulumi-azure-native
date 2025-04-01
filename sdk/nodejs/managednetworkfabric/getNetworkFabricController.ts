@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Shows the provisioning status of Network Fabric Controller.
  *
- * Uses Azure REST API version 2023-02-01-preview.
+ * Uses Azure REST API version 2023-06-15.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkFabricController(args: GetNetworkFabricControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFabricControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +24,7 @@ export function getNetworkFabricController(args: GetNetworkFabricControllerArgs,
 
 export interface GetNetworkFabricControllerArgs {
     /**
-     * Name of the Network Fabric Controller
+     * Name of the Network Fabric Controller.
      */
     networkFabricControllerName: string;
     /**
@@ -34,7 +34,7 @@ export interface GetNetworkFabricControllerArgs {
 }
 
 /**
- * The NetworkFabricController resource definition.
+ * The Network Fabric Controller resource definition.
  */
 export interface GetNetworkFabricControllerResult {
     /**
@@ -42,7 +42,11 @@ export interface GetNetworkFabricControllerResult {
      */
     readonly annotation?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -52,7 +56,7 @@ export interface GetNetworkFabricControllerResult {
     /**
      * InfrastructureServices IP ranges.
      */
-    readonly infrastructureServices: outputs.managednetworkfabric.InfrastructureServicesResponse;
+    readonly infrastructureServices: outputs.managednetworkfabric.ControllerServicesResponse;
     /**
      * IPv4 Network Fabric Controller Address Space.
      */
@@ -61,6 +65,10 @@ export interface GetNetworkFabricControllerResult {
      * IPv6 Network Fabric Controller Address Space.
      */
     readonly ipv6AddressSpace?: string;
+    /**
+     * A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+     */
+    readonly isWorkloadManagementNetworkEnabled?: string;
     /**
      * The geo-location where the resource lives
      */
@@ -78,9 +86,9 @@ export interface GetNetworkFabricControllerResult {
      */
     readonly networkFabricIds: string[];
     /**
-     * The Operational Status would always be NULL. Look only in to the Provisioning state for the latest status.
+     * Network Fabric Controller SKU.
      */
-    readonly operationalState: string;
+    readonly nfcSku?: string;
     /**
      * Provides you the latest status of the NFC service, whether it is Accepted, updating, Succeeded or Failed. During this process, the states keep changing based on the status of NFC provisioning.
      */
@@ -94,6 +102,10 @@ export interface GetNetworkFabricControllerResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * List of tenant InternetGateway resource IDs
+     */
+    readonly tenantInternetGatewayIds: string[];
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
@@ -102,20 +114,20 @@ export interface GetNetworkFabricControllerResult {
      */
     readonly workloadExpressRouteConnections?: outputs.managednetworkfabric.ExpressRouteConnectionInformationResponse[];
     /**
-     * A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+     * A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints. This is used for the backward compatibility.
      */
     readonly workloadManagementNetwork: boolean;
     /**
      * WorkloadServices IP ranges.
      */
-    readonly workloadServices: outputs.managednetworkfabric.WorkloadServicesResponse;
+    readonly workloadServices: outputs.managednetworkfabric.ControllerServicesResponse;
 }
 /**
  * Shows the provisioning status of Network Fabric Controller.
  *
- * Uses Azure REST API version 2023-02-01-preview.
+ * Uses Azure REST API version 2023-06-15.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkFabricControllerOutput(args: GetNetworkFabricControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFabricControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -127,7 +139,7 @@ export function getNetworkFabricControllerOutput(args: GetNetworkFabricControlle
 
 export interface GetNetworkFabricControllerOutputArgs {
     /**
-     * Name of the Network Fabric Controller
+     * Name of the Network Fabric Controller.
      */
     networkFabricControllerName: pulumi.Input<string>;
     /**

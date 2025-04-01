@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Automation
     /// <summary>
     /// Definition of the Runtime Environment type.
     /// 
-    /// Uses Azure REST API version 2023-05-15-preview.
+    /// Uses Azure REST API version 2023-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-15-preview.
     /// 
-    /// Other available API versions: 2024-10-23.
+    /// Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:RuntimeEnvironment")]
     public partial class RuntimeEnvironment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// List of Default packages for Environment
         /// </summary>

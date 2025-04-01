@@ -28,7 +28,10 @@ class GetTaskRunResult:
     The task run that has the ARM resource and properties. 
     The task run will have the information of request and result of a run.
     """
-    def __init__(__self__, force_update_tag=None, id=None, identity=None, location=None, name=None, provisioning_state=None, run_request=None, run_result=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, force_update_tag=None, id=None, identity=None, location=None, name=None, provisioning_state=None, run_request=None, run_result=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if force_update_tag and not isinstance(force_update_tag, str):
             raise TypeError("Expected argument 'force_update_tag' to be a str")
         pulumi.set(__self__, "force_update_tag", force_update_tag)
@@ -59,6 +62,14 @@ class GetTaskRunResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="forceUpdateTag")
@@ -147,6 +158,7 @@ class AwaitableGetTaskRunResult(GetTaskRunResult):
         if False:
             yield self
         return GetTaskRunResult(
+            azure_api_version=self.azure_api_version,
             force_update_tag=self.force_update_tag,
             id=self.id,
             identity=self.identity,
@@ -181,6 +193,7 @@ def get_task_run(registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry:getTaskRun', __args__, opts=opts, typ=GetTaskRunResult).value
 
     return AwaitableGetTaskRunResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         force_update_tag=pulumi.get(__ret__, 'force_update_tag'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -212,6 +225,7 @@ def get_task_run_output(registry_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getTaskRun', __args__, opts=opts, typ=GetTaskRunResult)
     return __ret__.apply(lambda __response__: GetTaskRunResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         force_update_tag=pulumi.get(__response__, 'force_update_tag'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

@@ -69,23 +69,6 @@ utilities.lazyLoad(exports, ["SyncSet"], () => require("./syncSet"));
 // Export enums:
 export * from "../types/enums/redhatopenshift";
 
-// Export sub-modules:
-import * as v20220904 from "./v20220904";
-import * as v20230401 from "./v20230401";
-import * as v20230701preview from "./v20230701preview";
-import * as v20230904 from "./v20230904";
-import * as v20231122 from "./v20231122";
-import * as v20240812preview from "./v20240812preview";
-
-export {
-    v20220904,
-    v20230401,
-    v20230701preview,
-    v20230904,
-    v20231122,
-    v20240812preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

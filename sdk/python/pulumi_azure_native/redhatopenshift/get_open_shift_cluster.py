@@ -27,10 +27,13 @@ class GetOpenShiftClusterResult:
     """
     OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     """
-    def __init__(__self__, apiserver_profile=None, cluster_profile=None, console_profile=None, id=None, ingress_profiles=None, location=None, master_profile=None, name=None, network_profile=None, provisioning_state=None, service_principal_profile=None, system_data=None, tags=None, type=None, worker_profiles=None):
+    def __init__(__self__, apiserver_profile=None, azure_api_version=None, cluster_profile=None, console_profile=None, id=None, ingress_profiles=None, location=None, master_profile=None, name=None, network_profile=None, provisioning_state=None, service_principal_profile=None, system_data=None, tags=None, type=None, worker_profiles=None, worker_profiles_status=None):
         if apiserver_profile and not isinstance(apiserver_profile, dict):
             raise TypeError("Expected argument 'apiserver_profile' to be a dict")
         pulumi.set(__self__, "apiserver_profile", apiserver_profile)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_profile and not isinstance(cluster_profile, dict):
             raise TypeError("Expected argument 'cluster_profile' to be a dict")
         pulumi.set(__self__, "cluster_profile", cluster_profile)
@@ -73,6 +76,9 @@ class GetOpenShiftClusterResult:
         if worker_profiles and not isinstance(worker_profiles, list):
             raise TypeError("Expected argument 'worker_profiles' to be a list")
         pulumi.set(__self__, "worker_profiles", worker_profiles)
+        if worker_profiles_status and not isinstance(worker_profiles_status, list):
+            raise TypeError("Expected argument 'worker_profiles_status' to be a list")
+        pulumi.set(__self__, "worker_profiles_status", worker_profiles_status)
 
     @property
     @pulumi.getter(name="apiserverProfile")
@@ -81,6 +87,14 @@ class GetOpenShiftClusterResult:
         The cluster API server profile.
         """
         return pulumi.get(self, "apiserver_profile")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterProfile")
@@ -194,6 +208,14 @@ class GetOpenShiftClusterResult:
         """
         return pulumi.get(self, "worker_profiles")
 
+    @property
+    @pulumi.getter(name="workerProfilesStatus")
+    def worker_profiles_status(self) -> Sequence['outputs.WorkerProfileResponse']:
+        """
+        The cluster worker profiles status.
+        """
+        return pulumi.get(self, "worker_profiles_status")
+
 
 class AwaitableGetOpenShiftClusterResult(GetOpenShiftClusterResult):
     # pylint: disable=using-constant-test
@@ -202,6 +224,7 @@ class AwaitableGetOpenShiftClusterResult(GetOpenShiftClusterResult):
             yield self
         return GetOpenShiftClusterResult(
             apiserver_profile=self.apiserver_profile,
+            azure_api_version=self.azure_api_version,
             cluster_profile=self.cluster_profile,
             console_profile=self.console_profile,
             id=self.id,
@@ -215,7 +238,8 @@ class AwaitableGetOpenShiftClusterResult(GetOpenShiftClusterResult):
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
-            worker_profiles=self.worker_profiles)
+            worker_profiles=self.worker_profiles,
+            worker_profiles_status=self.worker_profiles_status)
 
 
 def get_open_shift_cluster(resource_group_name: Optional[str] = None,
@@ -224,9 +248,9 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
     """
     The operation returns properties of a OpenShift cluster.
 
-    Uses Azure REST API version 2022-09-04.
+    Uses Azure REST API version 2023-11-22.
 
-    Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+    Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -240,6 +264,7 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
 
     return AwaitableGetOpenShiftClusterResult(
         apiserver_profile=pulumi.get(__ret__, 'apiserver_profile'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_profile=pulumi.get(__ret__, 'cluster_profile'),
         console_profile=pulumi.get(__ret__, 'console_profile'),
         id=pulumi.get(__ret__, 'id'),
@@ -253,16 +278,17 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
-        worker_profiles=pulumi.get(__ret__, 'worker_profiles'))
+        worker_profiles=pulumi.get(__ret__, 'worker_profiles'),
+        worker_profiles_status=pulumi.get(__ret__, 'worker_profiles_status'))
 def get_open_shift_cluster_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                   resource_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenShiftClusterResult]:
     """
     The operation returns properties of a OpenShift cluster.
 
-    Uses Azure REST API version 2022-09-04.
+    Uses Azure REST API version 2023-11-22.
 
-    Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+    Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -275,6 +301,7 @@ def get_open_shift_cluster_output(resource_group_name: Optional[pulumi.Input[str
     __ret__ = pulumi.runtime.invoke_output('azure-native:redhatopenshift:getOpenShiftCluster', __args__, opts=opts, typ=GetOpenShiftClusterResult)
     return __ret__.apply(lambda __response__: GetOpenShiftClusterResult(
         apiserver_profile=pulumi.get(__response__, 'apiserver_profile'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_profile=pulumi.get(__response__, 'cluster_profile'),
         console_profile=pulumi.get(__response__, 'console_profile'),
         id=pulumi.get(__response__, 'id'),
@@ -288,4 +315,5 @@ def get_open_shift_cluster_output(resource_group_name: Optional[pulumi.Input[str
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
-        worker_profiles=pulumi.get(__response__, 'worker_profiles')))
+        worker_profiles=pulumi.get(__response__, 'worker_profiles'),
+        worker_profiles_status=pulumi.get(__response__, 'worker_profiles_status')))

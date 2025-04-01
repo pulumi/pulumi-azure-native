@@ -41,6 +41,10 @@ export interface GetEdgeModuleArgs {
  */
 export interface GetEdgeModuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Internal ID generated for the instance of the Video Analyzer edge module.
      */
     readonly edgeModuleId: string;

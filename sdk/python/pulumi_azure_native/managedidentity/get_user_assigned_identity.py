@@ -27,7 +27,10 @@ class GetUserAssignedIdentityResult:
     """
     Describes an identity resource.
     """
-    def __init__(__self__, client_id=None, id=None, location=None, name=None, principal_id=None, system_data=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, client_id=None, id=None, location=None, name=None, principal_id=None, system_data=None, tags=None, tenant_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         pulumi.set(__self__, "client_id", client_id)
@@ -55,6 +58,14 @@ class GetUserAssignedIdentityResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientId")
@@ -135,6 +146,7 @@ class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
         if False:
             yield self
         return GetUserAssignedIdentityResult(
+            azure_api_version=self.azure_api_version,
             client_id=self.client_id,
             id=self.id,
             location=self.location,
@@ -154,7 +166,7 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-01-31.
 
-    Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
+    Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
@@ -167,6 +179,7 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managedidentity:getUserAssignedIdentity', __args__, opts=opts, typ=GetUserAssignedIdentityResult).value
 
     return AwaitableGetUserAssignedIdentityResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         client_id=pulumi.get(__ret__, 'client_id'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -184,7 +197,7 @@ def get_user_assigned_identity_output(resource_group_name: Optional[pulumi.Input
 
     Uses Azure REST API version 2023-01-31.
 
-    Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
+    Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
@@ -196,6 +209,7 @@ def get_user_assigned_identity_output(resource_group_name: Optional[pulumi.Input
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managedidentity:getUserAssignedIdentity', __args__, opts=opts, typ=GetUserAssignedIdentityResult)
     return __ret__.apply(lambda __response__: GetUserAssignedIdentityResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         client_id=pulumi.get(__response__, 'client_id'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

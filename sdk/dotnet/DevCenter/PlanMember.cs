@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.DevCenter
     /// <summary>
     /// Represents a devcenter plan member resource.
     /// 
-    /// Uses Azure REST API version 2024-05-01-preview.
+    /// Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
     /// 
-    /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:PlanMember")]
     public partial class PlanMember : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The unique id of the member.
         /// </summary>
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNative.DevCenter
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The sync status of the member.
+        /// </summary>
+        [Output("syncStatus")]
+        public Output<Outputs.PlanMemberSyncStatusResponse> SyncStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
@@ -54,6 +66,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The tier of the member.
+        /// </summary>
+        [Output("tier")]
+        public Output<string?> Tier { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -155,6 +173,12 @@ namespace Pulumi.AzureNative.DevCenter
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The tier of the member.
+        /// </summary>
+        [Input("tier")]
+        public Input<string>? Tier { get; set; }
 
         public PlanMemberArgs()
         {

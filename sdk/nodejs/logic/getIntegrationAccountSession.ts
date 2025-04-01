@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
  * Gets an integration account session.
  *
  * Uses Azure REST API version 2019-05-01.
+ *
+ * Other available API versions: 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getIntegrationAccountSession(args: GetIntegrationAccountSessionArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountSessionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +39,10 @@ export interface GetIntegrationAccountSessionArgs {
  * The integration account session.
  */
 export interface GetIntegrationAccountSessionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The changed time.
      */
@@ -74,6 +80,8 @@ export interface GetIntegrationAccountSessionResult {
  * Gets an integration account session.
  *
  * Uses Azure REST API version 2019-05-01.
+ *
+ * Other available API versions: 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getIntegrationAccountSessionOutput(args: GetIntegrationAccountSessionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAccountSessionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

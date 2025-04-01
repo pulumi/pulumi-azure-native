@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.StorageActions
         /// </summary>
         public readonly Outputs.StorageTaskActionResponse Action;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date and time of the storage task in UTC.
         /// </summary>
         public readonly string CreationTimeInUtc;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.StorageActions
         private GetStorageTaskResult(
             Outputs.StorageTaskActionResponse action,
 
+            string azureApiVersion,
+
             string creationTimeInUtc,
 
             string description,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNative.StorageActions
             string type)
         {
             Action = action;
+            AzureApiVersion = azureApiVersion;
             CreationTimeInUtc = creationTimeInUtc;
             Description = description;
             Enabled = enabled;

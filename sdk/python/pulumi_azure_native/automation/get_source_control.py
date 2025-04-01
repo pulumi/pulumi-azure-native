@@ -26,10 +26,13 @@ class GetSourceControlResult:
     """
     Definition of the source control.
     """
-    def __init__(__self__, auto_sync=None, branch=None, creation_time=None, description=None, folder_path=None, id=None, last_modified_time=None, name=None, publish_runbook=None, repo_url=None, source_type=None, type=None):
+    def __init__(__self__, auto_sync=None, azure_api_version=None, branch=None, creation_time=None, description=None, folder_path=None, id=None, last_modified_time=None, name=None, publish_runbook=None, repo_url=None, source_type=None, type=None):
         if auto_sync and not isinstance(auto_sync, bool):
             raise TypeError("Expected argument 'auto_sync' to be a bool")
         pulumi.set(__self__, "auto_sync", auto_sync)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if branch and not isinstance(branch, str):
             raise TypeError("Expected argument 'branch' to be a str")
         pulumi.set(__self__, "branch", branch)
@@ -71,6 +74,14 @@ class GetSourceControlResult:
         The auto sync of the source control. Default is false.
         """
         return pulumi.get(self, "auto_sync")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -168,6 +179,7 @@ class AwaitableGetSourceControlResult(GetSourceControlResult):
             yield self
         return GetSourceControlResult(
             auto_sync=self.auto_sync,
+            azure_api_version=self.azure_api_version,
             branch=self.branch,
             creation_time=self.creation_time,
             description=self.description,
@@ -188,9 +200,9 @@ def get_source_control(automation_account_name: Optional[str] = None,
     """
     Retrieve the source control identified by source control name.
 
-    Uses Azure REST API version 2022-08-08.
+    Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -206,6 +218,7 @@ def get_source_control(automation_account_name: Optional[str] = None,
 
     return AwaitableGetSourceControlResult(
         auto_sync=pulumi.get(__ret__, 'auto_sync'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         branch=pulumi.get(__ret__, 'branch'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
@@ -224,9 +237,9 @@ def get_source_control_output(automation_account_name: Optional[pulumi.Input[str
     """
     Retrieve the source control identified by source control name.
 
-    Uses Azure REST API version 2022-08-08.
+    Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -241,6 +254,7 @@ def get_source_control_output(automation_account_name: Optional[pulumi.Input[str
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getSourceControl', __args__, opts=opts, typ=GetSourceControlResult)
     return __ret__.apply(lambda __response__: GetSourceControlResult(
         auto_sync=pulumi.get(__response__, 'auto_sync'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         branch=pulumi.get(__response__, 'branch'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),

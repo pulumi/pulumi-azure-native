@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Get a given CloudEndpoint.
         /// 
-        /// Uses Azure REST API version 2022-06-01.
+        /// Uses Azure REST API version 2022-09-01.
         /// 
-        /// Other available API versions: 2022-09-01.
+        /// Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCloudEndpointResult> InvokeAsync(GetCloudEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudEndpointResult>("azure-native:storagesync:getCloudEndpoint", args ?? new GetCloudEndpointArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Get a given CloudEndpoint.
         /// 
-        /// Uses Azure REST API version 2022-06-01.
+        /// Uses Azure REST API version 2022-09-01.
         /// 
-        /// Other available API versions: 2022-09-01.
+        /// Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCloudEndpointResult> Invoke(GetCloudEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudEndpointResult>("azure-native:storagesync:getCloudEndpoint", args ?? new GetCloudEndpointInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Get a given CloudEndpoint.
         /// 
-        /// Uses Azure REST API version 2022-06-01.
+        /// Uses Azure REST API version 2022-09-01.
         /// 
-        /// Other available API versions: 2022-09-01.
+        /// Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCloudEndpointResult> Invoke(GetCloudEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudEndpointResult>("azure-native:storagesync:getCloudEndpoint", args ?? new GetCloudEndpointInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.StorageSync
     public sealed class GetCloudEndpointResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Azure file share name
         /// </summary>
         public readonly string? AzureFileShareName;
@@ -128,7 +132,7 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -170,6 +174,8 @@ namespace Pulumi.AzureNative.StorageSync
 
         [OutputConstructor]
         private GetCloudEndpointResult(
+            string azureApiVersion,
+
             string? azureFileShareName,
 
             string backupEnabled,
@@ -198,6 +204,7 @@ namespace Pulumi.AzureNative.StorageSync
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             AzureFileShareName = azureFileShareName;
             BackupEnabled = backupEnabled;
             ChangeEnumerationStatus = changeEnumerationStatus;

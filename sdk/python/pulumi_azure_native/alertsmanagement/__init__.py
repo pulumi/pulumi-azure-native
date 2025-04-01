@@ -16,23 +16,3 @@ from .prometheus_rule_group import *
 from .smart_detector_alert_rule import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.alertsmanagement.v20190505preview as __v20190505preview
-    v20190505preview = __v20190505preview
-    import pulumi_azure_native.alertsmanagement.v20210401 as __v20210401
-    v20210401 = __v20210401
-    import pulumi_azure_native.alertsmanagement.v20210808 as __v20210808
-    v20210808 = __v20210808
-    import pulumi_azure_native.alertsmanagement.v20230301 as __v20230301
-    v20230301 = __v20230301
-    import pulumi_azure_native.alertsmanagement.v20230401preview as __v20230401preview
-    v20230401preview = __v20230401preview
-else:
-    v20190505preview = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20190505preview')
-    v20210401 = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20210401')
-    v20210808 = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20210808')
-    v20230301 = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20230301')
-    v20230401preview = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20230401preview')
-

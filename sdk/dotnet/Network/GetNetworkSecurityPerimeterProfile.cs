@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string AccessRulesVersion;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Version number that increases with every update to diagnostic settings within the profile.
         /// </summary>
         public readonly string DiagnosticSettingsVersion;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.Network
         private GetNetworkSecurityPerimeterProfileResult(
             string accessRulesVersion,
 
+            string azureApiVersion,
+
             string diagnosticSettingsVersion,
 
             string id,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             AccessRulesVersion = accessRulesVersion;
+            AzureApiVersion = azureApiVersion;
             DiagnosticSettingsVersion = diagnosticSettingsVersion;
             Id = id;
             Location = location;

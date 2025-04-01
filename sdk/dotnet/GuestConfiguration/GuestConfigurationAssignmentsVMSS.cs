@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.GuestConfiguration
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
     /// 
-    /// Uses Azure REST API version 2022-01-25.
+    /// Uses Azure REST API version 2024-04-05. In version 2.x of the Azure Native provider, it used API version 2022-01-25.
     /// 
-    /// Other available API versions: 2024-04-05.
+    /// Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:guestconfiguration:GuestConfigurationAssignmentsVMSS")]
     public partial class GuestConfigurationAssignmentsVMSS : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Region where the VM is located.
         /// </summary>

@@ -27,7 +27,16 @@ class GetElasticPoolResult:
     """
     An elastic pool.
     """
-    def __init__(__self__, creation_date=None, high_availability_replica_count=None, id=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, max_size_bytes=None, min_capacity=None, name=None, per_database_settings=None, sku=None, state=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, auto_pause_delay=None, availability_zone=None, azure_api_version=None, creation_date=None, high_availability_replica_count=None, id=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, max_size_bytes=None, min_capacity=None, name=None, per_database_settings=None, preferred_enclave_type=None, sku=None, state=None, tags=None, type=None, zone_redundant=None):
+        if auto_pause_delay and not isinstance(auto_pause_delay, int):
+            raise TypeError("Expected argument 'auto_pause_delay' to be a int")
+        pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
+        if availability_zone and not isinstance(availability_zone, str):
+            raise TypeError("Expected argument 'availability_zone' to be a str")
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -61,6 +70,9 @@ class GetElasticPoolResult:
         if per_database_settings and not isinstance(per_database_settings, dict):
             raise TypeError("Expected argument 'per_database_settings' to be a dict")
         pulumi.set(__self__, "per_database_settings", per_database_settings)
+        if preferred_enclave_type and not isinstance(preferred_enclave_type, str):
+            raise TypeError("Expected argument 'preferred_enclave_type' to be a str")
+        pulumi.set(__self__, "preferred_enclave_type", preferred_enclave_type)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -78,6 +90,30 @@ class GetElasticPoolResult:
         pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
+    @pulumi.getter(name="autoPauseDelay")
+    def auto_pause_delay(self) -> Optional[int]:
+        """
+        Time in minutes after which elastic pool is automatically paused. A value of -1 means that automatic pause is disabled
+        """
+        return pulumi.get(self, "auto_pause_delay")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        """
+        Specifies the availability zone the pool's primary replica is pinned to.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> str:
         """
@@ -89,7 +125,7 @@ class GetElasticPoolResult:
     @pulumi.getter(name="highAvailabilityReplicaCount")
     def high_availability_replica_count(self) -> Optional[int]:
         """
-        The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+        The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
         """
         return pulumi.get(self, "high_availability_replica_count")
 
@@ -166,6 +202,14 @@ class GetElasticPoolResult:
         return pulumi.get(self, "per_database_settings")
 
     @property
+    @pulumi.getter(name="preferredEnclaveType")
+    def preferred_enclave_type(self) -> Optional[str]:
+        """
+        Type of enclave requested on the elastic pool.
+        """
+        return pulumi.get(self, "preferred_enclave_type")
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
@@ -218,6 +262,9 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
         if False:
             yield self
         return GetElasticPoolResult(
+            auto_pause_delay=self.auto_pause_delay,
+            availability_zone=self.availability_zone,
+            azure_api_version=self.azure_api_version,
             creation_date=self.creation_date,
             high_availability_replica_count=self.high_availability_replica_count,
             id=self.id,
@@ -229,6 +276,7 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
             min_capacity=self.min_capacity,
             name=self.name,
             per_database_settings=self.per_database_settings,
+            preferred_enclave_type=self.preferred_enclave_type,
             sku=self.sku,
             state=self.state,
             tags=self.tags,
@@ -243,9 +291,9 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
     """
     Gets an elastic pool.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str elastic_pool_name: The name of the elastic pool.
@@ -260,6 +308,9 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getElasticPool', __args__, opts=opts, typ=GetElasticPoolResult).value
 
     return AwaitableGetElasticPoolResult(
+        auto_pause_delay=pulumi.get(__ret__, 'auto_pause_delay'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         high_availability_replica_count=pulumi.get(__ret__, 'high_availability_replica_count'),
         id=pulumi.get(__ret__, 'id'),
@@ -271,6 +322,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
         min_capacity=pulumi.get(__ret__, 'min_capacity'),
         name=pulumi.get(__ret__, 'name'),
         per_database_settings=pulumi.get(__ret__, 'per_database_settings'),
+        preferred_enclave_type=pulumi.get(__ret__, 'preferred_enclave_type'),
         sku=pulumi.get(__ret__, 'sku'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -283,9 +335,9 @@ def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = Non
     """
     Gets an elastic pool.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str elastic_pool_name: The name of the elastic pool.
@@ -299,6 +351,9 @@ def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getElasticPool', __args__, opts=opts, typ=GetElasticPoolResult)
     return __ret__.apply(lambda __response__: GetElasticPoolResult(
+        auto_pause_delay=pulumi.get(__response__, 'auto_pause_delay'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         high_availability_replica_count=pulumi.get(__response__, 'high_availability_replica_count'),
         id=pulumi.get(__response__, 'id'),
@@ -310,6 +365,7 @@ def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = Non
         min_capacity=pulumi.get(__response__, 'min_capacity'),
         name=pulumi.get(__response__, 'name'),
         per_database_settings=pulumi.get(__response__, 'per_database_settings'),
+        preferred_enclave_type=pulumi.get(__response__, 'preferred_enclave_type'),
         sku=pulumi.get(__response__, 'sku'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags'),

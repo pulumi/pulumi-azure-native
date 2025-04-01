@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Returns a subscription description for the specified topic.
         /// 
-        /// Uses Azure REST API version 2022-01-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-native:servicebus:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Returns a subscription description for the specified topic.
         /// 
-        /// Uses Azure REST API version 2022-01-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure-native:servicebus:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Returns a subscription description for the specified topic.
         /// 
-        /// Uses Azure REST API version 2022-01-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure-native:servicebus:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public string NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -119,6 +119,10 @@ namespace Pulumi.AzureNative.ServiceBus
         /// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         /// </summary>
         public readonly string? AutoDeleteOnIdle;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Properties specific to client affine subscriptions.
         /// </summary>
@@ -214,6 +218,8 @@ namespace Pulumi.AzureNative.ServiceBus
 
             string? autoDeleteOnIdle,
 
+            string azureApiVersion,
+
             Outputs.SBClientAffinePropertiesResponse? clientAffineProperties,
 
             Outputs.MessageCountDetailsResponse countDetails,
@@ -260,6 +266,7 @@ namespace Pulumi.AzureNative.ServiceBus
         {
             AccessedAt = accessedAt;
             AutoDeleteOnIdle = autoDeleteOnIdle;
+            AzureApiVersion = azureApiVersion;
             ClientAffineProperties = clientAffineProperties;
             CountDetails = countDetails;
             CreatedAt = createdAt;

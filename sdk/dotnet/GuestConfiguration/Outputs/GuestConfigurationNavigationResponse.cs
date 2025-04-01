@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
         /// </summary>
         public readonly string? ContentHash;
         /// <summary>
+        /// Managed identity with storage access of the guest configuration package and configuration parameters.
+        /// </summary>
+        public readonly string? ContentManagedIdentity;
+        /// <summary>
         /// Specifies the content type of the configuration. Possible values could be Builtin or Custom.
         /// </summary>
         public readonly string ContentType;
@@ -75,6 +79,8 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
 
             string? contentHash,
 
+            string? contentManagedIdentity,
+
             string contentType,
 
             string? contentUri,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
             ConfigurationProtectedParameter = configurationProtectedParameter;
             ConfigurationSetting = configurationSetting;
             ContentHash = contentHash;
+            ContentManagedIdentity = contentManagedIdentity;
             ContentType = contentType;
             ContentUri = contentUri;
             Kind = kind;

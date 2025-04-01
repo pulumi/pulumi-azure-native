@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The operation that retrieves information about a capacity reservation group.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-11-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCapacityReservationGroup(args: GetCapacityReservationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetCapacityReservationGroupArgs {
  */
 export interface GetCapacityReservationGroupResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * A list of all capacity reservation resource ids that belong to capacity reservation group.
      */
     readonly capacityReservations: outputs.compute.SubResourceReadOnlyResponse[];
@@ -63,6 +67,10 @@ export interface GetCapacityReservationGroupResult {
      */
     readonly name: string;
     /**
+     * Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+     */
+    readonly sharingProfile?: outputs.compute.ResourceSharingProfileResponse;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
@@ -82,9 +90,9 @@ export interface GetCapacityReservationGroupResult {
 /**
  * The operation that retrieves information about a capacity reservation group.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-11-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCapacityReservationGroupOutput(args: GetCapacityReservationGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityReservationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

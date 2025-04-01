@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2022-08-01-preview.
         /// 
-        /// Other available API versions: 2024-12-01-preview.
+        /// Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVariableValueResult> InvokeAsync(GetVariableValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableValueResult>("azure-native:authorization:getVariableValue", args ?? new GetVariableValueArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2022-08-01-preview.
         /// 
-        /// Other available API versions: 2024-12-01-preview.
+        /// Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVariableValueResult> Invoke(GetVariableValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableValueResult>("azure-native:authorization:getVariableValue", args ?? new GetVariableValueInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2022-08-01-preview.
         /// 
-        /// Other available API versions: 2024-12-01-preview.
+        /// Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVariableValueResult> Invoke(GetVariableValueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableValueResult>("azure-native:authorization:getVariableValue", args ?? new GetVariableValueInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetVariableValueResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ID of the variable.
         /// </summary>
         public readonly string Id;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetVariableValueResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.Authorization
 
             ImmutableArray<Outputs.PolicyVariableValueColumnValueResponse> values)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             SystemData = systemData;

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A failover group.
  *
- * Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+ * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FailoverGroup extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class FailoverGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === FailoverGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * List of databases in the failover group.
      */
@@ -111,14 +115,17 @@ export class FailoverGroup extends pulumi.CustomResource {
             resourceInputs["readOnlyEndpoint"] = args ? args.readOnlyEndpoint : undefined;
             resourceInputs["readWriteEndpoint"] = args ? args.readWriteEndpoint : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["secondaryType"] = args ? args.secondaryType : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["replicationRole"] = undefined /*out*/;
             resourceInputs["replicationState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["databases"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -165,6 +172,10 @@ export interface FailoverGroupArgs {
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Databases secondary type on partner server.
+     */
+    secondaryType?: pulumi.Input<string | enums.sql.FailoverGroupDatabasesSecondaryType>;
     /**
      * The name of the server containing the failover group.
      */

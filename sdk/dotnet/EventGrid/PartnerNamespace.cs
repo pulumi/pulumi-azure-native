@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.EventGrid
     /// <summary>
     /// EventGrid Partner Namespace.
     /// 
-    /// Uses Azure REST API version 2022-06-15. In version 1.x of the Azure Native provider, it used API version 2021-06-01-preview.
+    /// Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
     /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    /// Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerNamespace")]
     public partial class PartnerNamespace : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
         /// </summary>
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Minimum TLS version of the publisher allowed to publish to this partner namespace
+        /// </summary>
+        [Output("minimumTlsVersionAllowed")]
+        public Output<string?> MinimumTlsVersionAllowed { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         [Output("name")]
@@ -63,6 +75,9 @@ namespace Pulumi.AzureNative.EventGrid
         [Output("partnerTopicRoutingMode")]
         public Output<string?> PartnerTopicRoutingMode { get; private set; } = null!;
 
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
@@ -80,7 +95,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to Partner Namespace resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -178,6 +193,12 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Minimum TLS version of the publisher allowed to publish to this partner namespace
+        /// </summary>
+        [Input("minimumTlsVersionAllowed")]
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.TlsVersion>? MinimumTlsVersionAllowed { get; set; }
 
         /// <summary>
         /// Name of the partner namespace.

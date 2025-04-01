@@ -12,25 +12,25 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetInferencePool
     {
         /// <summary>
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2025-01-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+        /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetInferencePoolResult> InvokeAsync(GetInferencePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferencePoolResult>("azure-native:machinelearningservices:getInferencePool", args ?? new GetInferencePoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2025-01-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+        /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInferencePoolResult> Invoke(GetInferencePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferencePoolResult>("azure-native:machinelearningservices:getInferencePool", args ?? new GetInferencePoolInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Uses Azure REST API version 2023-08-01-preview.
+        /// Uses Azure REST API version 2025-01-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+        /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInferencePoolResult> Invoke(GetInferencePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferencePoolResult>("azure-native:machinelearningservices:getInferencePool", args ?? new GetInferencePoolInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetInferencePoolResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetInferencePoolResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             InferencePoolProperties = inferencePoolProperties;

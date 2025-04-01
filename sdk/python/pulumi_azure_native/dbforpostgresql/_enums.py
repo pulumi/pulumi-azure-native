@@ -5,26 +5,58 @@
 from enum import Enum
 
 __all__ = [
+    'ActiveDirectoryAuth',
     'ActiveDirectoryAuthEnum',
+    'AdministratorType',
     'ArmServerKeyType',
+    'AzureManagedDiskPerformanceTiers',
     'CancelEnum',
     'CreateMode',
+    'DataEncryptionType',
+    'GeoRedundantBackup',
     'GeoRedundantBackupEnum',
     'HighAvailabilityMode',
     'IdentityType',
+    'InfrastructureEncryption',
+    'KeyStatusEnum',
     'LogicalReplicationOnSourceDbEnum',
+    'MigrateRolesEnum',
     'MigrationMode',
+    'MigrationOption',
+    'MinimalTlsVersionEnum',
     'OverwriteDbsInTargetEnum',
+    'PasswordAuth',
     'PasswordAuthEnum',
     'PrincipalType',
     'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccessEnum',
+    'ReadReplicaPromoteMode',
+    'ReplicationPromoteOption',
     'ReplicationRole',
+    'RoleType',
+    'ServerPublicNetworkAccessState',
+    'ServerSecurityAlertPolicyState',
     'ServerVersion',
+    'SingleServerCreateMode',
+    'SingleServerIdentityProperties',
+    'SingleServerSkuTier',
+    'SingleServerVersion',
     'SkuTier',
+    'SourceType',
+    'SslEnforcementEnum',
+    'SslMode',
     'StartDataMigrationEnum',
+    'StorageAutoGrow',
+    'StorageAutogrow',
+    'StorageType',
     'TriggerCutoverEnum',
     'VirtualEndpointType',
 ]
+
+
+class ActiveDirectoryAuth(str, Enum):
+    ENABLED = "enabled"
+    DISABLED = "disabled"
 
 
 class ActiveDirectoryAuthEnum(str, Enum):
@@ -35,12 +67,39 @@ class ActiveDirectoryAuthEnum(str, Enum):
     DISABLED = "Disabled"
 
 
+class AdministratorType(str, Enum):
+    """
+    The type of administrator.
+    """
+    ACTIVE_DIRECTORY = "ActiveDirectory"
+
+
 class ArmServerKeyType(str, Enum):
     """
     Data encryption type to depict if it is System Managed vs Azure Key vault.
     """
     SYSTEM_MANAGED = "SystemManaged"
     AZURE_KEY_VAULT = "AzureKeyVault"
+
+
+class AzureManagedDiskPerformanceTiers(str, Enum):
+    """
+    Name of storage tier for IOPS.
+    """
+    P1 = "P1"
+    P2 = "P2"
+    P3 = "P3"
+    P4 = "P4"
+    P6 = "P6"
+    P10 = "P10"
+    P15 = "P15"
+    P20 = "P20"
+    P30 = "P30"
+    P40 = "P40"
+    P50 = "P50"
+    P60 = "P60"
+    P70 = "P70"
+    P80 = "P80"
 
 
 class CancelEnum(str, Enum):
@@ -61,6 +120,20 @@ class CreateMode(str, Enum):
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
     GEO_RESTORE = "GeoRestore"
     REPLICA = "Replica"
+    REVIVE_DROPPED = "ReviveDropped"
+
+
+class DataEncryptionType(str, Enum):
+    AZURE_KEY_VAULT = "AzureKeyVault"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class GeoRedundantBackup(str, Enum):
+    """
+    Enable Geo-redundant or not for server backup.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class GeoRedundantBackupEnum(str, Enum):
@@ -81,16 +154,43 @@ class HighAvailabilityMode(str, Enum):
 
 
 class IdentityType(str, Enum):
-    """
-    the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
-    """
-    NONE = "None"
     USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class InfrastructureEncryption(str, Enum):
+    """
+    Status showing whether the server enabled infrastructure encryption.
+    """
+    ENABLED = "Enabled"
+    """
+    Default value for single layer of encryption for data at rest.
+    """
+    DISABLED = "Disabled"
+    """
+    Additional (2nd) layer of encryption for data at rest
+    """
+
+
+class KeyStatusEnum(str, Enum):
+    """
+    Primary encryption key status for Data encryption enabled server.
+    """
+    VALID = "Valid"
+    INVALID = "Invalid"
 
 
 class LogicalReplicationOnSourceDbEnum(str, Enum):
     """
     Indicates whether to setup LogicalReplicationOnSourceDb, if needed
+    """
+    TRUE = "True"
+    FALSE = "False"
+
+
+class MigrateRolesEnum(str, Enum):
+    """
+    To migrate roles and permissions we need to send this flag as True
     """
     TRUE = "True"
     FALSE = "False"
@@ -104,12 +204,36 @@ class MigrationMode(str, Enum):
     ONLINE = "Online"
 
 
+class MigrationOption(str, Enum):
+    """
+    This indicates the supported Migration option for the migration
+    """
+    VALIDATE = "Validate"
+    MIGRATE = "Migrate"
+    VALIDATE_AND_MIGRATE = "ValidateAndMigrate"
+
+
+class MinimalTlsVersionEnum(str, Enum):
+    """
+    Enforce a minimal Tls version for the server.
+    """
+    TLS1_0 = "TLS1_0"
+    TLS1_1 = "TLS1_1"
+    TLS1_2 = "TLS1_2"
+    TLS_ENFORCEMENT_DISABLED = "TLSEnforcementDisabled"
+
+
 class OverwriteDbsInTargetEnum(str, Enum):
     """
     Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
     """
     TRUE = "True"
     FALSE = "False"
+
+
+class PasswordAuth(str, Enum):
+    ENABLED = "enabled"
+    DISABLED = "disabled"
 
 
 class PasswordAuthEnum(str, Enum):
@@ -121,13 +245,9 @@ class PasswordAuthEnum(str, Enum):
 
 
 class PrincipalType(str, Enum):
-    """
-    The principal type used to represent the type of Active Directory Administrator.
-    """
-    UNKNOWN = "Unknown"
-    USER = "User"
-    GROUP = "Group"
-    SERVICE_PRINCIPAL = "ServicePrincipal"
+    USER = "user"
+    SERVICE_PRINCIPAL = "servicePrincipal"
+    GROUP = "group"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):
@@ -137,6 +257,30 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
+
+
+class PublicNetworkAccessEnum(str, Enum):
+    """
+    Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ReadReplicaPromoteMode(str, Enum):
+    """
+    Sets the promote mode for a replica server. This is a write only property.
+    """
+    STANDALONE = "standalone"
+    SWITCHOVER = "switchover"
+
+
+class ReplicationPromoteOption(str, Enum):
+    """
+    Sets the promote options for a replica server. This is a write only property.
+    """
+    PLANNED = "planned"
+    FORCED = "forced"
 
 
 class ReplicationRole(str, Enum):
@@ -149,14 +293,75 @@ class ReplicationRole(str, Enum):
     GEO_ASYNC_REPLICA = "GeoAsyncReplica"
 
 
+class RoleType(str, Enum):
+    USER = "user"
+    ADMIN = "admin"
+
+
+class ServerPublicNetworkAccessState(str, Enum):
+    """
+    public network access is enabled or not
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ServerSecurityAlertPolicyState(str, Enum):
+    """
+    Specifies the state of the policy, whether it is enabled or disabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class ServerVersion(str, Enum):
     """
     PostgreSQL Server version.
     """
+    SERVER_VERSION_16 = "16"
+    SERVER_VERSION_15 = "15"
     SERVER_VERSION_14 = "14"
     SERVER_VERSION_13 = "13"
     SERVER_VERSION_12 = "12"
     SERVER_VERSION_11 = "11"
+
+
+class SingleServerCreateMode(str, Enum):
+    """
+    The mode to create a new server.
+    """
+    DEFAULT = "Default"
+    POINT_IN_TIME_RESTORE = "PointInTimeRestore"
+    GEO_RESTORE = "GeoRestore"
+    REPLICA = "Replica"
+
+
+class SingleServerIdentityProperties(str, Enum):
+    """
+    The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class SingleServerSkuTier(str, Enum):
+    """
+    The tier of the particular SKU, e.g. Basic.
+    """
+    BASIC = "Basic"
+    GENERAL_PURPOSE = "GeneralPurpose"
+    MEMORY_OPTIMIZED = "MemoryOptimized"
+
+
+class SingleServerVersion(str, Enum):
+    """
+    Server version.
+    """
+    SINGLE_SERVER_VERSION_9_5 = "9.5"
+    SINGLE_SERVER_VERSION_9_6 = "9.6"
+    SINGLE_SERVER_VERSION_10 = "10"
+    SINGLE_SERVER_VERSION_10_0 = "10.0"
+    SINGLE_SERVER_VERSION_10_2 = "10.2"
+    SINGLE_SERVER_VERSION_11 = "11"
 
 
 class SkuTier(str, Enum):
@@ -168,12 +373,72 @@ class SkuTier(str, Enum):
     MEMORY_OPTIMIZED = "MemoryOptimized"
 
 
+class SourceType(str, Enum):
+    """
+    migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+    """
+    ON_PREMISES = "OnPremises"
+    AWS = "AWS"
+    GCP = "GCP"
+    AZURE_VM = "AzureVM"
+    POSTGRE_SQL_SINGLE_SERVER = "PostgreSQLSingleServer"
+    AW_S_RDS = "AWS_RDS"
+    AW_S_AURORA = "AWS_AURORA"
+    AW_S_EC2 = "AWS_EC2"
+    GC_P_CLOUD_SQL = "GCP_CloudSQL"
+    GC_P_ALLOY_DB = "GCP_AlloyDB"
+    GC_P_COMPUTE = "GCP_Compute"
+    EDB = "EDB"
+
+
+class SslEnforcementEnum(str, Enum):
+    """
+    Enable ssl enforcement or not when connect to server.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class SslMode(str, Enum):
+    """
+    SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+    """
+    PREFER = "Prefer"
+    REQUIRE = "Require"
+    VERIFY_CA = "VerifyCA"
+    VERIFY_FULL = "VerifyFull"
+
+
 class StartDataMigrationEnum(str, Enum):
     """
     Indicates whether the data migration should start right away
     """
     TRUE = "True"
     FALSE = "False"
+
+
+class StorageAutoGrow(str, Enum):
+    """
+    Flag to enable / disable Storage Auto grow for flexible server.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class StorageAutogrow(str, Enum):
+    """
+    Enable Storage Auto Grow.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class StorageType(str, Enum):
+    """
+    Storage type for the server. Allowed values are Premium_LRS and PremiumV2_LRS, and default is Premium_LRS if not specified
+    """
+    PREMIUM_LRS = "Premium_LRS"
+    PREMIUM_V2_LRS = "PremiumV2_LRS"
 
 
 class TriggerCutoverEnum(str, Enum):

@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.DevCenter
     /// <summary>
     /// Represents an project policy resource.
     /// 
-    /// Uses Azure REST API version 2024-10-01-preview.
+    /// Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
     /// 
-    /// Other available API versions: 2025-02-01.
+    /// Other available API versions: 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:ProjectPolicy")]
     public partial class ProjectPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>

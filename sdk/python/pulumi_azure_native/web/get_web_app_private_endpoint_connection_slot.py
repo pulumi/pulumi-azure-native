@@ -27,7 +27,10 @@ class GetWebAppPrivateEndpointConnectionSlotResult:
     """
     Remote Private Endpoint Connection ARM resource.
     """
-    def __init__(__self__, id=None, ip_addresses=None, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, ip_addresses=None, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +55,14 @@ class GetWebAppPrivateEndpointConnectionSlotResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -121,6 +132,7 @@ class AwaitableGetWebAppPrivateEndpointConnectionSlotResult(GetWebAppPrivateEndp
         if False:
             yield self
         return GetWebAppPrivateEndpointConnectionSlotResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             ip_addresses=self.ip_addresses,
             kind=self.kind,
@@ -139,9 +151,9 @@ def get_web_app_private_endpoint_connection_slot(name: Optional[str] = None,
     """
     Description for Gets a private endpoint connection
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the site.
@@ -158,6 +170,7 @@ def get_web_app_private_endpoint_connection_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppPrivateEndpointConnectionSlot', __args__, opts=opts, typ=GetWebAppPrivateEndpointConnectionSlotResult).value
 
     return AwaitableGetWebAppPrivateEndpointConnectionSlotResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         ip_addresses=pulumi.get(__ret__, 'ip_addresses'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -174,9 +187,9 @@ def get_web_app_private_endpoint_connection_slot_output(name: Optional[pulumi.In
     """
     Description for Gets a private endpoint connection
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the site.
@@ -192,6 +205,7 @@ def get_web_app_private_endpoint_connection_slot_output(name: Optional[pulumi.In
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppPrivateEndpointConnectionSlot', __args__, opts=opts, typ=GetWebAppPrivateEndpointConnectionSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppPrivateEndpointConnectionSlotResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         ip_addresses=pulumi.get(__response__, 'ip_addresses'),
         kind=pulumi.get(__response__, 'kind'),

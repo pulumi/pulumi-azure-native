@@ -119,7 +119,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
         """
         Private endpoint connection proxy details.
 
-        Uses Azure REST API version 2023-07-01. In version 1.x of the Azure Native provider, it used API version 2020-03-01-preview.
+        Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +138,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
         """
         Private endpoint connection proxy details.
 
-        Uses Azure REST API version 2023-07-01. In version 1.x of the Azure Native provider, it used API version 2020-03-01-preview.
+        Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionProxyArgs args: The arguments to use to populate this resource's properties.
@@ -178,6 +178,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["status"] = status
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -207,6 +208,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
 
         __props__ = PrivateEndpointConnectionProxyArgs.__new__(PrivateEndpointConnectionProxyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -215,6 +217,14 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnectionProxy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")

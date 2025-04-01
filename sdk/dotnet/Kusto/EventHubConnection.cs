@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Kusto
     /// <summary>
     /// Class representing an event hub connection.
     /// 
-    /// Uses Azure REST API version 2018-09-07-preview. In version 1.x of the Azure Native provider, it used API version 2018-09-07-preview.
+    /// Uses Azure REST API version 2018-09-07-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-07-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:EventHubConnection")]
     public partial class EventHubConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The event hub consumer group.
         /// </summary>

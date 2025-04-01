@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Network
         /// 
         /// Uses Azure REST API version 2022-04-01-preview.
         /// 
-        /// Other available API versions: 2021-05-01-preview.
+        /// Other available API versions: 2021-02-01-preview, 2022-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetUserRuleResult> InvokeAsync(GetUserRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserRuleResult>("azure-native:network:getUserRule", args ?? new GetUserRuleArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network
         /// 
         /// Uses Azure REST API version 2022-04-01-preview.
         /// 
-        /// Other available API versions: 2021-05-01-preview.
+        /// Other available API versions: 2021-02-01-preview, 2022-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetUserRuleResult> Invoke(GetUserRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleResult>("azure-native:network:getUserRule", args ?? new GetUserRuleInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Network
         /// 
         /// Uses Azure REST API version 2022-04-01-preview.
         /// 
-        /// Other available API versions: 2021-05-01-preview.
+        /// Other available API versions: 2021-02-01-preview, 2022-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetUserRuleResult> Invoke(GetUserRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleResult>("azure-native:network:getUserRule", args ?? new GetUserRuleInvokeArgs(), options.WithDefaults());
@@ -124,6 +124,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetUserRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A description for this rule.
         /// </summary>
         public readonly string? Description;
@@ -183,6 +187,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetUserRuleResult(
+            string azureApiVersion,
+
             string? description,
 
             ImmutableArray<string> destinationPortRanges,
@@ -211,6 +217,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DestinationPortRanges = destinationPortRanges;
             Destinations = destinations;

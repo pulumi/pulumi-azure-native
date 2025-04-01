@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterNodeResponse> Nodes;
         /// <summary>
+        /// OEM activation status of the cluster.
+        /// </summary>
+        public readonly string OemActivation;
+        /// <summary>
         /// Capabilities supported by the cluster.
         /// </summary>
         public readonly ImmutableArray<string> SupportedCapabilities;
@@ -77,6 +81,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             ImmutableArray<Outputs.ClusterNodeResponse> nodes,
 
+            string oemActivation,
+
             ImmutableArray<string> supportedCapabilities)
         {
             ClusterId = clusterId;
@@ -88,6 +94,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
             LastUpdated = lastUpdated;
             Manufacturer = manufacturer;
             Nodes = nodes;
+            OemActivation = oemActivation;
             SupportedCapabilities = supportedCapabilities;
         }
     }

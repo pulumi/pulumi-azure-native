@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// Get installed Solution details by Solution id.
         /// 
         /// Uses Azure REST API version 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2021-09-01-preview.
         /// </summary>
         public static Task<GetSolutionResult> InvokeAsync(GetSolutionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-native:agfoodplatform:getSolution", args ?? new GetSolutionArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// Get installed Solution details by Solution id.
         /// 
         /// Uses Azure REST API version 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2021-09-01-preview.
         /// </summary>
         public static Output<GetSolutionResult> Invoke(GetSolutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionResult>("azure-native:agfoodplatform:getSolution", args ?? new GetSolutionInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// Get installed Solution details by Solution id.
         /// 
         /// Uses Azure REST API version 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2021-09-01-preview.
         /// </summary>
         public static Output<GetSolutionResult> Invoke(GetSolutionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionResult>("azure-native:agfoodplatform:getSolution", args ?? new GetSolutionInvokeArgs(), options.WithDefaults());
@@ -100,6 +94,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class GetSolutionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ETag value to implement optimistic concurrency.
         /// </summary>
         public readonly string ETag;
@@ -126,6 +124,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 
         [OutputConstructor]
         private GetSolutionResult(
+            string azureApiVersion,
+
             string eTag,
 
             string id,
@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             Name = name;

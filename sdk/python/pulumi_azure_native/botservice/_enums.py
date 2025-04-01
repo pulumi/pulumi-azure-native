@@ -48,6 +48,7 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
 class SkuName(str, Enum):

@@ -41,6 +41,10 @@ export interface GetPublishedBlueprintArgs {
  */
 export interface GetPublishedBlueprintResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Name of the published blueprint definition.
      */
     readonly blueprintName?: string;

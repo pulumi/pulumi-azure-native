@@ -27,7 +27,10 @@ class GetTunnelPolicyResult:
     """
     Tunnel Policy maps domains to target endpoints to process traffic over the tunnelling protocol.
     """
-    def __init__(__self__, deployment_status=None, domains=None, id=None, name=None, provisioning_state=None, system_data=None, target_groups=None, tunnel_type=None, type=None):
+    def __init__(__self__, azure_api_version=None, deployment_status=None, domains=None, id=None, name=None, provisioning_state=None, system_data=None, target_groups=None, tunnel_type=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
@@ -55,6 +58,14 @@ class GetTunnelPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deploymentStatus")
@@ -132,6 +143,7 @@ class AwaitableGetTunnelPolicyResult(GetTunnelPolicyResult):
         if False:
             yield self
         return GetTunnelPolicyResult(
+            azure_api_version=self.azure_api_version,
             deployment_status=self.deployment_status,
             domains=self.domains,
             id=self.id,
@@ -165,6 +177,7 @@ def get_tunnel_policy(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getTunnelPolicy', __args__, opts=opts, typ=GetTunnelPolicyResult).value
 
     return AwaitableGetTunnelPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         deployment_status=pulumi.get(__ret__, 'deployment_status'),
         domains=pulumi.get(__ret__, 'domains'),
         id=pulumi.get(__ret__, 'id'),
@@ -195,6 +208,7 @@ def get_tunnel_policy_output(profile_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getTunnelPolicy', __args__, opts=opts, typ=GetTunnelPolicyResult)
     return __ret__.apply(lambda __response__: GetTunnelPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         deployment_status=pulumi.get(__response__, 'deployment_status'),
         domains=pulumi.get(__response__, 'domains'),
         id=pulumi.get(__response__, 'id'),

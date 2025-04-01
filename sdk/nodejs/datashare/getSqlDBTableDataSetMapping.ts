@@ -46,6 +46,10 @@ export interface GetSqlDBTableDataSetMappingArgs {
  */
 export interface GetSqlDBTableDataSetMappingResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The id of the source data set.
      */
     readonly dataSetId: string;

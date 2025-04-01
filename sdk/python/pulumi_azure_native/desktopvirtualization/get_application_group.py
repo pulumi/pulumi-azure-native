@@ -27,10 +27,13 @@ class GetApplicationGroupResult:
     """
     Represents a ApplicationGroup definition.
     """
-    def __init__(__self__, application_group_type=None, cloud_pc_resource=None, description=None, etag=None, friendly_name=None, host_pool_arm_path=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, object_id=None, plan=None, sku=None, system_data=None, tags=None, type=None, workspace_arm_path=None):
+    def __init__(__self__, application_group_type=None, azure_api_version=None, cloud_pc_resource=None, description=None, etag=None, friendly_name=None, host_pool_arm_path=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, object_id=None, plan=None, show_in_feed=None, sku=None, system_data=None, tags=None, type=None, workspace_arm_path=None):
         if application_group_type and not isinstance(application_group_type, str):
             raise TypeError("Expected argument 'application_group_type' to be a str")
         pulumi.set(__self__, "application_group_type", application_group_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cloud_pc_resource and not isinstance(cloud_pc_resource, bool):
             raise TypeError("Expected argument 'cloud_pc_resource' to be a bool")
         pulumi.set(__self__, "cloud_pc_resource", cloud_pc_resource)
@@ -70,6 +73,9 @@ class GetApplicationGroupResult:
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
         pulumi.set(__self__, "plan", plan)
+        if show_in_feed and not isinstance(show_in_feed, bool):
+            raise TypeError("Expected argument 'show_in_feed' to be a bool")
+        pulumi.set(__self__, "show_in_feed", show_in_feed)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -93,6 +99,14 @@ class GetApplicationGroupResult:
         Resource Type of ApplicationGroup.
         """
         return pulumi.get(self, "application_group_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudPcResource")
@@ -138,7 +152,7 @@ class GetApplicationGroupResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -151,13 +165,13 @@ class GetApplicationGroupResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
         The geo-location where the resource lives
         """
@@ -193,6 +207,14 @@ class GetApplicationGroupResult:
         return pulumi.get(self, "plan")
 
     @property
+    @pulumi.getter(name="showInFeed")
+    def show_in_feed(self) -> Optional[bool]:
+        """
+        Boolean representing whether the applicationGroup is show in the feed.
+        """
+        return pulumi.get(self, "show_in_feed")
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']:
         return pulumi.get(self, "sku")
@@ -201,7 +223,7 @@ class GetApplicationGroupResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -237,6 +259,7 @@ class AwaitableGetApplicationGroupResult(GetApplicationGroupResult):
             yield self
         return GetApplicationGroupResult(
             application_group_type=self.application_group_type,
+            azure_api_version=self.azure_api_version,
             cloud_pc_resource=self.cloud_pc_resource,
             description=self.description,
             etag=self.etag,
@@ -250,6 +273,7 @@ class AwaitableGetApplicationGroupResult(GetApplicationGroupResult):
             name=self.name,
             object_id=self.object_id,
             plan=self.plan,
+            show_in_feed=self.show_in_feed,
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
@@ -263,9 +287,9 @@ def get_application_group(application_group_name: Optional[str] = None,
     """
     Get an application group.
 
-    Uses Azure REST API version 2022-09-09.
+    Uses Azure REST API version 2024-04-03.
 
-    Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+    Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str application_group_name: The name of the application group
@@ -279,6 +303,7 @@ def get_application_group(application_group_name: Optional[str] = None,
 
     return AwaitableGetApplicationGroupResult(
         application_group_type=pulumi.get(__ret__, 'application_group_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cloud_pc_resource=pulumi.get(__ret__, 'cloud_pc_resource'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -292,6 +317,7 @@ def get_application_group(application_group_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         object_id=pulumi.get(__ret__, 'object_id'),
         plan=pulumi.get(__ret__, 'plan'),
+        show_in_feed=pulumi.get(__ret__, 'show_in_feed'),
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -303,9 +329,9 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
     """
     Get an application group.
 
-    Uses Azure REST API version 2022-09-09.
+    Uses Azure REST API version 2024-04-03.
 
-    Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview.
+    Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str application_group_name: The name of the application group
@@ -318,6 +344,7 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
     __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization:getApplicationGroup', __args__, opts=opts, typ=GetApplicationGroupResult)
     return __ret__.apply(lambda __response__: GetApplicationGroupResult(
         application_group_type=pulumi.get(__response__, 'application_group_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cloud_pc_resource=pulumi.get(__response__, 'cloud_pc_resource'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
@@ -331,6 +358,7 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
         name=pulumi.get(__response__, 'name'),
         object_id=pulumi.get(__response__, 'object_id'),
         plan=pulumi.get(__response__, 'plan'),
+        show_in_feed=pulumi.get(__response__, 'show_in_feed'),
         sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

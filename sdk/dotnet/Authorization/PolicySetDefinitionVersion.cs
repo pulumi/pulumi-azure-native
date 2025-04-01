@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Authorization
     /// <summary>
     /// The policy set definition version.
     /// 
-    /// Uses Azure REST API version 2023-04-01.
+    /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
-    /// Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
+    /// Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicySetDefinitionVersion")]
     public partial class PolicySetDefinitionVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The policy set definition description.
         /// </summary>

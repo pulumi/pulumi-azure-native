@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MigrateSqlServerSqlDbDatabaseInputResponse
     {
         /// <summary>
+        /// id of the database
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Whether to set database read only before migration
         /// </summary>
         public readonly bool? MakeSourceDbReadOnly;
@@ -24,6 +28,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// Name of the database
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Settings selected for DB schema migration.
+        /// </summary>
+        public readonly object? SchemaSetting;
         /// <summary>
         /// Mapping of source to target tables
         /// </summary>
@@ -35,16 +43,22 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private MigrateSqlServerSqlDbDatabaseInputResponse(
+            string? id,
+
             bool? makeSourceDbReadOnly,
 
             string? name,
+
+            object? schemaSetting,
 
             ImmutableDictionary<string, string>? tableMap,
 
             string? targetDatabaseName)
         {
+            Id = id;
             MakeSourceDbReadOnly = makeSourceDbReadOnly;
             Name = name;
+            SchemaSetting = schemaSetting;
             TableMap = tableMap;
             TargetDatabaseName = targetDatabaseName;
         }

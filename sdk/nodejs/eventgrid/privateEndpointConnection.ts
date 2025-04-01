@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2022-06-15. In version 1.x of the Azure Native provider, it used API version 2020-06-01.
+ * Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateEndpointConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * GroupIds from the private link service resource.
      */
@@ -92,9 +96,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
@@ -118,11 +124,11 @@ export interface PrivateEndpointConnectionArgs {
      */
     groupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
+     * The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
      */
     parentName: pulumi.Input<string>;
     /**
-     * The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\'.
+     * The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\' or \'namespaces\'.
      */
     parentType: pulumi.Input<string>;
     /**

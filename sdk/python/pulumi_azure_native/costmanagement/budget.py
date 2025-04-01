@@ -313,9 +313,9 @@ class Budget(pulumi.CustomResource):
         """
         A budget resource.
 
-        Uses Azure REST API version 2023-04-01-preview.
+        Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+        Other available API versions: 2019-04-01-preview, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -402,9 +402,9 @@ class Budget(pulumi.CustomResource):
         """
         A budget resource.
 
-        Uses Azure REST API version 2023-04-01-preview.
+        Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+        Other available API versions: 2019-04-01-preview, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.
@@ -456,6 +456,7 @@ class Budget(pulumi.CustomResource):
             if time_period is None and not opts.urn:
                 raise TypeError("Missing required property 'time_period'")
             __props__.__dict__["time_period"] = time_period
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["current_spend"] = None
             __props__.__dict__["forecast_spend"] = None
             __props__.__dict__["name"] = None
@@ -485,6 +486,7 @@ class Budget(pulumi.CustomResource):
         __props__ = BudgetArgs.__new__(BudgetArgs)
 
         __props__.__dict__["amount"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["category"] = None
         __props__.__dict__["current_spend"] = None
         __props__.__dict__["e_tag"] = None
@@ -508,6 +510,14 @@ class Budget(pulumi.CustomResource):
          Required for CategoryType(s): Cost.
         """
         return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -561,7 +571,7 @@ class Budget(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -621,7 +631,7 @@ class Budget(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type.
         """
         return pulumi.get(self, "type")
 

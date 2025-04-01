@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Class representing a Kusto cluster.
  *
- * Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+ * Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
  *
- * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+ * Other available API versions: 2018-09-07-preview, 2019-01-21, 2019-05-15, 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -53,6 +53,14 @@ export class Cluster extends pulumi.CustomResource {
      * The list of ips in the format of CIDR allowed to connect to the cluster.
      */
     public readonly allowedIpRangeList!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * List of callout policies for egress from Cluster.
+     */
+    public readonly calloutPolicies!: pulumi.Output<outputs.kusto.CalloutPolicyResponse[] | undefined>;
     /**
      * The cluster data ingestion URI.
      */
@@ -101,6 +109,10 @@ export class Cluster extends pulumi.CustomResource {
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Properties of the peer cluster involved in a migration to/from this cluster.
+     */
+    public /*out*/ readonly migrationCluster!: pulumi.Output<outputs.kusto.MigrationClusterPropertiesResponse>;
     /**
      * The name of the resource
      */
@@ -166,6 +178,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.kusto.VirtualNetworkConfigurationResponse | undefined>;
     /**
+     * Indicates whether the cluster is zonal or non-zonal.
+     */
+    public /*out*/ readonly zoneStatus!: pulumi.Output<string>;
+    /**
      * The availability zones of the cluster.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
@@ -190,6 +206,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["acceptedAudiences"] = args ? args.acceptedAudiences : undefined;
             resourceInputs["allowedFqdnList"] = args ? args.allowedFqdnList : undefined;
             resourceInputs["allowedIpRangeList"] = args ? args.allowedIpRangeList : undefined;
+            resourceInputs["calloutPolicies"] = args ? args.calloutPolicies : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["enableAutoStop"] = (args ? args.enableAutoStop : undefined) ?? true;
             resourceInputs["enableDiskEncryption"] = (args ? args.enableDiskEncryption : undefined) ?? false;
@@ -210,10 +227,12 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
             resourceInputs["virtualClusterGraduationProperties"] = args ? args.virtualClusterGraduationProperties : undefined;
-            resourceInputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
+            resourceInputs["virtualNetworkConfiguration"] = args ? (args.virtualNetworkConfiguration ? pulumi.output(args.virtualNetworkConfiguration).apply(inputs.kusto.virtualNetworkConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["migrationCluster"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -222,10 +241,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
+            resourceInputs["zoneStatus"] = undefined /*out*/;
         } else {
             resourceInputs["acceptedAudiences"] = undefined /*out*/;
             resourceInputs["allowedFqdnList"] = undefined /*out*/;
             resourceInputs["allowedIpRangeList"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["calloutPolicies"] = undefined /*out*/;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["enableAutoStop"] = undefined /*out*/;
             resourceInputs["enableDiskEncryption"] = undefined /*out*/;
@@ -238,6 +260,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["keyVaultProperties"] = undefined /*out*/;
             resourceInputs["languageExtensions"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["migrationCluster"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["optimizedAutoscale"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
@@ -254,6 +277,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
             resourceInputs["virtualNetworkConfiguration"] = undefined /*out*/;
+            resourceInputs["zoneStatus"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -279,6 +303,10 @@ export interface ClusterArgs {
      * The list of ips in the format of CIDR allowed to connect to the cluster.
      */
     allowedIpRangeList?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of callout policies for egress from Cluster.
+     */
+    calloutPolicies?: pulumi.Input<pulumi.Input<inputs.kusto.CalloutPolicyArgs>[]>;
     /**
      * The name of the Kusto cluster.
      */
@@ -336,7 +364,7 @@ export interface ClusterArgs {
      */
     publicNetworkAccess?: pulumi.Input<string | enums.kusto.PublicNetworkAccess>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

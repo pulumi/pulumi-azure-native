@@ -27,7 +27,10 @@ class GetWorkspaceCertificateResult:
     """
     Certificate details.
     """
-    def __init__(__self__, expiration_date=None, id=None, key_vault=None, name=None, subject=None, thumbprint=None, type=None):
+    def __init__(__self__, azure_api_version=None, expiration_date=None, id=None, key_vault=None, name=None, subject=None, thumbprint=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if expiration_date and not isinstance(expiration_date, str):
             raise TypeError("Expected argument 'expiration_date' to be a str")
         pulumi.set(__self__, "expiration_date", expiration_date)
@@ -49,6 +52,14 @@ class GetWorkspaceCertificateResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="expirationDate")
@@ -113,6 +124,7 @@ class AwaitableGetWorkspaceCertificateResult(GetWorkspaceCertificateResult):
         if False:
             yield self
         return GetWorkspaceCertificateResult(
+            azure_api_version=self.azure_api_version,
             expiration_date=self.expiration_date,
             id=self.id,
             key_vault=self.key_vault,
@@ -130,9 +142,9 @@ def get_workspace_certificate(certificate_id: Optional[str] = None,
     """
     Gets the details of the certificate specified by its identifier.
 
-    Uses Azure REST API version 2023-09-01-preview.
+    Uses Azure REST API version 2024-06-01-preview.
 
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -149,6 +161,7 @@ def get_workspace_certificate(certificate_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getWorkspaceCertificate', __args__, opts=opts, typ=GetWorkspaceCertificateResult).value
 
     return AwaitableGetWorkspaceCertificateResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         expiration_date=pulumi.get(__ret__, 'expiration_date'),
         id=pulumi.get(__ret__, 'id'),
         key_vault=pulumi.get(__ret__, 'key_vault'),
@@ -164,9 +177,9 @@ def get_workspace_certificate_output(certificate_id: Optional[pulumi.Input[str]]
     """
     Gets the details of the certificate specified by its identifier.
 
-    Uses Azure REST API version 2023-09-01-preview.
+    Uses Azure REST API version 2024-06-01-preview.
 
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-09-01-preview, 2024-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -182,6 +195,7 @@ def get_workspace_certificate_output(certificate_id: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspaceCertificate', __args__, opts=opts, typ=GetWorkspaceCertificateResult)
     return __ret__.apply(lambda __response__: GetWorkspaceCertificateResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         expiration_date=pulumi.get(__response__, 'expiration_date'),
         id=pulumi.get(__response__, 'id'),
         key_vault=pulumi.get(__response__, 'key_vault'),

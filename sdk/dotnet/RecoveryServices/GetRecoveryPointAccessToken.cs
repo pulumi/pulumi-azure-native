@@ -13,24 +13,18 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Uses Azure REST API version 2023-01-15.
-        /// 
-        /// Other available API versions: 2018-12-20, 2021-11-15.
         /// </summary>
         public static Task<GetRecoveryPointAccessTokenResult> InvokeAsync(GetRecoveryPointAccessTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Uses Azure REST API version 2023-01-15.
-        /// 
-        /// Other available API versions: 2018-12-20, 2021-11-15.
         /// </summary>
         public static Output<GetRecoveryPointAccessTokenResult> Invoke(GetRecoveryPointAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Uses Azure REST API version 2023-01-15.
-        /// 
-        /// Other available API versions: 2018-12-20, 2021-11-15.
         /// </summary>
         public static Output<GetRecoveryPointAccessTokenResult> Invoke(GetRecoveryPointAccessTokenInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenInvokeArgs(), options.WithDefaults());

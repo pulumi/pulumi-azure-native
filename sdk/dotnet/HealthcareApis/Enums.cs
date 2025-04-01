@@ -380,4 +380,34 @@ namespace Pulumi.AzureNative.HealthcareApis
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The Data Actions that can be enabled for a Smart Identity Provider Application.
+    /// </summary>
+    [EnumType]
+    public readonly struct SmartDataActions : IEquatable<SmartDataActions>
+    {
+        private readonly string _value;
+
+        private SmartDataActions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SmartDataActions Read { get; } = new SmartDataActions("Read");
+
+        public static bool operator ==(SmartDataActions left, SmartDataActions right) => left.Equals(right);
+        public static bool operator !=(SmartDataActions left, SmartDataActions right) => !left.Equals(right);
+
+        public static explicit operator string(SmartDataActions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SmartDataActions other && Equals(other);
+        public bool Equals(SmartDataActions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

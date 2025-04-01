@@ -212,7 +212,7 @@ class Volume(pulumi.CustomResource):
         """
         The volume.
 
-        Uses Azure REST API version 2017-06-01. In version 1.x of the Azure Native provider, it used API version 2017-06-01.
+        Uses Azure REST API version 2017-06-01. In version 2.x of the Azure Native provider, it used API version 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +237,7 @@ class Volume(pulumi.CustomResource):
         """
         The volume.
 
-        Uses Azure REST API version 2017-06-01. In version 1.x of the Azure Native provider, it used API version 2017-06-01.
+        Uses Azure REST API version 2017-06-01. In version 2.x of the Azure Native provider, it used API version 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.
@@ -303,6 +303,7 @@ class Volume(pulumi.CustomResource):
             if volume_type is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_type'")
             __props__.__dict__["volume_type"] = volume_type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["backup_policy_ids"] = None
             __props__.__dict__["backup_status"] = None
             __props__.__dict__["name"] = None
@@ -334,6 +335,7 @@ class Volume(pulumi.CustomResource):
         __props__ = VolumeArgs.__new__(VolumeArgs)
 
         __props__.__dict__["access_control_record_ids"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["backup_policy_ids"] = None
         __props__.__dict__["backup_status"] = None
         __props__.__dict__["kind"] = None
@@ -354,6 +356,14 @@ class Volume(pulumi.CustomResource):
         The IDs of the access control records, associated with the volume.
         """
         return pulumi.get(self, "access_control_record_ids")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backupPolicyIds")

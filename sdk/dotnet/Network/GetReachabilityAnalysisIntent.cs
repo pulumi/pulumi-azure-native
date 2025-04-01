@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Configuration information or intent on which to do the analysis on.
         /// 
-        /// Uses Azure REST API version 2024-01-01-preview.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetReachabilityAnalysisIntentResult> InvokeAsync(GetReachabilityAnalysisIntentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReachabilityAnalysisIntentResult>("azure-native:network:getReachabilityAnalysisIntent", args ?? new GetReachabilityAnalysisIntentArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Configuration information or intent on which to do the analysis on.
         /// 
-        /// Uses Azure REST API version 2024-01-01-preview.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetReachabilityAnalysisIntentResult> Invoke(GetReachabilityAnalysisIntentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReachabilityAnalysisIntentResult>("azure-native:network:getReachabilityAnalysisIntent", args ?? new GetReachabilityAnalysisIntentInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Configuration information or intent on which to do the analysis on.
         /// 
-        /// Uses Azure REST API version 2024-01-01-preview.
+        /// Uses Azure REST API version 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetReachabilityAnalysisIntentResult> Invoke(GetReachabilityAnalysisIntentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReachabilityAnalysisIntentResult>("azure-native:network:getReachabilityAnalysisIntent", args ?? new GetReachabilityAnalysisIntentInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetReachabilityAnalysisIntentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetReachabilityAnalysisIntentResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

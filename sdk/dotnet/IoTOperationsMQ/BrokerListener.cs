@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     /// <summary>
     /// MQ broker/listener resource
     /// 
-    /// Uses Azure REST API version 2023-10-04-preview.
+    /// Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:BrokerListener")]
     public partial class BrokerListener : global::Pulumi.CustomResource
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// </summary>
         [Output("authorizationEnabled")]
         public Output<bool?> AuthorizationEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The k8s cr/resource reference of mq/broker.

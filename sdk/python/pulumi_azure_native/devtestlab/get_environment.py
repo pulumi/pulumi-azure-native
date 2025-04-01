@@ -27,10 +27,13 @@ class GetEnvironmentResult:
     """
     An environment, which is essentially an ARM template deployment.
     """
-    def __init__(__self__, arm_template_display_name=None, created_by_user=None, deployment_properties=None, id=None, location=None, name=None, provisioning_state=None, resource_group_id=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, arm_template_display_name=None, azure_api_version=None, created_by_user=None, deployment_properties=None, id=None, location=None, name=None, provisioning_state=None, resource_group_id=None, tags=None, type=None, unique_identifier=None):
         if arm_template_display_name and not isinstance(arm_template_display_name, str):
             raise TypeError("Expected argument 'arm_template_display_name' to be a str")
         pulumi.set(__self__, "arm_template_display_name", arm_template_display_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_by_user and not isinstance(created_by_user, str):
             raise TypeError("Expected argument 'created_by_user' to be a str")
         pulumi.set(__self__, "created_by_user", created_by_user)
@@ -69,6 +72,14 @@ class GetEnvironmentResult:
         The display name of the Azure Resource Manager template that produced the environment.
         """
         return pulumi.get(self, "arm_template_display_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdByUser")
@@ -158,6 +169,7 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             yield self
         return GetEnvironmentResult(
             arm_template_display_name=self.arm_template_display_name,
+            azure_api_version=self.azure_api_version,
             created_by_user=self.created_by_user,
             deployment_properties=self.deployment_properties,
             id=self.id,
@@ -199,6 +211,7 @@ def get_environment(expand: Optional[str] = None,
 
     return AwaitableGetEnvironmentResult(
         arm_template_display_name=pulumi.get(__ret__, 'arm_template_display_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_by_user=pulumi.get(__ret__, 'created_by_user'),
         deployment_properties=pulumi.get(__ret__, 'deployment_properties'),
         id=pulumi.get(__ret__, 'id'),
@@ -237,6 +250,7 @@ def get_environment_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
     return __ret__.apply(lambda __response__: GetEnvironmentResult(
         arm_template_display_name=pulumi.get(__response__, 'arm_template_display_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_by_user=pulumi.get(__response__, 'created_by_user'),
         deployment_properties=pulumi.get(__response__, 'deployment_properties'),
         id=pulumi.get(__response__, 'id'),

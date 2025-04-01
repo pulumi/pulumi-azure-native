@@ -49,11 +49,3 @@ from .virtual_machine_schedule import *
 from .virtual_network import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.devtestlab.v20180915 as __v20180915
-    v20180915 = __v20180915
-else:
-    v20180915 = _utilities.lazy_import('pulumi_azure_native.devtestlab.v20180915')
-

@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetDatabaseThreatDetectionPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
         /// </summary>
         public readonly string? DisabledAlerts;
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetDatabaseThreatDetectionPolicyResult(
+            string azureApiVersion,
+
             string? disabledAlerts,
 
             string? emailAccountAdmins,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.Sql
 
             string? useServerDefault)
         {
+            AzureApiVersion = azureApiVersion;
             DisabledAlerts = disabledAlerts;
             EmailAccountAdmins = emailAccountAdmins;
             EmailAddresses = emailAddresses;

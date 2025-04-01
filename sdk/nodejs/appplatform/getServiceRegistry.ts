@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get the Service Registry and its properties.
  *
- * Uses Azure REST API version 2023-05-01-preview.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getServiceRegistry(args: GetServiceRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +43,10 @@ export interface GetServiceRegistryArgs {
  */
 export interface GetServiceRegistryResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource Id for the resource.
      */
     readonly id: string;
@@ -66,9 +70,9 @@ export interface GetServiceRegistryResult {
 /**
  * Get the Service Registry and its properties.
  *
- * Uses Azure REST API version 2023-05-01-preview.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getServiceRegistryOutput(args: GetServiceRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

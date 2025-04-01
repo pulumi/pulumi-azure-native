@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the properties of the archive version.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2024-11-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getArchiveVersion(args: GetArchiveVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetArchiveVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,6 +57,10 @@ export interface GetArchiveVersionResult {
      */
     readonly archiveVersionErrorMessage?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource ID.
      */
     readonly id: string;
@@ -80,9 +84,9 @@ export interface GetArchiveVersionResult {
 /**
  * Gets the properties of the archive version.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2024-11-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getArchiveVersionOutput(args: GetArchiveVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArchiveVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

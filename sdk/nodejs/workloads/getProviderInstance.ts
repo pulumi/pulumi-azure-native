@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
  *
- * Uses Azure REST API version 2023-04-01.
+ * Uses Azure REST API version 2024-02-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+ * Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getProviderInstance(args: GetProviderInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,17 +43,21 @@ export interface GetProviderInstanceArgs {
  */
 export interface GetProviderInstanceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Defines the provider instance errors.
      */
-    readonly errors: outputs.workloads.ProviderInstancePropertiesResponseErrors;
+    readonly errors: outputs.workloads.ErrorDetailResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource health details
+     */
+    readonly health: outputs.workloads.HealthResponse;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
-    /**
-     * [currently not in use] Managed service identity(user assigned identities)
-     */
-    readonly identity?: outputs.workloads.UserAssignedServiceIdentityResponse;
     /**
      * The name of the resource
      */
@@ -61,7 +65,7 @@ export interface GetProviderInstanceResult {
     /**
      * Defines the provider specific properties.
      */
-    readonly providerSettings?: outputs.workloads.DB2ProviderInstancePropertiesResponse | outputs.workloads.HanaDbProviderInstancePropertiesResponse | outputs.workloads.MsSqlServerProviderInstancePropertiesResponse | outputs.workloads.PrometheusHaClusterProviderInstancePropertiesResponse | outputs.workloads.PrometheusOSProviderInstancePropertiesResponse | outputs.workloads.SapNetWeaverProviderInstancePropertiesResponse;
+    readonly providerSettings?: outputs.workloads.Db2ProviderInstancePropertiesResponse | outputs.workloads.HanaDbProviderInstancePropertiesResponse | outputs.workloads.MsSqlServerProviderInstancePropertiesResponse | outputs.workloads.OracleProviderInstancePropertiesResponse | outputs.workloads.PrometheusHaClusterProviderInstancePropertiesResponse | outputs.workloads.PrometheusOsProviderInstancePropertiesResponse | outputs.workloads.SapNetWeaverProviderInstancePropertiesResponse;
     /**
      * State of provisioning of the provider instance
      */
@@ -78,9 +82,9 @@ export interface GetProviderInstanceResult {
 /**
  * Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
  *
- * Uses Azure REST API version 2023-04-01.
+ * Uses Azure REST API version 2024-02-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+ * Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getProviderInstanceOutput(args: GetProviderInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

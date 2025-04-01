@@ -51,18 +51,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
             set => _ipConfigurationReferences = value;
         }
 
-        [Input("ipPools")]
-        private InputList<Inputs.IPPoolArgs>? _ipPools;
-
-        /// <summary>
-        /// network associated pool of IP Addresses
-        /// </summary>
-        public InputList<Inputs.IPPoolArgs> IpPools
-        {
-            get => _ipPools ?? (_ipPools = new InputList<Inputs.IPPoolArgs>());
-            set => _ipPools = value;
-        }
-
         /// <summary>
         /// Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>

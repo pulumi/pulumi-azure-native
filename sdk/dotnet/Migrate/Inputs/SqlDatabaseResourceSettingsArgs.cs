@@ -43,8 +43,8 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
-        [Input("targetResourceName", required: true)]
-        public Input<string> TargetResourceName { get; set; } = null!;
+        [Input("targetResourceName")]
+        public Input<string>? TargetResourceName { get; set; }
 
         /// <summary>
         /// Defines the zone redundant resource setting.

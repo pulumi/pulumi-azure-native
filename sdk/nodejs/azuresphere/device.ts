@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * An device resource belonging to a device group resource.
  *
- * Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-09-01-preview.
+ * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Device extends pulumi.CustomResource {
         return obj['__pulumiType'] === Device.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * SKU of the chip
      */
@@ -111,6 +115,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["productName"] = args ? args.productName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["chipSku"] = undefined /*out*/;
             resourceInputs["lastAvailableOsVersion"] = undefined /*out*/;
             resourceInputs["lastInstalledOsVersion"] = undefined /*out*/;
@@ -121,6 +126,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["chipSku"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;
             resourceInputs["lastAvailableOsVersion"] = undefined /*out*/;

@@ -8,11 +8,3 @@ import typing
 from ._enums import *
 from .get_multiple_activation_key import *
 from .multiple_activation_key import *
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.windowsesu.v20190916preview as __v20190916preview
-    v20190916preview = __v20190916preview
-else:
-    v20190916preview = _utilities.lazy_import('pulumi_azure_native.windowsesu.v20190916preview')
-

@@ -25,7 +25,6 @@ class ClientArgs:
                  namespace_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  attributes: Optional[Any] = None,
-                 authentication: Optional[pulumi.Input['ClientAuthenticationArgs']] = None,
                  authentication_name: Optional[pulumi.Input[str]] = None,
                  client_certificate_authentication: Optional[pulumi.Input['ClientCertificateAuthenticationArgs']] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
@@ -38,7 +37,6 @@ class ClientArgs:
         :param Any attributes: Attributes for the client. Supported values are int, bool, string, string[].
                Example:
                "attributes": { "room": "345", "floor": 12, "deviceTypes": ["Fan", "Light"] }
-        :param pulumi.Input['ClientAuthenticationArgs'] authentication: Authentication information for the client.
         :param pulumi.Input[str] authentication_name: The name presented by the client for authentication. The default value is the name of the resource.
         :param pulumi.Input['ClientCertificateAuthenticationArgs'] client_certificate_authentication: The client certificate authentication information.
         :param pulumi.Input[str] client_name: The client name.
@@ -49,8 +47,6 @@ class ClientArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
-        if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
         if authentication_name is not None:
             pulumi.set(__self__, "authentication_name", authentication_name)
         if client_certificate_authentication is not None:
@@ -101,18 +97,6 @@ class ClientArgs:
     @attributes.setter
     def attributes(self, value: Optional[Any]):
         pulumi.set(self, "attributes", value)
-
-    @property
-    @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['ClientAuthenticationArgs']]:
-        """
-        Authentication information for the client.
-        """
-        return pulumi.get(self, "authentication")
-
-    @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['ClientAuthenticationArgs']]):
-        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter(name="authenticationName")
@@ -181,7 +165,6 @@ class Client(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[Any] = None,
-                 authentication: Optional[pulumi.Input[Union['ClientAuthenticationArgs', 'ClientAuthenticationArgsDict']]] = None,
                  authentication_name: Optional[pulumi.Input[str]] = None,
                  client_certificate_authentication: Optional[pulumi.Input[Union['ClientCertificateAuthenticationArgs', 'ClientCertificateAuthenticationArgsDict']]] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
@@ -193,16 +176,15 @@ class Client(pulumi.CustomResource):
         """
         The Client resource.
 
-        Uses Azure REST API version 2023-06-01-preview.
+        Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any attributes: Attributes for the client. Supported values are int, bool, string, string[].
                Example:
                "attributes": { "room": "345", "floor": 12, "deviceTypes": ["Fan", "Light"] }
-        :param pulumi.Input[Union['ClientAuthenticationArgs', 'ClientAuthenticationArgsDict']] authentication: Authentication information for the client.
         :param pulumi.Input[str] authentication_name: The name presented by the client for authentication. The default value is the name of the resource.
         :param pulumi.Input[Union['ClientCertificateAuthenticationArgs', 'ClientCertificateAuthenticationArgsDict']] client_certificate_authentication: The client certificate authentication information.
         :param pulumi.Input[str] client_name: The client name.
@@ -220,9 +202,9 @@ class Client(pulumi.CustomResource):
         """
         The Client resource.
 
-        Uses Azure REST API version 2023-06-01-preview.
+        Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ClientArgs args: The arguments to use to populate this resource's properties.
@@ -240,7 +222,6 @@ class Client(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[Any] = None,
-                 authentication: Optional[pulumi.Input[Union['ClientAuthenticationArgs', 'ClientAuthenticationArgsDict']]] = None,
                  authentication_name: Optional[pulumi.Input[str]] = None,
                  client_certificate_authentication: Optional[pulumi.Input[Union['ClientCertificateAuthenticationArgs', 'ClientCertificateAuthenticationArgsDict']]] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
@@ -258,7 +239,6 @@ class Client(pulumi.CustomResource):
             __props__ = ClientArgs.__new__(ClientArgs)
 
             __props__.__dict__["attributes"] = attributes
-            __props__.__dict__["authentication"] = authentication
             __props__.__dict__["authentication_name"] = authentication_name
             __props__.__dict__["client_certificate_authentication"] = client_certificate_authentication
             __props__.__dict__["client_name"] = client_name
@@ -272,6 +252,7 @@ class Client(pulumi.CustomResource):
             if state is None:
                 state = 'Enabled'
             __props__.__dict__["state"] = state
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -301,8 +282,8 @@ class Client(pulumi.CustomResource):
         __props__ = ClientArgs.__new__(ClientArgs)
 
         __props__.__dict__["attributes"] = None
-        __props__.__dict__["authentication"] = None
         __props__.__dict__["authentication_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["client_certificate_authentication"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
@@ -323,20 +304,20 @@ class Client(pulumi.CustomResource):
         return pulumi.get(self, "attributes")
 
     @property
-    @pulumi.getter
-    def authentication(self) -> pulumi.Output[Optional['outputs.ClientAuthenticationResponse']]:
-        """
-        Authentication information for the client.
-        """
-        return pulumi.get(self, "authentication")
-
-    @property
     @pulumi.getter(name="authenticationName")
     def authentication_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name presented by the client for authentication. The default value is the name of the resource.
         """
         return pulumi.get(self, "authentication_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientCertificateAuthentication")
@@ -382,7 +363,7 @@ class Client(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to the Client resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 

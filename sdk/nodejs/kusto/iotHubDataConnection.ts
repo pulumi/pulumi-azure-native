@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Class representing an iot hub data connection.
  *
- * Uses Azure REST API version 2022-12-29. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+ * Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
  */
 export class IotHubDataConnection extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class IotHubDataConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === IotHubDataConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The iot hub consumer group.
      */
@@ -144,10 +148,12 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             resourceInputs["retrievalStartDate"] = args ? args.retrievalStartDate : undefined;
             resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["consumerGroup"] = undefined /*out*/;
             resourceInputs["dataFormat"] = undefined /*out*/;
             resourceInputs["databaseRouting"] = undefined /*out*/;
@@ -164,7 +170,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190121:IotHubDataConnection" }, { type: "azure-native:kusto/v20190515:IotHubDataConnection" }, { type: "azure-native:kusto/v20190907:IotHubDataConnection" }, { type: "azure-native:kusto/v20191109:IotHubDataConnection" }, { type: "azure-native:kusto/v20200215:IotHubDataConnection" }, { type: "azure-native:kusto/v20200614:IotHubDataConnection" }, { type: "azure-native:kusto/v20200918:IotHubDataConnection" }, { type: "azure-native:kusto/v20210101:IotHubDataConnection" }, { type: "azure-native:kusto/v20210827:IotHubDataConnection" }, { type: "azure-native:kusto/v20220201:IotHubDataConnection" }, { type: "azure-native:kusto/v20220707:IotHubDataConnection" }, { type: "azure-native:kusto/v20221111:IotHubDataConnection" }, { type: "azure-native:kusto/v20221229:IotHubDataConnection" }, { type: "azure-native:kusto/v20230502:IotHubDataConnection" }, { type: "azure-native:kusto/v20230815:IotHubDataConnection" }, { type: "azure-native:kusto/v20240413:IotHubDataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190121:IotHubDataConnection" }, { type: "azure-native:kusto/v20190515:IotHubDataConnection" }, { type: "azure-native:kusto/v20190907:IotHubDataConnection" }, { type: "azure-native:kusto/v20191109:IotHubDataConnection" }, { type: "azure-native:kusto/v20200215:EventGridDataConnection" }, { type: "azure-native:kusto/v20200215:IotHubDataConnection" }, { type: "azure-native:kusto/v20200614:IotHubDataConnection" }, { type: "azure-native:kusto/v20200918:IotHubDataConnection" }, { type: "azure-native:kusto/v20210101:IotHubDataConnection" }, { type: "azure-native:kusto/v20210827:IotHubDataConnection" }, { type: "azure-native:kusto/v20220201:IotHubDataConnection" }, { type: "azure-native:kusto/v20220707:IotHubDataConnection" }, { type: "azure-native:kusto/v20221111:IotHubDataConnection" }, { type: "azure-native:kusto/v20221229:CosmosDbDataConnection" }, { type: "azure-native:kusto/v20221229:EventGridDataConnection" }, { type: "azure-native:kusto/v20221229:EventHubDataConnection" }, { type: "azure-native:kusto/v20221229:IotHubDataConnection" }, { type: "azure-native:kusto/v20230502:CosmosDbDataConnection" }, { type: "azure-native:kusto/v20230502:EventGridDataConnection" }, { type: "azure-native:kusto/v20230502:EventHubDataConnection" }, { type: "azure-native:kusto/v20230502:IotHubDataConnection" }, { type: "azure-native:kusto/v20230815:CosmosDbDataConnection" }, { type: "azure-native:kusto/v20230815:EventGridDataConnection" }, { type: "azure-native:kusto/v20230815:EventHubDataConnection" }, { type: "azure-native:kusto/v20230815:IotHubDataConnection" }, { type: "azure-native:kusto/v20240413:CosmosDbDataConnection" }, { type: "azure-native:kusto/v20240413:EventGridDataConnection" }, { type: "azure-native:kusto/v20240413:EventHubDataConnection" }, { type: "azure-native:kusto/v20240413:IotHubDataConnection" }, { type: "azure-native:kusto:CosmosDbDataConnection" }, { type: "azure-native:kusto:EventGridDataConnection" }, { type: "azure-native:kusto:EventHubDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotHubDataConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -220,7 +226,7 @@ export interface IotHubDataConnectionArgs {
      */
     mappingRuleName?: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

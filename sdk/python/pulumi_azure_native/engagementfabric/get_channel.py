@@ -26,7 +26,10 @@ class GetChannelResult:
     """
     The EngagementFabric channel
     """
-    def __init__(__self__, channel_functions=None, channel_type=None, credentials=None, id=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, channel_functions=None, channel_type=None, credentials=None, id=None, name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if channel_functions and not isinstance(channel_functions, list):
             raise TypeError("Expected argument 'channel_functions' to be a list")
         pulumi.set(__self__, "channel_functions", channel_functions)
@@ -45,6 +48,14 @@ class GetChannelResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="channelFunctions")
@@ -101,6 +112,7 @@ class AwaitableGetChannelResult(GetChannelResult):
         if False:
             yield self
         return GetChannelResult(
+            azure_api_version=self.azure_api_version,
             channel_functions=self.channel_functions,
             channel_type=self.channel_type,
             credentials=self.credentials,
@@ -131,6 +143,7 @@ def get_channel(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:engagementfabric:getChannel', __args__, opts=opts, typ=GetChannelResult).value
 
     return AwaitableGetChannelResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         channel_functions=pulumi.get(__ret__, 'channel_functions'),
         channel_type=pulumi.get(__ret__, 'channel_type'),
         credentials=pulumi.get(__ret__, 'credentials'),
@@ -158,6 +171,7 @@ def get_channel_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:engagementfabric:getChannel', __args__, opts=opts, typ=GetChannelResult)
     return __ret__.apply(lambda __response__: GetChannelResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         channel_functions=pulumi.get(__response__, 'channel_functions'),
         channel_type=pulumi.get(__response__, 'channel_type'),
         credentials=pulumi.get(__response__, 'credentials'),

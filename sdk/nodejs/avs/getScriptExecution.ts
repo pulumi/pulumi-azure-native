@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An instance of a script executed by a user - custom or AVS
+ * Get a ScriptExecution
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getScriptExecution(args: GetScriptExecutionArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptExecutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,7 +33,7 @@ export interface GetScriptExecutionArgs {
      */
     resourceGroupName: string;
     /**
-     * Name of the user-invoked script execution resource
+     * Name of the script cmdlet.
      */
     scriptExecutionName: string;
 }
@@ -43,11 +43,16 @@ export interface GetScriptExecutionArgs {
  */
 export interface GetScriptExecutionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Standard error output stream from the powershell execution
      */
     readonly errors: string[];
     /**
-     * Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
+     * Error message if the script was able to run, but if the script itself had
+     * errors or powershell threw an exception
      */
     readonly failureReason?: string;
     /**
@@ -55,11 +60,12 @@ export interface GetScriptExecutionResult {
      */
     readonly finishedAt: string;
     /**
-     * Parameters that will be hidden/not visible to ARM, such as passwords and credentials
+     * Parameters that will be hidden/not visible to ARM, such as passwords and
+     * credentials
      */
     readonly hiddenParameters?: (outputs.avs.PSCredentialExecutionParameterResponse | outputs.avs.ScriptSecureStringExecutionParameterResponse | outputs.avs.ScriptStringExecutionParameterResponse)[];
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -67,7 +73,7 @@ export interface GetScriptExecutionResult {
      */
     readonly information: string[];
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -103,11 +109,15 @@ export interface GetScriptExecutionResult {
      */
     readonly submittedAt: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.avs.SystemDataResponse;
+    /**
      * Time limit for execution
      */
     readonly timeout: string;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -116,11 +126,11 @@ export interface GetScriptExecutionResult {
     readonly warnings: string[];
 }
 /**
- * An instance of a script executed by a user - custom or AVS
+ * Get a ScriptExecution
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getScriptExecutionOutput(args: GetScriptExecutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScriptExecutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -141,7 +151,7 @@ export interface GetScriptExecutionOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the user-invoked script execution resource
+     * Name of the script cmdlet.
      */
     scriptExecutionName: pulumi.Input<string>;
 }

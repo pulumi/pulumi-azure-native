@@ -39,17 +39,6 @@ utilities.lazyLoad(exports, ["SqlVirtualMachineGroup"], () => require("./sqlVirt
 // Export enums:
 export * from "../types/enums/sqlvirtualmachine";
 
-// Export sub-modules:
-import * as v20220201 from "./v20220201";
-import * as v20230101preview from "./v20230101preview";
-import * as v20231001 from "./v20231001";
-
-export {
-    v20220201,
-    v20230101preview,
-    v20231001,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

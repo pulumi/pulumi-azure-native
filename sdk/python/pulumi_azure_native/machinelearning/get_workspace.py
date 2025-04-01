@@ -27,7 +27,10 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, creation_time=None, id=None, key_vault_identifier_id=None, location=None, name=None, owner_email=None, sku=None, studio_endpoint=None, tags=None, type=None, user_storage_account_id=None, workspace_id=None, workspace_state=None, workspace_type=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, id=None, key_vault_identifier_id=None, location=None, name=None, owner_email=None, sku=None, studio_endpoint=None, tags=None, type=None, user_storage_account_id=None, workspace_id=None, workspace_state=None, workspace_type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -70,6 +73,14 @@ class GetWorkspaceResult:
         if workspace_type and not isinstance(workspace_type, str):
             raise TypeError("Expected argument 'workspace_type' to be a str")
         pulumi.set(__self__, "workspace_type", workspace_type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -190,6 +201,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             id=self.id,
             key_vault_identifier_id=self.key_vault_identifier_id,
@@ -225,6 +237,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearning:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         id=pulumi.get(__ret__, 'id'),
         key_vault_identifier_id=pulumi.get(__ret__, 'key_vault_identifier_id'),
@@ -257,6 +270,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearning:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         id=pulumi.get(__response__, 'id'),
         key_vault_identifier_id=pulumi.get(__response__, 'key_vault_identifier_id'),

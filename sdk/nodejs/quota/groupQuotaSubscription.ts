@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
- * Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
+ * Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GroupQuotaSubscription extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class GroupQuotaSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === GroupQuotaSubscription.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -74,11 +78,13 @@ export class GroupQuotaSubscription extends pulumi.CustomResource {
             }
             resourceInputs["groupQuotaName"] = args ? args.groupQuotaName : undefined;
             resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

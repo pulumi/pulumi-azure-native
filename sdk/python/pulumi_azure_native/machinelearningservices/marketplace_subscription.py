@@ -100,9 +100,9 @@ class MarketplaceSubscription(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2024-01-01-preview.
+        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
 
-        Other available API versions: 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,9 +120,9 @@ class MarketplaceSubscription(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2024-01-01-preview.
+        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
 
-        Other available API versions: 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param MarketplaceSubscriptionInitArgs args: The arguments to use to populate this resource's properties.
@@ -162,6 +162,7 @@ class MarketplaceSubscription(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:MarketplaceSubscription")])
@@ -188,11 +189,20 @@ class MarketplaceSubscription(pulumi.CustomResource):
 
         __props__ = MarketplaceSubscriptionInitArgs.__new__(MarketplaceSubscriptionInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["marketplace_subscription_properties"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return MarketplaceSubscription(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="marketplaceSubscriptionProperties")

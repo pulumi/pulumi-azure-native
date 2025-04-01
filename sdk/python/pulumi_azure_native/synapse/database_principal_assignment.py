@@ -181,7 +181,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         """
         Class representing a database principal assignment.
 
-        Uses Azure REST API version 2021-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
+        Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,7 +204,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         """
         Class representing a database principal assignment.
 
-        Uses Azure REST API version 2021-04-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
+        Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DatabasePrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -262,13 +262,14 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principal_name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:DatabasePrincipalAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:KustoPoolDatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:synapse:KustoPoolDatabasePrincipalAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabasePrincipalAssignment, __self__).__init__(
             'azure-native:synapse:DatabasePrincipalAssignment',
@@ -292,6 +293,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
         __props__ = DatabasePrincipalAssignmentArgs.__new__(DatabasePrincipalAssignmentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["principal_id"] = None
         __props__.__dict__["principal_name"] = None
@@ -303,6 +305,14 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         __props__.__dict__["tenant_name"] = None
         __props__.__dict__["type"] = None
         return DatabasePrincipalAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Shows an inventory item.
  *
- * Uses Azure REST API version 2022-05-21-preview.
+ * Uses Azure REST API version 2023-04-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+ * Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getInventoryItem(args: GetInventoryItemArgs, opts?: pulumi.InvokeOptions): Promise<GetInventoryItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetInventoryItemArgs {
  * Defines the inventory item.
  */
 export interface GetInventoryItemResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -86,9 +90,9 @@ export interface GetInventoryItemResult {
 /**
  * Shows an inventory item.
  *
- * Uses Azure REST API version 2022-05-21-preview.
+ * Uses Azure REST API version 2023-04-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+ * Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInventoryItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

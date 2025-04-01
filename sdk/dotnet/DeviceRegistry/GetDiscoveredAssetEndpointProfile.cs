@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         public readonly string? AdditionalConfiguration;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Identifier used to detect changes in the asset endpoint profile.
         /// </summary>
         public readonly string DiscoveryId;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         private GetDiscoveredAssetEndpointProfileResult(
             string? additionalConfiguration,
 
+            string azureApiVersion,
+
             string discoveryId,
 
             string endpointProfileType,
@@ -169,6 +175,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
             double version)
         {
             AdditionalConfiguration = additionalConfiguration;
+            AzureApiVersion = azureApiVersion;
             DiscoveryId = discoveryId;
             EndpointProfileType = endpointProfileType;
             ExtendedLocation = extendedLocation;

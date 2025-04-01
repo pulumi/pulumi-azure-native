@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['ConfigurationAssignmentArgs', 'ConfigurationAssignment']
 
@@ -25,6 +27,7 @@ class ConfigurationAssignmentArgs:
                  resource_name: pulumi.Input[str],
                  resource_type: pulumi.Input[str],
                  configuration_assignment_name: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input['ConfigurationAssignmentFilterPropertiesArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None):
@@ -35,6 +38,7 @@ class ConfigurationAssignmentArgs:
         :param pulumi.Input[str] resource_name: Resource identifier
         :param pulumi.Input[str] resource_type: Resource type
         :param pulumi.Input[str] configuration_assignment_name: Configuration assignment name
+        :param pulumi.Input['ConfigurationAssignmentFilterPropertiesArgs'] filter: Properties of the configuration assignment
         :param pulumi.Input[str] location: Location of the resource
         :param pulumi.Input[str] maintenance_configuration_id: The maintenance configuration Id
         :param pulumi.Input[str] resource_id: The unique resourceId
@@ -45,6 +49,8 @@ class ConfigurationAssignmentArgs:
         pulumi.set(__self__, "resource_type", resource_type)
         if configuration_assignment_name is not None:
             pulumi.set(__self__, "configuration_assignment_name", configuration_assignment_name)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if maintenance_configuration_id is not None:
@@ -114,6 +120,18 @@ class ConfigurationAssignmentArgs:
 
     @property
     @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['ConfigurationAssignmentFilterPropertiesArgs']]:
+        """
+        Properties of the configuration assignment
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['ConfigurationAssignmentFilterPropertiesArgs']]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Location of the resource
@@ -155,6 +173,7 @@ class ConfigurationAssignment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_assignment_name: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input[Union['ConfigurationAssignmentFilterPropertiesArgs', 'ConfigurationAssignmentFilterPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
@@ -166,13 +185,14 @@ class ConfigurationAssignment(pulumi.CustomResource):
         """
         Configuration Assignment
 
-        Uses Azure REST API version 2022-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
 
-        Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+        Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_assignment_name: Configuration assignment name
+        :param pulumi.Input[Union['ConfigurationAssignmentFilterPropertiesArgs', 'ConfigurationAssignmentFilterPropertiesArgsDict']] filter: Properties of the configuration assignment
         :param pulumi.Input[str] location: Location of the resource
         :param pulumi.Input[str] maintenance_configuration_id: The maintenance configuration Id
         :param pulumi.Input[str] provider_name: Resource provider name
@@ -190,9 +210,9 @@ class ConfigurationAssignment(pulumi.CustomResource):
         """
         Configuration Assignment
 
-        Uses Azure REST API version 2022-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2021-04-01-preview.
+        Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
 
-        Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+        Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -210,6 +230,7 @@ class ConfigurationAssignment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_assignment_name: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input[Union['ConfigurationAssignmentFilterPropertiesArgs', 'ConfigurationAssignmentFilterPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
@@ -227,6 +248,7 @@ class ConfigurationAssignment(pulumi.CustomResource):
             __props__ = ConfigurationAssignmentArgs.__new__(ConfigurationAssignmentArgs)
 
             __props__.__dict__["configuration_assignment_name"] = configuration_assignment_name
+            __props__.__dict__["filter"] = filter
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
             if provider_name is None and not opts.urn:
@@ -242,6 +264,7 @@ class ConfigurationAssignment(pulumi.CustomResource):
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -269,6 +292,8 @@ class ConfigurationAssignment(pulumi.CustomResource):
 
         __props__ = ConfigurationAssignmentArgs.__new__(ConfigurationAssignmentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["filter"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["maintenance_configuration_id"] = None
         __props__.__dict__["name"] = None
@@ -276,6 +301,22 @@ class ConfigurationAssignment(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ConfigurationAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> pulumi.Output[Optional['outputs.ConfigurationAssignmentFilterPropertiesResponse']]:
+        """
+        Properties of the configuration assignment
+        """
+        return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter

@@ -2,14 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An HCX Enterprise Site resource
+ * Get a HcxEnterpriseSite
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getHcxEnterpriseSite(args: GetHcxEnterpriseSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHcxEnterpriseSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -22,7 +25,7 @@ export function getHcxEnterpriseSite(args: GetHcxEnterpriseSiteArgs, opts?: pulu
 
 export interface GetHcxEnterpriseSiteArgs {
     /**
-     * Name of the HCX Enterprise Site in the private cloud
+     * Name of the HCX Enterprise Site
      */
     hcxEnterpriseSiteName: string;
     /**
@@ -44,28 +47,40 @@ export interface GetHcxEnterpriseSiteResult {
      */
     readonly activationKey: string;
     /**
-     * Resource ID.
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * The status of the HCX Enterprise Site
      */
     readonly status: string;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.avs.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * An HCX Enterprise Site resource
+ * Get a HcxEnterpriseSite
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getHcxEnterpriseSiteOutput(args: GetHcxEnterpriseSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHcxEnterpriseSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +93,7 @@ export function getHcxEnterpriseSiteOutput(args: GetHcxEnterpriseSiteOutputArgs,
 
 export interface GetHcxEnterpriseSiteOutputArgs {
     /**
-     * Name of the HCX Enterprise Site in the private cloud
+     * Name of the HCX Enterprise Site
      */
     hcxEnterpriseSiteName: pulumi.Input<string>;
     /**

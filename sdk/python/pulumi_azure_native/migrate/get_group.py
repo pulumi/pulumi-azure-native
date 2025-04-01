@@ -27,7 +27,10 @@ class GetGroupResult:
     """
     A group created in a Migration project.
     """
-    def __init__(__self__, e_tag=None, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, azure_api_version=None, e_tag=None, id=None, name=None, properties=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -43,6 +46,14 @@ class GetGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")
@@ -91,6 +102,7 @@ class AwaitableGetGroupResult(GetGroupResult):
         if False:
             yield self
         return GetGroupResult(
+            azure_api_version=self.azure_api_version,
             e_tag=self.e_tag,
             id=self.id,
             name=self.name,
@@ -107,8 +119,6 @@ def get_group(group_name: Optional[str] = None,
 
     Uses Azure REST API version 2019-10-01.
 
-    Other available API versions: 2018-02-02.
-
 
     :param str group_name: Unique name of a group within a project.
     :param str project_name: Name of the Azure Migrate project.
@@ -122,6 +132,7 @@ def get_group(group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:migrate:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -136,8 +147,6 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
 
     Uses Azure REST API version 2019-10-01.
 
-    Other available API versions: 2018-02-02.
-
 
     :param str group_name: Unique name of a group within a project.
     :param str project_name: Name of the Azure Migrate project.
@@ -150,6 +159,7 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

@@ -23,10 +23,14 @@ class LocalUserArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 allow_acl_authorization: Optional[pulumi.Input[bool]] = None,
+                 extended_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 group_id: Optional[pulumi.Input[int]] = None,
                  has_shared_key: Optional[pulumi.Input[bool]] = None,
                  has_ssh_key: Optional[pulumi.Input[bool]] = None,
                  has_ssh_password: Optional[pulumi.Input[bool]] = None,
                  home_directory: Optional[pulumi.Input[str]] = None,
+                 is_nf_sv3_enabled: Optional[pulumi.Input[bool]] = None,
                  permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionScopeArgs']]]] = None,
                  ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None,
                  username: Optional[pulumi.Input[str]] = None):
@@ -34,16 +38,26 @@ class LocalUserArgs:
         The set of arguments for constructing a LocalUser resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[bool] allow_acl_authorization: Indicates whether ACL authorization is allowed for this user. Set it to false to disallow using ACL authorization.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] extended_groups: Supplementary group membership. Only applicable for local users enabled for NFSv3 access.
+        :param pulumi.Input[int] group_id: An identifier for associating a group of users.
         :param pulumi.Input[bool] has_shared_key: Indicates whether shared key exists. Set it to false to remove existing shared key.
         :param pulumi.Input[bool] has_ssh_key: Indicates whether ssh key exists. Set it to false to remove existing SSH key.
         :param pulumi.Input[bool] has_ssh_password: Indicates whether ssh password exists. Set it to false to remove existing SSH password.
         :param pulumi.Input[str] home_directory: Optional, local user home directory.
+        :param pulumi.Input[bool] is_nf_sv3_enabled: Indicates if the local user is enabled for access with NFSv3 protocol.
         :param pulumi.Input[Sequence[pulumi.Input['PermissionScopeArgs']]] permission_scopes: The permission scopes of the local user.
         :param pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]] ssh_authorized_keys: Optional, local user ssh authorized keys for SFTP.
         :param pulumi.Input[str] username: The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if allow_acl_authorization is not None:
+            pulumi.set(__self__, "allow_acl_authorization", allow_acl_authorization)
+        if extended_groups is not None:
+            pulumi.set(__self__, "extended_groups", extended_groups)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
         if has_shared_key is not None:
             pulumi.set(__self__, "has_shared_key", has_shared_key)
         if has_ssh_key is not None:
@@ -52,6 +66,8 @@ class LocalUserArgs:
             pulumi.set(__self__, "has_ssh_password", has_ssh_password)
         if home_directory is not None:
             pulumi.set(__self__, "home_directory", home_directory)
+        if is_nf_sv3_enabled is not None:
+            pulumi.set(__self__, "is_nf_sv3_enabled", is_nf_sv3_enabled)
         if permission_scopes is not None:
             pulumi.set(__self__, "permission_scopes", permission_scopes)
         if ssh_authorized_keys is not None:
@@ -82,6 +98,42 @@ class LocalUserArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="allowAclAuthorization")
+    def allow_acl_authorization(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether ACL authorization is allowed for this user. Set it to false to disallow using ACL authorization.
+        """
+        return pulumi.get(self, "allow_acl_authorization")
+
+    @allow_acl_authorization.setter
+    def allow_acl_authorization(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_acl_authorization", value)
+
+    @property
+    @pulumi.getter(name="extendedGroups")
+    def extended_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        Supplementary group membership. Only applicable for local users enabled for NFSv3 access.
+        """
+        return pulumi.get(self, "extended_groups")
+
+    @extended_groups.setter
+    def extended_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "extended_groups", value)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        An identifier for associating a group of users.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "group_id", value)
 
     @property
     @pulumi.getter(name="hasSharedKey")
@@ -132,6 +184,18 @@ class LocalUserArgs:
         pulumi.set(self, "home_directory", value)
 
     @property
+    @pulumi.getter(name="isNFSv3Enabled")
+    def is_nf_sv3_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the local user is enabled for access with NFSv3 protocol.
+        """
+        return pulumi.get(self, "is_nf_sv3_enabled")
+
+    @is_nf_sv3_enabled.setter
+    def is_nf_sv3_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_nf_sv3_enabled", value)
+
+    @property
     @pulumi.getter(name="permissionScopes")
     def permission_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionScopeArgs']]]]:
         """
@@ -174,10 +238,14 @@ class LocalUser(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 allow_acl_authorization: Optional[pulumi.Input[bool]] = None,
+                 extended_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 group_id: Optional[pulumi.Input[int]] = None,
                  has_shared_key: Optional[pulumi.Input[bool]] = None,
                  has_ssh_key: Optional[pulumi.Input[bool]] = None,
                  has_ssh_password: Optional[pulumi.Input[bool]] = None,
                  home_directory: Optional[pulumi.Input[str]] = None,
+                 is_nf_sv3_enabled: Optional[pulumi.Input[bool]] = None,
                  permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PermissionScopeArgs', 'PermissionScopeArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
@@ -186,17 +254,21 @@ class LocalUser(pulumi.CustomResource):
         """
         The local user associated with the storage accounts.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-08-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        :param pulumi.Input[bool] allow_acl_authorization: Indicates whether ACL authorization is allowed for this user. Set it to false to disallow using ACL authorization.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] extended_groups: Supplementary group membership. Only applicable for local users enabled for NFSv3 access.
+        :param pulumi.Input[int] group_id: An identifier for associating a group of users.
         :param pulumi.Input[bool] has_shared_key: Indicates whether shared key exists. Set it to false to remove existing shared key.
         :param pulumi.Input[bool] has_ssh_key: Indicates whether ssh key exists. Set it to false to remove existing SSH key.
         :param pulumi.Input[bool] has_ssh_password: Indicates whether ssh password exists. Set it to false to remove existing SSH password.
         :param pulumi.Input[str] home_directory: Optional, local user home directory.
+        :param pulumi.Input[bool] is_nf_sv3_enabled: Indicates if the local user is enabled for access with NFSv3 protocol.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PermissionScopeArgs', 'PermissionScopeArgsDict']]]] permission_scopes: The permission scopes of the local user.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]] ssh_authorized_keys: Optional, local user ssh authorized keys for SFTP.
@@ -211,9 +283,9 @@ class LocalUser(pulumi.CustomResource):
         """
         The local user associated with the storage accounts.
 
-        Uses Azure REST API version 2022-09-01. In version 1.x of the Azure Native provider, it used API version 2021-08-01.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param LocalUserArgs args: The arguments to use to populate this resource's properties.
@@ -231,10 +303,14 @@ class LocalUser(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 allow_acl_authorization: Optional[pulumi.Input[bool]] = None,
+                 extended_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 group_id: Optional[pulumi.Input[int]] = None,
                  has_shared_key: Optional[pulumi.Input[bool]] = None,
                  has_ssh_key: Optional[pulumi.Input[bool]] = None,
                  has_ssh_password: Optional[pulumi.Input[bool]] = None,
                  home_directory: Optional[pulumi.Input[str]] = None,
+                 is_nf_sv3_enabled: Optional[pulumi.Input[bool]] = None,
                  permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PermissionScopeArgs', 'PermissionScopeArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
@@ -251,20 +327,26 @@ class LocalUser(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["allow_acl_authorization"] = allow_acl_authorization
+            __props__.__dict__["extended_groups"] = extended_groups
+            __props__.__dict__["group_id"] = group_id
             __props__.__dict__["has_shared_key"] = has_shared_key
             __props__.__dict__["has_ssh_key"] = has_ssh_key
             __props__.__dict__["has_ssh_password"] = has_ssh_password
             __props__.__dict__["home_directory"] = home_directory
+            __props__.__dict__["is_nf_sv3_enabled"] = is_nf_sv3_enabled
             __props__.__dict__["permission_scopes"] = permission_scopes
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["ssh_authorized_keys"] = ssh_authorized_keys
             __props__.__dict__["username"] = username
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["user_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20210801:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20210901:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20220501:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20220901:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20230101:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20230401:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20230501:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20240101:LocalUser")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LocalUser, __self__).__init__(
@@ -289,17 +371,55 @@ class LocalUser(pulumi.CustomResource):
 
         __props__ = LocalUserArgs.__new__(LocalUserArgs)
 
+        __props__.__dict__["allow_acl_authorization"] = None
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["extended_groups"] = None
+        __props__.__dict__["group_id"] = None
         __props__.__dict__["has_shared_key"] = None
         __props__.__dict__["has_ssh_key"] = None
         __props__.__dict__["has_ssh_password"] = None
         __props__.__dict__["home_directory"] = None
+        __props__.__dict__["is_nf_sv3_enabled"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["permission_scopes"] = None
         __props__.__dict__["sid"] = None
         __props__.__dict__["ssh_authorized_keys"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["user_id"] = None
         return LocalUser(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowAclAuthorization")
+    def allow_acl_authorization(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether ACL authorization is allowed for this user. Set it to false to disallow using ACL authorization.
+        """
+        return pulumi.get(self, "allow_acl_authorization")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="extendedGroups")
+    def extended_groups(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        Supplementary group membership. Only applicable for local users enabled for NFSv3 access.
+        """
+        return pulumi.get(self, "extended_groups")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Output[Optional[int]]:
+        """
+        An identifier for associating a group of users.
+        """
+        return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter(name="hasSharedKey")
@@ -332,6 +452,14 @@ class LocalUser(pulumi.CustomResource):
         Optional, local user home directory.
         """
         return pulumi.get(self, "home_directory")
+
+    @property
+    @pulumi.getter(name="isNFSv3Enabled")
+    def is_nf_sv3_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates if the local user is enabled for access with NFSv3 protocol.
+        """
+        return pulumi.get(self, "is_nf_sv3_enabled")
 
     @property
     @pulumi.getter
@@ -380,4 +508,12 @@ class LocalUser(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Output[int]:
+        """
+        A unique Identifier that is generated by the server.
+        """
+        return pulumi.get(self, "user_id")
 

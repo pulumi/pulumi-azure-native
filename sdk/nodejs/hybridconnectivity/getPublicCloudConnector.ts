@@ -40,6 +40,10 @@ export interface GetPublicCloudConnectorResult {
      */
     readonly awsCloudProfile: outputs.hybridconnectivity.AwsCloudProfileResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Connector primary identifier.
      */
     readonly connectorPrimaryIdentifier: string;

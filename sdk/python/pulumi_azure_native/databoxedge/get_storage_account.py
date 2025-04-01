@@ -27,7 +27,10 @@ class GetStorageAccountResult:
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
     """
-    def __init__(__self__, blob_endpoint=None, container_count=None, data_policy=None, description=None, id=None, name=None, storage_account_credential_id=None, storage_account_status=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, blob_endpoint=None, container_count=None, data_policy=None, description=None, id=None, name=None, storage_account_credential_id=None, storage_account_status=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if blob_endpoint and not isinstance(blob_endpoint, str):
             raise TypeError("Expected argument 'blob_endpoint' to be a str")
         pulumi.set(__self__, "blob_endpoint", blob_endpoint)
@@ -58,6 +61,14 @@ class GetStorageAccountResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="blobEndpoint")
@@ -146,6 +157,7 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
         if False:
             yield self
         return GetStorageAccountResult(
+            azure_api_version=self.azure_api_version,
             blob_endpoint=self.blob_endpoint,
             container_count=self.container_count,
             data_policy=self.data_policy,
@@ -165,9 +177,9 @@ def get_storage_account(device_name: Optional[str] = None,
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str device_name: The device name.
@@ -182,6 +194,7 @@ def get_storage_account(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getStorageAccount', __args__, opts=opts, typ=GetStorageAccountResult).value
 
     return AwaitableGetStorageAccountResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         blob_endpoint=pulumi.get(__ret__, 'blob_endpoint'),
         container_count=pulumi.get(__ret__, 'container_count'),
         data_policy=pulumi.get(__ret__, 'data_policy'),
@@ -199,9 +212,9 @@ def get_storage_account_output(device_name: Optional[pulumi.Input[str]] = None,
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str device_name: The device name.
@@ -215,6 +228,7 @@ def get_storage_account_output(device_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getStorageAccount', __args__, opts=opts, typ=GetStorageAccountResult)
     return __ret__.apply(lambda __response__: GetStorageAccountResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         blob_endpoint=pulumi.get(__response__, 'blob_endpoint'),
         container_count=pulumi.get(__response__, 'container_count'),
         data_policy=pulumi.get(__response__, 'data_policy'),

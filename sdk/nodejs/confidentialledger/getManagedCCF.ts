@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the properties of a Managed CCF app.
  *
- * Uses Azure REST API version 2023-01-26-preview.
+ * Uses Azure REST API version 2023-06-28-preview.
  *
- * Other available API versions: 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+ * Other available API versions: 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagedCCF(args: GetManagedCCFArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedCCFResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetManagedCCFArgs {
  * Managed CCF. Contains the properties of Managed CCF Resource.
  */
 export interface GetManagedCCFResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -69,9 +73,9 @@ export interface GetManagedCCFResult {
 /**
  * Retrieves the properties of a Managed CCF app.
  *
- * Uses Azure REST API version 2023-01-26-preview.
+ * Uses Azure REST API version 2023-06-28-preview.
  *
- * Other available API versions: 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+ * Other available API versions: 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getManagedCCFOutput(args: GetManagedCCFOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedCCFResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

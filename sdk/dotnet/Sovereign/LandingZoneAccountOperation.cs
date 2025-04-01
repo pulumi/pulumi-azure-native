@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Sovereign
     /// <summary>
     /// The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
     /// 
-    /// Uses Azure REST API version 2025-02-27-preview.
+    /// Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sovereign:LandingZoneAccountOperation")]
     public partial class LandingZoneAccountOperation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>

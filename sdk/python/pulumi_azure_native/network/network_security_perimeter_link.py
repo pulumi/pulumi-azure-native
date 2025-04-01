@@ -150,7 +150,7 @@ class NetworkSecurityPerimeterLink(pulumi.CustomResource):
         """
         The network security perimeter link resource
 
-        Uses Azure REST API version 2024-06-01-preview.
+        Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +171,7 @@ class NetworkSecurityPerimeterLink(pulumi.CustomResource):
         """
         The network security perimeter link resource
 
-        Uses Azure REST API version 2024-06-01-preview.
+        Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterLinkArgs args: The arguments to use to populate this resource's properties.
@@ -215,6 +215,7 @@ class NetworkSecurityPerimeterLink(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["local_outbound_profiles"] = None
             __props__.__dict__["name"] = None
@@ -224,7 +225,7 @@ class NetworkSecurityPerimeterLink(pulumi.CustomResource):
             __props__.__dict__["remote_perimeter_location"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network/v20210201preview:NspLink"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network/v20230701preview:NspLink"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network/v20230801preview:NspLink"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network:NspLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkSecurityPerimeterLink, __self__).__init__(
             'azure-native:network:NetworkSecurityPerimeterLink',
@@ -249,6 +250,7 @@ class NetworkSecurityPerimeterLink(pulumi.CustomResource):
         __props__ = NetworkSecurityPerimeterLinkArgs.__new__(NetworkSecurityPerimeterLinkArgs)
 
         __props__.__dict__["auto_approved_remote_perimeter_resource_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["local_inbound_profiles"] = None
@@ -270,6 +272,14 @@ class NetworkSecurityPerimeterLink(pulumi.CustomResource):
         Perimeter ARM Id for the remote NSP with which the link gets created in Auto-approval mode. It should be used when the NSP admin have Microsoft.Network/networkSecurityPerimeters/linkPerimeter/action permission on the remote NSP resource.
         """
         return pulumi.get(self, "auto_approved_remote_perimeter_resource_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

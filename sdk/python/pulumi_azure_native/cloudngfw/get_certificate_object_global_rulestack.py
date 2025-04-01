@@ -27,10 +27,13 @@ class GetCertificateObjectGlobalRulestackResult:
     """
     GlobalRulestack Certificate Object
     """
-    def __init__(__self__, audit_comment=None, certificate_self_signed=None, certificate_signer_resource_id=None, description=None, etag=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, audit_comment=None, azure_api_version=None, certificate_self_signed=None, certificate_signer_resource_id=None, description=None, etag=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if audit_comment and not isinstance(audit_comment, str):
             raise TypeError("Expected argument 'audit_comment' to be a str")
         pulumi.set(__self__, "audit_comment", audit_comment)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if certificate_self_signed and not isinstance(certificate_self_signed, str):
             raise TypeError("Expected argument 'certificate_self_signed' to be a str")
         pulumi.set(__self__, "certificate_self_signed", certificate_self_signed)
@@ -66,6 +69,14 @@ class GetCertificateObjectGlobalRulestackResult:
         comment for this object
         """
         return pulumi.get(self, "audit_comment")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="certificateSelfSigned")
@@ -147,6 +158,7 @@ class AwaitableGetCertificateObjectGlobalRulestackResult(GetCertificateObjectGlo
             yield self
         return GetCertificateObjectGlobalRulestackResult(
             audit_comment=self.audit_comment,
+            azure_api_version=self.azure_api_version,
             certificate_self_signed=self.certificate_self_signed,
             certificate_signer_resource_id=self.certificate_signer_resource_id,
             description=self.description,
@@ -164,9 +176,9 @@ def get_certificate_object_global_rulestack(global_rulestack_name: Optional[str]
     """
     Get a CertificateObjectGlobalRulestackResource
 
-    Uses Azure REST API version 2023-09-01.
+    Uses Azure REST API version 2025-02-06-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name
@@ -180,6 +192,7 @@ def get_certificate_object_global_rulestack(global_rulestack_name: Optional[str]
 
     return AwaitableGetCertificateObjectGlobalRulestackResult(
         audit_comment=pulumi.get(__ret__, 'audit_comment'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         certificate_self_signed=pulumi.get(__ret__, 'certificate_self_signed'),
         certificate_signer_resource_id=pulumi.get(__ret__, 'certificate_signer_resource_id'),
         description=pulumi.get(__ret__, 'description'),
@@ -195,9 +208,9 @@ def get_certificate_object_global_rulestack_output(global_rulestack_name: Option
     """
     Get a CertificateObjectGlobalRulestackResource
 
-    Uses Azure REST API version 2023-09-01.
+    Uses Azure REST API version 2025-02-06-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name
@@ -210,6 +223,7 @@ def get_certificate_object_global_rulestack_output(global_rulestack_name: Option
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw:getCertificateObjectGlobalRulestack', __args__, opts=opts, typ=GetCertificateObjectGlobalRulestackResult)
     return __ret__.apply(lambda __response__: GetCertificateObjectGlobalRulestackResult(
         audit_comment=pulumi.get(__response__, 'audit_comment'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         certificate_self_signed=pulumi.get(__response__, 'certificate_self_signed'),
         certificate_signer_resource_id=pulumi.get(__response__, 'certificate_signer_resource_id'),
         description=pulumi.get(__response__, 'description'),

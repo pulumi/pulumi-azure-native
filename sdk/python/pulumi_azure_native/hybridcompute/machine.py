@@ -25,8 +25,11 @@ class MachineArgs:
                  resource_group_name: pulumi.Input[str],
                  agent_upgrade: Optional[pulumi.Input['AgentUpgradeArgs']] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
+                 expand: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]]] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ArcKindEnum']]] = None,
+                 license_profile: Optional[pulumi.Input['LicenseProfileMachineInstanceViewArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  location_data: Optional[pulumi.Input['LocationDataArgs']] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
@@ -43,8 +46,11 @@ class MachineArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AgentUpgradeArgs'] agent_upgrade: The info of the machine w.r.t Agent Upgrade
         :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
+        :param pulumi.Input[str] expand: Expands referenced resources.
         :param pulumi.Input[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]] extensions: Machine Extensions information (deprecated field)
         :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
+        :param pulumi.Input[Union[str, 'ArcKindEnum']] kind: Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+        :param pulumi.Input['LicenseProfileMachineInstanceViewArgs'] license_profile: Specifies the License related properties for a machine.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['LocationDataArgs'] location_data: Metadata pertaining to the geographic location of the resource.
         :param pulumi.Input[str] machine_name: The name of the hybrid machine.
@@ -62,10 +68,16 @@ class MachineArgs:
             pulumi.set(__self__, "agent_upgrade", agent_upgrade)
         if client_public_key is not None:
             pulumi.set(__self__, "client_public_key", client_public_key)
+        if expand is not None:
+            pulumi.set(__self__, "expand", expand)
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if license_profile is not None:
+            pulumi.set(__self__, "license_profile", license_profile)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if location_data is not None:
@@ -127,6 +139,18 @@ class MachineArgs:
 
     @property
     @pulumi.getter
+    def expand(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expands referenced resources.
+        """
+        return pulumi.get(self, "expand")
+
+    @expand.setter
+    def expand(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expand", value)
+
+    @property
+    @pulumi.getter
     def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]]]:
         """
         Machine Extensions information (deprecated field)
@@ -148,6 +172,30 @@ class MachineArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'ArcKindEnum']]]:
+        """
+        Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'ArcKindEnum']]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="licenseProfile")
+    def license_profile(self) -> Optional[pulumi.Input['LicenseProfileMachineInstanceViewArgs']]:
+        """
+        Specifies the License related properties for a machine.
+        """
+        return pulumi.get(self, "license_profile")
+
+    @license_profile.setter
+    def license_profile(self, value: Optional[pulumi.Input['LicenseProfileMachineInstanceViewArgs']]):
+        pulumi.set(self, "license_profile", value)
 
     @property
     @pulumi.getter
@@ -289,8 +337,11 @@ class Machine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_upgrade: Optional[pulumi.Input[Union['AgentUpgradeArgs', 'AgentUpgradeArgsDict']]] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
+                 expand: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]]] = None,
                  identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ArcKindEnum']]] = None,
+                 license_profile: Optional[pulumi.Input[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  location_data: Optional[pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
@@ -307,16 +358,19 @@ class Machine(pulumi.CustomResource):
         """
         Describes a hybrid machine.
 
-        Uses Azure REST API version 2022-12-27. In version 1.x of the Azure Native provider, it used API version 2020-08-02.
+        Uses Azure REST API version 2024-07-10. In version 2.x of the Azure Native provider, it used API version 2022-12-27.
 
-        Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+        Other available API versions: 2020-08-15-preview, 2021-01-28-preview, 2021-03-25-preview, 2021-04-22-preview, 2021-05-17-preview, 2021-05-20, 2021-06-10-preview, 2021-12-10-preview, 2022-03-10, 2022-05-10-preview, 2022-08-11-preview, 2022-11-10, 2022-12-27, 2022-12-27-preview, 2023-03-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AgentUpgradeArgs', 'AgentUpgradeArgsDict']] agent_upgrade: The info of the machine w.r.t Agent Upgrade
         :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
+        :param pulumi.Input[str] expand: Expands referenced resources.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]] extensions: Machine Extensions information (deprecated field)
         :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Identity for the resource.
+        :param pulumi.Input[Union[str, 'ArcKindEnum']] kind: Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+        :param pulumi.Input[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']] license_profile: Specifies the License related properties for a machine.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']] location_data: Metadata pertaining to the geographic location of the resource.
         :param pulumi.Input[str] machine_name: The name of the hybrid machine.
@@ -339,9 +393,9 @@ class Machine(pulumi.CustomResource):
         """
         Describes a hybrid machine.
 
-        Uses Azure REST API version 2022-12-27. In version 1.x of the Azure Native provider, it used API version 2020-08-02.
+        Uses Azure REST API version 2024-07-10. In version 2.x of the Azure Native provider, it used API version 2022-12-27.
 
-        Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+        Other available API versions: 2020-08-15-preview, 2021-01-28-preview, 2021-03-25-preview, 2021-04-22-preview, 2021-05-17-preview, 2021-05-20, 2021-06-10-preview, 2021-12-10-preview, 2022-03-10, 2022-05-10-preview, 2022-08-11-preview, 2022-11-10, 2022-12-27, 2022-12-27-preview, 2023-03-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param MachineArgs args: The arguments to use to populate this resource's properties.
@@ -360,8 +414,11 @@ class Machine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_upgrade: Optional[pulumi.Input[Union['AgentUpgradeArgs', 'AgentUpgradeArgsDict']]] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
+                 expand: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]]] = None,
                  identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ArcKindEnum']]] = None,
+                 license_profile: Optional[pulumi.Input[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  location_data: Optional[pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
@@ -385,8 +442,11 @@ class Machine(pulumi.CustomResource):
 
             __props__.__dict__["agent_upgrade"] = agent_upgrade
             __props__.__dict__["client_public_key"] = client_public_key
+            __props__.__dict__["expand"] = expand
             __props__.__dict__["extensions"] = extensions
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["license_profile"] = license_profile
             __props__.__dict__["location"] = location
             __props__.__dict__["location_data"] = location_data
             __props__.__dict__["machine_name"] = machine_name
@@ -404,6 +464,7 @@ class Machine(pulumi.CustomResource):
             __props__.__dict__["ad_fqdn"] = None
             __props__.__dict__["agent_configuration"] = None
             __props__.__dict__["agent_version"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["cloud_metadata"] = None
             __props__.__dict__["detected_properties"] = None
             __props__.__dict__["display_name"] = None
@@ -413,6 +474,8 @@ class Machine(pulumi.CustomResource):
             __props__.__dict__["last_status_change"] = None
             __props__.__dict__["machine_fqdn"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["network_profile"] = None
+            __props__.__dict__["os_edition"] = None
             __props__.__dict__["os_name"] = None
             __props__.__dict__["os_sku"] = None
             __props__.__dict__["os_version"] = None
@@ -450,6 +513,7 @@ class Machine(pulumi.CustomResource):
         __props__.__dict__["agent_configuration"] = None
         __props__.__dict__["agent_upgrade"] = None
         __props__.__dict__["agent_version"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["client_public_key"] = None
         __props__.__dict__["cloud_metadata"] = None
         __props__.__dict__["detected_properties"] = None
@@ -459,12 +523,16 @@ class Machine(pulumi.CustomResource):
         __props__.__dict__["error_details"] = None
         __props__.__dict__["extensions"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["last_status_change"] = None
+        __props__.__dict__["license_profile"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["location_data"] = None
         __props__.__dict__["machine_fqdn"] = None
         __props__.__dict__["mssql_discovered"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_profile"] = None
+        __props__.__dict__["os_edition"] = None
         __props__.__dict__["os_name"] = None
         __props__.__dict__["os_profile"] = None
         __props__.__dict__["os_sku"] = None
@@ -514,6 +582,14 @@ class Machine(pulumi.CustomResource):
         The hybrid machine agent full version.
         """
         return pulumi.get(self, "agent_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientPublicKey")
@@ -588,12 +664,28 @@ class Machine(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
     @pulumi.getter(name="lastStatusChange")
     def last_status_change(self) -> pulumi.Output[str]:
         """
         The time of the last status change.
         """
         return pulumi.get(self, "last_status_change")
+
+    @property
+    @pulumi.getter(name="licenseProfile")
+    def license_profile(self) -> pulumi.Output[Optional['outputs.LicenseProfileMachineInstanceViewResponse']]:
+        """
+        Specifies the License related properties for a machine.
+        """
+        return pulumi.get(self, "license_profile")
 
     @property
     @pulumi.getter
@@ -634,6 +726,22 @@ class Machine(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> pulumi.Output['outputs.NetworkProfileResponse']:
+        """
+        Information about the network the machine is on.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="osEdition")
+    def os_edition(self) -> pulumi.Output[str]:
+        """
+        The edition of the Operating System.
+        """
+        return pulumi.get(self, "os_edition")
 
     @property
     @pulumi.getter(name="osName")

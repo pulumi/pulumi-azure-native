@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Logic
         /// 
         /// Uses Azure REST API version 2019-05-01.
         /// 
-        /// Other available API versions: 2016-06-01, 2018-07-01-preview.
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListWorkflowRunActionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionExpressionTracesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Logic
         /// 
         /// Uses Azure REST API version 2019-05-01.
         /// 
-        /// Other available API versions: 2016-06-01, 2018-07-01-preview.
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListWorkflowRunActionExpressionTracesResult> Invoke(ListWorkflowRunActionExpressionTracesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Logic
         /// 
         /// Uses Azure REST API version 2019-05-01.
         /// 
-        /// Other available API versions: 2016-06-01, 2018-07-01-preview.
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListWorkflowRunActionExpressionTracesResult> Invoke(ListWorkflowRunActionExpressionTracesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesInvokeArgs(), options.WithDefaults());

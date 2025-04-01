@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Machine Learning datastore object wrapped into ARM resource envelope.
     /// 
-    /// Uses Azure REST API version 2020-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-05-01-preview.
+    /// Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:MachineLearningDatastore")]
     public partial class MachineLearningDatastore : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The identity of the resource.
         /// </summary>
@@ -85,7 +91,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:MachineLearningDatastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:MachineLearningDatastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:MachineLearningDatastore" },
@@ -93,18 +101,30 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:MachineLearningDatastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:MachineLearningDatastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:MachineLearningDatastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:Datastore" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

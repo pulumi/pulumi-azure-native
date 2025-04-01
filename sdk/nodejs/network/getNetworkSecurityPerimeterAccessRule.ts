@@ -50,6 +50,10 @@ export interface GetNetworkSecurityPerimeterAccessRuleResult {
      */
     readonly addressPrefixes?: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Direction that specifies whether the access rules is inbound/outbound.
      */
     readonly direction?: string;

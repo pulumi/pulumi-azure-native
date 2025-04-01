@@ -27,13 +27,16 @@ class GetLabResult:
     """
     A lab.
     """
-    def __init__(__self__, announcement=None, artifacts_storage_account=None, created_date=None, default_premium_storage_account=None, default_storage_account=None, environment_permission=None, extended_properties=None, id=None, lab_storage_type=None, load_balancer_id=None, location=None, mandatory_artifacts_resource_ids_linux=None, mandatory_artifacts_resource_ids_windows=None, name=None, network_security_group_id=None, premium_data_disk_storage_account=None, premium_data_disks=None, provisioning_state=None, public_ip_id=None, support=None, tags=None, type=None, unique_identifier=None, vault_name=None, vm_creation_resource_group=None):
+    def __init__(__self__, announcement=None, artifacts_storage_account=None, azure_api_version=None, created_date=None, default_premium_storage_account=None, default_storage_account=None, environment_permission=None, extended_properties=None, id=None, lab_storage_type=None, load_balancer_id=None, location=None, mandatory_artifacts_resource_ids_linux=None, mandatory_artifacts_resource_ids_windows=None, name=None, network_security_group_id=None, premium_data_disk_storage_account=None, premium_data_disks=None, provisioning_state=None, public_ip_id=None, support=None, tags=None, type=None, unique_identifier=None, vault_name=None, vm_creation_resource_group=None):
         if announcement and not isinstance(announcement, dict):
             raise TypeError("Expected argument 'announcement' to be a dict")
         pulumi.set(__self__, "announcement", announcement)
         if artifacts_storage_account and not isinstance(artifacts_storage_account, str):
             raise TypeError("Expected argument 'artifacts_storage_account' to be a str")
         pulumi.set(__self__, "artifacts_storage_account", artifacts_storage_account)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -119,6 +122,14 @@ class GetLabResult:
         The lab's artifact storage account.
         """
         return pulumi.get(self, "artifacts_storage_account")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -315,6 +326,7 @@ class AwaitableGetLabResult(GetLabResult):
         return GetLabResult(
             announcement=self.announcement,
             artifacts_storage_account=self.artifacts_storage_account,
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             default_premium_storage_account=self.default_premium_storage_account,
             default_storage_account=self.default_storage_account,
@@ -364,6 +376,7 @@ def get_lab(expand: Optional[str] = None,
     return AwaitableGetLabResult(
         announcement=pulumi.get(__ret__, 'announcement'),
         artifacts_storage_account=pulumi.get(__ret__, 'artifacts_storage_account'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         default_premium_storage_account=pulumi.get(__ret__, 'default_premium_storage_account'),
         default_storage_account=pulumi.get(__ret__, 'default_storage_account'),
@@ -410,6 +423,7 @@ def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     return __ret__.apply(lambda __response__: GetLabResult(
         announcement=pulumi.get(__response__, 'announcement'),
         artifacts_storage_account=pulumi.get(__response__, 'artifacts_storage_account'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         default_premium_storage_account=pulumi.get(__response__, 'default_premium_storage_account'),
         default_storage_account=pulumi.get(__response__, 'default_storage_account'),

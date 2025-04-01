@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.WebPubSub
         /// <summary>
         /// Get the replica and its properties.
         /// 
-        /// Uses Azure REST API version 2023-03-01-preview.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebPubSubReplicaResult> InvokeAsync(GetWebPubSubReplicaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubReplicaResult>("azure-native:webpubsub:getWebPubSubReplica", args ?? new GetWebPubSubReplicaArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.WebPubSub
         /// <summary>
         /// Get the replica and its properties.
         /// 
-        /// Uses Azure REST API version 2023-03-01-preview.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebPubSubReplicaResult> Invoke(GetWebPubSubReplicaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubReplicaResult>("azure-native:webpubsub:getWebPubSubReplica", args ?? new GetWebPubSubReplicaInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.WebPubSub
         /// <summary>
         /// Get the replica and its properties.
         /// 
-        /// Uses Azure REST API version 2023-03-01-preview.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebPubSubReplicaResult> Invoke(GetWebPubSubReplicaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubReplicaResult>("azure-native:webpubsub:getWebPubSubReplica", args ?? new GetWebPubSubReplicaInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.WebPubSub
     public sealed class GetWebPubSubReplicaResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -115,6 +119,17 @@ namespace Pulumi.AzureNative.WebPubSub
         /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Enable or disable the regional endpoint. Default to "Enabled".
+        /// When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        /// </summary>
+        public readonly string? RegionEndpointEnabled;
+        /// <summary>
+        /// Stop or start the resource.  Default to "false".
+        /// When it's true, the data plane of the resource is shutdown.
+        /// When it's false, the data plane of the resource is started.
+        /// </summary>
+        public readonly string? ResourceStopped;
         /// <summary>
         /// The billing information of the resource.
         /// </summary>
@@ -134,6 +149,8 @@ namespace Pulumi.AzureNative.WebPubSub
 
         [OutputConstructor]
         private GetWebPubSubReplicaResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -141,6 +158,10 @@ namespace Pulumi.AzureNative.WebPubSub
             string name,
 
             string provisioningState,
+
+            string? regionEndpointEnabled,
+
+            string? resourceStopped,
 
             Outputs.ResourceSkuResponse? sku,
 
@@ -150,10 +171,13 @@ namespace Pulumi.AzureNative.WebPubSub
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            RegionEndpointEnabled = regionEndpointEnabled;
+            ResourceStopped = resourceStopped;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;

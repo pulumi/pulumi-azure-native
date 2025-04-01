@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetGalleryInVMAccessControlProfileResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetGalleryInVMAccessControlProfileResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.Compute
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

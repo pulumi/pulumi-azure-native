@@ -135,9 +135,9 @@ class ApplicationGroup(pulumi.CustomResource):
         """
         The Application Group object
 
-        Uses Azure REST API version 2022-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-01-01-preview.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
 
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Other available API versions: 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,9 +157,9 @@ class ApplicationGroup(pulumi.CustomResource):
         """
         The Application Group object
 
-        Uses Azure REST API version 2022-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-01-01-preview.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
 
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Other available API versions: 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ApplicationGroupArgs args: The arguments to use to populate this resource's properties.
@@ -203,6 +203,7 @@ class ApplicationGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -231,6 +232,7 @@ class ApplicationGroup(pulumi.CustomResource):
 
         __props__ = ApplicationGroupArgs.__new__(ApplicationGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["client_app_group_identifier"] = None
         __props__.__dict__["is_enabled"] = None
         __props__.__dict__["location"] = None
@@ -239,6 +241,14 @@ class ApplicationGroup(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ApplicationGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientAppGroupIdentifier")

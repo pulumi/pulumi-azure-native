@@ -38,6 +38,10 @@ export interface GetAzureLargeInstanceArgs {
  */
 export interface GetAzureLargeInstanceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Specifies the Azure Large Instance unique ID.
      */
     readonly azureLargeInstanceId?: string;

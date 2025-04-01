@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.WindowsIoT
         /// </summary>
         public readonly string? AdminDomainName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Windows IoT Device Service ODM AAD domain
         /// </summary>
         public readonly string? BillingDomainName;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.WindowsIoT
         private GetServiceResult(
             string? adminDomainName,
 
+            string azureApiVersion,
+
             string? billingDomainName,
 
             string? etag,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.WindowsIoT
             string type)
         {
             AdminDomainName = adminDomainName;
+            AzureApiVersion = azureApiVersion;
             BillingDomainName = billingDomainName;
             Etag = etag;
             Id = id;

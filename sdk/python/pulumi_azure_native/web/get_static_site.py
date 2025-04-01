@@ -27,10 +27,13 @@ class GetStaticSiteResult:
     """
     Static Site ARM resource.
     """
-    def __init__(__self__, allow_config_file_updates=None, branch=None, build_properties=None, content_distribution_endpoint=None, custom_domains=None, database_connections=None, default_hostname=None, enterprise_grade_cdn_status=None, id=None, identity=None, key_vault_reference_identity=None, kind=None, linked_backends=None, location=None, name=None, private_endpoint_connections=None, provider=None, public_network_access=None, repository_token=None, repository_url=None, sku=None, staging_environment_policy=None, tags=None, template_properties=None, type=None, user_provided_function_apps=None):
+    def __init__(__self__, allow_config_file_updates=None, azure_api_version=None, branch=None, build_properties=None, content_distribution_endpoint=None, custom_domains=None, database_connections=None, default_hostname=None, enterprise_grade_cdn_status=None, id=None, identity=None, key_vault_reference_identity=None, kind=None, linked_backends=None, location=None, name=None, private_endpoint_connections=None, provider=None, public_network_access=None, repository_token=None, repository_url=None, sku=None, staging_environment_policy=None, tags=None, template_properties=None, type=None, user_provided_function_apps=None):
         if allow_config_file_updates and not isinstance(allow_config_file_updates, bool):
             raise TypeError("Expected argument 'allow_config_file_updates' to be a bool")
         pulumi.set(__self__, "allow_config_file_updates", allow_config_file_updates)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if branch and not isinstance(branch, str):
             raise TypeError("Expected argument 'branch' to be a str")
         pulumi.set(__self__, "branch", branch)
@@ -116,6 +119,14 @@ class GetStaticSiteResult:
         return pulumi.get(self, "allow_config_file_updates")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def branch(self) -> Optional[str]:
         """
@@ -199,7 +210,7 @@ class GetStaticSiteResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -323,6 +334,7 @@ class AwaitableGetStaticSiteResult(GetStaticSiteResult):
             yield self
         return GetStaticSiteResult(
             allow_config_file_updates=self.allow_config_file_updates,
+            azure_api_version=self.azure_api_version,
             branch=self.branch,
             build_properties=self.build_properties,
             content_distribution_endpoint=self.content_distribution_endpoint,
@@ -356,9 +368,9 @@ def get_static_site(name: Optional[str] = None,
     """
     Description for Gets the details of a static site.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the static site.
@@ -372,6 +384,7 @@ def get_static_site(name: Optional[str] = None,
 
     return AwaitableGetStaticSiteResult(
         allow_config_file_updates=pulumi.get(__ret__, 'allow_config_file_updates'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         branch=pulumi.get(__ret__, 'branch'),
         build_properties=pulumi.get(__ret__, 'build_properties'),
         content_distribution_endpoint=pulumi.get(__ret__, 'content_distribution_endpoint'),
@@ -403,9 +416,9 @@ def get_static_site_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Gets the details of a static site.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the static site.
@@ -418,6 +431,7 @@ def get_static_site_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getStaticSite', __args__, opts=opts, typ=GetStaticSiteResult)
     return __ret__.apply(lambda __response__: GetStaticSiteResult(
         allow_config_file_updates=pulumi.get(__response__, 'allow_config_file_updates'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         branch=pulumi.get(__response__, 'branch'),
         build_properties=pulumi.get(__response__, 'build_properties'),
         content_distribution_endpoint=pulumi.get(__response__, 'content_distribution_endpoint'),

@@ -345,7 +345,7 @@ class ContainerGroupProfile(pulumi.CustomResource):
         """
         A container group profile.
 
-        Uses Azure REST API version 2024-05-01-preview.
+        Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -380,7 +380,7 @@ class ContainerGroupProfile(pulumi.CustomResource):
         """
         A container group profile.
 
-        Uses Azure REST API version 2024-05-01-preview.
+        Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ContainerGroupProfileArgs args: The arguments to use to populate this resource's properties.
@@ -448,10 +448,11 @@ class ContainerGroupProfile(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["revision"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerinstance/v20240501preview:ContainerGroupProfile"), pulumi.Alias(type_="azure-native:containerinstance/v20241101preview:ContainerGroupProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerinstance/v20240501preview:ContainerGroupProfile"), pulumi.Alias(type_="azure-native:containerinstance/v20241101preview:CGProfile"), pulumi.Alias(type_="azure-native:containerinstance/v20241101preview:ContainerGroupProfile"), pulumi.Alias(type_="azure-native:containerinstance:CGProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContainerGroupProfile, __self__).__init__(
             'azure-native:containerinstance:ContainerGroupProfile',
@@ -475,6 +476,7 @@ class ContainerGroupProfile(pulumi.CustomResource):
 
         __props__ = ContainerGroupProfileArgs.__new__(ContainerGroupProfileArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["confidential_compute_properties"] = None
         __props__.__dict__["containers"] = None
         __props__.__dict__["diagnostics"] = None
@@ -495,6 +497,14 @@ class ContainerGroupProfile(pulumi.CustomResource):
         __props__.__dict__["volumes"] = None
         __props__.__dict__["zones"] = None
         return ContainerGroupProfile(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="confidentialComputeProperties")

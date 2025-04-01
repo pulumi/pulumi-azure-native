@@ -26,7 +26,10 @@ class GetDataExportResult:
     """
     The top level data export resource container.
     """
-    def __init__(__self__, created_date=None, data_export_id=None, enable=None, event_hub_name=None, id=None, last_modified_date=None, name=None, resource_id=None, table_names=None, type=None):
+    def __init__(__self__, azure_api_version=None, created_date=None, data_export_id=None, enable=None, event_hub_name=None, id=None, last_modified_date=None, name=None, resource_id=None, table_names=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -57,6 +60,14 @@ class GetDataExportResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -145,6 +156,7 @@ class AwaitableGetDataExportResult(GetDataExportResult):
         if False:
             yield self
         return GetDataExportResult(
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             data_export_id=self.data_export_id,
             enable=self.enable,
@@ -164,9 +176,9 @@ def get_data_export(data_export_name: Optional[str] = None,
     """
     Gets a data export instance.
 
-    Uses Azure REST API version 2020-08-01.
+    Uses Azure REST API version 2023-09-01.
 
-    Other available API versions: 2023-09-01, 2025-02-01.
+    Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str data_export_name: The data export rule name.
@@ -181,6 +193,7 @@ def get_data_export(data_export_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights:getDataExport', __args__, opts=opts, typ=GetDataExportResult).value
 
     return AwaitableGetDataExportResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         data_export_id=pulumi.get(__ret__, 'data_export_id'),
         enable=pulumi.get(__ret__, 'enable'),
@@ -198,9 +211,9 @@ def get_data_export_output(data_export_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a data export instance.
 
-    Uses Azure REST API version 2020-08-01.
+    Uses Azure REST API version 2023-09-01.
 
-    Other available API versions: 2023-09-01, 2025-02-01.
+    Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str data_export_name: The data export rule name.
@@ -214,6 +227,7 @@ def get_data_export_output(data_export_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights:getDataExport', __args__, opts=opts, typ=GetDataExportResult)
     return __ret__.apply(lambda __response__: GetDataExportResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         data_export_id=pulumi.get(__response__, 'data_export_id'),
         enable=pulumi.get(__response__, 'enable'),

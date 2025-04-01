@@ -12,18 +12,54 @@ namespace Pulumi.AzureNative.NotificationHubs
     /// <summary>
     /// Response for POST requests that return single SharedAccessAuthorizationRule.
     /// 
-    /// Uses Azure REST API version 2023-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+    /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
     /// 
-    /// Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+    /// Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:NotificationHubAuthorizationRule")]
     public partial class NotificationHubAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets a string that describes the claim type
+        /// </summary>
+        [Output("claimType")]
+        public Output<string> ClaimType { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets a string that describes the claim value
+        /// </summary>
+        [Output("claimValue")]
+        public Output<string> ClaimValue { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the created time for this rule
+        /// </summary>
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets a string that describes the authorization rule.
+        /// </summary>
+        [Output("keyName")]
+        public Output<string> KeyName { get; private set; } = null!;
+
+        /// <summary>
         /// Deprecated - only for compatibility.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the last modified time for this rule
+        /// </summary>
+        [Output("modifiedTime")]
+        public Output<string> ModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -32,10 +68,30 @@ namespace Pulumi.AzureNative.NotificationHubs
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// SharedAccessAuthorizationRule properties.
+        /// Gets a base64-encoded 256-bit primary key for signing and
+        /// validating the SAS token.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SharedAccessAuthorizationRulePropertiesResponse> Properties { get; private set; } = null!;
+        [Output("primaryKey")]
+        public Output<string?> PrimaryKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the revision number for the rule
+        /// </summary>
+        [Output("revision")]
+        public Output<int> Revision { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the rights associated with the rule.
+        /// </summary>
+        [Output("rights")]
+        public Output<ImmutableArray<string>> Rights { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets a base64-encoded 256-bit primary key for signing and
+        /// validating the SAS token.
+        /// </summary>
+        [Output("secondaryKey")]
+        public Output<string?> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -133,16 +189,36 @@ namespace Pulumi.AzureNative.NotificationHubs
         public Input<string> NotificationHubName { get; set; } = null!;
 
         /// <summary>
-        /// SharedAccessAuthorizationRule properties.
+        /// Gets a base64-encoded 256-bit primary key for signing and
+        /// validating the SAS token.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SharedAccessAuthorizationRulePropertiesArgs>? Properties { get; set; }
+        [Input("primaryKey")]
+        public Input<string>? PrimaryKey { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("rights", required: true)]
+        private InputList<Union<string, Pulumi.AzureNative.NotificationHubs.AccessRights>>? _rights;
+
+        /// <summary>
+        /// Gets or sets the rights associated with the rule.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.NotificationHubs.AccessRights>> Rights
+        {
+            get => _rights ?? (_rights = new InputList<Union<string, Pulumi.AzureNative.NotificationHubs.AccessRights>>());
+            set => _rights = value;
+        }
+
+        /// <summary>
+        /// Gets a base64-encoded 256-bit primary key for signing and
+        /// validating the SAS token.
+        /// </summary>
+        [Input("secondaryKey")]
+        public Input<string>? SecondaryKey { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

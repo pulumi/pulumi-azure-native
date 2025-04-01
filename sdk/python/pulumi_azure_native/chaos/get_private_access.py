@@ -27,7 +27,10 @@ class GetPrivateAccessResult:
     """
     PrivateAccesses tracked resource.
     """
-    def __init__(__self__, id=None, location=None, name=None, private_endpoint_connections=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +43,12 @@ class GetPrivateAccessResult:
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -49,6 +58,14 @@ class GetPrivateAccessResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -83,6 +100,22 @@ class GetPrivateAccessResult:
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Most recent provisioning state for the given privateAccess resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Public Network Access Control for PrivateAccess resource.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -113,10 +146,13 @@ class AwaitableGetPrivateAccessResult(GetPrivateAccessResult):
         if False:
             yield self
         return GetPrivateAccessResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
+            provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -128,9 +164,9 @@ def get_private_access(private_access_name: Optional[str] = None,
     """
     Get a private access resource
 
-    Uses Azure REST API version 2023-10-27-preview.
+    Uses Azure REST API version 2024-03-22-preview.
 
-    Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+    Other available API versions: 2023-10-27-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str private_access_name: The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -143,10 +179,13 @@ def get_private_access(private_access_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:chaos:getPrivateAccess', __args__, opts=opts, typ=GetPrivateAccessResult).value
 
     return AwaitableGetPrivateAccessResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -156,9 +195,9 @@ def get_private_access_output(private_access_name: Optional[pulumi.Input[str]] =
     """
     Get a private access resource
 
-    Uses Azure REST API version 2023-10-27-preview.
+    Uses Azure REST API version 2024-03-22-preview.
 
-    Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+    Other available API versions: 2023-10-27-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str private_access_name: The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -170,10 +209,13 @@ def get_private_access_output(private_access_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:chaos:getPrivateAccess', __args__, opts=opts, typ=GetPrivateAccessResult)
     return __ret__.apply(lambda __response__: GetPrivateAccessResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

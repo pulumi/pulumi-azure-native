@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
  *
- * Uses Azure REST API version 2020-05-15. In version 1.x of the Azure Native provider, it used API version 2020-05-15.
+ * Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
  */
 export class Gen1Environment extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Gen1Environment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Gen1Environment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The time the resource was created.
      */
@@ -129,6 +133,7 @@ export class Gen1Environment extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["storageLimitExceededBehavior"] = args ? args.storageLimitExceededBehavior : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["dataAccessFqdn"] = undefined /*out*/;
             resourceInputs["dataAccessId"] = undefined /*out*/;
@@ -137,6 +142,7 @@ export class Gen1Environment extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["dataAccessFqdn"] = undefined /*out*/;
             resourceInputs["dataAccessId"] = undefined /*out*/;
@@ -153,7 +159,7 @@ export class Gen1Environment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20170228preview:Gen1Environment" }, { type: "azure-native:timeseriesinsights/v20171115:Gen1Environment" }, { type: "azure-native:timeseriesinsights/v20180815preview:Gen1Environment" }, { type: "azure-native:timeseriesinsights/v20200515:Gen1Environment" }, { type: "azure-native:timeseriesinsights/v20210331preview:Gen1Environment" }, { type: "azure-native:timeseriesinsights/v20210630preview:Gen1Environment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20170228preview:Gen1Environment" }, { type: "azure-native:timeseriesinsights/v20171115:Gen1Environment" }, { type: "azure-native:timeseriesinsights/v20180815preview:Gen1Environment" }, { type: "azure-native:timeseriesinsights/v20200515:Gen1Environment" }, { type: "azure-native:timeseriesinsights/v20210331preview:Gen1Environment" }, { type: "azure-native:timeseriesinsights/v20210331preview:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20210630preview:Gen1Environment" }, { type: "azure-native:timeseriesinsights/v20210630preview:Gen2Environment" }, { type: "azure-native:timeseriesinsights:Gen2Environment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gen1Environment.__pulumiType, name, resourceInputs, opts);
     }

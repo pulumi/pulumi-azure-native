@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2024-06-01-preview.
+ * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
  *
- * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class KubernetesClusterFeature extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class KubernetesClusterFeature extends pulumi.CustomResource {
      */
     public /*out*/ readonly availabilityLifecycle!: pulumi.Output<string>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The detailed status of the feature.
      */
     public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
@@ -51,6 +55,10 @@ export class KubernetesClusterFeature extends pulumi.CustomResource {
      * The descriptive message for the detailed status of the feature.
      */
     public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
+    /**
+     * Resource ETag.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -112,8 +120,10 @@ export class KubernetesClusterFeature extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["availabilityLifecycle"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["required"] = undefined /*out*/;
@@ -122,8 +132,10 @@ export class KubernetesClusterFeature extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityLifecycle"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["options"] = undefined /*out*/;

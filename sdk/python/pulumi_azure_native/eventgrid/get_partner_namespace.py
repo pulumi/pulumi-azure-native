@@ -27,7 +27,10 @@ class GetPartnerNamespaceResult:
     """
     EventGrid Partner Namespace.
     """
-    def __init__(__self__, disable_local_auth=None, endpoint=None, id=None, inbound_ip_rules=None, location=None, name=None, partner_registration_fully_qualified_id=None, partner_topic_routing_mode=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, disable_local_auth=None, endpoint=None, id=None, inbound_ip_rules=None, location=None, minimum_tls_version_allowed=None, name=None, partner_registration_fully_qualified_id=None, partner_topic_routing_mode=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if disable_local_auth and not isinstance(disable_local_auth, bool):
             raise TypeError("Expected argument 'disable_local_auth' to be a bool")
         pulumi.set(__self__, "disable_local_auth", disable_local_auth)
@@ -43,6 +46,9 @@ class GetPartnerNamespaceResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if minimum_tls_version_allowed and not isinstance(minimum_tls_version_allowed, str):
+            raise TypeError("Expected argument 'minimum_tls_version_allowed' to be a str")
+        pulumi.set(__self__, "minimum_tls_version_allowed", minimum_tls_version_allowed)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -70,6 +76,14 @@ class GetPartnerNamespaceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="disableLocalAuth")
@@ -112,6 +126,14 @@ class GetPartnerNamespaceResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="minimumTlsVersionAllowed")
+    def minimum_tls_version_allowed(self) -> Optional[str]:
+        """
+        Minimum TLS version of the publisher allowed to publish to this partner namespace
+        """
+        return pulumi.get(self, "minimum_tls_version_allowed")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -140,6 +162,9 @@ class GetPartnerNamespaceResult:
     @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connections.
+        """
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
@@ -163,7 +188,7 @@ class GetPartnerNamespaceResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to Partner Namespace resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -190,11 +215,13 @@ class AwaitableGetPartnerNamespaceResult(GetPartnerNamespaceResult):
         if False:
             yield self
         return GetPartnerNamespaceResult(
+            azure_api_version=self.azure_api_version,
             disable_local_auth=self.disable_local_auth,
             endpoint=self.endpoint,
             id=self.id,
             inbound_ip_rules=self.inbound_ip_rules,
             location=self.location,
+            minimum_tls_version_allowed=self.minimum_tls_version_allowed,
             name=self.name,
             partner_registration_fully_qualified_id=self.partner_registration_fully_qualified_id,
             partner_topic_routing_mode=self.partner_topic_routing_mode,
@@ -212,9 +239,9 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
     """
     Get properties of a partner namespace.
 
-    Uses Azure REST API version 2022-06-15.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str partner_namespace_name: Name of the partner namespace.
@@ -227,11 +254,13 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getPartnerNamespace', __args__, opts=opts, typ=GetPartnerNamespaceResult).value
 
     return AwaitableGetPartnerNamespaceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
         inbound_ip_rules=pulumi.get(__ret__, 'inbound_ip_rules'),
         location=pulumi.get(__ret__, 'location'),
+        minimum_tls_version_allowed=pulumi.get(__ret__, 'minimum_tls_version_allowed'),
         name=pulumi.get(__ret__, 'name'),
         partner_registration_fully_qualified_id=pulumi.get(__ret__, 'partner_registration_fully_qualified_id'),
         partner_topic_routing_mode=pulumi.get(__ret__, 'partner_topic_routing_mode'),
@@ -247,9 +276,9 @@ def get_partner_namespace_output(partner_namespace_name: Optional[pulumi.Input[s
     """
     Get properties of a partner namespace.
 
-    Uses Azure REST API version 2022-06-15.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str partner_namespace_name: Name of the partner namespace.
@@ -261,11 +290,13 @@ def get_partner_namespace_output(partner_namespace_name: Optional[pulumi.Input[s
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getPartnerNamespace', __args__, opts=opts, typ=GetPartnerNamespaceResult)
     return __ret__.apply(lambda __response__: GetPartnerNamespaceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         id=pulumi.get(__response__, 'id'),
         inbound_ip_rules=pulumi.get(__response__, 'inbound_ip_rules'),
         location=pulumi.get(__response__, 'location'),
+        minimum_tls_version_allowed=pulumi.get(__response__, 'minimum_tls_version_allowed'),
         name=pulumi.get(__response__, 'name'),
         partner_registration_fully_qualified_id=pulumi.get(__response__, 'partner_registration_fully_qualified_id'),
         partner_topic_routing_mode=pulumi.get(__response__, 'partner_topic_routing_mode'),

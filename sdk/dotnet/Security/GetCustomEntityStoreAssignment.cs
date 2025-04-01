@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetCustomEntityStoreAssignmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The link to entity store database.
         /// </summary>
         public readonly string? EntityStoreDatabaseLink;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetCustomEntityStoreAssignmentResult(
+            string azureApiVersion,
+
             string? entityStoreDatabaseLink,
 
             string id,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.Security
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EntityStoreDatabaseLink = entityStoreDatabaseLink;
             Id = id;
             Name = name;

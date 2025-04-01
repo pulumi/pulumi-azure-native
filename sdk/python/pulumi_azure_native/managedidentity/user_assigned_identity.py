@@ -101,9 +101,9 @@ class UserAssignedIdentity(pulumi.CustomResource):
         """
         Describes an identity resource.
 
-        Uses Azure REST API version 2023-01-31. In version 1.x of the Azure Native provider, it used API version 2018-11-30.
+        Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
 
-        Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
+        Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,9 +121,9 @@ class UserAssignedIdentity(pulumi.CustomResource):
         """
         Describes an identity resource.
 
-        Uses Azure REST API version 2023-01-31. In version 1.x of the Azure Native provider, it used API version 2018-11-30.
+        Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
 
-        Other available API versions: 2023-07-31-preview, 2024-11-30, 2025-01-31-preview.
+        Other available API versions: 2022-01-31-preview, 2023-07-31-preview, 2024-11-30, 2025-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managedidentity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param UserAssignedIdentityArgs args: The arguments to use to populate this resource's properties.
@@ -159,6 +159,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["client_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principal_id"] = None
@@ -189,6 +190,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
         __props__ = UserAssignedIdentityArgs.__new__(UserAssignedIdentityArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["client_id"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -198,6 +200,14 @@ class UserAssignedIdentity(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return UserAssignedIdentity(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientId")

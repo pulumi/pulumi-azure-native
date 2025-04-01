@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
 {
 
     /// <summary>
-    /// List of IPv4 and IPv6 route configurations.
+    /// List of IPv4 and IPv6 aggregate routes.
     /// </summary>
     [OutputType]
     public sealed class AggregateRouteConfigurationResponse
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AggregateRouteResponse> Ipv4Routes;
         /// <summary>
-        /// List of IPv6 Routes prefixes.
+        /// List of Ipv6Routes prefixes.
         /// </summary>
         public readonly ImmutableArray<Outputs.AggregateRouteResponse> Ipv6Routes;
 

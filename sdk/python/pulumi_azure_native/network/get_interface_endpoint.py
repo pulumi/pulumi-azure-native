@@ -27,7 +27,10 @@ class GetInterfaceEndpointResult:
     """
     Interface endpoint resource.
     """
-    def __init__(__self__, endpoint_service=None, etag=None, fqdn=None, id=None, location=None, name=None, network_interfaces=None, owner=None, provisioning_state=None, subnet=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, endpoint_service=None, etag=None, fqdn=None, id=None, location=None, name=None, network_interfaces=None, owner=None, provisioning_state=None, subnet=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if endpoint_service and not isinstance(endpoint_service, dict):
             raise TypeError("Expected argument 'endpoint_service' to be a dict")
         pulumi.set(__self__, "endpoint_service", endpoint_service)
@@ -64,6 +67,14 @@ class GetInterfaceEndpointResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="endpointService")
@@ -168,6 +179,7 @@ class AwaitableGetInterfaceEndpointResult(GetInterfaceEndpointResult):
         if False:
             yield self
         return GetInterfaceEndpointResult(
+            azure_api_version=self.azure_api_version,
             endpoint_service=self.endpoint_service,
             etag=self.etag,
             fqdn=self.fqdn,
@@ -191,6 +203,8 @@ def get_interface_endpoint(expand: Optional[str] = None,
 
     Uses Azure REST API version 2019-02-01.
 
+    Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str expand: Expands referenced resources.
     :param str interface_endpoint_name: The name of the interface endpoint.
@@ -204,6 +218,7 @@ def get_interface_endpoint(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getInterfaceEndpoint', __args__, opts=opts, typ=GetInterfaceEndpointResult).value
 
     return AwaitableGetInterfaceEndpointResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         endpoint_service=pulumi.get(__ret__, 'endpoint_service'),
         etag=pulumi.get(__ret__, 'etag'),
         fqdn=pulumi.get(__ret__, 'fqdn'),
@@ -225,6 +240,8 @@ def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] 
 
     Uses Azure REST API version 2019-02-01.
 
+    Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str expand: Expands referenced resources.
     :param str interface_endpoint_name: The name of the interface endpoint.
@@ -237,6 +254,7 @@ def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getInterfaceEndpoint', __args__, opts=opts, typ=GetInterfaceEndpointResult)
     return __ret__.apply(lambda __response__: GetInterfaceEndpointResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         endpoint_service=pulumi.get(__response__, 'endpoint_service'),
         etag=pulumi.get(__response__, 'etag'),
         fqdn=pulumi.get(__response__, 'fqdn'),

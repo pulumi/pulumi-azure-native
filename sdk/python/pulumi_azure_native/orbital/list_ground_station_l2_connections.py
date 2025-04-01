@@ -70,7 +70,7 @@ def list_ground_station_l2_connections(ground_station_name: Optional[str] = None
 
     Uses Azure REST API version 2024-03-01-preview.
 
-    Other available API versions: 2024-03-01.
+    Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str ground_station_name: Ground Station name.
@@ -93,7 +93,7 @@ def list_ground_station_l2_connections_output(ground_station_name: Optional[pulu
 
     Uses Azure REST API version 2024-03-01-preview.
 
-    Other available API versions: 2024-03-01.
+    Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str ground_station_name: Ground Station name.

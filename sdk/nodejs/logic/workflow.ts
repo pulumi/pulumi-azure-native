@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The workflow type.
  *
- * Uses Azure REST API version 2019-05-01. In version 1.x of the Azure Native provider, it used API version 2019-05-01.
+ * Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
  *
- * Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
+ * Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Workflow extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class Workflow extends pulumi.CustomResource {
      * Gets the access endpoint.
      */
     public /*out*/ readonly accessEndpoint!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets the changed time.
      */
@@ -141,6 +145,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workflowName"] = args ? args.workflowName : undefined;
             resourceInputs["accessEndpoint"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -151,6 +156,7 @@ export class Workflow extends pulumi.CustomResource {
         } else {
             resourceInputs["accessControl"] = undefined /*out*/;
             resourceInputs["accessEndpoint"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;

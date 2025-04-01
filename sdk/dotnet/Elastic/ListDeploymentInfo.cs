@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
+        /// Other available API versions: 2023-06-01, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListDeploymentInfoResult> InvokeAsync(ListDeploymentInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDeploymentInfoResult>("azure-native:elastic:listDeploymentInfo", args ?? new ListDeploymentInfoArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
+        /// Other available API versions: 2023-06-01, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListDeploymentInfoResult> Invoke(ListDeploymentInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDeploymentInfoResult>("azure-native:elastic:listDeploymentInfo", args ?? new ListDeploymentInfoInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Elastic
         /// <summary>
         /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
         /// 
-        /// Uses Azure REST API version 2023-06-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview.
+        /// Other available API versions: 2023-06-01, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListDeploymentInfoResult> Invoke(ListDeploymentInfoInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListDeploymentInfoResult>("azure-native:elastic:listDeploymentInfo", args ?? new ListDeploymentInfoInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Elastic
         public string MonitorName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the Elastic resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Elastic
         public Input<string> MonitorName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the Elastic resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.Elastic
         /// </summary>
         public readonly string DiskCapacity;
         /// <summary>
+        /// Elasticsearch endpoint in Elastic cloud deployment. This is either the aliased_endpoint if available, or the service_url otherwise.
+        /// </summary>
+        public readonly string ElasticsearchEndPoint;
+        /// <summary>
         /// Marketplace SaaS Info of the resource.
         /// </summary>
         public readonly Outputs.MarketplaceSaaSInfoResponse MarketplaceSaasInfo;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.Elastic
 
             string diskCapacity,
 
+            string elasticsearchEndPoint,
+
             Outputs.MarketplaceSaaSInfoResponse marketplaceSaasInfo,
 
             string memoryCapacity,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNative.Elastic
         {
             DeploymentUrl = deploymentUrl;
             DiskCapacity = diskCapacity;
+            ElasticsearchEndPoint = elasticsearchEndPoint;
             MarketplaceSaasInfo = marketplaceSaasInfo;
             MemoryCapacity = memoryCapacity;
             Status = status;

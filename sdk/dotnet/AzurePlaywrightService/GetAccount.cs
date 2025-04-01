@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
         /// <summary>
         /// Get a Account
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2024-12-01.
         /// 
-        /// Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-02-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureplaywrightservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:azureplaywrightservice:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
         /// <summary>
         /// Get a Account
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2024-12-01.
         /// 
-        /// Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-02-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureplaywrightservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:azureplaywrightservice:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
         /// <summary>
         /// Get a Account
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2024-12-01.
         /// 
-        /// Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-02-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureplaywrightservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:azureplaywrightservice:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
     public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of account
+        /// Name of account.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("accountName", required: true)]
+        public string AccountName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -66,10 +66,10 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
     public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of account
+        /// Name of account.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -88,13 +88,21 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The Playwright testing dashboard URI for the account resource.
         /// </summary>
         public readonly string DashboardUri;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        /// </summary>
+        public readonly string? LocalAuth;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -134,9 +142,13 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
 
         [OutputConstructor]
         private GetAccountResult(
+            string azureApiVersion,
+
             string dashboardUri,
 
             string id,
+
+            string? localAuth,
 
             string location,
 
@@ -156,8 +168,10 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DashboardUri = dashboardUri;
             Id = id;
+            LocalAuth = localAuth;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

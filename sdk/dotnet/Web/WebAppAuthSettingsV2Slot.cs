@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
     /// 
-    /// Uses Azure REST API version 2021-02-01. In version 1.x of the Azure Native provider, it used API version 2020-12-01.
+    /// Uses Azure REST API version 2021-02-01. In version 2.x of the Azure Native provider, it used API version 2021-02-01.
     /// 
-    /// Other available API versions: 2020-10-01.
+    /// Other available API versions: 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAuthSettingsV2Slot")]
     public partial class WebAppAuthSettingsV2Slot : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
         /// </summary>

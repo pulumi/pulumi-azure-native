@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Migrate project.
  *
- * Uses Azure REST API version 2020-05-01.
+ * Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
  *
- * Other available API versions: 2023-01-01.
+ * Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class MigrateProjectsControllerMigrateProject extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class MigrateProjectsControllerMigrateProject extends pulumi.CustomResour
         return obj['__pulumiType'] === MigrateProjectsControllerMigrateProject.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * For optimistic concurrency control.
      */
@@ -85,10 +89,12 @@ export class MigrateProjectsControllerMigrateProject extends pulumi.CustomResour
             resourceInputs["migrateProjectName"] = args ? args.migrateProjectName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -97,7 +103,7 @@ export class MigrateProjectsControllerMigrateProject extends pulumi.CustomResour
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20180901preview:MigrateProjectsControllerMigrateProject" }, { type: "azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject" }, { type: "azure-native:migrate/v20230101:MigrateProjectsControllerMigrateProject" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20180901preview:MigrateProject" }, { type: "azure-native:migrate/v20180901preview:MigrateProjectsControllerMigrateProject" }, { type: "azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject" }, { type: "azure-native:migrate/v20230101:MigrateProjectsControllerMigrateProject" }, { type: "azure-native:migrate:MigrateProject" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MigrateProjectsControllerMigrateProject.__pulumiType, name, resourceInputs, opts);
     }

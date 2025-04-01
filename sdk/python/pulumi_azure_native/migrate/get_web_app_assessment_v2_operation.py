@@ -27,7 +27,7 @@ class GetWebAppAssessmentV2OperationResult:
     """
     Web app Assessment REST resource.
     """
-    def __init__(__self__, app_svc_container_settings=None, app_svc_native_settings=None, assessment_type=None, azure_location=None, azure_offer_code=None, azure_security_offering_type=None, confidence_rating_in_percentage=None, created_timestamp=None, currency=None, discount_percentage=None, discovered_entity_light_summary=None, ea_subscription_id=None, entity_uptime=None, environment_type=None, group_type=None, id=None, name=None, percentile=None, perf_data_end_time=None, perf_data_start_time=None, prices_timestamp=None, provisioning_state=None, reserved_instance=None, scaling_factor=None, schema_version=None, sizing_criterion=None, stage=None, status=None, system_data=None, time_range=None, type=None, updated_timestamp=None):
+    def __init__(__self__, app_svc_container_settings=None, app_svc_native_settings=None, assessment_type=None, azure_api_version=None, azure_location=None, azure_offer_code=None, azure_security_offering_type=None, confidence_rating_in_percentage=None, created_timestamp=None, currency=None, discount_percentage=None, discovered_entity_light_summary=None, ea_subscription_id=None, entity_uptime=None, environment_type=None, group_type=None, id=None, name=None, percentile=None, perf_data_end_time=None, perf_data_start_time=None, prices_timestamp=None, provisioning_state=None, reserved_instance=None, scaling_factor=None, schema_version=None, sizing_criterion=None, stage=None, status=None, system_data=None, time_range=None, type=None, updated_timestamp=None):
         if app_svc_container_settings and not isinstance(app_svc_container_settings, dict):
             raise TypeError("Expected argument 'app_svc_container_settings' to be a dict")
         pulumi.set(__self__, "app_svc_container_settings", app_svc_container_settings)
@@ -37,6 +37,9 @@ class GetWebAppAssessmentV2OperationResult:
         if assessment_type and not isinstance(assessment_type, str):
             raise TypeError("Expected argument 'assessment_type' to be a str")
         pulumi.set(__self__, "assessment_type", assessment_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_location and not isinstance(azure_location, str):
             raise TypeError("Expected argument 'azure_location' to be a str")
         pulumi.set(__self__, "azure_location", azure_location)
@@ -148,6 +151,14 @@ class GetWebAppAssessmentV2OperationResult:
         Assessment type of the assessment.
         """
         return pulumi.get(self, "assessment_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureLocation")
@@ -395,6 +406,7 @@ class AwaitableGetWebAppAssessmentV2OperationResult(GetWebAppAssessmentV2Operati
             app_svc_container_settings=self.app_svc_container_settings,
             app_svc_native_settings=self.app_svc_native_settings,
             assessment_type=self.assessment_type,
+            azure_api_version=self.azure_api_version,
             azure_location=self.azure_location,
             azure_offer_code=self.azure_offer_code,
             azure_security_offering_type=self.azure_security_offering_type,
@@ -434,9 +446,9 @@ def get_web_app_assessment_v2_operation(assessment_name: Optional[str] = None,
     """
     Get a WebAppAssessmentV2
 
-    Uses Azure REST API version 2023-04-01-preview.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assessment_name: Web app Assessment arm name.
@@ -456,6 +468,7 @@ def get_web_app_assessment_v2_operation(assessment_name: Optional[str] = None,
         app_svc_container_settings=pulumi.get(__ret__, 'app_svc_container_settings'),
         app_svc_native_settings=pulumi.get(__ret__, 'app_svc_native_settings'),
         assessment_type=pulumi.get(__ret__, 'assessment_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_location=pulumi.get(__ret__, 'azure_location'),
         azure_offer_code=pulumi.get(__ret__, 'azure_offer_code'),
         azure_security_offering_type=pulumi.get(__ret__, 'azure_security_offering_type'),
@@ -493,9 +506,9 @@ def get_web_app_assessment_v2_operation_output(assessment_name: Optional[pulumi.
     """
     Get a WebAppAssessmentV2
 
-    Uses Azure REST API version 2023-04-01-preview.
+    Uses Azure REST API version 2024-01-01-preview.
 
-    Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str assessment_name: Web app Assessment arm name.
@@ -514,6 +527,7 @@ def get_web_app_assessment_v2_operation_output(assessment_name: Optional[pulumi.
         app_svc_container_settings=pulumi.get(__response__, 'app_svc_container_settings'),
         app_svc_native_settings=pulumi.get(__response__, 'app_svc_native_settings'),
         assessment_type=pulumi.get(__response__, 'assessment_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_location=pulumi.get(__response__, 'azure_location'),
         azure_offer_code=pulumi.get(__response__, 'azure_offer_code'),
         azure_security_offering_type=pulumi.get(__response__, 'azure_security_offering_type'),

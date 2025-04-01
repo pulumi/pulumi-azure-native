@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets an existing remediation at resource group scope.
         /// 
-        /// Uses Azure REST API version 2021-10-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2024-10-01.
+        /// Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRemediationAtResourceGroupResult> InvokeAsync(GetRemediationAtResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceGroupResult>("azure-native:policyinsights:getRemediationAtResourceGroup", args ?? new GetRemediationAtResourceGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets an existing remediation at resource group scope.
         /// 
-        /// Uses Azure REST API version 2021-10-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2024-10-01.
+        /// Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRemediationAtResourceGroupResult> Invoke(GetRemediationAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtResourceGroupResult>("azure-native:policyinsights:getRemediationAtResourceGroup", args ?? new GetRemediationAtResourceGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets an existing remediation at resource group scope.
         /// 
-        /// Uses Azure REST API version 2021-10-01.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2024-10-01.
+        /// Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRemediationAtResourceGroupResult> Invoke(GetRemediationAtResourceGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtResourceGroupResult>("azure-native:policyinsights:getRemediationAtResourceGroup", args ?? new GetRemediationAtResourceGroupInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.PolicyInsights
     [OutputType]
     public sealed class GetRemediationAtResourceGroupResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
         /// </summary>
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.PolicyInsights
 
         [OutputConstructor]
         private GetRemediationAtResourceGroupResult(
+            string azureApiVersion,
+
             string correlationId,
 
             string createdOn,
@@ -192,6 +198,7 @@ namespace Pulumi.AzureNative.PolicyInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CorrelationId = correlationId;
             CreatedOn = createdOn;
             DeploymentStatus = deploymentStatus;

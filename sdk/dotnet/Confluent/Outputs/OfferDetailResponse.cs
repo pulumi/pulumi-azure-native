@@ -29,13 +29,25 @@ namespace Pulumi.AzureNative.Confluent.Outputs
         /// </summary>
         public readonly string PlanName;
         /// <summary>
+        /// Private Offer Id
+        /// </summary>
+        public readonly string? PrivateOfferId;
+        /// <summary>
+        /// Array of Private Offer Ids
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateOfferIds;
+        /// <summary>
         /// Publisher Id
         /// </summary>
         public readonly string PublisherId;
         /// <summary>
         /// SaaS Offer Status
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
+        /// <summary>
+        /// Offer Plan Term Id
+        /// </summary>
+        public readonly string? TermId;
         /// <summary>
         /// Offer Plan Term unit
         /// </summary>
@@ -49,17 +61,26 @@ namespace Pulumi.AzureNative.Confluent.Outputs
 
             string planName,
 
+            string? privateOfferId,
+
+            ImmutableArray<string> privateOfferIds,
+
             string publisherId,
 
-            string status,
+            string? status,
+
+            string? termId,
 
             string termUnit)
         {
             Id = id;
             PlanId = planId;
             PlanName = planName;
+            PrivateOfferId = privateOfferId;
+            PrivateOfferIds = privateOfferIds;
             PublisherId = publisherId;
             Status = status;
+            TermId = termId;
             TermUnit = termUnit;
         }
     }

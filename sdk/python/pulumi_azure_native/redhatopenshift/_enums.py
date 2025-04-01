@@ -7,6 +7,9 @@ from enum import Enum
 __all__ = [
     'EncryptionAtHost',
     'FipsValidatedModules',
+    'OutboundType',
+    'PreconfiguredNSG',
+    'ProvisioningState',
     'Visibility',
 ]
 
@@ -25,6 +28,35 @@ class FipsValidatedModules(str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
+
+
+class OutboundType(str, Enum):
+    """
+    The OutboundType used for egress traffic.
+    """
+    LOADBALANCER = "Loadbalancer"
+    USER_DEFINED_ROUTING = "UserDefinedRouting"
+
+
+class PreconfiguredNSG(str, Enum):
+    """
+    Specifies whether subnets are pre-attached with an NSG
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class ProvisioningState(str, Enum):
+    """
+    The cluster provisioning state.
+    """
+    ADMIN_UPDATING = "AdminUpdating"
+    CANCELED = "Canceled"
+    CREATING = "Creating"
+    DELETING = "Deleting"
+    FAILED = "Failed"
+    SUCCEEDED = "Succeeded"
+    UPDATING = "Updating"
 
 
 class Visibility(str, Enum):

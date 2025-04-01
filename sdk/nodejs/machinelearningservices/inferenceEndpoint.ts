@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2023-08-01-preview.
+ * Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
  *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class InferenceEndpoint extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class InferenceEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === InferenceEndpoint.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
@@ -101,7 +105,7 @@ export class InferenceEndpoint extends pulumi.CustomResource {
             }
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inferenceEndpointProperties"] = args ? args.inferenceEndpointProperties : undefined;
+            resourceInputs["inferenceEndpointProperties"] = args ? (args.inferenceEndpointProperties ? pulumi.output(args.inferenceEndpointProperties).apply(inputs.machinelearningservices.inferenceEndpointArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
@@ -109,10 +113,12 @@ export class InferenceEndpoint extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["inferenceEndpointProperties"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;

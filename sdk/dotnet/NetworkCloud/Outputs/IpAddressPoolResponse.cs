@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
     public sealed class IpAddressPoolResponse
     {
         /// <summary>
-        /// The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses.
+        /// The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses. For a BGP service load balancer configuration, only CIDR format is supported and excludes /32 (IPv4) and /128 (IPv6) prefixes.
         /// </summary>
         public readonly ImmutableArray<string> Addresses;
         /// <summary>

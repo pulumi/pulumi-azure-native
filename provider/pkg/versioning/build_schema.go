@@ -129,7 +129,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		OldApiVersions:                versionMetadata.GetOldApiVersionsPerModule(),
 	}
 
-	generationResult, err := gen.PulumiSchema(args.RootDir, modules, versionMetadata, providerVersion)
+	generationResult, err := gen.PulumiSchema(args.RootDir, modules, versionMetadata, providerVersion, args.OnlyExplicitVersions)
 
 	if err != nil {
 		return &BuildSchemaResult{

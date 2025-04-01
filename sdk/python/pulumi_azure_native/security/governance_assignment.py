@@ -185,7 +185,7 @@ class GovernanceAssignment(pulumi.CustomResource):
         """
         Governance assignment over a given scope
 
-        Uses Azure REST API version 2022-01-01-preview.
+        Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,7 +208,7 @@ class GovernanceAssignment(pulumi.CustomResource):
         """
         Governance assignment over a given scope
 
-        Uses Azure REST API version 2022-01-01-preview.
+        Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param GovernanceAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -258,6 +258,7 @@ class GovernanceAssignment(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20220101preview:GovernanceAssignment")])
@@ -285,6 +286,7 @@ class GovernanceAssignment(pulumi.CustomResource):
         __props__ = GovernanceAssignmentArgs.__new__(GovernanceAssignmentArgs)
 
         __props__.__dict__["additional_data"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["governance_email_notification"] = None
         __props__.__dict__["is_grace_period"] = None
         __props__.__dict__["name"] = None
@@ -301,6 +303,14 @@ class GovernanceAssignment(pulumi.CustomResource):
         The additional data for the governance assignment - e.g. links to ticket (optional), see example
         """
         return pulumi.get(self, "additional_data")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="governanceEmailNotification")

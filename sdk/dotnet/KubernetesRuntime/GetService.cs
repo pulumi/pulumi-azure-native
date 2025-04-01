@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// Get a ServiceResource
         /// 
         /// Uses Azure REST API version 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:kubernetesruntime:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// Get a ServiceResource
         /// 
         /// Uses Azure REST API version 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:kubernetesruntime:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// Get a ServiceResource
         /// 
         /// Uses Azure REST API version 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:kubernetesruntime:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.KubernetesRuntime
     public sealed class GetServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -114,6 +112,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
 
         [OutputConstructor]
         private GetServiceResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -126,6 +126,7 @@ namespace Pulumi.AzureNative.KubernetesRuntime
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

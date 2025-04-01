@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the endpoint access credentials to the resource.
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-12-01.
  *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listEndpointCredentials(args: ListEndpointCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,11 +34,11 @@ export interface ListEndpointCredentialsArgs {
      */
     expiresin?: number;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: string;
     /**
-     * The name of the service. If not provided, the request will by pass the generation of service configuration token 
+     * The name of the service. If not provided, the request will by pass the generation of service configuration token
      */
     serviceName?: string | enums.hybridconnectivity.ServiceName;
 }
@@ -75,9 +75,9 @@ export interface ListEndpointCredentialsResult {
 /**
  * Gets the endpoint access credentials to the resource.
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-12-01.
  *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listEndpointCredentialsOutput(args: ListEndpointCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEndpointCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -99,11 +99,11 @@ export interface ListEndpointCredentialsOutputArgs {
      */
     expiresin?: pulumi.Input<number>;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
     /**
-     * The name of the service. If not provided, the request will by pass the generation of service configuration token 
+     * The name of the service. If not provided, the request will by pass the generation of service configuration token
      */
     serviceName?: pulumi.Input<string | enums.hybridconnectivity.ServiceName>;
 }

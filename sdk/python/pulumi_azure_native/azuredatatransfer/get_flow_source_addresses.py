@@ -58,7 +58,7 @@ def get_flow_source_addresses(connection_name: Optional[str] = None,
 
     Uses Azure REST API version 2024-09-27.
 
-    Other available API versions: 2025-03-01-preview.
+    Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connection_name: The name for the connection that is to be requested.
@@ -83,7 +83,7 @@ def get_flow_source_addresses_output(connection_name: Optional[pulumi.Input[str]
 
     Uses Azure REST API version 2024-09-27.
 
-    Other available API versions: 2025-03-01-preview.
+    Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connection_name: The name for the connection that is to be requested.

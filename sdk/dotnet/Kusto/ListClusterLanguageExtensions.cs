@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a list of language extensions that can run within KQL queries.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// 
-        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Other available API versions: 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListClusterLanguageExtensionsResult> InvokeAsync(ListClusterLanguageExtensionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListClusterLanguageExtensionsResult>("azure-native:kusto:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a list of language extensions that can run within KQL queries.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// 
-        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Other available API versions: 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListClusterLanguageExtensionsResult> Invoke(ListClusterLanguageExtensionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListClusterLanguageExtensionsResult>("azure-native:kusto:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a list of language extensions that can run within KQL queries.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// 
-        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Other available API versions: 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListClusterLanguageExtensionsResult> Invoke(ListClusterLanguageExtensionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListClusterLanguageExtensionsResult>("azure-native:kusto:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Kusto
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

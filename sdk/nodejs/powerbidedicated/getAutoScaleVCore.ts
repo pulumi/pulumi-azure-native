@@ -36,6 +36,10 @@ export interface GetAutoScaleVCoreArgs {
  */
 export interface GetAutoScaleVCoreResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The maximum capacity of an auto scale v-core resource.
      */
     readonly capacityLimit?: number;

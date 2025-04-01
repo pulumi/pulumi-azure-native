@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Blueprint
     public sealed class GetTemplateArtifactResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Artifacts which need to be deployed before the specified artifact.
         /// </summary>
         public readonly ImmutableArray<string> DependsOn;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.Blueprint
 
         [OutputConstructor]
         private GetTemplateArtifactResult(
+            string azureApiVersion,
+
             ImmutableArray<string> dependsOn,
 
             string? description,
@@ -157,6 +163,7 @@ namespace Pulumi.AzureNative.Blueprint
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DependsOn = dependsOn;
             Description = description;
             DisplayName = displayName;

@@ -99,7 +99,7 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
         """
         A private link scoped resource
 
-        Uses Azure REST API version 2020-08-15-preview. In version 1.x of the Azure Native provider, it used API version 2020-08-15-preview.
+        Uses Azure REST API version 2020-08-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-08-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +117,7 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
         """
         A private link scoped resource
 
-        Uses Azure REST API version 2020-08-15-preview. In version 1.x of the Azure Native provider, it used API version 2020-08-15-preview.
+        Uses Azure REST API version 2020-08-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-08-15-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopedResourceArgs args: The arguments to use to populate this resource's properties.
@@ -155,6 +155,7 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
             if scope_name is None and not opts.urn:
                 raise TypeError("Missing required property 'scope_name'")
             __props__.__dict__["scope_name"] = scope_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource")])
@@ -181,11 +182,20 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
 
         __props__ = PrivateLinkScopedResourceArgs.__new__(PrivateLinkScopedResourceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["linked_resource_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["type"] = None
         return PrivateLinkScopedResource(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="linkedResourceId")

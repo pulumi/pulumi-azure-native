@@ -99,7 +99,7 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
         """
         Single item in a List or Get VirtualNetworkRules operation
 
-        Uses Azure REST API version 2018-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-01-01-preview.
+        Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +117,7 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
         """
         Single item in a List or Get VirtualNetworkRules operation
 
-        Uses Azure REST API version 2018-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-01-01-preview.
+        Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NamespaceVirtualNetworkRuleArgs args: The arguments to use to populate this resource's properties.
@@ -155,6 +155,7 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["virtual_network_rule_name"] = virtual_network_rule_name
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule")])
@@ -181,10 +182,19 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
 
         __props__ = NamespaceVirtualNetworkRuleArgs.__new__(NamespaceVirtualNetworkRuleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_network_subnet_id"] = None
         return NamespaceVirtualNetworkRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

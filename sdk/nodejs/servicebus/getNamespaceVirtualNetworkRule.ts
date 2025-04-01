@@ -38,6 +38,10 @@ export interface GetNamespaceVirtualNetworkRuleArgs {
  */
 export interface GetNamespaceVirtualNetworkRuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource Id
      */
     readonly id: string;

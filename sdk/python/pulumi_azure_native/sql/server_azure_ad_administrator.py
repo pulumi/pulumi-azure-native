@@ -20,44 +20,33 @@ __all__ = ['ServerAzureADAdministratorArgs', 'ServerAzureADAdministrator']
 @pulumi.input_type
 class ServerAzureADAdministratorArgs:
     def __init__(__self__, *,
-                 administrator_type: pulumi.Input[Union[str, 'AdministratorType']],
                  login: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
                  sid: pulumi.Input[str],
                  administrator_name: Optional[pulumi.Input[str]] = None,
+                 administrator_type: Optional[pulumi.Input[Union[str, 'AdministratorType']]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerAzureADAdministrator resource.
-        :param pulumi.Input[Union[str, 'AdministratorType']] administrator_type: Type of the sever administrator.
         :param pulumi.Input[str] login: Login name of the server administrator.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] sid: SID (object ID) of the server administrator.
         :param pulumi.Input[str] administrator_name: The name of server active directory administrator.
+        :param pulumi.Input[Union[str, 'AdministratorType']] administrator_type: Type of the sever administrator.
         :param pulumi.Input[str] tenant_id: Tenant ID of the administrator.
         """
-        pulumi.set(__self__, "administrator_type", administrator_type)
         pulumi.set(__self__, "login", login)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "sid", sid)
         if administrator_name is not None:
             pulumi.set(__self__, "administrator_name", administrator_name)
+        if administrator_type is not None:
+            pulumi.set(__self__, "administrator_type", administrator_type)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter(name="administratorType")
-    def administrator_type(self) -> pulumi.Input[Union[str, 'AdministratorType']]:
-        """
-        Type of the sever administrator.
-        """
-        return pulumi.get(self, "administrator_type")
-
-    @administrator_type.setter
-    def administrator_type(self, value: pulumi.Input[Union[str, 'AdministratorType']]):
-        pulumi.set(self, "administrator_type", value)
 
     @property
     @pulumi.getter
@@ -120,6 +109,18 @@ class ServerAzureADAdministratorArgs:
         pulumi.set(self, "administrator_name", value)
 
     @property
+    @pulumi.getter(name="administratorType")
+    def administrator_type(self) -> Optional[pulumi.Input[Union[str, 'AdministratorType']]]:
+        """
+        Type of the sever administrator.
+        """
+        return pulumi.get(self, "administrator_type")
+
+    @administrator_type.setter
+    def administrator_type(self, value: Optional[pulumi.Input[Union[str, 'AdministratorType']]]):
+        pulumi.set(self, "administrator_type", value)
+
+    @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -148,9 +149,9 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
         """
         Azure Active Directory administrator.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2014-04-01, 2018-06-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,9 +172,9 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
         """
         Azure Active Directory administrator.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2014-04-01, 2018-06-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ServerAzureADAdministratorArgs args: The arguments to use to populate this resource's properties.
@@ -207,8 +208,6 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
             __props__ = ServerAzureADAdministratorArgs.__new__(ServerAzureADAdministratorArgs)
 
             __props__.__dict__["administrator_name"] = administrator_name
-            if administrator_type is None and not opts.urn:
-                raise TypeError("Missing required property 'administrator_type'")
             __props__.__dict__["administrator_type"] = administrator_type
             if login is None and not opts.urn:
                 raise TypeError("Missing required property 'login'")
@@ -224,6 +223,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
             __props__.__dict__["sid"] = sid
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["azure_ad_only_authentication"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20190601preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20211101:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20230201preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20230501preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20230801:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20230801preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20240501preview:ServerAzureADAdministrator")])
@@ -252,6 +252,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
         __props__.__dict__["administrator_type"] = None
         __props__.__dict__["azure_ad_only_authentication"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["login"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sid"] = None
@@ -261,7 +262,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorType")
-    def administrator_type(self) -> pulumi.Output[str]:
+    def administrator_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of the sever administrator.
         """
@@ -274,6 +275,14 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
         Azure Active Directory only Authentication enabled.
         """
         return pulumi.get(self, "azure_ad_only_authentication")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

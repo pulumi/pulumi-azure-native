@@ -16,6 +16,24 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     public sealed class MySqlConnectionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Additional connection settings
+        /// </summary>
+        [Input("additionalSettings")]
+        public Input<string>? AdditionalSettings { get; set; }
+
+        /// <summary>
+        /// Authentication type to use for connection
+        /// </summary>
+        [Input("authentication")]
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.AuthenticationType>? Authentication { get; set; }
+
+        /// <summary>
+        /// Data source 
+        /// </summary>
+        [Input("dataSource")]
+        public Input<string>? DataSource { get; set; }
+
+        /// <summary>
         /// Whether to encrypt the connection
         /// </summary>
         [Input("encryptConnection")]

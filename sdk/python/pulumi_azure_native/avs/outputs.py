@@ -17,14 +17,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AddonArcPropertiesResponse',
-    'AddonHcxPropertiesResponse',
-    'AddonSrmPropertiesResponse',
-    'AddonVrPropertiesResponse',
     'AvailabilityPropertiesResponse',
     'CircuitResponse',
     'ClusterZoneResponse',
     'DiskPoolVolumeResponse',
+    'ElasticSanVolumeResponse',
     'EncryptionKeyVaultPropertiesResponse',
     'EncryptionResponse',
     'EndpointsResponse',
@@ -32,286 +29,14 @@ __all__ = [
     'ManagementClusterResponse',
     'NetAppVolumeResponse',
     'PSCredentialExecutionParameterResponse',
-    'PrivateCloudIdentityResponse',
     'ScriptSecureStringExecutionParameterResponse',
     'ScriptStringExecutionParameterResponse',
     'SkuResponse',
+    'SystemAssignedServiceIdentityResponse',
     'SystemDataResponse',
-    'VmHostPlacementPolicyPropertiesResponse',
-    'VmVmPlacementPolicyPropertiesResponse',
-    'WorkloadNetworkDhcpRelayResponse',
-    'WorkloadNetworkDhcpServerResponse',
     'WorkloadNetworkSegmentPortVifResponse',
     'WorkloadNetworkSegmentSubnetResponse',
 ]
-
-@pulumi.output_type
-class AddonArcPropertiesResponse(dict):
-    """
-    The properties of an Arc addon
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "addonType":
-            suggest = "addon_type"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "vCenter":
-            suggest = "v_center"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AddonArcPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AddonArcPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AddonArcPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 addon_type: str,
-                 provisioning_state: str,
-                 v_center: Optional[str] = None):
-        """
-        The properties of an Arc addon
-        :param str addon_type: The type of private cloud addon
-               Expected value is 'Arc'.
-        :param str provisioning_state: The state of the addon provisioning
-        :param str v_center: The VMware vCenter resource ID
-        """
-        pulumi.set(__self__, "addon_type", 'Arc')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if v_center is not None:
-            pulumi.set(__self__, "v_center", v_center)
-
-    @property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> str:
-        """
-        The type of private cloud addon
-        Expected value is 'Arc'.
-        """
-        return pulumi.get(self, "addon_type")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The state of the addon provisioning
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="vCenter")
-    def v_center(self) -> Optional[str]:
-        """
-        The VMware vCenter resource ID
-        """
-        return pulumi.get(self, "v_center")
-
-
-@pulumi.output_type
-class AddonHcxPropertiesResponse(dict):
-    """
-    The properties of an HCX addon
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "addonType":
-            suggest = "addon_type"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AddonHcxPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AddonHcxPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AddonHcxPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 addon_type: str,
-                 offer: str,
-                 provisioning_state: str):
-        """
-        The properties of an HCX addon
-        :param str addon_type: The type of private cloud addon
-               Expected value is 'HCX'.
-        :param str offer: The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
-        :param str provisioning_state: The state of the addon provisioning
-        """
-        pulumi.set(__self__, "addon_type", 'HCX')
-        pulumi.set(__self__, "offer", offer)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-
-    @property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> str:
-        """
-        The type of private cloud addon
-        Expected value is 'HCX'.
-        """
-        return pulumi.get(self, "addon_type")
-
-    @property
-    @pulumi.getter
-    def offer(self) -> str:
-        """
-        The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
-        """
-        return pulumi.get(self, "offer")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The state of the addon provisioning
-        """
-        return pulumi.get(self, "provisioning_state")
-
-
-@pulumi.output_type
-class AddonSrmPropertiesResponse(dict):
-    """
-    The properties of a Site Recovery Manager (SRM) addon
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "addonType":
-            suggest = "addon_type"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "licenseKey":
-            suggest = "license_key"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AddonSrmPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AddonSrmPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AddonSrmPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 addon_type: str,
-                 provisioning_state: str,
-                 license_key: Optional[str] = None):
-        """
-        The properties of a Site Recovery Manager (SRM) addon
-        :param str addon_type: The type of private cloud addon
-               Expected value is 'SRM'.
-        :param str provisioning_state: The state of the addon provisioning
-        :param str license_key: The Site Recovery Manager (SRM) license
-        """
-        pulumi.set(__self__, "addon_type", 'SRM')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if license_key is not None:
-            pulumi.set(__self__, "license_key", license_key)
-
-    @property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> str:
-        """
-        The type of private cloud addon
-        Expected value is 'SRM'.
-        """
-        return pulumi.get(self, "addon_type")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The state of the addon provisioning
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="licenseKey")
-    def license_key(self) -> Optional[str]:
-        """
-        The Site Recovery Manager (SRM) license
-        """
-        return pulumi.get(self, "license_key")
-
-
-@pulumi.output_type
-class AddonVrPropertiesResponse(dict):
-    """
-    The properties of a vSphere Replication (VR) addon
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "addonType":
-            suggest = "addon_type"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "vrsCount":
-            suggest = "vrs_count"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AddonVrPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AddonVrPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AddonVrPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 addon_type: str,
-                 provisioning_state: str,
-                 vrs_count: int):
-        """
-        The properties of a vSphere Replication (VR) addon
-        :param str addon_type: The type of private cloud addon
-               Expected value is 'VR'.
-        :param str provisioning_state: The state of the addon provisioning
-        :param int vrs_count: The vSphere Replication Server (VRS) count
-        """
-        pulumi.set(__self__, "addon_type", 'VR')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "vrs_count", vrs_count)
-
-    @property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> str:
-        """
-        The type of private cloud addon
-        Expected value is 'VR'.
-        """
-        return pulumi.get(self, "addon_type")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The state of the addon provisioning
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="vrsCount")
-    def vrs_count(self) -> int:
-        """
-        The vSphere Replication Server (VRS) count
-        """
-        return pulumi.get(self, "vrs_count")
-
 
 @pulumi.output_type
 class AvailabilityPropertiesResponse(dict):
@@ -524,7 +249,8 @@ class DiskPoolVolumeResponse(dict):
         :param str lun_name: Name of the LUN to be used for datastore
         :param str path: Device path
         :param str target_id: Azure resource ID of the iSCSI target
-        :param str mount_option: Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+        :param str mount_option: Mode that describes whether the LUN has to be mounted as a datastore or
+               attached as a LUN
         """
         pulumi.set(__self__, "lun_name", lun_name)
         pulumi.set(__self__, "path", path)
@@ -562,9 +288,49 @@ class DiskPoolVolumeResponse(dict):
     @pulumi.getter(name="mountOption")
     def mount_option(self) -> Optional[str]:
         """
-        Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+        Mode that describes whether the LUN has to be mounted as a datastore or
+        attached as a LUN
         """
         return pulumi.get(self, "mount_option")
+
+
+@pulumi.output_type
+class ElasticSanVolumeResponse(dict):
+    """
+    An Elastic SAN volume from Microsoft.ElasticSan provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetId":
+            suggest = "target_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticSanVolumeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticSanVolumeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticSanVolumeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_id: str):
+        """
+        An Elastic SAN volume from Microsoft.ElasticSan provider
+        :param str target_id: Azure resource ID of the Elastic SAN Volume
+        """
+        pulumi.set(__self__, "target_id", target_id)
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> str:
+        """
+        Azure resource ID of the Elastic SAN Volume
+        """
+        return pulumi.get(self, "target_id")
 
 
 @pulumi.output_type
@@ -736,8 +502,14 @@ class EndpointsResponse(dict):
         suggest = None
         if key == "hcxCloudManager":
             suggest = "hcx_cloud_manager"
+        elif key == "hcxCloudManagerIp":
+            suggest = "hcx_cloud_manager_ip"
         elif key == "nsxtManager":
             suggest = "nsxt_manager"
+        elif key == "nsxtManagerIp":
+            suggest = "nsxt_manager_ip"
+        elif key == "vcenterIp":
+            suggest = "vcenter_ip"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -752,39 +524,72 @@ class EndpointsResponse(dict):
 
     def __init__(__self__, *,
                  hcx_cloud_manager: str,
+                 hcx_cloud_manager_ip: str,
                  nsxt_manager: str,
+                 nsxt_manager_ip: str,
+                 vcenter_ip: str,
                  vcsa: str):
         """
         Endpoint addresses
-        :param str hcx_cloud_manager: Endpoint for the HCX Cloud Manager
-        :param str nsxt_manager: Endpoint for the NSX-T Data Center manager
-        :param str vcsa: Endpoint for Virtual Center Server Appliance
+        :param str hcx_cloud_manager: Endpoint FQDN for the HCX Cloud Manager
+        :param str hcx_cloud_manager_ip: Endpoint IP for the HCX Cloud Manager
+        :param str nsxt_manager: Endpoint FQDN for the NSX-T Data Center manager
+        :param str nsxt_manager_ip: Endpoint IP for the NSX-T Data Center manager
+        :param str vcenter_ip: Endpoint IP for Virtual Center Server Appliance
+        :param str vcsa: Endpoint FQDN for Virtual Center Server Appliance
         """
         pulumi.set(__self__, "hcx_cloud_manager", hcx_cloud_manager)
+        pulumi.set(__self__, "hcx_cloud_manager_ip", hcx_cloud_manager_ip)
         pulumi.set(__self__, "nsxt_manager", nsxt_manager)
+        pulumi.set(__self__, "nsxt_manager_ip", nsxt_manager_ip)
+        pulumi.set(__self__, "vcenter_ip", vcenter_ip)
         pulumi.set(__self__, "vcsa", vcsa)
 
     @property
     @pulumi.getter(name="hcxCloudManager")
     def hcx_cloud_manager(self) -> str:
         """
-        Endpoint for the HCX Cloud Manager
+        Endpoint FQDN for the HCX Cloud Manager
         """
         return pulumi.get(self, "hcx_cloud_manager")
+
+    @property
+    @pulumi.getter(name="hcxCloudManagerIp")
+    def hcx_cloud_manager_ip(self) -> str:
+        """
+        Endpoint IP for the HCX Cloud Manager
+        """
+        return pulumi.get(self, "hcx_cloud_manager_ip")
 
     @property
     @pulumi.getter(name="nsxtManager")
     def nsxt_manager(self) -> str:
         """
-        Endpoint for the NSX-T Data Center manager
+        Endpoint FQDN for the NSX-T Data Center manager
         """
         return pulumi.get(self, "nsxt_manager")
+
+    @property
+    @pulumi.getter(name="nsxtManagerIp")
+    def nsxt_manager_ip(self) -> str:
+        """
+        Endpoint IP for the NSX-T Data Center manager
+        """
+        return pulumi.get(self, "nsxt_manager_ip")
+
+    @property
+    @pulumi.getter(name="vcenterIp")
+    def vcenter_ip(self) -> str:
+        """
+        Endpoint IP for Virtual Center Server Appliance
+        """
+        return pulumi.get(self, "vcenter_ip")
 
     @property
     @pulumi.getter
     def vcsa(self) -> str:
         """
-        Endpoint for Virtual Center Server Appliance
+        Endpoint FQDN for Virtual Center Server Appliance
         """
         return pulumi.get(self, "vcsa")
 
@@ -835,11 +640,13 @@ class IdentitySourceResponse(dict):
         :param str base_user_dn: The base distinguished name for users
         :param str domain: The domain's dns name
         :param str name: The name of the identity source
-        :param str password: The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+        :param str password: The password of the Active Directory user with a minimum of read-only access to
+               Base DN for users and groups.
         :param str primary_server: Primary server URL
         :param str secondary_server: Secondary server URL
         :param str ssl: Protect LDAP communication using SSL certificate (LDAPS)
-        :param str username: The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+        :param str username: The ID of an Active Directory user with a minimum of read-only access to Base
+               DN for users and group
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -906,7 +713,8 @@ class IdentitySourceResponse(dict):
     @pulumi.getter
     def password(self) -> Optional[str]:
         """
-        The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+        The password of the Active Directory user with a minimum of read-only access to
+        Base DN for users and groups.
         """
         return pulumi.get(self, "password")
 
@@ -938,7 +746,8 @@ class IdentitySourceResponse(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         """
-        The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+        The ID of an Active Directory user with a minimum of read-only access to Base
+        DN for users and group
         """
         return pulumi.get(self, "username")
 
@@ -953,10 +762,12 @@ class ManagementClusterResponse(dict):
         suggest = None
         if key == "clusterId":
             suggest = "cluster_id"
-        elif key == "clusterSize":
-            suggest = "cluster_size"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "clusterSize":
+            suggest = "cluster_size"
+        elif key == "vsanDatastoreName":
+            suggest = "vsan_datastore_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagementClusterResponse. Access the value via the '{suggest}' property getter instead.")
@@ -971,21 +782,26 @@ class ManagementClusterResponse(dict):
 
     def __init__(__self__, *,
                  cluster_id: int,
-                 cluster_size: int,
                  provisioning_state: str,
-                 hosts: Optional[Sequence[str]] = None):
+                 cluster_size: Optional[int] = None,
+                 hosts: Optional[Sequence[str]] = None,
+                 vsan_datastore_name: Optional[str] = None):
         """
         The properties of a management cluster
         :param int cluster_id: The identity
-        :param int cluster_size: The cluster size
         :param str provisioning_state: The state of the cluster provisioning
+        :param int cluster_size: The cluster size
         :param Sequence[str] hosts: The hosts
+        :param str vsan_datastore_name: Name of the vsan datastore associated with the cluster
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "cluster_size", cluster_size)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if cluster_size is not None:
+            pulumi.set(__self__, "cluster_size", cluster_size)
         if hosts is not None:
             pulumi.set(__self__, "hosts", hosts)
+        if vsan_datastore_name is not None:
+            pulumi.set(__self__, "vsan_datastore_name", vsan_datastore_name)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -996,14 +812,6 @@ class ManagementClusterResponse(dict):
         return pulumi.get(self, "cluster_id")
 
     @property
-    @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> int:
-        """
-        The cluster size
-        """
-        return pulumi.get(self, "cluster_size")
-
-    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -1012,12 +820,28 @@ class ManagementClusterResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="clusterSize")
+    def cluster_size(self) -> Optional[int]:
+        """
+        The cluster size
+        """
+        return pulumi.get(self, "cluster_size")
+
+    @property
     @pulumi.getter
     def hosts(self) -> Optional[Sequence[str]]:
         """
         The hosts
         """
         return pulumi.get(self, "hosts")
+
+    @property
+    @pulumi.getter(name="vsanDatastoreName")
+    def vsan_datastore_name(self) -> Optional[str]:
+        """
+        Name of the vsan datastore associated with the cluster
+        """
+        return pulumi.get(self, "vsan_datastore_name")
 
 
 @pulumi.output_type
@@ -1055,7 +879,7 @@ class PSCredentialExecutionParameterResponse(dict):
         """
         a powershell credential object
         :param str name: The parameter name
-        :param str type: The type of execution parameter
+        :param str type: script execution parameter type
                Expected value is 'Credential'.
         :param str password: password for login
         :param str username: username for login
@@ -1079,7 +903,7 @@ class PSCredentialExecutionParameterResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of execution parameter
+        script execution parameter type
         Expected value is 'Credential'.
         """
         return pulumi.get(self, "type")
@@ -1099,70 +923,6 @@ class PSCredentialExecutionParameterResponse(dict):
         username for login
         """
         return pulumi.get(self, "username")
-
-
-@pulumi.output_type
-class PrivateCloudIdentityResponse(dict):
-    """
-    Identity for the virtual machine.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateCloudIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateCloudIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateCloudIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
-                 type: Optional[str] = None):
-        """
-        Identity for the virtual machine.
-        :param str principal_id: The principal ID of private cloud identity. This property will only be provided for a system assigned identity.
-        :param str tenant_id: The tenant ID associated with the private cloud. This property will only be provided for a system assigned identity.
-        :param str type: The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal ID of private cloud identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The tenant ID associated with the private cloud. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -1194,7 +954,7 @@ class ScriptSecureStringExecutionParameterResponse(dict):
         """
         a plain text value execution parameter
         :param str name: The parameter name
-        :param str type: The type of execution parameter
+        :param str type: script execution parameter type
                Expected value is 'SecureValue'.
         :param str secure_value: A secure value for the passed parameter, not to be stored in logs
         """
@@ -1215,7 +975,7 @@ class ScriptSecureStringExecutionParameterResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of execution parameter
+        script execution parameter type
         Expected value is 'SecureValue'.
         """
         return pulumi.get(self, "type")
@@ -1241,7 +1001,7 @@ class ScriptStringExecutionParameterResponse(dict):
         """
         a plain text value execution parameter
         :param str name: The parameter name
-        :param str type: The type of execution parameter
+        :param str type: script execution parameter type
                Expected value is 'Value'.
         :param str value: The value for the passed parameter
         """
@@ -1262,7 +1022,7 @@ class ScriptStringExecutionParameterResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of execution parameter
+        script execution parameter type
         Expected value is 'Value'.
         """
         return pulumi.get(self, "type")
@@ -1282,20 +1042,131 @@ class SkuResponse(dict):
     The resource model definition representing SKU
     """
     def __init__(__self__, *,
-                 name: str):
+                 name: str,
+                 capacity: Optional[int] = None,
+                 family: Optional[str] = None,
+                 size: Optional[str] = None,
+                 tier: Optional[str] = None):
         """
         The resource model definition representing SKU
-        :param str name: The name of the SKU.
+        :param str name: The name of the SKU. E.g. P3. It is typically a letter+number code
+        :param int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        :param str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the SKU.
+        The name of the SKU. E.g. P3. It is typically a letter+number code
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SystemAssignedServiceIdentityResponse(dict):
+    """
+    Managed service identity (either system assigned, or none)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemAssignedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemAssignedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemAssignedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        Managed service identity (either system assigned, or none)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (either system assigned, or none).
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (either system assigned, or none).
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -1406,479 +1277,6 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class VmHostPlacementPolicyPropertiesResponse(dict):
-    """
-    VM-Host placement policy properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "affinityType":
-            suggest = "affinity_type"
-        elif key == "hostMembers":
-            suggest = "host_members"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "vmMembers":
-            suggest = "vm_members"
-        elif key == "affinityStrength":
-            suggest = "affinity_strength"
-        elif key == "azureHybridBenefitType":
-            suggest = "azure_hybrid_benefit_type"
-        elif key == "displayName":
-            suggest = "display_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VmHostPlacementPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VmHostPlacementPolicyPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VmHostPlacementPolicyPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 affinity_type: str,
-                 host_members: Sequence[str],
-                 provisioning_state: str,
-                 type: str,
-                 vm_members: Sequence[str],
-                 affinity_strength: Optional[str] = None,
-                 azure_hybrid_benefit_type: Optional[str] = None,
-                 display_name: Optional[str] = None,
-                 state: Optional[str] = None):
-        """
-        VM-Host placement policy properties
-        :param str affinity_type: placement policy affinity type
-        :param Sequence[str] host_members: Host members list
-        :param str provisioning_state: The provisioning state
-        :param str type: placement policy type
-               Expected value is 'VmHost'.
-        :param Sequence[str] vm_members: Virtual machine members list
-        :param str affinity_strength: vm-host placement policy affinity strength (should/must)
-        :param str azure_hybrid_benefit_type: placement policy azure hybrid benefit opt-in type
-        :param str display_name: Display name of the placement policy
-        :param str state: Whether the placement policy is enabled or disabled
-        """
-        pulumi.set(__self__, "affinity_type", affinity_type)
-        pulumi.set(__self__, "host_members", host_members)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", 'VmHost')
-        pulumi.set(__self__, "vm_members", vm_members)
-        if affinity_strength is not None:
-            pulumi.set(__self__, "affinity_strength", affinity_strength)
-        if azure_hybrid_benefit_type is not None:
-            pulumi.set(__self__, "azure_hybrid_benefit_type", azure_hybrid_benefit_type)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter(name="affinityType")
-    def affinity_type(self) -> str:
-        """
-        placement policy affinity type
-        """
-        return pulumi.get(self, "affinity_type")
-
-    @property
-    @pulumi.getter(name="hostMembers")
-    def host_members(self) -> Sequence[str]:
-        """
-        Host members list
-        """
-        return pulumi.get(self, "host_members")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        placement policy type
-        Expected value is 'VmHost'.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="vmMembers")
-    def vm_members(self) -> Sequence[str]:
-        """
-        Virtual machine members list
-        """
-        return pulumi.get(self, "vm_members")
-
-    @property
-    @pulumi.getter(name="affinityStrength")
-    def affinity_strength(self) -> Optional[str]:
-        """
-        vm-host placement policy affinity strength (should/must)
-        """
-        return pulumi.get(self, "affinity_strength")
-
-    @property
-    @pulumi.getter(name="azureHybridBenefitType")
-    def azure_hybrid_benefit_type(self) -> Optional[str]:
-        """
-        placement policy azure hybrid benefit opt-in type
-        """
-        return pulumi.get(self, "azure_hybrid_benefit_type")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        Display name of the placement policy
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[str]:
-        """
-        Whether the placement policy is enabled or disabled
-        """
-        return pulumi.get(self, "state")
-
-
-@pulumi.output_type
-class VmVmPlacementPolicyPropertiesResponse(dict):
-    """
-    VM-VM placement policy properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "affinityType":
-            suggest = "affinity_type"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "vmMembers":
-            suggest = "vm_members"
-        elif key == "displayName":
-            suggest = "display_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VmVmPlacementPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VmVmPlacementPolicyPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VmVmPlacementPolicyPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 affinity_type: str,
-                 provisioning_state: str,
-                 type: str,
-                 vm_members: Sequence[str],
-                 display_name: Optional[str] = None,
-                 state: Optional[str] = None):
-        """
-        VM-VM placement policy properties
-        :param str affinity_type: placement policy affinity type
-        :param str provisioning_state: The provisioning state
-        :param str type: placement policy type
-               Expected value is 'VmVm'.
-        :param Sequence[str] vm_members: Virtual machine members list
-        :param str display_name: Display name of the placement policy
-        :param str state: Whether the placement policy is enabled or disabled
-        """
-        pulumi.set(__self__, "affinity_type", affinity_type)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", 'VmVm')
-        pulumi.set(__self__, "vm_members", vm_members)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter(name="affinityType")
-    def affinity_type(self) -> str:
-        """
-        placement policy affinity type
-        """
-        return pulumi.get(self, "affinity_type")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        placement policy type
-        Expected value is 'VmVm'.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="vmMembers")
-    def vm_members(self) -> Sequence[str]:
-        """
-        Virtual machine members list
-        """
-        return pulumi.get(self, "vm_members")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        Display name of the placement policy
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[str]:
-        """
-        Whether the placement policy is enabled or disabled
-        """
-        return pulumi.get(self, "state")
-
-
-@pulumi.output_type
-class WorkloadNetworkDhcpRelayResponse(dict):
-    """
-    NSX DHCP Relay
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dhcpType":
-            suggest = "dhcp_type"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "displayName":
-            suggest = "display_name"
-        elif key == "serverAddresses":
-            suggest = "server_addresses"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkloadNetworkDhcpRelayResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WorkloadNetworkDhcpRelayResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WorkloadNetworkDhcpRelayResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 dhcp_type: str,
-                 provisioning_state: str,
-                 segments: Sequence[str],
-                 display_name: Optional[str] = None,
-                 revision: Optional[float] = None,
-                 server_addresses: Optional[Sequence[str]] = None):
-        """
-        NSX DHCP Relay
-        :param str dhcp_type: Type of DHCP: SERVER or RELAY.
-               Expected value is 'RELAY'.
-        :param str provisioning_state: The provisioning state
-        :param Sequence[str] segments: NSX Segments consuming DHCP.
-        :param str display_name: Display name of the DHCP entity.
-        :param float revision: NSX revision number.
-        :param Sequence[str] server_addresses: DHCP Relay Addresses. Max 3.
-        """
-        pulumi.set(__self__, "dhcp_type", 'RELAY')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "segments", segments)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if revision is not None:
-            pulumi.set(__self__, "revision", revision)
-        if server_addresses is not None:
-            pulumi.set(__self__, "server_addresses", server_addresses)
-
-    @property
-    @pulumi.getter(name="dhcpType")
-    def dhcp_type(self) -> str:
-        """
-        Type of DHCP: SERVER or RELAY.
-        Expected value is 'RELAY'.
-        """
-        return pulumi.get(self, "dhcp_type")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def segments(self) -> Sequence[str]:
-        """
-        NSX Segments consuming DHCP.
-        """
-        return pulumi.get(self, "segments")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        Display name of the DHCP entity.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter
-    def revision(self) -> Optional[float]:
-        """
-        NSX revision number.
-        """
-        return pulumi.get(self, "revision")
-
-    @property
-    @pulumi.getter(name="serverAddresses")
-    def server_addresses(self) -> Optional[Sequence[str]]:
-        """
-        DHCP Relay Addresses. Max 3.
-        """
-        return pulumi.get(self, "server_addresses")
-
-
-@pulumi.output_type
-class WorkloadNetworkDhcpServerResponse(dict):
-    """
-    NSX DHCP Server
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dhcpType":
-            suggest = "dhcp_type"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "displayName":
-            suggest = "display_name"
-        elif key == "leaseTime":
-            suggest = "lease_time"
-        elif key == "serverAddress":
-            suggest = "server_address"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkloadNetworkDhcpServerResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WorkloadNetworkDhcpServerResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WorkloadNetworkDhcpServerResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 dhcp_type: str,
-                 provisioning_state: str,
-                 segments: Sequence[str],
-                 display_name: Optional[str] = None,
-                 lease_time: Optional[float] = None,
-                 revision: Optional[float] = None,
-                 server_address: Optional[str] = None):
-        """
-        NSX DHCP Server
-        :param str dhcp_type: Type of DHCP: SERVER or RELAY.
-               Expected value is 'SERVER'.
-        :param str provisioning_state: The provisioning state
-        :param Sequence[str] segments: NSX Segments consuming DHCP.
-        :param str display_name: Display name of the DHCP entity.
-        :param float lease_time: DHCP Server Lease Time.
-        :param float revision: NSX revision number.
-        :param str server_address: DHCP Server Address.
-        """
-        pulumi.set(__self__, "dhcp_type", 'SERVER')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "segments", segments)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if lease_time is not None:
-            pulumi.set(__self__, "lease_time", lease_time)
-        if revision is not None:
-            pulumi.set(__self__, "revision", revision)
-        if server_address is not None:
-            pulumi.set(__self__, "server_address", server_address)
-
-    @property
-    @pulumi.getter(name="dhcpType")
-    def dhcp_type(self) -> str:
-        """
-        Type of DHCP: SERVER or RELAY.
-        Expected value is 'SERVER'.
-        """
-        return pulumi.get(self, "dhcp_type")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def segments(self) -> Sequence[str]:
-        """
-        NSX Segments consuming DHCP.
-        """
-        return pulumi.get(self, "segments")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        Display name of the DHCP entity.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter(name="leaseTime")
-    def lease_time(self) -> Optional[float]:
-        """
-        DHCP Server Lease Time.
-        """
-        return pulumi.get(self, "lease_time")
-
-    @property
-    @pulumi.getter
-    def revision(self) -> Optional[float]:
-        """
-        NSX revision number.
-        """
-        return pulumi.get(self, "revision")
-
-    @property
-    @pulumi.getter(name="serverAddress")
-    def server_address(self) -> Optional[str]:
-        """
-        DHCP Server Address.
-        """
-        return pulumi.get(self, "server_address")
 
 
 @pulumi.output_type

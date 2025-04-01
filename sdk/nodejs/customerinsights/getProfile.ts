@@ -54,6 +54,10 @@ export interface GetProfileResult {
      */
     readonly attributes?: {[key: string]: string[]};
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Localized descriptions for the property.
      */
     readonly description?: {[key: string]: string};

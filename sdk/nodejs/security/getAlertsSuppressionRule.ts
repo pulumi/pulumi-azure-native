@@ -35,6 +35,10 @@ export interface GetAlertsSuppressionRuleResult {
      */
     readonly alertType: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Any comment regarding the rule
      */
     readonly comment?: string;

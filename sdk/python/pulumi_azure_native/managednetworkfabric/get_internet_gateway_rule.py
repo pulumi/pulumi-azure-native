@@ -27,10 +27,13 @@ class GetInternetGatewayRuleResult:
     """
     The Internet Gateway Rule resource definition.
     """
-    def __init__(__self__, annotation=None, id=None, internet_gateway_ids=None, location=None, name=None, provisioning_state=None, rule_properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, annotation=None, azure_api_version=None, id=None, internet_gateway_ids=None, location=None, name=None, provisioning_state=None, rule_properties=None, system_data=None, tags=None, type=None):
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -66,6 +69,14 @@ class GetInternetGatewayRuleResult:
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -147,6 +158,7 @@ class AwaitableGetInternetGatewayRuleResult(GetInternetGatewayRuleResult):
             yield self
         return GetInternetGatewayRuleResult(
             annotation=self.annotation,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             internet_gateway_ids=self.internet_gateway_ids,
             location=self.location,
@@ -178,6 +190,7 @@ def get_internet_gateway_rule(internet_gateway_rule_name: Optional[str] = None,
 
     return AwaitableGetInternetGatewayRuleResult(
         annotation=pulumi.get(__ret__, 'annotation'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         internet_gateway_ids=pulumi.get(__ret__, 'internet_gateway_ids'),
         location=pulumi.get(__ret__, 'location'),
@@ -206,6 +219,7 @@ def get_internet_gateway_rule_output(internet_gateway_rule_name: Optional[pulumi
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getInternetGatewayRule', __args__, opts=opts, typ=GetInternetGatewayRuleResult)
     return __ret__.apply(lambda __response__: GetInternetGatewayRuleResult(
         annotation=pulumi.get(__response__, 'annotation'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         internet_gateway_ids=pulumi.get(__response__, 'internet_gateway_ids'),
         location=pulumi.get(__response__, 'location'),

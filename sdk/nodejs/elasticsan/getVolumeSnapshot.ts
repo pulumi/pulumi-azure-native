@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a Volume Snapshot.
  *
- * Uses Azure REST API version 2023-01-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVolumeSnapshot(args: GetVolumeSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +47,10 @@ export interface GetVolumeSnapshotArgs {
  * Response for Volume Snapshot request.
  */
 export interface GetVolumeSnapshotResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Data used when creating a volume snapshot.
      */
@@ -83,9 +87,9 @@ export interface GetVolumeSnapshotResult {
 /**
  * Get a Volume Snapshot.
  *
- * Uses Azure REST API version 2023-01-01.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVolumeSnapshotOutput(args: GetVolumeSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

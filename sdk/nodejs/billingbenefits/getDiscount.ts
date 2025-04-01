@@ -40,6 +40,10 @@ export interface GetDiscountResult {
      */
     readonly appliedScopeType?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully-qualified identifier of the benefit under applicable benefit list.
      */
     readonly benefitResourceId: string;

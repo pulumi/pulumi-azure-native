@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
     /// <summary>
     /// Dedicated cloud service model
     /// 
-    /// Uses Azure REST API version 2019-04-01. In version 1.x of the Azure Native provider, it used API version 2019-04-01.
+    /// Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:vmwarecloudsimple:DedicatedCloudService")]
     public partial class DedicatedCloudService : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
         /// </summary>

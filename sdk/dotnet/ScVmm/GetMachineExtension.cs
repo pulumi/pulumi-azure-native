@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// The operation to get the extension.
         /// 
-        /// Uses Azure REST API version 2022-05-21-preview.
+        /// Uses Azure REST API version 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:scvmm:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// The operation to get the extension.
         /// 
-        /// Uses Azure REST API version 2022-05-21-preview.
+        /// Uses Azure REST API version 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:scvmm:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// The operation to get the extension.
         /// 
-        /// Uses Azure REST API version 2022-05-21-preview.
+        /// Uses Azure REST API version 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:scvmm:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         /// </summary>
         public readonly bool? EnableAutomaticUpgrade;
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNative.ScVmm
         private GetMachineExtensionResult(
             bool? autoUpgradeMinorVersion,
 
+            string azureApiVersion,
+
             bool? enableAutomaticUpgrade,
 
             string? forceUpdateTag,
@@ -193,6 +199,7 @@ namespace Pulumi.AzureNative.ScVmm
             string? typeHandlerVersion)
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            AzureApiVersion = azureApiVersion;
             EnableAutomaticUpgrade = enableAutomaticUpgrade;
             ForceUpdateTag = forceUpdateTag;
             Id = id;

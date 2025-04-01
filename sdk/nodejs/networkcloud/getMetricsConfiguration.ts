@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get metrics configuration of the provided cluster.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMetricsConfiguration(args: GetMetricsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricsConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +40,10 @@ export interface GetMetricsConfigurationArgs {
 
 export interface GetMetricsConfigurationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The interval in minutes by which metrics will be collected.
      */
     readonly collectionInterval: number;
@@ -59,6 +63,10 @@ export interface GetMetricsConfigurationResult {
      * The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
      */
     readonly enabledMetrics?: string[];
+    /**
+     * Resource ETag.
+     */
+    readonly etag: string;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -95,9 +103,9 @@ export interface GetMetricsConfigurationResult {
 /**
  * Get metrics configuration of the provided cluster.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMetricsConfigurationOutput(args: GetMetricsConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMetricsConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

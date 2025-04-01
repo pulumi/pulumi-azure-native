@@ -34,14 +34,3 @@ from .package import *
 from .test_base_account import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.testbase.v20220401preview as __v20220401preview
-    v20220401preview = __v20220401preview
-    import pulumi_azure_native.testbase.v20231101preview as __v20231101preview
-    v20231101preview = __v20231101preview
-else:
-    v20220401preview = _utilities.lazy_import('pulumi_azure_native.testbase.v20220401preview')
-    v20231101preview = _utilities.lazy_import('pulumi_azure_native.testbase.v20231101preview')
-

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public InputUnion<string, Pulumi.AzureNative.Compute.DiskCreateOption> CreateOption { get; set; } = null!;
 
         /// <summary>
+        /// Required if createOption is CopyFromSanSnapshot. This is the ARM id of the source elastic san volume snapshot.
+        /// </summary>
+        [Input("elasticSanResourceId")]
+        public Input<string>? ElasticSanResourceId { get; set; }
+
+        /// <summary>
         /// Required if creating from a Gallery Image. The id/sharedGalleryImageId/communityGalleryImageId of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
         /// </summary>
         [Input("galleryImageReference")]
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// </summary>
         [Input("performancePlus")]
         public Input<bool>? PerformancePlus { get; set; }
+
+        /// <summary>
+        /// If this field is set on a snapshot and createOption is CopyStart, the snapshot will be copied at a quicker speed.
+        /// </summary>
+        [Input("provisionedBandwidthCopySpeed")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.ProvisionedBandwidthCopyOption>? ProvisionedBandwidthCopySpeed { get; set; }
 
         /// <summary>
         /// If createOption is ImportSecure, this is the URI of a blob to be imported into VM guest state.

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// Returns the properties of a lab Schedule.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2023-06-07.
         /// 
-        /// Other available API versions: 2023-06-07.
+        /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:labservices:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// Returns the properties of a lab Schedule.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2023-06-07.
         /// 
-        /// Other available API versions: 2023-06-07.
+        /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:labservices:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// Returns the properties of a lab Schedule.
         /// 
-        /// Uses Azure REST API version 2022-08-01.
+        /// Uses Azure REST API version 2023-06-07.
         /// 
-        /// Other available API versions: 2023-06-07.
+        /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:labservices:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.LabServices
     public sealed class GetScheduleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -119,6 +123,10 @@ namespace Pulumi.AzureNative.LabServices
         /// The recurrence pattern of the scheduled actions.
         /// </summary>
         public readonly Outputs.RecurrencePatternResponse? RecurrencePattern;
+        /// <summary>
+        /// Error details of last operation done on schedule.
+        /// </summary>
+        public readonly Outputs.ResourceOperationErrorResponse ResourceOperationError;
         /// <summary>
         /// When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
         /// </summary>
@@ -142,6 +150,8 @@ namespace Pulumi.AzureNative.LabServices
 
         [OutputConstructor]
         private GetScheduleResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -151,6 +161,8 @@ namespace Pulumi.AzureNative.LabServices
             string provisioningState,
 
             Outputs.RecurrencePatternResponse? recurrencePattern,
+
+            Outputs.ResourceOperationErrorResponse resourceOperationError,
 
             string? startAt,
 
@@ -162,11 +174,13 @@ namespace Pulumi.AzureNative.LabServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Notes = notes;
             ProvisioningState = provisioningState;
             RecurrencePattern = recurrencePattern;
+            ResourceOperationError = resourceOperationError;
             StartAt = startAt;
             StopAt = stopAt;
             SystemData = systemData;

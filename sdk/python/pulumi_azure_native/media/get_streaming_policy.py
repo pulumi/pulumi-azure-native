@@ -27,7 +27,10 @@ class GetStreamingPolicyResult:
     """
     A Streaming Policy resource
     """
-    def __init__(__self__, common_encryption_cbcs=None, common_encryption_cenc=None, created=None, default_content_key_policy_name=None, envelope_encryption=None, id=None, name=None, no_encryption=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, common_encryption_cbcs=None, common_encryption_cenc=None, created=None, default_content_key_policy_name=None, envelope_encryption=None, id=None, name=None, no_encryption=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if common_encryption_cbcs and not isinstance(common_encryption_cbcs, dict):
             raise TypeError("Expected argument 'common_encryption_cbcs' to be a dict")
         pulumi.set(__self__, "common_encryption_cbcs", common_encryption_cbcs)
@@ -58,6 +61,14 @@ class GetStreamingPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="commonEncryptionCbcs")
@@ -146,6 +157,7 @@ class AwaitableGetStreamingPolicyResult(GetStreamingPolicyResult):
         if False:
             yield self
         return GetStreamingPolicyResult(
+            azure_api_version=self.azure_api_version,
             common_encryption_cbcs=self.common_encryption_cbcs,
             common_encryption_cenc=self.common_encryption_cenc,
             created=self.created,
@@ -167,6 +179,8 @@ def get_streaming_policy(account_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-01-01.
 
+    Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
@@ -180,6 +194,7 @@ def get_streaming_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media:getStreamingPolicy', __args__, opts=opts, typ=GetStreamingPolicyResult).value
 
     return AwaitableGetStreamingPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         common_encryption_cbcs=pulumi.get(__ret__, 'common_encryption_cbcs'),
         common_encryption_cenc=pulumi.get(__ret__, 'common_encryption_cenc'),
         created=pulumi.get(__ret__, 'created'),
@@ -199,6 +214,8 @@ def get_streaming_policy_output(account_name: Optional[pulumi.Input[str]] = None
 
     Uses Azure REST API version 2023-01-01.
 
+    Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
@@ -211,6 +228,7 @@ def get_streaming_policy_output(account_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media:getStreamingPolicy', __args__, opts=opts, typ=GetStreamingPolicyResult)
     return __ret__.apply(lambda __response__: GetStreamingPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         common_encryption_cbcs=pulumi.get(__response__, 'common_encryption_cbcs'),
         common_encryption_cenc=pulumi.get(__response__, 'common_encryption_cenc'),
         created=pulumi.get(__response__, 'created'),

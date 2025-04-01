@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The virtual network resource definition.
  *
- * Uses Azure REST API version 2022-12-15-preview.
+ * Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview.
+ * Other available API versions: 2022-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualNetwork.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
      */
@@ -113,12 +117,14 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             resourceInputs["vmSwitchName"] = args ? args.vmSwitchName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dhcpOptions"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -133,7 +139,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["vmSwitchName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20230701preview:VirtualNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20230701preview:VirtualNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetwork.__pulumiType, name, resourceInputs, opts);
     }

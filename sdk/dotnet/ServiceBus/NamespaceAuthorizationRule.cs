@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.ServiceBus
     /// <summary>
     /// Description of a namespace authorization rule.
     /// 
-    /// Uses Azure REST API version 2022-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2017-04-01.
+    /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
     /// 
-    /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -121,20 +127,20 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rights", required: true)]
-        private InputList<Union<string, Pulumi.AzureNative.ServiceBus.AccessRights>>? _rights;
+        private InputList<Pulumi.AzureNative.ServiceBus.AccessRights>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.ServiceBus.AccessRights>> Rights
+        public InputList<Pulumi.AzureNative.ServiceBus.AccessRights> Rights
         {
-            get => _rights ?? (_rights = new InputList<Union<string, Pulumi.AzureNative.ServiceBus.AccessRights>>());
+            get => _rights ?? (_rights = new InputList<Pulumi.AzureNative.ServiceBus.AccessRights>());
             set => _rights = value;
         }
 

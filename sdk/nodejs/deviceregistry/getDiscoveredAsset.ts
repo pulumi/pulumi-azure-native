@@ -40,6 +40,10 @@ export interface GetDiscoveredAssetResult {
      */
     readonly assetEndpointProfileRef: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Array of datasets that are part of the asset. Each dataset spec describes the data points that make up the set.
      */
     readonly datasets?: outputs.deviceregistry.DiscoveredDatasetResponse[];

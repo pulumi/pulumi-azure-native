@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get properties of the provided virtual machine console.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +40,10 @@ export interface GetConsoleArgs {
 
 export interface GetConsoleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The more detailed status of the console.
      */
     readonly detailedStatus: string;
@@ -51,6 +55,10 @@ export interface GetConsoleResult {
      * The indicator of whether the console access is enabled.
      */
     readonly enabled: string;
+    /**
+     * Resource ETag.
+     */
+    readonly etag: string;
     /**
      * The date and time after which the key will be disallowed access.
      */
@@ -103,9 +111,9 @@ export interface GetConsoleResult {
 /**
  * Get properties of the provided virtual machine console.
  *
- * Uses Azure REST API version 2023-10-01-preview.
+ * Uses Azure REST API version 2025-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConsoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -27,7 +27,10 @@ class GetAutoUpgradeProfileResult:
     """
     The AutoUpgradeProfile resource.
     """
-    def __init__(__self__, channel=None, disabled=None, e_tag=None, id=None, name=None, node_image_selection=None, provisioning_state=None, system_data=None, type=None, update_strategy_id=None):
+    def __init__(__self__, azure_api_version=None, channel=None, disabled=None, e_tag=None, id=None, name=None, node_image_selection=None, provisioning_state=None, system_data=None, type=None, update_strategy_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if channel and not isinstance(channel, str):
             raise TypeError("Expected argument 'channel' to be a str")
         pulumi.set(__self__, "channel", channel)
@@ -58,6 +61,14 @@ class GetAutoUpgradeProfileResult:
         if update_strategy_id and not isinstance(update_strategy_id, str):
             raise TypeError("Expected argument 'update_strategy_id' to be a str")
         pulumi.set(__self__, "update_strategy_id", update_strategy_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -149,6 +160,7 @@ class AwaitableGetAutoUpgradeProfileResult(GetAutoUpgradeProfileResult):
         if False:
             yield self
         return GetAutoUpgradeProfileResult(
+            azure_api_version=self.azure_api_version,
             channel=self.channel,
             disabled=self.disabled,
             e_tag=self.e_tag,
@@ -183,6 +195,7 @@ def get_auto_upgrade_profile(auto_upgrade_profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice:getAutoUpgradeProfile', __args__, opts=opts, typ=GetAutoUpgradeProfileResult).value
 
     return AwaitableGetAutoUpgradeProfileResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         channel=pulumi.get(__ret__, 'channel'),
         disabled=pulumi.get(__ret__, 'disabled'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
@@ -214,6 +227,7 @@ def get_auto_upgrade_profile_output(auto_upgrade_profile_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice:getAutoUpgradeProfile', __args__, opts=opts, typ=GetAutoUpgradeProfileResult)
     return __ret__.apply(lambda __response__: GetAutoUpgradeProfileResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         channel=pulumi.get(__response__, 'channel'),
         disabled=pulumi.get(__response__, 'disabled'),
         e_tag=pulumi.get(__response__, 'e_tag'),

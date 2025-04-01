@@ -27,7 +27,10 @@ class GetConnectorResult:
     """
     Define the connector resource.
     """
-    def __init__(__self__, errors=None, id=None, identity=None, location=None, managed_resource_group_configuration=None, name=None, provisioning_state=None, source_resource_id=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, errors=None, id=None, identity=None, location=None, managed_resource_group_configuration=None, name=None, provisioning_state=None, source_resource_id=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if errors and not isinstance(errors, dict):
             raise TypeError("Expected argument 'errors' to be a dict")
         pulumi.set(__self__, "errors", errors)
@@ -61,6 +64,14 @@ class GetConnectorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -157,6 +168,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
         if False:
             yield self
         return GetConnectorResult(
+            azure_api_version=self.azure_api_version,
             errors=self.errors,
             id=self.id,
             identity=self.identity,
@@ -189,6 +201,7 @@ def get_connector(connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
     return AwaitableGetConnectorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         errors=pulumi.get(__ret__, 'errors'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -218,6 +231,7 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getConnector', __args__, opts=opts, typ=GetConnectorResult)
     return __ret__.apply(lambda __response__: GetConnectorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         errors=pulumi.get(__response__, 'errors'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

@@ -27,7 +27,10 @@ class GetPipelineRunResult:
     """
     An object that represents a pipeline run for a container registry.
     """
-    def __init__(__self__, force_update_tag=None, id=None, name=None, provisioning_state=None, request=None, response=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, force_update_tag=None, id=None, name=None, provisioning_state=None, request=None, response=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if force_update_tag and not isinstance(force_update_tag, str):
             raise TypeError("Expected argument 'force_update_tag' to be a str")
         pulumi.set(__self__, "force_update_tag", force_update_tag)
@@ -52,6 +55,14 @@ class GetPipelineRunResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="forceUpdateTag")
@@ -124,6 +135,7 @@ class AwaitableGetPipelineRunResult(GetPipelineRunResult):
         if False:
             yield self
         return GetPipelineRunResult(
+            azure_api_version=self.azure_api_version,
             force_update_tag=self.force_update_tag,
             id=self.id,
             name=self.name,
@@ -141,9 +153,9 @@ def get_pipeline_run(pipeline_run_name: Optional[str] = None,
     """
     Gets the detailed information for a given pipeline run.
 
-    Uses Azure REST API version 2023-01-01-preview.
+    Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str pipeline_run_name: The name of the pipeline run.
@@ -158,6 +170,7 @@ def get_pipeline_run(pipeline_run_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry:getPipelineRun', __args__, opts=opts, typ=GetPipelineRunResult).value
 
     return AwaitableGetPipelineRunResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         force_update_tag=pulumi.get(__ret__, 'force_update_tag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -173,9 +186,9 @@ def get_pipeline_run_output(pipeline_run_name: Optional[pulumi.Input[str]] = Non
     """
     Gets the detailed information for a given pipeline run.
 
-    Uses Azure REST API version 2023-01-01-preview.
+    Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str pipeline_run_name: The name of the pipeline run.
@@ -189,6 +202,7 @@ def get_pipeline_run_output(pipeline_run_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getPipelineRun', __args__, opts=opts, typ=GetPipelineRunResult)
     return __ret__.apply(lambda __response__: GetPipelineRunResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         force_update_tag=pulumi.get(__response__, 'force_update_tag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

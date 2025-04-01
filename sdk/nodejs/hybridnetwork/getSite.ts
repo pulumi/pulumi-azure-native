@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets information about the specified network site.
  *
- * Uses Azure REST API version 2023-09-01.
+ * Uses Azure REST API version 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetSiteArgs {
  * Site resource.
  */
 export interface GetSiteResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -69,9 +73,9 @@ export interface GetSiteResult {
 /**
  * Gets information about the specified network site.
  *
- * Uses Azure REST API version 2023-09-01.
+ * Uses Azure REST API version 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

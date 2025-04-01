@@ -235,9 +235,9 @@ class StreamingLocator(pulumi.CustomResource):
         """
         A Streaming Locator resource
 
-        Uses Azure REST API version 2023-01-01. In version 1.x of the Azure Native provider, it used API version 2020-05-01.
+        Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
-        Other available API versions: 2018-03-30-preview.
+        Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,9 +263,9 @@ class StreamingLocator(pulumi.CustomResource):
         """
         A Streaming Locator resource
 
-        Uses Azure REST API version 2023-01-01. In version 1.x of the Azure Native provider, it used API version 2020-05-01.
+        Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
-        Other available API versions: 2018-03-30-preview.
+        Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param StreamingLocatorArgs args: The arguments to use to populate this resource's properties.
@@ -323,6 +323,7 @@ class StreamingLocator(pulumi.CustomResource):
             if streaming_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'streaming_policy_name'")
             __props__.__dict__["streaming_policy_name"] = streaming_policy_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -353,6 +354,7 @@ class StreamingLocator(pulumi.CustomResource):
 
         __props__.__dict__["alternative_media_id"] = None
         __props__.__dict__["asset_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["content_keys"] = None
         __props__.__dict__["created"] = None
         __props__.__dict__["default_content_key_policy_name"] = None
@@ -381,6 +383,14 @@ class StreamingLocator(pulumi.CustomResource):
         Asset Name
         """
         return pulumi.get(self, "asset_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contentKeys")

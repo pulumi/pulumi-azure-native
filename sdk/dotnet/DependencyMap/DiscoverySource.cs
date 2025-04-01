@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.DependencyMap
     /// <summary>
     /// A Discovery Source resource
     /// 
-    /// Uses Azure REST API version 2025-01-31-preview.
+    /// Uses Azure REST API version 2025-01-31-preview. In version 2.x of the Azure Native provider, it used API version 2025-01-31-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dependencymap:DiscoverySource")]
     public partial class DiscoverySource : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

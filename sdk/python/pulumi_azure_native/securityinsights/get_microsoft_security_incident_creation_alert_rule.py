@@ -27,10 +27,13 @@ class GetMicrosoftSecurityIncidentCreationAlertRuleResult:
     """
     Represents MicrosoftSecurityIncidentCreation rule.
     """
-    def __init__(__self__, alert_rule_template_name=None, description=None, display_name=None, display_names_exclude_filter=None, display_names_filter=None, enabled=None, etag=None, id=None, kind=None, last_modified_utc=None, name=None, product_filter=None, severities_filter=None, system_data=None, type=None):
+    def __init__(__self__, alert_rule_template_name=None, azure_api_version=None, description=None, display_name=None, display_names_exclude_filter=None, display_names_filter=None, enabled=None, etag=None, id=None, kind=None, last_modified_utc=None, name=None, product_filter=None, severities_filter=None, system_data=None, type=None):
         if alert_rule_template_name and not isinstance(alert_rule_template_name, str):
             raise TypeError("Expected argument 'alert_rule_template_name' to be a str")
         pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -81,6 +84,14 @@ class GetMicrosoftSecurityIncidentCreationAlertRuleResult:
         The Name of the alert rule template used to create this rule.
         """
         return pulumi.get(self, "alert_rule_template_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -203,6 +214,7 @@ class AwaitableGetMicrosoftSecurityIncidentCreationAlertRuleResult(GetMicrosoftS
             yield self
         return GetMicrosoftSecurityIncidentCreationAlertRuleResult(
             alert_rule_template_name=self.alert_rule_template_name,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             display_names_exclude_filter=self.display_names_exclude_filter,
@@ -226,7 +238,7 @@ def get_microsoft_security_incident_creation_alert_rule(resource_group_name: Opt
     """
     Gets the alert rule.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -242,6 +254,7 @@ def get_microsoft_security_incident_creation_alert_rule(resource_group_name: Opt
 
     return AwaitableGetMicrosoftSecurityIncidentCreationAlertRuleResult(
         alert_rule_template_name=pulumi.get(__ret__, 'alert_rule_template_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         display_names_exclude_filter=pulumi.get(__ret__, 'display_names_exclude_filter'),
@@ -263,7 +276,7 @@ def get_microsoft_security_incident_creation_alert_rule_output(resource_group_na
     """
     Gets the alert rule.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -278,6 +291,7 @@ def get_microsoft_security_incident_creation_alert_rule_output(resource_group_na
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule', __args__, opts=opts, typ=GetMicrosoftSecurityIncidentCreationAlertRuleResult)
     return __ret__.apply(lambda __response__: GetMicrosoftSecurityIncidentCreationAlertRuleResult(
         alert_rule_template_name=pulumi.get(__response__, 'alert_rule_template_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         display_names_exclude_filter=pulumi.get(__response__, 'display_names_exclude_filter'),

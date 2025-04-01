@@ -47,6 +47,10 @@ export interface GetArtifactSourceResult {
      */
     readonly armTemplateFolderPath?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The artifact source's branch reference.
      */
     readonly branchRef?: string;

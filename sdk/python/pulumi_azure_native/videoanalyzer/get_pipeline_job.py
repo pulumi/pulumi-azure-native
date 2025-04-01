@@ -27,7 +27,10 @@ class GetPipelineJobResult:
     """
     Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
     """
-    def __init__(__self__, description=None, error=None, expiration=None, id=None, name=None, parameters=None, state=None, system_data=None, topology_name=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, error=None, expiration=None, id=None, name=None, parameters=None, state=None, system_data=None, topology_name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -58,6 +61,14 @@ class GetPipelineJobResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetPipelineJobResult(GetPipelineJobResult):
         if False:
             yield self
         return GetPipelineJobResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             error=self.error,
             expiration=self.expiration,
@@ -180,6 +192,7 @@ def get_pipeline_job(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:videoanalyzer:getPipelineJob', __args__, opts=opts, typ=GetPipelineJobResult).value
 
     return AwaitableGetPipelineJobResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         error=pulumi.get(__ret__, 'error'),
         expiration=pulumi.get(__ret__, 'expiration'),
@@ -211,6 +224,7 @@ def get_pipeline_job_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer:getPipelineJob', __args__, opts=opts, typ=GetPipelineJobResult)
     return __ret__.apply(lambda __response__: GetPipelineJobResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         error=pulumi.get(__response__, 'error'),
         expiration=pulumi.get(__response__, 'expiration'),

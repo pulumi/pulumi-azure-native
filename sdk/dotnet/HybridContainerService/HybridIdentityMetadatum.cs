@@ -12,13 +12,17 @@ namespace Pulumi.AzureNative.HybridContainerService
     /// <summary>
     /// Defines the hybridIdentityMetadata.
     /// 
-    /// Uses Azure REST API version 2022-09-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-05-01-preview.
-    /// 
-    /// Other available API versions: 2022-05-01-preview, 2023-11-15-preview, 2024-01-01.
+    /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:HybridIdentityMetadatum")]
     public partial class HybridIdentityMetadatum : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The identity of the provisioned cluster.
         /// </summary>
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNative.HybridContainerService
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:HybridIdentityMetadatum" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:HybridIdentityMetadatum" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20231115preview:HybridIdentityMetadatum" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20240101:HybridIdentityMetadatum" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

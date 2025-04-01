@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// Gets the ingress gateway endpoint credentials 
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-12-01.
         /// 
-        /// Other available API versions: 2024-12-01.
+        /// Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListEndpointIngressGatewayCredentialsResult> InvokeAsync(ListEndpointIngressGatewayCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEndpointIngressGatewayCredentialsResult>("azure-native:hybridconnectivity:listEndpointIngressGatewayCredentials", args ?? new ListEndpointIngressGatewayCredentialsArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// Gets the ingress gateway endpoint credentials 
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-12-01.
         /// 
-        /// Other available API versions: 2024-12-01.
+        /// Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListEndpointIngressGatewayCredentialsResult> Invoke(ListEndpointIngressGatewayCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointIngressGatewayCredentialsResult>("azure-native:hybridconnectivity:listEndpointIngressGatewayCredentials", args ?? new ListEndpointIngressGatewayCredentialsInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// Gets the ingress gateway endpoint credentials 
         /// 
-        /// Uses Azure REST API version 2023-03-15.
+        /// Uses Azure REST API version 2024-12-01.
         /// 
-        /// Other available API versions: 2024-12-01.
+        /// Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListEndpointIngressGatewayCredentialsResult> Invoke(ListEndpointIngressGatewayCredentialsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointIngressGatewayCredentialsResult>("azure-native:hybridconnectivity:listEndpointIngressGatewayCredentials", args ?? new ListEndpointIngressGatewayCredentialsInvokeArgs(), options.WithDefaults());
@@ -58,13 +58,13 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public int? Expiresin { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
 
         /// <summary>
-        /// The name of the service.
+        /// The name of the service. If not provided, the request will by pass the generation of service configuration token.
         /// </summary>
         [Input("serviceName")]
         public Union<string, Pulumi.AzureNative.HybridConnectivity.ServiceName>? ServiceName { get; set; }
@@ -90,13 +90,13 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public Input<int>? Expiresin { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
 
         /// <summary>
-        /// The name of the service.
+        /// The name of the service. If not provided, the request will by pass the generation of service configuration token.
         /// </summary>
         [Input("serviceName")]
         public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.ServiceName>? ServiceName { get; set; }

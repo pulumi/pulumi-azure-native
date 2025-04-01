@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Represents an instance of an auto scale v-core resource.
  *
- * Uses Azure REST API version 2021-01-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+ * Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
  */
 export class AutoScaleVCore extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class AutoScaleVCore extends pulumi.CustomResource {
         return obj['__pulumiType'] === AutoScaleVCore.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The maximum capacity of an auto scale v-core resource.
      */
@@ -101,10 +105,12 @@ export class AutoScaleVCore extends pulumi.CustomResource {
             resourceInputs["systemData"] = args ? args.systemData : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vcoreName"] = args ? args.vcoreName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capacityLimit"] = undefined /*out*/;
             resourceInputs["capacityObjectId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Get a trusted Signing Account.
         /// 
-        /// Uses Azure REST API version 2024-02-05-preview.
+        /// Uses Azure REST API version 2024-09-30-preview.
         /// 
-        /// Other available API versions: 2024-09-30-preview.
+        /// Other available API versions: 2024-02-05-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCodeSigningAccountResult> InvokeAsync(GetCodeSigningAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodeSigningAccountResult>("azure-native:codesigning:getCodeSigningAccount", args ?? new GetCodeSigningAccountArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Get a trusted Signing Account.
         /// 
-        /// Uses Azure REST API version 2024-02-05-preview.
+        /// Uses Azure REST API version 2024-09-30-preview.
         /// 
-        /// Other available API versions: 2024-09-30-preview.
+        /// Other available API versions: 2024-02-05-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCodeSigningAccountResult> Invoke(GetCodeSigningAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningAccountResult>("azure-native:codesigning:getCodeSigningAccount", args ?? new GetCodeSigningAccountInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Get a trusted Signing Account.
         /// 
-        /// Uses Azure REST API version 2024-02-05-preview.
+        /// Uses Azure REST API version 2024-09-30-preview.
         /// 
-        /// Other available API versions: 2024-09-30-preview.
+        /// Other available API versions: 2024-02-05-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCodeSigningAccountResult> Invoke(GetCodeSigningAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningAccountResult>("azure-native:codesigning:getCodeSigningAccount", args ?? new GetCodeSigningAccountInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.CodeSigning
         /// </summary>
         public readonly string AccountUri;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNative.CodeSigning
         private GetCodeSigningAccountResult(
             string accountUri,
 
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.CodeSigning
             string type)
         {
             AccountUri = accountUri;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

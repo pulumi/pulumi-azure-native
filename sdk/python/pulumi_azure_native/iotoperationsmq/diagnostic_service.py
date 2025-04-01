@@ -282,7 +282,7 @@ class DiagnosticService(pulumi.CustomResource):
         """
         MQ diagnostic services resource
 
-        Uses Azure REST API version 2023-10-04-preview.
+        Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -310,7 +310,7 @@ class DiagnosticService(pulumi.CustomResource):
         """
         MQ diagnostic services resource
 
-        Uses Azure REST API version 2023-10-04-preview.
+        Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param DiagnosticServiceArgs args: The arguments to use to populate this resource's properties.
@@ -384,6 +384,7 @@ class DiagnosticService(pulumi.CustomResource):
                 stale_data_timeout_seconds = 600
             __props__.__dict__["stale_data_timeout_seconds"] = stale_data_timeout_seconds
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -412,6 +413,7 @@ class DiagnosticService(pulumi.CustomResource):
 
         __props__ = DiagnosticServiceArgs.__new__(DiagnosticServiceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["data_export_frequency_seconds"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["image"] = None
@@ -428,6 +430,14 @@ class DiagnosticService(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DiagnosticService(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataExportFrequencySeconds")

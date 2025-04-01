@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Factory resource type.
  *
- * Uses Azure REST API version 2018-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01.
+ * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
  */
 export class Factory extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Factory extends pulumi.CustomResource {
         return obj['__pulumiType'] === Factory.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Time the factory was created in ISO8601 format.
      */
@@ -120,6 +124,7 @@ export class Factory extends pulumi.CustomResource {
             resourceInputs["repoConfiguration"] = args ? args.repoConfiguration : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -127,6 +132,7 @@ export class Factory extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;

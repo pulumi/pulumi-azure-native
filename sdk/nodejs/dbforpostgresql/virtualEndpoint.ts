@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Represents a virtual endpoint for a server.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VirtualEndpoint extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class VirtualEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualEndpoint.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The endpoint type for the virtual endpoint.
      */
@@ -88,11 +92,13 @@ export class VirtualEndpoint extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["virtualEndpointName"] = args ? args.virtualEndpointName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualEndpoints"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpointType"] = undefined /*out*/;
             resourceInputs["members"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// Gets information about a configuration of server.
         /// 
         /// Uses Azure REST API version 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbformariadb:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// Gets information about a configuration of server.
         /// 
         /// Uses Azure REST API version 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbformariadb:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// Gets information about a configuration of server.
         /// 
         /// Uses Azure REST API version 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbformariadb:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
@@ -104,6 +98,10 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// </summary>
         public readonly string AllowedValues;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Data type of the configuration.
         /// </summary>
         public readonly string DataType;
@@ -140,6 +138,8 @@ namespace Pulumi.AzureNative.DBforMariaDB
         private GetConfigurationResult(
             string allowedValues,
 
+            string azureApiVersion,
+
             string dataType,
 
             string defaultValue,
@@ -157,6 +157,7 @@ namespace Pulumi.AzureNative.DBforMariaDB
             string? value)
         {
             AllowedValues = allowedValues;
+            AzureApiVersion = azureApiVersion;
             DataType = dataType;
             DefaultValue = defaultValue;
             Description = description;

@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetVirtualMachineResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The extendedLocation of the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetVirtualMachineResult(
+            string azureApiVersion,
+
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             Outputs.GuestAgentProfileResponse? guestAgentProfile,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string vmId)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             GuestAgentProfile = guestAgentProfile;
             HardwareProfile = hardwareProfile;

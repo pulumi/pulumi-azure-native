@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Defines the GuestAgent.
  *
- * Uses Azure REST API version 2022-05-21-preview.
+ * Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+ * Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GuestAgent extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class GuestAgent extends pulumi.CustomResource {
         return obj['__pulumiType'] === GuestAgent.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Username / Password Credentials to provision guest agent.
      */
@@ -105,6 +109,7 @@ export class GuestAgent extends pulumi.CustomResource {
             resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -113,6 +118,7 @@ export class GuestAgent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["httpProxyConfig"] = undefined /*out*/;
@@ -125,7 +131,7 @@ export class GuestAgent extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20220521preview:GuestAgent" }, { type: "azure-native:scvmm/v20230401preview:GuestAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20220521preview:GuestAgent" }, { type: "azure-native:scvmm/v20230401preview:GuestAgent" }, { type: "azure-native:scvmm/v20231007:GuestAgent" }, { type: "azure-native:scvmm/v20240601:GuestAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestAgent.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,11 +10,3 @@ from .community_training import *
 from .get_community_training import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.community.v20231101 as __v20231101
-    v20231101 = __v20231101
-else:
-    v20231101 = _utilities.lazy_import('pulumi_azure_native.community.v20231101')
-

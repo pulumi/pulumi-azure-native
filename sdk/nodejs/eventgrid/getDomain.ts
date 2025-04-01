@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get properties of a domain.
  *
- * Uses Azure REST API version 2022-06-15.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,6 +58,10 @@ export interface GetDomainResult {
      */
     readonly autoDeleteTopicWithLastSubscription?: boolean;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Data Residency Boundary of the resource.
      */
     readonly dataResidencyBoundary?: string;
@@ -69,6 +73,11 @@ export interface GetDomainResult {
      * Endpoint for the Event Grid Domain Resource which is used for publishing the events.
      */
     readonly endpoint: string;
+    /**
+     * Event Type Information for the domain. This information is provided by the publisher and can be used by the 
+     * subscriber to view different types of events that are published.
+     */
+    readonly eventTypeInfo?: outputs.eventgrid.EventTypeInfoResponse;
     /**
      * Fully qualified identifier of the resource.
      */
@@ -98,6 +107,10 @@ export interface GetDomainResult {
      */
     readonly metricResourceId: string;
     /**
+     * Minimum TLS version of the publisher allowed to publish to this domain
+     */
+    readonly minimumTlsVersionAllowed?: string;
+    /**
      * Name of the resource.
      */
     readonly name: string;
@@ -115,7 +128,7 @@ export interface GetDomainResult {
      */
     readonly publicNetworkAccess?: string;
     /**
-     * The system metadata relating to the Event Grid Domain resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -130,9 +143,9 @@ export interface GetDomainResult {
 /**
  * Get properties of a domain.
  *
- * Uses Azure REST API version 2022-06-15.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

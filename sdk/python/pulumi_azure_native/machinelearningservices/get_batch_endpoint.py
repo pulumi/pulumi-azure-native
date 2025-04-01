@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetBatchEndpointResult:
-    def __init__(__self__, batch_endpoint_properties=None, id=None, identity=None, kind=None, location=None, name=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, batch_endpoint_properties=None, id=None, identity=None, kind=None, location=None, name=None, sku=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if batch_endpoint_properties and not isinstance(batch_endpoint_properties, dict):
             raise TypeError("Expected argument 'batch_endpoint_properties' to be a dict")
         pulumi.set(__self__, "batch_endpoint_properties", batch_endpoint_properties)
@@ -55,6 +58,14 @@ class GetBatchEndpointResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="batchEndpointProperties")
@@ -143,6 +154,7 @@ class AwaitableGetBatchEndpointResult(GetBatchEndpointResult):
         if False:
             yield self
         return GetBatchEndpointResult(
+            azure_api_version=self.azure_api_version,
             batch_endpoint_properties=self.batch_endpoint_properties,
             id=self.id,
             identity=self.identity,
@@ -160,9 +172,9 @@ def get_batch_endpoint(endpoint_name: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchEndpointResult:
     """
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str endpoint_name: Name for the Batch Endpoint.
@@ -177,6 +189,7 @@ def get_batch_endpoint(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getBatchEndpoint', __args__, opts=opts, typ=GetBatchEndpointResult).value
 
     return AwaitableGetBatchEndpointResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         batch_endpoint_properties=pulumi.get(__ret__, 'batch_endpoint_properties'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -192,9 +205,9 @@ def get_batch_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBatchEndpointResult]:
     """
-    Uses Azure REST API version 2023-04-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str endpoint_name: Name for the Batch Endpoint.
@@ -208,6 +221,7 @@ def get_batch_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getBatchEndpoint', __args__, opts=opts, typ=GetBatchEndpointResult)
     return __ret__.apply(lambda __response__: GetBatchEndpointResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         batch_endpoint_properties=pulumi.get(__response__, 'batch_endpoint_properties'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

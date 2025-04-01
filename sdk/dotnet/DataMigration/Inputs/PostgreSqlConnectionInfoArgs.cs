@@ -16,6 +16,24 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     public sealed class PostgreSqlConnectionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Additional connection settings
+        /// </summary>
+        [Input("additionalSettings")]
+        public Input<string>? AdditionalSettings { get; set; }
+
+        /// <summary>
+        /// Authentication type to use for connection
+        /// </summary>
+        [Input("authentication")]
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.AuthenticationType>? Authentication { get; set; }
+
+        /// <summary>
+        /// Data source 
+        /// </summary>
+        [Input("dataSource")]
+        public Input<string>? DataSource { get; set; }
+
+        /// <summary>
         /// Name of the database
         /// </summary>
         [Input("databaseName")]
@@ -40,10 +58,22 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
+        /// server brand version
+        /// </summary>
+        [Input("serverBrandVersion")]
+        public Input<string>? ServerBrandVersion { get; set; }
+
+        /// <summary>
         /// Name of the server
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// server version
+        /// </summary>
+        [Input("serverVersion")]
+        public Input<string>? ServerVersion { get; set; }
 
         /// <summary>
         /// Whether to trust the server certificate

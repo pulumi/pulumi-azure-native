@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.Outputs
     public sealed class ResourceMetadataResponse
     {
         /// <summary>
+        /// Account Id. For example - the AWS account id.
+        /// </summary>
+        public readonly string? AccountId;
+        /// <summary>
         /// Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
         /// </summary>
         public readonly string ResourceId;
@@ -25,35 +29,31 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.Outputs
         /// </summary>
         public readonly string? ResourceKind;
         /// <summary>
-        /// Resource name.
+        /// Resource Origin.
         /// </summary>
-        public readonly string? ResourceName;
+        public readonly string? ResourceOrigin;
         /// <summary>
-        /// Resource type.
+        /// Resource type. e.g. "Microsoft.Compute/virtualMachines"
         /// </summary>
         public readonly string? ResourceType;
-        /// <summary>
-        /// Resource's tag type.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private ResourceMetadataResponse(
+            string? accountId,
+
             string resourceId,
 
             string? resourceKind,
 
-            string? resourceName,
+            string? resourceOrigin,
 
-            string? resourceType,
-
-            ImmutableDictionary<string, string>? tags)
+            string? resourceType)
         {
+            AccountId = accountId;
             ResourceId = resourceId;
             ResourceKind = resourceKind;
-            ResourceName = resourceName;
+            ResourceOrigin = resourceOrigin;
             ResourceType = resourceType;
-            Tags = tags;
         }
     }
 }

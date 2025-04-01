@@ -138,9 +138,9 @@ class CredentialSet(pulumi.CustomResource):
         """
         An object that represents a credential set resource for a container registry.
 
-        Uses Azure REST API version 2023-01-01-preview.
+        Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,9 +161,9 @@ class CredentialSet(pulumi.CustomResource):
         """
         An object that represents a credential set resource for a container registry.
 
-        Uses Azure REST API version 2023-01-01-preview.
+        Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param CredentialSetArgs args: The arguments to use to populate this resource's properties.
@@ -205,6 +205,7 @@ class CredentialSet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -235,6 +236,7 @@ class CredentialSet(pulumi.CustomResource):
         __props__ = CredentialSetArgs.__new__(CredentialSetArgs)
 
         __props__.__dict__["auth_credentials"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["login_server"] = None
@@ -252,6 +254,14 @@ class CredentialSet(pulumi.CustomResource):
         Usually consists of a primary and an optional secondary credential.
         """
         return pulumi.get(self, "auth_credentials")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")

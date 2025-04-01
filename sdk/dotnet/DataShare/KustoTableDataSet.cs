@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.DataShare
     /// <summary>
     /// A kusto table data set.
     /// 
-    /// Uses Azure REST API version 2021-08-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+    /// Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:KustoTableDataSet")]
     public partial class KustoTableDataSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Unique id for identifying a data set resource
         /// </summary>
@@ -107,8 +113,36 @@ namespace Pulumi.AzureNative.DataShare
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:KustoTableDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:KustoTableDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:KustoTableDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobStorageAccountDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:KustoTableDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen1FileDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen1FolderDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2FileDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2FileSystemDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2FolderDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobContainerDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobFolderDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:KustoClusterDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:KustoDatabaseDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:KustoTableDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:SqlDBTableDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:SqlDWTableDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen1FileDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen1FolderDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FileDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FileSystemDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FolderDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:BlobContainerDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:BlobDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:BlobFolderDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:KustoClusterDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:KustoDatabaseDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDBTableDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDWTableDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

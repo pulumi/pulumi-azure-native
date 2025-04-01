@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a database.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// </summary>
         public static Task<GetReadOnlyFollowingDatabaseResult> InvokeAsync(GetReadOnlyFollowingDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReadOnlyFollowingDatabaseResult>("azure-native:kusto:getReadOnlyFollowingDatabase", args ?? new GetReadOnlyFollowingDatabaseArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a database.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// </summary>
         public static Output<GetReadOnlyFollowingDatabaseResult> Invoke(GetReadOnlyFollowingDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReadOnlyFollowingDatabaseResult>("azure-native:kusto:getReadOnlyFollowingDatabase", args ?? new GetReadOnlyFollowingDatabaseInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// Returns a database.
         /// 
-        /// Uses Azure REST API version 2022-12-29.
+        /// Uses Azure REST API version 2024-04-13.
         /// </summary>
         public static Output<GetReadOnlyFollowingDatabaseResult> Invoke(GetReadOnlyFollowingDatabaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReadOnlyFollowingDatabaseResult>("azure-native:kusto:getReadOnlyFollowingDatabase", args ?? new GetReadOnlyFollowingDatabaseInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Kusto
         public string DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -97,6 +97,10 @@ namespace Pulumi.AzureNative.Kusto
         /// The name of the attached database configuration cluster
         /// </summary>
         public readonly string AttachedDatabaseConfigurationName;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The origin of the following setup.
         /// </summary>
@@ -147,6 +151,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly Outputs.DatabaseStatisticsResponse Statistics;
         /// <summary>
+        /// The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+        /// </summary>
+        public readonly Outputs.SuspensionDetailsResponse SuspensionDetails;
+        /// <summary>
         /// Table level sharing specifications
         /// </summary>
         public readonly Outputs.TableLevelSharingPropertiesResponse TableLevelSharingProperties;
@@ -158,6 +166,8 @@ namespace Pulumi.AzureNative.Kusto
         [OutputConstructor]
         private GetReadOnlyFollowingDatabaseResult(
             string attachedDatabaseConfigurationName,
+
+            string azureApiVersion,
 
             string databaseShareOrigin,
 
@@ -183,11 +193,14 @@ namespace Pulumi.AzureNative.Kusto
 
             Outputs.DatabaseStatisticsResponse statistics,
 
+            Outputs.SuspensionDetailsResponse suspensionDetails,
+
             Outputs.TableLevelSharingPropertiesResponse tableLevelSharingProperties,
 
             string type)
         {
             AttachedDatabaseConfigurationName = attachedDatabaseConfigurationName;
+            AzureApiVersion = azureApiVersion;
             DatabaseShareOrigin = databaseShareOrigin;
             HotCachePeriod = hotCachePeriod;
             Id = id;
@@ -200,6 +213,7 @@ namespace Pulumi.AzureNative.Kusto
             ProvisioningState = provisioningState;
             SoftDeletePeriod = softDeletePeriod;
             Statistics = statistics;
+            SuspensionDetails = suspensionDetails;
             TableLevelSharingProperties = tableLevelSharingProperties;
             Type = type;
         }

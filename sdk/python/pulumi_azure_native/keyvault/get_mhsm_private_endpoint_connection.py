@@ -27,13 +27,19 @@ class GetMHSMPrivateEndpointConnectionResult:
     """
     Private endpoint connection resource.
     """
-    def __init__(__self__, etag=None, id=None, location=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, identity=None, location=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -63,6 +69,14 @@ class GetMHSMPrivateEndpointConnectionResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
@@ -77,6 +91,14 @@ class GetMHSMPrivateEndpointConnectionResult:
         The Azure Resource Manager resource ID for the managed HSM Pool.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -157,8 +179,10 @@ class AwaitableGetMHSMPrivateEndpointConnectionResult(GetMHSMPrivateEndpointConn
         if False:
             yield self
         return GetMHSMPrivateEndpointConnectionResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             private_endpoint=self.private_endpoint,
@@ -177,9 +201,9 @@ def get_mhsm_private_endpoint_connection(name: Optional[str] = None,
     """
     Gets the specified private endpoint connection associated with the managed HSM Pool.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+    Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the managed HSM Pool
@@ -194,8 +218,10 @@ def get_mhsm_private_endpoint_connection(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:keyvault:getMHSMPrivateEndpointConnection', __args__, opts=opts, typ=GetMHSMPrivateEndpointConnectionResult).value
 
     return AwaitableGetMHSMPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
@@ -212,9 +238,9 @@ def get_mhsm_private_endpoint_connection_output(name: Optional[pulumi.Input[str]
     """
     Gets the specified private endpoint connection associated with the managed HSM Pool.
 
-    Uses Azure REST API version 2023-02-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+    Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the managed HSM Pool
@@ -228,8 +254,10 @@ def get_mhsm_private_endpoint_connection_output(name: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:keyvault:getMHSMPrivateEndpointConnection', __args__, opts=opts, typ=GetMHSMPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetMHSMPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         private_endpoint=pulumi.get(__response__, 'private_endpoint'),

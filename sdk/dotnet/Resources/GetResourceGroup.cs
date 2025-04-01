@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Gets a resource group.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure-native:resources:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Gets a resource group.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure-native:resources:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Gets a resource group.
         /// 
-        /// Uses Azure REST API version 2022-09-01.
+        /// Uses Azure REST API version 2024-03-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure-native:resources:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());
@@ -76,6 +76,10 @@ namespace Pulumi.AzureNative.Resources
     public sealed class GetResourceGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ID of the resource group.
         /// </summary>
         public readonly string Id;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNative.Resources
 
         [OutputConstructor]
         private GetResourceGroupResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.Resources
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             ManagedBy = managedBy;

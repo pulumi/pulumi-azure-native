@@ -2,14 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * NSX Port Mirroring
+ * Get a WorkloadNetworkPortMirroring
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkloadNetworkPortMirroring(args: GetWorkloadNetworkPortMirroringArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkPortMirroringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -22,7 +25,7 @@ export function getWorkloadNetworkPortMirroring(args: GetWorkloadNetworkPortMirr
 
 export interface GetWorkloadNetworkPortMirroringArgs {
     /**
-     * NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
+     * ID of the NSX port mirroring profile.
      */
     portMirroringId: string;
     /**
@@ -40,6 +43,10 @@ export interface GetWorkloadNetworkPortMirroringArgs {
  */
 export interface GetWorkloadNetworkPortMirroringResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Destination VM Group.
      */
     readonly destination?: string;
@@ -52,11 +59,11 @@ export interface GetWorkloadNetworkPortMirroringResult {
      */
     readonly displayName?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -76,16 +83,20 @@ export interface GetWorkloadNetworkPortMirroringResult {
      */
     readonly status: string;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.avs.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * NSX Port Mirroring
+ * Get a WorkloadNetworkPortMirroring
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkloadNetworkPortMirroringOutput(args: GetWorkloadNetworkPortMirroringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadNetworkPortMirroringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -98,7 +109,7 @@ export function getWorkloadNetworkPortMirroringOutput(args: GetWorkloadNetworkPo
 
 export interface GetWorkloadNetworkPortMirroringOutputArgs {
     /**
-     * NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
+     * ID of the NSX port mirroring profile.
      */
     portMirroringId: pulumi.Input<string>;
     /**

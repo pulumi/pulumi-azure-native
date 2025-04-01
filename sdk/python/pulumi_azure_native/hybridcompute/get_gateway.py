@@ -27,10 +27,13 @@ class GetGatewayResult:
     """
     Describes an Arc Gateway.
     """
-    def __init__(__self__, allowed_features=None, gateway_endpoint=None, gateway_id=None, gateway_type=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, allowed_features=None, azure_api_version=None, gateway_endpoint=None, gateway_id=None, gateway_type=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if allowed_features and not isinstance(allowed_features, list):
             raise TypeError("Expected argument 'allowed_features' to be a list")
         pulumi.set(__self__, "allowed_features", allowed_features)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if gateway_endpoint and not isinstance(gateway_endpoint, str):
             raise TypeError("Expected argument 'gateway_endpoint' to be a str")
         pulumi.set(__self__, "gateway_endpoint", gateway_endpoint)
@@ -69,6 +72,14 @@ class GetGatewayResult:
         Specifies the list of features that are enabled for this Gateway.
         """
         return pulumi.get(self, "allowed_features")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="gatewayEndpoint")
@@ -158,6 +169,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             yield self
         return GetGatewayResult(
             allowed_features=self.allowed_features,
+            azure_api_version=self.azure_api_version,
             gateway_endpoint=self.gateway_endpoint,
             gateway_id=self.gateway_id,
             gateway_type=self.gateway_type,
@@ -176,9 +188,9 @@ def get_gateway(gateway_name: Optional[str] = None,
     """
     Retrieves information about the view of a gateway.
 
-    Uses Azure REST API version 2024-03-31-preview.
+    Uses Azure REST API version 2024-07-31-preview.
 
-    Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+    Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str gateway_name: The name of the Gateway.
@@ -192,6 +204,7 @@ def get_gateway(gateway_name: Optional[str] = None,
 
     return AwaitableGetGatewayResult(
         allowed_features=pulumi.get(__ret__, 'allowed_features'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         gateway_endpoint=pulumi.get(__ret__, 'gateway_endpoint'),
         gateway_id=pulumi.get(__ret__, 'gateway_id'),
         gateway_type=pulumi.get(__ret__, 'gateway_type'),
@@ -208,9 +221,9 @@ def get_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves information about the view of a gateway.
 
-    Uses Azure REST API version 2024-03-31-preview.
+    Uses Azure REST API version 2024-07-31-preview.
 
-    Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+    Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str gateway_name: The name of the Gateway.
@@ -223,6 +236,7 @@ def get_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcompute:getGateway', __args__, opts=opts, typ=GetGatewayResult)
     return __ret__.apply(lambda __response__: GetGatewayResult(
         allowed_features=pulumi.get(__response__, 'allowed_features'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         gateway_endpoint=pulumi.get(__response__, 'gateway_endpoint'),
         gateway_id=pulumi.get(__response__, 'gateway_id'),
         gateway_type=pulumi.get(__response__, 'gateway_type'),

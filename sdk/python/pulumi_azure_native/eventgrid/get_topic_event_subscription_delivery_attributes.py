@@ -57,14 +57,14 @@ def get_topic_event_subscription_delivery_attributes(event_subscription_name: Op
     """
     Get all delivery attributes for an event subscription for topic.
 
-    Uses Azure REST API version 2022-06-15.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str event_subscription_name: Name of the event subscription.
     :param str resource_group_name: The name of the resource group within the user's subscription.
-    :param str topic_name: Name of the domain topic.
+    :param str topic_name: Name of the topic.
     """
     __args__ = dict()
     __args__['eventSubscriptionName'] = event_subscription_name
@@ -82,14 +82,14 @@ def get_topic_event_subscription_delivery_attributes_output(event_subscription_n
     """
     Get all delivery attributes for an event subscription for topic.
 
-    Uses Azure REST API version 2022-06-15.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str event_subscription_name: Name of the event subscription.
     :param str resource_group_name: The name of the resource group within the user's subscription.
-    :param str topic_name: Name of the domain topic.
+    :param str topic_name: Name of the topic.
     """
     __args__ = dict()
     __args__['eventSubscriptionName'] = event_subscription_name

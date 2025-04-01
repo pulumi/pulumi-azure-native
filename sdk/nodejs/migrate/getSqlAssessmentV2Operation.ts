@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a SqlAssessmentV2
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSqlAssessmentV2Operation(args: GetSqlAssessmentV2OperationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlAssessmentV2OperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,6 +55,10 @@ export interface GetSqlAssessmentV2OperationResult {
      * Gets or sets user preference indicating intent of async commit mode.
      */
     readonly asyncCommitModeIntent?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
@@ -126,7 +130,7 @@ export interface GetSqlAssessmentV2OperationResult {
      */
     readonly groupType?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -224,9 +228,9 @@ export interface GetSqlAssessmentV2OperationResult {
 /**
  * Get a SqlAssessmentV2
  *
- * Uses Azure REST API version 2023-03-15.
+ * Uses Azure REST API version 2024-01-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSqlAssessmentV2OperationOutput(args: GetSqlAssessmentV2OperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlAssessmentV2OperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

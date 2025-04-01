@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// Describes the suppression rule
     /// 
-    /// Uses Azure REST API version 2019-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2019-01-01-preview.
+    /// Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:AlertsSuppressionRule")]
     public partial class AlertsSuppressionRule : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("alertType")]
         public Output<string> AlertType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Any comment regarding the rule

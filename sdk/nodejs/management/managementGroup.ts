@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The management group details.
  *
- * Uses Azure REST API version 2021-04-01. In version 1.x of the Azure Native provider, it used API version 2020-05-01.
+ * Uses Azure REST API version 2023-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
  *
- * Other available API versions: 2023-04-01.
+ * Other available API versions: 2021-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ManagementGroup extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class ManagementGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagementGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The list of children.
      */
@@ -81,10 +85,12 @@ export class ManagementGroup extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["groupId"] = args ? args.groupId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["children"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["children"] = undefined /*out*/;
             resourceInputs["details"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;

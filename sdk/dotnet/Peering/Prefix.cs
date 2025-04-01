@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Peering
     /// <summary>
     /// The peering service prefix class.
     /// 
-    /// Uses Azure REST API version 2022-10-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+    /// Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:Prefix")]
     public partial class Prefix : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The error message for validation state
         /// </summary>

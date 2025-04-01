@@ -12,13 +12,31 @@ namespace Pulumi.AzureNative.Sql
     /// <summary>
     /// An elastic pool.
     /// 
-    /// Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+    /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
-    /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    /// Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ElasticPool")]
     public partial class ElasticPool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Time in minutes after which elastic pool is automatically paused. A value of -1 means that automatic pause is disabled
+        /// </summary>
+        [Output("autoPauseDelay")]
+        public Output<int?> AutoPauseDelay { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the availability zone the pool's primary replica is pinned to.
+        /// </summary>
+        [Output("availabilityZone")]
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The creation date of the elastic pool (ISO8601 format).
         /// </summary>
@@ -26,7 +44,7 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+        /// The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
         /// </summary>
         [Output("highAvailabilityReplicaCount")]
         public Output<int?> HighAvailabilityReplicaCount { get; private set; } = null!;
@@ -78,6 +96,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("perDatabaseSettings")]
         public Output<Outputs.ElasticPoolPerDatabaseSettingsResponse?> PerDatabaseSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of enclave requested on the elastic pool.
+        /// </summary>
+        [Output("preferredEnclaveType")]
+        public Output<string?> PreferredEnclaveType { get; private set; } = null!;
 
         /// <summary>
         /// The elastic pool SKU.
@@ -183,13 +207,25 @@ namespace Pulumi.AzureNative.Sql
     public sealed class ElasticPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Time in minutes after which elastic pool is automatically paused. A value of -1 means that automatic pause is disabled
+        /// </summary>
+        [Input("autoPauseDelay")]
+        public Input<int>? AutoPauseDelay { get; set; }
+
+        /// <summary>
+        /// Specifies the availability zone the pool's primary replica is pinned to.
+        /// </summary>
+        [Input("availabilityZone")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.AvailabilityZoneType>? AvailabilityZone { get; set; }
+
+        /// <summary>
         /// The name of the elastic pool.
         /// </summary>
         [Input("elasticPoolName")]
         public Input<string>? ElasticPoolName { get; set; }
 
         /// <summary>
-        /// The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+        /// The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
         /// </summary>
         [Input("highAvailabilityReplicaCount")]
         public Input<int>? HighAvailabilityReplicaCount { get; set; }
@@ -229,6 +265,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("perDatabaseSettings")]
         public Input<Inputs.ElasticPoolPerDatabaseSettingsArgs>? PerDatabaseSettings { get; set; }
+
+        /// <summary>
+        /// Type of enclave requested on the elastic pool.
+        /// </summary>
+        [Input("preferredEnclaveType")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.AlwaysEncryptedEnclaveType>? PreferredEnclaveType { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

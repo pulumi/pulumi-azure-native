@@ -25,18 +25,21 @@ __all__ = [
 @pulumi.output_type
 class GetL2IsolationDomainResult:
     """
-    The L2IsolationDomain resource definition.
+    The L2 Isolation Domain resource definition.
     """
-    def __init__(__self__, administrative_state=None, annotation=None, disabled_on_resources=None, id=None, location=None, mtu=None, name=None, network_fabric_id=None, provisioning_state=None, system_data=None, tags=None, type=None, vlan_id=None):
+    def __init__(__self__, administrative_state=None, annotation=None, azure_api_version=None, configuration_state=None, id=None, location=None, mtu=None, name=None, network_fabric_id=None, provisioning_state=None, system_data=None, tags=None, type=None, vlan_id=None):
         if administrative_state and not isinstance(administrative_state, str):
             raise TypeError("Expected argument 'administrative_state' to be a str")
         pulumi.set(__self__, "administrative_state", administrative_state)
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
-        if disabled_on_resources and not isinstance(disabled_on_resources, list):
-            raise TypeError("Expected argument 'disabled_on_resources' to be a list")
-        pulumi.set(__self__, "disabled_on_resources", disabled_on_resources)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if configuration_state and not isinstance(configuration_state, str):
+            raise TypeError("Expected argument 'configuration_state' to be a str")
+        pulumi.set(__self__, "configuration_state", configuration_state)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -72,7 +75,7 @@ class GetL2IsolationDomainResult:
     @pulumi.getter(name="administrativeState")
     def administrative_state(self) -> str:
         """
-        state. Example: Enabled | Disabled. It indicates administrative state of the isolationDomain, whether it is enabled or disabled. If enabled, the configuration is applied on the devices. If disabled, the configuration is removed from the devices
+        Administrative state of the resource.
         """
         return pulumi.get(self, "administrative_state")
 
@@ -85,18 +88,26 @@ class GetL2IsolationDomainResult:
         return pulumi.get(self, "annotation")
 
     @property
-    @pulumi.getter(name="disabledOnResources")
-    def disabled_on_resources(self) -> Sequence[str]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
         """
-        List of resources the L2 Isolation Domain is disabled on. Can be either entire NetworkFabric or NetworkRack.
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "disabled_on_resources")
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> str:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -112,7 +123,7 @@ class GetL2IsolationDomainResult:
     @pulumi.getter
     def mtu(self) -> Optional[int]:
         """
-        maximum transmission unit. Default value is 1500.
+        Maximum transmission unit. Default value is 1500.
         """
         return pulumi.get(self, "mtu")
 
@@ -128,7 +139,7 @@ class GetL2IsolationDomainResult:
     @pulumi.getter(name="networkFabricId")
     def network_fabric_id(self) -> str:
         """
-        Network Fabric ARM resource id.
+        ARM Resource ID of the Network Fabric.
         """
         return pulumi.get(self, "network_fabric_id")
 
@@ -136,7 +147,7 @@ class GetL2IsolationDomainResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -168,7 +179,7 @@ class GetL2IsolationDomainResult:
     @pulumi.getter(name="vlanId")
     def vlan_id(self) -> int:
         """
-        vlanId. Example: 501.
+        Vlan Identifier of the Network Fabric. Example: 501.
         """
         return pulumi.get(self, "vlan_id")
 
@@ -181,7 +192,8 @@ class AwaitableGetL2IsolationDomainResult(GetL2IsolationDomainResult):
         return GetL2IsolationDomainResult(
             administrative_state=self.administrative_state,
             annotation=self.annotation,
-            disabled_on_resources=self.disabled_on_resources,
+            azure_api_version=self.azure_api_version,
+            configuration_state=self.configuration_state,
             id=self.id,
             location=self.location,
             mtu=self.mtu,
@@ -200,12 +212,12 @@ def get_l2_isolation_domain(l2_isolation_domain_name: Optional[str] = None,
     """
     Implements L2 Isolation Domain GET method.
 
-    Uses Azure REST API version 2023-02-01-preview.
+    Uses Azure REST API version 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str l2_isolation_domain_name: Name of the L2 Isolation Domain
+    :param str l2_isolation_domain_name: Name of the L2 Isolation Domain.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -217,7 +229,8 @@ def get_l2_isolation_domain(l2_isolation_domain_name: Optional[str] = None,
     return AwaitableGetL2IsolationDomainResult(
         administrative_state=pulumi.get(__ret__, 'administrative_state'),
         annotation=pulumi.get(__ret__, 'annotation'),
-        disabled_on_resources=pulumi.get(__ret__, 'disabled_on_resources'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         mtu=pulumi.get(__ret__, 'mtu'),
@@ -234,12 +247,12 @@ def get_l2_isolation_domain_output(l2_isolation_domain_name: Optional[pulumi.Inp
     """
     Implements L2 Isolation Domain GET method.
 
-    Uses Azure REST API version 2023-02-01-preview.
+    Uses Azure REST API version 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str l2_isolation_domain_name: Name of the L2 Isolation Domain
+    :param str l2_isolation_domain_name: Name of the L2 Isolation Domain.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -250,7 +263,8 @@ def get_l2_isolation_domain_output(l2_isolation_domain_name: Optional[pulumi.Inp
     return __ret__.apply(lambda __response__: GetL2IsolationDomainResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),
         annotation=pulumi.get(__response__, 'annotation'),
-        disabled_on_resources=pulumi.get(__response__, 'disabled_on_resources'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         mtu=pulumi.get(__response__, 'mtu'),

@@ -8,15 +8,14 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2024-04-01-preview.
+ * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConnectionRaiBlocklist(args: GetConnectionRaiBlocklistArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionRaiBlocklistResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getConnectionRaiBlocklist", {
         "connectionName": args.connectionName,
-        "raiBlocklistItemName": args.raiBlocklistItemName,
         "raiBlocklistName": args.raiBlocklistName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
@@ -28,10 +27,6 @@ export interface GetConnectionRaiBlocklistArgs {
      * Friendly name of the workspace connection
      */
     connectionName: string;
-    /**
-     * Name of the RaiBlocklist Item
-     */
-    raiBlocklistItemName: string;
     /**
      * The name of the RaiBlocklist.
      */
@@ -48,6 +43,10 @@ export interface GetConnectionRaiBlocklistArgs {
 
 export interface GetConnectionRaiBlocklistResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -56,9 +55,9 @@ export interface GetConnectionRaiBlocklistResult {
      */
     readonly name: string;
     /**
-     * RAI Custom Blocklist Item properties.
+     * RAI Custom Blocklist properties.
      */
-    readonly properties: outputs.machinelearningservices.RaiBlocklistItemPropertiesResponse;
+    readonly properties: outputs.machinelearningservices.RaiBlocklistPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -69,15 +68,14 @@ export interface GetConnectionRaiBlocklistResult {
     readonly type: string;
 }
 /**
- * Uses Azure REST API version 2024-04-01-preview.
+ * Uses Azure REST API version 2025-01-01-preview.
  *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConnectionRaiBlocklistOutput(args: GetConnectionRaiBlocklistOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionRaiBlocklistResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getConnectionRaiBlocklist", {
         "connectionName": args.connectionName,
-        "raiBlocklistItemName": args.raiBlocklistItemName,
         "raiBlocklistName": args.raiBlocklistName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
@@ -89,10 +87,6 @@ export interface GetConnectionRaiBlocklistOutputArgs {
      * Friendly name of the workspace connection
      */
     connectionName: pulumi.Input<string>;
-    /**
-     * Name of the RaiBlocklist Item
-     */
-    raiBlocklistItemName: pulumi.Input<string>;
     /**
      * The name of the RaiBlocklist.
      */

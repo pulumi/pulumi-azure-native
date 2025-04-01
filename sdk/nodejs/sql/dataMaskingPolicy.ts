@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A database data masking policy.
  *
- * Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2014-04-01.
+ * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2014-04-01, 2021-11-01, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DataMaskingPolicy extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
      * The list of the application principals. This is a legacy parameter and is no longer used.
      */
     public /*out*/ readonly applicationPrincipals!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The state of the data masking policy.
      */
@@ -104,6 +108,7 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["applicationPrincipals"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["maskingLevel"] = undefined /*out*/;
@@ -111,6 +116,7 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["applicationPrincipals"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataMaskingState"] = undefined /*out*/;
             resourceInputs["exemptPrincipals"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;

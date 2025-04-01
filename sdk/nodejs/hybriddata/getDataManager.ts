@@ -36,6 +36,10 @@ export interface GetDataManagerArgs {
  */
 export interface GetDataManagerResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Etag of the Resource.
      */
     readonly etag?: string;

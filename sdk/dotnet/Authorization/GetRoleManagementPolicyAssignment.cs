@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Get the specified role management policy assignment for a resource scope
         /// 
-        /// Uses Azure REST API version 2020-10-01.
+        /// Uses Azure REST API version 2024-09-01-preview.
         /// 
-        /// Other available API versions: 2020-10-01-preview, 2024-02-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRoleManagementPolicyAssignmentResult> InvokeAsync(GetRoleManagementPolicyAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Get the specified role management policy assignment for a resource scope
         /// 
-        /// Uses Azure REST API version 2020-10-01.
+        /// Uses Azure REST API version 2024-09-01-preview.
         /// 
-        /// Other available API versions: 2020-10-01-preview, 2024-02-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRoleManagementPolicyAssignmentResult> Invoke(GetRoleManagementPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Get the specified role management policy assignment for a resource scope
         /// 
-        /// Uses Azure REST API version 2020-10-01.
+        /// Uses Azure REST API version 2024-09-01-preview.
         /// 
-        /// Other available API versions: 2020-10-01-preview, 2024-02-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRoleManagementPolicyAssignmentResult> Invoke(GetRoleManagementPolicyAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetRoleManagementPolicyAssignmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The readonly computed rule applied to the policy.
         /// </summary>
         public readonly ImmutableArray<object> EffectiveRules;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetRoleManagementPolicyAssignmentResult(
+            string azureApiVersion,
+
             ImmutableArray<object> effectiveRules,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.Authorization
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EffectiveRules = effectiveRules;
             Id = id;
             Name = name;

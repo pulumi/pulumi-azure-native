@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// Get a LoadTestResource
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2021-12-01-preview, 2023-12-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2022-12-01, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetLoadTestResult> InvokeAsync(GetLoadTestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// Get a LoadTestResource
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2021-12-01-preview, 2023-12-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2022-12-01, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLoadTestResult> Invoke(GetLoadTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// Get a LoadTestResource
         /// 
-        /// Uses Azure REST API version 2022-12-01.
+        /// Uses Azure REST API version 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2021-12-01-preview, 2023-12-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2022-12-01, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLoadTestResult> Invoke(GetLoadTestInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.LoadTestService
     public sealed class GetLoadTestResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource data plane URI.
         /// </summary>
         public readonly string DataPlaneURI;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.LoadTestService
 
         [OutputConstructor]
         private GetLoadTestResult(
+            string azureApiVersion,
+
             string dataPlaneURI,
 
             string? description,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.LoadTestService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataPlaneURI = dataPlaneURI;
             Description = description;
             Encryption = encryption;

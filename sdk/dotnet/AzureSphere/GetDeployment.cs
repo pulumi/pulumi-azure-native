@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
         /// 
-        /// Uses Azure REST API version 2022-09-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:azuresphere:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
         /// 
-        /// Uses Azure REST API version 2022-09-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:azuresphere:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
         /// 
-        /// Uses Azure REST API version 2022-09-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:azuresphere:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
@@ -124,6 +124,10 @@ namespace Pulumi.AzureNative.AzureSphere
     public sealed class GetDeploymentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Images deployed
         /// </summary>
         public readonly ImmutableArray<Outputs.ImageResponse> DeployedImages;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.AzureSphere
 
         [OutputConstructor]
         private GetDeploymentResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.ImageResponse> deployedImages,
 
             string deploymentDateUtc,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.AzureSphere
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DeployedImages = deployedImages;
             DeploymentDateUtc = deploymentDateUtc;
             DeploymentId = deploymentId;

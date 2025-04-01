@@ -22,84 +22,32 @@ __all__ = ['PipelineGroupArgs', 'PipelineGroup']
 @pulumi.input_type
 class PipelineGroupArgs:
     def __init__(__self__, *,
-                 exporters: pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]],
-                 processors: pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]],
-                 receivers: pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]],
                  resource_group_name: pulumi.Input[str],
-                 service: pulumi.Input['ServiceArgs'],
                  extended_location: Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]] = None,
                  pipeline_group_name: Optional[pulumi.Input[str]] = None,
-                 replicas: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input['PipelineGroupPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PipelineGroup resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]] exporters: The exporters specified for a pipeline group instance.
-        :param pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]] processors: The processors specified for a pipeline group instance.
-        :param pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]] receivers: The receivers specified for a pipeline group instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['ServiceArgs'] service: The service section for a given pipeline group instance.
-        :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The extended location for given pipeline group.
+        :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]] networking_configurations: Networking configurations for the pipeline group instance.
         :param pulumi.Input[str] pipeline_group_name: The name of pipeline group. The name is case insensitive.
-        :param pulumi.Input[int] replicas: Defines the amount of replicas of the pipeline group instance.
+        :param pulumi.Input['PipelineGroupPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "exporters", exporters)
-        pulumi.set(__self__, "processors", processors)
-        pulumi.set(__self__, "receivers", receivers)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service", service)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if networking_configurations is not None:
-            pulumi.set(__self__, "networking_configurations", networking_configurations)
         if pipeline_group_name is not None:
             pulumi.set(__self__, "pipeline_group_name", pipeline_group_name)
-        if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def exporters(self) -> pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]]:
-        """
-        The exporters specified for a pipeline group instance.
-        """
-        return pulumi.get(self, "exporters")
-
-    @exporters.setter
-    def exporters(self, value: pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]]):
-        pulumi.set(self, "exporters", value)
-
-    @property
-    @pulumi.getter
-    def processors(self) -> pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]]:
-        """
-        The processors specified for a pipeline group instance.
-        """
-        return pulumi.get(self, "processors")
-
-    @processors.setter
-    def processors(self, value: pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]]):
-        pulumi.set(self, "processors", value)
-
-    @property
-    @pulumi.getter
-    def receivers(self) -> pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]]:
-        """
-        The receivers specified for a pipeline group instance.
-        """
-        return pulumi.get(self, "receivers")
-
-    @receivers.setter
-    def receivers(self, value: pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]]):
-        pulumi.set(self, "receivers", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -114,22 +62,10 @@ class PipelineGroupArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter
-    def service(self) -> pulumi.Input['ServiceArgs']:
-        """
-        The service section for a given pipeline group instance.
-        """
-        return pulumi.get(self, "service")
-
-    @service.setter
-    def service(self, value: pulumi.Input['ServiceArgs']):
-        pulumi.set(self, "service", value)
-
-    @property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']]:
         """
-        The extended location for given pipeline group.
+        The complex type of the extended location.
         """
         return pulumi.get(self, "extended_location")
 
@@ -150,18 +86,6 @@ class PipelineGroupArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="networkingConfigurations")
-    def networking_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]]:
-        """
-        Networking configurations for the pipeline group instance.
-        """
-        return pulumi.get(self, "networking_configurations")
-
-    @networking_configurations.setter
-    def networking_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]]):
-        pulumi.set(self, "networking_configurations", value)
-
-    @property
     @pulumi.getter(name="pipelineGroupName")
     def pipeline_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -175,15 +99,15 @@ class PipelineGroupArgs:
 
     @property
     @pulumi.getter
-    def replicas(self) -> Optional[pulumi.Input[int]]:
+    def properties(self) -> Optional[pulumi.Input['PipelineGroupPropertiesArgs']]:
         """
-        Defines the amount of replicas of the pipeline group instance.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "replicas")
+        return pulumi.get(self, "properties")
 
-    @replicas.setter
-    def replicas(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "replicas", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['PipelineGroupPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
@@ -203,37 +127,27 @@ class PipelineGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exporters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExporterArgs', 'ExporterArgsDict']]]]] = None,
                  extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkingConfigurationArgs', 'NetworkingConfigurationArgsDict']]]]] = None,
                  pipeline_group_name: Optional[pulumi.Input[str]] = None,
-                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcessorArgs', 'ProcessorArgsDict']]]]] = None,
-                 receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReceiverArgs', 'ReceiverArgsDict']]]]] = None,
-                 replicas: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[Union['PipelineGroupPropertiesArgs', 'PipelineGroupPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service: Optional[pulumi.Input[Union['ServiceArgs', 'ServiceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A pipeline group definition.
 
-        Uses Azure REST API version 2023-10-01-preview.
+        Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2024-10-01-preview.
+        Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExporterArgs', 'ExporterArgsDict']]]] exporters: The exporters specified for a pipeline group instance.
-        :param pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']] extended_location: The extended location for given pipeline group.
+        :param pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']] extended_location: The complex type of the extended location.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkingConfigurationArgs', 'NetworkingConfigurationArgsDict']]]] networking_configurations: Networking configurations for the pipeline group instance.
         :param pulumi.Input[str] pipeline_group_name: The name of pipeline group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcessorArgs', 'ProcessorArgsDict']]]] processors: The processors specified for a pipeline group instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReceiverArgs', 'ReceiverArgsDict']]]] receivers: The receivers specified for a pipeline group instance.
-        :param pulumi.Input[int] replicas: Defines the amount of replicas of the pipeline group instance.
+        :param pulumi.Input[Union['PipelineGroupPropertiesArgs', 'PipelineGroupPropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['ServiceArgs', 'ServiceArgsDict']] service: The service section for a given pipeline group instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -245,9 +159,9 @@ class PipelineGroup(pulumi.CustomResource):
         """
         A pipeline group definition.
 
-        Uses Azure REST API version 2023-10-01-preview.
+        Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2024-10-01-preview.
+        Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PipelineGroupArgs args: The arguments to use to populate this resource's properties.
@@ -264,16 +178,11 @@ class PipelineGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exporters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExporterArgs', 'ExporterArgsDict']]]]] = None,
                  extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkingConfigurationArgs', 'NetworkingConfigurationArgsDict']]]]] = None,
                  pipeline_group_name: Optional[pulumi.Input[str]] = None,
-                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcessorArgs', 'ProcessorArgsDict']]]]] = None,
-                 receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReceiverArgs', 'ReceiverArgsDict']]]]] = None,
-                 replicas: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[Union['PipelineGroupPropertiesArgs', 'PipelineGroupPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service: Optional[pulumi.Input[Union['ServiceArgs', 'ServiceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -284,29 +193,16 @@ class PipelineGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PipelineGroupArgs.__new__(PipelineGroupArgs)
 
-            if exporters is None and not opts.urn:
-                raise TypeError("Missing required property 'exporters'")
-            __props__.__dict__["exporters"] = exporters
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
-            __props__.__dict__["networking_configurations"] = networking_configurations
             __props__.__dict__["pipeline_group_name"] = pipeline_group_name
-            if processors is None and not opts.urn:
-                raise TypeError("Missing required property 'processors'")
-            __props__.__dict__["processors"] = processors
-            if receivers is None and not opts.urn:
-                raise TypeError("Missing required property 'receivers'")
-            __props__.__dict__["receivers"] = receivers
-            __props__.__dict__["replicas"] = replicas
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if service is None and not opts.urn:
-                raise TypeError("Missing required property 'service'")
-            __props__.__dict__["service"] = service
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor/v20231001preview:PipelineGroup"), pulumi.Alias(type_="azure-native:monitor/v20241001preview:PipelineGroup")])
@@ -333,34 +229,29 @@ class PipelineGroup(pulumi.CustomResource):
 
         __props__ = PipelineGroupArgs.__new__(PipelineGroupArgs)
 
-        __props__.__dict__["exporters"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["networking_configurations"] = None
-        __props__.__dict__["processors"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["receivers"] = None
-        __props__.__dict__["replicas"] = None
-        __props__.__dict__["service"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return PipelineGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def exporters(self) -> pulumi.Output[Sequence['outputs.ExporterResponse']]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
         """
-        The exporters specified for a pipeline group instance.
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "exporters")
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> pulumi.Output[Optional['outputs.AzureResourceManagerCommonTypesExtendedLocationResponse']]:
         """
-        The extended location for given pipeline group.
+        The complex type of the extended location.
         """
         return pulumi.get(self, "extended_location")
 
@@ -381,52 +272,12 @@ class PipelineGroup(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="networkingConfigurations")
-    def networking_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkingConfigurationResponse']]]:
-        """
-        Networking configurations for the pipeline group instance.
-        """
-        return pulumi.get(self, "networking_configurations")
-
-    @property
     @pulumi.getter
-    def processors(self) -> pulumi.Output[Sequence['outputs.ProcessorResponse']]:
+    def properties(self) -> pulumi.Output['outputs.PipelineGroupPropertiesResponse']:
         """
-        The processors specified for a pipeline group instance.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "processors")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        The provisioning state of a pipeline group instance. Set to Succeeded if everything is healthy.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def receivers(self) -> pulumi.Output[Sequence['outputs.ReceiverResponse']]:
-        """
-        The receivers specified for a pipeline group instance.
-        """
-        return pulumi.get(self, "receivers")
-
-    @property
-    @pulumi.getter
-    def replicas(self) -> pulumi.Output[Optional[int]]:
-        """
-        Defines the amount of replicas of the pipeline group instance.
-        """
-        return pulumi.get(self, "replicas")
-
-    @property
-    @pulumi.getter
-    def service(self) -> pulumi.Output['outputs.ServiceResponse']:
-        """
-        The service section for a given pipeline group instance.
-        """
-        return pulumi.get(self, "service")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

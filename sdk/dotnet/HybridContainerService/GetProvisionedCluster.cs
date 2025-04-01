@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// Gets the Hybrid AKS provisioned cluster
         /// 
         /// Uses Azure REST API version 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2022-05-01-preview.
         /// </summary>
         public static Task<GetProvisionedClusterResult> InvokeAsync(GetProvisionedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProvisionedClusterResult>("azure-native:hybridcontainerservice:getProvisionedCluster", args ?? new GetProvisionedClusterArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// Gets the Hybrid AKS provisioned cluster
         /// 
         /// Uses Azure REST API version 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2022-05-01-preview.
         /// </summary>
         public static Output<GetProvisionedClusterResult> Invoke(GetProvisionedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProvisionedClusterResult>("azure-native:hybridcontainerservice:getProvisionedCluster", args ?? new GetProvisionedClusterInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// Gets the Hybrid AKS provisioned cluster
         /// 
         /// Uses Azure REST API version 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2022-05-01-preview.
         /// </summary>
         public static Output<GetProvisionedClusterResult> Invoke(GetProvisionedClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProvisionedClusterResult>("azure-native:hybridcontainerservice:getProvisionedCluster", args ?? new GetProvisionedClusterInvokeArgs(), options.WithDefaults());
@@ -87,6 +81,10 @@ namespace Pulumi.AzureNative.HybridContainerService
     [OutputType]
     public sealed class GetProvisionedClusterResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         public readonly Outputs.ProvisionedClustersResponseResponseExtendedLocation? ExtendedLocation;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -120,6 +118,8 @@ namespace Pulumi.AzureNative.HybridContainerService
 
         [OutputConstructor]
         private GetProvisionedClusterResult(
+            string azureApiVersion,
+
             Outputs.ProvisionedClustersResponseResponseExtendedLocation? extendedLocation,
 
             string id,
@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.HybridContainerService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Identity = identity;

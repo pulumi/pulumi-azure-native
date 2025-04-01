@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Chaos.Outputs
 {
 
     /// <summary>
-    /// Model that represents a branch in the step.
+    /// Model that represents a branch in the step. 9 total per experiment.
     /// </summary>
     [OutputType]
     public sealed class BranchResponse

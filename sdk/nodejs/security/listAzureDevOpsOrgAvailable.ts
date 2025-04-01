@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * List of RP resources which supports pagination.
  *
- * Uses Azure REST API version 2023-09-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2024-04-01, 2024-05-15-preview, 2025-03-01.
+ * Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listAzureDevOpsOrgAvailable(args: ListAzureDevOpsOrgAvailableArgs, opts?: pulumi.InvokeOptions): Promise<ListAzureDevOpsOrgAvailableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,9 +49,9 @@ export interface ListAzureDevOpsOrgAvailableResult {
 /**
  * List of RP resources which supports pagination.
  *
- * Uses Azure REST API version 2023-09-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2024-04-01, 2024-05-15-preview, 2025-03-01.
+ * Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listAzureDevOpsOrgAvailableOutput(args: ListAzureDevOpsOrgAvailableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAzureDevOpsOrgAvailableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

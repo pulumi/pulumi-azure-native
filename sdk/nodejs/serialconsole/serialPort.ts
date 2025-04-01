@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Represents the serial port of the parent resource.
  *
- * Uses Azure REST API version 2018-05-01. In version 1.x of the Azure Native provider, it used API version 2018-05-01.
+ * Uses Azure REST API version 2018-05-01. In version 2.x of the Azure Native provider, it used API version 2018-05-01.
  */
 export class SerialPort extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class SerialPort extends pulumi.CustomResource {
         return obj['__pulumiType'] === SerialPort.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource name
      */
@@ -81,9 +85,11 @@ export class SerialPort extends pulumi.CustomResource {
             resourceInputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
             resourceInputs["serialPort"] = args ? args.serialPort : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

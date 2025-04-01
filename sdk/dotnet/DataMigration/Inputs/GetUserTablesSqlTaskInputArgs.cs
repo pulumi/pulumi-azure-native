@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         [Input("connectionInfo", required: true)]
         public Input<Inputs.SqlConnectionInfoArgs> ConnectionInfo { get; set; } = null!;
 
+        /// <summary>
+        /// encrypted key for secure fields
+        /// </summary>
+        [Input("encryptedKeyForSecureFields")]
+        public Input<string>? EncryptedKeyForSecureFields { get; set; }
+
         [Input("selectedDatabases", required: true)]
         private InputList<string>? _selectedDatabases;
 

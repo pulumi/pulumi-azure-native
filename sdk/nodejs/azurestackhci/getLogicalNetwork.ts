@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The logical network resource definition.
+ * The operation to get a logical network.
  *
- * Uses Azure REST API version 2023-09-01-preview.
+ * Uses Azure REST API version 2025-02-01-preview.
  *
- * Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+ * Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLogicalNetwork(args: GetLogicalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetLogicalNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,15 +38,19 @@ export interface GetLogicalNetworkArgs {
  */
 export interface GetLogicalNetworkResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
      */
-    readonly dhcpOptions?: outputs.azurestackhci.LogicalNetworkPropertiesResponseDhcpOptions;
+    readonly dhcpOptions?: outputs.azurestackhci.LogicalNetworkPropertiesDhcpOptionsResponse;
     /**
      * The extendedLocation of the resource.
      */
     readonly extendedLocation?: outputs.azurestackhci.ExtendedLocationResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -87,11 +91,11 @@ export interface GetLogicalNetworkResult {
     readonly vmSwitchName?: string;
 }
 /**
- * The logical network resource definition.
+ * The operation to get a logical network.
  *
- * Uses Azure REST API version 2023-09-01-preview.
+ * Uses Azure REST API version 2025-02-01-preview.
  *
- * Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+ * Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLogicalNetworkOutput(args: GetLogicalNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogicalNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Security assessment metadata response
  *
- * Uses Azure REST API version 2021-06-01. In version 1.x of the Azure Native provider, it used API version 2020-01-01.
+ * Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
+ *
+ * Other available API versions: 2020-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     /**
@@ -43,6 +45,10 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
     public readonly assessmentType!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     public readonly categories!: pulumi.Output<string[] | undefined>;
     /**
      * Human readable description of the assessment
@@ -130,11 +136,13 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
             resourceInputs["techniques"] = args ? args.techniques : undefined;
             resourceInputs["threats"] = args ? args.threats : undefined;
             resourceInputs["userImpact"] = args ? args.userImpact : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyDefinitionId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["assessmentType"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["categories"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
@@ -154,7 +162,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
             resourceInputs["userImpact"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:AssessmentMetadataInSubscription" }, { type: "azure-native:security/v20200101:AssessmentMetadataInSubscription" }, { type: "azure-native:security/v20210601:AssessmentMetadataInSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:AssessmentMetadataInSubscription" }, { type: "azure-native:security/v20190101preview:AssessmentsMetadataSubscription" }, { type: "azure-native:security/v20200101:AssessmentMetadataInSubscription" }, { type: "azure-native:security/v20210601:AssessmentMetadataInSubscription" }, { type: "azure-native:security:AssessmentsMetadataSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentMetadataInSubscription.__pulumiType, name, resourceInputs, opts);
     }

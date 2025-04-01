@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Dedicated cloud service model
  *
- * Uses Azure REST API version 2019-04-01. In version 1.x of the Azure Native provider, it used API version 2019-04-01.
+ * Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
  */
 export class DedicatedCloudService extends pulumi.CustomResource {
     /**
@@ -36,6 +36,10 @@ export class DedicatedCloudService extends pulumi.CustomResource {
         return obj['__pulumiType'] === DedicatedCloudService.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * gateway Subnet for the account. It will collect the subnet address and always treat it as /28
      */
@@ -91,12 +95,14 @@ export class DedicatedCloudService extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isAccountOnboarded"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nodes"] = undefined /*out*/;
             resourceInputs["serviceURL"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["gatewaySubnet"] = undefined /*out*/;
             resourceInputs["isAccountOnboarded"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         /// <summary>
         /// SAS URI of Azure Storage Account Container.
         /// </summary>
-        [Input("sasUri", required: true)]
-        public Input<string> SasUri { get; set; } = null!;
+        [Input("sasUri")]
+        public Input<string>? SasUri { get; set; }
 
         public BlobShareArgs()
         {

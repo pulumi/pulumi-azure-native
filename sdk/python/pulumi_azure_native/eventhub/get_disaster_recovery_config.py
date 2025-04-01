@@ -27,10 +27,13 @@ class GetDisasterRecoveryConfigResult:
     """
     Single item in List or Get Alias(Disaster Recovery configuration) operation
     """
-    def __init__(__self__, alternate_name=None, id=None, location=None, name=None, partner_namespace=None, pending_replication_operations_count=None, provisioning_state=None, role=None, system_data=None, type=None):
+    def __init__(__self__, alternate_name=None, azure_api_version=None, id=None, location=None, name=None, partner_namespace=None, pending_replication_operations_count=None, provisioning_state=None, role=None, system_data=None, type=None):
         if alternate_name and not isinstance(alternate_name, str):
             raise TypeError("Expected argument 'alternate_name' to be a str")
         pulumi.set(__self__, "alternate_name", alternate_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -66,6 +69,14 @@ class GetDisasterRecoveryConfigResult:
         Alternate name specified when alias and namespace names are same.
         """
         return pulumi.get(self, "alternate_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -147,6 +158,7 @@ class AwaitableGetDisasterRecoveryConfigResult(GetDisasterRecoveryConfigResult):
             yield self
         return GetDisasterRecoveryConfigResult(
             alternate_name=self.alternate_name,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -165,9 +177,9 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
     """
     Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
 
-    Uses Azure REST API version 2022-10-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str alias: The Disaster Recovery configuration name
@@ -183,6 +195,7 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
 
     return AwaitableGetDisasterRecoveryConfigResult(
         alternate_name=pulumi.get(__ret__, 'alternate_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -199,9 +212,9 @@ def get_disaster_recovery_config_output(alias: Optional[pulumi.Input[str]] = Non
     """
     Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
 
-    Uses Azure REST API version 2022-10-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str alias: The Disaster Recovery configuration name
@@ -216,6 +229,7 @@ def get_disaster_recovery_config_output(alias: Optional[pulumi.Input[str]] = Non
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub:getDisasterRecoveryConfig', __args__, opts=opts, typ=GetDisasterRecoveryConfigResult)
     return __ret__.apply(lambda __response__: GetDisasterRecoveryConfigResult(
         alternate_name=pulumi.get(__response__, 'alternate_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

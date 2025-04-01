@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
     public sealed class SystemAssignedIdentityAuthInfoResponse
     {
         /// <summary>
+        /// Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        /// </summary>
+        public readonly string? AuthMode;
+        /// <summary>
         /// The authentication type.
         /// Expected value is 'systemAssignedIdentity'.
         /// </summary>
@@ -36,6 +40,8 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
 
         [OutputConstructor]
         private SystemAssignedIdentityAuthInfoResponse(
+            string? authMode,
+
             string authType,
 
             string? deleteOrUpdateBehavior,
@@ -44,6 +50,7 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
 
             string? userName)
         {
+            AuthMode = authMode;
             AuthType = authType;
             DeleteOrUpdateBehavior = deleteOrUpdateBehavior;
             Roles = roles;

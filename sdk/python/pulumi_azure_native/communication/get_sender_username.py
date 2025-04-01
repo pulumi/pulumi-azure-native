@@ -27,7 +27,10 @@ class GetSenderUsernameResult:
     """
     A class representing a SenderUsername resource.
     """
-    def __init__(__self__, data_location=None, display_name=None, id=None, name=None, provisioning_state=None, system_data=None, type=None, username=None):
+    def __init__(__self__, azure_api_version=None, data_location=None, display_name=None, id=None, name=None, provisioning_state=None, system_data=None, type=None, username=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_location and not isinstance(data_location, str):
             raise TypeError("Expected argument 'data_location' to be a str")
         pulumi.set(__self__, "data_location", data_location)
@@ -52,6 +55,14 @@ class GetSenderUsernameResult:
         if username and not isinstance(username, str):
             raise TypeError("Expected argument 'username' to be a str")
         pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataLocation")
@@ -124,6 +135,7 @@ class AwaitableGetSenderUsernameResult(GetSenderUsernameResult):
         if False:
             yield self
         return GetSenderUsernameResult(
+            azure_api_version=self.azure_api_version,
             data_location=self.data_location,
             display_name=self.display_name,
             id=self.id,
@@ -142,9 +154,9 @@ def get_sender_username(domain_name: Optional[str] = None,
     """
     Get a valid sender username for a domains resource.
 
-    Uses Azure REST API version 2023-03-31.
+    Uses Azure REST API version 2023-06-01-preview.
 
-    Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str domain_name: The name of the Domains resource.
@@ -161,6 +173,7 @@ def get_sender_username(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:communication:getSenderUsername', __args__, opts=opts, typ=GetSenderUsernameResult).value
 
     return AwaitableGetSenderUsernameResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_location=pulumi.get(__ret__, 'data_location'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -177,9 +190,9 @@ def get_sender_username_output(domain_name: Optional[pulumi.Input[str]] = None,
     """
     Get a valid sender username for a domains resource.
 
-    Uses Azure REST API version 2023-03-31.
+    Uses Azure REST API version 2023-06-01-preview.
 
-    Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str domain_name: The name of the Domains resource.
@@ -195,6 +208,7 @@ def get_sender_username_output(domain_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:communication:getSenderUsername', __args__, opts=opts, typ=GetSenderUsernameResult)
     return __ret__.apply(lambda __response__: GetSenderUsernameResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_location=pulumi.get(__response__, 'data_location'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),

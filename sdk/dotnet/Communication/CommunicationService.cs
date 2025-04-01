@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Communication
     /// <summary>
     /// A class representing a CommunicationService resource.
     /// 
-    /// Uses Azure REST API version 2023-03-31. In version 1.x of the Azure Native provider, it used API version 2020-08-20.
+    /// Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
     /// 
-    /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+    /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:CommunicationService")]
     public partial class CommunicationService : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The location where the communication service stores its data at rest.
         /// </summary>
@@ -30,6 +36,12 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities)
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The immutable resource Id of the communication service.
@@ -160,6 +172,12 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         [Input("dataLocation", required: true)]
         public Input<string> DataLocation { get; set; } = null!;
+
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities)
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         [Input("linkedDomains")]
         private InputList<string>? _linkedDomains;

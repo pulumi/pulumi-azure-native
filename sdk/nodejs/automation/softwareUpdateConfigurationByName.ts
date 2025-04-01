@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Software update configuration properties.
  *
- * Uses Azure REST API version 2019-06-01. In version 1.x of the Azure Native provider, it used API version 2019-06-01.
+ * Uses Azure REST API version 2023-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01.
  *
- * Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
+ * Other available API versions: 2017-05-15-preview, 2019-06-01, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
         return obj['__pulumiType'] === SoftwareUpdateConfigurationByName.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * CreatedBy property, which only appears in the response.
      */
@@ -116,6 +120,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
             resourceInputs["softwareUpdateConfigurationName"] = args ? args.softwareUpdateConfigurationName : undefined;
             resourceInputs["tasks"] = args ? args.tasks : undefined;
             resourceInputs["updateConfiguration"] = args ? args.updateConfiguration : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
@@ -124,6 +129,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;

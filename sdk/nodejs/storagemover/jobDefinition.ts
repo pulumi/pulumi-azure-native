@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The Job Definition resource.
  *
- * Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2022-07-01-preview.
+ * Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class JobDefinition extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class JobDefinition extends pulumi.CustomResource {
      * Fully qualified resource id of the Agent to assign for new Job Runs of this Job Definition.
      */
     public /*out*/ readonly agentResourceId!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Strategy to use for copy.
      */
@@ -90,7 +94,7 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public readonly sourceSubpath!: pulumi.Output<string | undefined>;
     /**
-     * Resource system metadata.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.storagemover.SystemDataResponse>;
     /**
@@ -151,6 +155,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["targetName"] = args ? args.targetName : undefined;
             resourceInputs["targetSubpath"] = args ? args.targetSubpath : undefined;
             resourceInputs["agentResourceId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["latestJobRunName"] = undefined /*out*/;
             resourceInputs["latestJobRunResourceId"] = undefined /*out*/;
             resourceInputs["latestJobRunStatus"] = undefined /*out*/;
@@ -163,6 +168,7 @@ export class JobDefinition extends pulumi.CustomResource {
         } else {
             resourceInputs["agentName"] = undefined /*out*/;
             resourceInputs["agentResourceId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["copyMode"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["latestJobRunName"] = undefined /*out*/;

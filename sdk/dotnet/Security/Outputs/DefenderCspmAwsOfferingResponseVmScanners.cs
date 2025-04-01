@@ -11,26 +11,33 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// The Microsoft Defender for Server VM scanning configuration
+    /// The Microsoft Defender for CSPM offering VM scanning configuration
     /// </summary>
     [OutputType]
     public sealed class DefenderCspmAwsOfferingResponseVmScanners
     {
         /// <summary>
-        /// configuration for Microsoft Defender for Server VM scanning
+        /// The cloud role ARN in AWS for this feature
         /// </summary>
-        public readonly Outputs.DefenderCspmAwsOfferingResponseConfiguration? Configuration;
+        public readonly string? CloudRoleArn;
         /// <summary>
-        /// Is Microsoft Defender for Server VM scanning enabled
+        /// Configuration for VM scanning
+        /// </summary>
+        public readonly Outputs.VmScannersBaseResponseConfiguration? Configuration;
+        /// <summary>
+        /// Is VM scanning enabled
         /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]
         private DefenderCspmAwsOfferingResponseVmScanners(
-            Outputs.DefenderCspmAwsOfferingResponseConfiguration? configuration,
+            string? cloudRoleArn,
+
+            Outputs.VmScannersBaseResponseConfiguration? configuration,
 
             bool? enabled)
         {
+            CloudRoleArn = cloudRoleArn;
             Configuration = configuration;
             Enabled = enabled;
         }

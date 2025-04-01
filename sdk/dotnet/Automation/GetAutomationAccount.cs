@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Get information about an Automation Account.
         /// 
-        /// Uses Azure REST API version 2022-08-08.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2021-06-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAutomationAccountResult> InvokeAsync(GetAutomationAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationAccountResult>("azure-native:automation:getAutomationAccount", args ?? new GetAutomationAccountArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Get information about an Automation Account.
         /// 
-        /// Uses Azure REST API version 2022-08-08.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2021-06-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAutomationAccountResult> Invoke(GetAutomationAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationAccountResult>("azure-native:automation:getAutomationAccount", args ?? new GetAutomationAccountInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Get information about an Automation Account.
         /// 
-        /// Uses Azure REST API version 2022-08-08.
+        /// Uses Azure REST API version 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2021-06-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAutomationAccountResult> Invoke(GetAutomationAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationAccountResult>("azure-native:automation:getAutomationAccount", args ?? new GetAutomationAccountInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Automation
         /// URL of automation hybrid service which is used for hybrid worker on-boarding.
         /// </summary>
         public readonly string? AutomationHybridServiceUrl;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Gets the creation time.
         /// </summary>
@@ -168,6 +172,8 @@ namespace Pulumi.AzureNative.Automation
         private GetAutomationAccountResult(
             string? automationHybridServiceUrl,
 
+            string azureApiVersion,
+
             string creationTime,
 
             string? description,
@@ -205,6 +211,7 @@ namespace Pulumi.AzureNative.Automation
             string type)
         {
             AutomationHybridServiceUrl = automationHybridServiceUrl;
+            AzureApiVersion = azureApiVersion;
             CreationTime = creationTime;
             Description = description;
             DisableLocalAuth = disableLocalAuth;

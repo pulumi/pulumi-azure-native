@@ -25,7 +25,8 @@ class SecurityAdminConfigurationArgs:
                  resource_group_name: pulumi.Input[str],
                  apply_on_network_intent_policy_based_services: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 network_group_address_space_aggregation_option: Optional[pulumi.Input[Union[str, 'AddressSpaceAggregationOption']]] = None):
         """
         The set of arguments for constructing a SecurityAdminConfiguration resource.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
@@ -33,6 +34,7 @@ class SecurityAdminConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]] apply_on_network_intent_policy_based_services: Enum list of network intent policy based services.
         :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] description: A description of the security configuration.
+        :param pulumi.Input[Union[str, 'AddressSpaceAggregationOption']] network_group_address_space_aggregation_option: Determine update behavior for changes to network groups referenced within the rules in this configuration.
         """
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -42,6 +44,8 @@ class SecurityAdminConfigurationArgs:
             pulumi.set(__self__, "configuration_name", configuration_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if network_group_address_space_aggregation_option is not None:
+            pulumi.set(__self__, "network_group_address_space_aggregation_option", network_group_address_space_aggregation_option)
 
     @property
     @pulumi.getter(name="networkManagerName")
@@ -103,6 +107,18 @@ class SecurityAdminConfigurationArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter(name="networkGroupAddressSpaceAggregationOption")
+    def network_group_address_space_aggregation_option(self) -> Optional[pulumi.Input[Union[str, 'AddressSpaceAggregationOption']]]:
+        """
+        Determine update behavior for changes to network groups referenced within the rules in this configuration.
+        """
+        return pulumi.get(self, "network_group_address_space_aggregation_option")
+
+    @network_group_address_space_aggregation_option.setter
+    def network_group_address_space_aggregation_option(self, value: Optional[pulumi.Input[Union[str, 'AddressSpaceAggregationOption']]]):
+        pulumi.set(self, "network_group_address_space_aggregation_option", value)
+
 
 class SecurityAdminConfiguration(pulumi.CustomResource):
     @overload
@@ -112,21 +128,23 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
                  apply_on_network_intent_policy_based_services: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 network_group_address_space_aggregation_option: Optional[pulumi.Input[Union[str, 'AddressSpaceAggregationOption']]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Defines the security admin configuration
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+        Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]] apply_on_network_intent_policy_based_services: Enum list of network intent policy based services.
         :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] description: A description of the security configuration.
+        :param pulumi.Input[Union[str, 'AddressSpaceAggregationOption']] network_group_address_space_aggregation_option: Determine update behavior for changes to network groups referenced within the rules in this configuration.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
@@ -139,9 +157,9 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
         """
         Defines the security admin configuration
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2021-02-01-preview.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+        Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param SecurityAdminConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -161,6 +179,7 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
                  apply_on_network_intent_policy_based_services: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 network_group_address_space_aggregation_option: Optional[pulumi.Input[Union[str, 'AddressSpaceAggregationOption']]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -175,12 +194,14 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
             __props__.__dict__["apply_on_network_intent_policy_based_services"] = apply_on_network_intent_policy_based_services
             __props__.__dict__["configuration_name"] = configuration_name
             __props__.__dict__["description"] = description
+            __props__.__dict__["network_group_address_space_aggregation_option"] = network_group_address_space_aggregation_option
             if network_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_name'")
             __props__.__dict__["network_manager_name"] = network_manager_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -212,9 +233,11 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
         __props__ = SecurityAdminConfigurationArgs.__new__(SecurityAdminConfigurationArgs)
 
         __props__.__dict__["apply_on_network_intent_policy_based_services"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_group_address_space_aggregation_option"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["resource_guid"] = None
         __props__.__dict__["system_data"] = None
@@ -228,6 +251,14 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
         Enum list of network intent policy based services.
         """
         return pulumi.get(self, "apply_on_network_intent_policy_based_services")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -252,6 +283,14 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkGroupAddressSpaceAggregationOption")
+    def network_group_address_space_aggregation_option(self) -> pulumi.Output[Optional[str]]:
+        """
+        Determine update behavior for changes to network groups referenced within the rules in this configuration.
+        """
+        return pulumi.get(self, "network_group_address_space_aggregation_option")
 
     @property
     @pulumi.getter(name="provisioningState")

@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
-    def __init__(__self__, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if group_ids and not isinstance(group_ids, list):
             raise TypeError("Expected argument 'group_ids' to be a list")
         pulumi.set(__self__, "group_ids", group_ids)
@@ -46,6 +49,14 @@ class GetPrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupIds")
@@ -110,6 +121,7 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
         if False:
             yield self
         return GetPrivateEndpointConnectionResult(
+            azure_api_version=self.azure_api_version,
             group_ids=self.group_ids,
             id=self.id,
             name=self.name,
@@ -125,15 +137,15 @@ def get_private_endpoint_connection(parent_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Get a specific private endpoint connection under a topic, domain, or partner namespace.
+    Get a specific private endpoint connection under a topic, domain, or partner namespace or namespace.
 
-    Uses Azure REST API version 2022-06-15.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
-    :param str parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
+    :param str parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
+    :param str parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\' or \\'namespaces\\'.
     :param str private_endpoint_connection_name: The name of the private endpoint connection connection.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
@@ -146,6 +158,7 @@ def get_private_endpoint_connection(parent_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         group_ids=pulumi.get(__ret__, 'group_ids'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -159,15 +172,15 @@ def get_private_endpoint_connection_output(parent_name: Optional[pulumi.Input[st
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    Get a specific private endpoint connection under a topic, domain, or partner namespace.
+    Get a specific private endpoint connection under a topic, domain, or partner namespace or namespace.
 
-    Uses Azure REST API version 2022-06-15.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param str parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
-    :param str parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
+    :param str parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
+    :param str parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\' or \\'namespaces\\'.
     :param str private_endpoint_connection_name: The name of the private endpoint connection connection.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
@@ -179,6 +192,7 @@ def get_private_endpoint_connection_output(parent_name: Optional[pulumi.Input[st
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         group_ids=pulumi.get(__response__, 'group_ids'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

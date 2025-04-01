@@ -73,6 +73,8 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[s
 
     Uses Azure REST API version 2019-05-01.
 
+    Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str integration_account_name: The integration account name.
     :param Union['KeyVaultReference', 'KeyVaultReferenceDict'] key_vault: The key vault reference.
@@ -99,6 +101,8 @@ def list_integration_account_key_vault_keys_output(integration_account_name: Opt
     Gets the integration account's Key Vault keys.
 
     Uses Azure REST API version 2019-05-01.
+
+    Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str integration_account_name: The integration account name.

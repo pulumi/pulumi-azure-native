@@ -25,15 +25,21 @@ class AvsAssessmentsOperationArgs:
                  project_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  assessment_name: Optional[pulumi.Input[str]] = None,
+                 avs_assessment_scenario: Optional[pulumi.Input[Union[str, 'AvsAssessmentScenario']]] = None,
                  azure_location: Optional[pulumi.Input[Union[str, 'AzureLocation']]] = None,
                  azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
+                 cpu_headroom: Optional[pulumi.Input[float]] = None,
                  currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
                  dedupe_compression: Optional[pulumi.Input[float]] = None,
                  discount_percentage: Optional[pulumi.Input[float]] = None,
+                 external_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExternalStorageType']]]]] = None,
                  failures_to_tolerate_and_raid_level: Optional[pulumi.Input[Union[str, 'FttAndRaidLevel']]] = None,
+                 failures_to_tolerate_and_raid_level_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FttAndRaidLevel']]]]] = None,
                  is_stretch_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_vcf_byol_enabled: Optional[pulumi.Input[bool]] = None,
                  mem_overcommit: Optional[pulumi.Input[float]] = None,
                  node_type: Optional[pulumi.Input[Union[str, 'AzureAvsNodeType']]] = None,
+                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureAvsNodeType']]]]] = None,
                  percentile: Optional[pulumi.Input[Union[str, 'Percentile']]] = None,
                  perf_data_end_time: Optional[pulumi.Input[str]] = None,
                  perf_data_start_time: Optional[pulumi.Input[str]] = None,
@@ -49,15 +55,21 @@ class AvsAssessmentsOperationArgs:
         :param pulumi.Input[str] project_name: Assessment Project Name
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] assessment_name: AVS Assessment ARM name
+        :param pulumi.Input[Union[str, 'AvsAssessmentScenario']] avs_assessment_scenario: AVS Assessment Scenario.
         :param pulumi.Input[Union[str, 'AzureLocation']] azure_location: Azure Location or Azure region where to which the machines will be migrated.
         :param pulumi.Input[Union[str, 'AzureOfferCode']] azure_offer_code: Azure Offer code according to which cost estimation is done.
+        :param pulumi.Input[float] cpu_headroom: Percentage of CPU capacity reserved for processing additional workloads.
         :param pulumi.Input[Union[str, 'AzureCurrency']] currency: Currency in which prices should be reported.
         :param pulumi.Input[float] dedupe_compression: De-duplication compression.
         :param pulumi.Input[float] discount_percentage: Custom discount percentage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExternalStorageType']]]] external_storage_types: List of AVS external storage types.
         :param pulumi.Input[Union[str, 'FttAndRaidLevel']] failures_to_tolerate_and_raid_level: Failures to tolerate and RAID level in a common property.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'FttAndRaidLevel']]]] failures_to_tolerate_and_raid_level_list: List of Failures to tolerate and RAID levels in a common property.
         :param pulumi.Input[bool] is_stretch_cluster_enabled: Is Stretch Cluster Enabled.
+        :param pulumi.Input[bool] is_vcf_byol_enabled: Is VCF license applied
         :param pulumi.Input[float] mem_overcommit: Memory overcommit.
         :param pulumi.Input[Union[str, 'AzureAvsNodeType']] node_type: AVS node type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureAvsNodeType']]]] node_types: AVS node types.
         :param pulumi.Input[Union[str, 'Percentile']] percentile: Percentile of the utilization data values to be considered while assessing
                machines.
         :param pulumi.Input[str] perf_data_end_time: Gets or sets the end time to consider performance data for assessment.
@@ -76,24 +88,36 @@ class AvsAssessmentsOperationArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if assessment_name is not None:
             pulumi.set(__self__, "assessment_name", assessment_name)
+        if avs_assessment_scenario is not None:
+            pulumi.set(__self__, "avs_assessment_scenario", avs_assessment_scenario)
         if azure_location is not None:
             pulumi.set(__self__, "azure_location", azure_location)
         if azure_offer_code is not None:
             pulumi.set(__self__, "azure_offer_code", azure_offer_code)
+        if cpu_headroom is not None:
+            pulumi.set(__self__, "cpu_headroom", cpu_headroom)
         if currency is not None:
             pulumi.set(__self__, "currency", currency)
         if dedupe_compression is not None:
             pulumi.set(__self__, "dedupe_compression", dedupe_compression)
         if discount_percentage is not None:
             pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if external_storage_types is not None:
+            pulumi.set(__self__, "external_storage_types", external_storage_types)
         if failures_to_tolerate_and_raid_level is not None:
             pulumi.set(__self__, "failures_to_tolerate_and_raid_level", failures_to_tolerate_and_raid_level)
+        if failures_to_tolerate_and_raid_level_list is not None:
+            pulumi.set(__self__, "failures_to_tolerate_and_raid_level_list", failures_to_tolerate_and_raid_level_list)
         if is_stretch_cluster_enabled is not None:
             pulumi.set(__self__, "is_stretch_cluster_enabled", is_stretch_cluster_enabled)
+        if is_vcf_byol_enabled is not None:
+            pulumi.set(__self__, "is_vcf_byol_enabled", is_vcf_byol_enabled)
         if mem_overcommit is not None:
             pulumi.set(__self__, "mem_overcommit", mem_overcommit)
         if node_type is not None:
             pulumi.set(__self__, "node_type", node_type)
+        if node_types is not None:
+            pulumi.set(__self__, "node_types", node_types)
         if percentile is not None:
             pulumi.set(__self__, "percentile", percentile)
         if perf_data_end_time is not None:
@@ -162,6 +186,18 @@ class AvsAssessmentsOperationArgs:
         pulumi.set(self, "assessment_name", value)
 
     @property
+    @pulumi.getter(name="avsAssessmentScenario")
+    def avs_assessment_scenario(self) -> Optional[pulumi.Input[Union[str, 'AvsAssessmentScenario']]]:
+        """
+        AVS Assessment Scenario.
+        """
+        return pulumi.get(self, "avs_assessment_scenario")
+
+    @avs_assessment_scenario.setter
+    def avs_assessment_scenario(self, value: Optional[pulumi.Input[Union[str, 'AvsAssessmentScenario']]]):
+        pulumi.set(self, "avs_assessment_scenario", value)
+
+    @property
     @pulumi.getter(name="azureLocation")
     def azure_location(self) -> Optional[pulumi.Input[Union[str, 'AzureLocation']]]:
         """
@@ -184,6 +220,18 @@ class AvsAssessmentsOperationArgs:
     @azure_offer_code.setter
     def azure_offer_code(self, value: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]]):
         pulumi.set(self, "azure_offer_code", value)
+
+    @property
+    @pulumi.getter(name="cpuHeadroom")
+    def cpu_headroom(self) -> Optional[pulumi.Input[float]]:
+        """
+        Percentage of CPU capacity reserved for processing additional workloads.
+        """
+        return pulumi.get(self, "cpu_headroom")
+
+    @cpu_headroom.setter
+    def cpu_headroom(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "cpu_headroom", value)
 
     @property
     @pulumi.getter
@@ -222,6 +270,18 @@ class AvsAssessmentsOperationArgs:
         pulumi.set(self, "discount_percentage", value)
 
     @property
+    @pulumi.getter(name="externalStorageTypes")
+    def external_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExternalStorageType']]]]]:
+        """
+        List of AVS external storage types.
+        """
+        return pulumi.get(self, "external_storage_types")
+
+    @external_storage_types.setter
+    def external_storage_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExternalStorageType']]]]]):
+        pulumi.set(self, "external_storage_types", value)
+
+    @property
     @pulumi.getter(name="failuresToTolerateAndRaidLevel")
     def failures_to_tolerate_and_raid_level(self) -> Optional[pulumi.Input[Union[str, 'FttAndRaidLevel']]]:
         """
@@ -234,6 +294,18 @@ class AvsAssessmentsOperationArgs:
         pulumi.set(self, "failures_to_tolerate_and_raid_level", value)
 
     @property
+    @pulumi.getter(name="failuresToTolerateAndRaidLevelList")
+    def failures_to_tolerate_and_raid_level_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FttAndRaidLevel']]]]]:
+        """
+        List of Failures to tolerate and RAID levels in a common property.
+        """
+        return pulumi.get(self, "failures_to_tolerate_and_raid_level_list")
+
+    @failures_to_tolerate_and_raid_level_list.setter
+    def failures_to_tolerate_and_raid_level_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FttAndRaidLevel']]]]]):
+        pulumi.set(self, "failures_to_tolerate_and_raid_level_list", value)
+
+    @property
     @pulumi.getter(name="isStretchClusterEnabled")
     def is_stretch_cluster_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -244,6 +316,18 @@ class AvsAssessmentsOperationArgs:
     @is_stretch_cluster_enabled.setter
     def is_stretch_cluster_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_stretch_cluster_enabled", value)
+
+    @property
+    @pulumi.getter(name="isVcfByolEnabled")
+    def is_vcf_byol_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is VCF license applied
+        """
+        return pulumi.get(self, "is_vcf_byol_enabled")
+
+    @is_vcf_byol_enabled.setter
+    def is_vcf_byol_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_vcf_byol_enabled", value)
 
     @property
     @pulumi.getter(name="memOvercommit")
@@ -268,6 +352,18 @@ class AvsAssessmentsOperationArgs:
     @node_type.setter
     def node_type(self, value: Optional[pulumi.Input[Union[str, 'AzureAvsNodeType']]]):
         pulumi.set(self, "node_type", value)
+
+    @property
+    @pulumi.getter(name="nodeTypes")
+    def node_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureAvsNodeType']]]]]:
+        """
+        AVS node types.
+        """
+        return pulumi.get(self, "node_types")
+
+    @node_types.setter
+    def node_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureAvsNodeType']]]]]):
+        pulumi.set(self, "node_types", value)
 
     @property
     @pulumi.getter
@@ -387,16 +483,22 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_name: Optional[pulumi.Input[str]] = None,
+                 avs_assessment_scenario: Optional[pulumi.Input[Union[str, 'AvsAssessmentScenario']]] = None,
                  azure_location: Optional[pulumi.Input[Union[str, 'AzureLocation']]] = None,
                  azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
+                 cpu_headroom: Optional[pulumi.Input[float]] = None,
                  currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
                  dedupe_compression: Optional[pulumi.Input[float]] = None,
                  discount_percentage: Optional[pulumi.Input[float]] = None,
+                 external_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExternalStorageType']]]]] = None,
                  failures_to_tolerate_and_raid_level: Optional[pulumi.Input[Union[str, 'FttAndRaidLevel']]] = None,
+                 failures_to_tolerate_and_raid_level_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FttAndRaidLevel']]]]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  is_stretch_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_vcf_byol_enabled: Optional[pulumi.Input[bool]] = None,
                  mem_overcommit: Optional[pulumi.Input[float]] = None,
                  node_type: Optional[pulumi.Input[Union[str, 'AzureAvsNodeType']]] = None,
+                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureAvsNodeType']]]]] = None,
                  percentile: Optional[pulumi.Input[Union[str, 'Percentile']]] = None,
                  perf_data_end_time: Optional[pulumi.Input[str]] = None,
                  perf_data_start_time: Optional[pulumi.Input[str]] = None,
@@ -412,23 +514,29 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
         """
         AVS assessment resource.
 
-        Uses Azure REST API version 2023-03-15.
+        Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
-        Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assessment_name: AVS Assessment ARM name
+        :param pulumi.Input[Union[str, 'AvsAssessmentScenario']] avs_assessment_scenario: AVS Assessment Scenario.
         :param pulumi.Input[Union[str, 'AzureLocation']] azure_location: Azure Location or Azure region where to which the machines will be migrated.
         :param pulumi.Input[Union[str, 'AzureOfferCode']] azure_offer_code: Azure Offer code according to which cost estimation is done.
+        :param pulumi.Input[float] cpu_headroom: Percentage of CPU capacity reserved for processing additional workloads.
         :param pulumi.Input[Union[str, 'AzureCurrency']] currency: Currency in which prices should be reported.
         :param pulumi.Input[float] dedupe_compression: De-duplication compression.
         :param pulumi.Input[float] discount_percentage: Custom discount percentage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExternalStorageType']]]] external_storage_types: List of AVS external storage types.
         :param pulumi.Input[Union[str, 'FttAndRaidLevel']] failures_to_tolerate_and_raid_level: Failures to tolerate and RAID level in a common property.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'FttAndRaidLevel']]]] failures_to_tolerate_and_raid_level_list: List of Failures to tolerate and RAID levels in a common property.
         :param pulumi.Input[str] group_name: Group ARM name
         :param pulumi.Input[bool] is_stretch_cluster_enabled: Is Stretch Cluster Enabled.
+        :param pulumi.Input[bool] is_vcf_byol_enabled: Is VCF license applied
         :param pulumi.Input[float] mem_overcommit: Memory overcommit.
         :param pulumi.Input[Union[str, 'AzureAvsNodeType']] node_type: AVS node type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureAvsNodeType']]]] node_types: AVS node types.
         :param pulumi.Input[Union[str, 'Percentile']] percentile: Percentile of the utilization data values to be considered while assessing
                machines.
         :param pulumi.Input[str] perf_data_end_time: Gets or sets the end time to consider performance data for assessment.
@@ -453,9 +561,9 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
         """
         AVS assessment resource.
 
-        Uses Azure REST API version 2023-03-15.
+        Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
-        Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
+        Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AvsAssessmentsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -473,16 +581,22 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_name: Optional[pulumi.Input[str]] = None,
+                 avs_assessment_scenario: Optional[pulumi.Input[Union[str, 'AvsAssessmentScenario']]] = None,
                  azure_location: Optional[pulumi.Input[Union[str, 'AzureLocation']]] = None,
                  azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
+                 cpu_headroom: Optional[pulumi.Input[float]] = None,
                  currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
                  dedupe_compression: Optional[pulumi.Input[float]] = None,
                  discount_percentage: Optional[pulumi.Input[float]] = None,
+                 external_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExternalStorageType']]]]] = None,
                  failures_to_tolerate_and_raid_level: Optional[pulumi.Input[Union[str, 'FttAndRaidLevel']]] = None,
+                 failures_to_tolerate_and_raid_level_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FttAndRaidLevel']]]]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  is_stretch_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_vcf_byol_enabled: Optional[pulumi.Input[bool]] = None,
                  mem_overcommit: Optional[pulumi.Input[float]] = None,
                  node_type: Optional[pulumi.Input[Union[str, 'AzureAvsNodeType']]] = None,
+                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureAvsNodeType']]]]] = None,
                  percentile: Optional[pulumi.Input[Union[str, 'Percentile']]] = None,
                  perf_data_end_time: Optional[pulumi.Input[str]] = None,
                  perf_data_start_time: Optional[pulumi.Input[str]] = None,
@@ -504,18 +618,24 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
             __props__ = AvsAssessmentsOperationArgs.__new__(AvsAssessmentsOperationArgs)
 
             __props__.__dict__["assessment_name"] = assessment_name
+            __props__.__dict__["avs_assessment_scenario"] = avs_assessment_scenario
             __props__.__dict__["azure_location"] = azure_location
             __props__.__dict__["azure_offer_code"] = azure_offer_code
+            __props__.__dict__["cpu_headroom"] = cpu_headroom
             __props__.__dict__["currency"] = currency
             __props__.__dict__["dedupe_compression"] = dedupe_compression
             __props__.__dict__["discount_percentage"] = discount_percentage
+            __props__.__dict__["external_storage_types"] = external_storage_types
             __props__.__dict__["failures_to_tolerate_and_raid_level"] = failures_to_tolerate_and_raid_level
+            __props__.__dict__["failures_to_tolerate_and_raid_level_list"] = failures_to_tolerate_and_raid_level_list
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__.__dict__["group_name"] = group_name
             __props__.__dict__["is_stretch_cluster_enabled"] = is_stretch_cluster_enabled
+            __props__.__dict__["is_vcf_byol_enabled"] = is_vcf_byol_enabled
             __props__.__dict__["mem_overcommit"] = mem_overcommit
             __props__.__dict__["node_type"] = node_type
+            __props__.__dict__["node_types"] = node_types
             __props__.__dict__["percentile"] = percentile
             __props__.__dict__["perf_data_end_time"] = perf_data_end_time
             __props__.__dict__["perf_data_start_time"] = perf_data_start_time
@@ -533,7 +653,12 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
             __props__.__dict__["vcpu_oversubscription"] = vcpu_oversubscription
             __props__.__dict__["assessment_error_summary"] = None
             __props__.__dict__["assessment_type"] = None
+            __props__.__dict__["avs_estimated_external_storages"] = None
+            __props__.__dict__["avs_estimated_networks"] = None
+            __props__.__dict__["avs_estimated_nodes"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["confidence_rating_in_percentage"] = None
+            __props__.__dict__["cost_components"] = None
             __props__.__dict__["cpu_utilization"] = None
             __props__.__dict__["created_timestamp"] = None
             __props__.__dict__["group_type"] = None
@@ -583,21 +708,32 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
 
         __props__.__dict__["assessment_error_summary"] = None
         __props__.__dict__["assessment_type"] = None
+        __props__.__dict__["avs_assessment_scenario"] = None
+        __props__.__dict__["avs_estimated_external_storages"] = None
+        __props__.__dict__["avs_estimated_networks"] = None
+        __props__.__dict__["avs_estimated_nodes"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["azure_location"] = None
         __props__.__dict__["azure_offer_code"] = None
         __props__.__dict__["confidence_rating_in_percentage"] = None
+        __props__.__dict__["cost_components"] = None
+        __props__.__dict__["cpu_headroom"] = None
         __props__.__dict__["cpu_utilization"] = None
         __props__.__dict__["created_timestamp"] = None
         __props__.__dict__["currency"] = None
         __props__.__dict__["dedupe_compression"] = None
         __props__.__dict__["discount_percentage"] = None
+        __props__.__dict__["external_storage_types"] = None
         __props__.__dict__["failures_to_tolerate_and_raid_level"] = None
+        __props__.__dict__["failures_to_tolerate_and_raid_level_list"] = None
         __props__.__dict__["group_type"] = None
         __props__.__dict__["is_stretch_cluster_enabled"] = None
+        __props__.__dict__["is_vcf_byol_enabled"] = None
         __props__.__dict__["limiting_factor"] = None
         __props__.__dict__["mem_overcommit"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["node_type"] = None
+        __props__.__dict__["node_types"] = None
         __props__.__dict__["number_of_machines"] = None
         __props__.__dict__["number_of_nodes"] = None
         __props__.__dict__["percentile"] = None
@@ -646,6 +782,46 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
         return pulumi.get(self, "assessment_type")
 
     @property
+    @pulumi.getter(name="avsAssessmentScenario")
+    def avs_assessment_scenario(self) -> pulumi.Output[Optional[str]]:
+        """
+        AVS Assessment Scenario.
+        """
+        return pulumi.get(self, "avs_assessment_scenario")
+
+    @property
+    @pulumi.getter(name="avsEstimatedExternalStorages")
+    def avs_estimated_external_storages(self) -> pulumi.Output[Sequence['outputs.AvsEstimatedExternalStorageResponse']]:
+        """
+        Estimated External Storage for Assessment.
+        """
+        return pulumi.get(self, "avs_estimated_external_storages")
+
+    @property
+    @pulumi.getter(name="avsEstimatedNetworks")
+    def avs_estimated_networks(self) -> pulumi.Output[Sequence['outputs.AvsEstimatedNetworkResponse']]:
+        """
+        Estimated External Storage for Assessment.
+        """
+        return pulumi.get(self, "avs_estimated_networks")
+
+    @property
+    @pulumi.getter(name="avsEstimatedNodes")
+    def avs_estimated_nodes(self) -> pulumi.Output[Sequence['outputs.AvsEstimatedNodeResponse']]:
+        """
+        Estimated AVS SKU for Assessment.
+        """
+        return pulumi.get(self, "avs_estimated_nodes")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="azureLocation")
     def azure_location(self) -> pulumi.Output[Optional[str]]:
         """
@@ -668,6 +844,22 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
         Confidence Rating in Percentage.
         """
         return pulumi.get(self, "confidence_rating_in_percentage")
+
+    @property
+    @pulumi.getter(name="costComponents")
+    def cost_components(self) -> pulumi.Output[Sequence['outputs.CostComponentResponse']]:
+        """
+        collection of cost components.
+        """
+        return pulumi.get(self, "cost_components")
+
+    @property
+    @pulumi.getter(name="cpuHeadroom")
+    def cpu_headroom(self) -> pulumi.Output[Optional[float]]:
+        """
+        Percentage of CPU capacity reserved for processing additional workloads.
+        """
+        return pulumi.get(self, "cpu_headroom")
 
     @property
     @pulumi.getter(name="cpuUtilization")
@@ -710,12 +902,28 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
         return pulumi.get(self, "discount_percentage")
 
     @property
+    @pulumi.getter(name="externalStorageTypes")
+    def external_storage_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of AVS external storage types.
+        """
+        return pulumi.get(self, "external_storage_types")
+
+    @property
     @pulumi.getter(name="failuresToTolerateAndRaidLevel")
     def failures_to_tolerate_and_raid_level(self) -> pulumi.Output[Optional[str]]:
         """
         Failures to tolerate and RAID level in a common property.
         """
         return pulumi.get(self, "failures_to_tolerate_and_raid_level")
+
+    @property
+    @pulumi.getter(name="failuresToTolerateAndRaidLevelList")
+    def failures_to_tolerate_and_raid_level_list(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of Failures to tolerate and RAID levels in a common property.
+        """
+        return pulumi.get(self, "failures_to_tolerate_and_raid_level_list")
 
     @property
     @pulumi.getter(name="groupType")
@@ -732,6 +940,14 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
         Is Stretch Cluster Enabled.
         """
         return pulumi.get(self, "is_stretch_cluster_enabled")
+
+    @property
+    @pulumi.getter(name="isVcfByolEnabled")
+    def is_vcf_byol_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is VCF license applied
+        """
+        return pulumi.get(self, "is_vcf_byol_enabled")
 
     @property
     @pulumi.getter(name="limitingFactor")
@@ -764,6 +980,14 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
         AVS node type.
         """
         return pulumi.get(self, "node_type")
+
+    @property
+    @pulumi.getter(name="nodeTypes")
+    def node_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        AVS node types.
+        """
+        return pulumi.get(self, "node_types")
 
     @property
     @pulumi.getter(name="numberOfMachines")

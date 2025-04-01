@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     /// <summary>
     /// The description of the service.
     /// 
-    /// Uses Azure REST API version 2021-03-08. In version 1.x of the Azure Native provider, it used API version 2021-03-08.
+    /// Uses Azure REST API version 2021-03-08.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance:PrivateLinkServicesForM365SecurityCenter")]
     public partial class PrivateLinkServicesForM365SecurityCenter : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
         /// </summary>
@@ -97,10 +103,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForM365SecurityCenter" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter" },
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForM365SecurityCenter" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForM365SecurityCenter" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

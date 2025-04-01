@@ -27,7 +27,10 @@ class GetDeviceResult:
     """
     An device resource belonging to a device group resource.
     """
-    def __init__(__self__, chip_sku=None, device_id=None, id=None, last_available_os_version=None, last_installed_os_version=None, last_os_update_utc=None, last_update_request_utc=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, chip_sku=None, device_id=None, id=None, last_available_os_version=None, last_installed_os_version=None, last_os_update_utc=None, last_update_request_utc=None, name=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if chip_sku and not isinstance(chip_sku, str):
             raise TypeError("Expected argument 'chip_sku' to be a str")
         pulumi.set(__self__, "chip_sku", chip_sku)
@@ -61,6 +64,14 @@ class GetDeviceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="chipSku")
@@ -157,6 +168,7 @@ class AwaitableGetDeviceResult(GetDeviceResult):
         if False:
             yield self
         return GetDeviceResult(
+            azure_api_version=self.azure_api_version,
             chip_sku=self.chip_sku,
             device_id=self.device_id,
             id=self.id,
@@ -179,9 +191,9 @@ def get_device(catalog_name: Optional[str] = None,
     """
     Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str catalog_name: Name of catalog
@@ -200,6 +212,7 @@ def get_device(catalog_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azuresphere:getDevice', __args__, opts=opts, typ=GetDeviceResult).value
 
     return AwaitableGetDeviceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         chip_sku=pulumi.get(__ret__, 'chip_sku'),
         device_id=pulumi.get(__ret__, 'device_id'),
         id=pulumi.get(__ret__, 'id'),
@@ -220,9 +233,9 @@ def get_device_output(catalog_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str catalog_name: Name of catalog
@@ -240,6 +253,7 @@ def get_device_output(catalog_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuresphere:getDevice', __args__, opts=opts, typ=GetDeviceResult)
     return __ret__.apply(lambda __response__: GetDeviceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         chip_sku=pulumi.get(__response__, 'chip_sku'),
         device_id=pulumi.get(__response__, 'device_id'),
         id=pulumi.get(__response__, 'id'),

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets information about the specified job.
  *
- * Uses Azure REST API version 2022-12-01.
+ * Uses Azure REST API version 2024-03-01-preview.
  *
- * Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
+ * Other available API versions: 2022-12-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databox [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,9 +43,21 @@ export interface GetJobArgs {
  */
 export interface GetJobResult {
     /**
+     * Flag to indicate if all devices associated with the job are lost.
+     */
+    readonly allDevicesLost: boolean;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Reason for cancellation.
      */
     readonly cancellationReason: string;
+    /**
+     * Name of the stage where delay might be present.
+     */
+    readonly delayedStage: string;
     /**
      * Delivery Info of Job.
      */
@@ -138,9 +150,9 @@ export interface GetJobResult {
 /**
  * Gets information about the specified job.
  *
- * Uses Azure REST API version 2022-12-01.
+ * Uses Azure REST API version 2024-03-01-preview.
  *
- * Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview, 2025-02-01.
+ * Other available API versions: 2022-12-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databox [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

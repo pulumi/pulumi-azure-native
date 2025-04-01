@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Retrieves information about the view of a license.
         /// 
-        /// Uses Azure REST API version 2023-06-20-preview.
+        /// Uses Azure REST API version 2024-07-10.
         /// 
-        /// Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+        /// Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetLicenseResult> InvokeAsync(GetLicenseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicenseResult>("azure-native:hybridcompute:getLicense", args ?? new GetLicenseArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Retrieves information about the view of a license.
         /// 
-        /// Uses Azure REST API version 2023-06-20-preview.
+        /// Uses Azure REST API version 2024-07-10.
         /// 
-        /// Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+        /// Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("azure-native:hybridcompute:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Retrieves information about the view of a license.
         /// 
-        /// Uses Azure REST API version 2023-06-20-preview.
+        /// Uses Azure REST API version 2024-07-10.
         /// 
-        /// Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13.
+        /// Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("azure-native:hybridcompute:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.HybridCompute
     public sealed class GetLicenseResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.HybridCompute
 
         [OutputConstructor]
         private GetLicenseResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.LicenseDetailsResponse? licenseDetails,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             LicenseDetails = licenseDetails;
             LicenseType = licenseType;

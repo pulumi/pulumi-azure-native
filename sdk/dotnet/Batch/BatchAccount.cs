@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Batch
     /// <summary>
     /// Contains information about an Azure Batch account.
     /// 
-    /// Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+    /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+    /// Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:BatchAccount")]
     public partial class BatchAccount : global::Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Output("autoStorage")]
         public Output<Outputs.AutoStoragePropertiesResponse> AutoStorage { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
@@ -267,7 +273,7 @@ namespace Pulumi.AzureNative.Batch
         public Input<Inputs.NetworkProfileArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+        /// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Microsoft Entra ID. If the mode is UserSubscription, clients must use Microsoft Entra ID. The default is BatchService.
         /// </summary>
         [Input("poolAllocationMode")]
         public Input<Pulumi.AzureNative.Batch.PoolAllocationMode>? PoolAllocationMode { get; set; }

@@ -49,6 +49,10 @@ export interface GetPipelineResult {
      */
     readonly annotations?: any[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The max number of concurrent runs for the pipeline.
      */
     readonly concurrency?: number;

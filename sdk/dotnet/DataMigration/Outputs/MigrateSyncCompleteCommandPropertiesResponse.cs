@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MigrateSyncCompleteCommandPropertiesResponse
     {
         /// <summary>
+        /// Command id
+        /// </summary>
+        public readonly string? CommandId;
+        /// <summary>
         /// Command type.
         /// Expected value is 'Migrate.Sync.Complete.Database'.
         /// </summary>
@@ -40,6 +44,8 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private MigrateSyncCompleteCommandPropertiesResponse(
+            string? commandId,
+
             string commandType,
 
             ImmutableArray<Outputs.ODataErrorResponse> errors,
@@ -50,6 +56,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string state)
         {
+            CommandId = commandId;
             CommandType = commandType;
             Errors = errors;
             Input = input;

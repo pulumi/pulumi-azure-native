@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Sql.Outputs
         /// <summary>
         /// Gets additional details specific to this recommended action.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Details;
+        public readonly ImmutableDictionary<string, string> Details;
         /// <summary>
         /// Gets the error details if and why this recommended action is put to error state.
         /// </summary>
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.Sql.Outputs
 
         [OutputConstructor]
         private RecommendedActionResponse(
-            ImmutableDictionary<string, object> details,
+            ImmutableDictionary<string, string> details,
 
             Outputs.RecommendedActionErrorInfoResponse errorDetails,
 

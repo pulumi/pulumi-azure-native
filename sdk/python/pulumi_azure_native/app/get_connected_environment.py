@@ -27,7 +27,10 @@ class GetConnectedEnvironmentResult:
     """
     An environment for Kubernetes cluster specialized for web workloads by Azure App Service
     """
-    def __init__(__self__, custom_domain_configuration=None, dapr_ai_connection_string=None, default_domain=None, deployment_errors=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, static_ip=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, custom_domain_configuration=None, dapr_ai_connection_string=None, default_domain=None, deployment_errors=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, static_ip=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_domain_configuration and not isinstance(custom_domain_configuration, dict):
             raise TypeError("Expected argument 'custom_domain_configuration' to be a dict")
         pulumi.set(__self__, "custom_domain_configuration", custom_domain_configuration)
@@ -67,6 +70,14 @@ class GetConnectedEnvironmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customDomainConfiguration")
@@ -179,6 +190,7 @@ class AwaitableGetConnectedEnvironmentResult(GetConnectedEnvironmentResult):
         if False:
             yield self
         return GetConnectedEnvironmentResult(
+            azure_api_version=self.azure_api_version,
             custom_domain_configuration=self.custom_domain_configuration,
             dapr_ai_connection_string=self.dapr_ai_connection_string,
             default_domain=self.default_domain,
@@ -200,9 +212,9 @@ def get_connected_environment(connected_environment_name: Optional[str] = None,
     """
     Get the properties of an connectedEnvironment.
 
-    Uses Azure REST API version 2022-10-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connected_environment_name: Name of the connectedEnvironment.
@@ -215,6 +227,7 @@ def get_connected_environment(connected_environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getConnectedEnvironment', __args__, opts=opts, typ=GetConnectedEnvironmentResult).value
 
     return AwaitableGetConnectedEnvironmentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_domain_configuration=pulumi.get(__ret__, 'custom_domain_configuration'),
         dapr_ai_connection_string=pulumi.get(__ret__, 'dapr_ai_connection_string'),
         default_domain=pulumi.get(__ret__, 'default_domain'),
@@ -234,9 +247,9 @@ def get_connected_environment_output(connected_environment_name: Optional[pulumi
     """
     Get the properties of an connectedEnvironment.
 
-    Uses Azure REST API version 2022-10-01.
+    Uses Azure REST API version 2024-03-01.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01.
+    Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str connected_environment_name: Name of the connectedEnvironment.
@@ -248,6 +261,7 @@ def get_connected_environment_output(connected_environment_name: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getConnectedEnvironment', __args__, opts=opts, typ=GetConnectedEnvironmentResult)
     return __ret__.apply(lambda __response__: GetConnectedEnvironmentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_domain_configuration=pulumi.get(__response__, 'custom_domain_configuration'),
         dapr_ai_connection_string=pulumi.get(__response__, 'dapr_ai_connection_string'),
         default_domain=pulumi.get(__response__, 'default_domain'),

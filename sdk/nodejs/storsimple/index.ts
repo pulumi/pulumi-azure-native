@@ -124,13 +124,6 @@ utilities.lazyLoad(exports, ["VolumeContainer"], () => require("./volumeContaine
 // Export enums:
 export * from "../types/enums/storsimple";
 
-// Export sub-modules:
-import * as v20170601 from "./v20170601";
-
-export {
-    v20170601,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

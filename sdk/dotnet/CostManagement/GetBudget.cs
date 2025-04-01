@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Gets the budget for the scope by budget name.
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+        /// Other available API versions: 2019-04-01-preview, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azure-native:costmanagement:getBudget", args ?? new GetBudgetArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Gets the budget for the scope by budget name.
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+        /// Other available API versions: 2019-04-01-preview, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:costmanagement:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Gets the budget for the scope by budget name.
         /// 
-        /// Uses Azure REST API version 2023-04-01-preview.
+        /// Uses Azure REST API version 2024-08-01.
         /// 
-        /// Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
+        /// Other available API versions: 2019-04-01-preview, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:costmanagement:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());
@@ -152,6 +152,10 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly double? Amount;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The category of the budget.
         /// - 'Cost' defines a Budget.
         /// - 'ReservationUtilization' defines a Reservation Utilization Alert Rule.
@@ -180,11 +184,11 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly Outputs.ForecastSpendResponse ForecastSpend;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Resource Id.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -228,13 +232,15 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly Outputs.BudgetTimePeriodResponse TimePeriod;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetBudgetResult(
             double? amount,
+
+            string azureApiVersion,
 
             string category,
 
@@ -259,6 +265,7 @@ namespace Pulumi.AzureNative.CostManagement
             string type)
         {
             Amount = amount;
+            AzureApiVersion = azureApiVersion;
             Category = category;
             CurrentSpend = currentSpend;
             ETag = eTag;

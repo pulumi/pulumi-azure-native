@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
  *
- * Uses Azure REST API version 2023-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-10-01-preview.
+ * Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
  *
- * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01, 2025-03-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-11-01, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class TrafficControllerInterface extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class TrafficControllerInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly associations!: pulumi.Output<outputs.servicenetworking.ResourceIdResponse[]>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Configuration Endpoints.
      */
     public /*out*/ readonly configurationEndpoints!: pulumi.Output<string[]>;
@@ -65,6 +69,14 @@ export class TrafficControllerInterface extends pulumi.CustomResource {
      * The status of the last operation.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Security Policies References List
+     */
+    public /*out*/ readonly securityPolicies!: pulumi.Output<outputs.servicenetworking.ResourceIdResponse[]>;
+    /**
+     * Security Policy Configuration
+     */
+    public readonly securityPolicyConfigurations!: pulumi.Output<outputs.servicenetworking.SecurityPolicyConfigurationsResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -94,22 +106,28 @@ export class TrafficControllerInterface extends pulumi.CustomResource {
             }
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["securityPolicyConfigurations"] = args ? args.securityPolicyConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficControllerName"] = args ? args.trafficControllerName : undefined;
             resourceInputs["associations"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationEndpoints"] = undefined /*out*/;
             resourceInputs["frontends"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["securityPolicies"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["associations"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationEndpoints"] = undefined /*out*/;
             resourceInputs["frontends"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["securityPolicies"] = undefined /*out*/;
+            resourceInputs["securityPolicyConfigurations"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -133,6 +151,10 @@ export interface TrafficControllerInterfaceArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Security Policy Configuration
+     */
+    securityPolicyConfigurations?: pulumi.Input<inputs.servicenetworking.SecurityPolicyConfigurationsArgs>;
     /**
      * Resource tags.
      */

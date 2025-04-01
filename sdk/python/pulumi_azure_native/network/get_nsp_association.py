@@ -27,10 +27,13 @@ class GetNspAssociationResult:
     """
     The NSP resource association resource
     """
-    def __init__(__self__, access_mode=None, has_provisioning_issues=None, id=None, location=None, name=None, private_link_resource=None, profile=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, access_mode=None, azure_api_version=None, has_provisioning_issues=None, id=None, location=None, name=None, private_link_resource=None, profile=None, provisioning_state=None, tags=None, type=None):
         if access_mode and not isinstance(access_mode, str):
             raise TypeError("Expected argument 'access_mode' to be a str")
         pulumi.set(__self__, "access_mode", access_mode)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if has_provisioning_issues and not isinstance(has_provisioning_issues, str):
             raise TypeError("Expected argument 'has_provisioning_issues' to be a str")
         pulumi.set(__self__, "has_provisioning_issues", has_provisioning_issues)
@@ -66,6 +69,14 @@ class GetNspAssociationResult:
         Access mode on the association.
         """
         return pulumi.get(self, "access_mode")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hasProvisioningIssues")
@@ -147,6 +158,7 @@ class AwaitableGetNspAssociationResult(GetNspAssociationResult):
             yield self
         return GetNspAssociationResult(
             access_mode=self.access_mode,
+            azure_api_version=self.azure_api_version,
             has_provisioning_issues=self.has_provisioning_issues,
             id=self.id,
             location=self.location,
@@ -165,9 +177,9 @@ def get_nsp_association(association_name: Optional[str] = None,
     """
     Gets the specified NSP association by name.
 
-    Uses Azure REST API version 2021-02-01-preview.
+    Uses Azure REST API version 2023-08-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+    Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str association_name: The name of the NSP association.
@@ -183,6 +195,7 @@ def get_nsp_association(association_name: Optional[str] = None,
 
     return AwaitableGetNspAssociationResult(
         access_mode=pulumi.get(__ret__, 'access_mode'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         has_provisioning_issues=pulumi.get(__ret__, 'has_provisioning_issues'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -199,9 +212,9 @@ def get_nsp_association_output(association_name: Optional[pulumi.Input[str]] = N
     """
     Gets the specified NSP association by name.
 
-    Uses Azure REST API version 2021-02-01-preview.
+    Uses Azure REST API version 2023-08-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+    Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str association_name: The name of the NSP association.
@@ -216,6 +229,7 @@ def get_nsp_association_output(association_name: Optional[pulumi.Input[str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNspAssociation', __args__, opts=opts, typ=GetNspAssociationResult)
     return __ret__.apply(lambda __response__: GetNspAssociationResult(
         access_mode=pulumi.get(__response__, 'access_mode'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         has_provisioning_issues=pulumi.get(__response__, 'has_provisioning_issues'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// <summary>
     /// Packet core data plane resource. Must be created in the same location as its parent packet core control plane.
     /// 
-    /// Uses Azure REST API version 2023-06-01. In version 1.x of the Azure Native provider, it used API version 2022-04-01-preview.
+    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
     /// 
-    /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:PacketCoreDataPlane")]
     public partial class PacketCoreDataPlane : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -60,6 +66,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("userPlaneAccessInterface")]
         public Output<Outputs.InterfacePropertiesResponse> UserPlaneAccessInterface { get; private set; } = null!;
+
+        /// <summary>
+        /// The virtual IP address(es) for the user plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to forward traffic for this address to the control plane access interface on the active or standby node. In non-HA system this list should be omitted or empty.
+        /// </summary>
+        [Output("userPlaneAccessVirtualIpv4Addresses")]
+        public Output<ImmutableArray<string>> UserPlaneAccessVirtualIpv4Addresses { get; private set; } = null!;
 
 
         /// <summary>
@@ -157,6 +169,18 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Input("userPlaneAccessInterface", required: true)]
         public Input<Inputs.InterfacePropertiesArgs> UserPlaneAccessInterface { get; set; } = null!;
+
+        [Input("userPlaneAccessVirtualIpv4Addresses")]
+        private InputList<string>? _userPlaneAccessVirtualIpv4Addresses;
+
+        /// <summary>
+        /// The virtual IP address(es) for the user plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to forward traffic for this address to the control plane access interface on the active or standby node. In non-HA system this list should be omitted or empty.
+        /// </summary>
+        public InputList<string> UserPlaneAccessVirtualIpv4Addresses
+        {
+            get => _userPlaneAccessVirtualIpv4Addresses ?? (_userPlaneAccessVirtualIpv4Addresses = new InputList<string>());
+            set => _userPlaneAccessVirtualIpv4Addresses = value;
+        }
 
         public PacketCoreDataPlaneArgs()
         {

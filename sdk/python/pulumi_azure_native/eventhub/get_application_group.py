@@ -27,7 +27,10 @@ class GetApplicationGroupResult:
     """
     The Application Group object
     """
-    def __init__(__self__, client_app_group_identifier=None, id=None, is_enabled=None, location=None, name=None, policies=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, client_app_group_identifier=None, id=None, is_enabled=None, location=None, name=None, policies=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if client_app_group_identifier and not isinstance(client_app_group_identifier, str):
             raise TypeError("Expected argument 'client_app_group_identifier' to be a str")
         pulumi.set(__self__, "client_app_group_identifier", client_app_group_identifier)
@@ -52,6 +55,14 @@ class GetApplicationGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientAppGroupIdentifier")
@@ -124,6 +135,7 @@ class AwaitableGetApplicationGroupResult(GetApplicationGroupResult):
         if False:
             yield self
         return GetApplicationGroupResult(
+            azure_api_version=self.azure_api_version,
             client_app_group_identifier=self.client_app_group_identifier,
             id=self.id,
             is_enabled=self.is_enabled,
@@ -141,9 +153,9 @@ def get_application_group(application_group_name: Optional[str] = None,
     """
     Gets an ApplicationGroup for a Namespace.
 
-    Uses Azure REST API version 2022-10-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str application_group_name: The Application Group name 
@@ -158,6 +170,7 @@ def get_application_group(application_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventhub:getApplicationGroup', __args__, opts=opts, typ=GetApplicationGroupResult).value
 
     return AwaitableGetApplicationGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         client_app_group_identifier=pulumi.get(__ret__, 'client_app_group_identifier'),
         id=pulumi.get(__ret__, 'id'),
         is_enabled=pulumi.get(__ret__, 'is_enabled'),
@@ -173,9 +186,9 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
     """
     Gets an ApplicationGroup for a Namespace.
 
-    Uses Azure REST API version 2022-10-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str application_group_name: The Application Group name 
@@ -189,6 +202,7 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub:getApplicationGroup', __args__, opts=opts, typ=GetApplicationGroupResult)
     return __ret__.apply(lambda __response__: GetApplicationGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         client_app_group_identifier=pulumi.get(__response__, 'client_app_group_identifier'),
         id=pulumi.get(__response__, 'id'),
         is_enabled=pulumi.get(__response__, 'is_enabled'),

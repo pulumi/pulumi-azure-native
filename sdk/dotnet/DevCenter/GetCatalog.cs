@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a catalog
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCatalogResult> InvokeAsync(GetCatalogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCatalogResult>("azure-native:devcenter:getCatalog", args ?? new GetCatalogArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a catalog
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCatalogResult> Invoke(GetCatalogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogResult>("azure-native:devcenter:getCatalog", args ?? new GetCatalogInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a catalog
         /// 
-        /// Uses Azure REST API version 2023-04-01.
+        /// Uses Azure REST API version 2024-02-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        /// Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCatalogResult> Invoke(GetCatalogInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogResult>("azure-native:devcenter:getCatalog", args ?? new GetCatalogInvokeArgs(), options.WithDefaults());
@@ -104,13 +104,29 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly Outputs.GitCatalogResponse? AdoGit;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// The connection state of the catalog.
+        /// </summary>
+        public readonly string ConnectionState;
+        /// <summary>
         /// Properties for a GitHub catalog type.
         /// </summary>
         public readonly Outputs.GitCatalogResponse? GitHub;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// When the catalog was last connected.
+        /// </summary>
+        public readonly string LastConnectionTime;
+        /// <summary>
+        /// Stats of the latest synchronization.
+        /// </summary>
+        public readonly Outputs.SyncStatsResponse LastSyncStats;
         /// <summary>
         /// When the catalog was last synced.
         /// </summary>
@@ -128,9 +144,17 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly string SyncState;
         /// <summary>
+        /// Indicates the type of sync that is configured for the catalog.
+        /// </summary>
+        public readonly string? SyncType;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -140,9 +164,17 @@ namespace Pulumi.AzureNative.DevCenter
         private GetCatalogResult(
             Outputs.GitCatalogResponse? adoGit,
 
+            string azureApiVersion,
+
+            string connectionState,
+
             Outputs.GitCatalogResponse? gitHub,
 
             string id,
+
+            string lastConnectionTime,
+
+            Outputs.SyncStatsResponse lastSyncStats,
 
             string lastSyncTime,
 
@@ -152,18 +184,28 @@ namespace Pulumi.AzureNative.DevCenter
 
             string syncState,
 
+            string? syncType,
+
             Outputs.SystemDataResponse systemData,
+
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             AdoGit = adoGit;
+            AzureApiVersion = azureApiVersion;
+            ConnectionState = connectionState;
             GitHub = gitHub;
             Id = id;
+            LastConnectionTime = lastConnectionTime;
+            LastSyncStats = lastSyncStats;
             LastSyncTime = lastSyncTime;
             Name = name;
             ProvisioningState = provisioningState;
             SyncState = syncState;
+            SyncType = syncType;
             SystemData = systemData;
+            Tags = tags;
             Type = type;
         }
     }

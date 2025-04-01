@@ -27,7 +27,10 @@ class GetIoTRoleResult:
     """
     Compute role.
     """
-    def __init__(__self__, compute_resource=None, host_platform=None, host_platform_type=None, id=None, io_t_device_details=None, io_t_edge_agent_info=None, io_t_edge_device_details=None, kind=None, name=None, role_status=None, share_mappings=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, compute_resource=None, host_platform=None, host_platform_type=None, id=None, io_t_device_details=None, io_t_edge_agent_info=None, io_t_edge_device_details=None, kind=None, name=None, role_status=None, share_mappings=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if compute_resource and not isinstance(compute_resource, dict):
             raise TypeError("Expected argument 'compute_resource' to be a dict")
         pulumi.set(__self__, "compute_resource", compute_resource)
@@ -67,6 +70,14 @@ class GetIoTRoleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="computeResource")
@@ -180,6 +191,7 @@ class AwaitableGetIoTRoleResult(GetIoTRoleResult):
         if False:
             yield self
         return GetIoTRoleResult(
+            azure_api_version=self.azure_api_version,
             compute_resource=self.compute_resource,
             host_platform=self.host_platform,
             host_platform_type=self.host_platform_type,
@@ -202,7 +214,7 @@ def get_io_t_role(device_name: Optional[str] = None,
     """
     Gets a specific role by name.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -217,6 +229,7 @@ def get_io_t_role(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getIoTRole', __args__, opts=opts, typ=GetIoTRoleResult).value
 
     return AwaitableGetIoTRoleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         compute_resource=pulumi.get(__ret__, 'compute_resource'),
         host_platform=pulumi.get(__ret__, 'host_platform'),
         host_platform_type=pulumi.get(__ret__, 'host_platform_type'),
@@ -237,7 +250,7 @@ def get_io_t_role_output(device_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a specific role by name.
 
-    Uses Azure REST API version 2022-03-01.
+    Uses Azure REST API version 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -251,6 +264,7 @@ def get_io_t_role_output(device_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getIoTRole', __args__, opts=opts, typ=GetIoTRoleResult)
     return __ret__.apply(lambda __response__: GetIoTRoleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         compute_resource=pulumi.get(__response__, 'compute_resource'),
         host_platform=pulumi.get(__response__, 'host_platform'),
         host_platform_type=pulumi.get(__response__, 'host_platform_type'),

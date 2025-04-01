@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Compute
     /// <summary>
     /// Describes a Virtual Machine Scale Set.
     /// 
-    /// Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSet")]
     public partial class VirtualMachineScaleSet : global::Pulumi.CustomResource
@@ -32,6 +32,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.AutomaticRepairsPolicyResponse?> AutomaticRepairsPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Optional property which must either be set to True or omitted.
         /// </summary>
         [Output("constrainedMaximumCapacity")]
@@ -42,6 +48,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("doNotRunExtensionsOnOverprovisionedVMs")]
         public Output<bool?> DoNotRunExtensionsOnOverprovisionedVMs { get; private set; } = null!;
+
+        /// <summary>
+        /// Etag is property returned in Create/Update/Get response of the VMSS, so that customer can supply it in the header to ensure optimistic updates
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
         /// The extended location of the Virtual Machine Scale Set.
@@ -116,10 +128,22 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.SubResourceResponse?> ProximityPlacementGroup { get; private set; } = null!;
 
         /// <summary>
+        /// Policy for Resiliency
+        /// </summary>
+        [Output("resiliencyPolicy")]
+        public Output<Outputs.ResiliencyPolicyResponse?> ResiliencyPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
         /// </summary>
         [Output("scaleInPolicy")]
         public Output<Outputs.ScaleInPolicyResponse?> ScaleInPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The ScheduledEventsPolicy.
+        /// </summary>
+        [Output("scheduledEventsPolicy")]
+        public Output<Outputs.ScheduledEventsPolicyResponse?> ScheduledEventsPolicy { get; private set; } = null!;
 
         /// <summary>
         /// When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
@@ -132,6 +156,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the sku profile for the virtual machine scale set.
+        /// </summary>
+        [Output("skuProfile")]
+        public Output<Outputs.SkuProfileResponse?> SkuProfile { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Spot Restore properties for the virtual machine scale set.
@@ -176,13 +206,19 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.VirtualMachineScaleSetVMProfileResponse?> VirtualMachineProfile { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
+        /// </summary>
+        [Output("zonalPlatformFaultDomainAlignMode")]
+        public Output<string?> ZonalPlatformFaultDomainAlignMode { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
         /// </summary>
         [Output("zoneBalance")]
         public Output<bool?> ZoneBalance { get; private set; } = null!;
 
         /// <summary>
-        /// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
+        /// The virtual machine scale set zones.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -346,6 +382,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.SubResourceArgs>? ProximityPlacementGroup { get; set; }
 
         /// <summary>
+        /// Policy for Resiliency
+        /// </summary>
+        [Input("resiliencyPolicy")]
+        public Input<Inputs.ResiliencyPolicyArgs>? ResiliencyPolicy { get; set; }
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -358,6 +400,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.ScaleInPolicyArgs>? ScaleInPolicy { get; set; }
 
         /// <summary>
+        /// The ScheduledEventsPolicy.
+        /// </summary>
+        [Input("scheduledEventsPolicy")]
+        public Input<Inputs.ScheduledEventsPolicyArgs>? ScheduledEventsPolicy { get; set; }
+
+        /// <summary>
         /// When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
         /// </summary>
         [Input("singlePlacementGroup")]
@@ -368,6 +416,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// Specifies the sku profile for the virtual machine scale set.
+        /// </summary>
+        [Input("skuProfile")]
+        public Input<Inputs.SkuProfileArgs>? SkuProfile { get; set; }
 
         /// <summary>
         /// Specifies the Spot Restore properties for the virtual machine scale set.
@@ -406,6 +460,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? VmScaleSetName { get; set; }
 
         /// <summary>
+        /// Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
+        /// </summary>
+        [Input("zonalPlatformFaultDomainAlignMode")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.ZonalPlatformFaultDomainAlignMode>? ZonalPlatformFaultDomainAlignMode { get; set; }
+
+        /// <summary>
         /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
         /// </summary>
         [Input("zoneBalance")]
@@ -415,7 +475,7 @@ namespace Pulumi.AzureNative.Compute
         private InputList<string>? _zones;
 
         /// <summary>
-        /// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
+        /// The virtual machine scale set zones.
         /// </summary>
         public InputList<string> Zones
         {

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// Get a specific Smart Detector alert rule.
         /// 
         /// Uses Azure REST API version 2021-04-01.
+        /// 
+        /// Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSmartDetectorAlertRuleResult> InvokeAsync(GetSmartDetectorAlertRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// Get a specific Smart Detector alert rule.
         /// 
         /// Uses Azure REST API version 2021-04-01.
+        /// 
+        /// Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSmartDetectorAlertRuleResult> Invoke(GetSmartDetectorAlertRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// Get a specific Smart Detector alert rule.
         /// 
         /// Uses Azure REST API version 2021-04-01.
+        /// 
+        /// Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSmartDetectorAlertRuleResult> Invoke(GetSmartDetectorAlertRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleInvokeArgs(), options.WithDefaults());
@@ -98,6 +104,10 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// </summary>
         public readonly Outputs.ActionGroupsInformationResponse ActionGroups;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The alert rule description.
         /// </summary>
         public readonly string? Description;
@@ -150,6 +160,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         private GetSmartDetectorAlertRuleResult(
             Outputs.ActionGroupsInformationResponse actionGroups,
 
+            string azureApiVersion,
+
             string? description,
 
             Outputs.DetectorResponse detector,
@@ -175,6 +187,7 @@ namespace Pulumi.AzureNative.AlertsManagement
             string type)
         {
             ActionGroups = actionGroups;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Detector = detector;
             Frequency = frequency;

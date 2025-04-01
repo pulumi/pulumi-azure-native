@@ -27,7 +27,10 @@ class GetSchemaRegistryResult:
     """
     Single item in List or Get Schema Group operation
     """
-    def __init__(__self__, created_at_utc=None, e_tag=None, group_properties=None, id=None, location=None, name=None, schema_compatibility=None, schema_type=None, system_data=None, type=None, updated_at_utc=None):
+    def __init__(__self__, azure_api_version=None, created_at_utc=None, e_tag=None, group_properties=None, id=None, location=None, name=None, schema_compatibility=None, schema_type=None, system_data=None, type=None, updated_at_utc=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_at_utc and not isinstance(created_at_utc, str):
             raise TypeError("Expected argument 'created_at_utc' to be a str")
         pulumi.set(__self__, "created_at_utc", created_at_utc)
@@ -61,6 +64,14 @@ class GetSchemaRegistryResult:
         if updated_at_utc and not isinstance(updated_at_utc, str):
             raise TypeError("Expected argument 'updated_at_utc' to be a str")
         pulumi.set(__self__, "updated_at_utc", updated_at_utc)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAtUtc")
@@ -151,6 +162,7 @@ class AwaitableGetSchemaRegistryResult(GetSchemaRegistryResult):
         if False:
             yield self
         return GetSchemaRegistryResult(
+            azure_api_version=self.azure_api_version,
             created_at_utc=self.created_at_utc,
             e_tag=self.e_tag,
             group_properties=self.group_properties,
@@ -171,9 +183,9 @@ def get_schema_registry(namespace_name: Optional[str] = None,
     """
     Gets the details of an EventHub schema group.
 
-    Uses Azure REST API version 2022-10-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str namespace_name: The Namespace name
@@ -188,6 +200,7 @@ def get_schema_registry(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventhub:getSchemaRegistry', __args__, opts=opts, typ=GetSchemaRegistryResult).value
 
     return AwaitableGetSchemaRegistryResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_at_utc=pulumi.get(__ret__, 'created_at_utc'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         group_properties=pulumi.get(__ret__, 'group_properties'),
@@ -206,9 +219,9 @@ def get_schema_registry_output(namespace_name: Optional[pulumi.Input[str]] = Non
     """
     Gets the details of an EventHub schema group.
 
-    Uses Azure REST API version 2022-10-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str namespace_name: The Namespace name
@@ -222,6 +235,7 @@ def get_schema_registry_output(namespace_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub:getSchemaRegistry', __args__, opts=opts, typ=GetSchemaRegistryResult)
     return __ret__.apply(lambda __response__: GetSchemaRegistryResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_at_utc=pulumi.get(__response__, 'created_at_utc'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         group_properties=pulumi.get(__response__, 'group_properties'),

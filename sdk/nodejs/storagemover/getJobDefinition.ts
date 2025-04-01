@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets a Job Definition resource.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-07-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,6 +55,10 @@ export interface GetJobDefinitionResult {
      * Fully qualified resource id of the Agent to assign for new Job Runs of this Job Definition.
      */
     readonly agentResourceId: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Strategy to use for copy.
      */
@@ -100,7 +104,7 @@ export interface GetJobDefinitionResult {
      */
     readonly sourceSubpath?: string;
     /**
-     * Resource system metadata.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.storagemover.SystemDataResponse;
     /**
@@ -123,9 +127,9 @@ export interface GetJobDefinitionResult {
 /**
  * Gets a Job Definition resource.
  *
- * Uses Azure REST API version 2023-03-01.
+ * Uses Azure REST API version 2024-07-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

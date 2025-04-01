@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a data connector.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Task<GetAwsCloudTrailDataConnectorResult> InvokeAsync(GetAwsCloudTrailDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAwsCloudTrailDataConnectorResult>("azure-native:securityinsights:getAwsCloudTrailDataConnector", args ?? new GetAwsCloudTrailDataConnectorArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a data connector.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetAwsCloudTrailDataConnectorResult> Invoke(GetAwsCloudTrailDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAwsCloudTrailDataConnectorResult>("azure-native:securityinsights:getAwsCloudTrailDataConnector", args ?? new GetAwsCloudTrailDataConnectorInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a data connector.
         /// 
-        /// Uses Azure REST API version 2023-02-01.
+        /// Uses Azure REST API version 2024-09-01.
         /// </summary>
         public static Output<GetAwsCloudTrailDataConnectorResult> Invoke(GetAwsCloudTrailDataConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAwsCloudTrailDataConnectorResult>("azure-native:securityinsights:getAwsCloudTrailDataConnector", args ?? new GetAwsCloudTrailDataConnectorInvokeArgs(), options.WithDefaults());
@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? AwsRoleArn;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The available data types for the connector.
         /// </summary>
         public readonly Outputs.AwsCloudTrailDataConnectorDataTypesResponse? DataTypes;
@@ -131,6 +135,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         private GetAwsCloudTrailDataConnectorResult(
             string? awsRoleArn,
 
+            string azureApiVersion,
+
             Outputs.AwsCloudTrailDataConnectorDataTypesResponse? dataTypes,
 
             string? etag,
@@ -146,6 +152,7 @@ namespace Pulumi.AzureNative.SecurityInsights
             string type)
         {
             AwsRoleArn = awsRoleArn;
+            AzureApiVersion = azureApiVersion;
             DataTypes = dataTypes;
             Etag = etag;
             Id = id;

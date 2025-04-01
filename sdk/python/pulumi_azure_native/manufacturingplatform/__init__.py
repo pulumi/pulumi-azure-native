@@ -11,11 +11,3 @@ from .list_manufacturing_data_service_available_versions import *
 from .manufacturing_data_service import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.manufacturingplatform.v20250301 as __v20250301
-    v20250301 = __v20250301
-else:
-    v20250301 = _utilities.lazy_import('pulumi_azure_native.manufacturingplatform.v20250301')
-

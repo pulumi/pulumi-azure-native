@@ -14,15 +14,22 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class WorkspaceConnectionUsernamePasswordResponse
     {
         public readonly string? Password;
+        /// <summary>
+        /// Optional, required by connections like SalesForce for extra security in addition to UsernamePassword
+        /// </summary>
+        public readonly string? SecurityToken;
         public readonly string? Username;
 
         [OutputConstructor]
         private WorkspaceConnectionUsernamePasswordResponse(
             string? password,
 
+            string? securityToken,
+
             string? username)
         {
             Password = password;
+            SecurityToken = securityToken;
             Username = username;
         }
     }

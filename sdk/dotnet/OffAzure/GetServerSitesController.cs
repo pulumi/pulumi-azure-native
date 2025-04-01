@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Get a ServerSiteResource
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetServerSitesControllerResult> InvokeAsync(GetServerSitesControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerSitesControllerResult>("azure-native:offazure:getServerSitesController", args ?? new GetServerSitesControllerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Get a ServerSiteResource
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServerSitesControllerResult> Invoke(GetServerSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerSitesControllerResult>("azure-native:offazure:getServerSitesController", args ?? new GetServerSitesControllerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Get a ServerSiteResource
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServerSitesControllerResult> Invoke(GetServerSitesControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerSitesControllerResult>("azure-native:offazure:getServerSitesController", args ?? new GetServerSitesControllerInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.OffAzure
         /// </summary>
         public readonly string? ApplianceName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the ARM ID of migration hub solution for SDS.
         /// </summary>
         public readonly string? DiscoverySolutionId;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNative.OffAzure
 
             string? applianceName,
 
+            string azureApiVersion,
+
             string? discoverySolutionId,
 
             string id,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNative.OffAzure
         {
             AgentDetails = agentDetails;
             ApplianceName = applianceName;
+            AzureApiVersion = azureApiVersion;
             DiscoverySolutionId = discoverySolutionId;
             Id = id;
             Location = location;

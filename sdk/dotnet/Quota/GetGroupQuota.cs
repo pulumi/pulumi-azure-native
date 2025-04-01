@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Quota
         /// <summary>
         /// Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2025-03-01.
         /// 
-        /// Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
+        /// Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetGroupQuotaResult> InvokeAsync(GetGroupQuotaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupQuotaResult>("azure-native:quota:getGroupQuota", args ?? new GetGroupQuotaArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Quota
         /// <summary>
         /// Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2025-03-01.
         /// 
-        /// Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
+        /// Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGroupQuotaResult> Invoke(GetGroupQuotaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupQuotaResult>("azure-native:quota:getGroupQuota", args ?? new GetGroupQuotaInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Quota
         /// <summary>
         /// Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2025-03-01.
         /// 
-        /// Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01, 2025-03-15-preview.
+        /// Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGroupQuotaResult> Invoke(GetGroupQuotaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupQuotaResult>("azure-native:quota:getGroupQuota", args ?? new GetGroupQuotaInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Quota
     public sealed class GetGroupQuotaResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -95,10 +99,7 @@ namespace Pulumi.AzureNative.Quota
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-        /// </summary>
-        public readonly Outputs.GroupQuotasEntityBaseResponse Properties;
+        public readonly Outputs.GroupQuotasEntityResponseProperties Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -110,16 +111,19 @@ namespace Pulumi.AzureNative.Quota
 
         [OutputConstructor]
         private GetGroupQuotaResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
 
-            Outputs.GroupQuotasEntityBaseResponse properties,
+            Outputs.GroupQuotasEntityResponseProperties properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

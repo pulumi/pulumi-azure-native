@@ -40,6 +40,10 @@ export interface GetTunnelPolicyArgs {
  * Tunnel Policy maps domains to target endpoints to process traffic over the tunnelling protocol.
  */
 export interface GetTunnelPolicyResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     readonly deploymentStatus: string;
     /**
      * Domains referenced by this tunnel policy.

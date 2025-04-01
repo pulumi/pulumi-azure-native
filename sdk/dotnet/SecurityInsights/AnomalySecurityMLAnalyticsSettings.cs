@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// <summary>
     /// Represents Anomaly Security ML Analytics Settings
     /// 
-    /// Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2022-05-01-preview.
+    /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings")]
     public partial class AnomalySecurityMLAnalyticsSettings : global::Pulumi.CustomResource
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Output("anomalyVersion")]
         public Output<string> AnomalyVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The customizable observations of the AnomalySecurityMLAnalyticsSettings.

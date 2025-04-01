@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Cluster details.
  *
- * Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2020-10-01.
+ * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -58,6 +58,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly aadTenantId!: pulumi.Output<string | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Type of billing applied to the resource.
      */
     public /*out*/ readonly billingModel!: pulumi.Output<string>;
@@ -70,9 +74,17 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly cloudManagementEndpoint!: pulumi.Output<string | undefined>;
     /**
+     * Overall connectivity status for the cluster resource.
+     */
+    public /*out*/ readonly connectivityStatus!: pulumi.Output<string>;
+    /**
      * Desired properties of the cluster.
      */
     public readonly desiredProperties!: pulumi.Output<outputs.azurestackhci.ClusterDesiredPropertiesResponse | undefined>;
+    /**
+     * Attestation configurations for isolated VM (e.g. TVM, CVM) of the cluster.
+     */
+    public /*out*/ readonly isolatedVmAttestationConfiguration!: pulumi.Output<outputs.azurestackhci.IsolatedVmAttestationConfigurationResponse>;
     /**
      * Most recent billing meter timestamp.
      */
@@ -85,6 +97,10 @@ export class Cluster extends pulumi.CustomResource {
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Log Collection properties of the cluster.
+     */
+    public /*out*/ readonly logCollectionProperties!: pulumi.Output<outputs.azurestackhci.LogCollectionPropertiesResponse | undefined>;
     /**
      * The name of the resource
      */
@@ -101,6 +117,10 @@ export class Cluster extends pulumi.CustomResource {
      * First cluster sync timestamp.
      */
     public /*out*/ readonly registrationTimestamp!: pulumi.Output<string>;
+    /**
+     * RemoteSupport properties of the cluster.
+     */
+    public /*out*/ readonly remoteSupportProperties!: pulumi.Output<outputs.azurestackhci.RemoteSupportPropertiesResponse | undefined>;
     /**
      * Properties reported by cluster agent.
      */
@@ -176,14 +196,19 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["userAssignedIdentities"] = args ? args.userAssignedIdentities : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;
+            resourceInputs["connectivityStatus"] = undefined /*out*/;
+            resourceInputs["isolatedVmAttestationConfiguration"] = undefined /*out*/;
             resourceInputs["lastBillingTimestamp"] = undefined /*out*/;
             resourceInputs["lastSyncTimestamp"] = undefined /*out*/;
+            resourceInputs["logCollectionProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["registrationTimestamp"] = undefined /*out*/;
+            resourceInputs["remoteSupportProperties"] = undefined /*out*/;
             resourceInputs["reportedProperties"] = undefined /*out*/;
             resourceInputs["resourceProviderObjectId"] = undefined /*out*/;
             resourceInputs["serviceEndpoint"] = undefined /*out*/;
@@ -196,17 +221,22 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["aadClientId"] = undefined /*out*/;
             resourceInputs["aadServicePrincipalObjectId"] = undefined /*out*/;
             resourceInputs["aadTenantId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;
             resourceInputs["cloudManagementEndpoint"] = undefined /*out*/;
+            resourceInputs["connectivityStatus"] = undefined /*out*/;
             resourceInputs["desiredProperties"] = undefined /*out*/;
+            resourceInputs["isolatedVmAttestationConfiguration"] = undefined /*out*/;
             resourceInputs["lastBillingTimestamp"] = undefined /*out*/;
             resourceInputs["lastSyncTimestamp"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["logCollectionProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["registrationTimestamp"] = undefined /*out*/;
+            resourceInputs["remoteSupportProperties"] = undefined /*out*/;
             resourceInputs["reportedProperties"] = undefined /*out*/;
             resourceInputs["resourceProviderObjectId"] = undefined /*out*/;
             resourceInputs["serviceEndpoint"] = undefined /*out*/;

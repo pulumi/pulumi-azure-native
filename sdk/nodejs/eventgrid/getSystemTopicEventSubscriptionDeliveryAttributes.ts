@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get all delivery attributes for an event subscription.
  *
- * Uses Azure REST API version 2022-06-15.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSystemTopicEventSubscriptionDeliveryAttributes(args: GetSystemTopicEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionDeliveryAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,7 +25,7 @@ export function getSystemTopicEventSubscriptionDeliveryAttributes(args: GetSyste
 
 export interface GetSystemTopicEventSubscriptionDeliveryAttributesArgs {
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription.
      */
     eventSubscriptionName: string;
     /**
@@ -50,9 +50,9 @@ export interface GetSystemTopicEventSubscriptionDeliveryAttributesResult {
 /**
  * Get all delivery attributes for an event subscription.
  *
- * Uses Azure REST API version 2022-06-15.
+ * Uses Azure REST API version 2025-02-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSystemTopicEventSubscriptionDeliveryAttributesOutput(args: GetSystemTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemTopicEventSubscriptionDeliveryAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +65,7 @@ export function getSystemTopicEventSubscriptionDeliveryAttributesOutput(args: Ge
 
 export interface GetSystemTopicEventSubscriptionDeliveryAttributesOutputArgs {
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription.
      */
     eventSubscriptionName: pulumi.Input<string>;
     /**

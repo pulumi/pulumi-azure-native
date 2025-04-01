@@ -27,7 +27,10 @@ class GetCloudResult:
     """
     The Clouds resource definition.
     """
-    def __init__(__self__, cloud_capacity=None, cloud_name=None, extended_location=None, id=None, inventory_item_id=None, location=None, name=None, provisioning_state=None, storage_qo_s_policies=None, system_data=None, tags=None, type=None, uuid=None, vmm_server_id=None):
+    def __init__(__self__, azure_api_version=None, cloud_capacity=None, cloud_name=None, extended_location=None, id=None, inventory_item_id=None, location=None, name=None, provisioning_state=None, storage_qo_s_policies=None, system_data=None, tags=None, type=None, uuid=None, vmm_server_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cloud_capacity and not isinstance(cloud_capacity, dict):
             raise TypeError("Expected argument 'cloud_capacity' to be a dict")
         pulumi.set(__self__, "cloud_capacity", cloud_capacity)
@@ -70,6 +73,14 @@ class GetCloudResult:
         if vmm_server_id and not isinstance(vmm_server_id, str):
             raise TypeError("Expected argument 'vmm_server_id' to be a str")
         pulumi.set(__self__, "vmm_server_id", vmm_server_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudCapacity")
@@ -190,6 +201,7 @@ class AwaitableGetCloudResult(GetCloudResult):
         if False:
             yield self
         return GetCloudResult(
+            azure_api_version=self.azure_api_version,
             cloud_capacity=self.cloud_capacity,
             cloud_name=self.cloud_name,
             extended_location=self.extended_location,
@@ -212,9 +224,9 @@ def get_cloud(cloud_name: Optional[str] = None,
     """
     Implements Cloud GET method.
 
-    Uses Azure REST API version 2022-05-21-preview.
+    Uses Azure REST API version 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cloud_name: Name of the Cloud.
@@ -227,6 +239,7 @@ def get_cloud(cloud_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:scvmm:getCloud', __args__, opts=opts, typ=GetCloudResult).value
 
     return AwaitableGetCloudResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cloud_capacity=pulumi.get(__ret__, 'cloud_capacity'),
         cloud_name=pulumi.get(__ret__, 'cloud_name'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
@@ -247,9 +260,9 @@ def get_cloud_output(cloud_name: Optional[pulumi.Input[str]] = None,
     """
     Implements Cloud GET method.
 
-    Uses Azure REST API version 2022-05-21-preview.
+    Uses Azure REST API version 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str cloud_name: Name of the Cloud.
@@ -261,6 +274,7 @@ def get_cloud_output(cloud_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm:getCloud', __args__, opts=opts, typ=GetCloudResult)
     return __ret__.apply(lambda __response__: GetCloudResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cloud_capacity=pulumi.get(__response__, 'cloud_capacity'),
         cloud_name=pulumi.get(__response__, 'cloud_name'),
         extended_location=pulumi.get(__response__, 'extended_location'),

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Resources
         /// Gets a Template Spec with a given name.
         /// 
         /// Uses Azure REST API version 2022-02-01.
+        /// 
+        /// Other available API versions: 2021-03-01-preview, 2021-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetTemplateSpecResult> InvokeAsync(GetTemplateSpecArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecResult>("azure-native:resources:getTemplateSpec", args ?? new GetTemplateSpecArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Resources
         /// Gets a Template Spec with a given name.
         /// 
         /// Uses Azure REST API version 2022-02-01.
+        /// 
+        /// Other available API versions: 2021-03-01-preview, 2021-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTemplateSpecResult> Invoke(GetTemplateSpecInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Resources
         /// Gets a Template Spec with a given name.
         /// 
         /// Uses Azure REST API version 2022-02-01.
+        /// 
+        /// Other available API versions: 2021-03-01-preview, 2021-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTemplateSpecResult> Invoke(GetTemplateSpecInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithDefaults());
@@ -94,6 +100,10 @@ namespace Pulumi.AzureNative.Resources
     public sealed class GetTemplateSpecResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Template Spec description.
         /// </summary>
         public readonly string? Description;
@@ -136,6 +146,8 @@ namespace Pulumi.AzureNative.Resources
 
         [OutputConstructor]
         private GetTemplateSpecResult(
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -156,6 +168,7 @@ namespace Pulumi.AzureNative.Resources
 
             ImmutableDictionary<string, Outputs.TemplateSpecVersionInfoResponse> versions)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Id = id;

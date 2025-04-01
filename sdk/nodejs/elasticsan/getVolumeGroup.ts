@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get an VolumeGroups.
  *
- * Uses Azure REST API version 2021-11-20-preview.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVolumeGroup(args: GetVolumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,21 +43,41 @@ export interface GetVolumeGroupArgs {
  */
 export interface GetVolumeGroupResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Type of encryption
      */
     readonly encryption?: string;
     /**
-     * Azure resource identifier.
+     * Encryption Properties describing Key Vault and Identity information
+     */
+    readonly encryptionProperties?: outputs.elasticsan.EncryptionPropertiesResponse;
+    /**
+     * A boolean indicating whether or not Data Integrity Check is enabled
+     */
+    readonly enforceDataIntegrityCheckForIscsi?: boolean;
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Azure resource name.
+     * The identity of the resource.
+     */
+    readonly identity?: outputs.elasticsan.IdentityResponse;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
      * A collection of rules governing the accessibility from specific network locations.
      */
     readonly networkAcls?: outputs.elasticsan.NetworkRuleSetResponse;
+    /**
+     * The list of Private Endpoint Connections.
+     */
+    readonly privateEndpointConnections: outputs.elasticsan.PrivateEndpointConnectionResponse[];
     /**
      * Type of storage target
      */
@@ -67,24 +87,20 @@ export interface GetVolumeGroupResult {
      */
     readonly provisioningState: string;
     /**
-     * Resource metadata required by ARM RPC
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.elasticsan.SystemDataResponse;
     /**
-     * Azure resource tags.
-     */
-    readonly tags?: {[key: string]: string};
-    /**
-     * Azure resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Get an VolumeGroups.
  *
- * Uses Azure REST API version 2021-11-20-preview.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

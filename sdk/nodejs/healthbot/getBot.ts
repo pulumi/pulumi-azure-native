@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a HealthBot.
  *
- * Uses Azure REST API version 2023-05-01.
+ * Uses Azure REST API version 2024-02-01.
  *
- * Other available API versions: 2020-12-08-preview, 2024-02-01.
+ * Other available API versions: 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetBotArgs {
  * Azure Health Bot resource definition
  */
 export interface GetBotResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource Id for the resource.
      */
@@ -77,9 +81,9 @@ export interface GetBotResult {
 /**
  * Get a HealthBot.
  *
- * Uses Azure REST API version 2023-05-01.
+ * Uses Azure REST API version 2024-02-01.
  *
- * Other available API versions: 2020-12-08-preview, 2024-02-01.
+ * Other available API versions: 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

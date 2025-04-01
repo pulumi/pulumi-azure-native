@@ -28,6 +28,7 @@ class InstancePoolArgs:
                  v_cores: pulumi.Input[int],
                  instance_pool_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -38,6 +39,7 @@ class InstancePoolArgs:
         :param pulumi.Input[int] v_cores: Count of vCores belonging to this instance pool.
         :param pulumi.Input[str] instance_pool_name: The name of the instance pool to be created or updated.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] maintenance_configuration_id: Specifies maintenance configuration id to apply to this managed instance.
         :param pulumi.Input['SkuArgs'] sku: The name and tier of the SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -49,6 +51,8 @@ class InstancePoolArgs:
             pulumi.set(__self__, "instance_pool_name", instance_pool_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if maintenance_configuration_id is not None:
+            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -127,6 +131,18 @@ class InstancePoolArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="maintenanceConfigurationId")
+    def maintenance_configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies maintenance configuration id to apply to this managed instance.
+        """
+        return pulumi.get(self, "maintenance_configuration_id")
+
+    @maintenance_configuration_id.setter
+    def maintenance_configuration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_configuration_id", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
@@ -159,6 +175,7 @@ class InstancePool(pulumi.CustomResource):
                  instance_pool_name: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'InstancePoolLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -168,15 +185,16 @@ class InstancePool(pulumi.CustomResource):
         """
         An Azure SQL instance pool.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_pool_name: The name of the instance pool to be created or updated.
         :param pulumi.Input[Union[str, 'InstancePoolLicenseType']] license_type: The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] maintenance_configuration_id: Specifies maintenance configuration id to apply to this managed instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The name and tier of the SKU.
         :param pulumi.Input[str] subnet_id: Resource ID of the subnet to place this instance pool in.
@@ -192,9 +210,9 @@ class InstancePool(pulumi.CustomResource):
         """
         An Azure SQL instance pool.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param InstancePoolArgs args: The arguments to use to populate this resource's properties.
@@ -214,6 +232,7 @@ class InstancePool(pulumi.CustomResource):
                  instance_pool_name: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'InstancePoolLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -233,6 +252,7 @@ class InstancePool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'license_type'")
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
+            __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -244,6 +264,8 @@ class InstancePool(pulumi.CustomResource):
             if v_cores is None and not opts.urn:
                 raise TypeError("Missing required property 'v_cores'")
             __props__.__dict__["v_cores"] = v_cores
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["dns_zone"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20180601preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20200202preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20200801preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20201101preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20210201preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20210501preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20210801preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20211101:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20211101preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20220201preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20220501preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20220801preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20221101preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20230201preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20230501preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20230801:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20230801preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20240501preview:InstancePool")])
@@ -270,8 +292,11 @@ class InstancePool(pulumi.CustomResource):
 
         __props__ = InstancePoolArgs.__new__(InstancePoolArgs)
 
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["dns_zone"] = None
         __props__.__dict__["license_type"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["maintenance_configuration_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["subnet_id"] = None
@@ -279,6 +304,22 @@ class InstancePool(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["v_cores"] = None
         return InstancePool(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="dnsZone")
+    def dns_zone(self) -> pulumi.Output[str]:
+        """
+        The Dns Zone that the managed instance pool is in.
+        """
+        return pulumi.get(self, "dns_zone")
 
     @property
     @pulumi.getter(name="licenseType")
@@ -295,6 +336,14 @@ class InstancePool(pulumi.CustomResource):
         Resource location.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maintenanceConfigurationId")
+    def maintenance_configuration_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies maintenance configuration id to apply to this managed instance.
+        """
+        return pulumi.get(self, "maintenance_configuration_id")
 
     @property
     @pulumi.getter

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Synapse
         /// 
         /// Uses Azure REST API version 2021-06-01.
         /// 
-        /// Other available API versions: 2021-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSqlPoolSensitivityLabelResult> InvokeAsync(GetSqlPoolSensitivityLabelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolSensitivityLabelResult>("azure-native:synapse:getSqlPoolSensitivityLabel", args ?? new GetSqlPoolSensitivityLabelArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Synapse
         /// 
         /// Uses Azure REST API version 2021-06-01.
         /// 
-        /// Other available API versions: 2021-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSqlPoolSensitivityLabelResult> Invoke(GetSqlPoolSensitivityLabelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolSensitivityLabelResult>("azure-native:synapse:getSqlPoolSensitivityLabel", args ?? new GetSqlPoolSensitivityLabelInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Synapse
         /// 
         /// Uses Azure REST API version 2021-06-01.
         /// 
-        /// Other available API versions: 2021-06-01-preview.
+        /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSqlPoolSensitivityLabelResult> Invoke(GetSqlPoolSensitivityLabelInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolSensitivityLabelResult>("azure-native:synapse:getSqlPoolSensitivityLabel", args ?? new GetSqlPoolSensitivityLabelInvokeArgs(), options.WithDefaults());
@@ -148,6 +148,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetSqlPoolSensitivityLabelResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The column name.
         /// </summary>
         public readonly string ColumnName;
@@ -199,6 +203,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetSqlPoolSensitivityLabelResult(
+            string azureApiVersion,
+
             string columnName,
 
             string id,
@@ -225,6 +231,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ColumnName = columnName;
             Id = id;
             InformationType = informationType;

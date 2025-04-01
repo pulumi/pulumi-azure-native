@@ -27,7 +27,10 @@ class GetSourceControlConfigurationResult:
     """
     The SourceControl Configuration object returned in Get & Put response.
     """
-    def __init__(__self__, compliance_status=None, configuration_protected_settings=None, enable_helm_operator=None, helm_operator_properties=None, id=None, name=None, operator_instance_name=None, operator_namespace=None, operator_params=None, operator_scope=None, operator_type=None, provisioning_state=None, repository_public_key=None, repository_url=None, ssh_known_hosts_contents=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, compliance_status=None, configuration_protected_settings=None, enable_helm_operator=None, helm_operator_properties=None, id=None, name=None, operator_instance_name=None, operator_namespace=None, operator_params=None, operator_scope=None, operator_type=None, provisioning_state=None, repository_public_key=None, repository_url=None, ssh_known_hosts_contents=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if compliance_status and not isinstance(compliance_status, dict):
             raise TypeError("Expected argument 'compliance_status' to be a dict")
         pulumi.set(__self__, "compliance_status", compliance_status)
@@ -79,6 +82,14 @@ class GetSourceControlConfigurationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="complianceStatus")
@@ -223,6 +234,7 @@ class AwaitableGetSourceControlConfigurationResult(GetSourceControlConfiguration
         if False:
             yield self
         return GetSourceControlConfigurationResult(
+            azure_api_version=self.azure_api_version,
             compliance_status=self.compliance_status,
             configuration_protected_settings=self.configuration_protected_settings,
             enable_helm_operator=self.enable_helm_operator,
@@ -253,6 +265,8 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-05-01.
 
+    Other available API versions: 2022-07-01, 2022-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str cluster_name: The name of the kubernetes cluster.
     :param str cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
@@ -270,6 +284,7 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kubernetesconfiguration:getSourceControlConfiguration', __args__, opts=opts, typ=GetSourceControlConfigurationResult).value
 
     return AwaitableGetSourceControlConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         compliance_status=pulumi.get(__ret__, 'compliance_status'),
         configuration_protected_settings=pulumi.get(__ret__, 'configuration_protected_settings'),
         enable_helm_operator=pulumi.get(__ret__, 'enable_helm_operator'),
@@ -298,6 +313,8 @@ def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[
 
     Uses Azure REST API version 2023-05-01.
 
+    Other available API versions: 2022-07-01, 2022-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str cluster_name: The name of the kubernetes cluster.
     :param str cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
@@ -314,6 +331,7 @@ def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesconfiguration:getSourceControlConfiguration', __args__, opts=opts, typ=GetSourceControlConfigurationResult)
     return __ret__.apply(lambda __response__: GetSourceControlConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         compliance_status=pulumi.get(__response__, 'compliance_status'),
         configuration_protected_settings=pulumi.get(__response__, 'configuration_protected_settings'),
         enable_helm_operator=pulumi.get(__response__, 'enable_helm_operator'),

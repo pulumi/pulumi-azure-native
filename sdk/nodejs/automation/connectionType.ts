@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Definition of the connection type.
  *
- * Uses Azure REST API version 2022-08-08. In version 1.x of the Azure Native provider, it used API version 2019-06-01.
+ * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
  *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ConnectionType extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class ConnectionType extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectionType.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets the creation time.
      */
@@ -99,11 +103,13 @@ export class ConnectionType extends pulumi.CustomResource {
             resourceInputs["isGlobal"] = args ? args.isGlobal : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["fieldDefinitions"] = undefined /*out*/;

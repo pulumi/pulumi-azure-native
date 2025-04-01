@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Ground Station contains one or more antennas.
  *
- * Uses Azure REST API version 2024-03-01-preview.
+ * Uses Azure REST API version 2024-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01-preview.
  *
- * Other available API versions: 2024-03-01.
+ * Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GroundStation extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class GroundStation extends pulumi.CustomResource {
      * Altitude of the ground station.
      */
     public readonly altitudeMeters!: pulumi.Output<number | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Ground station capabilities.
      */
@@ -125,12 +129,14 @@ export class GroundStation extends pulumi.CustomResource {
             resourceInputs["providerName"] = args ? args.providerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["releaseMode"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["altitudeMeters"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capabilities"] = undefined /*out*/;
             resourceInputs["city"] = undefined /*out*/;
             resourceInputs["globalCommunicationsSite"] = undefined /*out*/;

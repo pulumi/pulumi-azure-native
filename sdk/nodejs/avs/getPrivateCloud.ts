@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A private cloud resource
+ * Get a PrivateCloud
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateCloudResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,9 +42,17 @@ export interface GetPrivateCloudResult {
      */
     readonly availability?: outputs.avs.AvailabilityPropertiesResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * An ExpressRoute Circuit
      */
     readonly circuit?: outputs.avs.CircuitResponse;
+    /**
+     * The type of DNS zone to use.
+     */
+    readonly dnsZoneType?: string;
     /**
      * Customer managed key encryption, can be enabled or disabled
      */
@@ -54,17 +62,24 @@ export interface GetPrivateCloudResult {
      */
     readonly endpoints: outputs.avs.EndpointsResponse;
     /**
+     * Array of additional networks noncontiguous with networkBlock. Networks must be
+     * unique and non-overlapping across VNet in your subscription, on-premise, and
+     * this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
+     * (A.B.C.D/X).
+     */
+    readonly extendedNetworkBlocks?: string[];
+    /**
      * Array of cloud link IDs from other clouds that connect to this one
      */
     readonly externalCloudLinks: string[];
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * The identity of the private cloud, if configured.
+     * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.avs.PrivateCloudIdentityResponse;
+    readonly identity?: outputs.avs.SystemAssignedServiceIdentityResponse;
     /**
      * vCenter Single Sign On Identity Sources
      */
@@ -74,7 +89,7 @@ export interface GetPrivateCloudResult {
      */
     readonly internet?: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -86,15 +101,18 @@ export interface GetPrivateCloudResult {
      */
     readonly managementNetwork: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+     * The block of addresses should be unique across VNet in your subscription as
+     * well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
+     * A,B,C,D are between 0 and 255, and X is between 0 and 22
      */
     readonly networkBlock: string;
     /**
-     * Flag to indicate whether the private cloud has the quota for provisioned NSX Public IP count raised from 64 to 1024
+     * Flag to indicate whether the private cloud has the quota for provisioned NSX
+     * Public IP count raised from 64 to 1024
      */
     readonly nsxPublicIpQuotaRaised: string;
     /**
@@ -114,19 +132,24 @@ export interface GetPrivateCloudResult {
      */
     readonly provisioningState: string;
     /**
-     * A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+     * A secondary expressRoute circuit from a separate AZ. Only present in a
+     * stretched private cloud
      */
     readonly secondaryCircuit?: outputs.avs.CircuitResponse;
     /**
-     * The private cloud SKU
+     * The SKU (Stock Keeping Unit) assigned to this resource.
      */
     readonly sku: outputs.avs.SkuResponse;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.avs.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -138,16 +161,20 @@ export interface GetPrivateCloudResult {
      */
     readonly vcenterPassword?: string;
     /**
+     * Azure resource ID of the virtual network
+     */
+    readonly virtualNetworkId?: string;
+    /**
      * Used for live migration of virtual machines
      */
     readonly vmotionNetwork: string;
 }
 /**
- * A private cloud resource
+ * Get a PrivateCloud
  *
- * Uses Azure REST API version 2022-05-01.
+ * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateCloudResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

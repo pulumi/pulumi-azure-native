@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Lists deployments for catalog.
  *
- * Uses Azure REST API version 2022-09-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listCatalogDeployments(args: ListCatalogDeploymentsArgs, opts?: pulumi.InvokeOptions): Promise<ListCatalogDeploymentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,7 +60,7 @@ export interface ListCatalogDeploymentsResult {
     /**
      * The link to the next page of items
      */
-    readonly nextLink: string;
+    readonly nextLink?: string;
     /**
      * The Deployment items on this page
      */
@@ -69,9 +69,9 @@ export interface ListCatalogDeploymentsResult {
 /**
  * Lists deployments for catalog.
  *
- * Uses Azure REST API version 2022-09-01-preview.
+ * Uses Azure REST API version 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listCatalogDeploymentsOutput(args: ListCatalogDeploymentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListCatalogDeploymentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

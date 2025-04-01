@@ -29,6 +29,7 @@ class FailoverGroupArgs:
                  databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  failover_group_name: Optional[pulumi.Input[str]] = None,
                  read_only_endpoint: Optional[pulumi.Input['FailoverGroupReadOnlyEndpointArgs']] = None,
+                 secondary_type: Optional[pulumi.Input[Union[str, 'FailoverGroupDatabasesSecondaryType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FailoverGroup resource.
@@ -39,6 +40,7 @@ class FailoverGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: List of databases in the failover group.
         :param pulumi.Input[str] failover_group_name: The name of the failover group.
         :param pulumi.Input['FailoverGroupReadOnlyEndpointArgs'] read_only_endpoint: Read-only endpoint of the failover group instance.
+        :param pulumi.Input[Union[str, 'FailoverGroupDatabasesSecondaryType']] secondary_type: Databases secondary type on partner server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "partner_servers", partner_servers)
@@ -51,6 +53,8 @@ class FailoverGroupArgs:
             pulumi.set(__self__, "failover_group_name", failover_group_name)
         if read_only_endpoint is not None:
             pulumi.set(__self__, "read_only_endpoint", read_only_endpoint)
+        if secondary_type is not None:
+            pulumi.set(__self__, "secondary_type", secondary_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -139,6 +143,18 @@ class FailoverGroupArgs:
         pulumi.set(self, "read_only_endpoint", value)
 
     @property
+    @pulumi.getter(name="secondaryType")
+    def secondary_type(self) -> Optional[pulumi.Input[Union[str, 'FailoverGroupDatabasesSecondaryType']]]:
+        """
+        Databases secondary type on partner server.
+        """
+        return pulumi.get(self, "secondary_type")
+
+    @secondary_type.setter
+    def secondary_type(self, value: Optional[pulumi.Input[Union[str, 'FailoverGroupDatabasesSecondaryType']]]):
+        pulumi.set(self, "secondary_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -162,15 +178,16 @@ class FailoverGroup(pulumi.CustomResource):
                  read_only_endpoint: Optional[pulumi.Input[Union['FailoverGroupReadOnlyEndpointArgs', 'FailoverGroupReadOnlyEndpointArgsDict']]] = None,
                  read_write_endpoint: Optional[pulumi.Input[Union['FailoverGroupReadWriteEndpointArgs', 'FailoverGroupReadWriteEndpointArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_type: Optional[pulumi.Input[Union[str, 'FailoverGroupDatabasesSecondaryType']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A failover group.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,6 +197,7 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['FailoverGroupReadOnlyEndpointArgs', 'FailoverGroupReadOnlyEndpointArgsDict']] read_only_endpoint: Read-only endpoint of the failover group instance.
         :param pulumi.Input[Union['FailoverGroupReadWriteEndpointArgs', 'FailoverGroupReadWriteEndpointArgsDict']] read_write_endpoint: Read-write endpoint of the failover group instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[Union[str, 'FailoverGroupDatabasesSecondaryType']] secondary_type: Databases secondary type on partner server.
         :param pulumi.Input[str] server_name: The name of the server containing the failover group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -192,9 +210,9 @@ class FailoverGroup(pulumi.CustomResource):
         """
         A failover group.
 
-        Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+        Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param FailoverGroupArgs args: The arguments to use to populate this resource's properties.
@@ -217,6 +235,7 @@ class FailoverGroup(pulumi.CustomResource):
                  read_only_endpoint: Optional[pulumi.Input[Union['FailoverGroupReadOnlyEndpointArgs', 'FailoverGroupReadOnlyEndpointArgsDict']]] = None,
                  read_write_endpoint: Optional[pulumi.Input[Union['FailoverGroupReadWriteEndpointArgs', 'FailoverGroupReadWriteEndpointArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_type: Optional[pulumi.Input[Union[str, 'FailoverGroupDatabasesSecondaryType']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -240,10 +259,12 @@ class FailoverGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["secondary_type"] = secondary_type
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["replication_role"] = None
@@ -273,6 +294,7 @@ class FailoverGroup(pulumi.CustomResource):
 
         __props__ = FailoverGroupArgs.__new__(FailoverGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["databases"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -284,6 +306,14 @@ class FailoverGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return FailoverGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

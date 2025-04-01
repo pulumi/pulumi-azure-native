@@ -27,7 +27,10 @@ class GetNamespaceResult:
     """
     Namespace resource.
     """
-    def __init__(__self__, id=None, identity=None, inbound_ip_rules=None, is_zone_redundant=None, location=None, minimum_tls_version_allowed=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, topic_spaces_configuration=None, topics_configuration=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, inbound_ip_rules=None, is_zone_redundant=None, location=None, minimum_tls_version_allowed=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, topic_spaces_configuration=None, topics_configuration=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -78,6 +81,14 @@ class GetNamespaceResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -105,7 +116,10 @@ class GetNamespaceResult:
     @pulumi.getter(name="isZoneRedundant")
     def is_zone_redundant(self) -> Optional[bool]:
         """
-        Allows the user to specify if the service is zone-redundant. This is a required property and user needs to specify this value explicitly.
+        This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
+        property is not specified explicitly by the user, its default value depends on the following conditions:
+            a. For Availability Zones enabled regions - The default property value would be true.
+            b. For non-Availability Zones enabled regions - The default property value would be false.
         Once specified, this property cannot be updated.
         """
         return pulumi.get(self, "is_zone_redundant")
@@ -137,6 +151,9 @@ class GetNamespaceResult:
     @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connections.
+        """
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
@@ -168,7 +185,7 @@ class GetNamespaceResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to the namespace resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -211,6 +228,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
         if False:
             yield self
         return GetNamespaceResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             inbound_ip_rules=self.inbound_ip_rules,
@@ -235,9 +253,9 @@ def get_namespace(namespace_name: Optional[str] = None,
     """
     Get properties of a namespace.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str namespace_name: Name of the namespace.
@@ -250,6 +268,7 @@ def get_namespace(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getNamespace', __args__, opts=opts, typ=GetNamespaceResult).value
 
     return AwaitableGetNamespaceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         inbound_ip_rules=pulumi.get(__ret__, 'inbound_ip_rules'),
@@ -272,9 +291,9 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
     """
     Get properties of a namespace.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2025-02-15.
 
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str namespace_name: Name of the namespace.
@@ -286,6 +305,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getNamespace', __args__, opts=opts, typ=GetNamespaceResult)
     return __ret__.apply(lambda __response__: GetNamespaceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         inbound_ip_rules=pulumi.get(__response__, 'inbound_ip_rules'),

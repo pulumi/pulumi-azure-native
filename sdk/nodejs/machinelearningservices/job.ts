@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2023-04-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01-preview.
+ * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Job extends pulumi.CustomResource {
     /**
@@ -42,9 +42,13 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * [Required] Additional attributes of the entity.
      */
-    public readonly jobBaseProperties!: pulumi.Output<outputs.machinelearningservices.AutoMLJobResponse | outputs.machinelearningservices.CommandJobResponse | outputs.machinelearningservices.PipelineJobResponse | outputs.machinelearningservices.SweepJobResponse>;
+    public readonly jobBaseProperties!: pulumi.Output<outputs.machinelearningservices.AutoMLJobResponse | outputs.machinelearningservices.CommandJobResponse | outputs.machinelearningservices.PipelineJobResponse | outputs.machinelearningservices.SparkJobResponse | outputs.machinelearningservices.SweepJobResponse>;
     /**
      * The name of the resource
      */
@@ -82,10 +86,12 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["jobBaseProperties"] = args ? args.jobBaseProperties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["jobBaseProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -109,7 +115,7 @@ export interface JobArgs {
     /**
      * [Required] Additional attributes of the entity.
      */
-    jobBaseProperties: pulumi.Input<inputs.machinelearningservices.AutoMLJobArgs | inputs.machinelearningservices.CommandJobArgs | inputs.machinelearningservices.PipelineJobArgs | inputs.machinelearningservices.SweepJobArgs>;
+    jobBaseProperties: pulumi.Input<inputs.machinelearningservices.AutoMLJobArgs | inputs.machinelearningservices.CommandJobArgs | inputs.machinelearningservices.PipelineJobArgs | inputs.machinelearningservices.SparkJobArgs | inputs.machinelearningservices.SweepJobArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

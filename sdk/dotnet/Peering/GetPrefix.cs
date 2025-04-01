@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.Peering
     public sealed class GetPrefixResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The error message for validation state
         /// </summary>
         public readonly string ErrorMessage;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNative.Peering
 
         [OutputConstructor]
         private GetPrefixResult(
+            string azureApiVersion,
+
             string errorMessage,
 
             ImmutableArray<Outputs.PeeringServicePrefixEventResponse> events,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.Peering
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ErrorMessage = errorMessage;
             Events = events;
             Id = id;

@@ -183,4 +183,35 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

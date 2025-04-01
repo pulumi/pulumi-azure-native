@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
     public sealed class StatementActionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// action. Example: Permit | Deny.
+        /// Action type. Example: Permit | Deny | Continue.
         /// </summary>
         [Input("actionType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.CommunityActionTypes> ActionType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.RoutePolicyActionType> ActionType { get; set; } = null!;
 
         /// <summary>
         /// IP Community Properties.
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
         public Input<Inputs.ActionIpExtendedCommunityPropertiesArgs>? IpExtendedCommunityProperties { get; set; }
 
         /// <summary>
-        /// localPreference of the route policy.
+        /// Local Preference of the route policy.
         /// </summary>
         [Input("localPreference")]
         public Input<double>? LocalPreference { get; set; }

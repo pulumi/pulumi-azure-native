@@ -27,7 +27,10 @@ class GetLabelByWorkspaceResult:
     """
     Label details
     """
-    def __init__(__self__, color=None, display_name=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, color=None, display_name=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if color and not isinstance(color, str):
             raise TypeError("Expected argument 'color' to be a str")
         pulumi.set(__self__, "color", color)
@@ -49,6 +52,14 @@ class GetLabelByWorkspaceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetLabelByWorkspaceResult(GetLabelByWorkspaceResult):
         if False:
             yield self
         return GetLabelByWorkspaceResult(
+            azure_api_version=self.azure_api_version,
             color=self.color,
             display_name=self.display_name,
             id=self.id,
@@ -144,6 +156,7 @@ def get_label_by_workspace(label_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:easm:getLabelByWorkspace', __args__, opts=opts, typ=GetLabelByWorkspaceResult).value
 
     return AwaitableGetLabelByWorkspaceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         color=pulumi.get(__ret__, 'color'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -172,6 +185,7 @@ def get_label_by_workspace_output(label_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:easm:getLabelByWorkspace', __args__, opts=opts, typ=GetLabelByWorkspaceResult)
     return __ret__.apply(lambda __response__: GetLabelByWorkspaceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         color=pulumi.get(__response__, 'color'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),

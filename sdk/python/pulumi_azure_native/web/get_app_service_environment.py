@@ -27,7 +27,10 @@ class GetAppServiceEnvironmentResult:
     """
     App Service Environment ARM resource.
     """
-    def __init__(__self__, cluster_settings=None, custom_dns_suffix_configuration=None, dedicated_host_count=None, dns_suffix=None, front_end_scale_factor=None, has_linux_workers=None, id=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, networking_configuration=None, provisioning_state=None, status=None, suspended=None, tags=None, type=None, upgrade_availability=None, upgrade_preference=None, user_whitelisted_ip_ranges=None, virtual_network=None, zone_redundant=None):
+    def __init__(__self__, azure_api_version=None, cluster_settings=None, custom_dns_suffix_configuration=None, dedicated_host_count=None, dns_suffix=None, front_end_scale_factor=None, has_linux_workers=None, id=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, networking_configuration=None, provisioning_state=None, status=None, suspended=None, tags=None, type=None, upgrade_availability=None, upgrade_preference=None, user_whitelisted_ip_ranges=None, virtual_network=None, zone_redundant=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_settings and not isinstance(cluster_settings, list):
             raise TypeError("Expected argument 'cluster_settings' to be a list")
         pulumi.set(__self__, "cluster_settings", cluster_settings)
@@ -108,6 +111,14 @@ class GetAppServiceEnvironmentResult:
         pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="clusterSettings")
     def cluster_settings(self) -> Optional[Sequence['outputs.NameValuePairResponse']]:
         """
@@ -183,7 +194,7 @@ class GetAppServiceEnvironmentResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -323,6 +334,7 @@ class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
         if False:
             yield self
         return GetAppServiceEnvironmentResult(
+            azure_api_version=self.azure_api_version,
             cluster_settings=self.cluster_settings,
             custom_dns_suffix_configuration=self.custom_dns_suffix_configuration,
             dedicated_host_count=self.dedicated_host_count,
@@ -357,9 +369,9 @@ def get_app_service_environment(name: Optional[str] = None,
     """
     Description for Get the properties of an App Service Environment.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the App Service Environment.
@@ -372,6 +384,7 @@ def get_app_service_environment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getAppServiceEnvironment', __args__, opts=opts, typ=GetAppServiceEnvironmentResult).value
 
     return AwaitableGetAppServiceEnvironmentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_settings=pulumi.get(__ret__, 'cluster_settings'),
         custom_dns_suffix_configuration=pulumi.get(__ret__, 'custom_dns_suffix_configuration'),
         dedicated_host_count=pulumi.get(__ret__, 'dedicated_host_count'),
@@ -404,9 +417,9 @@ def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
     """
     Description for Get the properties of an App Service Environment.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: Name of the App Service Environment.
@@ -418,6 +431,7 @@ def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getAppServiceEnvironment', __args__, opts=opts, typ=GetAppServiceEnvironmentResult)
     return __ret__.apply(lambda __response__: GetAppServiceEnvironmentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_settings=pulumi.get(__response__, 'cluster_settings'),
         custom_dns_suffix_configuration=pulumi.get(__response__, 'custom_dns_suffix_configuration'),
         dedicated_host_count=pulumi.get(__response__, 'dedicated_host_count'),

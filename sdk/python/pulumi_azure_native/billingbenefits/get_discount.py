@@ -27,10 +27,13 @@ class GetDiscountResult:
     """
     Resource definition for Discounts.
     """
-    def __init__(__self__, applied_scope_type=None, benefit_resource_id=None, billing_account_resource_id=None, billing_profile_resource_id=None, customer_resource_id=None, display_name=None, entity_type=None, etag=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, product_code=None, provisioning_state=None, sku=None, start_at=None, status=None, system_data=None, system_id=None, tags=None, type=None):
+    def __init__(__self__, applied_scope_type=None, azure_api_version=None, benefit_resource_id=None, billing_account_resource_id=None, billing_profile_resource_id=None, customer_resource_id=None, display_name=None, entity_type=None, etag=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, product_code=None, provisioning_state=None, sku=None, start_at=None, status=None, system_data=None, system_id=None, tags=None, type=None):
         if applied_scope_type and not isinstance(applied_scope_type, str):
             raise TypeError("Expected argument 'applied_scope_type' to be a str")
         pulumi.set(__self__, "applied_scope_type", applied_scope_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if benefit_resource_id and not isinstance(benefit_resource_id, str):
             raise TypeError("Expected argument 'benefit_resource_id' to be a str")
         pulumi.set(__self__, "benefit_resource_id", benefit_resource_id)
@@ -108,6 +111,14 @@ class GetDiscountResult:
         List of applied scopes supported for discounts.
         """
         return pulumi.get(self, "applied_scope_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="benefitResourceId")
@@ -301,6 +312,7 @@ class AwaitableGetDiscountResult(GetDiscountResult):
             yield self
         return GetDiscountResult(
             applied_scope_type=self.applied_scope_type,
+            azure_api_version=self.azure_api_version,
             benefit_resource_id=self.benefit_resource_id,
             billing_account_resource_id=self.billing_account_resource_id,
             billing_profile_resource_id=self.billing_profile_resource_id,
@@ -346,6 +358,7 @@ def get_discount(discount_name: Optional[str] = None,
 
     return AwaitableGetDiscountResult(
         applied_scope_type=pulumi.get(__ret__, 'applied_scope_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         benefit_resource_id=pulumi.get(__ret__, 'benefit_resource_id'),
         billing_account_resource_id=pulumi.get(__ret__, 'billing_account_resource_id'),
         billing_profile_resource_id=pulumi.get(__ret__, 'billing_profile_resource_id'),
@@ -388,6 +401,7 @@ def get_discount_output(discount_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:billingbenefits:getDiscount', __args__, opts=opts, typ=GetDiscountResult)
     return __ret__.apply(lambda __response__: GetDiscountResult(
         applied_scope_type=pulumi.get(__response__, 'applied_scope_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         benefit_resource_id=pulumi.get(__response__, 'benefit_resource_id'),
         billing_account_resource_id=pulumi.get(__response__, 'billing_account_resource_id'),
         billing_profile_resource_id=pulumi.get(__response__, 'billing_profile_resource_id'),

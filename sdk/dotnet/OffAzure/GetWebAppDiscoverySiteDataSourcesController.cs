@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Method to get a Web app data source in site.
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebAppDiscoverySiteDataSourcesControllerResult> InvokeAsync(GetWebAppDiscoverySiteDataSourcesControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDiscoverySiteDataSourcesControllerResult>("azure-native:offazure:getWebAppDiscoverySiteDataSourcesController", args ?? new GetWebAppDiscoverySiteDataSourcesControllerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Method to get a Web app data source in site.
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppDiscoverySiteDataSourcesControllerResult> Invoke(GetWebAppDiscoverySiteDataSourcesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiscoverySiteDataSourcesControllerResult>("azure-native:offazure:getWebAppDiscoverySiteDataSourcesController", args ?? new GetWebAppDiscoverySiteDataSourcesControllerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Method to get a Web app data source in site.
         /// 
-        /// Uses Azure REST API version 2023-06-06.
+        /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppDiscoverySiteDataSourcesControllerResult> Invoke(GetWebAppDiscoverySiteDataSourcesControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiscoverySiteDataSourcesControllerResult>("azure-native:offazure:getWebAppDiscoverySiteDataSourcesController", args ?? new GetWebAppDiscoverySiteDataSourcesControllerInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.OffAzure
     public sealed class GetWebAppDiscoverySiteDataSourcesControllerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the discovery site Id.
         /// </summary>
         public readonly string? DiscoverySiteId;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.OffAzure
 
         [OutputConstructor]
         private GetWebAppDiscoverySiteDataSourcesControllerResult(
+            string azureApiVersion,
+
             string? discoverySiteId,
 
             string id,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.OffAzure
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DiscoverySiteId = discoverySiteId;
             Id = id;
             Name = name;

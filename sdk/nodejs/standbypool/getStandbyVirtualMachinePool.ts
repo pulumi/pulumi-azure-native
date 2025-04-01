@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a StandbyVirtualMachinePoolResource
  *
- * Uses Azure REST API version 2023-12-01-preview.
+ * Uses Azure REST API version 2024-03-01.
  *
- * Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
+ * Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStandbyVirtualMachinePool(args: GetStandbyVirtualMachinePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetStandbyVirtualMachinePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +41,10 @@ export interface GetStandbyVirtualMachinePoolResult {
      * Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
      */
     readonly attachedVirtualMachineScaleSetId?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Specifies the elasticity profile of the standby virtual machine pools.
      */
@@ -81,9 +85,9 @@ export interface GetStandbyVirtualMachinePoolResult {
 /**
  * Get a StandbyVirtualMachinePoolResource
  *
- * Uses Azure REST API version 2023-12-01-preview.
+ * Uses Azure REST API version 2024-03-01.
  *
- * Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
+ * Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStandbyVirtualMachinePoolOutput(args: GetStandbyVirtualMachinePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandbyVirtualMachinePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

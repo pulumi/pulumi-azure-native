@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets the logging configuration of an app.
         /// 
-        /// Uses Azure REST API version 2023-12-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
+        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebAppDiagnosticLogsConfigurationSlotResult> InvokeAsync(GetWebAppDiagnosticLogsConfigurationSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDiagnosticLogsConfigurationSlotResult>("azure-native:web:getWebAppDiagnosticLogsConfigurationSlot", args ?? new GetWebAppDiagnosticLogsConfigurationSlotArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets the logging configuration of an app.
         /// 
-        /// Uses Azure REST API version 2023-12-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
+        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppDiagnosticLogsConfigurationSlotResult> Invoke(GetWebAppDiagnosticLogsConfigurationSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiagnosticLogsConfigurationSlotResult>("azure-native:web:getWebAppDiagnosticLogsConfigurationSlot", args ?? new GetWebAppDiagnosticLogsConfigurationSlotInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets the logging configuration of an app.
         /// 
-        /// Uses Azure REST API version 2023-12-01.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
+        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppDiagnosticLogsConfigurationSlotResult> Invoke(GetWebAppDiagnosticLogsConfigurationSlotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiagnosticLogsConfigurationSlotResult>("azure-native:web:getWebAppDiagnosticLogsConfigurationSlot", args ?? new GetWebAppDiagnosticLogsConfigurationSlotInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly Outputs.ApplicationLogsConfigResponse? ApplicationLogs;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Detailed error messages configuration.
         /// </summary>
         public readonly Outputs.EnabledConfigResponse? DetailedErrorMessages;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.Web
         private GetWebAppDiagnosticLogsConfigurationSlotResult(
             Outputs.ApplicationLogsConfigResponse? applicationLogs,
 
+            string azureApiVersion,
+
             Outputs.EnabledConfigResponse? detailedErrorMessages,
 
             Outputs.EnabledConfigResponse? failedRequestsTracing,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.Web
             string type)
         {
             ApplicationLogs = applicationLogs;
+            AzureApiVersion = azureApiVersion;
             DetailedErrorMessages = detailedErrorMessages;
             FailedRequestsTracing = failedRequestsTracing;
             HttpLogs = httpLogs;

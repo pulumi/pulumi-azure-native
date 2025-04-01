@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.HybridCompute
     /// <summary>
     /// A private link scoped resource
     /// 
-    /// Uses Azure REST API version 2020-08-15-preview. In version 1.x of the Azure Native provider, it used API version 2020-08-15-preview.
+    /// Uses Azure REST API version 2020-08-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-08-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:PrivateLinkScopedResource")]
     public partial class PrivateLinkScopedResource : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The resource id of the scoped Azure monitor resource.
         /// </summary>

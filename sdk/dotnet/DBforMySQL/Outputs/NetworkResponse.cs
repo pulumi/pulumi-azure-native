@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DBforMySQL.Outputs
         /// <summary>
         /// Whether or not public network access is allowed for this server. Value is 'Disabled' when server has VNet integration.
         /// </summary>
-        public readonly string PublicNetworkAccess;
+        public readonly string? PublicNetworkAccess;
 
         [OutputConstructor]
         private NetworkResponse(
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.DBforMySQL.Outputs
 
             string? privateDnsZoneResourceId,
 
-            string publicNetworkAccess)
+            string? publicNetworkAccess)
         {
             DelegatedSubnetResourceId = delegatedSubnetResourceId;
             PrivateDnsZoneResourceId = privateDnsZoneResourceId;

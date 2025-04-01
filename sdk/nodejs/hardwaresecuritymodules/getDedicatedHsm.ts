@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified Azure dedicated HSM.
  *
- * Uses Azure REST API version 2021-11-30.
+ * Uses Azure REST API version 2024-06-30-preview.
  *
- * Other available API versions: 2024-06-30-preview.
+ * Other available API versions: 2021-11-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDedicatedHsm(args: GetDedicatedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHsmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,11 +24,11 @@ export function getDedicatedHsm(args: GetDedicatedHsmArgs, opts?: pulumi.InvokeO
 
 export interface GetDedicatedHsmArgs {
     /**
-     * The name of the dedicated HSM.
+     * Name of the dedicated Hsm
      */
     name: string;
     /**
-     * The name of the Resource Group to which the dedicated hsm belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -38,11 +38,15 @@ export interface GetDedicatedHsmArgs {
  */
 export interface GetDedicatedHsmResult {
     /**
-     * The Azure Resource Manager resource ID for the dedicated HSM.
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * The supported Azure location where the dedicated HSM should be created.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -50,7 +54,7 @@ export interface GetDedicatedHsmResult {
      */
     readonly managementNetworkProfile?: outputs.hardwaresecuritymodules.NetworkProfileResponse;
     /**
-     * The name of the dedicated HSM.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -74,15 +78,15 @@ export interface GetDedicatedHsmResult {
      */
     readonly statusMessage: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.hardwaresecuritymodules.SystemDataResponse;
     /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The resource type of the dedicated HSM.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -93,9 +97,9 @@ export interface GetDedicatedHsmResult {
 /**
  * Gets the specified Azure dedicated HSM.
  *
- * Uses Azure REST API version 2021-11-30.
+ * Uses Azure REST API version 2024-06-30-preview.
  *
- * Other available API versions: 2024-06-30-preview.
+ * Other available API versions: 2021-11-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDedicatedHsmOutput(args: GetDedicatedHsmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDedicatedHsmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,11 +111,11 @@ export function getDedicatedHsmOutput(args: GetDedicatedHsmOutputArgs, opts?: pu
 
 export interface GetDedicatedHsmOutputArgs {
     /**
-     * The name of the dedicated HSM.
+     * Name of the dedicated Hsm
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Resource Group to which the dedicated hsm belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

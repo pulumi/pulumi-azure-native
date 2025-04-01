@@ -27,7 +27,10 @@ class GetIntegrationAccountPartnerResult:
     """
     The integration account partner.
     """
-    def __init__(__self__, changed_time=None, content=None, created_time=None, id=None, location=None, metadata=None, name=None, partner_type=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, changed_time=None, content=None, created_time=None, id=None, location=None, metadata=None, name=None, partner_type=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if changed_time and not isinstance(changed_time, str):
             raise TypeError("Expected argument 'changed_time' to be a str")
         pulumi.set(__self__, "changed_time", changed_time)
@@ -58,6 +61,14 @@ class GetIntegrationAccountPartnerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="changedTime")
@@ -146,6 +157,7 @@ class AwaitableGetIntegrationAccountPartnerResult(GetIntegrationAccountPartnerRe
         if False:
             yield self
         return GetIntegrationAccountPartnerResult(
+            azure_api_version=self.azure_api_version,
             changed_time=self.changed_time,
             content=self.content,
             created_time=self.created_time,
@@ -167,7 +179,7 @@ def get_integration_account_partner(integration_account_name: Optional[str] = No
 
     Uses Azure REST API version 2019-05-01.
 
-    Other available API versions: 2015-08-01-preview.
+    Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str integration_account_name: The integration account name.
@@ -182,6 +194,7 @@ def get_integration_account_partner(integration_account_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:logic:getIntegrationAccountPartner', __args__, opts=opts, typ=GetIntegrationAccountPartnerResult).value
 
     return AwaitableGetIntegrationAccountPartnerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         changed_time=pulumi.get(__ret__, 'changed_time'),
         content=pulumi.get(__ret__, 'content'),
         created_time=pulumi.get(__ret__, 'created_time'),
@@ -201,7 +214,7 @@ def get_integration_account_partner_output(integration_account_name: Optional[pu
 
     Uses Azure REST API version 2019-05-01.
 
-    Other available API versions: 2015-08-01-preview.
+    Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str integration_account_name: The integration account name.
@@ -215,6 +228,7 @@ def get_integration_account_partner_output(integration_account_name: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getIntegrationAccountPartner', __args__, opts=opts, typ=GetIntegrationAccountPartnerResult)
     return __ret__.apply(lambda __response__: GetIntegrationAccountPartnerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         changed_time=pulumi.get(__response__, 'changed_time'),
         content=pulumi.get(__response__, 'content'),
         created_time=pulumi.get(__response__, 'created_time'),

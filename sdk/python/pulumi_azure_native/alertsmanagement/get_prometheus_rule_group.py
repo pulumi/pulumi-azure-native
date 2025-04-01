@@ -27,7 +27,10 @@ class GetPrometheusRuleGroupResult:
     """
     The Prometheus rule group resource.
     """
-    def __init__(__self__, cluster_name=None, description=None, enabled=None, id=None, interval=None, location=None, name=None, rules=None, scopes=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, cluster_name=None, description=None, enabled=None, id=None, interval=None, location=None, name=None, rules=None, scopes=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_name and not isinstance(cluster_name, str):
             raise TypeError("Expected argument 'cluster_name' to be a str")
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -64,6 +67,14 @@ class GetPrometheusRuleGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterName")
@@ -168,6 +179,7 @@ class AwaitableGetPrometheusRuleGroupResult(GetPrometheusRuleGroupResult):
         if False:
             yield self
         return GetPrometheusRuleGroupResult(
+            azure_api_version=self.azure_api_version,
             cluster_name=self.cluster_name,
             description=self.description,
             enabled=self.enabled,
@@ -190,6 +202,8 @@ def get_prometheus_rule_group(resource_group_name: Optional[str] = None,
 
     Uses Azure REST API version 2023-03-01.
 
+    Other available API versions: 2021-07-22-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_group_name: The name of the rule group.
@@ -201,6 +215,7 @@ def get_prometheus_rule_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:alertsmanagement:getPrometheusRuleGroup', __args__, opts=opts, typ=GetPrometheusRuleGroupResult).value
 
     return AwaitableGetPrometheusRuleGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_name=pulumi.get(__ret__, 'cluster_name'),
         description=pulumi.get(__ret__, 'description'),
         enabled=pulumi.get(__ret__, 'enabled'),
@@ -221,6 +236,8 @@ def get_prometheus_rule_group_output(resource_group_name: Optional[pulumi.Input[
 
     Uses Azure REST API version 2023-03-01.
 
+    Other available API versions: 2021-07-22-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_group_name: The name of the rule group.
@@ -231,6 +248,7 @@ def get_prometheus_rule_group_output(resource_group_name: Optional[pulumi.Input[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:alertsmanagement:getPrometheusRuleGroup', __args__, opts=opts, typ=GetPrometheusRuleGroupResult)
     return __ret__.apply(lambda __response__: GetPrometheusRuleGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_name=pulumi.get(__response__, 'cluster_name'),
         description=pulumi.get(__response__, 'description'),
         enabled=pulumi.get(__response__, 'enabled'),

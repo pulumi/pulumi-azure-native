@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     public sealed class GetWebhookResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// content type
         /// </summary>
         public readonly string? ContentType;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
 
         [OutputConstructor]
         private GetWebhookResult(
+            string azureApiVersion,
+
             string? contentType,
 
             string deliveryStatus,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
 
             string webhookKeyEnabled)
         {
+            AzureApiVersion = azureApiVersion;
             ContentType = contentType;
             DeliveryStatus = deliveryStatus;
             EnableSslVerification = enableSslVerification;

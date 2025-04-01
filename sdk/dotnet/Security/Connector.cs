@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// The connector setting
     /// 
-    /// Uses Azure REST API version 2020-01-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-01-01-preview.
+    /// Uses Azure REST API version 2020-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Connector")]
     public partial class Connector : global::Pulumi.CustomResource
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("authenticationDetails")]
         public Output<object?> AuthenticationDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).

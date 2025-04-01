@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets the properties of the specified user.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// 
-        /// Other available API versions: 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:databoxedge:getUser", args ?? new GetUserArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets the properties of the specified user.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// 
-        /// Other available API versions: 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:databoxedge:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Gets the properties of the specified user.
         /// 
-        /// Uses Azure REST API version 2022-03-01.
+        /// Uses Azure REST API version 2023-07-01.
         /// 
-        /// Other available API versions: 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:databoxedge:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetUserResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The password details.
         /// </summary>
         public readonly Outputs.AsymmetricEncryptedSecretResponse? EncryptedPassword;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetUserResult(
+            string azureApiVersion,
+
             Outputs.AsymmetricEncryptedSecretResponse? encryptedPassword,
 
             string id,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string userType)
         {
+            AzureApiVersion = azureApiVersion;
             EncryptedPassword = encryptedPassword;
             Id = id;
             Name = name;

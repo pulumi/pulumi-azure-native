@@ -10,9 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The application type name resource
  *
- * Uses Azure REST API version 2024-11-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-03-01.
- *
- * Other available API versions: 2021-06-01.
+ * Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
  */
 export class ApplicationType extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class ApplicationType extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApplicationType.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -88,11 +90,13 @@ export class ApplicationType extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -101,7 +105,7 @@ export class ApplicationType extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210501:ApplicationType" }, { type: "azure-native:servicefabric/v20210701preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210901privatepreview:ApplicationType" }, { type: "azure-native:servicefabric/v20211101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220101:ApplicationType" }, { type: "azure-native:servicefabric/v20220201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220601preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220801preview:ApplicationType" }, { type: "azure-native:servicefabric/v20221001preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230301preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230701preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230901preview:ApplicationType" }, { type: "azure-native:servicefabric/v20231101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20231201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20240201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20240401:ApplicationType" }, { type: "azure-native:servicefabric/v20240601preview:ApplicationType" }, { type: "azure-native:servicefabric/v20240901preview:ApplicationType" }, { type: "azure-native:servicefabric/v20241101preview:ApplicationType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210501:ApplicationType" }, { type: "azure-native:servicefabric/v20210601:ApplicationType" }, { type: "azure-native:servicefabric/v20210701preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210901privatepreview:ApplicationType" }, { type: "azure-native:servicefabric/v20211101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220101:ApplicationType" }, { type: "azure-native:servicefabric/v20220201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220601preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220801preview:ApplicationType" }, { type: "azure-native:servicefabric/v20221001preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230301preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230301preview:ManagedClusterApplicationType" }, { type: "azure-native:servicefabric/v20230701preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230701preview:ManagedClusterApplicationType" }, { type: "azure-native:servicefabric/v20230901preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230901preview:ManagedClusterApplicationType" }, { type: "azure-native:servicefabric/v20231101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20231101preview:ManagedClusterApplicationType" }, { type: "azure-native:servicefabric/v20231201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20231201preview:ManagedClusterApplicationType" }, { type: "azure-native:servicefabric/v20240201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20240201preview:ManagedClusterApplicationType" }, { type: "azure-native:servicefabric/v20240401:ApplicationType" }, { type: "azure-native:servicefabric/v20240401:ManagedClusterApplicationType" }, { type: "azure-native:servicefabric/v20240601preview:ApplicationType" }, { type: "azure-native:servicefabric/v20240601preview:ManagedClusterApplicationType" }, { type: "azure-native:servicefabric/v20240901preview:ApplicationType" }, { type: "azure-native:servicefabric/v20240901preview:ManagedClusterApplicationType" }, { type: "azure-native:servicefabric/v20241101preview:ApplicationType" }, { type: "azure-native:servicefabric:ManagedClusterApplicationType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationType.__pulumiType, name, resourceInputs, opts);
     }

@@ -27,10 +27,13 @@ class GetApplicationTypeVersionResult:
     """
     An application type version resource for the specified application type name resource.
     """
-    def __init__(__self__, app_package_url=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, app_package_url=None, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if app_package_url and not isinstance(app_package_url, str):
             raise TypeError("Expected argument 'app_package_url' to be a str")
         pulumi.set(__self__, "app_package_url", app_package_url)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -60,6 +63,14 @@ class GetApplicationTypeVersionResult:
         The URL to the application package
         """
         return pulumi.get(self, "app_package_url")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -125,6 +136,7 @@ class AwaitableGetApplicationTypeVersionResult(GetApplicationTypeVersionResult):
             yield self
         return GetApplicationTypeVersionResult(
             app_package_url=self.app_package_url,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -144,8 +156,6 @@ def get_application_type_version(application_type_name: Optional[str] = None,
 
     Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2021-06-01.
-
 
     :param str application_type_name: The name of the application type name resource.
     :param str cluster_name: The name of the cluster resource.
@@ -162,6 +172,7 @@ def get_application_type_version(application_type_name: Optional[str] = None,
 
     return AwaitableGetApplicationTypeVersionResult(
         app_package_url=pulumi.get(__ret__, 'app_package_url'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -179,8 +190,6 @@ def get_application_type_version_output(application_type_name: Optional[pulumi.I
 
     Uses Azure REST API version 2024-11-01-preview.
 
-    Other available API versions: 2021-06-01.
-
 
     :param str application_type_name: The name of the application type name resource.
     :param str cluster_name: The name of the cluster resource.
@@ -196,6 +205,7 @@ def get_application_type_version_output(application_type_name: Optional[pulumi.I
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric:getApplicationTypeVersion', __args__, opts=opts, typ=GetApplicationTypeVersionResult)
     return __ret__.apply(lambda __response__: GetApplicationTypeVersionResult(
         app_package_url=pulumi.get(__response__, 'app_package_url'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

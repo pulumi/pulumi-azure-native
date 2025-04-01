@@ -93,6 +93,10 @@ namespace Pulumi.AzureNative.Cdn
     [OutputType]
     public sealed class GetTunnelPolicyResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         public readonly string DeploymentStatus;
         /// <summary>
         /// Domains referenced by this tunnel policy.
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.Cdn
 
         [OutputConstructor]
         private GetTunnelPolicyResult(
+            string azureApiVersion,
+
             string deploymentStatus,
 
             ImmutableArray<Outputs.ActivatedResourceReferenceResponse> domains,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.Cdn
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DeploymentStatus = deploymentStatus;
             Domains = domains;
             Id = id;

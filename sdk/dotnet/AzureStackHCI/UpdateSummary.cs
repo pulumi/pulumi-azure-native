@@ -12,13 +12,31 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// Get the update summaries for the cluster
     /// 
-    /// Uses Azure REST API version 2023-03-01.
+    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
-    /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    /// Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:UpdateSummary")]
     public partial class UpdateSummary : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Current OEM Version.
+        /// </summary>
+        [Output("currentOemVersion")]
+        public Output<string?> CurrentOemVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Current Sbe version of the stamp.
+        /// </summary>
+        [Output("currentSbeVersion")]
+        public Output<string?> CurrentSbeVersion { get; private set; } = null!;
+
         /// <summary>
         /// Current Solution Bundle version of the stamp.
         /// </summary>
@@ -157,6 +175,18 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// Current OEM Version.
+        /// </summary>
+        [Input("currentOemVersion")]
+        public Input<string>? CurrentOemVersion { get; set; }
+
+        /// <summary>
+        /// Current Sbe version of the stamp.
+        /// </summary>
+        [Input("currentSbeVersion")]
+        public Input<string>? CurrentSbeVersion { get; set; }
 
         /// <summary>
         /// Current Solution Bundle version of the stamp.

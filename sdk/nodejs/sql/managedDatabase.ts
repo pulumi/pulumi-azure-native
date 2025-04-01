@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A managed database resource.
  *
- * Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+ * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2017-03-01-preview, 2018-06-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ManagedDatabase extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class ManagedDatabase extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Collation of the metadata catalog.
      */
     public readonly catalogCollation!: pulumi.Output<string | undefined>;
@@ -65,6 +69,10 @@ export class ManagedDatabase extends pulumi.CustomResource {
      * Instance Failover Group resource identifier that this managed database belongs to.
      */
     public /*out*/ readonly failoverGroupId!: pulumi.Output<string>;
+    /**
+     * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+     */
+    public readonly isLedgerOn!: pulumi.Output<boolean | undefined>;
     /**
      * Resource location.
      */
@@ -107,7 +115,11 @@ export class ManagedDatabase extends pulumi.CustomResource {
             resourceInputs["catalogCollation"] = args ? args.catalogCollation : undefined;
             resourceInputs["collation"] = args ? args.collation : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["crossSubscriptionRestorableDroppedDatabaseId"] = args ? args.crossSubscriptionRestorableDroppedDatabaseId : undefined;
+            resourceInputs["crossSubscriptionSourceDatabaseId"] = args ? args.crossSubscriptionSourceDatabaseId : undefined;
+            resourceInputs["crossSubscriptionTargetManagedInstanceId"] = args ? args.crossSubscriptionTargetManagedInstanceId : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["isLedgerOn"] = args ? args.isLedgerOn : undefined;
             resourceInputs["lastBackupName"] = args ? args.lastBackupName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["longTermRetentionBackupResourceId"] = args ? args.longTermRetentionBackupResourceId : undefined;
@@ -117,9 +129,11 @@ export class ManagedDatabase extends pulumi.CustomResource {
             resourceInputs["restorableDroppedDatabaseId"] = args ? args.restorableDroppedDatabaseId : undefined;
             resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
             resourceInputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
+            resourceInputs["storageContainerIdentity"] = args ? args.storageContainerIdentity : undefined;
             resourceInputs["storageContainerSasToken"] = args ? args.storageContainerSasToken : undefined;
             resourceInputs["storageContainerUri"] = args ? args.storageContainerUri : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["defaultSecondaryLocation"] = undefined /*out*/;
             resourceInputs["earliestRestorePoint"] = undefined /*out*/;
@@ -128,12 +142,14 @@ export class ManagedDatabase extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["catalogCollation"] = undefined /*out*/;
             resourceInputs["collation"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["defaultSecondaryLocation"] = undefined /*out*/;
             resourceInputs["earliestRestorePoint"] = undefined /*out*/;
             resourceInputs["failoverGroupId"] = undefined /*out*/;
+            resourceInputs["isLedgerOn"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -168,9 +184,25 @@ export interface ManagedDatabaseArgs {
      */
     createMode?: pulumi.Input<string | enums.sql.ManagedDatabaseCreateMode>;
     /**
+     * The restorable cross-subscription dropped database resource id to restore when creating this database.
+     */
+    crossSubscriptionRestorableDroppedDatabaseId?: pulumi.Input<string>;
+    /**
+     * The resource identifier of the cross-subscription source database associated with create operation of this database.
+     */
+    crossSubscriptionSourceDatabaseId?: pulumi.Input<string>;
+    /**
+     * Target managed instance id used in cross-subscription restore.
+     */
+    crossSubscriptionTargetManagedInstanceId?: pulumi.Input<string>;
+    /**
      * The name of the database.
      */
     databaseName?: pulumi.Input<string>;
+    /**
+     * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+     */
+    isLedgerOn?: pulumi.Input<boolean>;
     /**
      * Last backup file name for restore of this managed database.
      */
@@ -208,7 +240,11 @@ export interface ManagedDatabaseArgs {
      */
     sourceDatabaseId?: pulumi.Input<string>;
     /**
-     * Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the storage container sas token.
+     * Conditional. If createMode is RestoreExternalBackup, this value is used. Specifies the identity used for storage container authentication. Can be 'SharedAccessSignature' or 'ManagedIdentity'; if not specified 'SharedAccessSignature' is assumed.
+     */
+    storageContainerIdentity?: pulumi.Input<string>;
+    /**
+     * Conditional. If createMode is RestoreExternalBackup and storageContainerIdentity is not ManagedIdentity, this value is required. Specifies the storage container sas token.
      */
     storageContainerSasToken?: pulumi.Input<string>;
     /**

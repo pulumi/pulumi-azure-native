@@ -27,7 +27,10 @@ class GetAliasResult:
     """
     Subscription Information with the alias.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetAliasResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -91,6 +102,7 @@ class AwaitableGetAliasResult(GetAliasResult):
         if False:
             yield self
         return GetAliasResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             properties=self.properties,
@@ -103,9 +115,9 @@ def get_alias(alias_name: Optional[str] = None,
     """
     Get Alias Subscription.
 
-    Uses Azure REST API version 2021-10-01.
+    Uses Azure REST API version 2024-08-01-preview.
 
-    Other available API versions: 2020-09-01, 2024-08-01-preview.
+    Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str alias_name: AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
@@ -116,6 +128,7 @@ def get_alias(alias_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:subscription:getAlias', __args__, opts=opts, typ=GetAliasResult).value
 
     return AwaitableGetAliasResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
@@ -126,9 +139,9 @@ def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
     """
     Get Alias Subscription.
 
-    Uses Azure REST API version 2021-10-01.
+    Uses Azure REST API version 2024-08-01-preview.
 
-    Other available API versions: 2020-09-01, 2024-08-01-preview.
+    Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str alias_name: AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
@@ -138,6 +151,7 @@ def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:subscription:getAlias', __args__, opts=opts, typ=GetAliasResult)
     return __ret__.apply(lambda __response__: GetAliasResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),

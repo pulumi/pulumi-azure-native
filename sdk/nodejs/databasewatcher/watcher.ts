@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The DatabaseWatcherProviderHub resource.
  *
- * Uses Azure REST API version 2023-09-01-preview.
+ * Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
  *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+ * Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databasewatcher [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Watcher extends pulumi.CustomResource {
     /**
@@ -42,9 +42,17 @@ export class Watcher extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The data store for collected monitoring data.
      */
     public readonly datastore!: pulumi.Output<outputs.databasewatcher.DatastoreResponse | undefined>;
+    /**
+     * The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+     */
+    public readonly defaultAlertRuleIdentityResourceId!: pulumi.Output<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
@@ -93,18 +101,22 @@ export class Watcher extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["datastore"] = args ? args.datastore : undefined;
+            resourceInputs["defaultAlertRuleIdentityResourceId"] = args ? args.defaultAlertRuleIdentityResourceId : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["datastore"] = undefined /*out*/;
+            resourceInputs["defaultAlertRuleIdentityResourceId"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -129,6 +141,10 @@ export interface WatcherArgs {
      * The data store for collected monitoring data.
      */
     datastore?: pulumi.Input<inputs.databasewatcher.DatastoreArgs>;
+    /**
+     * The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+     */
+    defaultAlertRuleIdentityResourceId?: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */

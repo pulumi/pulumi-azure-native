@@ -11,15 +11,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
 {
 
     /// <summary>
-    /// Aggregate Route properties.
+    /// aggregateIpv4Route model.
     /// </summary>
     public sealed class AggregateRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Prefix of the aggregate Route.
+        /// IPv4 Prefix of the aggregate Ipv4Route.
         /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
+        [Input("prefix", required: true)]
+        public Input<string> Prefix { get; set; } = null!;
 
         public AggregateRouteArgs()
         {

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieves information about a gallery Application Definition.
  *
- * Uses Azure REST API version 2022-03-03.
+ * Uses Azure REST API version 2024-03-03.
  *
- * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+ * Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getGalleryApplication(args: GetGalleryApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetGalleryApplicationArgs {
  * Specifies information about the gallery Application Definition that you want to create or update.
  */
 export interface GetGalleryApplicationResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
      */
@@ -79,7 +83,7 @@ export interface GetGalleryApplicationResult {
      */
     readonly releaseNoteUri?: string;
     /**
-     * This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+     * This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
      */
     readonly supportedOSType: string;
     /**
@@ -94,9 +98,9 @@ export interface GetGalleryApplicationResult {
 /**
  * Retrieves information about a gallery Application Definition.
  *
- * Uses Azure REST API version 2022-03-03.
+ * Uses Azure REST API version 2024-03-03.
  *
- * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+ * Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getGalleryApplicationOutput(args: GetGalleryApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

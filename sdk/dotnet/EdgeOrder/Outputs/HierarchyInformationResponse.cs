@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
     public sealed class HierarchyInformationResponse
     {
         /// <summary>
+        /// Represents Model Display Name.
+        /// </summary>
+        public readonly string? ConfigurationIdDisplayName;
+        /// <summary>
         /// Represents configuration name that uniquely identifies configuration.
         /// </summary>
         public readonly string? ConfigurationName;
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
         [OutputConstructor]
         private HierarchyInformationResponse(
+            string? configurationIdDisplayName,
+
             string? configurationName,
 
             string? productFamilyName,
@@ -43,6 +49,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             string? productName)
         {
+            ConfigurationIdDisplayName = configurationIdDisplayName;
             ConfigurationName = configurationName;
             ProductFamilyName = productFamilyName;
             ProductLineName = productLineName;

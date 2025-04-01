@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspaceTag(args: GetWorkspaceTagArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceTagResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +45,10 @@ export interface GetWorkspaceTagArgs {
  */
 export interface GetWorkspaceTagResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Tag name.
      */
     readonly displayName: string;
@@ -66,7 +70,7 @@ export interface GetWorkspaceTagResult {
  *
  * Uses Azure REST API version 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspaceTagOutput(args: GetWorkspaceTagOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceTagResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     public sealed class GetDataLakeConnectorTopicMapResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// DataLake Connector CRD to use.
         /// </summary>
         public readonly string DataLakeConnectorRef;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
         [OutputConstructor]
         private GetDataLakeConnectorTopicMapResult(
+            string azureApiVersion,
+
             string dataLakeConnectorRef,
 
             Outputs.ExtendedLocationPropertyResponse extendedLocation,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataLakeConnectorRef = dataLakeConnectorRef;
             ExtendedLocation = extendedLocation;
             Id = id;

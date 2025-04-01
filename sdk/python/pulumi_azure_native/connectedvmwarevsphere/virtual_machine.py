@@ -394,9 +394,9 @@ class VirtualMachine(pulumi.CustomResource):
         """
         Define the virtualMachine.
 
-        Uses Azure REST API version 2022-07-15-preview. In version 1.x of the Azure Native provider, it used API version 2020-10-01-preview.
+        Uses Azure REST API version 2023-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
 
-        Other available API versions: 2023-03-01-preview.
+        Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -432,9 +432,9 @@ class VirtualMachine(pulumi.CustomResource):
         """
         Define the virtualMachine.
 
-        Uses Azure REST API version 2022-07-15-preview. In version 1.x of the Azure Native provider, it used API version 2020-10-01-preview.
+        Uses Azure REST API version 2023-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
 
-        Other available API versions: 2023-03-01-preview.
+        Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -504,6 +504,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["template_id"] = template_id
             __props__.__dict__["v_center_id"] = v_center_id
             __props__.__dict__["virtual_machine_name"] = virtual_machine_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["custom_resource_name"] = None
             __props__.__dict__["folder_path"] = None
             __props__.__dict__["instance_uuid"] = None
@@ -540,6 +541,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         __props__ = VirtualMachineArgs.__new__(VirtualMachineArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["custom_resource_name"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["firmware_type"] = None
@@ -572,6 +574,14 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["v_center_id"] = None
         __props__.__dict__["vm_id"] = None
         return VirtualMachine(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customResourceName")
@@ -721,7 +731,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 

@@ -27,10 +27,13 @@ class GetHubResult:
     """
     Hub resource.
     """
-    def __init__(__self__, api_endpoint=None, hub_billing_info=None, id=None, location=None, name=None, provisioning_state=None, tags=None, tenant_features=None, type=None, web_endpoint=None):
+    def __init__(__self__, api_endpoint=None, azure_api_version=None, hub_billing_info=None, id=None, location=None, name=None, provisioning_state=None, tags=None, tenant_features=None, type=None, web_endpoint=None):
         if api_endpoint and not isinstance(api_endpoint, str):
             raise TypeError("Expected argument 'api_endpoint' to be a str")
         pulumi.set(__self__, "api_endpoint", api_endpoint)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if hub_billing_info and not isinstance(hub_billing_info, dict):
             raise TypeError("Expected argument 'hub_billing_info' to be a dict")
         pulumi.set(__self__, "hub_billing_info", hub_billing_info)
@@ -66,6 +69,14 @@ class GetHubResult:
         API endpoint URL of the hub.
         """
         return pulumi.get(self, "api_endpoint")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hubBillingInfo")
@@ -147,6 +158,7 @@ class AwaitableGetHubResult(GetHubResult):
             yield self
         return GetHubResult(
             api_endpoint=self.api_endpoint,
+            azure_api_version=self.azure_api_version,
             hub_billing_info=self.hub_billing_info,
             id=self.id,
             location=self.location,
@@ -178,6 +190,7 @@ def get_hub(hub_name: Optional[str] = None,
 
     return AwaitableGetHubResult(
         api_endpoint=pulumi.get(__ret__, 'api_endpoint'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         hub_billing_info=pulumi.get(__ret__, 'hub_billing_info'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -206,6 +219,7 @@ def get_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getHub', __args__, opts=opts, typ=GetHubResult)
     return __ret__.apply(lambda __response__: GetHubResult(
         api_endpoint=pulumi.get(__response__, 'api_endpoint'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         hub_billing_info=pulumi.get(__response__, 'hub_billing_info'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

@@ -27,7 +27,7 @@ class GetVirtualMachineResult:
     """
     Describes a Virtual Machine.
     """
-    def __init__(__self__, additional_capabilities=None, application_profile=None, availability_set=None, billing_profile=None, capacity_reservation=None, diagnostics_profile=None, eviction_policy=None, extended_location=None, extensions_time_budget=None, hardware_profile=None, host=None, host_group=None, id=None, identity=None, instance_view=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, platform_fault_domain=None, priority=None, provisioning_state=None, proximity_placement_group=None, resources=None, scheduled_events_profile=None, security_profile=None, storage_profile=None, tags=None, time_created=None, type=None, user_data=None, virtual_machine_scale_set=None, vm_id=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, application_profile=None, availability_set=None, azure_api_version=None, billing_profile=None, capacity_reservation=None, diagnostics_profile=None, etag=None, eviction_policy=None, extended_location=None, extensions_time_budget=None, hardware_profile=None, host=None, host_group=None, id=None, identity=None, instance_view=None, license_type=None, location=None, managed_by=None, name=None, network_profile=None, os_profile=None, placement=None, plan=None, platform_fault_domain=None, priority=None, provisioning_state=None, proximity_placement_group=None, resources=None, scheduled_events_policy=None, scheduled_events_profile=None, security_profile=None, storage_profile=None, tags=None, time_created=None, type=None, user_data=None, virtual_machine_scale_set=None, vm_id=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -37,6 +37,9 @@ class GetVirtualMachineResult:
         if availability_set and not isinstance(availability_set, dict):
             raise TypeError("Expected argument 'availability_set' to be a dict")
         pulumi.set(__self__, "availability_set", availability_set)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if billing_profile and not isinstance(billing_profile, dict):
             raise TypeError("Expected argument 'billing_profile' to be a dict")
         pulumi.set(__self__, "billing_profile", billing_profile)
@@ -46,6 +49,9 @@ class GetVirtualMachineResult:
         if diagnostics_profile and not isinstance(diagnostics_profile, dict):
             raise TypeError("Expected argument 'diagnostics_profile' to be a dict")
         pulumi.set(__self__, "diagnostics_profile", diagnostics_profile)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if eviction_policy and not isinstance(eviction_policy, str):
             raise TypeError("Expected argument 'eviction_policy' to be a str")
         pulumi.set(__self__, "eviction_policy", eviction_policy)
@@ -79,6 +85,9 @@ class GetVirtualMachineResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -88,6 +97,9 @@ class GetVirtualMachineResult:
         if os_profile and not isinstance(os_profile, dict):
             raise TypeError("Expected argument 'os_profile' to be a dict")
         pulumi.set(__self__, "os_profile", os_profile)
+        if placement and not isinstance(placement, dict):
+            raise TypeError("Expected argument 'placement' to be a dict")
+        pulumi.set(__self__, "placement", placement)
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
         pulumi.set(__self__, "plan", plan)
@@ -106,6 +118,9 @@ class GetVirtualMachineResult:
         if resources and not isinstance(resources, list):
             raise TypeError("Expected argument 'resources' to be a list")
         pulumi.set(__self__, "resources", resources)
+        if scheduled_events_policy and not isinstance(scheduled_events_policy, dict):
+            raise TypeError("Expected argument 'scheduled_events_policy' to be a dict")
+        pulumi.set(__self__, "scheduled_events_policy", scheduled_events_policy)
         if scheduled_events_profile and not isinstance(scheduled_events_profile, dict):
             raise TypeError("Expected argument 'scheduled_events_profile' to be a dict")
         pulumi.set(__self__, "scheduled_events_profile", scheduled_events_profile)
@@ -162,6 +177,14 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "availability_set")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="billingProfile")
     def billing_profile(self) -> Optional['outputs.BillingProfileResponse']:
         """
@@ -184,6 +207,14 @@ class GetVirtualMachineResult:
         Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         """
         return pulumi.get(self, "diagnostics_profile")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Etag is property returned in Create/Update/Get response of the VM, so that customer can supply it in the header to ensure optimistic updates.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="evictionPolicy")
@@ -274,6 +305,14 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> str:
+        """
+        ManagedBy is set to Virtual Machine Scale Set(VMSS) flex ARM resourceID, if the VM is part of the VMSS. This property is used by platform for internal resource group delete optimization.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -296,6 +335,14 @@ class GetVirtualMachineResult:
         Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
         """
         return pulumi.get(self, "os_profile")
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional['outputs.PlacementResponse']:
+        """
+        Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
+        """
+        return pulumi.get(self, "placement")
 
     @property
     @pulumi.getter
@@ -344,6 +391,14 @@ class GetVirtualMachineResult:
         The virtual machine child extension resources.
         """
         return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter(name="scheduledEventsPolicy")
+    def scheduled_events_policy(self) -> Optional['outputs.ScheduledEventsPolicyResponse']:
+        """
+        Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+        """
+        return pulumi.get(self, "scheduled_events_policy")
 
     @property
     @pulumi.getter(name="scheduledEventsProfile")
@@ -435,9 +490,11 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             additional_capabilities=self.additional_capabilities,
             application_profile=self.application_profile,
             availability_set=self.availability_set,
+            azure_api_version=self.azure_api_version,
             billing_profile=self.billing_profile,
             capacity_reservation=self.capacity_reservation,
             diagnostics_profile=self.diagnostics_profile,
+            etag=self.etag,
             eviction_policy=self.eviction_policy,
             extended_location=self.extended_location,
             extensions_time_budget=self.extensions_time_budget,
@@ -449,15 +506,18 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             instance_view=self.instance_view,
             license_type=self.license_type,
             location=self.location,
+            managed_by=self.managed_by,
             name=self.name,
             network_profile=self.network_profile,
             os_profile=self.os_profile,
+            placement=self.placement,
             plan=self.plan,
             platform_fault_domain=self.platform_fault_domain,
             priority=self.priority,
             provisioning_state=self.provisioning_state,
             proximity_placement_group=self.proximity_placement_group,
             resources=self.resources,
+            scheduled_events_policy=self.scheduled_events_policy,
             scheduled_events_profile=self.scheduled_events_profile,
             security_profile=self.security_profile,
             storage_profile=self.storage_profile,
@@ -477,9 +537,9 @@ def get_virtual_machine(expand: Optional[str] = None,
     """
     Retrieves information about the model view or the instance view of a virtual machine.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.
@@ -497,9 +557,11 @@ def get_virtual_machine(expand: Optional[str] = None,
         additional_capabilities=pulumi.get(__ret__, 'additional_capabilities'),
         application_profile=pulumi.get(__ret__, 'application_profile'),
         availability_set=pulumi.get(__ret__, 'availability_set'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         billing_profile=pulumi.get(__ret__, 'billing_profile'),
         capacity_reservation=pulumi.get(__ret__, 'capacity_reservation'),
         diagnostics_profile=pulumi.get(__ret__, 'diagnostics_profile'),
+        etag=pulumi.get(__ret__, 'etag'),
         eviction_policy=pulumi.get(__ret__, 'eviction_policy'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         extensions_time_budget=pulumi.get(__ret__, 'extensions_time_budget'),
@@ -511,15 +573,18 @@ def get_virtual_machine(expand: Optional[str] = None,
         instance_view=pulumi.get(__ret__, 'instance_view'),
         license_type=pulumi.get(__ret__, 'license_type'),
         location=pulumi.get(__ret__, 'location'),
+        managed_by=pulumi.get(__ret__, 'managed_by'),
         name=pulumi.get(__ret__, 'name'),
         network_profile=pulumi.get(__ret__, 'network_profile'),
         os_profile=pulumi.get(__ret__, 'os_profile'),
+        placement=pulumi.get(__ret__, 'placement'),
         plan=pulumi.get(__ret__, 'plan'),
         platform_fault_domain=pulumi.get(__ret__, 'platform_fault_domain'),
         priority=pulumi.get(__ret__, 'priority'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         proximity_placement_group=pulumi.get(__ret__, 'proximity_placement_group'),
         resources=pulumi.get(__ret__, 'resources'),
+        scheduled_events_policy=pulumi.get(__ret__, 'scheduled_events_policy'),
         scheduled_events_profile=pulumi.get(__ret__, 'scheduled_events_profile'),
         security_profile=pulumi.get(__ret__, 'security_profile'),
         storage_profile=pulumi.get(__ret__, 'storage_profile'),
@@ -537,9 +602,9 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     """
     Retrieves information about the model view or the instance view of a virtual machine.
 
-    Uses Azure REST API version 2023-03-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.
@@ -556,9 +621,11 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
         additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),
         application_profile=pulumi.get(__response__, 'application_profile'),
         availability_set=pulumi.get(__response__, 'availability_set'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         billing_profile=pulumi.get(__response__, 'billing_profile'),
         capacity_reservation=pulumi.get(__response__, 'capacity_reservation'),
         diagnostics_profile=pulumi.get(__response__, 'diagnostics_profile'),
+        etag=pulumi.get(__response__, 'etag'),
         eviction_policy=pulumi.get(__response__, 'eviction_policy'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         extensions_time_budget=pulumi.get(__response__, 'extensions_time_budget'),
@@ -570,15 +637,18 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
         instance_view=pulumi.get(__response__, 'instance_view'),
         license_type=pulumi.get(__response__, 'license_type'),
         location=pulumi.get(__response__, 'location'),
+        managed_by=pulumi.get(__response__, 'managed_by'),
         name=pulumi.get(__response__, 'name'),
         network_profile=pulumi.get(__response__, 'network_profile'),
         os_profile=pulumi.get(__response__, 'os_profile'),
+        placement=pulumi.get(__response__, 'placement'),
         plan=pulumi.get(__response__, 'plan'),
         platform_fault_domain=pulumi.get(__response__, 'platform_fault_domain'),
         priority=pulumi.get(__response__, 'priority'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         proximity_placement_group=pulumi.get(__response__, 'proximity_placement_group'),
         resources=pulumi.get(__response__, 'resources'),
+        scheduled_events_policy=pulumi.get(__response__, 'scheduled_events_policy'),
         scheduled_events_profile=pulumi.get(__response__, 'scheduled_events_profile'),
         security_profile=pulumi.get(__response__, 'security_profile'),
         storage_profile=pulumi.get(__response__, 'storage_profile'),

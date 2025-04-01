@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Gets the specified EncryptionScope associated with the Cognitive Services account.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetEncryptionScopeResult> InvokeAsync(GetEncryptionScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionScopeResult>("azure-native:cognitiveservices:getEncryptionScope", args ?? new GetEncryptionScopeArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Gets the specified EncryptionScope associated with the Cognitive Services account.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure-native:cognitiveservices:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Gets the specified EncryptionScope associated with the Cognitive Services account.
         /// 
-        /// Uses Azure REST API version 2023-10-01-preview.
+        /// Uses Azure REST API version 2024-10-01.
         /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure-native:cognitiveservices:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.CognitiveServices
     public sealed class GetEncryptionScopeResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Etag.
         /// </summary>
         public readonly string Etag;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.CognitiveServices
 
         [OutputConstructor]
         private GetEncryptionScopeResult(
+            string azureApiVersion,
+
             string etag,
 
             string id,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Name = name;

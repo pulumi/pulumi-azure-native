@@ -137,9 +137,9 @@ class Cluster(pulumi.CustomResource):
         """
         Single Event Hubs Cluster resource in List or Get operations.
 
-        Uses Azure REST API version 2022-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-01-01-preview.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
 
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Other available API versions: 2018-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,9 +159,9 @@ class Cluster(pulumi.CustomResource):
         """
         Single Event Hubs Cluster resource in List or Get operations.
 
-        Uses Azure REST API version 2022-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-01-01-preview.
+        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
 
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Other available API versions: 2018-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -201,9 +201,11 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["supports_scaling"] = supports_scaling
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["metric_id"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -232,10 +234,12 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["metric_id"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["supports_scaling"] = None
@@ -244,6 +248,14 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -276,6 +288,14 @@ class Cluster(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        Provisioning state of the Cluster.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter

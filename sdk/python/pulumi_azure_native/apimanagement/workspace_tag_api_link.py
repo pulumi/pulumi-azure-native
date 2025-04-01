@@ -130,9 +130,9 @@ class WorkspaceTagApiLink(pulumi.CustomResource):
         """
         Tag-API link details.
 
-        Uses Azure REST API version 2022-09-01-preview.
+        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,9 +152,9 @@ class WorkspaceTagApiLink(pulumi.CustomResource):
         """
         Tag-API link details.
 
-        Uses Azure REST API version 2022-09-01-preview.
+        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceTagApiLinkArgs args: The arguments to use to populate this resource's properties.
@@ -202,6 +202,7 @@ class WorkspaceTagApiLink(pulumi.CustomResource):
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceTagApiLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceTagApiLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceTagApiLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceTagApiLink"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceTagApiLink"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceTagApiLink")])
@@ -229,6 +230,7 @@ class WorkspaceTagApiLink(pulumi.CustomResource):
         __props__ = WorkspaceTagApiLinkArgs.__new__(WorkspaceTagApiLinkArgs)
 
         __props__.__dict__["api_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
         return WorkspaceTagApiLink(resource_name, opts=opts, __props__=__props__)
@@ -240,6 +242,14 @@ class WorkspaceTagApiLink(pulumi.CustomResource):
         Full resource Id of an API.
         """
         return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

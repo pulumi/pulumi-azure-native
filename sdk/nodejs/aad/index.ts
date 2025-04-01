@@ -29,13 +29,6 @@ utilities.lazyLoad(exports, ["OuContainer"], () => require("./ouContainer"));
 // Export enums:
 export * from "../types/enums/aad";
 
-// Export sub-modules:
-import * as v20221201 from "./v20221201";
-
-export {
-    v20221201,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

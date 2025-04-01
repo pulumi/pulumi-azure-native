@@ -22,17 +22,21 @@ class ApplicationPackageArgs:
                  account_name: pulumi.Input[str],
                  application_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApplicationPackage resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
         :param pulumi.Input[str] application_name: The name of the application. This must be unique within the account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] version_name: The version of the application.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if version_name is not None:
             pulumi.set(__self__, "version_name", version_name)
 
@@ -73,6 +77,18 @@ class ApplicationPackageArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -93,20 +109,22 @@ class ApplicationPackage(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An application package which represents a particular version of an application.
 
-        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
         :param pulumi.Input[str] application_name: The name of the application. This must be unique within the account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] version_name: The version of the application.
         """
         ...
@@ -118,9 +136,9 @@ class ApplicationPackage(pulumi.CustomResource):
         """
         An application package which represents a particular version of an application.
 
-        Uses Azure REST API version 2023-05-01. In version 1.x of the Azure Native provider, it used API version 2021-01-01.
+        Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ApplicationPackageArgs args: The arguments to use to populate this resource's properties.
@@ -140,6 +158,7 @@ class ApplicationPackage(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -159,7 +178,9 @@ class ApplicationPackage(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["version_name"] = version_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["format"] = None
             __props__.__dict__["last_activation_time"] = None
@@ -192,6 +213,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
         __props__ = ApplicationPackageArgs.__new__(ApplicationPackageArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["format"] = None
         __props__.__dict__["last_activation_time"] = None
@@ -199,8 +221,17 @@ class ApplicationPackage(pulumi.CustomResource):
         __props__.__dict__["state"] = None
         __props__.__dict__["storage_url"] = None
         __props__.__dict__["storage_url_expiry"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ApplicationPackage(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -257,6 +288,14 @@ class ApplicationPackage(pulumi.CustomResource):
         The UTC time at which the Azure Storage URL will expire.
         """
         return pulumi.get(self, "storage_url_expiry")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

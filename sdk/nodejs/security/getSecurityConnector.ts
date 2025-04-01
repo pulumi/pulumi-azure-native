@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieves details of a specific security connector
  *
- * Uses Azure REST API version 2023-03-01-preview.
+ * Uses Azure REST API version 2024-08-01-preview.
  *
- * Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+ * Other available API versions: 2021-07-01-preview, 2021-12-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2023-03-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSecurityConnector(args: GetSecurityConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,9 +38,13 @@ export interface GetSecurityConnectorArgs {
  */
 export interface GetSecurityConnectorResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The security connector environment data.
      */
-    readonly environmentData?: outputs.security.AwsEnvironmentDataResponse | outputs.security.AzureDevOpsScopeEnvironmentDataResponse | outputs.security.GcpProjectEnvironmentDataResponse | outputs.security.GithubScopeEnvironmentDataResponse | outputs.security.GitlabScopeEnvironmentDataResponse;
+    readonly environmentData?: outputs.security.AwsEnvironmentDataResponse | outputs.security.AzureDevOpsScopeEnvironmentDataResponse | outputs.security.DockerHubEnvironmentDataResponse | outputs.security.GcpProjectEnvironmentDataResponse | outputs.security.GithubScopeEnvironmentDataResponse | outputs.security.GitlabScopeEnvironmentDataResponse | outputs.security.JFrogEnvironmentDataResponse;
     /**
      * The multi cloud resource's cloud name.
      */
@@ -76,7 +80,7 @@ export interface GetSecurityConnectorResult {
     /**
      * A collection of offerings for the security connector.
      */
-    readonly offerings?: (outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.CspmMonitorAzureDevOpsOfferingResponse | outputs.security.CspmMonitorGcpOfferingResponse | outputs.security.CspmMonitorGitLabOfferingResponse | outputs.security.CspmMonitorGithubOfferingResponse | outputs.security.DefenderCspmAwsOfferingResponse | outputs.security.DefenderCspmGcpOfferingResponse | outputs.security.DefenderFoDatabasesAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForContainersGcpOfferingResponse | outputs.security.DefenderForDatabasesGcpOfferingResponse | outputs.security.DefenderForDevOpsAzureDevOpsOfferingResponse | outputs.security.DefenderForDevOpsGitLabOfferingResponse | outputs.security.DefenderForDevOpsGithubOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.DefenderForServersGcpOfferingResponse | outputs.security.InformationProtectionAwsOfferingResponse)[];
+    readonly offerings?: (outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.CspmMonitorAzureDevOpsOfferingResponse | outputs.security.CspmMonitorDockerHubOfferingResponse | outputs.security.CspmMonitorGcpOfferingResponse | outputs.security.CspmMonitorGitLabOfferingResponse | outputs.security.CspmMonitorGithubOfferingResponse | outputs.security.CspmMonitorJFrogOfferingResponse | outputs.security.DefenderCspmAwsOfferingResponse | outputs.security.DefenderCspmDockerHubOfferingResponse | outputs.security.DefenderCspmGcpOfferingResponse | outputs.security.DefenderCspmJFrogOfferingResponse | outputs.security.DefenderFoDatabasesAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForContainersDockerHubOfferingResponse | outputs.security.DefenderForContainersGcpOfferingResponse | outputs.security.DefenderForContainersJFrogOfferingResponse | outputs.security.DefenderForDatabasesGcpOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.DefenderForServersGcpOfferingResponse)[];
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -93,9 +97,9 @@ export interface GetSecurityConnectorResult {
 /**
  * Retrieves details of a specific security connector
  *
- * Uses Azure REST API version 2023-03-01-preview.
+ * Uses Azure REST API version 2024-08-01-preview.
  *
- * Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+ * Other available API versions: 2021-07-01-preview, 2021-12-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2023-03-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSecurityConnectorOutput(args: GetSecurityConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

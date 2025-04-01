@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * An Azure SQL job agent.
  *
- * Uses Azure REST API version 2021-11-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01-preview.
+ * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class JobAgent extends pulumi.CustomResource {
     /**
@@ -42,9 +42,17 @@ export class JobAgent extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Resource ID of the database to store job metadata in.
      */
     public readonly databaseId!: pulumi.Output<string>;
+    /**
+     * The identity of the job agent.
+     */
+    public readonly identity!: pulumi.Output<outputs.sql.JobAgentIdentityResponse | undefined>;
     /**
      * Resource location.
      */
@@ -91,17 +99,21 @@ export class JobAgent extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serverName'");
             }
             resourceInputs["databaseId"] = args ? args.databaseId : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["jobAgentName"] = args ? args.jobAgentName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["databaseId"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
@@ -124,6 +136,10 @@ export interface JobAgentArgs {
      * Resource ID of the database to store job metadata in.
      */
     databaseId: pulumi.Input<string>;
+    /**
+     * The identity of the job agent.
+     */
+    identity?: pulumi.Input<inputs.sql.JobAgentIdentityArgs>;
     /**
      * The name of the job agent to be created or updated.
      */

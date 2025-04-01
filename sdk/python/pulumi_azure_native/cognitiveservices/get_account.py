@@ -27,7 +27,10 @@ class GetAccountResult:
     """
     Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
     """
-    def __init__(__self__, etag=None, id=None, identity=None, kind=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, identity=None, kind=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -61,6 +64,14 @@ class GetAccountResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -157,6 +168,7 @@ class AwaitableGetAccountResult(GetAccountResult):
         if False:
             yield self
         return GetAccountResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             identity=self.identity,
@@ -176,9 +188,9 @@ def get_account(account_name: Optional[str] = None,
     """
     Returns a Cognitive Services account specified by the parameters.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2017-04-18, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
+    Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -191,6 +203,7 @@ def get_account(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cognitiveservices:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -208,9 +221,9 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Returns a Cognitive Services account specified by the parameters.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-10-01.
 
-    Other available API versions: 2017-04-18, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview.
+    Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -222,6 +235,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cognitiveservices:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

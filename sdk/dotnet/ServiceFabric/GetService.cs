@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-06-01.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:servicefabric:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-06-01.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:servicefabric:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-06-01.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:servicefabric:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -112,6 +106,10 @@ namespace Pulumi.AzureNative.ServiceFabric
     public sealed class GetServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -142,6 +140,8 @@ namespace Pulumi.AzureNative.ServiceFabric
 
         [OutputConstructor]
         private GetServiceResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -156,6 +156,7 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -27,7 +27,10 @@ class GetLogicalNetworkResult:
     """
     The logical network resource definition.
     """
-    def __init__(__self__, dhcp_options=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, status=None, subnets=None, system_data=None, tags=None, type=None, vm_switch_name=None):
+    def __init__(__self__, azure_api_version=None, dhcp_options=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, status=None, subnets=None, system_data=None, tags=None, type=None, vm_switch_name=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if dhcp_options and not isinstance(dhcp_options, dict):
             raise TypeError("Expected argument 'dhcp_options' to be a dict")
         pulumi.set(__self__, "dhcp_options", dhcp_options)
@@ -66,8 +69,16 @@ class GetLogicalNetworkResult:
         pulumi.set(__self__, "vm_switch_name", vm_switch_name)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="dhcpOptions")
-    def dhcp_options(self) -> Optional['outputs.LogicalNetworkPropertiesResponseDhcpOptions']:
+    def dhcp_options(self) -> Optional['outputs.LogicalNetworkPropertiesDhcpOptionsResponse']:
         """
         DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
         """
@@ -85,7 +96,7 @@ class GetLogicalNetworkResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -168,6 +179,7 @@ class AwaitableGetLogicalNetworkResult(GetLogicalNetworkResult):
         if False:
             yield self
         return GetLogicalNetworkResult(
+            azure_api_version=self.azure_api_version,
             dhcp_options=self.dhcp_options,
             extended_location=self.extended_location,
             id=self.id,
@@ -186,11 +198,11 @@ def get_logical_network(logical_network_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogicalNetworkResult:
     """
-    The logical network resource definition.
+    The operation to get a logical network.
 
-    Uses Azure REST API version 2023-09-01-preview.
+    Uses Azure REST API version 2025-02-01-preview.
 
-    Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+    Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str logical_network_name: Name of the logical network
@@ -203,6 +215,7 @@ def get_logical_network(logical_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci:getLogicalNetwork', __args__, opts=opts, typ=GetLogicalNetworkResult).value
 
     return AwaitableGetLogicalNetworkResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         dhcp_options=pulumi.get(__ret__, 'dhcp_options'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
@@ -219,11 +232,11 @@ def get_logical_network_output(logical_network_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogicalNetworkResult]:
     """
-    The logical network resource definition.
+    The operation to get a logical network.
 
-    Uses Azure REST API version 2023-09-01-preview.
+    Uses Azure REST API version 2025-02-01-preview.
 
-    Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+    Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str logical_network_name: Name of the logical network
@@ -235,6 +248,7 @@ def get_logical_network_output(logical_network_name: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getLogicalNetwork', __args__, opts=opts, typ=GetLogicalNetworkResult)
     return __ret__.apply(lambda __response__: GetLogicalNetworkResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         dhcp_options=pulumi.get(__response__, 'dhcp_options'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),

@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Role definition.
  *
- * Uses Azure REST API version 2022-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2018-01-01-preview.
+ * Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
+ *
+ * Other available API versions: 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class RoleDefinition extends pulumi.CustomResource {
     /**
@@ -43,6 +45,10 @@ export class RoleDefinition extends pulumi.CustomResource {
      * Role definition assignable scopes.
      */
     public readonly assignableScopes!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Id of the user who created the assignment
      */
@@ -105,6 +111,7 @@ export class RoleDefinition extends pulumi.CustomResource {
             resourceInputs["roleName"] = args ? args.roleName : undefined;
             resourceInputs["roleType"] = args ? args.roleType : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -113,6 +120,7 @@ export class RoleDefinition extends pulumi.CustomResource {
             resourceInputs["updatedOn"] = undefined /*out*/;
         } else {
             resourceInputs["assignableScopes"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

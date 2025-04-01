@@ -71,9 +71,9 @@ def list_products_and_configurations(configuration_filter: Optional[Union['Confi
     """
     List configurations for the given product family, product line and product for the given subscription.
 
-    Uses Azure REST API version 2022-05-01-preview.
+    Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2024-02-01.
+    Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param Union['ConfigurationFilter', 'ConfigurationFilterDict'] configuration_filter: Holds details about product hierarchy information and filterable property.
@@ -97,9 +97,9 @@ def list_products_and_configurations_output(configuration_filter: Optional[pulum
     """
     List configurations for the given product family, product line and product for the given subscription.
 
-    Uses Azure REST API version 2022-05-01-preview.
+    Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2024-02-01.
+    Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param Union['ConfigurationFilter', 'ConfigurationFilterDict'] configuration_filter: Holds details about product hierarchy information and filterable property.

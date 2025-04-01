@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.Synapse
     /// <summary>
     /// Class representing an iot hub data connection.
     /// 
-    /// Uses Azure REST API version 2021-06-01-preview.
+    /// Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:IotHubDataConnection")]
     public partial class IotHubDataConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The iot hub consumer group.
         /// </summary>
@@ -129,7 +135,11 @@ namespace Pulumi.AzureNative.Synapse
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:IotHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:EventGridDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:IotHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:EventGridDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:EventHubDataConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

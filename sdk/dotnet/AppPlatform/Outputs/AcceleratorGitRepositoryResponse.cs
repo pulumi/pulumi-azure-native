@@ -34,6 +34,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly int? IntervalInSeconds;
         /// <summary>
+        /// Folder path inside the git repository to consider as the root of the accelerator or fragment.
+        /// </summary>
+        public readonly string? SubPath;
+        /// <summary>
         /// Git repository URL for the accelerator.
         /// </summary>
         public readonly string Url;
@@ -50,6 +54,8 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             int? intervalInSeconds,
 
+            string? subPath,
+
             string url)
         {
             AuthSetting = authSetting;
@@ -57,6 +63,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
             Commit = commit;
             GitTag = gitTag;
             IntervalInSeconds = intervalInSeconds;
+            SubPath = subPath;
             Url = url;
         }
     }

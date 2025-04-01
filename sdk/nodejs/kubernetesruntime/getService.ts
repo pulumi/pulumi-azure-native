@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Get a ServiceResource
  *
  * Uses Azure REST API version 2024-03-01.
- *
- * Other available API versions: 2023-10-01-preview.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +35,10 @@ export interface GetServiceArgs {
  * A Service resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
  */
 export interface GetServiceResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -66,8 +68,6 @@ export interface GetServiceResult {
  * Get a ServiceResource
  *
  * Uses Azure REST API version 2024-03-01.
- *
- * Other available API versions: 2023-10-01-preview.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

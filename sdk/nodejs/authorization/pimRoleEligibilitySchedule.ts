@@ -54,6 +54,10 @@ export class PimRoleEligibilitySchedule extends pulumi.CustomResource {
      */
     public /*out*/ readonly approvalId!: pulumi.Output<string>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
     public readonly condition!: pulumi.Output<string | undefined>;
@@ -157,6 +161,7 @@ export class PimRoleEligibilitySchedule extends pulumi.CustomResource {
             resourceInputs["targetRoleEligibilityScheduleInstanceId"] = args ? args.targetRoleEligibilityScheduleInstanceId : undefined;
             resourceInputs["ticketInfo"] = args ? args.ticketInfo : undefined;
             resourceInputs["approvalId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["expandedProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -167,6 +172,7 @@ export class PimRoleEligibilitySchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["approvalId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["condition"] = undefined /*out*/;
             resourceInputs["conditionVersion"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

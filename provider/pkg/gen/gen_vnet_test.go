@@ -26,7 +26,7 @@ func TestVnetGen(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	generationResult, err := PulumiSchema(rootDir, modules, versioningStub{}, semver.MustParse("2.0.0"))
+	generationResult, err := PulumiSchema(rootDir, modules, versioningStub{}, semver.MustParse("2.0.0"), false /* onlyExplicitVersions */)
 	if err != nil {
 		t.Fatal(err)
 	}

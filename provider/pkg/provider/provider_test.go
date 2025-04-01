@@ -10,6 +10,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
 	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/blang/semver"
+	structpb "github.com/golang/protobuf/ptypes/struct"
 
 	az "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
@@ -99,7 +100,7 @@ func TestRestoreDefaultInputsIsNoopWithoutDefaultProperties(t *testing.T) {
 func TestMappableOldStateIsNoopWithoutDefaults(t *testing.T) {
 	res := resources.AzureAPIResource{} // no defaults
 	m := map[string]interface{}{"foo": "bar"}
-	removeDefaults(res, m)
+	removeDefaults(res, m, nil)
 	assert.Equal(t, map[string]interface{}{"foo": "bar"}, m)
 }
 
@@ -116,7 +117,7 @@ func TestMappableOldStatePreservesNonDefaults(t *testing.T) {
 			"defaultAction": "Deny",
 		},
 	}
-	removeDefaults(res, m)
+	removeDefaults(res, m, nil)
 	assert.Equal(t, "Deny", m["networkRuleSet"].(map[string]interface{})["defaultAction"])
 }
 
@@ -129,17 +130,15 @@ func TestMappableOldStateRemovesDefaultsThatWereInputs(t *testing.T) {
 		},
 	}
 	m := map[string]any{
-		"__inputs": map[string]any{
-			"networkRuleSet": map[string]any{
-				"defaultAction": "Allow",
-			},
-		},
 		"networkRuleSet": map[string]any{
 			"defaultAction": "Allow",
 		},
 	}
-	removeDefaults(res, m)
-	assert.Contains(t, m, "__inputs")
+	removeDefaults(res, m, map[string]any{
+		"networkRuleSet": map[string]any{
+			"defaultAction": "Allow",
+		},
+	})
 	assert.NotContains(t, m, "networkRuleSet")
 }
 
@@ -152,13 +151,11 @@ func TestMappableOldStatePreservesDefaultsThatWereNotInputs(t *testing.T) {
 		},
 	}
 	m := map[string]any{
-		"__inputs": map[string]any{},
 		"networkRuleSet": map[string]any{
 			"defaultAction": "Allow",
 		},
 	}
-	removeDefaults(res, m)
-	assert.Contains(t, m, "__inputs")
+	removeDefaults(res, m, nil)
 	assert.Contains(t, m, "networkRuleSet")
 }
 
@@ -395,7 +392,7 @@ func TestReader(t *testing.T) {
 		azureClient := &az.MockAzureClient{}
 		crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "123", nil)
 
-		r := reader(customRes, crudClient)
+		r := reader(customRes, crudClient, nil)
 		_, err := r(context.Background(), "id1", nil)
 		require.NoError(t, err)
 		assert.Equal(t, []string{"id1"}, customReads)
@@ -411,11 +408,85 @@ func TestReader(t *testing.T) {
 			azureClient := &az.MockAzureClient{}
 			crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "123", resource)
 
-			r := reader(otherCustomRes, crudClient)
+			r := reader(otherCustomRes, crudClient, nil)
 			_, err := r(context.Background(), "id2", nil)
 			require.NoError(t, err)
 			assert.Contains(t, azureClient.GetIds, "id2")
 		}
+	})
+
+	t.Run("standard resource, default API version", func(t *testing.T) {
+		res := &resources.AzureAPIResource{
+			ApiVersionIsUserInput: false,
+			APIVersion:            "v20241101",
+		}
+		azureClient := &az.MockAzureClient{}
+		crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "sub123", res)
+		r := reader(nil, crudClient, nil)
+		_, err := r(context.Background(), "id3", resource.PropertyMap{
+			"apiVersion": resource.NewStringProperty("v20220202"), // won't be used
+		})
+		require.NoError(t, err)
+		assert.Contains(t, azureClient.GetIds, "id3")
+		assert.Equal(t, []string{"v20241101"}, azureClient.GetApiVersions)
+	})
+
+	t.Run("standard resource, user-provided API version", func(t *testing.T) {
+		res := &resources.AzureAPIResource{
+			ApiVersionIsUserInput: true,
+			APIVersion:            "v20241101",
+		}
+		azureClient := &az.MockAzureClient{}
+		crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "sub123", res)
+		r := reader(nil, crudClient, resource.PropertyMap{
+			"apiVersion": resource.NewStringProperty("v20220202"),
+		})
+		_, err := r(context.Background(), "id3", nil)
+		require.NoError(t, err)
+		assert.Contains(t, azureClient.GetIds, "id3")
+		assert.Equal(t, []string{"v20220202"}, azureClient.GetApiVersions)
+	})
+}
+
+func TestGetPreviousInputs(t *testing.T) {
+	t.Run("v2", func(t *testing.T) {
+		inputs := resource.PropertyMap{
+			"__inputs": resource.NewObjectProperty(resource.PropertyMap{
+				"fromState": resource.PropertyValue{},
+			}),
+		}
+		req := &rpc.ReadRequest{
+			Id:     "/subscriptions/123",
+			Inputs: nil,
+		}
+
+		oldInputs, err := getPreviousInputs(inputs, req.GetInputs(), "test")
+		require.NoError(t, err)
+		assert.Contains(t, oldInputs.Mappable(), "fromState")
+	})
+
+	t.Run("v3", func(t *testing.T) {
+		inputs := resource.PropertyMap{
+			"__inputs": resource.NewObjectProperty(resource.PropertyMap{
+				"fromState": resource.PropertyValue{},
+			}),
+		}
+		req := &rpc.ReadRequest{
+			Id: "/subscriptions/123",
+			Inputs: &structpb.Struct{
+				Fields: map[string]*structpb.Value{
+					"fromReq": {
+						Kind: &structpb.Value_BoolValue{
+							BoolValue: true,
+						},
+					},
+				},
+			},
+		}
+
+		oldInputs, err := getPreviousInputs(inputs, req.GetInputs(), "test")
+		require.NoError(t, err)
+		assert.Contains(t, oldInputs.Mappable(), "fromReq")
 	})
 }
 
@@ -895,30 +966,6 @@ func TestIsParameterized(t *testing.T) {
 			name: "azure-native-aad-parameterized",
 		}
 		assert.False(t, provider.isParameterized())
-	})
-}
-
-func TestGetApiVersionFromInputs(t *testing.T) {
-	t.Run("no override", func(t *testing.T) {
-		inputs := resource.PropertyMap{}
-		assert.Equal(t, "", getApiVersionFromInputs(inputs))
-	})
-
-	t.Run("override", func(t *testing.T) {
-		inputs := resource.PropertyMap{
-			"apiVersion":      resource.NewStringProperty("v20241101"),
-			"azureApiVersion": resource.NewStringProperty("v20220202"),
-		}
-		assert.Equal(t, "v20241101", getApiVersionFromInputs(inputs))
-	})
-
-	t.Run("override in __inputs", func(t *testing.T) {
-		inputs := resource.PropertyMap{
-			"__inputs": resource.NewObjectProperty(resource.PropertyMap{
-				"apiVersion": resource.NewStringProperty("v20241101"),
-			}),
-		}
-		assert.Equal(t, "v20241101", getApiVersionFromInputs(inputs))
 	})
 }
 

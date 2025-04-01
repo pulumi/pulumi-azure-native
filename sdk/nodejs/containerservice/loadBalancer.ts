@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
  *
- * Uses Azure REST API version 2024-03-02-preview.
+ * Uses Azure REST API version 2024-10-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-02-preview.
  *
- * Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview, 2024-10-02-preview.
+ * Other available API versions: 2024-03-02-preview, 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      * Whether to automatically place services on the load balancer. If not supplied, the default value is true. If set to false manually, both of the external and the internal load balancer will not be selected for services unless they explicitly target it.
      */
     public readonly allowServicePlacement!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -110,11 +114,13 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["serviceLabelSelector"] = args ? args.serviceLabelSelector : undefined;
             resourceInputs["serviceNamespaceSelector"] = args ? args.serviceNamespaceSelector : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowServicePlacement"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nodeSelector"] = undefined /*out*/;
             resourceInputs["primaryAgentPoolName"] = undefined /*out*/;

@@ -27,7 +27,10 @@ class GetPrivateEndpointConnectionProxyResult:
     """
     Private endpoint connection proxy details.
     """
-    def __init__(__self__, e_tag=None, id=None, name=None, provisioning_state=None, remote_private_endpoint=None, status=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, e_tag=None, id=None, name=None, provisioning_state=None, remote_private_endpoint=None, status=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -52,6 +55,14 @@ class GetPrivateEndpointConnectionProxyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")
@@ -124,6 +135,7 @@ class AwaitableGetPrivateEndpointConnectionProxyResult(GetPrivateEndpointConnect
         if False:
             yield self
         return GetPrivateEndpointConnectionProxyResult(
+            azure_api_version=self.azure_api_version,
             e_tag=self.e_tag,
             id=self.id,
             name=self.name,
@@ -156,6 +168,7 @@ def get_private_endpoint_connection_proxy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deviceupdate:getPrivateEndpointConnectionProxy', __args__, opts=opts, typ=GetPrivateEndpointConnectionProxyResult).value
 
     return AwaitableGetPrivateEndpointConnectionProxyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -185,6 +198,7 @@ def get_private_endpoint_connection_proxy_output(account_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:deviceupdate:getPrivateEndpointConnectionProxy', __args__, opts=opts, typ=GetPrivateEndpointConnectionProxyResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionProxyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

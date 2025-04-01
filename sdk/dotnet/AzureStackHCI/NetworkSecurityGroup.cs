@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// NetworkSecurityGroup resource.
     /// 
-    /// Uses Azure REST API version 2024-02-01-preview.
+    /// Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
     /// 
-    /// Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview, 2025-04-01-preview.
+    /// Other available API versions: 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:NetworkSecurityGroup")]
     public partial class NetworkSecurityGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
@@ -54,6 +60,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The observed state of Network Security Group
+        /// </summary>
+        [Output("status")]
+        public Output<Outputs.NetworkSecurityGroupStatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
         /// A collection of references to logical networks that are currently using this NSG

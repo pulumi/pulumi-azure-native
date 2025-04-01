@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * Get installed extension details by extension id.
  *
  * Uses Azure REST API version 2023-06-01-preview.
- *
- * Other available API versions: 2021-09-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +44,10 @@ export interface GetExtensionResult {
      * Additional Api Properties.
      */
     readonly additionalApiProperties: {[key: string]: outputs.agfoodplatform.ApiPropertiesResponse};
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The ETag value to implement optimistic concurrency.
      */
@@ -91,8 +93,6 @@ export interface GetExtensionResult {
  * Get installed extension details by extension id.
  *
  * Uses Azure REST API version 2023-06-01-preview.
- *
- * Other available API versions: 2021-09-01-preview.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -12,13 +12,25 @@ namespace Pulumi.AzureNative.Sql
     /// <summary>
     /// A long term retention policy.
     /// 
-    /// Uses Azure REST API version 2022-11-01-preview.
+    /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
     /// 
-    /// Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    /// Other available API versions: 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedInstanceLongTermRetentionPolicy")]
     public partial class ManagedInstanceLongTermRetentionPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The BackupStorageAccessTier for the LTR backups
+        /// </summary>
+        [Output("backupStorageAccessTier")]
+        public Output<string?> BackupStorageAccessTier { get; private set; } = null!;
+
         /// <summary>
         /// The monthly retention policy for an LTR backup in an ISO 8601 format.
         /// </summary>
@@ -111,6 +123,12 @@ namespace Pulumi.AzureNative.Sql
 
     public sealed class ManagedInstanceLongTermRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The BackupStorageAccessTier for the LTR backups
+        /// </summary>
+        [Input("backupStorageAccessTier")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.BackupStorageAccessTier>? BackupStorageAccessTier { get; set; }
+
         /// <summary>
         /// The name of the database.
         /// </summary>

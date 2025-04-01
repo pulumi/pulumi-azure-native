@@ -22,11 +22,13 @@ __all__ = [
     'BranchStatusResponse',
     'CapabilityPropertiesResponse',
     'ContinuousActionResponse',
+    'CustomerDataStoragePropertiesResponse',
     'DelayActionResponse',
     'DiscreteActionResponse',
     'ExperimentExecutionActionTargetDetailsErrorResponse',
     'ExperimentExecutionActionTargetDetailsPropertiesResponse',
     'ExperimentExecutionDetailsPropertiesResponseRunInformation',
+    'ExperimentIdentityResponse',
     'ExperimentPropertiesResponse',
     'KeyValuePairResponse',
     'ListSelectorResponse',
@@ -34,7 +36,6 @@ __all__ = [
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'QuerySelectorResponse',
-    'ResourceIdentityResponse',
     'SimpleFilterParametersResponse',
     'SimpleFilterResponse',
     'StepResponse',
@@ -124,13 +125,13 @@ class ActionStatusResponse(dict):
 @pulumi.output_type
 class BranchResponse(dict):
     """
-    Model that represents a branch in the step.
+    Model that represents a branch in the step. 9 total per experiment.
     """
     def __init__(__self__, *,
                  actions: Sequence[Any],
                  name: str):
         """
-        Model that represents a branch in the step.
+        Model that represents a branch in the step. 9 total per experiment.
         :param Sequence[Union['ContinuousActionResponse', 'DelayActionResponse', 'DiscreteActionResponse']] actions: List of actions.
         :param str name: String of the branch name.
         """
@@ -380,6 +381,60 @@ class ContinuousActionResponse(dict):
 
 
 @pulumi.output_type
+class CustomerDataStoragePropertiesResponse(dict):
+    """
+    Model that represents the Customer Managed Storage for an Experiment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobContainerName":
+            suggest = "blob_container_name"
+        elif key == "storageAccountResourceId":
+            suggest = "storage_account_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomerDataStoragePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomerDataStoragePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomerDataStoragePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blob_container_name: Optional[str] = None,
+                 storage_account_resource_id: Optional[str] = None):
+        """
+        Model that represents the Customer Managed Storage for an Experiment.
+        :param str blob_container_name: Name of the Azure Blob Storage container to use or create.
+        :param str storage_account_resource_id: ARM Resource ID of the Storage account to use for Customer Data storage.
+        """
+        if blob_container_name is not None:
+            pulumi.set(__self__, "blob_container_name", blob_container_name)
+        if storage_account_resource_id is not None:
+            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+
+    @property
+    @pulumi.getter(name="blobContainerName")
+    def blob_container_name(self) -> Optional[str]:
+        """
+        Name of the Azure Blob Storage container to use or create.
+        """
+        return pulumi.get(self, "blob_container_name")
+
+    @property
+    @pulumi.getter(name="storageAccountResourceId")
+    def storage_account_resource_id(self) -> Optional[str]:
+        """
+        ARM Resource ID of the Storage account to use for Customer Data storage.
+        """
+        return pulumi.get(self, "storage_account_resource_id")
+
+
+@pulumi.output_type
 class DelayActionResponse(dict):
     """
     Model that represents a delay action.
@@ -621,6 +676,83 @@ class ExperimentExecutionDetailsPropertiesResponseRunInformation(dict):
 
 
 @pulumi.output_type
+class ExperimentIdentityResponse(dict):
+    """
+    The identity of the experiment resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        The identity of the experiment resource.
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
 class ExperimentPropertiesResponse(dict):
     """
     Model that represents the Experiment properties model.
@@ -628,8 +760,10 @@ class ExperimentPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "startOnCreation":
-            suggest = "start_on_creation"
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "customerDataStorage":
+            suggest = "customer_data_storage"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ExperimentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -643,19 +777,30 @@ class ExperimentPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 provisioning_state: str,
                  selectors: Sequence[Any],
                  steps: Sequence['outputs.StepResponse'],
-                 start_on_creation: Optional[bool] = None):
+                 customer_data_storage: Optional['outputs.CustomerDataStoragePropertiesResponse'] = None):
         """
         Model that represents the Experiment properties model.
+        :param str provisioning_state: Most recent provisioning state for the given experiment resource.
         :param Sequence[Union['ListSelectorResponse', 'QuerySelectorResponse']] selectors: List of selectors.
         :param Sequence['StepResponse'] steps: List of steps.
-        :param bool start_on_creation: A boolean value that indicates if experiment should be started on creation or not.
+        :param 'CustomerDataStoragePropertiesResponse' customer_data_storage: Optional customer-managed Storage account where Experiment schema will be stored.
         """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "selectors", selectors)
         pulumi.set(__self__, "steps", steps)
-        if start_on_creation is not None:
-            pulumi.set(__self__, "start_on_creation", start_on_creation)
+        if customer_data_storage is not None:
+            pulumi.set(__self__, "customer_data_storage", customer_data_storage)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Most recent provisioning state for the given experiment resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -674,12 +819,12 @@ class ExperimentPropertiesResponse(dict):
         return pulumi.get(self, "steps")
 
     @property
-    @pulumi.getter(name="startOnCreation")
-    def start_on_creation(self) -> Optional[bool]:
+    @pulumi.getter(name="customerDataStorage")
+    def customer_data_storage(self) -> Optional['outputs.CustomerDataStoragePropertiesResponse']:
         """
-        A boolean value that indicates if experiment should be started on creation or not.
+        Optional customer-managed Storage account where Experiment schema will be stored.
         """
-        return pulumi.get(self, "start_on_creation")
+        return pulumi.get(self, "customer_data_storage")
 
 
 @pulumi.output_type
@@ -1070,83 +1215,6 @@ class QuerySelectorResponse(dict):
         Model that represents available filter types that can be applied to a targets list.
         """
         return pulumi.get(self, "filter")
-
-
-@pulumi.output_type
-class ResourceIdentityResponse(dict):
-    """
-    The identity of a resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
-                 type: str,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
-        """
-        The identity of a resource.
-        :param str principal_id: GUID that represents the principal ID of this resource identity.
-        :param str tenant_id: GUID that represents the tenant ID of this resource identity.
-        :param str type: String of the resource identity type.
-        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        GUID that represents the principal ID of this resource identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        GUID that represents the tenant ID of this resource identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        String of the resource identity type.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
-        """
-        The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type

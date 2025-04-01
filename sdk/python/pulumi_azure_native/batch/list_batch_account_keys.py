@@ -79,9 +79,9 @@ def list_batch_account_keys(account_name: Optional[str] = None,
     """
     This operation applies only to Batch accounts with allowedAuthenticationModes containing 'SharedKey'. If the Batch account doesn't contain 'SharedKey' in its allowedAuthenticationMode, clients cannot use shared keys to authenticate, and must use another allowedAuthenticationModes instead. In this case, getting the keys will fail.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+    Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the Batch account.
@@ -103,9 +103,9 @@ def list_batch_account_keys_output(account_name: Optional[pulumi.Input[str]] = N
     """
     This operation applies only to Batch accounts with allowedAuthenticationModes containing 'SharedKey'. If the Batch account doesn't contain 'SharedKey' in its allowedAuthenticationMode, clients cannot use shared keys to authenticate, and must use another allowedAuthenticationModes instead. In this case, getting the keys will fail.
 
-    Uses Azure REST API version 2023-05-01.
+    Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+    Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the Batch account.

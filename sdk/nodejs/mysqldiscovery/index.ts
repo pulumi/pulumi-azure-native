@@ -29,13 +29,6 @@ utilities.lazyLoad(exports, ["MySQLSite"], () => require("./mySQLSite"));
 // Export enums:
 export * from "../types/enums/mysqldiscovery";
 
-// Export sub-modules:
-import * as v20240930preview from "./v20240930preview";
-
-export {
-    v20240930preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -158,9 +158,9 @@ class CloudServicesNetwork(pulumi.CustomResource):
         of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
         virtual machines and/or Hybrid AKS clusters.
 
-        Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+        Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,9 +184,9 @@ class CloudServicesNetwork(pulumi.CustomResource):
         of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
         virtual machines and/or Hybrid AKS clusters.
 
-        Uses Azure REST API version 2023-10-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-12-12-preview.
+        Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+        Other available API versions: 2023-10-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param CloudServicesNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -233,10 +233,12 @@ class CloudServicesNetwork(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["associated_resource_ids"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["detailed_status"] = None
             __props__.__dict__["detailed_status_message"] = None
             __props__.__dict__["enabled_egress_endpoints"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["hybrid_aks_clusters_associated_ids"] = None
             __props__.__dict__["interface_name"] = None
             __props__.__dict__["name"] = None
@@ -270,11 +272,13 @@ class CloudServicesNetwork(pulumi.CustomResource):
 
         __props__.__dict__["additional_egress_endpoints"] = None
         __props__.__dict__["associated_resource_ids"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cluster_id"] = None
         __props__.__dict__["detailed_status"] = None
         __props__.__dict__["detailed_status_message"] = None
         __props__.__dict__["enable_default_egress_endpoints"] = None
         __props__.__dict__["enabled_egress_endpoints"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["hybrid_aks_clusters_associated_ids"] = None
         __props__.__dict__["interface_name"] = None
@@ -302,6 +306,14 @@ class CloudServicesNetwork(pulumi.CustomResource):
         The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
         """
         return pulumi.get(self, "associated_resource_ids")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -342,6 +354,14 @@ class CloudServicesNetwork(pulumi.CustomResource):
         The full list of additional and default egress endpoints that are currently enabled.
         """
         return pulumi.get(self, "enabled_egress_endpoints")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="extendedLocation")

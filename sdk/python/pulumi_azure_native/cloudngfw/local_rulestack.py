@@ -256,9 +256,9 @@ class LocalRulestack(pulumi.CustomResource):
         """
         PaloAltoNetworks LocalRulestack
 
-        Uses Azure REST API version 2023-09-01.
+        Uses Azure REST API version 2025-02-06-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
-        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,9 +285,9 @@ class LocalRulestack(pulumi.CustomResource):
         """
         PaloAltoNetworks LocalRulestack
 
-        Uses Azure REST API version 2023-09-01.
+        Uses Azure REST API version 2025-02-06-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
-        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param LocalRulestackArgs args: The arguments to use to populate this resource's properties.
@@ -341,6 +341,7 @@ class LocalRulestack(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["security_services"] = security_services
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -370,6 +371,7 @@ class LocalRulestack(pulumi.CustomResource):
         __props__ = LocalRulestackArgs.__new__(LocalRulestackArgs)
 
         __props__.__dict__["associated_subscriptions"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["default_mode"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["identity"] = None
@@ -393,6 +395,14 @@ class LocalRulestack(pulumi.CustomResource):
         subscription scope of global rulestack
         """
         return pulumi.get(self, "associated_subscriptions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultMode")

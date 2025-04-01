@@ -46,6 +46,10 @@ export interface GetADLSGen2FileSystemDataSetArgs {
  */
 export interface GetADLSGen2FileSystemDataSetResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Unique id for identifying a data set resource
      */
     readonly dataSetId: string;

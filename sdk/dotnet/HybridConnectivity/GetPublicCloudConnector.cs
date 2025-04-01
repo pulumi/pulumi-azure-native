@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// </summary>
         public readonly Outputs.AwsCloudProfileResponse AwsCloudProfile;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Connector primary identifier.
         /// </summary>
         public readonly string ConnectorPrimaryIdentifier;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
         private GetPublicCloudConnectorResult(
             Outputs.AwsCloudProfileResponse awsCloudProfile,
 
+            string azureApiVersion,
+
             string connectorPrimaryIdentifier,
 
             string hostType,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
             string type)
         {
             AwsCloudProfile = awsCloudProfile;
+            AzureApiVersion = azureApiVersion;
             ConnectorPrimaryIdentifier = connectorPrimaryIdentifier;
             HostType = hostType;
             Id = id;

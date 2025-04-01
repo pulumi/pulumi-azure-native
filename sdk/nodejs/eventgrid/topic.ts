@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * EventGrid Topic
  *
- * Uses Azure REST API version 2022-06-15. In version 1.x of the Azure Native provider, it used API version 2020-06-01.
+ * Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
  *
- * Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Topic extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class Topic extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Data Residency Boundary of the resource.
      */
     public readonly dataResidencyBoundary!: pulumi.Output<string | undefined>;
@@ -53,6 +57,11 @@ export class Topic extends pulumi.CustomResource {
      * Endpoint for the topic.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+     * subscriber to view different types of events that are published.
+     */
+    public readonly eventTypeInfo!: pulumi.Output<outputs.eventgrid.EventTypeInfoResponse | undefined>;
     /**
      * Identity information for the resource.
      */
@@ -78,9 +87,16 @@ export class Topic extends pulumi.CustomResource {
      */
     public /*out*/ readonly metricResourceId!: pulumi.Output<string>;
     /**
+     * Minimum TLS version of the publisher allowed to publish to this topic
+     */
+    public readonly minimumTlsVersionAllowed!: pulumi.Output<string | undefined>;
+    /**
      * Name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * List of private endpoint connections.
+     */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.PrivateEndpointConnectionResponse[]>;
     /**
      * Provisioning state of the topic.
@@ -92,7 +108,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to Topic resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -120,15 +136,18 @@ export class Topic extends pulumi.CustomResource {
             }
             resourceInputs["dataResidencyBoundary"] = args ? args.dataResidencyBoundary : undefined;
             resourceInputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
+            resourceInputs["eventTypeInfo"] = args ? args.eventTypeInfo : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             resourceInputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
             resourceInputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimumTlsVersionAllowed"] = args ? args.minimumTlsVersionAllowed : undefined;
             resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["metricResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -137,15 +156,18 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataResidencyBoundary"] = undefined /*out*/;
             resourceInputs["disableLocalAuth"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["eventTypeInfo"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["inboundIpRules"] = undefined /*out*/;
             resourceInputs["inputSchema"] = undefined /*out*/;
             resourceInputs["inputSchemaMapping"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["metricResourceId"] = undefined /*out*/;
+            resourceInputs["minimumTlsVersionAllowed"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -174,6 +196,11 @@ export interface TopicArgs {
      */
     disableLocalAuth?: pulumi.Input<boolean>;
     /**
+     * Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+     * subscriber to view different types of events that are published.
+     */
+    eventTypeInfo?: pulumi.Input<inputs.eventgrid.EventTypeInfoArgs>;
+    /**
      * Identity information for the resource.
      */
     identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs>;
@@ -193,6 +220,10 @@ export interface TopicArgs {
      * Location of the resource.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Minimum TLS version of the publisher allowed to publish to this topic
+     */
+    minimumTlsVersionAllowed?: pulumi.Input<string | enums.eventgrid.TlsVersion>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled. 
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />

@@ -186,9 +186,7 @@ class IscsiTarget(pulumi.CustomResource):
         """
         Response for iSCSI Target requests.
 
-        Uses Azure REST API version 2021-08-01. In version 1.x of the Azure Native provider, it used API version 2020-03-15-preview.
-
-        Other available API versions: 2020-03-15-preview.
+        Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,9 +209,7 @@ class IscsiTarget(pulumi.CustomResource):
         """
         Response for iSCSI Target requests.
 
-        Uses Azure REST API version 2021-08-01. In version 1.x of the Azure Native provider, it used API version 2020-03-15-preview.
-
-        Other available API versions: 2020-03-15-preview.
+        Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param IscsiTargetArgs args: The arguments to use to populate this resource's properties.
@@ -263,6 +259,7 @@ class IscsiTarget(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["static_acls"] = static_acls
             __props__.__dict__["target_iqn"] = target_iqn
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["endpoints"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["port"] = None
@@ -296,6 +293,7 @@ class IscsiTarget(pulumi.CustomResource):
         __props__ = IscsiTargetArgs.__new__(IscsiTargetArgs)
 
         __props__.__dict__["acl_mode"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["endpoints"] = None
         __props__.__dict__["luns"] = None
         __props__.__dict__["managed_by"] = None
@@ -318,6 +316,14 @@ class IscsiTarget(pulumi.CustomResource):
         Mode for Target connectivity.
         """
         return pulumi.get(self, "acl_mode")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

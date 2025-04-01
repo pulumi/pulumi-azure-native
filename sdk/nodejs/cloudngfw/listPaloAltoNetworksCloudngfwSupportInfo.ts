@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Support information for the service
  *
- * Uses Azure REST API version 2024-02-07-preview.
+ * Uses Azure REST API version 2025-02-06-preview.
  *
- * Other available API versions: 2024-01-19-preview, 2025-02-06-preview.
+ * Other available API versions: 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listPaloAltoNetworksCloudngfwSupportInfo(args?: ListPaloAltoNetworksCloudngfwSupportInfoArgs, opts?: pulumi.InvokeOptions): Promise<ListPaloAltoNetworksCloudngfwSupportInfoResult> {
     args = args || {};
@@ -26,13 +26,21 @@ export interface ListPaloAltoNetworksCloudngfwSupportInfoArgs {
  */
 export interface ListPaloAltoNetworksCloudngfwSupportInfoResult {
     /**
-     * Support account associated with given resource
+     * Support account associated with given resource when association type is tenant
      */
     readonly accountId?: string;
+    /**
+     * Support account associated with given resource when association type is billing
+     */
+    readonly accountIdForBilling?: string;
     /**
      * account registered in Customer Support Portal
      */
     readonly accountRegistrationStatus?: string;
+    /**
+     * Association Type
+     */
+    readonly associationType?: string;
     /**
      * credits purchased, unit per hour
      */
@@ -89,9 +97,9 @@ export interface ListPaloAltoNetworksCloudngfwSupportInfoResult {
 /**
  * Support information for the service
  *
- * Uses Azure REST API version 2024-02-07-preview.
+ * Uses Azure REST API version 2025-02-06-preview.
  *
- * Other available API versions: 2024-01-19-preview, 2025-02-06-preview.
+ * Other available API versions: 2024-01-19-preview, 2024-02-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listPaloAltoNetworksCloudngfwSupportInfoOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

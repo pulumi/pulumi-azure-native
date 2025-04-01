@@ -40,6 +40,10 @@ export interface GetCustomAssessmentAutomationResult {
      */
     readonly assessmentKey?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * GZip encoded KQL query representing the assessment automation results required.
      */
     readonly compressedQuery?: string;

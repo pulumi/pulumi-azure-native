@@ -27,7 +27,10 @@ class GetSimResult:
     """
     SIM resource.
     """
-    def __init__(__self__, device_type=None, id=None, integrated_circuit_card_identifier=None, international_mobile_subscriber_identity=None, name=None, provisioning_state=None, sim_policy=None, sim_state=None, site_provisioning_state=None, static_ip_configuration=None, system_data=None, type=None, vendor_key_fingerprint=None, vendor_name=None):
+    def __init__(__self__, azure_api_version=None, device_type=None, id=None, integrated_circuit_card_identifier=None, international_mobile_subscriber_identity=None, name=None, provisioning_state=None, sim_policy=None, sim_state=None, site_provisioning_state=None, static_ip_configuration=None, system_data=None, type=None, vendor_key_fingerprint=None, vendor_name=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if device_type and not isinstance(device_type, str):
             raise TypeError("Expected argument 'device_type' to be a str")
         pulumi.set(__self__, "device_type", device_type)
@@ -70,6 +73,14 @@ class GetSimResult:
         if vendor_name and not isinstance(vendor_name, str):
             raise TypeError("Expected argument 'vendor_name' to be a str")
         pulumi.set(__self__, "vendor_name", vendor_name)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deviceType")
@@ -190,6 +201,7 @@ class AwaitableGetSimResult(GetSimResult):
         if False:
             yield self
         return GetSimResult(
+            azure_api_version=self.azure_api_version,
             device_type=self.device_type,
             id=self.id,
             integrated_circuit_card_identifier=self.integrated_circuit_card_identifier,
@@ -213,9 +225,9 @@ def get_sim(resource_group_name: Optional[str] = None,
     """
     Gets information about the specified SIM.
 
-    Uses Azure REST API version 2023-06-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -230,6 +242,7 @@ def get_sim(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork:getSim', __args__, opts=opts, typ=GetSimResult).value
 
     return AwaitableGetSimResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         device_type=pulumi.get(__ret__, 'device_type'),
         id=pulumi.get(__ret__, 'id'),
         integrated_circuit_card_identifier=pulumi.get(__ret__, 'integrated_circuit_card_identifier'),
@@ -251,9 +264,9 @@ def get_sim_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified SIM.
 
-    Uses Azure REST API version 2023-06-01.
+    Uses Azure REST API version 2024-04-01.
 
-    Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mobilenetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -267,6 +280,7 @@ def get_sim_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork:getSim', __args__, opts=opts, typ=GetSimResult)
     return __ret__.apply(lambda __response__: GetSimResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         device_type=pulumi.get(__response__, 'device_type'),
         id=pulumi.get(__response__, 'id'),
         integrated_circuit_card_identifier=pulumi.get(__response__, 'integrated_circuit_card_identifier'),

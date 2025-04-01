@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// Returns Connector resource for a given name.
         /// 
-        /// Uses Azure REST API version 2022-11-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:servicelinker:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// Returns Connector resource for a given name.
         /// 
-        /// Uses Azure REST API version 2022-11-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:servicelinker:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// Returns Connector resource for a given name.
         /// 
-        /// Uses Azure REST API version 2022-11-01-preview.
+        /// Uses Azure REST API version 2024-04-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:servicelinker:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// </summary>
         public readonly object? AuthInfo;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The application client type
         /// </summary>
         public readonly string? ClientType;
@@ -168,6 +172,8 @@ namespace Pulumi.AzureNative.ServiceLinker
         private GetConnectorResult(
             object? authInfo,
 
+            string azureApiVersion,
+
             string? clientType,
 
             Outputs.ConfigurationInfoResponse? configurationInfo,
@@ -193,6 +199,7 @@ namespace Pulumi.AzureNative.ServiceLinker
             Outputs.VNetSolutionResponse? vNetSolution)
         {
             AuthInfo = authInfo;
+            AzureApiVersion = azureApiVersion;
             ClientType = clientType;
             ConfigurationInfo = configurationInfo;
             Id = id;

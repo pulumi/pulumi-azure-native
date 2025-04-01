@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// <summary>
         /// Gets details about the orchestrator instance.
         /// 
-        /// Uses Azure REST API version 2021-03-15.
+        /// Uses Azure REST API version 2023-06-27-preview.
         /// 
-        /// Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+        /// Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetOrchestratorInstanceServiceDetailsResult> InvokeAsync(GetOrchestratorInstanceServiceDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrchestratorInstanceServiceDetailsResult>("azure-native:delegatednetwork:getOrchestratorInstanceServiceDetails", args ?? new GetOrchestratorInstanceServiceDetailsArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// <summary>
         /// Gets details about the orchestrator instance.
         /// 
-        /// Uses Azure REST API version 2021-03-15.
+        /// Uses Azure REST API version 2023-06-27-preview.
         /// 
-        /// Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+        /// Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOrchestratorInstanceServiceDetailsResult> Invoke(GetOrchestratorInstanceServiceDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrchestratorInstanceServiceDetailsResult>("azure-native:delegatednetwork:getOrchestratorInstanceServiceDetails", args ?? new GetOrchestratorInstanceServiceDetailsInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// <summary>
         /// Gets details about the orchestrator instance.
         /// 
-        /// Uses Azure REST API version 2021-03-15.
+        /// Uses Azure REST API version 2023-06-27-preview.
         /// 
-        /// Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+        /// Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOrchestratorInstanceServiceDetailsResult> Invoke(GetOrchestratorInstanceServiceDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrchestratorInstanceServiceDetailsResult>("azure-native:delegatednetwork:getOrchestratorInstanceServiceDetails", args ?? new GetOrchestratorInstanceServiceDetailsInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
         /// </summary>
         public readonly string? ApiServerEndpoint;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// RootCA certificate of kubernetes cluster base64 encoded
         /// </summary>
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         private GetOrchestratorInstanceServiceDetailsResult(
             string? apiServerEndpoint,
 
+            string azureApiVersion,
+
             string? clusterRootCA,
 
             Outputs.ControllerDetailsResponse controllerDetails,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
             string type)
         {
             ApiServerEndpoint = apiServerEndpoint;
+            AzureApiVersion = azureApiVersion;
             ClusterRootCA = clusterRootCA;
             ControllerDetails = controllerDetails;
             Id = id;

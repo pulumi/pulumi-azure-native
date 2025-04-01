@@ -115,9 +115,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         A virtual network rule.
 
-        Uses Azure REST API version 2018-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01.
-
-        Other available API versions: 2018-06-01-preview.
+        Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,9 +134,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         A virtual network rule.
 
-        Uses Azure REST API version 2018-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01.
-
-        Other available API versions: 2018-06-01-preview.
+        Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkRuleArgs args: The arguments to use to populate this resource's properties.
@@ -180,6 +176,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
             if virtual_network_subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_subnet_id'")
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
@@ -207,12 +204,21 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
         __props__ = VirtualNetworkRuleArgs.__new__(VirtualNetworkRuleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["ignore_missing_vnet_service_endpoint"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_network_subnet_id"] = None
         return VirtualNetworkRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")

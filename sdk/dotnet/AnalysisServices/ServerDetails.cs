@@ -12,9 +12,7 @@ namespace Pulumi.AzureNative.AnalysisServices
     /// <summary>
     /// Represents an instance of an Analysis Services resource.
     /// 
-    /// Uses Azure REST API version 2017-08-01. In version 1.x of the Azure Native provider, it used API version 2017-08-01.
-    /// 
-    /// Other available API versions: 2017-08-01-beta.
+    /// Uses Azure REST API version 2017-08-01. In version 2.x of the Azure Native provider, it used API version 2017-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:analysisservices:ServerDetails")]
     public partial class ServerDetails : global::Pulumi.CustomResource
@@ -24,6 +22,12 @@ namespace Pulumi.AzureNative.AnalysisServices
         /// </summary>
         [Output("asAdministrators")]
         public Output<Outputs.ServerAdministratorsResponse?> AsAdministrators { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The SAS container URI to the backup container.

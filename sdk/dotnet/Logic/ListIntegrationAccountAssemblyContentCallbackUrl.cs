@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Logic
         /// Get the content callback url for an integration account assembly.
         /// 
         /// Uses Azure REST API version 2019-05-01.
+        /// 
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListIntegrationAccountAssemblyContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountAssemblyContentCallbackUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountAssemblyContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountAssemblyContentCallbackUrl", args ?? new ListIntegrationAccountAssemblyContentCallbackUrlArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Logic
         /// Get the content callback url for an integration account assembly.
         /// 
         /// Uses Azure REST API version 2019-05-01.
+        /// 
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListIntegrationAccountAssemblyContentCallbackUrlResult> Invoke(ListIntegrationAccountAssemblyContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountAssemblyContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountAssemblyContentCallbackUrl", args ?? new ListIntegrationAccountAssemblyContentCallbackUrlInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Logic
         /// Get the content callback url for an integration account assembly.
         /// 
         /// Uses Azure REST API version 2019-05-01.
+        /// 
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListIntegrationAccountAssemblyContentCallbackUrlResult> Invoke(ListIntegrationAccountAssemblyContentCallbackUrlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountAssemblyContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountAssemblyContentCallbackUrl", args ?? new ListIntegrationAccountAssemblyContentCallbackUrlInvokeArgs(), options.WithDefaults());

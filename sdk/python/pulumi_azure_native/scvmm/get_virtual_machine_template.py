@@ -27,7 +27,10 @@ class GetVirtualMachineTemplateResult:
     """
     The VirtualMachineTemplates resource definition.
     """
-    def __init__(__self__, computer_name=None, cpu_count=None, disks=None, dynamic_memory_enabled=None, dynamic_memory_max_mb=None, dynamic_memory_min_mb=None, extended_location=None, generation=None, id=None, inventory_item_id=None, is_customizable=None, is_highly_available=None, limit_cpu_for_migration=None, location=None, memory_mb=None, name=None, network_interfaces=None, os_name=None, os_type=None, provisioning_state=None, system_data=None, tags=None, type=None, uuid=None, vmm_server_id=None):
+    def __init__(__self__, azure_api_version=None, computer_name=None, cpu_count=None, disks=None, dynamic_memory_enabled=None, dynamic_memory_max_mb=None, dynamic_memory_min_mb=None, extended_location=None, generation=None, id=None, inventory_item_id=None, is_customizable=None, is_highly_available=None, limit_cpu_for_migration=None, location=None, memory_mb=None, name=None, network_interfaces=None, os_name=None, os_type=None, provisioning_state=None, system_data=None, tags=None, type=None, uuid=None, vmm_server_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if computer_name and not isinstance(computer_name, str):
             raise TypeError("Expected argument 'computer_name' to be a str")
         pulumi.set(__self__, "computer_name", computer_name)
@@ -103,6 +106,14 @@ class GetVirtualMachineTemplateResult:
         if vmm_server_id and not isinstance(vmm_server_id, str):
             raise TypeError("Expected argument 'vmm_server_id' to be a str")
         pulumi.set(__self__, "vmm_server_id", vmm_server_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="computerName")
@@ -311,6 +322,7 @@ class AwaitableGetVirtualMachineTemplateResult(GetVirtualMachineTemplateResult):
         if False:
             yield self
         return GetVirtualMachineTemplateResult(
+            azure_api_version=self.azure_api_version,
             computer_name=self.computer_name,
             cpu_count=self.cpu_count,
             disks=self.disks,
@@ -344,9 +356,9 @@ def get_virtual_machine_template(resource_group_name: Optional[str] = None,
     """
     Implements VirtualMachineTemplate GET method.
 
-    Uses Azure REST API version 2022-05-21-preview.
+    Uses Azure REST API version 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -359,6 +371,7 @@ def get_virtual_machine_template(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:scvmm:getVirtualMachineTemplate', __args__, opts=opts, typ=GetVirtualMachineTemplateResult).value
 
     return AwaitableGetVirtualMachineTemplateResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         computer_name=pulumi.get(__ret__, 'computer_name'),
         cpu_count=pulumi.get(__ret__, 'cpu_count'),
         disks=pulumi.get(__ret__, 'disks'),
@@ -390,9 +403,9 @@ def get_virtual_machine_template_output(resource_group_name: Optional[pulumi.Inp
     """
     Implements VirtualMachineTemplate GET method.
 
-    Uses Azure REST API version 2022-05-21-preview.
+    Uses Azure REST API version 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -404,6 +417,7 @@ def get_virtual_machine_template_output(resource_group_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm:getVirtualMachineTemplate', __args__, opts=opts, typ=GetVirtualMachineTemplateResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineTemplateResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         computer_name=pulumi.get(__response__, 'computer_name'),
         cpu_count=pulumi.get(__response__, 'cpu_count'),
         disks=pulumi.get(__response__, 'disks'),

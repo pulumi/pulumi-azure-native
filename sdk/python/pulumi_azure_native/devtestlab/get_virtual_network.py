@@ -27,10 +27,13 @@ class GetVirtualNetworkResult:
     """
     A virtual network.
     """
-    def __init__(__self__, allowed_subnets=None, created_date=None, description=None, external_provider_resource_id=None, external_subnets=None, id=None, location=None, name=None, provisioning_state=None, subnet_overrides=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, allowed_subnets=None, azure_api_version=None, created_date=None, description=None, external_provider_resource_id=None, external_subnets=None, id=None, location=None, name=None, provisioning_state=None, subnet_overrides=None, tags=None, type=None, unique_identifier=None):
         if allowed_subnets and not isinstance(allowed_subnets, list):
             raise TypeError("Expected argument 'allowed_subnets' to be a list")
         pulumi.set(__self__, "allowed_subnets", allowed_subnets)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -75,6 +78,14 @@ class GetVirtualNetworkResult:
         The allowed subnets of the virtual network.
         """
         return pulumi.get(self, "allowed_subnets")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -180,6 +191,7 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             yield self
         return GetVirtualNetworkResult(
             allowed_subnets=self.allowed_subnets,
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             description=self.description,
             external_provider_resource_id=self.external_provider_resource_id,
@@ -220,6 +232,7 @@ def get_virtual_network(expand: Optional[str] = None,
 
     return AwaitableGetVirtualNetworkResult(
         allowed_subnets=pulumi.get(__ret__, 'allowed_subnets'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         description=pulumi.get(__ret__, 'description'),
         external_provider_resource_id=pulumi.get(__ret__, 'external_provider_resource_id'),
@@ -257,6 +270,7 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkResult(
         allowed_subnets=pulumi.get(__response__, 'allowed_subnets'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         description=pulumi.get(__response__, 'description'),
         external_provider_resource_id=pulumi.get(__response__, 'external_provider_resource_id'),

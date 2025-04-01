@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Confluent.Outputs
     public sealed class UserDetailResponse
     {
         /// <summary>
+        /// AAD email address
+        /// </summary>
+        public readonly string? AadEmail;
+        /// <summary>
         /// Email address
         /// </summary>
         public readonly string EmailAddress;
@@ -28,18 +32,28 @@ namespace Pulumi.AzureNative.Confluent.Outputs
         /// Last name
         /// </summary>
         public readonly string? LastName;
+        /// <summary>
+        /// User principal name
+        /// </summary>
+        public readonly string? UserPrincipalName;
 
         [OutputConstructor]
         private UserDetailResponse(
+            string? aadEmail,
+
             string emailAddress,
 
             string? firstName,
 
-            string? lastName)
+            string? lastName,
+
+            string? userPrincipalName)
         {
+            AadEmail = aadEmail;
             EmailAddress = emailAddress;
             FirstName = firstName;
             LastName = lastName;
+            UserPrincipalName = userPrincipalName;
         }
     }
 }

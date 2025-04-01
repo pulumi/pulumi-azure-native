@@ -152,9 +152,9 @@ class AssociationsInterface(pulumi.CustomResource):
         """
         Association Subresource of Traffic Controller
 
-        Uses Azure REST API version 2023-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-10-01-preview.
+        Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01, 2025-03-01-preview.
+        Other available API versions: 2023-05-01-preview, 2023-11-01, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,9 +175,9 @@ class AssociationsInterface(pulumi.CustomResource):
         """
         Association Subresource of Traffic Controller
 
-        Uses Azure REST API version 2023-05-01-preview. In version 1.x of the Azure Native provider, it used API version 2022-10-01-preview.
+        Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01, 2025-03-01-preview.
+        Other available API versions: 2023-05-01-preview, 2023-11-01, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AssociationsInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -223,6 +223,7 @@ class AssociationsInterface(pulumi.CustomResource):
             if traffic_controller_name is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_controller_name'")
             __props__.__dict__["traffic_controller_name"] = traffic_controller_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -252,6 +253,7 @@ class AssociationsInterface(pulumi.CustomResource):
         __props__ = AssociationsInterfaceArgs.__new__(AssociationsInterfaceArgs)
 
         __props__.__dict__["association_type"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -268,6 +270,14 @@ class AssociationsInterface(pulumi.CustomResource):
         Association Type
         """
         return pulumi.get(self, "association_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

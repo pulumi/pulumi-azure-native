@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Organization resource.
         /// 
-        /// Uses Azure REST API version 2021-12-01.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2020-03-01-preview, 2023-08-22, 2024-02-13, 2024-07-01.
+        /// Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(GetOrganizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-native:confluent:getOrganization", args ?? new GetOrganizationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Organization resource.
         /// 
-        /// Uses Azure REST API version 2021-12-01.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2020-03-01-preview, 2023-08-22, 2024-02-13, 2024-07-01.
+        /// Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("azure-native:confluent:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Organization resource.
         /// 
-        /// Uses Azure REST API version 2021-12-01.
+        /// Uses Azure REST API version 2024-07-01.
         /// 
-        /// Other available API versions: 2020-03-01-preview, 2023-08-22, 2024-02-13, 2024-07-01.
+        /// Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("azure-native:confluent:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Confluent
     public sealed class GetOrganizationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation time of the resource.
         /// </summary>
         public readonly string CreatedTime;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.Confluent
 
         [OutputConstructor]
         private GetOrganizationResult(
+            string azureApiVersion,
+
             string createdTime,
 
             string id,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.Confluent
 
             Outputs.UserDetailResponse userDetail)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedTime = createdTime;
             Id = id;
             Location = location;

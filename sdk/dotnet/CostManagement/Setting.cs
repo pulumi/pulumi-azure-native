@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.CostManagement
     /// <summary>
     /// State of the myscope setting.
     /// 
-    /// Uses Azure REST API version 2019-11-01. In version 1.x of the Azure Native provider, it used API version 2019-11-01.
+    /// Uses Azure REST API version 2019-11-01. In version 2.x of the Azure Native provider, it used API version 2019-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Setting")]
     public partial class Setting : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Array of scopes with additional details used by Cost Management in the Azure portal.
         /// </summary>

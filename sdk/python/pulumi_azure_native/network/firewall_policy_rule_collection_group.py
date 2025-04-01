@@ -153,9 +153,9 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         """
         Rule Collection Group resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,9 +176,9 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         """
         Rule Collection Group resource.
 
-        Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyRuleCollectionGroupArgs args: The arguments to use to populate this resource's properties.
@@ -222,8 +222,10 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rule_collection_group_name"] = rule_collection_group_name
             __props__.__dict__["rule_collections"] = rule_collections
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["size"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20200601:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20200701:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20200801:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20201101:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20210201:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20210301:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20210501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20210801:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20220101:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20220501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20220701:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20221101:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20230201:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20230401:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20230501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20230601:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20230901:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20231101:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20240101:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20240301:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20240501:FirewallPolicyRuleCollectionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -249,13 +251,23 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
 
         __props__ = FirewallPolicyRuleCollectionGroupArgs.__new__(FirewallPolicyRuleCollectionGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["priority"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["rule_collections"] = None
+        __props__.__dict__["size"] = None
         __props__.__dict__["type"] = None
         return FirewallPolicyRuleCollectionGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -296,6 +308,14 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         Group of Firewall Policy rule collections.
         """
         return pulumi.get(self, "rule_collections")
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Output[str]:
+        """
+        A read-only string that represents the size of the FirewallPolicyRuleCollectionGroupProperties in MB. (ex 1.2MB)
+        """
+        return pulumi.get(self, "size")
 
     @property
     @pulumi.getter

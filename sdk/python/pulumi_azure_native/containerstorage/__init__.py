@@ -14,11 +14,3 @@ from .snapshot import *
 from .volume import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.containerstorage.v20230701preview as __v20230701preview
-    v20230701preview = __v20230701preview
-else:
-    v20230701preview = _utilities.lazy_import('pulumi_azure_native.containerstorage.v20230701preview')
-

@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.DataShare
     /// <summary>
     /// A share data transfer object.
     /// 
-    /// Uses Azure REST API version 2021-08-01. In version 1.x of the Azure Native provider, it used API version 2020-09-01.
+    /// Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:Share")]
     public partial class Share : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Time at which the share was created.
         /// </summary>

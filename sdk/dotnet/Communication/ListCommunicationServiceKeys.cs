@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the access keys of the CommunicationService resource.
         /// 
-        /// Uses Azure REST API version 2023-03-31.
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListCommunicationServiceKeysResult> InvokeAsync(ListCommunicationServiceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListCommunicationServiceKeysResult>("azure-native:communication:listCommunicationServiceKeys", args ?? new ListCommunicationServiceKeysArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the access keys of the CommunicationService resource.
         /// 
-        /// Uses Azure REST API version 2023-03-31.
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListCommunicationServiceKeysResult> Invoke(ListCommunicationServiceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListCommunicationServiceKeysResult>("azure-native:communication:listCommunicationServiceKeys", args ?? new ListCommunicationServiceKeysInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the access keys of the CommunicationService resource.
         /// 
-        /// Uses Azure REST API version 2023-03-31.
+        /// Uses Azure REST API version 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListCommunicationServiceKeysResult> Invoke(ListCommunicationServiceKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListCommunicationServiceKeysResult>("azure-native:communication:listCommunicationServiceKeys", args ?? new ListCommunicationServiceKeysInvokeArgs(), options.WithDefaults());

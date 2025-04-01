@@ -24,7 +24,7 @@ __all__ = [
 @pulumi.output_type
 class ListAccountKeysResult:
     """
-    The Account access keys.
+    The Purview Account access keys.
     """
     def __init__(__self__, atlas_kafka_primary_endpoint=None, atlas_kafka_secondary_endpoint=None):
         if atlas_kafka_primary_endpoint and not isinstance(atlas_kafka_primary_endpoint, str):
@@ -67,9 +67,9 @@ def list_account_keys(account_name: Optional[str] = None,
     """
     List the authorization keys associated with this account.
 
-    Uses Azure REST API version 2021-12-01.
+    Uses Azure REST API version 2024-04-01-preview.
 
-    Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+    Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the account.
@@ -90,9 +90,9 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     List the authorization keys associated with this account.
 
-    Uses Azure REST API version 2021-12-01.
+    Uses Azure REST API version 2024-04-01-preview.
 
-    Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+    Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the account.

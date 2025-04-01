@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
 {
 
     /// <summary>
-    /// Aggregate Route properties.
+    /// aggregateIpv4Route model.
     /// </summary>
     [OutputType]
     public sealed class AggregateRouteResponse
     {
         /// <summary>
-        /// Prefix of the aggregate Route.
+        /// IPv4 Prefix of the aggregate Ipv4Route.
         /// </summary>
-        public readonly string? Prefix;
+        public readonly string Prefix;
 
         [OutputConstructor]
-        private AggregateRouteResponse(string? prefix)
+        private AggregateRouteResponse(string prefix)
         {
             Prefix = prefix;
         }

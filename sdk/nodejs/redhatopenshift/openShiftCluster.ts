@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
  *
- * Uses Azure REST API version 2022-09-04. In version 1.x of the Azure Native provider, it used API version 2020-04-30.
+ * Uses Azure REST API version 2023-11-22. In version 2.x of the Azure Native provider, it used API version 2022-09-04.
  *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+ * Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class OpenShiftCluster extends pulumi.CustomResource {
     /**
@@ -46,13 +46,17 @@ export class OpenShiftCluster extends pulumi.CustomResource {
      */
     public readonly apiserverProfile!: pulumi.Output<outputs.redhatopenshift.APIServerProfileResponse | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The cluster profile.
      */
     public readonly clusterProfile!: pulumi.Output<outputs.redhatopenshift.ClusterProfileResponse | undefined>;
     /**
      * The console profile.
      */
-    public readonly consoleProfile!: pulumi.Output<outputs.redhatopenshift.ConsoleProfileResponse | undefined>;
+    public /*out*/ readonly consoleProfile!: pulumi.Output<outputs.redhatopenshift.ConsoleProfileResponse | undefined>;
     /**
      * The cluster ingress profiles.
      */
@@ -97,6 +101,10 @@ export class OpenShiftCluster extends pulumi.CustomResource {
      * The cluster worker profiles.
      */
     public readonly workerProfiles!: pulumi.Output<outputs.redhatopenshift.WorkerProfileResponse[] | undefined>;
+    /**
+     * The cluster worker profiles status.
+     */
+    public /*out*/ readonly workerProfilesStatus!: pulumi.Output<outputs.redhatopenshift.WorkerProfileResponse[]>;
 
     /**
      * Create a OpenShiftCluster resource with the given unique name, arguments, and options.
@@ -114,7 +122,6 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             }
             resourceInputs["apiserverProfile"] = args ? args.apiserverProfile : undefined;
             resourceInputs["clusterProfile"] = args ? args.clusterProfile : undefined;
-            resourceInputs["consoleProfile"] = args ? args.consoleProfile : undefined;
             resourceInputs["ingressProfiles"] = args ? args.ingressProfiles : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["masterProfile"] = args ? args.masterProfile : undefined;
@@ -125,11 +132,15 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             resourceInputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workerProfiles"] = args ? args.workerProfiles : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["consoleProfile"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workerProfilesStatus"] = undefined /*out*/;
         } else {
             resourceInputs["apiserverProfile"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterProfile"] = undefined /*out*/;
             resourceInputs["consoleProfile"] = undefined /*out*/;
             resourceInputs["ingressProfiles"] = undefined /*out*/;
@@ -143,6 +154,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workerProfiles"] = undefined /*out*/;
+            resourceInputs["workerProfilesStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20200430:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20210901preview:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20220401:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20220904:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20230401:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20230701preview:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20230904:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20231122:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20240812preview:OpenShiftCluster" }] };
@@ -164,10 +176,6 @@ export interface OpenShiftClusterArgs {
      */
     clusterProfile?: pulumi.Input<inputs.redhatopenshift.ClusterProfileArgs>;
     /**
-     * The console profile.
-     */
-    consoleProfile?: pulumi.Input<inputs.redhatopenshift.ConsoleProfileArgs>;
-    /**
      * The cluster ingress profiles.
      */
     ingressProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.IngressProfileArgs>[]>;
@@ -186,7 +194,7 @@ export interface OpenShiftClusterArgs {
     /**
      * The cluster provisioning state.
      */
-    provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string | enums.redhatopenshift.ProvisioningState>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

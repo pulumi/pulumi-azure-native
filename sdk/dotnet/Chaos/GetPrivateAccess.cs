@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// Get a private access resource
         /// 
-        /// Uses Azure REST API version 2023-10-27-preview.
+        /// Uses Azure REST API version 2024-03-22-preview.
         /// 
-        /// Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+        /// Other available API versions: 2023-10-27-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPrivateAccessResult> InvokeAsync(GetPrivateAccessArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateAccessResult>("azure-native:chaos:getPrivateAccess", args ?? new GetPrivateAccessArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// Get a private access resource
         /// 
-        /// Uses Azure REST API version 2023-10-27-preview.
+        /// Uses Azure REST API version 2024-03-22-preview.
         /// 
-        /// Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+        /// Other available API versions: 2023-10-27-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateAccessResult> Invoke(GetPrivateAccessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateAccessResult>("azure-native:chaos:getPrivateAccess", args ?? new GetPrivateAccessInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Chaos
         /// <summary>
         /// Get a private access resource
         /// 
-        /// Uses Azure REST API version 2023-10-27-preview.
+        /// Uses Azure REST API version 2024-03-22-preview.
         /// 
-        /// Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+        /// Other available API versions: 2023-10-27-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateAccessResult> Invoke(GetPrivateAccessInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateAccessResult>("azure-native:chaos:getPrivateAccess", args ?? new GetPrivateAccessInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Chaos
     public sealed class GetPrivateAccessResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -104,6 +108,14 @@ namespace Pulumi.AzureNative.Chaos
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
+        /// Most recent provisioning state for the given privateAccess resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Public Network Access Control for PrivateAccess resource.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -118,6 +130,8 @@ namespace Pulumi.AzureNative.Chaos
 
         [OutputConstructor]
         private GetPrivateAccessResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -126,16 +140,23 @@ namespace Pulumi.AzureNative.Chaos
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
+            string provisioningState,
+
+            string? publicNetworkAccess,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             SystemData = systemData;
             Tags = tags;
             Type = type;

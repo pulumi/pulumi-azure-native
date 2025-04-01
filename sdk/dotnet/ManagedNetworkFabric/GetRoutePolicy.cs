@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements Route Policy GET method.
         /// 
-        /// Uses Azure REST API version 2023-02-01-preview.
+        /// Uses Azure REST API version 2023-06-15.
         /// 
-        /// Other available API versions: 2023-06-15.
+        /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRoutePolicyResult> InvokeAsync(GetRoutePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoutePolicyResult>("azure-native:managednetworkfabric:getRoutePolicy", args ?? new GetRoutePolicyArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements Route Policy GET method.
         /// 
-        /// Uses Azure REST API version 2023-02-01-preview.
+        /// Uses Azure REST API version 2023-06-15.
         /// 
-        /// Other available API versions: 2023-06-15.
+        /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRoutePolicyResult> Invoke(GetRoutePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoutePolicyResult>("azure-native:managednetworkfabric:getRoutePolicy", args ?? new GetRoutePolicyInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Implements Route Policy GET method.
         /// 
-        /// Uses Azure REST API version 2023-02-01-preview.
+        /// Uses Azure REST API version 2023-06-15.
         /// 
-        /// Other available API versions: 2023-06-15.
+        /// Other available API versions: 2023-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRoutePolicyResult> Invoke(GetRoutePolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoutePolicyResult>("azure-native:managednetworkfabric:getRoutePolicy", args ?? new GetRoutePolicyInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Route Policy
+        /// Name of the Route Policy.
         /// </summary>
         [Input("routePolicyName", required: true)]
         public string RoutePolicyName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Route Policy
+        /// Name of the Route Policy.
         /// </summary>
         [Input("routePolicyName", required: true)]
         public Input<string> RoutePolicyName { get; set; } = null!;
@@ -88,11 +88,31 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetRoutePolicyResult
     {
         /// <summary>
+        /// AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
+        /// </summary>
+        public readonly string? AddressFamilyType;
+        /// <summary>
+        /// Administrative state of the resource.
+        /// </summary>
+        public readonly string AdministrativeState;
+        /// <summary>
         /// Switch configuration description.
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        public readonly string ConfigurationState;
+        /// <summary>
+        /// Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+        /// </summary>
+        public readonly string? DefaultAction;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -104,7 +124,11 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Arm Resource ID of Network Fabric.
+        /// </summary>
+        public readonly string NetworkFabricId;
+        /// <summary>
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -126,13 +150,25 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
         [OutputConstructor]
         private GetRoutePolicyResult(
+            string? addressFamilyType,
+
+            string administrativeState,
+
             string? annotation,
+
+            string azureApiVersion,
+
+            string configurationState,
+
+            string? defaultAction,
 
             string id,
 
             string location,
 
             string name,
+
+            string networkFabricId,
 
             string provisioningState,
 
@@ -144,10 +180,16 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string type)
         {
+            AddressFamilyType = addressFamilyType;
+            AdministrativeState = administrativeState;
             Annotation = annotation;
+            AzureApiVersion = azureApiVersion;
+            ConfigurationState = configurationState;
+            DefaultAction = defaultAction;
             Id = id;
             Location = location;
             Name = name;
+            NetworkFabricId = networkFabricId;
             ProvisioningState = provisioningState;
             Statements = statements;
             SystemData = systemData;

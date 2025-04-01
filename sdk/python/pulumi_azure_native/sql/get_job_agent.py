@@ -27,13 +27,19 @@ class GetJobAgentResult:
     """
     An Azure SQL job agent.
     """
-    def __init__(__self__, database_id=None, id=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, database_id=None, id=None, identity=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if database_id and not isinstance(database_id, str):
             raise TypeError("Expected argument 'database_id' to be a str")
         pulumi.set(__self__, "database_id", database_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -54,6 +60,14 @@ class GetJobAgentResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="databaseId")
     def database_id(self) -> str:
         """
@@ -68,6 +82,14 @@ class GetJobAgentResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.JobAgentIdentityResponse']:
+        """
+        The identity of the job agent.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -124,8 +146,10 @@ class AwaitableGetJobAgentResult(GetJobAgentResult):
         if False:
             yield self
         return GetJobAgentResult(
+            azure_api_version=self.azure_api_version,
             database_id=self.database_id,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             sku=self.sku,
@@ -141,9 +165,9 @@ def get_job_agent(job_agent_name: Optional[str] = None,
     """
     Gets a job agent.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str job_agent_name: The name of the job agent to be retrieved.
@@ -158,8 +182,10 @@ def get_job_agent(job_agent_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getJobAgent', __args__, opts=opts, typ=GetJobAgentResult).value
 
     return AwaitableGetJobAgentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         database_id=pulumi.get(__ret__, 'database_id'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         sku=pulumi.get(__ret__, 'sku'),
@@ -173,9 +199,9 @@ def get_job_agent_output(job_agent_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a job agent.
 
-    Uses Azure REST API version 2021-11-01.
+    Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str job_agent_name: The name of the job agent to be retrieved.
@@ -189,8 +215,10 @@ def get_job_agent_output(job_agent_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getJobAgent', __args__, opts=opts, typ=GetJobAgentResult)
     return __ret__.apply(lambda __response__: GetJobAgentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         database_id=pulumi.get(__response__, 'database_id'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         sku=pulumi.get(__response__, 'sku'),

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// <summary>
         /// The resource ID of KeyVault.
         /// </summary>
-        public readonly string KeyVaultResourceId;
+        public readonly string? KeyVaultResourceId;
         /// <summary>
         /// The Uri of KeyVault.
         /// </summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string keyVaultId,
 
-            string keyVaultResourceId,
+            string? keyVaultResourceId,
 
             string keyVaultUri,
 

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * An Azure resource which represents which will provision the ability to create private location data.
  *
- * Uses Azure REST API version 2020-02-01-preview. In version 1.x of the Azure Native provider, it used API version 2020-02-01-preview.
+ * Uses Azure REST API version 2020-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-02-01-preview.
  */
 export class PrivateAtlase extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class PrivateAtlase extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateAtlase.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -82,10 +86,12 @@ export class PrivateAtlase extends pulumi.CustomResource {
             resourceInputs["privateAtlasName"] = args ? args.privateAtlasName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

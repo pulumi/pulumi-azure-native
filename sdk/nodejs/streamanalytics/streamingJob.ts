@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A streaming job object, containing all information associated with the named streaming job.
  *
- * Uses Azure REST API version 2020-03-01. In version 1.x of the Azure Native provider, it used API version 2016-03-01.
+ * Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
  *
- * Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
+ * Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class StreamingJob extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class StreamingJob extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamingJob.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The cluster which streaming jobs will run on.
      */
@@ -190,6 +194,7 @@ export class StreamingJob extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transformation"] = args ? (args.transformation ? pulumi.output(args.transformation).apply(inputs.streamanalytics.transformationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["jobId"] = undefined /*out*/;
@@ -199,6 +204,7 @@ export class StreamingJob extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cluster"] = undefined /*out*/;
             resourceInputs["compatibilityLevel"] = undefined /*out*/;
             resourceInputs["contentStoragePolicy"] = undefined /*out*/;

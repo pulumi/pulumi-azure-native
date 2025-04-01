@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// Get a TestLine
         /// 
-        /// Uses Azure REST API version 2023-04-03.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-09-01.
+        /// Other available API versions: 2022-12-01-preview, 2023-01-31, 2023-04-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native voiceservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetTestLineResult> InvokeAsync(GetTestLineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestLineResult>("azure-native:voiceservices:getTestLine", args ?? new GetTestLineArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// Get a TestLine
         /// 
-        /// Uses Azure REST API version 2023-04-03.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-09-01.
+        /// Other available API versions: 2022-12-01-preview, 2023-01-31, 2023-04-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native voiceservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTestLineResult> Invoke(GetTestLineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestLineResult>("azure-native:voiceservices:getTestLine", args ?? new GetTestLineInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// Get a TestLine
         /// 
-        /// Uses Azure REST API version 2023-04-03.
+        /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-09-01.
+        /// Other available API versions: 2022-12-01-preview, 2023-01-31, 2023-04-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native voiceservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTestLineResult> Invoke(GetTestLineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestLineResult>("azure-native:voiceservices:getTestLine", args ?? new GetTestLineInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.VoiceServices
     public sealed class GetTestLineResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.VoiceServices
 
         [OutputConstructor]
         private GetTestLineResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.VoiceServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

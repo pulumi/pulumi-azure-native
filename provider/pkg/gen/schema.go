@@ -40,6 +40,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // Note - this needs to be kept in sync with the layout in the SDK package
@@ -75,7 +76,7 @@ type GenerationResult struct {
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure modules and resources map.
-func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versioning, providerVersion semver.Version) (*GenerationResult, error) {
+func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versioning, providerVersion semver.Version, onlyExplicitVersions bool) (*GenerationResult, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
@@ -291,7 +292,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 	}
 
 	if !previousCompatibleTokensLookup.IsPopulated() && providerVersion.Major >= 3 {
-		return nil, fmt.Errorf("GetPreviousCompatibleTokensLookup is not populated. This is likely due to v%d-token-paths.json being missing or empty", providerVersion.Major-1)
+		logging.V(3).Infof("GetPreviousCompatibleTokensLookup is not populated. This is likely due to v%d-token-paths.json being missing or empty", providerVersion.Major-1)
 	}
 
 	for moduleName, moduleVersions := range util.MapOrdered(modules) {
@@ -359,12 +360,11 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 	}
 
 	// When a resource maps to more than one API path, it's a conflict and we need to detect and report it. #2495
-	isReleaseBuild := len(providerVersion.Build) == 0
-	if providerVersion.Major >= 3 && isReleaseBuild && resourcesPathTracker.hasConflicts() {
-		return nil, fmt.Errorf("path conflicts detected. You probably need to add a case to schema.go/dedupResourceNameByPath.\n%+v", resourcesPathTracker.pathConflicts)
+	if providerVersion.Major >= 3 && resourcesPathTracker.hasConflicts() {
+		return nil, fmt.Errorf("path conflicts detected. You probably need to add a case to resources.go/ResourceName.\n%+v", resourcesPathTracker.pathConflicts)
 	}
 
-	err = genMixins(&pkg, &metadata)
+	err = genMixins(&pkg, &metadata, !onlyExplicitVersions)
 	if err != nil {
 		return nil, err
 	}
@@ -521,7 +521,7 @@ func findNestedResources(resource *openapi.ResourceSpec, resourceSpecs map[strin
 	return nestedResourceSpecs
 }
 
-func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) error {
+func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata, includeCustomResources bool) error {
 	// Mixin 'getClientConfig' to read current configuration values.
 	if _, has := pkg.Functions["azure-native:authorization:getClientConfig"]; has {
 		return errors.New("Invoke 'azure-native:authorization:getClientConfig' is already defined")
@@ -581,42 +581,44 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 		},
 	}
 
-	// Mixin all the custom resources that define schema and/or metadata.
-	for tok, r := range customresources.SchemaMixins() {
-		if _, has := pkg.Resources[tok]; has {
-			return errors.Errorf("Resource %q is already defined", tok)
+	if includeCustomResources {
+		// Mixin all the custom resources that define schema and/or metadata.
+		for tok, r := range customresources.SchemaMixins() {
+			if _, has := pkg.Resources[tok]; has {
+				return errors.Errorf("Resource %q is already defined", tok)
+			}
+			pkg.Resources[tok] = r
 		}
-		pkg.Resources[tok] = r
-	}
-	for tok, t := range customresources.SchemaTypeMixins() {
-		if _, has := pkg.Types[tok]; has {
-			return errors.Errorf("Type %q is already defined", tok)
+		for tok, t := range customresources.SchemaTypeMixins() {
+			if _, has := pkg.Types[tok]; has {
+				return errors.Errorf("Type %q is already defined", tok)
+			}
+			pkg.Types[tok] = t
 		}
-		pkg.Types[tok] = t
-	}
-	for tok, t := range customresources.SchemaTypeOverrides() {
-		pkg.Types[tok] = t
-	}
-	for tok, r := range customresources.MetaMixins() {
-		if _, has := metadata.Resources[tok]; has {
-			return errors.Errorf("Metadata %q is already defined", tok)
+		for tok, t := range customresources.SchemaTypeOverrides() {
+			pkg.Types[tok] = t
 		}
-		metadata.Resources[tok] = r
-	}
-	for tok, r := range customresources.MetaTypeMixins() {
-		if _, has := metadata.Types[tok]; has {
-			return errors.Errorf("Metadata type %q is already defined", tok)
+		for tok, r := range customresources.MetaMixins() {
+			if _, has := metadata.Resources[tok]; has {
+				return errors.Errorf("Metadata %q is already defined", tok)
+			}
+			metadata.Resources[tok] = r
 		}
-		metadata.Types[tok] = r
-	}
-	for tok, r := range customresources.MetaTypeOverrides() {
-		metadata.Types[tok] = r
-	}
+		for tok, r := range customresources.MetaTypeMixins() {
+			if _, has := metadata.Types[tok]; has {
+				return errors.Errorf("Metadata type %q is already defined", tok)
+			}
+			metadata.Types[tok] = r
+		}
+		for tok, r := range customresources.MetaTypeOverrides() {
+			metadata.Types[tok] = r
+		}
 
-	// Apply custom resource modifications to the schema and metadata.
-	err := customresources.ApplySchemas(pkg, metadata)
-	if err != nil {
-		return err
+		// Apply custom resource modifications to the schema and metadata.
+		err := customresources.ApplySchemas(pkg, metadata)
+		if err != nil {
+			return err
+		}
 	}
 
 	// Add a note regarding WorkspaceSqlAadAdmin creation.

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Pipeline resource type.
  *
- * Uses Azure REST API version 2018-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01.
+ * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
  */
 export class Pipeline extends pulumi.CustomResource {
     /**
@@ -47,6 +47,10 @@ export class Pipeline extends pulumi.CustomResource {
      * List of tags that can be used for describing the Pipeline.
      */
     public readonly annotations!: pulumi.Output<any[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The max number of concurrent runs for the pipeline.
      */
@@ -117,12 +121,14 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["runDimensions"] = args ? args.runDimensions : undefined;
             resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activities"] = undefined /*out*/;
             resourceInputs["annotations"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["concurrency"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

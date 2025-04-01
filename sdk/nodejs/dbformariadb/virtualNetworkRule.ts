@@ -7,9 +7,7 @@ import * as utilities from "../utilities";
 /**
  * A virtual network rule.
  *
- * Uses Azure REST API version 2018-06-01. In version 1.x of the Azure Native provider, it used API version 2018-06-01.
- *
- * Other available API versions: 2018-06-01-preview.
+ * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
@@ -38,6 +36,10 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualNetworkRule.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Create firewall rule before the virtual network has vnet service endpoint enabled.
      */
@@ -84,10 +86,12 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["virtualNetworkRuleName"] = args ? args.virtualNetworkRuleName : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["ignoreMissingVnetServiceEndpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

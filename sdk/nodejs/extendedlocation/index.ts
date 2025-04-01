@@ -29,15 +29,6 @@ utilities.lazyLoad(exports, ["ResourceSyncRule"], () => require("./resourceSyncR
 // Export enums:
 export * from "../types/enums/extendedlocation";
 
-// Export sub-modules:
-import * as v20210815 from "./v20210815";
-import * as v20210831preview from "./v20210831preview";
-
-export {
-    v20210815,
-    v20210831preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

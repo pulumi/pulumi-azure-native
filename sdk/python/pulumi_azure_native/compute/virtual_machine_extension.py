@@ -17,10 +17,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualMachineExtensionInitArgs', 'VirtualMachineExtension']
+__all__ = ['VirtualMachineExtensionArgs', 'VirtualMachineExtension']
 
 @pulumi.input_type
-class VirtualMachineExtensionInitArgs:
+class VirtualMachineExtensionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  vm_name: pulumi.Input[str],
@@ -323,9 +323,9 @@ class VirtualMachineExtension(pulumi.CustomResource):
         """
         Describes a Virtual Machine Extension.
 
-        Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2021-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -351,22 +351,22 @@ class VirtualMachineExtension(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualMachineExtensionInitArgs,
+                 args: VirtualMachineExtensionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine Extension.
 
-        Uses Azure REST API version 2023-03-01. In version 1.x of the Azure Native provider, it used API version 2021-03-01.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2021-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
-        :param VirtualMachineExtensionInitArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualMachineExtensionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualMachineExtensionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualMachineExtensionArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -399,7 +399,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualMachineExtensionInitArgs.__new__(VirtualMachineExtensionInitArgs)
+            __props__ = VirtualMachineExtensionArgs.__new__(VirtualMachineExtensionArgs)
 
             __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
             __props__.__dict__["enable_automatic_upgrade"] = enable_automatic_upgrade
@@ -422,6 +422,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
             if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")
             __props__.__dict__["vm_name"] = vm_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20150615:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20160330:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20160430preview:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20170330:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20230701:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20230901:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20240301:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20240701:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20241101:VirtualMachineExtension")])
@@ -446,9 +447,10 @@ class VirtualMachineExtension(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VirtualMachineExtensionInitArgs.__new__(VirtualMachineExtensionInitArgs)
+        __props__ = VirtualMachineExtensionArgs.__new__(VirtualMachineExtensionArgs)
 
         __props__.__dict__["auto_upgrade_minor_version"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["enable_automatic_upgrade"] = None
         __props__.__dict__["force_update_tag"] = None
         __props__.__dict__["instance_view"] = None
@@ -473,6 +475,14 @@ class VirtualMachineExtension(pulumi.CustomResource):
         Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="enableAutomaticUpgrade")

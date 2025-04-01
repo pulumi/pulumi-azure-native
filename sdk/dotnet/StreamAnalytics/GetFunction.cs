@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// 
         /// Uses Azure REST API version 2020-03-01.
         /// 
-        /// Other available API versions: 2016-03-01, 2021-10-01-preview.
+        /// Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("azure-native:streamanalytics:getFunction", args ?? new GetFunctionArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// 
         /// Uses Azure REST API version 2020-03-01.
         /// 
-        /// Other available API versions: 2016-03-01, 2021-10-01-preview.
+        /// Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("azure-native:streamanalytics:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// 
         /// Uses Azure REST API version 2020-03-01.
         /// 
-        /// Other available API versions: 2016-03-01, 2021-10-01-preview.
+        /// Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("azure-native:streamanalytics:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
     public sealed class GetFunctionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
         [OutputConstructor]
         private GetFunctionResult(
+            string azureApiVersion,
+
             string id,
 
             string? name,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

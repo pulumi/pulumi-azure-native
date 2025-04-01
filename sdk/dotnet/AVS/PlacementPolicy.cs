@@ -12,27 +12,51 @@ namespace Pulumi.AzureNative.AVS
     /// <summary>
     /// A vSphere Distributed Resource Scheduler (DRS) placement policy
     /// 
-    /// Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2021-12-01.
+    /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
     /// 
-    /// Other available API versions: 2023-03-01, 2023-09-01.
+    /// Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:PlacementPolicy")]
     public partial class PlacementPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource name.
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Display name of the placement policy
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// placement policy properties
+        /// The provisioning state
         /// </summary>
-        [Output("properties")]
-        public Output<Union<Outputs.VmHostPlacementPolicyPropertiesResponse, Outputs.VmVmPlacementPolicyPropertiesResponse>> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// Whether the placement policy is enabled or disabled
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -90,13 +114,19 @@ namespace Pulumi.AzureNative.AVS
     public sealed class PlacementPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the cluster in the private cloud
+        /// Name of the cluster
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy
+        /// Display name of the placement policy
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// Name of the placement policy.
         /// </summary>
         [Input("placementPolicyName")]
         public Input<string>? PlacementPolicyName { get; set; }
@@ -108,16 +138,22 @@ namespace Pulumi.AzureNative.AVS
         public Input<string> PrivateCloudName { get; set; } = null!;
 
         /// <summary>
-        /// placement policy properties
-        /// </summary>
-        [Input("properties")]
-        public InputUnion<Inputs.VmHostPlacementPolicyPropertiesArgs, Inputs.VmVmPlacementPolicyPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Whether the placement policy is enabled or disabled
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.AVS.PlacementPolicyState>? State { get; set; }
+
+        /// <summary>
+        /// Placement Policy type
+        /// </summary>
+        [Input("type", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.AVS.PlacementPolicyType> Type { get; set; } = null!;
 
         public PlacementPolicyArgs()
         {

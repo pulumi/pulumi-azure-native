@@ -27,10 +27,13 @@ class GetStorageAccountResult:
     """
     The storage account.
     """
-    def __init__(__self__, access_tier=None, allow_blob_public_access=None, allow_cross_tenant_replication=None, allow_shared_key_access=None, allowed_copy_scope=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, default_to_o_auth_authentication=None, dns_endpoint_type=None, enable_https_traffic_only=None, enable_nfs_v3=None, encryption=None, extended_location=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, immutable_storage_with_versioning=None, is_hns_enabled=None, is_local_user_enabled=None, is_sftp_enabled=None, key_creation_time=None, key_policy=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, routing_preference=None, sas_policy=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, storage_account_sku_conversion_status=None, tags=None, type=None):
+    def __init__(__self__, access_tier=None, account_migration_in_progress=None, allow_blob_public_access=None, allow_cross_tenant_replication=None, allow_shared_key_access=None, allowed_copy_scope=None, azure_api_version=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, default_to_o_auth_authentication=None, dns_endpoint_type=None, enable_extended_groups=None, enable_https_traffic_only=None, enable_nfs_v3=None, encryption=None, extended_location=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, immutable_storage_with_versioning=None, is_hns_enabled=None, is_local_user_enabled=None, is_sftp_enabled=None, is_sku_conversion_blocked=None, key_creation_time=None, key_policy=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, routing_preference=None, sas_policy=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, storage_account_sku_conversion_status=None, tags=None, type=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
+        if account_migration_in_progress and not isinstance(account_migration_in_progress, bool):
+            raise TypeError("Expected argument 'account_migration_in_progress' to be a bool")
+        pulumi.set(__self__, "account_migration_in_progress", account_migration_in_progress)
         if allow_blob_public_access and not isinstance(allow_blob_public_access, bool):
             raise TypeError("Expected argument 'allow_blob_public_access' to be a bool")
         pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
@@ -43,6 +46,9 @@ class GetStorageAccountResult:
         if allowed_copy_scope and not isinstance(allowed_copy_scope, str):
             raise TypeError("Expected argument 'allowed_copy_scope' to be a str")
         pulumi.set(__self__, "allowed_copy_scope", allowed_copy_scope)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_files_identity_based_authentication and not isinstance(azure_files_identity_based_authentication, dict):
             raise TypeError("Expected argument 'azure_files_identity_based_authentication' to be a dict")
         pulumi.set(__self__, "azure_files_identity_based_authentication", azure_files_identity_based_authentication)
@@ -61,6 +67,9 @@ class GetStorageAccountResult:
         if dns_endpoint_type and not isinstance(dns_endpoint_type, str):
             raise TypeError("Expected argument 'dns_endpoint_type' to be a str")
         pulumi.set(__self__, "dns_endpoint_type", dns_endpoint_type)
+        if enable_extended_groups and not isinstance(enable_extended_groups, bool):
+            raise TypeError("Expected argument 'enable_extended_groups' to be a bool")
+        pulumi.set(__self__, "enable_extended_groups", enable_extended_groups)
         if enable_https_traffic_only and not isinstance(enable_https_traffic_only, bool):
             raise TypeError("Expected argument 'enable_https_traffic_only' to be a bool")
         pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
@@ -97,6 +106,9 @@ class GetStorageAccountResult:
         if is_sftp_enabled and not isinstance(is_sftp_enabled, bool):
             raise TypeError("Expected argument 'is_sftp_enabled' to be a bool")
         pulumi.set(__self__, "is_sftp_enabled", is_sftp_enabled)
+        if is_sku_conversion_blocked and not isinstance(is_sku_conversion_blocked, bool):
+            raise TypeError("Expected argument 'is_sku_conversion_blocked' to be a bool")
+        pulumi.set(__self__, "is_sku_conversion_blocked", is_sku_conversion_blocked)
         if key_creation_time and not isinstance(key_creation_time, dict):
             raise TypeError("Expected argument 'key_creation_time' to be a dict")
         pulumi.set(__self__, "key_creation_time", key_creation_time)
@@ -179,10 +191,18 @@ class GetStorageAccountResult:
         return pulumi.get(self, "access_tier")
 
     @property
+    @pulumi.getter(name="accountMigrationInProgress")
+    def account_migration_in_progress(self) -> bool:
+        """
+        If customer initiated account migration is in progress, the value will be true else it will be null.
+        """
+        return pulumi.get(self, "account_migration_in_progress")
+
+    @property
     @pulumi.getter(name="allowBlobPublicAccess")
     def allow_blob_public_access(self) -> Optional[bool]:
         """
-        Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is false for this property.
         """
         return pulumi.get(self, "allow_blob_public_access")
 
@@ -190,7 +210,7 @@ class GetStorageAccountResult:
     @pulumi.getter(name="allowCrossTenantReplication")
     def allow_cross_tenant_replication(self) -> Optional[bool]:
         """
-        Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
+        Allow or disallow cross AAD tenant object replication. Set this property to true for new or existing accounts only if object replication policies will involve storage accounts in different AAD tenants. The default interpretation is false for new accounts to follow best security practices by default.
         """
         return pulumi.get(self, "allow_cross_tenant_replication")
 
@@ -209,6 +229,14 @@ class GetStorageAccountResult:
         Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.
         """
         return pulumi.get(self, "allowed_copy_scope")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureFilesIdentityBasedAuthentication")
@@ -257,6 +285,14 @@ class GetStorageAccountResult:
         Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
         """
         return pulumi.get(self, "dns_endpoint_type")
+
+    @property
+    @pulumi.getter(name="enableExtendedGroups")
+    def enable_extended_groups(self) -> Optional[bool]:
+        """
+        Enables extended group support with local users feature, if set to true
+        """
+        return pulumi.get(self, "enable_extended_groups")
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
@@ -353,6 +389,14 @@ class GetStorageAccountResult:
         Enables Secure File Transfer Protocol, if set to true
         """
         return pulumi.get(self, "is_sftp_enabled")
+
+    @property
+    @pulumi.getter(name="isSkuConversionBlocked")
+    def is_sku_conversion_blocked(self) -> bool:
+        """
+        This property will be set to true or false on an event of ongoing migration. Default value is null.
+        """
+        return pulumi.get(self, "is_sku_conversion_blocked")
 
     @property
     @pulumi.getter(name="keyCreationTime")
@@ -462,7 +506,7 @@ class GetStorageAccountResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[str]:
         """
-        Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -554,16 +598,19 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             yield self
         return GetStorageAccountResult(
             access_tier=self.access_tier,
+            account_migration_in_progress=self.account_migration_in_progress,
             allow_blob_public_access=self.allow_blob_public_access,
             allow_cross_tenant_replication=self.allow_cross_tenant_replication,
             allow_shared_key_access=self.allow_shared_key_access,
             allowed_copy_scope=self.allowed_copy_scope,
+            azure_api_version=self.azure_api_version,
             azure_files_identity_based_authentication=self.azure_files_identity_based_authentication,
             blob_restore_status=self.blob_restore_status,
             creation_time=self.creation_time,
             custom_domain=self.custom_domain,
             default_to_o_auth_authentication=self.default_to_o_auth_authentication,
             dns_endpoint_type=self.dns_endpoint_type,
+            enable_extended_groups=self.enable_extended_groups,
             enable_https_traffic_only=self.enable_https_traffic_only,
             enable_nfs_v3=self.enable_nfs_v3,
             encryption=self.encryption,
@@ -576,6 +623,7 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             is_hns_enabled=self.is_hns_enabled,
             is_local_user_enabled=self.is_local_user_enabled,
             is_sftp_enabled=self.is_sftp_enabled,
+            is_sku_conversion_blocked=self.is_sku_conversion_blocked,
             key_creation_time=self.key_creation_time,
             key_policy=self.key_policy,
             kind=self.kind,
@@ -609,9 +657,9 @@ def get_storage_account(account_name: Optional[str] = None,
     """
     Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -627,16 +675,19 @@ def get_storage_account(account_name: Optional[str] = None,
 
     return AwaitableGetStorageAccountResult(
         access_tier=pulumi.get(__ret__, 'access_tier'),
+        account_migration_in_progress=pulumi.get(__ret__, 'account_migration_in_progress'),
         allow_blob_public_access=pulumi.get(__ret__, 'allow_blob_public_access'),
         allow_cross_tenant_replication=pulumi.get(__ret__, 'allow_cross_tenant_replication'),
         allow_shared_key_access=pulumi.get(__ret__, 'allow_shared_key_access'),
         allowed_copy_scope=pulumi.get(__ret__, 'allowed_copy_scope'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_files_identity_based_authentication=pulumi.get(__ret__, 'azure_files_identity_based_authentication'),
         blob_restore_status=pulumi.get(__ret__, 'blob_restore_status'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         custom_domain=pulumi.get(__ret__, 'custom_domain'),
         default_to_o_auth_authentication=pulumi.get(__ret__, 'default_to_o_auth_authentication'),
         dns_endpoint_type=pulumi.get(__ret__, 'dns_endpoint_type'),
+        enable_extended_groups=pulumi.get(__ret__, 'enable_extended_groups'),
         enable_https_traffic_only=pulumi.get(__ret__, 'enable_https_traffic_only'),
         enable_nfs_v3=pulumi.get(__ret__, 'enable_nfs_v3'),
         encryption=pulumi.get(__ret__, 'encryption'),
@@ -649,6 +700,7 @@ def get_storage_account(account_name: Optional[str] = None,
         is_hns_enabled=pulumi.get(__ret__, 'is_hns_enabled'),
         is_local_user_enabled=pulumi.get(__ret__, 'is_local_user_enabled'),
         is_sftp_enabled=pulumi.get(__ret__, 'is_sftp_enabled'),
+        is_sku_conversion_blocked=pulumi.get(__ret__, 'is_sku_conversion_blocked'),
         key_creation_time=pulumi.get(__ret__, 'key_creation_time'),
         key_policy=pulumi.get(__ret__, 'key_policy'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -680,9 +732,9 @@ def get_storage_account_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
 
-    Uses Azure REST API version 2022-09-01.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -697,16 +749,19 @@ def get_storage_account_output(account_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getStorageAccount', __args__, opts=opts, typ=GetStorageAccountResult)
     return __ret__.apply(lambda __response__: GetStorageAccountResult(
         access_tier=pulumi.get(__response__, 'access_tier'),
+        account_migration_in_progress=pulumi.get(__response__, 'account_migration_in_progress'),
         allow_blob_public_access=pulumi.get(__response__, 'allow_blob_public_access'),
         allow_cross_tenant_replication=pulumi.get(__response__, 'allow_cross_tenant_replication'),
         allow_shared_key_access=pulumi.get(__response__, 'allow_shared_key_access'),
         allowed_copy_scope=pulumi.get(__response__, 'allowed_copy_scope'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_files_identity_based_authentication=pulumi.get(__response__, 'azure_files_identity_based_authentication'),
         blob_restore_status=pulumi.get(__response__, 'blob_restore_status'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         custom_domain=pulumi.get(__response__, 'custom_domain'),
         default_to_o_auth_authentication=pulumi.get(__response__, 'default_to_o_auth_authentication'),
         dns_endpoint_type=pulumi.get(__response__, 'dns_endpoint_type'),
+        enable_extended_groups=pulumi.get(__response__, 'enable_extended_groups'),
         enable_https_traffic_only=pulumi.get(__response__, 'enable_https_traffic_only'),
         enable_nfs_v3=pulumi.get(__response__, 'enable_nfs_v3'),
         encryption=pulumi.get(__response__, 'encryption'),
@@ -719,6 +774,7 @@ def get_storage_account_output(account_name: Optional[pulumi.Input[str]] = None,
         is_hns_enabled=pulumi.get(__response__, 'is_hns_enabled'),
         is_local_user_enabled=pulumi.get(__response__, 'is_local_user_enabled'),
         is_sftp_enabled=pulumi.get(__response__, 'is_sftp_enabled'),
+        is_sku_conversion_blocked=pulumi.get(__response__, 'is_sku_conversion_blocked'),
         key_creation_time=pulumi.get(__response__, 'key_creation_time'),
         key_policy=pulumi.get(__response__, 'key_policy'),
         kind=pulumi.get(__response__, 'kind'),

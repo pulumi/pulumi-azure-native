@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ClusterArgs', 'Cluster']
@@ -26,15 +27,17 @@ class ClusterArgs:
                  sku: pulumi.Input['SkuArgs'],
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_size: Optional[pulumi.Input[int]] = None,
-                 hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vsan_datastore_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
+        :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['SkuArgs'] sku: The cluster SKU
-        :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
+        :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
+        :param pulumi.Input[str] cluster_name: Name of the cluster
         :param pulumi.Input[int] cluster_size: The cluster size
         :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: The hosts
+        :param pulumi.Input[str] vsan_datastore_name: Name of the vsan datastore associated with the cluster
         """
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -45,12 +48,14 @@ class ClusterArgs:
             pulumi.set(__self__, "cluster_size", cluster_size)
         if hosts is not None:
             pulumi.set(__self__, "hosts", hosts)
+        if vsan_datastore_name is not None:
+            pulumi.set(__self__, "vsan_datastore_name", vsan_datastore_name)
 
     @property
     @pulumi.getter(name="privateCloudName")
     def private_cloud_name(self) -> pulumi.Input[str]:
         """
-        The name of the private cloud.
+        Name of the private cloud
         """
         return pulumi.get(self, "private_cloud_name")
 
@@ -74,7 +79,7 @@ class ClusterArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input['SkuArgs']:
         """
-        The cluster SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 
@@ -86,7 +91,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the cluster in the private cloud
+        Name of the cluster
         """
         return pulumi.get(self, "cluster_name")
 
@@ -118,6 +123,18 @@ class ClusterArgs:
     def hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "hosts", value)
 
+    @property
+    @pulumi.getter(name="vsanDatastoreName")
+    def vsan_datastore_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the vsan datastore associated with the cluster
+        """
+        return pulumi.get(self, "vsan_datastore_name")
+
+    @vsan_datastore_name.setter
+    def vsan_datastore_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vsan_datastore_name", value)
+
 
 class Cluster(pulumi.CustomResource):
     @overload
@@ -130,22 +147,24 @@ class Cluster(pulumi.CustomResource):
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 vsan_datastore_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A cluster resource
 
-        Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2020-03-20.
+        Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01, 2023-09-01.
+        Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
+        :param pulumi.Input[str] cluster_name: Name of the cluster
         :param pulumi.Input[int] cluster_size: The cluster size
         :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: The hosts
-        :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
+        :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The cluster SKU
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
+        :param pulumi.Input[str] vsan_datastore_name: Name of the vsan datastore associated with the cluster
         """
         ...
     @overload
@@ -156,9 +175,9 @@ class Cluster(pulumi.CustomResource):
         """
         A cluster resource
 
-        Uses Azure REST API version 2022-05-01. In version 1.x of the Azure Native provider, it used API version 2020-03-20.
+        Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
-        Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01, 2023-09-01.
+        Other available API versions: 2022-05-01, 2023-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -181,6 +200,7 @@ class Cluster(pulumi.CustomResource):
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 vsan_datastore_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -202,9 +222,12 @@ class Cluster(pulumi.CustomResource):
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["vsan_datastore_name"] = vsan_datastore_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200320:Cluster"), pulumi.Alias(type_="azure-native:avs/v20200717preview:Cluster"), pulumi.Alias(type_="azure-native:avs/v20210101preview:Cluster"), pulumi.Alias(type_="azure-native:avs/v20210601:Cluster"), pulumi.Alias(type_="azure-native:avs/v20211201:Cluster"), pulumi.Alias(type_="azure-native:avs/v20220501:Cluster"), pulumi.Alias(type_="azure-native:avs/v20230301:Cluster"), pulumi.Alias(type_="azure-native:avs/v20230901:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -230,14 +253,25 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cluster_id"] = None
         __props__.__dict__["cluster_size"] = None
         __props__.__dict__["hosts"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["vsan_datastore_name"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -267,7 +301,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -283,15 +317,31 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
-        The cluster SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vsanDatastoreName")
+    def vsan_datastore_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of the vsan datastore associated with the cluster
+        """
+        return pulumi.get(self, "vsan_datastore_name")
 

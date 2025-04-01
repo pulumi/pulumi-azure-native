@@ -134,9 +134,7 @@ class LoadBalancer(pulumi.CustomResource):
         """
         A LoadBalancer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
 
-        Uses Azure REST API version 2024-03-01.
-
-        Other available API versions: 2023-10-01-preview.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,9 +154,7 @@ class LoadBalancer(pulumi.CustomResource):
         """
         A LoadBalancer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
 
-        Uses Azure REST API version 2024-03-01.
-
-        Other available API versions: 2023-10-01-preview.
+        Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.
@@ -202,6 +198,7 @@ class LoadBalancer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
             __props__.__dict__["service_selector"] = service_selector
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -232,6 +229,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         __props__.__dict__["addresses"] = None
         __props__.__dict__["advertise_mode"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["bgp_peers"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -255,6 +253,14 @@ class LoadBalancer(pulumi.CustomResource):
         Advertise Mode
         """
         return pulumi.get(self, "advertise_mode")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bgpPeers")

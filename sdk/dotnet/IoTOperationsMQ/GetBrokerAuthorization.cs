@@ -110,6 +110,10 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// </summary>
         public readonly Outputs.AuthorizationConfigResponse AuthorizationPolicies;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Extended Location
         /// </summary>
         public readonly Outputs.ExtendedLocationPropertyResponse ExtendedLocation;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         private GetBrokerAuthorizationResult(
             Outputs.AuthorizationConfigResponse authorizationPolicies,
 
+            string azureApiVersion,
+
             Outputs.ExtendedLocationPropertyResponse extendedLocation,
 
             string id,
@@ -169,6 +175,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
             string type)
         {
             AuthorizationPolicies = authorizationPolicies;
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             ListenerRef = listenerRef;

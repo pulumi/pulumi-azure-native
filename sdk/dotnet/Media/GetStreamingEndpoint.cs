@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Media
         /// 
         /// Uses Azure REST API version 2022-11-01.
         /// 
-        /// Other available API versions: 2018-06-01-preview.
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2019-05-01-preview, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStreamingEndpointResult> InvokeAsync(GetStreamingEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamingEndpointResult>("azure-native:media:getStreamingEndpoint", args ?? new GetStreamingEndpointArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Media
         /// 
         /// Uses Azure REST API version 2022-11-01.
         /// 
-        /// Other available API versions: 2018-06-01-preview.
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2019-05-01-preview, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStreamingEndpointResult> Invoke(GetStreamingEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingEndpointResult>("azure-native:media:getStreamingEndpoint", args ?? new GetStreamingEndpointInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Media
         /// 
         /// Uses Azure REST API version 2022-11-01.
         /// 
-        /// Other available API versions: 2018-06-01-preview.
+        /// Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2019-05-01-preview, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native media [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStreamingEndpointResult> Invoke(GetStreamingEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingEndpointResult>("azure-native:media:getStreamingEndpoint", args ?? new GetStreamingEndpointInvokeArgs(), options.WithDefaults());
@@ -107,6 +107,10 @@ namespace Pulumi.AzureNative.Media
         /// This feature is deprecated, do not set a value for this property.
         /// </summary>
         public readonly string? AvailabilitySetName;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The CDN enabled flag.
         /// </summary>
@@ -198,6 +202,8 @@ namespace Pulumi.AzureNative.Media
 
             string? availabilitySetName,
 
+            string azureApiVersion,
+
             bool? cdnEnabled,
 
             string? cdnProfile,
@@ -242,6 +248,7 @@ namespace Pulumi.AzureNative.Media
         {
             AccessControl = accessControl;
             AvailabilitySetName = availabilitySetName;
+            AzureApiVersion = azureApiVersion;
             CdnEnabled = cdnEnabled;
             CdnProfile = cdnProfile;
             CdnProvider = cdnProvider;

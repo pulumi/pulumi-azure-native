@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Bastion Host resource.
     /// 
-    /// Uses Azure REST API version 2023-02-01. In version 1.x of the Azure Native provider, it used API version 2020-11-01.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
-    /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Other available API versions: 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:BastionHost")]
     public partial class BastionHost : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Enable/Disable Copy/Paste feature of the Bastion Host resource.
         /// </summary>
@@ -48,6 +54,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("enableKerberos")]
         public Output<bool?> EnableKerberos { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable/Disable Private Only feature of the Bastion Host resource.
+        /// </summary>
+        [Output("enablePrivateOnlyBastion")]
+        public Output<bool?> EnablePrivateOnlyBastion { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable/Disable Session Recording feature of the Bastion Host resource.
+        /// </summary>
+        [Output("enableSessionRecording")]
+        public Output<bool?> EnableSessionRecording { get; private set; } = null!;
 
         /// <summary>
         /// Enable/Disable Shareable Link of the Bastion Host resource.
@@ -85,6 +103,9 @@ namespace Pulumi.AzureNative.Network
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("networkAcls")]
+        public Output<Outputs.BastionHostPropertiesFormatResponseNetworkAcls?> NetworkAcls { get; private set; } = null!;
+
         /// <summary>
         /// The provisioning state of the bastion host resource.
         /// </summary>
@@ -114,6 +135,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Reference to an existing virtual network required for Developer Bastion Host only.
+        /// </summary>
+        [Output("virtualNetwork")]
+        public Output<Outputs.SubResourceResponse?> VirtualNetwork { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of availability zones denoting where the resource needs to come from.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -232,6 +265,18 @@ namespace Pulumi.AzureNative.Network
         public Input<bool>? EnableKerberos { get; set; }
 
         /// <summary>
+        /// Enable/Disable Private Only feature of the Bastion Host resource.
+        /// </summary>
+        [Input("enablePrivateOnlyBastion")]
+        public Input<bool>? EnablePrivateOnlyBastion { get; set; }
+
+        /// <summary>
+        /// Enable/Disable Session Recording feature of the Bastion Host resource.
+        /// </summary>
+        [Input("enableSessionRecording")]
+        public Input<bool>? EnableSessionRecording { get; set; }
+
+        /// <summary>
         /// Enable/Disable Shareable Link of the Bastion Host resource.
         /// </summary>
         [Input("enableShareableLink")]
@@ -267,6 +312,9 @@ namespace Pulumi.AzureNative.Network
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("networkAcls")]
+        public Input<Inputs.BastionHostPropertiesFormatNetworkAclsArgs>? NetworkAcls { get; set; }
+
         /// <summary>
         /// The name of the resource group.
         /// </summary>
@@ -297,12 +345,32 @@ namespace Pulumi.AzureNative.Network
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Reference to an existing virtual network required for Developer Bastion Host only.
+        /// </summary>
+        [Input("virtualNetwork")]
+        public Input<Inputs.SubResourceArgs>? VirtualNetwork { get; set; }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of availability zones denoting where the resource needs to come from.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
+
         public BastionHostArgs()
         {
             DisableCopyPaste = false;
             EnableFileCopy = false;
             EnableIpConnect = false;
             EnableKerberos = false;
+            EnablePrivateOnlyBastion = false;
+            EnableSessionRecording = false;
             EnableShareableLink = false;
             EnableTunneling = false;
         }
