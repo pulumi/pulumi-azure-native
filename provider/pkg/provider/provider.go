@@ -1025,7 +1025,8 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 			return nil, azure.AzureError(err)
 		}
 	default:
-		id, outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient, reader(customRes, crudClient))
+		id, outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient,
+			reader(customRes, crudClient, nil /* previousInputs, none for Create */))
 		if err != nil {
 			return nil, err
 		}
@@ -1125,7 +1126,9 @@ type readFunc func(ctx context.Context, id string, inputs resource.PropertyMap) 
 // reader returns a function that reads the state of a resource either from a custom Read if it is
 // implemented, or via the standard ResourceCrudClient otherwise. In the latter case, the response
 // will be converted to SDK shape. Custom Reads are expected to do this on their own.
-func reader(customRes *customresources.CustomResource, crudClient crud.ResourceCrudClient) readFunc {
+//
+// The `previousInputs` argument is only used for resources where the API version is user-provided.
+func reader(customRes *customresources.CustomResource, crudClient crud.ResourceCrudClient, previousInputs resource.PropertyMap) readFunc {
 	if customRes != nil && customRes.Read != nil {
 		return func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
 			response, _, err := customRes.Read(ctx, id, inputs)
@@ -1133,11 +1136,14 @@ func reader(customRes *customresources.CustomResource, crudClient crud.ResourceC
 		}
 	}
 
-	return func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+	return func(ctx context.Context, id string, _ resource.PropertyMap) (map[string]any, error) {
 		overrideApiVersion := ""
 		if crudClient.ApiVersionIsUserInput() {
-			overrideApiVersion = getApiVersionFromInputs(inputs)
+			if apiVersion, ok := previousInputs["apiVersion"]; ok {
+				overrideApiVersion = apiVersion.StringValue()
+			}
 		}
+
 		response, err := crudClient.Read(ctx, id, overrideApiVersion)
 		if err == nil {
 			// Map the raw response to the shape of outputs that the SDKs expect.
@@ -1254,6 +1260,20 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 	return missingProperties
 }
 
+// Depending on the major version, because we turned on SendOldInputs in v3, the previous inputs can be in state under
+// `__inputs`, or available as `req.GetInputs()`/`req.GetOldInputs()`.
+func getPreviousInputs(state resource.PropertyMap, reqInputs *structpb.Struct, label string) (resource.PropertyMap, error) {
+	if reqInputs != nil {
+		return plugin.UnmarshalProperties(reqInputs, plugin.MarshalOptions{
+			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
+		})
+	}
+	if __inputs, ok := state["__inputs"]; ok {
+		return __inputs.ObjectValue(), nil
+	}
+	return nil, nil
+}
+
 // Read the current live state associated with a resource.
 func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.ReadResponse, error) {
 	// Use the global context to handle provider shutdown.
@@ -1270,14 +1290,10 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	if err != nil {
 		return nil, err
 	}
-	stateWithPreviousInputs := oldState
-	if version.GetVersion().Major >= 3 {
-		stateWithPreviousInputs, err = plugin.UnmarshalProperties(req.GetInputs(), plugin.MarshalOptions{
-			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
-		})
-		if err != nil {
-			return nil, err
-		}
+
+	previousInputs, err := getPreviousInputs(oldState, req.GetInputs(), label)
+	if err != nil {
+		return nil, err
 	}
 
 	res, err := k.lookupResourceFromURN(urn)
@@ -1303,11 +1319,11 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		outputs = response
 	case res.ReadMethod == "HEAD":
 		url := id + res.ReadPath
-		err = k.azureClient.Head(ctx, url, getApiVersion(res, stateWithPreviousInputs))
+		err = k.azureClient.Head(ctx, url, getApiVersion(res, previousInputs))
 		response = oldState.Mappable()
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	default:
-		response, err = crudClient.Read(ctx, id, getApiVersion(res, stateWithPreviousInputs))
+		response, err = crudClient.Read(ctx, id, getApiVersion(res, previousInputs))
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	}
 	if err != nil {
@@ -1354,7 +1370,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 
 		// 1. If we previously reset inputs to their default value, remove them so we don't get them in
 		// the projected output. This would cause unnecessary changes on refresh.
-		removeDefaults(*res, plainOldState)
+		removeDefaults(*res, plainOldState, previousInputs.Mappable())
 		// 2. Project old outputs to their corresponding input shape (exclude read-only properties).
 		oldInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, plainOldState)
 		// 3a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
@@ -1395,13 +1411,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 }
 
 // removeDefaults removes the resource's default values from the given state, modifying the map in place.
-func removeDefaults(res resources.AzureAPIResource, plainOldState map[string]any) {
-	previousInputsRaw, ok := plainOldState["__inputs"]
-	if !ok {
-		return
-	}
-	previousInputs := previousInputsRaw.(map[string]interface{})
-
+func removeDefaults(res resources.AzureAPIResource, plainOldState, previousInputs map[string]any) {
 	for property, defaultValue := range res.DefaultProperties {
 		_, wasInPreviousInputs := previousInputs[property]
 		val, ok := plainOldState[property]
@@ -1503,7 +1513,11 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 			return nil, azure.AzureError(err)
 		}
 	} else {
-		outputs, err = k.defaultUpdate(ctx, req, inputs, id, queryParams, crudClient, reader(customRes, crudClient))
+		previousInputs, err := getPreviousInputs(oldState, req.GetOldInputs(), label)
+		if err != nil {
+			return nil, err
+		}
+		outputs, err = k.defaultUpdate(ctx, req, inputs, id, queryParams, crudClient, reader(customRes, crudClient, previousInputs))
 		if err != nil {
 			return nil, err
 		}
@@ -1600,15 +1614,6 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 	state, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
 	})
-	stateWithPreviousInputs := state
-	if version.GetVersion().Major >= 3 {
-		stateWithPreviousInputs, err = plugin.UnmarshalProperties(req.GetOldInputs(), plugin.MarshalOptions{
-			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
-		})
-		if err != nil {
-			return nil, err
-		}
-	}
 
 	switch {
 	case isCustom && customRes.Delete != nil:
@@ -1654,8 +1659,13 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			}
 		}
 	default:
-		apiVersion := getApiVersion(res, stateWithPreviousInputs)
-		err := k.azureClient.Delete(ctx, id, apiVersion, res.DeleteAsyncStyle, nil)
+		previousInputs, err := getPreviousInputs(state, req.GetOldInputs(), label)
+		if err != nil {
+			return nil, err
+		}
+
+		apiVersion := getApiVersion(res, previousInputs)
+		err = k.azureClient.Delete(ctx, id, apiVersion, res.DeleteAsyncStyle, nil)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
@@ -1788,21 +1798,13 @@ func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environmen
 	}
 }
 
+// getApiVersion usually returns the API version set on `resource` (from metadata). For resources where the user
+// specifies the API version as input, it returns the value from `inputs`.
 func getApiVersion(resource *resources.AzureAPIResource, inputs resource.PropertyMap) string {
 	if resource.ApiVersionIsUserInput {
-		return getApiVersionFromInputs(inputs)
-	}
-	return resource.APIVersion
-}
-
-func getApiVersionFromInputs(inputs resource.PropertyMap) string {
-	overrideApiVersion := ""
-	if apiVersion, ok := inputs["apiVersion"]; ok {
-		overrideApiVersion = apiVersion.StringValue()
-	} else if oldInputs, ok := inputs["__inputs"]; ok {
-		if apiVersion, ok := oldInputs.ObjectValue()["apiVersion"]; ok {
-			overrideApiVersion = apiVersion.StringValue()
+		if apiVersion, ok := inputs["apiVersion"]; ok {
+			return apiVersion.StringValue()
 		}
 	}
-	return overrideApiVersion
+	return resource.APIVersion
 }

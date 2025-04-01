@@ -42,6 +42,8 @@ type AzureClient interface {
 type MockAzureClient struct {
 	// Resource ids that were retrieved via Get, in order
 	GetIds []string
+	// API versions that were used in Get, in order
+	GetApiVersions []string
 
 	// If set, this response will be returned for all Get requests; otherwise nil.
 	GetResponse    map[string]any
@@ -71,6 +73,7 @@ func (m *MockAzureClient) CanCreate(ctx context.Context, id, path, apiVersion, r
 }
 func (m *MockAzureClient) Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (map[string]any, error) {
 	m.GetIds = append(m.GetIds, id)
+	m.GetApiVersions = append(m.GetApiVersions, apiVersion)
 	return m.GetResponse, m.GetResponseErr
 }
 func (m *MockAzureClient) Head(ctx context.Context, id string, apiVersion string) error {
