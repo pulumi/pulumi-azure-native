@@ -1084,7 +1084,7 @@ func (g *packageGenerator) generateAliases(resourceTok string, resource *resourc
 	for _, v := range typeAliases.SortedValues() {
 		// Skip aliasing to itself.
 		if v != resourceTok {
-			aliasSpecs = append(aliasSpecs, pschema.AliasSpec{Type: &v})
+			aliasSpecs = append(aliasSpecs, pschema.AliasSpec{Type: v})
 		}
 	}
 	return aliasSpecs
