@@ -3,11 +3,13 @@
 package gen
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 
 	"github.com/go-openapi/spec"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/stretchr/testify/assert"
@@ -350,11 +352,11 @@ func TestResourceIsSingleton(t *testing.T) {
 
 func TestGoModuleName(t *testing.T) {
 	t.Run("explicit version", func(t *testing.T) {
-		assert.Equal(t, "github.com/pulumi/pulumi-azure-native-sdk/network/v2/v20220222", goModuleName("Network", "v20220222"))
+		assert.Equal(t, "github.com/pulumi/pulumi-azure-native-sdk/network/v3/v20220222", goModuleName("Network", "v20220222"))
 	})
 
 	t.Run("default version", func(t *testing.T) {
-		assert.Equal(t, "github.com/pulumi/pulumi-azure-native-sdk/network/v2", goModuleName("Network", ""))
+		assert.Equal(t, "github.com/pulumi/pulumi-azure-native-sdk/network/v3", goModuleName("Network", ""))
 	})
 }
 
@@ -594,4 +596,11 @@ Other available API versions: 2021-01-01, 2023-03-03, 2024-04-04. These can be a
 
 Additional docs.`, strings.TrimSpace(desc))
 	})
+}
+
+func TestGoModuleVersionMatches(t *testing.T) {
+	t.Parallel()
+	version := version.GetVersion().Major
+	expected := fmt.Sprintf("/v%d", version)
+	assert.Equal(t, expected, goModuleVersion)
 }
