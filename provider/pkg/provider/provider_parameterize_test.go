@@ -12,6 +12,7 @@ import (
 
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
@@ -91,17 +92,19 @@ type schemaWithVersion struct {
 func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	t.Parallel()
 
-	schemaBytes, err := os.ReadFile("../../../bin/schema-full.json")
+	zippedSchemaBytes, err := os.ReadFile("../../../bin/schema-full.json.zip")
 	require.NoError(t, err)
 
 	// Get the schema version from the schema. In production, it would be the same than version.GetVersion(), but in
 	// CI it's not - 2.0.0-alpha.0+dev vs. 2.90.0-alpha.1741284698+8268d88.
 	var v schemaWithVersion
-	err = json.Unmarshal(schemaBytes, &v)
+	schemaBytes, err := util.UnzipBytes(zippedSchemaBytes)
+	require.NoError(t, err)
+	err = json.Unmarshal([]byte(schemaBytes), &v)
 	require.NoError(t, err)
 	providerVersion := v.Version
 
-	provider, err := makeProviderInternal(nil, "azure-native", providerVersion, schemaBytes, schemaBytes, &resources.APIMetadata{
+	provider, err := makeProviderInternal(nil, "azure-native", providerVersion, zippedSchemaBytes, zippedSchemaBytes, &resources.APIMetadata{
 		Types: resources.GoMap[resources.AzureAPIType]{},
 		Resources: resources.GoMap[resources.AzureAPIResource]{
 			"azure-native:aad/v20221201:DomainService": {},
@@ -127,7 +130,9 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 
 	// check that schema looks ok
 	var schema pschema.PackageSpec
-	err = json.Unmarshal(provider.schemaBytes, &schema)
+	schemaBytes, err = util.UnzipBytes(provider.defaultSchemaZipped)
+	require.NoError(t, err)
+	err = json.Unmarshal([]byte(schemaBytes), &schema)
 	require.NoError(t, err)
 	assert.NotEmpty(t, schema.Types)
 	for typeName := range schema.Types {

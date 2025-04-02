@@ -27,18 +27,18 @@ import (
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
-var schemaBytes []byte
-var defaultSchemaBytes []byte
+var fullSchemaZipped []byte
+var defaultSchemaZipped []byte
 var azureAPIResourcesBytes []byte
 
 func init() {
 	var err error
-	schemaBytes, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-full.json"))
+	fullSchemaZipped, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-full.json.zip"))
 	if err != nil {
 		fmt.Printf("failed to read full schema file, run `make schema` before running tests: %v", err)
 	}
 
-	defaultSchemaBytes, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-default-versions.zip"))
+	defaultSchemaZipped, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-default-versions.json.zip"))
 	if err != nil {
 		fmt.Printf("failed to read default schema file, run `make schema` before running tests: %v", err)
 	}
@@ -169,14 +169,14 @@ func newPulumiTest(t *testing.T, testProgramDir string, opts ...opttest.Option) 
 func providerServer(_ providers.PulumiTest) (pulumirpc.ResourceProviderServer, error) {
 	version.Version = "0.0.1"
 
-	if len(schemaBytes) == 0 {
+	if len(fullSchemaZipped) == 0 {
 		return nil, fmt.Errorf("schema not loaded")
 	}
 	if len(azureAPIResourcesBytes) == 0 {
 		return nil, fmt.Errorf("azure API resources not loaded")
 	}
 
-	return makeProvider(nil, "azure-native", version.GetVersion().String(), schemaBytes, defaultSchemaBytes, azureAPIResourcesBytes)
+	return makeProvider(nil, "azure-native", version.GetVersion().String(), fullSchemaZipped, defaultSchemaZipped, azureAPIResourcesBytes)
 }
 
 func getLocation() string {

@@ -3,11 +3,8 @@
 package provider
 
 import (
-	"archive/zip"
-	"bytes"
 	"context"
 	"fmt"
-	"io"
 	"log"
 	"math"
 	"os"
@@ -72,7 +69,7 @@ type azureNativeProvider struct {
 	// also known as "metadata"
 	resourceMap *resources.APIMetadata
 
-	schemaBytes         []byte
+	fullSchemaZipped    []byte
 	defaultSchemaZipped []byte
 
 	converter        *convert.SdkShapeConverter
@@ -85,17 +82,17 @@ type azureNativeProvider struct {
 	shutdown context.CancelFunc
 }
 
-func makeProvider(host *provider.HostClient, name, version string, schemaBytes, defaultSchemaZipped []byte,
+func makeProvider(host *provider.HostClient, name, version string, fullSchemaZipped, defaultSchemaZipped []byte,
 	azureAPIResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
 
 	resourceMap, err := LoadMetadataPartial(azureAPIResourcesBytes)
 	if err != nil {
 		return nil, err
 	}
-	return makeProviderInternal(host, name, version, schemaBytes, defaultSchemaZipped, resourceMap)
+	return makeProviderInternal(host, name, version, fullSchemaZipped, defaultSchemaZipped, resourceMap)
 }
 
-func makeProviderInternal(host *provider.HostClient, name, version string, schemaBytes, defaultSchemaZipped []byte,
+func makeProviderInternal(host *provider.HostClient, name, version string, fullSchemaZipped, defaultSchemaZipped []byte,
 	resourceMap *resources.APIMetadata) (*azureNativeProvider, error) {
 
 	converter := convert.NewSdkShapeConverterPartial(resourceMap.Types)
@@ -110,7 +107,7 @@ func makeProviderInternal(host *provider.HostClient, name, version string, schem
 		version:             version,
 		resourceMap:         resourceMap,
 		config:              map[string]string{},
-		schemaBytes:         schemaBytes,
+		fullSchemaZipped:    fullSchemaZipped,
 		defaultSchemaZipped: defaultSchemaZipped,
 		converter:           &converter,
 		rgLocationMap:       map[string]string{},
@@ -847,38 +844,11 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 	return failures
 }
 
-// unzip expects an archive with a single file and returns the unzipped contents of that file.
-func unzip(input []byte) (string, error) {
-	r, err := zip.NewReader(bytes.NewReader(input), int64(len(input)))
-	if err != nil {
-		return "", err
-	}
-
-	if len(r.File) != 1 {
-		return "", fmt.Errorf("expected exactly one file in the zip, got %d", len(r.File))
-	}
-
-	var result []byte
-	for _, f := range r.File {
-		rc, err := f.Open()
-		if err != nil {
-			return "", err
-		}
-		defer rc.Close()
-
-		result, err = io.ReadAll(rc)
-		if err != nil {
-			return "", err
-		}
-	}
-	return string(result), nil
-}
-
 func (k *azureNativeProvider) GetSchema(_ context.Context, req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
 	if v := req.GetVersion(); v != 0 {
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
-	schema, err := unzip(k.defaultSchemaZipped)
+	schema, err := util.UnzipBytes(k.defaultSchemaZipped)
 	if err != nil {
 		return nil, err
 	}

@@ -15,8 +15,8 @@ package-lock.json
 provider/coverage.txt
 provider/cmd/**/metadata.go
 provider/cmd/**/schema.go
-provider/cmd/**/schema-full.json
-provider/cmd/**/schema-default-versions.zip
+provider/cmd/**/schema-full.json.zip
+provider/cmd/**/schema-default-versions.json.zip
 provider/cmd/**/metadata-compact.json
 provider/cmd/**/*.gz
 provider/**/testdata/rapid
