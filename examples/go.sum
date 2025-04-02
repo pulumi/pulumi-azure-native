@@ -161,8 +161,8 @@ github.com/go-git/go-git-fixtures/v4 v4.3.2-0.20231010084843-55a94097c399 h1:eMj
 github.com/go-git/go-git-fixtures/v4 v4.3.2-0.20231010084843-55a94097c399/go.mod h1:1OCfN199q1Jm3HZlxleg+Dw/mwps2Wbk9frAWm+4FII=
 github.com/go-git/go-git/v5 v5.13.1 h1:DAQ9APonnlvSWpvolXWIuV6Q6zXy2wHbN4cVlNR5Q+M=
 github.com/go-git/go-git/v5 v5.13.1/go.mod h1:qryJB4cSBoq3FRoBRf5A77joojuBcmPJ0qu3XXXVixc=
-github.com/go-jose/go-jose/v3 v3.0.3 h1:fFKWeig/irsp7XD2zBxvnmA/XaRWp5V3CBsZXJF7G7k=
-github.com/go-jose/go-jose/v3 v3.0.3/go.mod h1:5b+7YgP7ZICgJDBdfjZaIt+H/9L9T/YQrVfLAMboGkQ=
+github.com/go-jose/go-jose/v3 v3.0.4 h1:Wp5HA7bLQcKnf6YYao/4kpRpVMp/yf6+pJKV8WFSaNY=
+github.com/go-jose/go-jose/v3 v3.0.4/go.mod h1:5b+7YgP7ZICgJDBdfjZaIt+H/9L9T/YQrVfLAMboGkQ=
 github.com/go-logr/logr v1.2.2/go.mod h1:jdQByPbusPIv2/zmleS9BjJVeZ6kBagPoEUsqbVz/1A=
 github.com/go-logr/logr v1.4.1 h1:pKouT5E8xu9zeFC39JXRDukb6JFQPXM5p5I91188VAQ=
 github.com/go-logr/logr v1.4.1/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
@@ -362,10 +362,10 @@ github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.0.0 h1:DeEqhJQYZiBK1h
 github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.0.0/go.mod h1:Emk0GNToPpVfX6eeBSTXMCXwUsmS8bhT7TT6+QNvw2E=
 github.com/pulumi/pulumi-azure-native-sdk/v2 v2.90.0 h1:clO7kyLNEPl6VCwm74/C/yoFemBjVJPompPgkSQgBoI=
 github.com/pulumi/pulumi-azure-native-sdk/v2 v2.90.0/go.mod h1:2IvMmB8/M+RXKlMz330M8BFD+7ChBo7mEWhzpgPAkSc=
-github.com/pulumi/pulumi/pkg/v3 v3.144.1 h1:64mVLQDEZa2GN52rTKSyXlA3r+APoqDXrNdkzlASyvs=
-github.com/pulumi/pulumi/pkg/v3 v3.144.1/go.mod h1:q2wZOcwXVI/+OBtEXD6mLS7shhRMgsIGTo/uWfo0q04=
-github.com/pulumi/pulumi/sdk/v3 v3.159.0 h1:pfBVSqfRNM7X1RmxJzjLSsVQe6nv9cAdM207K5sE4Ck=
-github.com/pulumi/pulumi/sdk/v3 v3.159.0/go.mod h1:YEbbl0N7eVsgfsL7h5215dDf8GBSe4AnRon7Ya/KIVc=
+github.com/pulumi/pulumi/pkg/v3 v3.160.0 h1:xYgx7SXZGbYsC2EDPcbpaSS49fnRc3kjkeKurS/K7s4=
+github.com/pulumi/pulumi/pkg/v3 v3.160.0/go.mod h1:VlI9vlaNGjahgN556rRdIT20MrqQ7C1YYhy1RCWPob8=
+github.com/pulumi/pulumi/sdk/v3 v3.160.0 h1:OxeATnIEqWyu3KpTeLUmyJdZaSEE6yX7ECvfGhByb9w=
+github.com/pulumi/pulumi/sdk/v3 v3.160.0/go.mod h1:YEbbl0N7eVsgfsL7h5215dDf8GBSe4AnRon7Ya/KIVc=
 github.com/rivo/uniseg v0.1.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
