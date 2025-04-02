@@ -121,7 +121,7 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 	logging.V(9).Infof("Creating parameterized Azure Native for %s %s", args.Module, args.Version)
 
 	var schema pschema.PackageSpec
-	fullSchemaUnzipped, err := util.UnzipBytes(p.fullSchemaZipped)
+	fullSchemaUnzipped, err := util.GunzipBytes(p.fullSchemaZipped)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "failed to unzip full schema: %v", err)
 	}
@@ -154,9 +154,9 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 		return nil, status.Errorf(codes.Internal, "failed to marshal schema: %v", err)
 	}
 	s = updateRefs(s, newPackageName, args.Module, args.Version)
-	newSchemaZipped, err := util.ZipBytes(s)
+	newSchemaZipped, err := util.GzipBytes(s)
 	if err != nil {
-		return nil, status.Errorf(codes.Internal, "failed to zip new schema: %v", err)
+		return nil, status.Errorf(codes.Internal, "failed to gzip new schema: %v", err)
 	}
 
 	newMetadata, err = updateMetadataRefs(newMetadata, newPackageName, args.Module, args.Version)

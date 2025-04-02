@@ -16,10 +16,10 @@ var providerName = "azure-native"
 //go:embed metadata-compact.json
 var azureApiResources string
 
-//go:embed schema-full.json.zip
+//go:embed schema-full.json.gz
 var pulumiSchema string
 
-//go:embed schema-default-versions.json.zip
+//go:embed schema-default-versions.json.gz
 var defaultSchema string
 
 func unsafeStringToBytes(data string) []byte {

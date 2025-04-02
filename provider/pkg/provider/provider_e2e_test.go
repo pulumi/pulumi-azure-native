@@ -33,12 +33,12 @@ var azureAPIResourcesBytes []byte
 
 func init() {
 	var err error
-	fullSchemaZipped, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-full.json.zip"))
+	fullSchemaZipped, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-full.json.gz"))
 	if err != nil {
 		fmt.Printf("failed to read full schema file, run `make schema` before running tests: %v", err)
 	}
 
-	defaultSchemaZipped, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-default-versions.json.zip"))
+	defaultSchemaZipped, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-default-versions.json.gz"))
 	if err != nil {
 		fmt.Printf("failed to read default schema file, run `make schema` before running tests: %v", err)
 	}

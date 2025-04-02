@@ -14,8 +14,8 @@ runs:
           pulumi-resource-azure-native
           pulumi-gen-azure-native
           schema-default-versions.json
-          schema-default-versions.json.zip
-          schema-full.json.zip
+          schema-default-versions.json.gz
+          schema-full.json.gz
           metadata-compact.json
 
       - name: Upload artifacts

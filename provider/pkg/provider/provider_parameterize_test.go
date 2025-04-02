@@ -92,13 +92,13 @@ type schemaWithVersion struct {
 func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	t.Parallel()
 
-	zippedSchemaBytes, err := os.ReadFile("../../../bin/schema-full.json.zip")
+	zippedSchemaBytes, err := os.ReadFile("../../../bin/schema-full.json.gz")
 	require.NoError(t, err)
 
 	// Get the schema version from the schema. In production, it would be the same than version.GetVersion(), but in
 	// CI it's not - 2.0.0-alpha.0+dev vs. 2.90.0-alpha.1741284698+8268d88.
 	var v schemaWithVersion
-	schemaBytes, err := util.UnzipBytes(zippedSchemaBytes)
+	schemaBytes, err := util.GunzipBytes(zippedSchemaBytes)
 	require.NoError(t, err)
 	err = json.Unmarshal([]byte(schemaBytes), &v)
 	require.NoError(t, err)
@@ -130,7 +130,7 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 
 	// check that schema looks ok
 	var schema pschema.PackageSpec
-	schemaBytes, err = util.UnzipBytes(provider.defaultSchemaZipped)
+	schemaBytes, err = util.GunzipBytes(provider.defaultSchemaZipped)
 	require.NoError(t, err)
 	err = json.Unmarshal([]byte(schemaBytes), &schema)
 	require.NoError(t, err)

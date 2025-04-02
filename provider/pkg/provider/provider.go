@@ -848,11 +848,11 @@ func (k *azureNativeProvider) GetSchema(_ context.Context, req *rpc.GetSchemaReq
 	if v := req.GetVersion(); v != 0 {
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
-	schema, err := util.UnzipBytes(k.defaultSchemaZipped)
+	schema, err := util.GunzipBytes(k.defaultSchemaZipped)
 	if err != nil {
 		return nil, err
 	}
-	return &rpc.GetSchemaResponse{Schema: schema}, nil
+	return &rpc.GetSchemaResponse{Schema: string(schema)}, nil
 }
 
 // CheckConfig validates the configuration for this provider.
