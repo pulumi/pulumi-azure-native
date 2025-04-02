@@ -6,8 +6,8 @@ import (
 	"encoding/base64"
 	"time"
 
-	"github.com/pulumi/pulumi-azure-native-sdk/containerservice/v2"
-	"github.com/pulumi/pulumi-azure-native-sdk/resources/v2"
+	"github.com/pulumi/pulumi-azure-native-sdk/containerservice/v3"
+	"github.com/pulumi/pulumi-azure-native-sdk/resources/v3"
 
 	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
