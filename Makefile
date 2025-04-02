@@ -312,10 +312,10 @@ dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(
 	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
 	cp -v versions/v${MAJOR_VERSION}.yaml provider/pkg/versionLookup/default-versions.yaml
 
-	gzip --keep bin/schema-full.json
+	gzip --keep --force bin/schema-full.json
 	cp bin/schema-full.json.gz provider/cmd/$(PROVIDER)
 
-	gzip --keep bin/schema-default-versions.json
+	gzip --keep --force bin/schema-default-versions.json
 	cp bin/schema-default-versions.json.gz provider/cmd/$(PROVIDER)
 
 	@touch $@
