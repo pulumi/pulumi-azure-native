@@ -9,9 +9,9 @@ require (
 )
 
 replace (
-	github.com/pulumi/pulumi-azure-native-sdk/resources/v2 => ../../../../sdk/pulumi-azure-native-sdk/resources
-	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v2 => ../../../../sdk/pulumi-azure-native-sdk/servicebus
-	github.com/pulumi/pulumi-azure-native-sdk/v2 => ../../../../sdk/pulumi-azure-native-sdk
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 => ../../../../sdk/pulumi-azure-native-sdk/resources
+	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 => ../../../../sdk/pulumi-azure-native-sdk/servicebus
+	github.com/pulumi/pulumi-azure-native-sdk/v3 => ../../../../sdk/pulumi-azure-native-sdk
 )
 
 require (
