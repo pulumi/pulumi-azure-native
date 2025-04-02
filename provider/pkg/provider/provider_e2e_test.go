@@ -115,14 +115,14 @@ func TestUpgradeAppServicesWebApp_2_76_0(t *testing.T) {
 	upgradeTest(t, "upgrade-appservices-webapp", "2.76.0")
 }
 
-func TestUpgradeCosmosdbNosql_2_76_0(t *testing.T) {
-	upgradeTest(t, "upgrade-cosmosdb-nosql", "2.76.0",
+func TestUpgradeCosmosdbNosql_2_90_0(t *testing.T) {
+	upgradeTest(t, "upgrade-cosmosdb-nosql", "2.90.0",
 		// DocumentDB was renamed to CosmosDB in v3
 		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "upgrade-cosmosdb-nosql", "v3-cosmosdb")))
 }
 
-func TestUpgradeContainerServiceAgentPool_2_76_0(t *testing.T) {
-	upgradeTest(t, "upgrade-containerservice-agentpool", "2.76.0")
+func TestUpgradeContainerServiceAgentPool_2_90_0(t *testing.T) {
+	upgradeTest(t, "upgrade-containerservice-agentpool", "2.90.0")
 }
 
 func upgradeTest(t *testing.T, testProgramDir string, upgradeFromVersion string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) {
