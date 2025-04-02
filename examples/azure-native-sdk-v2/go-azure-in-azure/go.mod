@@ -10,7 +10,7 @@ require (
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.0.0
 	github.com/pulumi/pulumi-command/sdk v1.0.0
 	github.com/pulumi/pulumi-tls/sdk/v5 v5.0.4
-	github.com/pulumi/pulumi/sdk/v3 v3.159.0
+	github.com/pulumi/pulumi/sdk/v3 v3.160.0
 )
 
 require (
@@ -37,6 +37,7 @@ require (
 	github.com/djherbis/times v1.6.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
+	github.com/fatih/color v1.16.0 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
 	github.com/go-git/go-billy/v5 v5.6.1 // indirect
 	github.com/go-git/go-git/v5 v5.13.1 // indirect
@@ -47,7 +48,7 @@ require (
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
-	github.com/hashicorp/hcl/v2 v2.21.0 // indirect
+	github.com/hashicorp/hcl/v2 v2.22.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
@@ -67,7 +68,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.9.1 // indirect
+	github.com/pulumi/esc v0.10.0 // indirect
 	github.com/pulumi/pulumi-azure-native-sdk/v2 v2.90.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.12.0 // indirect
@@ -93,9 +94,9 @@ require (
 	golang.org/x/term v0.29.0 // indirect
 	golang.org/x/text v0.22.0 // indirect
 	golang.org/x/tools v0.24.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240805194559-2c9e96a0b5d4 // indirect
-	google.golang.org/grpc v1.65.0 // indirect
-	google.golang.org/protobuf v1.34.2 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240814211410-ddb44dafa142 // indirect
+	google.golang.org/grpc v1.67.1 // indirect
+	google.golang.org/protobuf v1.35.1 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
