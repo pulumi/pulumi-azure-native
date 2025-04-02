@@ -3,8 +3,11 @@
 package provider
 
 import (
+	"archive/zip"
+	"bytes"
 	"context"
 	"fmt"
+	"io"
 	"log"
 	"math"
 	"os"
@@ -69,7 +72,8 @@ type azureNativeProvider struct {
 	// also known as "metadata"
 	resourceMap *resources.APIMetadata
 
-	schemaBytes []byte
+	schemaBytes         []byte
+	defaultSchemaZipped []byte
 
 	converter        *convert.SdkShapeConverter
 	customResources  map[string]*customresources.CustomResource
@@ -81,17 +85,17 @@ type azureNativeProvider struct {
 	shutdown context.CancelFunc
 }
 
-func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
+func makeProvider(host *provider.HostClient, name, version string, schemaBytes, defaultSchemaZipped []byte,
 	azureAPIResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
 
 	resourceMap, err := LoadMetadataPartial(azureAPIResourcesBytes)
 	if err != nil {
 		return nil, err
 	}
-	return makeProviderInternal(host, name, version, schemaBytes, resourceMap)
+	return makeProviderInternal(host, name, version, schemaBytes, defaultSchemaZipped, resourceMap)
 }
 
-func makeProviderInternal(host *provider.HostClient, name, version string, schemaBytes []byte,
+func makeProviderInternal(host *provider.HostClient, name, version string, schemaBytes, defaultSchemaZipped []byte,
 	resourceMap *resources.APIMetadata) (*azureNativeProvider, error) {
 
 	converter := convert.NewSdkShapeConverterPartial(resourceMap.Types)
@@ -101,16 +105,17 @@ func makeProviderInternal(host *provider.HostClient, name, version string, schem
 	// Return the new provider
 	p := &azureNativeProvider{
 		// Note: azureClient and subscriptionId will be initialized in Configure.
-		host:          host,
-		name:          name,
-		version:       version,
-		resourceMap:   resourceMap,
-		config:        map[string]string{},
-		schemaBytes:   schemaBytes,
-		converter:     &converter,
-		rgLocationMap: map[string]string{},
-		context:       ctx,
-		shutdown:      shutdown,
+		host:                host,
+		name:                name,
+		version:             version,
+		resourceMap:         resourceMap,
+		config:              map[string]string{},
+		schemaBytes:         schemaBytes,
+		defaultSchemaZipped: defaultSchemaZipped,
+		converter:           &converter,
+		rgLocationMap:       map[string]string{},
+		context:             ctx,
+		shutdown:            shutdown,
 	}
 	p.lookupType = p.lookupTypeDefault
 	return p, nil
@@ -842,11 +847,42 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 	return failures
 }
 
+// unzip expects an archive with a single file and returns the unzipped contents of that file.
+func unzip(input []byte) (string, error) {
+	r, err := zip.NewReader(bytes.NewReader(input), int64(len(input)))
+	if err != nil {
+		return "", err
+	}
+
+	if len(r.File) != 1 {
+		return "", fmt.Errorf("expected exactly one file in the zip, got %d", len(r.File))
+	}
+
+	var result []byte
+	for _, f := range r.File {
+		rc, err := f.Open()
+		if err != nil {
+			return "", err
+		}
+		defer rc.Close()
+
+		result, err = io.ReadAll(rc)
+		if err != nil {
+			return "", err
+		}
+	}
+	return string(result), nil
+}
+
 func (k *azureNativeProvider) GetSchema(_ context.Context, req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
 	if v := req.GetVersion(); v != 0 {
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
-	return &rpc.GetSchemaResponse{Schema: string(k.schemaBytes)}, nil
+	schema, err := unzip(k.defaultSchemaZipped)
+	if err != nil {
+		return nil, err
+	}
+	return &rpc.GetSchemaResponse{Schema: schema}, nil
 }
 
 // CheckConfig validates the configuration for this provider.

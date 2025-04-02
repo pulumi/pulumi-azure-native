@@ -308,10 +308,14 @@ dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(
 	cd provider && go mod download
 	@touch $@
 
-.make/provider_prebuild: .make/prebuild bin/schema-full.json bin/metadata-compact.json versions/v${MAJOR_VERSION}.yaml
+.make/provider_prebuild: .make/prebuild bin/schema-full.json bin/schema-default-versions.json bin/metadata-compact.json versions/v${MAJOR_VERSION}.yaml
 	cp bin/schema-full.json provider/cmd/$(PROVIDER)
 	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
 	cp -v versions/v${MAJOR_VERSION}.yaml provider/pkg/versionLookup/default-versions.yaml
+
+	zip -j bin/schema-default-versions.zip bin/schema-default-versions.json
+	cp bin/schema-default-versions.zip provider/cmd/$(PROVIDER)
+
 	@touch $@
 
 .make/prebuild: .pulumi/bin/pulumi

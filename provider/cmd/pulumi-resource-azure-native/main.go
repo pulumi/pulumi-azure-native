@@ -19,6 +19,9 @@ var azureApiResources string
 //go:embed schema-full.json
 var pulumiSchema string
 
+//go:embed schema-default-versions.zip
+var defaultSchema string
+
 func unsafeStringToBytes(data string) []byte {
 	hdr := (*reflect.StringHeader)(unsafe.Pointer(&data))
 
@@ -29,5 +32,11 @@ func unsafeStringToBytes(data string) []byte {
 }
 
 func main() {
-	provider.Serve(providerName, version.Version, unsafeStringToBytes(pulumiSchema), unsafeStringToBytes(azureApiResources))
+	provider.Serve(
+		providerName,
+		version.Version,
+		unsafeStringToBytes(pulumiSchema),
+		unsafeStringToBytes(defaultSchema),
+		unsafeStringToBytes(azureApiResources),
+	)
 }

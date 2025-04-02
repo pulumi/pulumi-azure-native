@@ -51,7 +51,7 @@ func deserializeParameterizeArgs(in []byte) (*parameterizeArgs, error) {
 }
 
 // parseApiVersion parses an Azure API version from the given string. Since the input comes from users (via `package
-// add`), it tries to be lenient and accept several formats. The returned result, if successful, is an "SDL version" of
+// add`), it tries to be lenient and accept several formats. The returned result, if successful, is an "SDK version" of
 // the form v20200101.
 func parseApiVersion(version string) (string, error) {
 	v := strings.TrimSpace(version)

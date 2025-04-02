@@ -101,7 +101,7 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	require.NoError(t, err)
 	providerVersion := v.Version
 
-	provider, err := makeProviderInternal(nil, "azure-native", providerVersion, schemaBytes, &resources.APIMetadata{
+	provider, err := makeProviderInternal(nil, "azure-native", providerVersion, schemaBytes, schemaBytes, &resources.APIMetadata{
 		Types: resources.GoMap[resources.AzureAPIType]{},
 		Resources: resources.GoMap[resources.AzureAPIResource]{
 			"azure-native:aad/v20221201:DomainService": {},

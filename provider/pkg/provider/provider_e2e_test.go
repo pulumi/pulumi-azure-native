@@ -28,13 +28,19 @@ import (
 )
 
 var schemaBytes []byte
+var defaultSchemaBytes []byte
 var azureAPIResourcesBytes []byte
 
 func init() {
 	var err error
 	schemaBytes, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-full.json"))
 	if err != nil {
-		fmt.Printf("failed to read schema file, run `make schema` before running tests: %v", err)
+		fmt.Printf("failed to read full schema file, run `make schema` before running tests: %v", err)
+	}
+
+	defaultSchemaBytes, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-default-versions.zip"))
+	if err != nil {
+		fmt.Printf("failed to read default schema file, run `make schema` before running tests: %v", err)
 	}
 
 	azureAPIResourcesBytes, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "metadata-compact.json"))
@@ -170,7 +176,7 @@ func providerServer(_ providers.PulumiTest) (pulumirpc.ResourceProviderServer, e
 		return nil, fmt.Errorf("azure API resources not loaded")
 	}
 
-	return makeProvider(nil, "azure-native", version.GetVersion().String(), schemaBytes, azureAPIResourcesBytes)
+	return makeProvider(nil, "azure-native", version.GetVersion().String(), schemaBytes, defaultSchemaBytes, azureAPIResourcesBytes)
 }
 
 func getLocation() string {
