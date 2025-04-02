@@ -147,10 +147,6 @@ github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 h1:vkHw5I/plNdTr435
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231/go.mod h1:murToZ2N9hNJzewjHBgfFdXhZKjY3z5cYC1VXk+lbFE=
 github.com/pulumi/esc v0.10.0 h1:jzBKzkLVW0mePeanDRfqSQoCJ5yrkux0jIwAkUxpRKE=
 github.com/pulumi/esc v0.10.0/go.mod h1:2Bfa+FWj/xl8CKqRTWbWgDX0SOD4opdQgvYSURTGK2c=
-github.com/pulumi/pulumi-azure-native-sdk/containerservice/v3 v3.0.0 h1:43OhVXVDlUldUJ0Y+M5v2p8Iwi1uwN8S9PvAAhPh9vk=
-github.com/pulumi/pulumi-azure-native-sdk/containerservice/v3 v3.0.0/go.mod h1:MdcjdJuDMi/+WNfP+Yj4wpfT5W5ypiThMHKQPRSicH8=
-github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.0.0 h1:1krBBrYQ6EChaLdcPN0sa06ZtG9qQlUkTT9R/Waae0g=
-github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.0.0/go.mod h1:vxIFk8vJ+JjbipDyuF2lNi3GH9deS2VQs5PtUAWXhrg=
 github.com/pulumi/pulumi-azuread/sdk/v5 v5.53.2 h1:196/snV92s3ZU47Qv2bvva1lx8q/osHyLcH/R1Hf2Kw=
 github.com/pulumi/pulumi-azuread/sdk/v5 v5.53.2/go.mod h1:i3GvPa6puoQPhHhyzMlArY2hFqlNN5tmenGdxPEiZI4=
 github.com/pulumi/pulumi-random/sdk/v4 v4.16.3 h1:nlN42MRSIuDh5Pc5nLq4b0lwZaX2ZUAW67Nw+OlNOig=
