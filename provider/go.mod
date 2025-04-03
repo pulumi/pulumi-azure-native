@@ -35,8 +35,8 @@ require (
 	github.com/pulumi/providertest v0.1.5
 	github.com/pulumi/pulumi-java/pkg v0.19.0
 	github.com/pulumi/pulumi-yaml v1.12.0
-	github.com/pulumi/pulumi/pkg/v3 v3.156.0
-	github.com/pulumi/pulumi/sdk/v3 v3.156.0
+	github.com/pulumi/pulumi/pkg/v3 v3.160.0
+	github.com/pulumi/pulumi/sdk/v3 v3.160.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/stretchr/testify v1.10.0
@@ -96,7 +96,7 @@ require (
 	github.com/fsnotify/fsnotify v1.8.0 // indirect
 	github.com/gkampitakis/ciinfo v0.3.0 // indirect
 	github.com/gkampitakis/go-diff v1.3.2 // indirect
-	github.com/go-jose/go-jose/v3 v3.0.3 // indirect
+	github.com/go-jose/go-jose/v3 v3.0.4 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/golang-jwt/jwt/v5 v5.2.1 // indirect
