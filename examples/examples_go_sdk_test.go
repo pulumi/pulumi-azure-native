@@ -157,6 +157,8 @@ func getSdkReplacements(dir, rootSdkPath string) ([]string, error) {
 		return nil, err
 	}
 
+	required = append(required, "github.com/pulumi/pulumi-azure-native-sdk/v3/utilities")
+
 	// Find pulumi-azure-native-sdk packages - ignoring the /vX suffix
 	// Match repo root or sub-packages with optional version suffix
 	matchAzureNativePackage := regexp.MustCompile(`^github\.com\/pulumi\/pulumi-azure-native-sdk\/?([^\/]*)(\/v\d+)$`)
