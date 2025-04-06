@@ -10,20 +10,45 @@ export type ActionGroup = import("./actionGroup").ActionGroup;
 export const ActionGroup: typeof import("./actionGroup").ActionGroup = null as any;
 utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
 
+export { AutoscaleSettingArgs } from "./autoscaleSetting";
+export type AutoscaleSetting = import("./autoscaleSetting").AutoscaleSetting;
+export const AutoscaleSetting: typeof import("./autoscaleSetting").AutoscaleSetting = null as any;
+utilities.lazyLoad(exports, ["AutoscaleSetting"], () => require("./autoscaleSetting"));
+
 export { AzureMonitorWorkspaceArgs } from "./azureMonitorWorkspace";
 export type AzureMonitorWorkspace = import("./azureMonitorWorkspace").AzureMonitorWorkspace;
 export const AzureMonitorWorkspace: typeof import("./azureMonitorWorkspace").AzureMonitorWorkspace = null as any;
 utilities.lazyLoad(exports, ["AzureMonitorWorkspace"], () => require("./azureMonitorWorkspace"));
+
+export { DiagnosticSettingArgs } from "./diagnosticSetting";
+export type DiagnosticSetting = import("./diagnosticSetting").DiagnosticSetting;
+export const DiagnosticSetting: typeof import("./diagnosticSetting").DiagnosticSetting = null as any;
+utilities.lazyLoad(exports, ["DiagnosticSetting"], () => require("./diagnosticSetting"));
 
 export { GetActionGroupArgs, GetActionGroupResult, GetActionGroupOutputArgs } from "./getActionGroup";
 export const getActionGroup: typeof import("./getActionGroup").getActionGroup = null as any;
 export const getActionGroupOutput: typeof import("./getActionGroup").getActionGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getActionGroup","getActionGroupOutput"], () => require("./getActionGroup"));
 
+export { GetAutoscaleSettingArgs, GetAutoscaleSettingResult, GetAutoscaleSettingOutputArgs } from "./getAutoscaleSetting";
+export const getAutoscaleSetting: typeof import("./getAutoscaleSetting").getAutoscaleSetting = null as any;
+export const getAutoscaleSettingOutput: typeof import("./getAutoscaleSetting").getAutoscaleSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getAutoscaleSetting","getAutoscaleSettingOutput"], () => require("./getAutoscaleSetting"));
+
 export { GetAzureMonitorWorkspaceArgs, GetAzureMonitorWorkspaceResult, GetAzureMonitorWorkspaceOutputArgs } from "./getAzureMonitorWorkspace";
 export const getAzureMonitorWorkspace: typeof import("./getAzureMonitorWorkspace").getAzureMonitorWorkspace = null as any;
 export const getAzureMonitorWorkspaceOutput: typeof import("./getAzureMonitorWorkspace").getAzureMonitorWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getAzureMonitorWorkspace","getAzureMonitorWorkspaceOutput"], () => require("./getAzureMonitorWorkspace"));
+
+export { GetDiagnosticSettingArgs, GetDiagnosticSettingResult, GetDiagnosticSettingOutputArgs } from "./getDiagnosticSetting";
+export const getDiagnosticSetting: typeof import("./getDiagnosticSetting").getDiagnosticSetting = null as any;
+export const getDiagnosticSettingOutput: typeof import("./getDiagnosticSetting").getDiagnosticSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getDiagnosticSetting","getDiagnosticSettingOutput"], () => require("./getDiagnosticSetting"));
+
+export { GetManagementGroupDiagnosticSettingArgs, GetManagementGroupDiagnosticSettingResult, GetManagementGroupDiagnosticSettingOutputArgs } from "./getManagementGroupDiagnosticSetting";
+export const getManagementGroupDiagnosticSetting: typeof import("./getManagementGroupDiagnosticSetting").getManagementGroupDiagnosticSetting = null as any;
+export const getManagementGroupDiagnosticSettingOutput: typeof import("./getManagementGroupDiagnosticSetting").getManagementGroupDiagnosticSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementGroupDiagnosticSetting","getManagementGroupDiagnosticSettingOutput"], () => require("./getManagementGroupDiagnosticSetting"));
 
 export { GetPipelineGroupArgs, GetPipelineGroupResult, GetPipelineGroupOutputArgs } from "./getPipelineGroup";
 export const getPipelineGroup: typeof import("./getPipelineGroup").getPipelineGroup = null as any;
@@ -50,10 +75,25 @@ export const getScheduledQueryRule: typeof import("./getScheduledQueryRule").get
 export const getScheduledQueryRuleOutput: typeof import("./getScheduledQueryRule").getScheduledQueryRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getScheduledQueryRule","getScheduledQueryRuleOutput"], () => require("./getScheduledQueryRule"));
 
+export { GetSubscriptionDiagnosticSettingArgs, GetSubscriptionDiagnosticSettingResult, GetSubscriptionDiagnosticSettingOutputArgs } from "./getSubscriptionDiagnosticSetting";
+export const getSubscriptionDiagnosticSetting: typeof import("./getSubscriptionDiagnosticSetting").getSubscriptionDiagnosticSetting = null as any;
+export const getSubscriptionDiagnosticSettingOutput: typeof import("./getSubscriptionDiagnosticSetting").getSubscriptionDiagnosticSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscriptionDiagnosticSetting","getSubscriptionDiagnosticSettingOutput"], () => require("./getSubscriptionDiagnosticSetting"));
+
 export { GetTenantActionGroupArgs, GetTenantActionGroupResult, GetTenantActionGroupOutputArgs } from "./getTenantActionGroup";
 export const getTenantActionGroup: typeof import("./getTenantActionGroup").getTenantActionGroup = null as any;
 export const getTenantActionGroupOutput: typeof import("./getTenantActionGroup").getTenantActionGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getTenantActionGroup","getTenantActionGroupOutput"], () => require("./getTenantActionGroup"));
+
+export { ListDiagnosticSettingsCategoryArgs, ListDiagnosticSettingsCategoryResult, ListDiagnosticSettingsCategoryOutputArgs } from "./listDiagnosticSettingsCategory";
+export const listDiagnosticSettingsCategory: typeof import("./listDiagnosticSettingsCategory").listDiagnosticSettingsCategory = null as any;
+export const listDiagnosticSettingsCategoryOutput: typeof import("./listDiagnosticSettingsCategory").listDiagnosticSettingsCategoryOutput = null as any;
+utilities.lazyLoad(exports, ["listDiagnosticSettingsCategory","listDiagnosticSettingsCategoryOutput"], () => require("./listDiagnosticSettingsCategory"));
+
+export { ManagementGroupDiagnosticSettingArgs } from "./managementGroupDiagnosticSetting";
+export type ManagementGroupDiagnosticSetting = import("./managementGroupDiagnosticSetting").ManagementGroupDiagnosticSetting;
+export const ManagementGroupDiagnosticSetting: typeof import("./managementGroupDiagnosticSetting").ManagementGroupDiagnosticSetting = null as any;
+utilities.lazyLoad(exports, ["ManagementGroupDiagnosticSetting"], () => require("./managementGroupDiagnosticSetting"));
 
 export { PipelineGroupArgs } from "./pipelineGroup";
 export type PipelineGroup = import("./pipelineGroup").PipelineGroup;
@@ -80,6 +120,11 @@ export type ScheduledQueryRule = import("./scheduledQueryRule").ScheduledQueryRu
 export const ScheduledQueryRule: typeof import("./scheduledQueryRule").ScheduledQueryRule = null as any;
 utilities.lazyLoad(exports, ["ScheduledQueryRule"], () => require("./scheduledQueryRule"));
 
+export { SubscriptionDiagnosticSettingArgs } from "./subscriptionDiagnosticSetting";
+export type SubscriptionDiagnosticSetting = import("./subscriptionDiagnosticSetting").SubscriptionDiagnosticSetting;
+export const SubscriptionDiagnosticSetting: typeof import("./subscriptionDiagnosticSetting").SubscriptionDiagnosticSetting = null as any;
+utilities.lazyLoad(exports, ["SubscriptionDiagnosticSetting"], () => require("./subscriptionDiagnosticSetting"));
+
 export { TenantActionGroupArgs } from "./tenantActionGroup";
 export type TenantActionGroup = import("./tenantActionGroup").TenantActionGroup;
 export const TenantActionGroup: typeof import("./tenantActionGroup").TenantActionGroup = null as any;
@@ -95,8 +140,14 @@ const _module = {
         switch (type) {
             case "azure-native:monitor:ActionGroup":
                 return new ActionGroup(name, <any>undefined, { urn })
+            case "azure-native:monitor:AutoscaleSetting":
+                return new AutoscaleSetting(name, <any>undefined, { urn })
             case "azure-native:monitor:AzureMonitorWorkspace":
                 return new AzureMonitorWorkspace(name, <any>undefined, { urn })
+            case "azure-native:monitor:DiagnosticSetting":
+                return new DiagnosticSetting(name, <any>undefined, { urn })
+            case "azure-native:monitor:ManagementGroupDiagnosticSetting":
+                return new ManagementGroupDiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:monitor:PipelineGroup":
                 return new PipelineGroup(name, <any>undefined, { urn })
             case "azure-native:monitor:PrivateEndpointConnection":
@@ -107,6 +158,8 @@ const _module = {
                 return new PrivateLinkScopedResource(name, <any>undefined, { urn })
             case "azure-native:monitor:ScheduledQueryRule":
                 return new ScheduledQueryRule(name, <any>undefined, { urn })
+            case "azure-native:monitor:SubscriptionDiagnosticSetting":
+                return new SubscriptionDiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:monitor:TenantActionGroup":
                 return new TenantActionGroup(name, <any>undefined, { urn })
             default:

@@ -8412,11 +8412,26 @@ Monitor:
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2024-10-01-preview/actionGroups_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}
         RpNamespace: Microsoft.Insights
+    AutoscaleSetting:
+        ApiVersion: 2021-05-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/autoscale_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/autoscalesettings/{autoscaleSettingName}
+        RpNamespace: Microsoft.Insights
     AzureMonitorWorkspace:
         ApiVersion: 2023-10-01-preview
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/preview/2023-10-01-preview/azuremonitor.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}
         RpNamespace: Microsoft.Monitor
+    DiagnosticSetting:
+        ApiVersion: 2021-05-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/diagnosticsSettings_API.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{name}
+        RpNamespace: Microsoft.Insights
+    ManagementGroupDiagnosticSetting:
+        ApiVersion: 2021-05-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/managementGroupDiagnosticSettings_API.json
+        ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/diagnosticSettings/{name}
+        RpNamespace: Microsoft.Insights
     PipelineGroup:
         ApiVersion: 2024-10-01-preview
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/PipelineGroups/preview/2024-10-01-preview/pipelineGroups.json
@@ -8442,10 +8457,20 @@ Monitor:
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2024-01-01-preview/scheduledQueryRule_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}
         RpNamespace: Microsoft.Insights
+    SubscriptionDiagnosticSetting:
+        ApiVersion: 2021-05-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/subscriptionDiagnosticsSettings_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Insights/diagnosticSettings/{name}
+        RpNamespace: Microsoft.Insights
     TenantActionGroup:
         ApiVersion: 2023-05-01-preview
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2023-05-01-preview/tenantActionGroups_API.json
         ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups/{tenantActionGroupName}
+        RpNamespace: Microsoft.Insights
+    listDiagnosticSettingsCategory:
+        ApiVersion: 2021-05-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/diagnosticsSettingsCategories_API.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.Insights/diagnosticSettingsCategories
         RpNamespace: Microsoft.Insights
 MySQLDiscovery:
     MySQLServer:
