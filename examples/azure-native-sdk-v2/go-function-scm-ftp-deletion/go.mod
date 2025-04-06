@@ -11,6 +11,13 @@ require (
 	github.com/pulumi/pulumi/sdk/v3 v3.160.0
 )
 
+replace (
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 => ../../../sdk/pulumi-azure-native-sdk/resources
+	github.com/pulumi/pulumi-azure-native-sdk/storage/v3 => ../../../sdk/pulumi-azure-native-sdk/storage
+	github.com/pulumi/pulumi-azure-native-sdk/v3 => ../../../sdk/pulumi-azure-native-sdk
+	github.com/pulumi/pulumi-azure-native-sdk/web/v3 => ../../../sdk/pulumi-azure-native-sdk/web
+)
+
 require (
 	dario.cat/mergo v1.0.1 // indirect
 	github.com/BurntSushi/toml v1.5.0 // indirect
@@ -66,7 +73,7 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.13.0 // indirect
-	github.com/pulumi/pulumi-azure-native-sdk/v2 v2.90.0 // indirect
+	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.0.0-alpha.dev // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
