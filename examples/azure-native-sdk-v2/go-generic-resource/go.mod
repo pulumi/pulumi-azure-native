@@ -1,4 +1,4 @@
-module go-simple
+module go-generic-resource
 
 go 1.23.1
 
