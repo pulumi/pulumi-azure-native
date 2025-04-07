@@ -90,7 +90,7 @@
  "description": "A native Pulumi package for creating and managing Azure resources.",
  "displayName": "Azure Native",
  "functions": {
-  "azure-native:aadiam/v20200301:getPrivateEndpointConnection": {
+  "azure-native:aadiam:getPrivateEndpointConnection": {
    "description": "Gets the specified private endpoint connection associated with the given policy.",
    "inputs": {
     "properties": {
@@ -133,12 +133,12 @@
       "type": "string"
      },
      "privateEndpoint": {
-      "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpointResponse",
+      "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateEndpointResponse",
       "description": "Properties of the private endpoint object.",
       "type": "object"
      },
      "privateLinkServiceConnectionState": {
-      "$ref": "#/types/azure-native:aadiam/v20200301:PrivateLinkServiceConnectionStateResponse",
+      "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateLinkServiceConnectionStateResponse",
       "description": "Approval state of the private link connection.",
       "type": "object"
      },
@@ -161,7 +161,7 @@
     "type": "object"
    }
   },
-  "azure-native:aadiam/v20200301:getPrivateLinkForAzureAd": {
+  "azure-native:aadiam:getPrivateLinkForAzureAd": {
    "description": "Gets a private link policy with a given name.",
    "inputs": {
     "properties": {
@@ -312,8 +312,7 @@
  "language": {
   "csharp": {
    "namespaces": {
-    "aadiam": "AadIam",
-    "aadiam/v20200301": "AadIam.V20200301",
+    "aadiam": "AadIam.V20200301",
     "azure-native": "AzureNative"
    },
    "packageReferences": {
@@ -336,7 +335,7 @@
   },
   "java": {
    "packages": {
-    "aadiam/v20200301": "aadiam.v20200301",
+    "aadiam": "aadiam.v20200301",
     "azure-native": "azurenative"
    }
   },
@@ -347,7 +346,7 @@
   "python": {
    "inputTypes": "classes-and-dicts",
    "moduleNameOverrides": {
-    "aadiam/v20200301": "aadiam/v20200301"
+    "aadiam": "aadiam"
    },
    "pyproject": {
     "enabled": true
@@ -447,202 +446,6 @@
  "publisher": "Pulumi",
  "repository": "https://github.com/pulumi/pulumi-azure-native",
  "resources": {
-  "azure-native:aadiam/v20200301:PrivateEndpointConnection": {
-   "aliases": [
-    {
-     "type": "azure-native:aadiam:PrivateEndpointConnection"
-    }
-   ],
-   "description": "Private endpoint connection resource.",
-   "inputProperties": {
-    "policyName": {
-     "description": "The name of the private link policy in Azure AD.",
-     "type": "string",
-     "willReplaceOnChanges": true
-    },
-    "privateEndpoint": {
-     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpoint",
-     "description": "Properties of the private endpoint object.",
-     "type": "object"
-    },
-    "privateEndpointConnectionName": {
-     "description": "The PrivateEndpointConnection name.",
-     "type": "string",
-     "willReplaceOnChanges": true
-    },
-    "privateLinkConnectionTags": {
-     "$ref": "#/types/azure-native:aadiam/v20200301:TagsResource",
-     "description": "Updated tag information to set into the PrivateLinkConnection instance.",
-     "type": "object"
-    },
-    "privateLinkServiceConnectionState": {
-     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateLinkServiceConnectionState",
-     "description": "Approval state of the private link connection.",
-     "type": "object"
-    },
-    "resourceGroupName": {
-     "description": "Name of an Azure resource group.",
-     "type": "string",
-     "willReplaceOnChanges": true
-    }
-   },
-   "properties": {
-    "azureApiVersion": {
-     "description": "The Azure API version of the resource.",
-     "type": "string"
-    },
-    "name": {
-     "description": "The name of the resource",
-     "type": "string"
-    },
-    "privateEndpoint": {
-     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpointResponse",
-     "description": "Properties of the private endpoint object.",
-     "type": "object"
-    },
-    "privateLinkServiceConnectionState": {
-     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateLinkServiceConnectionStateResponse",
-     "description": "Approval state of the private link connection.",
-     "type": "object"
-    },
-    "provisioningState": {
-     "description": "Provisioning state of the private endpoint connection.",
-     "type": "string"
-    },
-    "type": {
-     "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
-     "type": "string"
-    }
-   },
-   "required": [
-    "azureApiVersion",
-    "name",
-    "provisioningState",
-    "type"
-   ],
-   "requiredInputs": [
-    "policyName",
-    "resourceGroupName"
-   ],
-   "type": "object"
-  },
-  "azure-native:aadiam/v20200301:PrivateLinkForAzureAd": {
-   "aliases": [
-    {
-     "type": "azure-native:aadiam/v20200301preview:PrivateLinkForAzureAd"
-    },
-    {
-     "type": "azure-native:aadiam:PrivateLinkForAzureAd"
-    }
-   ],
-   "description": "PrivateLink Policy configuration object.",
-   "inputProperties": {
-    "allTenants": {
-     "description": "Flag indicating whether all tenants are allowed",
-     "type": "boolean"
-    },
-    "name": {
-     "description": "Name of this resource.",
-     "type": "string"
-    },
-    "ownerTenantId": {
-     "description": "Guid of the owner tenant",
-     "type": "string"
-    },
-    "policyName": {
-     "description": "The name of the private link policy in Azure AD.",
-     "type": "string",
-     "willReplaceOnChanges": true
-    },
-    "resourceGroup": {
-     "description": "Name of the resource group",
-     "type": "string"
-    },
-    "resourceGroupName": {
-     "description": "Name of an Azure resource group.",
-     "type": "string",
-     "willReplaceOnChanges": true
-    },
-    "resourceName": {
-     "description": "Name of the private link policy resource",
-     "type": "string"
-    },
-    "subscriptionId": {
-     "description": "Subscription Identifier",
-     "type": "string"
-    },
-    "tags": {
-     "additionalProperties": {
-      "type": "string"
-     },
-     "description": "Resource tags.",
-     "type": "object"
-    },
-    "tenants": {
-     "description": "The list of tenantIds.",
-     "items": {
-      "type": "string"
-     },
-     "type": "array"
-    }
-   },
-   "properties": {
-    "allTenants": {
-     "description": "Flag indicating whether all tenants are allowed",
-     "type": "boolean"
-    },
-    "azureApiVersion": {
-     "description": "The Azure API version of the resource.",
-     "type": "string"
-    },
-    "name": {
-     "description": "Name of this resource.",
-     "type": "string"
-    },
-    "ownerTenantId": {
-     "description": "Guid of the owner tenant",
-     "type": "string"
-    },
-    "resourceGroup": {
-     "description": "Name of the resource group",
-     "type": "string"
-    },
-    "resourceName": {
-     "description": "Name of the private link policy resource",
-     "type": "string"
-    },
-    "subscriptionId": {
-     "description": "Subscription Identifier",
-     "type": "string"
-    },
-    "tags": {
-     "additionalProperties": {
-      "type": "string"
-     },
-     "description": "Resource tags.",
-     "type": "object"
-    },
-    "tenants": {
-     "description": "The list of tenantIds.",
-     "items": {
-      "type": "string"
-     },
-     "type": "array"
-    },
-    "type": {
-     "description": "Type of this resource.",
-     "type": "string"
-    }
-   },
-   "required": [
-    "azureApiVersion",
-    "type"
-   ],
-   "requiredInputs": [
-    "resourceGroupName"
-   ],
-   "type": "object"
-  },
   "azure-native:keyvault:AccessPolicy": {
    "description": "Key Vault Access Policy for managing policies on existing vaults.",
    "inputProperties": {
@@ -886,30 +689,209 @@
   },
   "azure-native:synapse:WorkspaceSqlAadAdmin": {
    "description": "\n\nNote: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin."
+  },
+  "azure-native_aadiam_v20200301:aadiam:PrivateEndpointConnection": {
+   "aliases": [
+    {
+     "type": "azure-native:aadiam/v20200301:PrivateEndpointConnection"
+    },
+    {
+     "type": "azure-native:aadiam:PrivateEndpointConnection"
+    }
+   ],
+   "description": "Private endpoint connection resource.",
+   "inputProperties": {
+    "policyName": {
+     "description": "The name of the private link policy in Azure AD.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "privateEndpoint": {
+     "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateEndpoint",
+     "description": "Properties of the private endpoint object.",
+     "type": "object"
+    },
+    "privateEndpointConnectionName": {
+     "description": "The PrivateEndpointConnection name.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "privateLinkConnectionTags": {
+     "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:TagsResource",
+     "description": "Updated tag information to set into the PrivateLinkConnection instance.",
+     "type": "object"
+    },
+    "privateLinkServiceConnectionState": {
+     "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateLinkServiceConnectionState",
+     "description": "Approval state of the private link connection.",
+     "type": "object"
+    },
+    "resourceGroupName": {
+     "description": "Name of an Azure resource group.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    }
+   },
+   "properties": {
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
+    "name": {
+     "description": "The name of the resource",
+     "type": "string"
+    },
+    "privateEndpoint": {
+     "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateEndpointResponse",
+     "description": "Properties of the private endpoint object.",
+     "type": "object"
+    },
+    "privateLinkServiceConnectionState": {
+     "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateLinkServiceConnectionStateResponse",
+     "description": "Approval state of the private link connection.",
+     "type": "object"
+    },
+    "provisioningState": {
+     "description": "Provisioning state of the private endpoint connection.",
+     "type": "string"
+    },
+    "type": {
+     "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+     "type": "string"
+    }
+   },
+   "required": [
+    "azureApiVersion",
+    "name",
+    "provisioningState",
+    "type"
+   ],
+   "requiredInputs": [
+    "policyName",
+    "resourceGroupName"
+   ],
+   "type": "object"
+  },
+  "azure-native_aadiam_v20200301:aadiam:PrivateLinkForAzureAd": {
+   "aliases": [
+    {
+     "type": "azure-native:aadiam/v20200301preview:PrivateLinkForAzureAd"
+    },
+    {
+     "type": "azure-native:aadiam:PrivateLinkForAzureAd"
+    }
+   ],
+   "description": "PrivateLink Policy configuration object.",
+   "inputProperties": {
+    "allTenants": {
+     "description": "Flag indicating whether all tenants are allowed",
+     "type": "boolean"
+    },
+    "name": {
+     "description": "Name of this resource.",
+     "type": "string"
+    },
+    "ownerTenantId": {
+     "description": "Guid of the owner tenant",
+     "type": "string"
+    },
+    "policyName": {
+     "description": "The name of the private link policy in Azure AD.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "resourceGroup": {
+     "description": "Name of the resource group",
+     "type": "string"
+    },
+    "resourceGroupName": {
+     "description": "Name of an Azure resource group.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "resourceName": {
+     "description": "Name of the private link policy resource",
+     "type": "string"
+    },
+    "subscriptionId": {
+     "description": "Subscription Identifier",
+     "type": "string"
+    },
+    "tags": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "description": "Resource tags.",
+     "type": "object"
+    },
+    "tenants": {
+     "description": "The list of tenantIds.",
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    }
+   },
+   "properties": {
+    "allTenants": {
+     "description": "Flag indicating whether all tenants are allowed",
+     "type": "boolean"
+    },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
+    "name": {
+     "description": "Name of this resource.",
+     "type": "string"
+    },
+    "ownerTenantId": {
+     "description": "Guid of the owner tenant",
+     "type": "string"
+    },
+    "resourceGroup": {
+     "description": "Name of the resource group",
+     "type": "string"
+    },
+    "resourceName": {
+     "description": "Name of the private link policy resource",
+     "type": "string"
+    },
+    "subscriptionId": {
+     "description": "Subscription Identifier",
+     "type": "string"
+    },
+    "tags": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "description": "Resource tags.",
+     "type": "object"
+    },
+    "tenants": {
+     "description": "The list of tenantIds.",
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "type": {
+     "description": "Type of this resource.",
+     "type": "string"
+    }
+   },
+   "required": [
+    "azureApiVersion",
+    "type"
+   ],
+   "requiredInputs": [
+    "resourceGroupName"
+   ],
+   "type": "object"
   }
  },
  "types": {
-  "azure-native:aadiam/v20200301:PrivateEndpoint": {
-   "description": "Private endpoint object properties.",
-   "properties": {
-    "id": {
-     "description": "Full identifier of the private endpoint resource.",
-     "type": "string"
-    }
-   },
-   "type": "object"
-  },
-  "azure-native:aadiam/v20200301:PrivateEndpointResponse": {
-   "description": "Private endpoint object properties.",
-   "properties": {
-    "id": {
-     "description": "Full identifier of the private endpoint resource.",
-     "type": "string"
-    }
-   },
-   "type": "object"
-  },
-  "azure-native:aadiam/v20200301:PrivateEndpointServiceConnectionStatus": {
+  "azure-native:aadiam:PrivateEndpointServiceConnectionStatus": {
    "description": "Indicates whether the connection has been approved, rejected or removed by the given policy owner.",
    "enum": [
     {
@@ -926,62 +908,6 @@
     }
    ],
    "type": "string"
-  },
-  "azure-native:aadiam/v20200301:PrivateLinkServiceConnectionState": {
-   "description": "An object that represents the approval state of the private link connection.",
-   "properties": {
-    "actionsRequired": {
-     "description": "A message indicating if changes on the service provider require any updates on the consumer.",
-     "type": "string"
-    },
-    "description": {
-     "description": "The reason for approval or rejection.",
-     "type": "string"
-    },
-    "status": {
-     "description": "Indicates whether the connection has been approved, rejected or removed by the given policy owner.",
-     "oneOf": [
-      {
-       "type": "string"
-      },
-      {
-       "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpointServiceConnectionStatus"
-      }
-     ]
-    }
-   },
-   "type": "object"
-  },
-  "azure-native:aadiam/v20200301:PrivateLinkServiceConnectionStateResponse": {
-   "description": "An object that represents the approval state of the private link connection.",
-   "properties": {
-    "actionsRequired": {
-     "description": "A message indicating if changes on the service provider require any updates on the consumer.",
-     "type": "string"
-    },
-    "description": {
-     "description": "The reason for approval or rejection.",
-     "type": "string"
-    },
-    "status": {
-     "description": "Indicates whether the connection has been approved, rejected or removed by the given policy owner.",
-     "type": "string"
-    }
-   },
-   "type": "object"
-  },
-  "azure-native:aadiam/v20200301:TagsResource": {
-   "description": "A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.",
-   "properties": {
-    "tags": {
-     "additionalProperties": {
-      "type": "string"
-     },
-     "description": "Resource tags",
-     "type": "object"
-    }
-   },
-   "type": "object"
   },
   "azure-native:storage:BlobAccessTier": {
    "description": "The access tier of a storage blob.",
@@ -1022,7 +948,7 @@
 [TestAliasesGen/v3 - 2]
 {
  "invokes": {
-  "azure-native:aadiam/v20200301:getPrivateEndpointConnection": {
+  "azure-native:aadiam:getPrivateEndpointConnection": {
    "GET": [
     {
      "location": "path",
@@ -1069,13 +995,13 @@
     "id": {},
     "name": {},
     "privateEndpoint": {
-     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpointResponse",
+     "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateEndpointResponse",
      "containers": [
       "properties"
      ]
     },
     "privateLinkServiceConnectionState": {
-     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateLinkServiceConnectionStateResponse",
+     "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateLinkServiceConnectionStateResponse",
      "containers": [
       "properties"
      ]
@@ -1088,7 +1014,7 @@
     "type": {}
    }
   },
-  "azure-native:aadiam/v20200301:getPrivateLinkForAzureAd": {
+  "azure-native:aadiam:getPrivateLinkForAzureAd": {
    "GET": [
     {
      "location": "path",
@@ -1145,201 +1071,6 @@
   }
  },
  "resources": {
-  "azure-native:aadiam/v20200301:PrivateEndpointConnection": {
-   "PUT": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "maxLength": 90,
-      "minLength": 1,
-      "pattern": "^[-\\w\\._\\(\\)]+$",
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "policyName",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "privateEndpointConnectionName",
-     "required": true,
-     "value": {
-      "autoname": "copy",
-      "minLength": 1,
-      "type": "string"
-     }
-    },
-    {
-     "body": {
-      "properties": {
-       "privateEndpoint": {
-        "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpoint",
-        "containers": [
-         "properties"
-        ],
-        "type": "object"
-       },
-       "privateLinkConnectionTags": {
-        "$ref": "#/types/azure-native:aadiam/v20200301:TagsResource",
-        "containers": [
-         "properties"
-        ],
-        "type": "object"
-       },
-       "privateLinkServiceConnectionState": {
-        "$ref": "#/types/azure-native:aadiam/v20200301:PrivateLinkServiceConnectionState",
-        "containers": [
-         "properties"
-        ],
-        "type": "object"
-       }
-      }
-     },
-     "location": "body",
-     "name": "parameters",
-     "required": true,
-     "value": {}
-    }
-   ],
-   "apiVersion": "2020-03-01",
-   "defaultBody": null,
-   "deleteAsyncStyle": "azure-async-operation",
-   "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}/privateEndpointConnections/{privateEndpointConnectionName}",
-   "putAsyncStyle": "azure-async-operation",
-   "response": {
-    "id": {},
-    "name": {},
-    "privateEndpoint": {
-     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpointResponse",
-     "containers": [
-      "properties"
-     ]
-    },
-    "privateLinkServiceConnectionState": {
-     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateLinkServiceConnectionStateResponse",
-     "containers": [
-      "properties"
-     ]
-    },
-    "provisioningState": {
-     "containers": [
-      "properties"
-     ]
-    },
-    "type": {}
-   }
-  },
-  "azure-native:aadiam/v20200301:PrivateLinkForAzureAd": {
-   "PUT": [
-    {
-     "location": "path",
-     "name": "subscriptionId",
-     "required": true,
-     "value": {
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "resourceGroupName",
-     "required": true,
-     "value": {
-      "maxLength": 90,
-      "minLength": 1,
-      "pattern": "^[-\\w\\._\\(\\)]+$",
-      "type": "string"
-     }
-    },
-    {
-     "location": "path",
-     "name": "policyName",
-     "required": true,
-     "value": {
-      "autoname": "random",
-      "type": "string"
-     }
-    },
-    {
-     "body": {
-      "properties": {
-       "allTenants": {
-        "type": "boolean"
-       },
-       "name": {
-        "type": "string"
-       },
-       "ownerTenantId": {
-        "type": "string"
-       },
-       "resourceGroup": {
-        "type": "string"
-       },
-       "resourceName": {
-        "type": "string"
-       },
-       "subscriptionId": {
-        "type": "string"
-       },
-       "tags": {
-        "additionalProperties": {
-         "type": "string"
-        },
-        "type": "object"
-       },
-       "tenants": {
-        "items": {
-         "type": "string"
-        },
-        "type": "array"
-       }
-      }
-     },
-     "location": "body",
-     "name": "privateLinkPolicy",
-     "required": true,
-     "value": {}
-    }
-   ],
-   "apiVersion": "2020-03-01",
-   "defaultBody": null,
-   "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}",
-   "putAsyncStyle": "azure-async-operation",
-   "response": {
-    "allTenants": {},
-    "id": {},
-    "name": {},
-    "ownerTenantId": {},
-    "resourceGroup": {},
-    "resourceName": {},
-    "subscriptionId": {},
-    "tags": {
-     "additionalProperties": {
-      "type": "string"
-     }
-    },
-    "tenants": {
-     "items": {
-      "type": "string"
-     }
-    },
-    "type": {}
-   }
-  },
   "azure-native:keyvault:AccessPolicy": {
    "PUT": [
     {
@@ -1595,51 +1326,203 @@
    "defaultBody": null,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/staticWebsite",
    "response": null
-  }
- },
- "types": {
-  "azure-native:aadiam/v20200301:PrivateEndpoint": {
-   "properties": {
-    "id": {
-     "type": "string"
-    }
-   }
   },
-  "azure-native:aadiam/v20200301:PrivateEndpointResponse": {
-   "properties": {
-    "id": {}
-   }
-  },
-  "azure-native:aadiam/v20200301:PrivateLinkServiceConnectionState": {
-   "properties": {
-    "actionsRequired": {
-     "type": "string"
+  "azure-native_aadiam_v20200301:aadiam:PrivateEndpointConnection": {
+   "PUT": [
+    {
+     "location": "path",
+     "name": "subscriptionId",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
     },
-    "description": {
-     "type": "string"
+    {
+     "location": "path",
+     "name": "resourceGroupName",
+     "required": true,
+     "value": {
+      "maxLength": 90,
+      "minLength": 1,
+      "pattern": "^[-\\w\\._\\(\\)]+$",
+      "type": "string"
+     }
     },
-    "status": {
-     "type": "string"
+    {
+     "location": "path",
+     "name": "policyName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "privateEndpointConnectionName",
+     "required": true,
+     "value": {
+      "autoname": "copy",
+      "minLength": 1,
+      "type": "string"
+     }
+    },
+    {
+     "body": {
+      "properties": {
+       "privateEndpoint": {
+        "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateEndpoint",
+        "containers": [
+         "properties"
+        ],
+        "type": "object"
+       },
+       "privateLinkConnectionTags": {
+        "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:TagsResource",
+        "containers": [
+         "properties"
+        ],
+        "type": "object"
+       },
+       "privateLinkServiceConnectionState": {
+        "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateLinkServiceConnectionState",
+        "containers": [
+         "properties"
+        ],
+        "type": "object"
+       }
+      }
+     },
+     "location": "body",
+     "name": "parameters",
+     "required": true,
+     "value": {}
     }
+   ],
+   "apiVersion": "2020-03-01",
+   "defaultBody": null,
+   "deleteAsyncStyle": "azure-async-operation",
+   "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}/privateEndpointConnections/{privateEndpointConnectionName}",
+   "putAsyncStyle": "azure-async-operation",
+   "response": {
+    "id": {},
+    "name": {},
+    "privateEndpoint": {
+     "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateEndpointResponse",
+     "containers": [
+      "properties"
+     ]
+    },
+    "privateLinkServiceConnectionState": {
+     "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateLinkServiceConnectionStateResponse",
+     "containers": [
+      "properties"
+     ]
+    },
+    "provisioningState": {
+     "containers": [
+      "properties"
+     ]
+    },
+    "type": {}
    }
   },
-  "azure-native:aadiam/v20200301:PrivateLinkServiceConnectionStateResponse": {
-   "properties": {
-    "actionsRequired": {},
-    "description": {},
-    "status": {}
-   }
-  },
-  "azure-native:aadiam/v20200301:TagsResource": {
-   "properties": {
+  "azure-native_aadiam_v20200301:aadiam:PrivateLinkForAzureAd": {
+   "PUT": [
+    {
+     "location": "path",
+     "name": "subscriptionId",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "resourceGroupName",
+     "required": true,
+     "value": {
+      "maxLength": 90,
+      "minLength": 1,
+      "pattern": "^[-\\w\\._\\(\\)]+$",
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "policyName",
+     "required": true,
+     "value": {
+      "autoname": "random",
+      "type": "string"
+     }
+    },
+    {
+     "body": {
+      "properties": {
+       "allTenants": {
+        "type": "boolean"
+       },
+       "name": {
+        "type": "string"
+       },
+       "ownerTenantId": {
+        "type": "string"
+       },
+       "resourceGroup": {
+        "type": "string"
+       },
+       "resourceName": {
+        "type": "string"
+       },
+       "subscriptionId": {
+        "type": "string"
+       },
+       "tags": {
+        "additionalProperties": {
+         "type": "string"
+        },
+        "type": "object"
+       },
+       "tenants": {
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      }
+     },
+     "location": "body",
+     "name": "privateLinkPolicy",
+     "required": true,
+     "value": {}
+    }
+   ],
+   "apiVersion": "2020-03-01",
+   "defaultBody": null,
+   "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}",
+   "putAsyncStyle": "azure-async-operation",
+   "response": {
+    "allTenants": {},
+    "id": {},
+    "name": {},
+    "ownerTenantId": {},
+    "resourceGroup": {},
+    "resourceName": {},
+    "subscriptionId": {},
     "tags": {
      "additionalProperties": {
       "type": "string"
-     },
-     "type": "object"
-    }
+     }
+    },
+    "tenants": {
+     "items": {
+      "type": "string"
+     }
+    },
+    "type": {}
    }
   }
- }
+ },
+ "types": {}
 }
 ---
