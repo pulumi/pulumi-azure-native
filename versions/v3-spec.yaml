@@ -935,6 +935,9 @@ Monitor:
     additions:
         AutoscaleSetting: 2021-05-01-preview
         AzureMonitorWorkspace: 2023-10-01-preview
+        DataCollectionEndpoint: "2022-06-01"
+        DataCollectionRule: "2022-06-01"
+        DataCollectionRuleAssociation: "2022-06-01"
         DiagnosticSetting: 2021-05-01-preview
         ManagementGroupDiagnosticSetting: 2021-05-01-preview
         PrivateEndpointConnection: 2023-06-01-preview

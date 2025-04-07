@@ -298,7 +298,7 @@ def get_action_group(action_group_name: Optional[str] = None,
 
     Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-06-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str action_group_name: The name of the action group.
@@ -340,7 +340,7 @@ def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = Non
 
     Uses Azure REST API version 2024-10-01-preview.
 
-    Other available API versions: 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-06-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str action_group_name: The name of the action group.

@@ -20,6 +20,21 @@ export type AzureMonitorWorkspace = import("./azureMonitorWorkspace").AzureMonit
 export const AzureMonitorWorkspace: typeof import("./azureMonitorWorkspace").AzureMonitorWorkspace = null as any;
 utilities.lazyLoad(exports, ["AzureMonitorWorkspace"], () => require("./azureMonitorWorkspace"));
 
+export { DataCollectionEndpointArgs } from "./dataCollectionEndpoint";
+export type DataCollectionEndpoint = import("./dataCollectionEndpoint").DataCollectionEndpoint;
+export const DataCollectionEndpoint: typeof import("./dataCollectionEndpoint").DataCollectionEndpoint = null as any;
+utilities.lazyLoad(exports, ["DataCollectionEndpoint"], () => require("./dataCollectionEndpoint"));
+
+export { DataCollectionRuleArgs } from "./dataCollectionRule";
+export type DataCollectionRule = import("./dataCollectionRule").DataCollectionRule;
+export const DataCollectionRule: typeof import("./dataCollectionRule").DataCollectionRule = null as any;
+utilities.lazyLoad(exports, ["DataCollectionRule"], () => require("./dataCollectionRule"));
+
+export { DataCollectionRuleAssociationArgs } from "./dataCollectionRuleAssociation";
+export type DataCollectionRuleAssociation = import("./dataCollectionRuleAssociation").DataCollectionRuleAssociation;
+export const DataCollectionRuleAssociation: typeof import("./dataCollectionRuleAssociation").DataCollectionRuleAssociation = null as any;
+utilities.lazyLoad(exports, ["DataCollectionRuleAssociation"], () => require("./dataCollectionRuleAssociation"));
+
 export { DiagnosticSettingArgs } from "./diagnosticSetting";
 export type DiagnosticSetting = import("./diagnosticSetting").DiagnosticSetting;
 export const DiagnosticSetting: typeof import("./diagnosticSetting").DiagnosticSetting = null as any;
@@ -39,6 +54,21 @@ export { GetAzureMonitorWorkspaceArgs, GetAzureMonitorWorkspaceResult, GetAzureM
 export const getAzureMonitorWorkspace: typeof import("./getAzureMonitorWorkspace").getAzureMonitorWorkspace = null as any;
 export const getAzureMonitorWorkspaceOutput: typeof import("./getAzureMonitorWorkspace").getAzureMonitorWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getAzureMonitorWorkspace","getAzureMonitorWorkspaceOutput"], () => require("./getAzureMonitorWorkspace"));
+
+export { GetDataCollectionEndpointArgs, GetDataCollectionEndpointResult, GetDataCollectionEndpointOutputArgs } from "./getDataCollectionEndpoint";
+export const getDataCollectionEndpoint: typeof import("./getDataCollectionEndpoint").getDataCollectionEndpoint = null as any;
+export const getDataCollectionEndpointOutput: typeof import("./getDataCollectionEndpoint").getDataCollectionEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getDataCollectionEndpoint","getDataCollectionEndpointOutput"], () => require("./getDataCollectionEndpoint"));
+
+export { GetDataCollectionRuleArgs, GetDataCollectionRuleResult, GetDataCollectionRuleOutputArgs } from "./getDataCollectionRule";
+export const getDataCollectionRule: typeof import("./getDataCollectionRule").getDataCollectionRule = null as any;
+export const getDataCollectionRuleOutput: typeof import("./getDataCollectionRule").getDataCollectionRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getDataCollectionRule","getDataCollectionRuleOutput"], () => require("./getDataCollectionRule"));
+
+export { GetDataCollectionRuleAssociationArgs, GetDataCollectionRuleAssociationResult, GetDataCollectionRuleAssociationOutputArgs } from "./getDataCollectionRuleAssociation";
+export const getDataCollectionRuleAssociation: typeof import("./getDataCollectionRuleAssociation").getDataCollectionRuleAssociation = null as any;
+export const getDataCollectionRuleAssociationOutput: typeof import("./getDataCollectionRuleAssociation").getDataCollectionRuleAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getDataCollectionRuleAssociation","getDataCollectionRuleAssociationOutput"], () => require("./getDataCollectionRuleAssociation"));
 
 export { GetDiagnosticSettingArgs, GetDiagnosticSettingResult, GetDiagnosticSettingOutputArgs } from "./getDiagnosticSetting";
 export const getDiagnosticSetting: typeof import("./getDiagnosticSetting").getDiagnosticSetting = null as any;
@@ -144,6 +174,12 @@ const _module = {
                 return new AutoscaleSetting(name, <any>undefined, { urn })
             case "azure-native:monitor:AzureMonitorWorkspace":
                 return new AzureMonitorWorkspace(name, <any>undefined, { urn })
+            case "azure-native:monitor:DataCollectionEndpoint":
+                return new DataCollectionEndpoint(name, <any>undefined, { urn })
+            case "azure-native:monitor:DataCollectionRule":
+                return new DataCollectionRule(name, <any>undefined, { urn })
+            case "azure-native:monitor:DataCollectionRuleAssociation":
+                return new DataCollectionRuleAssociation(name, <any>undefined, { urn })
             case "azure-native:monitor:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:monitor:ManagementGroupDiagnosticSetting":

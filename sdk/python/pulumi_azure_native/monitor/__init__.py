@@ -9,10 +9,16 @@ from ._enums import *
 from .action_group import *
 from .autoscale_setting import *
 from .azure_monitor_workspace import *
+from .data_collection_endpoint import *
+from .data_collection_rule import *
+from .data_collection_rule_association import *
 from .diagnostic_setting import *
 from .get_action_group import *
 from .get_autoscale_setting import *
 from .get_azure_monitor_workspace import *
+from .get_data_collection_endpoint import *
+from .get_data_collection_rule import *
+from .get_data_collection_rule_association import *
 from .get_diagnostic_setting import *
 from .get_management_group_diagnostic_setting import *
 from .get_pipeline_group import *
