@@ -59,7 +59,7 @@ func VisitResourceTypes(pkg *pschema.PackageSpec, resourceToken string, visitor 
 }
 
 func visitComplexTypes(types map[string]pschema.ComplexTypeSpec, t pschema.TypeSpec, visitor func(tok string, t pschema.ComplexTypeSpec), seen codegen.Set) {
-	if strings.HasPrefix(t.Ref, "#/types/azure-native:") {
+	if strings.HasPrefix(t.Ref, "#/types/azure-native") {
 		typeName := strings.TrimPrefix(t.Ref, "#/types/")
 
 		other, ok := types[typeName]

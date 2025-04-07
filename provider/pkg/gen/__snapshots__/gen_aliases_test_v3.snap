@@ -940,6 +940,82 @@
     }
    ],
    "type": "string"
+  },
+  "azure-native_aadiam_v20200301:aadiam:PrivateEndpoint": {
+   "description": "Private endpoint object properties.",
+   "properties": {
+    "id": {
+     "description": "Full identifier of the private endpoint resource.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "azure-native_aadiam_v20200301:aadiam:PrivateEndpointResponse": {
+   "description": "Private endpoint object properties.",
+   "properties": {
+    "id": {
+     "description": "Full identifier of the private endpoint resource.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "azure-native_aadiam_v20200301:aadiam:PrivateLinkServiceConnectionState": {
+   "description": "An object that represents the approval state of the private link connection.",
+   "properties": {
+    "actionsRequired": {
+     "description": "A message indicating if changes on the service provider require any updates on the consumer.",
+     "type": "string"
+    },
+    "description": {
+     "description": "The reason for approval or rejection.",
+     "type": "string"
+    },
+    "status": {
+     "description": "Indicates whether the connection has been approved, rejected or removed by the given policy owner.",
+     "oneOf": [
+      {
+       "type": "string"
+      },
+      {
+       "$ref": "#/types/azure-native:aadiam:PrivateEndpointServiceConnectionStatus"
+      }
+     ]
+    }
+   },
+   "type": "object"
+  },
+  "azure-native_aadiam_v20200301:aadiam:PrivateLinkServiceConnectionStateResponse": {
+   "description": "An object that represents the approval state of the private link connection.",
+   "properties": {
+    "actionsRequired": {
+     "description": "A message indicating if changes on the service provider require any updates on the consumer.",
+     "type": "string"
+    },
+    "description": {
+     "description": "The reason for approval or rejection.",
+     "type": "string"
+    },
+    "status": {
+     "description": "Indicates whether the connection has been approved, rejected or removed by the given policy owner.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "azure-native_aadiam_v20200301:aadiam:TagsResource": {
+   "description": "A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.",
+   "properties": {
+    "tags": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "description": "Resource tags",
+     "type": "object"
+    }
+   },
+   "type": "object"
   }
  }
 }
@@ -1523,6 +1599,49 @@
    }
   }
  },
- "types": {}
+ "types": {
+  "azure-native_aadiam_v20200301:aadiam:PrivateEndpoint": {
+   "properties": {
+    "id": {
+     "type": "string"
+    }
+   }
+  },
+  "azure-native_aadiam_v20200301:aadiam:PrivateEndpointResponse": {
+   "properties": {
+    "id": {}
+   }
+  },
+  "azure-native_aadiam_v20200301:aadiam:PrivateLinkServiceConnectionState": {
+   "properties": {
+    "actionsRequired": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   }
+  },
+  "azure-native_aadiam_v20200301:aadiam:PrivateLinkServiceConnectionStateResponse": {
+   "properties": {
+    "actionsRequired": {},
+    "description": {},
+    "status": {}
+   }
+  },
+  "azure-native_aadiam_v20200301:aadiam:TagsResource": {
+   "properties": {
+    "tags": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "type": "object"
+    }
+   }
+  }
+ }
 }
 ---

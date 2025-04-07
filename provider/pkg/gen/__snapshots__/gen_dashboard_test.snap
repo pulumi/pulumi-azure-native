@@ -504,6 +504,431 @@
    }
   ],
   "type": "string"
+ },
+ "azure-native_portal_v20200901preview:portal:ConfigurationProperties": {
+  "description": "Tenant Configuration Properties with Provisioning state",
+  "properties": {
+   "enforcePrivateMarkdownStorage": {
+    "description": "When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.",
+    "type": "boolean"
+   }
+  },
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:ConfigurationPropertiesResponse": {
+  "description": "Tenant Configuration Properties with Provisioning state",
+  "properties": {
+   "enforcePrivateMarkdownStorage": {
+    "description": "When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.",
+    "type": "boolean"
+   },
+   "provisioningState": {
+    "description": "The status of the last operation.",
+    "type": "string"
+   }
+  },
+  "required": [
+   "provisioningState"
+  ],
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardLens": {
+  "description": "A dashboard lens.",
+  "properties": {
+   "metadata": {
+    "$ref": "pulumi.json#/Any",
+    "description": "The dashboard len's metadata."
+   },
+   "order": {
+    "description": "The lens order.",
+    "type": "integer"
+   },
+   "parts": {
+    "description": "The dashboard parts.",
+    "items": {
+     "$ref": "#/types/azure-native_portal_v20200901preview:portal:DashboardParts",
+     "type": "object"
+    },
+    "type": "array"
+   }
+  },
+  "required": [
+   "order",
+   "parts"
+  ],
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardLensResponse": {
+  "description": "A dashboard lens.",
+  "properties": {
+   "metadata": {
+    "$ref": "pulumi.json#/Any",
+    "description": "The dashboard len's metadata."
+   },
+   "order": {
+    "description": "The lens order.",
+    "type": "integer"
+   },
+   "parts": {
+    "description": "The dashboard parts.",
+    "items": {
+     "$ref": "#/types/azure-native_portal_v20200901preview:portal:DashboardPartsResponse",
+     "type": "object"
+    },
+    "type": "array"
+   }
+  },
+  "required": [
+   "order",
+   "parts"
+  ],
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardParts": {
+  "description": "A dashboard part.",
+  "properties": {
+   "metadata": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadata",
+    "description": "The dashboard part's metadata.",
+    "type": "object"
+   },
+   "position": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:DashboardPartsPosition",
+    "description": "The dashboard's part position.",
+    "type": "object"
+   }
+  },
+  "required": [
+   "position"
+  ],
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardPartsPosition": {
+  "description": "The dashboard's part position.",
+  "properties": {
+   "colSpan": {
+    "description": "The dashboard's part column span.",
+    "type": "integer"
+   },
+   "metadata": {
+    "$ref": "pulumi.json#/Any",
+    "description": "The dashboard part's metadata."
+   },
+   "rowSpan": {
+    "description": "The dashboard's part row span.",
+    "type": "integer"
+   },
+   "x": {
+    "description": "The dashboard's part x coordinate.",
+    "type": "integer"
+   },
+   "y": {
+    "description": "The dashboard's part y coordinate.",
+    "type": "integer"
+   }
+  },
+  "required": [
+   "colSpan",
+   "rowSpan",
+   "x",
+   "y"
+  ],
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardPartsPositionResponse": {
+  "description": "The dashboard's part position.",
+  "properties": {
+   "colSpan": {
+    "description": "The dashboard's part column span.",
+    "type": "integer"
+   },
+   "metadata": {
+    "$ref": "pulumi.json#/Any",
+    "description": "The dashboard part's metadata."
+   },
+   "rowSpan": {
+    "description": "The dashboard's part row span.",
+    "type": "integer"
+   },
+   "x": {
+    "description": "The dashboard's part x coordinate.",
+    "type": "integer"
+   },
+   "y": {
+    "description": "The dashboard's part y coordinate.",
+    "type": "integer"
+   }
+  },
+  "required": [
+   "colSpan",
+   "rowSpan",
+   "x",
+   "y"
+  ],
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardPartsResponse": {
+  "description": "A dashboard part.",
+  "properties": {
+   "metadata": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataResponse",
+    "description": "The dashboard part's metadata.",
+    "type": "object"
+   },
+   "position": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:DashboardPartsPositionResponse",
+    "description": "The dashboard's part position.",
+    "type": "object"
+   }
+  },
+  "required": [
+   "position"
+  ],
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardPropertiesWithProvisioningState": {
+  "description": "Dashboard Properties with Provisioning state",
+  "properties": {
+   "lenses": {
+    "description": "The dashboard lenses.",
+    "items": {
+     "$ref": "#/types/azure-native_portal_v20200901preview:portal:DashboardLens",
+     "type": "object"
+    },
+    "type": "array"
+   },
+   "metadata": {
+    "$ref": "pulumi.json#/Any",
+    "description": "The dashboard metadata."
+   }
+  },
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardPropertiesWithProvisioningStateResponse": {
+  "description": "Dashboard Properties with Provisioning state",
+  "properties": {
+   "lenses": {
+    "description": "The dashboard lenses.",
+    "items": {
+     "$ref": "#/types/azure-native_portal_v20200901preview:portal:DashboardLensResponse",
+     "type": "object"
+    },
+    "type": "array"
+   },
+   "metadata": {
+    "$ref": "pulumi.json#/Any",
+    "description": "The dashboard metadata."
+   },
+   "provisioningState": {
+    "description": "The status of the last operation.",
+    "type": "string"
+   }
+  },
+  "required": [
+   "provisioningState"
+  ],
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadata": {
+  "description": "Markdown part metadata.",
+  "properties": {
+   "inputs": {
+    "description": "Input to dashboard part.",
+    "items": {
+     "$ref": "pulumi.json#/Any"
+    },
+    "type": "array"
+   },
+   "settings": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettings",
+    "description": "Markdown part settings.",
+    "type": "object"
+   },
+   "type": {
+    "const": "Extension/HubsExtension/PartType/MarkdownPart",
+    "description": "The dashboard part metadata type.\nExpected value is 'Extension/HubsExtension/PartType/MarkdownPart'.",
+    "type": "string"
+   }
+  },
+  "required": [
+   "type"
+  ],
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataResponse": {
+  "description": "Markdown part metadata.",
+  "properties": {
+   "inputs": {
+    "description": "Input to dashboard part.",
+    "items": {
+     "$ref": "pulumi.json#/Any"
+    },
+    "type": "array"
+   },
+   "settings": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsResponse",
+    "description": "Markdown part settings.",
+    "type": "object"
+   },
+   "type": {
+    "const": "Extension/HubsExtension/PartType/MarkdownPart",
+    "description": "The dashboard part metadata type.\nExpected value is 'Extension/HubsExtension/PartType/MarkdownPart'.",
+    "type": "string"
+   }
+  },
+  "required": [
+   "type"
+  ],
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettings": {
+  "description": "Markdown part settings.",
+  "properties": {
+   "content": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContent",
+    "description": "The content of markdown part.",
+    "type": "object"
+   }
+  },
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContent": {
+  "description": "The content of markdown part.",
+  "properties": {
+   "settings": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContentSettings",
+    "description": "The setting of the content of markdown part.",
+    "type": "object"
+   }
+  },
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContentResponse": {
+  "description": "The content of markdown part.",
+  "properties": {
+   "settings": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContentSettingsResponse",
+    "description": "The setting of the content of markdown part.",
+    "type": "object"
+   }
+  },
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContentSettings": {
+  "description": "The setting of the content of markdown part.",
+  "properties": {
+   "content": {
+    "description": "The content of the markdown part.",
+    "type": "string"
+   },
+   "markdownSource": {
+    "description": "The source of the content of the markdown part.",
+    "type": "integer"
+   },
+   "markdownUri": {
+    "description": "The uri of markdown content.",
+    "type": "string"
+   },
+   "subtitle": {
+    "description": "The subtitle of the markdown part.",
+    "type": "string"
+   },
+   "title": {
+    "description": "The title of the markdown part.",
+    "type": "string"
+   }
+  },
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContentSettingsResponse": {
+  "description": "The setting of the content of markdown part.",
+  "properties": {
+   "content": {
+    "description": "The content of the markdown part.",
+    "type": "string"
+   },
+   "markdownSource": {
+    "description": "The source of the content of the markdown part.",
+    "type": "integer"
+   },
+   "markdownUri": {
+    "description": "The uri of markdown content.",
+    "type": "string"
+   },
+   "subtitle": {
+    "description": "The subtitle of the markdown part.",
+    "type": "string"
+   },
+   "title": {
+    "description": "The title of the markdown part.",
+    "type": "string"
+   }
+  },
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsResponse": {
+  "description": "Markdown part settings.",
+  "properties": {
+   "content": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContentResponse",
+    "description": "The content of markdown part.",
+    "type": "object"
+   }
+  },
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:SystemDataResponse": {
+  "description": "Metadata pertaining to creation and last modification of the resource.",
+  "properties": {
+   "createdAt": {
+    "description": "The timestamp of resource creation (UTC).",
+    "type": "string"
+   },
+   "createdBy": {
+    "description": "The identity that created the resource.",
+    "type": "string"
+   },
+   "createdByType": {
+    "description": "The type of identity that created the resource.",
+    "type": "string"
+   },
+   "lastModifiedAt": {
+    "description": "The timestamp of resource last modification (UTC)",
+    "type": "string"
+   },
+   "lastModifiedBy": {
+    "description": "The identity that last modified the resource.",
+    "type": "string"
+   },
+   "lastModifiedByType": {
+    "description": "The type of identity that last modified the resource.",
+    "type": "string"
+   }
+  },
+  "type": "object"
+ },
+ "azure-native_portal_v20200901preview:portal:ViolationResponse": {
+  "description": "Violation information.",
+  "properties": {
+   "errorMessage": {
+    "description": "Error message.",
+    "type": "string"
+   },
+   "id": {
+    "description": "Id of the item that violates tenant configuration.",
+    "type": "string"
+   },
+   "userId": {
+    "description": "Id of the user who owns violated item.",
+    "type": "string"
+   }
+  },
+  "required": [
+   "errorMessage",
+   "id",
+   "userId"
+  ],
+  "type": "object"
  }
 }
 ---
@@ -701,6 +1126,263 @@
    "lastModifiedAt": {},
    "lastModifiedBy": {},
    "lastModifiedByType": {}
+  }
+ },
+ "azure-native_portal_v20200901preview:portal:ConfigurationProperties": {
+  "properties": {
+   "enforcePrivateMarkdownStorage": {
+    "type": "boolean"
+   }
+  }
+ },
+ "azure-native_portal_v20200901preview:portal:ConfigurationPropertiesResponse": {
+  "properties": {
+   "enforcePrivateMarkdownStorage": {},
+   "provisioningState": {}
+  }
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardLens": {
+  "properties": {
+   "metadata": {
+    "$ref": "pulumi.json#/Any"
+   },
+   "order": {
+    "type": "integer"
+   },
+   "parts": {
+    "items": {
+     "$ref": "#/types/azure-native_portal_v20200901preview:portal:DashboardParts",
+     "type": "object"
+    },
+    "type": "array"
+   }
+  },
+  "required": [
+   "order",
+   "parts"
+  ]
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardLensResponse": {
+  "properties": {
+   "metadata": {
+    "$ref": "pulumi.json#/Any"
+   },
+   "order": {},
+   "parts": {
+    "items": {
+     "$ref": "#/types/azure-native_portal_v20200901preview:portal:DashboardPartsResponse",
+     "type": "object"
+    }
+   }
+  },
+  "required": [
+   "order",
+   "parts"
+  ]
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardParts": {
+  "properties": {
+   "metadata": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadata",
+    "type": "object"
+   },
+   "position": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:DashboardPartsPosition",
+    "type": "object"
+   }
+  },
+  "required": [
+   "position"
+  ]
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardPartsPosition": {
+  "properties": {
+   "colSpan": {
+    "type": "integer"
+   },
+   "metadata": {
+    "$ref": "pulumi.json#/Any"
+   },
+   "rowSpan": {
+    "type": "integer"
+   },
+   "x": {
+    "type": "integer"
+   },
+   "y": {
+    "type": "integer"
+   }
+  },
+  "required": [
+   "colSpan",
+   "rowSpan",
+   "x",
+   "y"
+  ]
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardPartsPositionResponse": {
+  "properties": {
+   "colSpan": {},
+   "metadata": {
+    "$ref": "pulumi.json#/Any"
+   },
+   "rowSpan": {},
+   "x": {},
+   "y": {}
+  },
+  "required": [
+   "colSpan",
+   "rowSpan",
+   "x",
+   "y"
+  ]
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardPartsResponse": {
+  "properties": {
+   "metadata": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataResponse"
+   },
+   "position": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:DashboardPartsPositionResponse"
+   }
+  },
+  "required": [
+   "position"
+  ]
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardPropertiesWithProvisioningState": {
+  "properties": {
+   "lenses": {
+    "items": {
+     "$ref": "#/types/azure-native_portal_v20200901preview:portal:DashboardLens",
+     "type": "object"
+    },
+    "type": "array"
+   },
+   "metadata": {
+    "$ref": "pulumi.json#/Any"
+   }
+  }
+ },
+ "azure-native_portal_v20200901preview:portal:DashboardPropertiesWithProvisioningStateResponse": {
+  "properties": {
+   "lenses": {
+    "items": {
+     "$ref": "#/types/azure-native_portal_v20200901preview:portal:DashboardLensResponse",
+     "type": "object"
+    }
+   },
+   "metadata": {
+    "$ref": "pulumi.json#/Any"
+   },
+   "provisioningState": {}
+  }
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadata": {
+  "properties": {
+   "inputs": {
+    "type": "array"
+   },
+   "settings": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettings",
+    "type": "object"
+   },
+   "type": {
+    "const": "Extension/HubsExtension/PartType/MarkdownPart",
+    "type": "string"
+   }
+  },
+  "required": [
+   "type"
+  ]
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataResponse": {
+  "properties": {
+   "inputs": {},
+   "settings": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsResponse"
+   },
+   "type": {
+    "const": "Extension/HubsExtension/PartType/MarkdownPart"
+   }
+  },
+  "required": [
+   "type"
+  ]
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettings": {
+  "properties": {
+   "content": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContent",
+    "type": "object"
+   }
+  }
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContent": {
+  "properties": {
+   "settings": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContentSettings",
+    "type": "object"
+   }
+  }
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContentResponse": {
+  "properties": {
+   "settings": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContentSettingsResponse"
+   }
+  }
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContentSettings": {
+  "properties": {
+   "content": {
+    "type": "string"
+   },
+   "markdownSource": {
+    "type": "integer"
+   },
+   "markdownUri": {
+    "type": "string"
+   },
+   "subtitle": {
+    "type": "string"
+   },
+   "title": {
+    "type": "string"
+   }
+  }
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContentSettingsResponse": {
+  "properties": {
+   "content": {},
+   "markdownSource": {},
+   "markdownUri": {},
+   "subtitle": {},
+   "title": {}
+  }
+ },
+ "azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsResponse": {
+  "properties": {
+   "content": {
+    "$ref": "#/types/azure-native_portal_v20200901preview:portal:MarkdownPartMetadataSettingsContentResponse"
+   }
+  }
+ },
+ "azure-native_portal_v20200901preview:portal:SystemDataResponse": {
+  "properties": {
+   "createdAt": {},
+   "createdBy": {},
+   "createdByType": {},
+   "lastModifiedAt": {},
+   "lastModifiedBy": {},
+   "lastModifiedByType": {}
+  }
+ },
+ "azure-native_portal_v20200901preview:portal:ViolationResponse": {
+  "properties": {
+   "errorMessage": {},
+   "id": {},
+   "userId": {}
   }
  }
 }
