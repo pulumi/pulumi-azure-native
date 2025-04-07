@@ -529,7 +529,7 @@ MobileNetwork:
   notes: |
     https://learn.microsoft.com/en-us/rest/api/mobilenetwork/mobile-networks
 Monitor:
-  explicit: true
+  expectAdditions: true
   notes: |
     Each API version only includes changed resources so no benefit in tracking a version
     Docs: https://learn.microsoft.com/en-us/rest/api/monitor/

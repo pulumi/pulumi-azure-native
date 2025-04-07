@@ -3219,12 +3219,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.monitor",
   "classes": {
    "azure-native:monitor:ActionGroup": "ActionGroup",
+   "azure-native:monitor:AutoscaleSetting": "AutoscaleSetting",
    "azure-native:monitor:AzureMonitorWorkspace": "AzureMonitorWorkspace",
+   "azure-native:monitor:DiagnosticSetting": "DiagnosticSetting",
+   "azure-native:monitor:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting",
    "azure-native:monitor:PipelineGroup": "PipelineGroup",
    "azure-native:monitor:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:monitor:PrivateLinkScope": "PrivateLinkScope",
    "azure-native:monitor:PrivateLinkScopedResource": "PrivateLinkScopedResource",
    "azure-native:monitor:ScheduledQueryRule": "ScheduledQueryRule",
+   "azure-native:monitor:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting",
    "azure-native:monitor:TenantActionGroup": "TenantActionGroup"
   }
  },

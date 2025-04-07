@@ -71,6 +71,12 @@
     "totalBudget.currency": {},
     "totalBudget.value": {}
   },
+  "azure-native:monitor/v20210501preview:AutoscaleSetting": {
+    "properties.name": {}
+  },
+  "azure-native:monitor:AutoscaleSetting": {
+    "properties.name": {}
+  },
   "azure-native:network/v20180801:P2sVpnServerConfiguration": {
     "properties.etag": {},
     "properties.name": {}
