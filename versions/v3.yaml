@@ -8422,6 +8422,21 @@ Monitor:
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/preview/2023-10-01-preview/azuremonitor.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}
         RpNamespace: Microsoft.Monitor
+    DataCollectionEndpoint:
+        ApiVersion: "2022-06-01"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2022-06-01/dataCollectionEndpoints_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionEndpoints/{dataCollectionEndpointName}
+        RpNamespace: Microsoft.Insights
+    DataCollectionRule:
+        ApiVersion: "2022-06-01"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2022-06-01/dataCollectionRules_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}
+        RpNamespace: Microsoft.Insights
+    DataCollectionRuleAssociation:
+        ApiVersion: "2022-06-01"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2022-06-01/dataCollectionRuleAssociations_API.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.Insights/dataCollectionRuleAssociations/{associationName}
+        RpNamespace: Microsoft.Insights
     DiagnosticSetting:
         ApiVersion: 2021-05-01-preview
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/diagnosticsSettings_API.json
