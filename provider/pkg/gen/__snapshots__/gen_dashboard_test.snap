@@ -584,6 +584,17 @@
   ],
   "type": "object"
  },
+ "azure-native_portal_v20200901preview:portal:DashboardPartMetadataType": {
+  "description": "The dashboard part metadata type.",
+  "enum": [
+   {
+    "description": "The markdown part type.",
+    "name": "markdown",
+    "value": "Extension/HubsExtension/PartType/MarkdownPart"
+   }
+  ],
+  "type": "string"
+ },
  "azure-native_portal_v20200901preview:portal:DashboardParts": {
   "description": "A dashboard part.",
   "properties": {

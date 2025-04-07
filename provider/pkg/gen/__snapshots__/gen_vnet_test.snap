@@ -10298,7 +10298,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:ApplicationGatewayProtocol"
+        "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayProtocol"
        }
       ]
      },
@@ -11097,7 +11097,7 @@
          "type": "string"
         },
         {
-         "$ref": "#/types/azure-native:network:ConfigurationType"
+         "$ref": "#/types/azure-native_network_v20230201:network:ConfigurationType"
         }
        ]
       },
@@ -11665,7 +11665,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:SecurityConfigurationRuleAccess"
+       "$ref": "#/types/azure-native_network_v20230201:network:SecurityConfigurationRuleAccess"
       }
      ]
     },
@@ -11700,7 +11700,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:SecurityConfigurationRuleDirection"
+       "$ref": "#/types/azure-native_network_v20230201:network:SecurityConfigurationRuleDirection"
       }
      ]
     },
@@ -11725,7 +11725,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:SecurityConfigurationRuleProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:SecurityConfigurationRuleProtocol"
       }
      ]
     },
@@ -12783,7 +12783,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AzureFirewallThreatIntelMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:AzureFirewallThreatIntelMode"
       }
      ]
     },
@@ -13437,7 +13437,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ConnectivityTopology"
+       "$ref": "#/types/azure-native_network_v20230201:network:ConnectivityTopology"
       }
      ]
     },
@@ -13448,7 +13448,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:DeleteExistingPeering"
+       "$ref": "#/types/azure-native_network_v20230201:network:DeleteExistingPeering"
       }
      ]
     },
@@ -13471,7 +13471,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IsGlobal"
+       "$ref": "#/types/azure-native_network_v20230201:network:IsGlobal"
       }
      ]
     },
@@ -13590,7 +13590,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:CommissionedState"
+       "$ref": "#/types/azure-native_network_v20230201:network:CommissionedState"
       }
      ]
     },
@@ -13620,7 +13620,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:Geo"
+       "$ref": "#/types/azure-native_network_v20230201:network:Geo"
       }
      ]
     },
@@ -13643,7 +13643,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:CustomIpPrefixType"
+       "$ref": "#/types/azure-native_network_v20230201:network:CustomIpPrefixType"
       }
      ]
     },
@@ -14171,7 +14171,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ProtocolType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ProtocolType"
       }
      ]
     },
@@ -14413,7 +14413,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ServiceProviderProvisioningState"
+       "$ref": "#/types/azure-native_network_v20230201:network:ServiceProviderProvisioningState"
       }
      ]
     },
@@ -14571,7 +14571,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AuthorizationUseStatus"
+       "$ref": "#/types/azure-native_network_v20230201:network:AuthorizationUseStatus"
       }
      ]
     },
@@ -14812,7 +14812,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRoutePeeringType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRoutePeeringType"
       }
      ]
     },
@@ -14853,7 +14853,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRoutePeeringState"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRoutePeeringState"
       }
      ]
     },
@@ -15153,7 +15153,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRoutePeeringType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRoutePeeringType"
       }
      ]
     },
@@ -15181,7 +15181,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRoutePeeringState"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRoutePeeringState"
       }
      ]
     },
@@ -15415,7 +15415,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRoutePortsBillingType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRoutePortsBillingType"
       }
      ]
     },
@@ -15426,7 +15426,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRoutePortsEncapsulation"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRoutePortsEncapsulation"
       }
      ]
     },
@@ -15737,7 +15737,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AzureFirewallThreatIntelMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:AzureFirewallThreatIntelMode"
       }
      ]
     },
@@ -16414,7 +16414,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:TransportProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:TransportProtocol"
       }
      ]
     },
@@ -16549,7 +16549,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPVersion"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPVersion"
       }
      ]
     },
@@ -16572,7 +16572,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IpAllocationType"
+       "$ref": "#/types/azure-native_network_v20230201:network:IpAllocationType"
       }
      ]
     }
@@ -17502,7 +17502,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnNatRuleMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnNatRuleMode"
       }
      ]
     },
@@ -17527,7 +17527,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnNatRuleType"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnNatRuleType"
       }
      ]
     }
@@ -17691,7 +17691,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:NetworkInterfaceAuxiliaryMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:NetworkInterfaceAuxiliaryMode"
       }
      ]
     },
@@ -17702,7 +17702,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:NetworkInterfaceAuxiliarySku"
+       "$ref": "#/types/azure-native_network_v20230201:network:NetworkInterfaceAuxiliarySku"
       }
      ]
     },
@@ -17751,7 +17751,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:NetworkInterfaceMigrationPhase"
+       "$ref": "#/types/azure-native_network_v20230201:network:NetworkInterfaceMigrationPhase"
       }
      ]
     },
@@ -17772,7 +17772,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:NetworkInterfaceNicType"
+       "$ref": "#/types/azure-native_network_v20230201:network:NetworkInterfaceNicType"
       }
      ]
     },
@@ -18057,7 +18057,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:ConfigurationType"
+        "$ref": "#/types/azure-native_network_v20230201:network:ConfigurationType"
        }
       ]
      },
@@ -18957,7 +18957,7 @@
      "type": "string"
     },
     "targetType": {
-     "$ref": "#/types/azure-native:network:PacketCaptureTargetType",
+     "$ref": "#/types/azure-native_network_v20230201:network:PacketCaptureTargetType",
      "description": "Target type of the resource provided."
     },
     "timeLimitInSeconds": {
@@ -19593,7 +19593,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:DeleteOptions"
+       "$ref": "#/types/azure-native_network_v20230201:network:DeleteOptions"
       }
      ]
     },
@@ -19644,7 +19644,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:PublicIPAddressMigrationPhase"
+       "$ref": "#/types/azure-native_network_v20230201:network:PublicIPAddressMigrationPhase"
       }
      ]
     },
@@ -19660,7 +19660,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPVersion"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPVersion"
       }
      ],
      "willReplaceOnChanges": true
@@ -19672,7 +19672,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPAllocationMethod"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPAllocationMethod"
       }
      ]
     },
@@ -19898,7 +19898,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPVersion"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPVersion"
       }
      ]
     },
@@ -20075,7 +20075,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:RouteNextHopType"
+       "$ref": "#/types/azure-native_network_v20230201:network:RouteNextHopType"
       }
      ]
     },
@@ -20269,7 +20269,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:Access"
+       "$ref": "#/types/azure-native_network_v20230201:network:Access"
       }
      ]
     },
@@ -20309,7 +20309,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:RouteFilterRuleType"
+       "$ref": "#/types/azure-native_network_v20230201:network:RouteFilterRuleType"
       }
      ]
     },
@@ -20754,7 +20754,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:NetworkIntentPolicyBasedService"
+        "$ref": "#/types/azure-native_network_v20230201:network:NetworkIntentPolicyBasedService"
        }
       ]
      },
@@ -20865,7 +20865,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:SecurityProviderName"
+       "$ref": "#/types/azure-native_network_v20230201:network:SecurityProviderName"
       }
      ]
     },
@@ -20951,7 +20951,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:SecurityRuleAccess"
+       "$ref": "#/types/azure-native_network_v20230201:network:SecurityRuleAccess"
       }
      ]
     },
@@ -20996,7 +20996,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:SecurityRuleDirection"
+       "$ref": "#/types/azure-native_network_v20230201:network:SecurityRuleDirection"
       }
      ]
     },
@@ -21024,7 +21024,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:SecurityRuleProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:SecurityRuleProtocol"
       }
      ]
     },
@@ -21562,7 +21562,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkPrivateEndpointNetworkPolicies"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkPrivateEndpointNetworkPolicies"
       }
      ]
     },
@@ -21574,7 +21574,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkPrivateLinkServiceNetworkPolicies"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkPrivateLinkServiceNetworkPolicies"
       }
      ]
     },
@@ -21942,7 +21942,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:HubRoutingPreference"
+       "$ref": "#/types/azure-native_network_v20230201:network:HubRoutingPreference"
       }
      ]
     },
@@ -21966,7 +21966,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:PreferredRoutingGateway"
+       "$ref": "#/types/azure-native_network_v20230201:network:PreferredRoutingGateway"
       }
      ]
     },
@@ -22325,7 +22325,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPAllocationMethod"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPAllocationMethod"
       }
      ]
     },
@@ -22727,7 +22727,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AdminState"
+       "$ref": "#/types/azure-native_network_v20230201:network:AdminState"
       }
      ]
     },
@@ -22786,7 +22786,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkGatewayType"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkGatewayType"
       }
      ]
     },
@@ -22860,7 +22860,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnGatewayGeneration"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnGatewayGeneration"
       }
      ]
     },
@@ -22871,7 +22871,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnType"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnType"
       }
      ]
     }
@@ -23051,7 +23051,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkGatewayConnectionMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkGatewayConnectionMode"
       }
      ]
     },
@@ -23062,7 +23062,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkGatewayConnectionProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkGatewayConnectionProtocol"
       }
      ]
     },
@@ -23073,7 +23073,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkGatewayConnectionType"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkGatewayConnectionType"
       }
      ]
     },
@@ -23415,7 +23415,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnNatRuleMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnNatRuleMode"
       }
      ]
     },
@@ -23440,7 +23440,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnNatRuleType"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnNatRuleType"
       }
      ]
     },
@@ -23542,7 +23542,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkPeeringState"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkPeeringState"
       }
      ]
     },
@@ -23553,7 +23553,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkPeeringLevel"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkPeeringLevel"
       }
      ]
     },
@@ -24236,7 +24236,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkGatewayConnectionProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkGatewayConnectionProtocol"
       }
      ]
     },
@@ -24922,2670 +24922,6 @@
   }
  },
  "types": {
-  "azure-native:network:Access": {
-   "description": "The access type of the rule.",
-   "enum": [
-    {
-     "value": "Allow"
-    },
-    {
-     "value": "Deny"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ActionType": {
-   "description": "Describes the override action to be applied when rule matches.",
-   "enum": [
-    {
-     "value": "AnomalyScoring"
-    },
-    {
-     "value": "Allow"
-    },
-    {
-     "value": "Block"
-    },
-    {
-     "value": "Log"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:AddressPrefixType": {
-   "description": "Address prefix type.",
-   "enum": [
-    {
-     "value": "IPPrefix"
-    },
-    {
-     "value": "ServiceTag"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:AdminRuleKind": {
-   "description": "Whether the rule is custom or default.",
-   "enum": [
-    {
-     "value": "Custom"
-    },
-    {
-     "value": "Default"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:AdminState": {
-   "description": "Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet",
-   "enum": [
-    {
-     "value": "Enabled"
-    },
-    {
-     "value": "Disabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewayClientRevocationOptions": {
-   "description": "Verify client certificate revocation status.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "OCSP"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewayCookieBasedAffinity": {
-   "description": "Cookie based affinity.",
-   "enum": [
-    {
-     "value": "Enabled"
-    },
-    {
-     "value": "Disabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewayCustomErrorStatusCode": {
-   "description": "Status code of the application gateway custom error.",
-   "enum": [
-    {
-     "value": "HttpStatus400"
-    },
-    {
-     "value": "HttpStatus403"
-    },
-    {
-     "value": "HttpStatus404"
-    },
-    {
-     "value": "HttpStatus405"
-    },
-    {
-     "value": "HttpStatus408"
-    },
-    {
-     "value": "HttpStatus500"
-    },
-    {
-     "value": "HttpStatus502"
-    },
-    {
-     "value": "HttpStatus503"
-    },
-    {
-     "value": "HttpStatus504"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewayFirewallMode": {
-   "description": "Web application firewall mode.",
-   "enum": [
-    {
-     "value": "Detection"
-    },
-    {
-     "value": "Prevention"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewayFirewallRateLimitDuration": {
-   "description": "Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule.",
-   "enum": [
-    {
-     "value": "OneMin"
-    },
-    {
-     "value": "FiveMins"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewayFirewallUserSessionVariable": {
-   "description": "User Session clause variable.",
-   "enum": [
-    {
-     "value": "ClientAddr"
-    },
-    {
-     "value": "GeoLocation"
-    },
-    {
-     "value": "None"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewayLoadDistributionAlgorithm": {
-   "description": "Load Distribution Targets resource of an application gateway.",
-   "enum": [
-    {
-     "value": "RoundRobin"
-    },
-    {
-     "value": "LeastConnections"
-    },
-    {
-     "value": "IpHash"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewayProtocol": {
-   "description": "The protocol used for the probe.",
-   "enum": [
-    {
-     "value": "Http"
-    },
-    {
-     "value": "Https"
-    },
-    {
-     "value": "Tcp"
-    },
-    {
-     "value": "Tls"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewayRedirectType": {
-   "description": "HTTP redirection type.",
-   "enum": [
-    {
-     "value": "Permanent"
-    },
-    {
-     "value": "Found"
-    },
-    {
-     "value": "SeeOther"
-    },
-    {
-     "value": "Temporary"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewayRequestRoutingRuleType": {
-   "description": "Rule type.",
-   "enum": [
-    {
-     "value": "Basic"
-    },
-    {
-     "value": "PathBasedRouting"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewaySkuName": {
-   "description": "Name of an application gateway SKU.",
-   "enum": [
-    {
-     "value": "Standard_Small"
-    },
-    {
-     "value": "Standard_Medium"
-    },
-    {
-     "value": "Standard_Large"
-    },
-    {
-     "value": "WAF_Medium"
-    },
-    {
-     "value": "WAF_Large"
-    },
-    {
-     "value": "Standard_v2"
-    },
-    {
-     "value": "WAF_v2"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewaySslCipherSuite": {
-   "description": "Ssl cipher suites enums.",
-   "enum": [
-    {
-     "value": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
-    },
-    {
-     "value": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
-    },
-    {
-     "value": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
-    },
-    {
-     "value": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
-    },
-    {
-     "value": "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384"
-    },
-    {
-     "value": "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
-    },
-    {
-     "value": "TLS_DHE_RSA_WITH_AES_256_CBC_SHA"
-    },
-    {
-     "value": "TLS_DHE_RSA_WITH_AES_128_CBC_SHA"
-    },
-    {
-     "value": "TLS_RSA_WITH_AES_256_GCM_SHA384"
-    },
-    {
-     "value": "TLS_RSA_WITH_AES_128_GCM_SHA256"
-    },
-    {
-     "value": "TLS_RSA_WITH_AES_256_CBC_SHA256"
-    },
-    {
-     "value": "TLS_RSA_WITH_AES_128_CBC_SHA256"
-    },
-    {
-     "value": "TLS_RSA_WITH_AES_256_CBC_SHA"
-    },
-    {
-     "value": "TLS_RSA_WITH_AES_128_CBC_SHA"
-    },
-    {
-     "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"
-    },
-    {
-     "value": "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
-    },
-    {
-     "value": "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384"
-    },
-    {
-     "value": "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"
-    },
-    {
-     "value": "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA"
-    },
-    {
-     "value": "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA"
-    },
-    {
-     "value": "TLS_DHE_DSS_WITH_AES_256_CBC_SHA256"
-    },
-    {
-     "value": "TLS_DHE_DSS_WITH_AES_128_CBC_SHA256"
-    },
-    {
-     "value": "TLS_DHE_DSS_WITH_AES_256_CBC_SHA"
-    },
-    {
-     "value": "TLS_DHE_DSS_WITH_AES_128_CBC_SHA"
-    },
-    {
-     "value": "TLS_RSA_WITH_3DES_EDE_CBC_SHA"
-    },
-    {
-     "value": "TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA"
-    },
-    {
-     "value": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
-    },
-    {
-     "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewaySslPolicyName": {
-   "description": "Name of Ssl predefined policy.",
-   "enum": [
-    {
-     "value": "AppGwSslPolicy20150501"
-    },
-    {
-     "value": "AppGwSslPolicy20170401"
-    },
-    {
-     "value": "AppGwSslPolicy20170401S"
-    },
-    {
-     "value": "AppGwSslPolicy20220101"
-    },
-    {
-     "value": "AppGwSslPolicy20220101S"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewaySslPolicyType": {
-   "description": "Type of Ssl Policy.",
-   "enum": [
-    {
-     "value": "Predefined"
-    },
-    {
-     "value": "Custom"
-    },
-    {
-     "value": "CustomV2"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewaySslProtocol": {
-   "description": "Minimum version of Ssl protocol to be supported on application gateway.",
-   "enum": [
-    {
-     "value": "TLSv1_0"
-    },
-    {
-     "value": "TLSv1_1"
-    },
-    {
-     "value": "TLSv1_2"
-    },
-    {
-     "value": "TLSv1_3"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ApplicationGatewayTier": {
-   "description": "Tier of an application gateway.",
-   "enum": [
-    {
-     "value": "Standard"
-    },
-    {
-     "value": "WAF"
-    },
-    {
-     "value": "Standard_v2"
-    },
-    {
-     "value": "WAF_v2"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:AuthorizationUseStatus": {
-   "description": "The authorization use status.",
-   "enum": [
-    {
-     "value": "Available"
-    },
-    {
-     "value": "InUse"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:AutoLearnPrivateRangesMode": {
-   "description": "The operation mode for automatically learning private ranges to not be SNAT",
-   "enum": [
-    {
-     "value": "Enabled"
-    },
-    {
-     "value": "Disabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:AzureFirewallApplicationRuleProtocolType": {
-   "description": "Protocol type.",
-   "enum": [
-    {
-     "value": "Http"
-    },
-    {
-     "value": "Https"
-    },
-    {
-     "value": "Mssql"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:AzureFirewallNatRCActionType": {
-   "description": "The type of action.",
-   "enum": [
-    {
-     "value": "Snat"
-    },
-    {
-     "value": "Dnat"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:AzureFirewallNetworkRuleProtocol": {
-   "description": "The protocol of a Network Rule resource.",
-   "enum": [
-    {
-     "value": "TCP"
-    },
-    {
-     "value": "UDP"
-    },
-    {
-     "value": "Any"
-    },
-    {
-     "value": "ICMP"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:AzureFirewallRCActionType": {
-   "description": "The type of action.",
-   "enum": [
-    {
-     "value": "Allow"
-    },
-    {
-     "value": "Deny"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:AzureFirewallSkuName": {
-   "description": "Name of an Azure Firewall SKU.",
-   "enum": [
-    {
-     "value": "AZFW_VNet"
-    },
-    {
-     "value": "AZFW_Hub"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:AzureFirewallSkuTier": {
-   "description": "Tier of an Azure Firewall.",
-   "enum": [
-    {
-     "value": "Standard"
-    },
-    {
-     "value": "Premium"
-    },
-    {
-     "value": "Basic"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:AzureFirewallThreatIntelMode": {
-   "description": "The operation mode for Threat Intelligence.",
-   "enum": [
-    {
-     "value": "Alert"
-    },
-    {
-     "value": "Deny"
-    },
-    {
-     "value": "Off"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:BastionHostSkuName": {
-   "description": "The name of this Bastion Host.",
-   "enum": [
-    {
-     "value": "Basic"
-    },
-    {
-     "value": "Standard"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:CommissionedState": {
-   "description": "The commissioned state of the Custom IP Prefix.",
-   "enum": [
-    {
-     "value": "Provisioning"
-    },
-    {
-     "value": "Provisioned"
-    },
-    {
-     "value": "Commissioning"
-    },
-    {
-     "value": "CommissionedNoInternetAdvertise"
-    },
-    {
-     "value": "Commissioned"
-    },
-    {
-     "value": "Decommissioning"
-    },
-    {
-     "value": "Deprovisioning"
-    },
-    {
-     "value": "Deprovisioned"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ConfigurationType": {
-   "description": "Configuration Deployment Type.",
-   "enum": [
-    {
-     "value": "SecurityAdmin"
-    },
-    {
-     "value": "Connectivity"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ConnectionMonitorEndpointFilterItemType": {
-   "description": "The type of item included in the filter. Currently only 'AgentAddress' is supported.",
-   "enum": [
-    {
-     "value": "AgentAddress"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ConnectionMonitorEndpointFilterType": {
-   "description": "The behavior of the endpoint filter. Currently only 'Include' is supported.",
-   "enum": [
-    {
-     "value": "Include"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ConnectionMonitorTestConfigurationProtocol": {
-   "description": "The protocol to use in test evaluation.",
-   "enum": [
-    {
-     "value": "Tcp"
-    },
-    {
-     "value": "Http"
-    },
-    {
-     "value": "Icmp"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ConnectivityTopology": {
-   "description": "Connectivity topology type.",
-   "enum": [
-    {
-     "value": "HubAndSpoke"
-    },
-    {
-     "value": "Mesh"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:CoverageLevel": {
-   "description": "Test coverage for the endpoint.",
-   "enum": [
-    {
-     "value": "Default"
-    },
-    {
-     "value": "Low"
-    },
-    {
-     "value": "BelowAverage"
-    },
-    {
-     "value": "Average"
-    },
-    {
-     "value": "AboveAverage"
-    },
-    {
-     "value": "Full"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:CustomIpPrefixType": {
-   "description": "Type of custom IP prefix. Should be Singular, Parent, or Child.",
-   "enum": [
-    {
-     "value": "Singular"
-    },
-    {
-     "value": "Parent"
-    },
-    {
-     "value": "Child"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:DdosSettingsProtectionMode": {
-   "description": "The DDoS protection mode of the public IP",
-   "enum": [
-    {
-     "value": "VirtualNetworkInherited"
-    },
-    {
-     "value": "Enabled"
-    },
-    {
-     "value": "Disabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:DeleteExistingPeering": {
-   "description": "Flag if need to remove current existing peerings.",
-   "enum": [
-    {
-     "value": "False"
-    },
-    {
-     "value": "True"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:DeleteOptions": {
-   "description": "Specify what happens to the public IP address when the VM using it is deleted",
-   "enum": [
-    {
-     "value": "Delete"
-    },
-    {
-     "value": "Detach"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:DestinationPortBehavior": {
-   "description": "Destination port behavior.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "ListenIfAvailable"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:DhGroup": {
-   "description": "The DH Group used in IKE Phase 1 for initial SA.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "DHGroup1"
-    },
-    {
-     "value": "DHGroup2"
-    },
-    {
-     "value": "DHGroup14"
-    },
-    {
-     "value": "DHGroup2048"
-    },
-    {
-     "value": "ECP256"
-    },
-    {
-     "value": "ECP384"
-    },
-    {
-     "value": "DHGroup24"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:EndpointType": {
-   "description": "The endpoint type.",
-   "enum": [
-    {
-     "value": "AzureVM"
-    },
-    {
-     "value": "AzureVNet"
-    },
-    {
-     "value": "AzureSubnet"
-    },
-    {
-     "value": "ExternalAddress"
-    },
-    {
-     "value": "MMAWorkspaceMachine"
-    },
-    {
-     "value": "MMAWorkspaceNetwork"
-    },
-    {
-     "value": "AzureArcVM"
-    },
-    {
-     "value": "AzureVMSS"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ExpressRouteCircuitPeeringState": {
-   "description": "The state of peering.",
-   "enum": [
-    {
-     "value": "Disabled"
-    },
-    {
-     "value": "Enabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ExpressRouteCircuitSkuFamily": {
-   "description": "The family of the SKU.",
-   "enum": [
-    {
-     "value": "UnlimitedData"
-    },
-    {
-     "value": "MeteredData"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ExpressRouteCircuitSkuTier": {
-   "description": "The tier of the SKU.",
-   "enum": [
-    {
-     "value": "Standard"
-    },
-    {
-     "value": "Premium"
-    },
-    {
-     "value": "Basic"
-    },
-    {
-     "value": "Local"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ExpressRouteLinkAdminState": {
-   "description": "Administrative state of the physical port.",
-   "enum": [
-    {
-     "value": "Enabled"
-    },
-    {
-     "value": "Disabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ExpressRouteLinkMacSecCipher": {
-   "description": "Mac security cipher.",
-   "enum": [
-    {
-     "value": "GcmAes256"
-    },
-    {
-     "value": "GcmAes128"
-    },
-    {
-     "value": "GcmAesXpn128"
-    },
-    {
-     "value": "GcmAesXpn256"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ExpressRouteLinkMacSecSciState": {
-   "description": "Sci mode enabled/disabled.",
-   "enum": [
-    {
-     "value": "Disabled"
-    },
-    {
-     "value": "Enabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ExpressRoutePeeringState": {
-   "description": "The peering state.",
-   "enum": [
-    {
-     "value": "Disabled"
-    },
-    {
-     "value": "Enabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ExpressRoutePeeringType": {
-   "description": "The peering type.",
-   "enum": [
-    {
-     "value": "AzurePublicPeering"
-    },
-    {
-     "value": "AzurePrivatePeering"
-    },
-    {
-     "value": "MicrosoftPeering"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ExpressRoutePortsBillingType": {
-   "description": "The billing type of the ExpressRoutePort resource.",
-   "enum": [
-    {
-     "value": "MeteredData"
-    },
-    {
-     "value": "UnlimitedData"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ExpressRoutePortsEncapsulation": {
-   "description": "Encapsulation method on physical ports.",
-   "enum": [
-    {
-     "value": "Dot1Q"
-    },
-    {
-     "value": "QinQ"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ExtendedLocationTypes": {
-   "description": "The type of the extended location.",
-   "enum": [
-    {
-     "value": "EdgeZone"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:FirewallPolicyFilterRuleCollectionActionType": {
-   "description": "The type of action.",
-   "enum": [
-    {
-     "value": "Allow"
-    },
-    {
-     "value": "Deny"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:FirewallPolicyIDPSQuerySortOrder": {
-   "description": "Describes if results should be in ascending/descending order",
-   "enum": [
-    {
-     "value": "Ascending"
-    },
-    {
-     "value": "Descending"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:FirewallPolicyIntrusionDetectionProtocol": {
-   "description": "The rule bypass protocol.",
-   "enum": [
-    {
-     "value": "TCP"
-    },
-    {
-     "value": "UDP"
-    },
-    {
-     "value": "ICMP"
-    },
-    {
-     "value": "ANY"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:FirewallPolicyIntrusionDetectionStateType": {
-   "description": "Intrusion detection general state.",
-   "enum": [
-    {
-     "value": "Off"
-    },
-    {
-     "value": "Alert"
-    },
-    {
-     "value": "Deny"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:FirewallPolicyNatRuleCollectionActionType": {
-   "description": "The type of action.",
-   "enum": [
-    {
-     "value": "DNAT"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:FirewallPolicyRuleApplicationProtocolType": {
-   "description": "Protocol type.",
-   "enum": [
-    {
-     "value": "Http"
-    },
-    {
-     "value": "Https"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:FirewallPolicyRuleCollectionType": {
-   "description": "The type of the rule collection.",
-   "enum": [
-    {
-     "value": "FirewallPolicyNatRuleCollection"
-    },
-    {
-     "value": "FirewallPolicyFilterRuleCollection"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:FirewallPolicyRuleNetworkProtocol": {
-   "description": "The Network protocol of a Rule.",
-   "enum": [
-    {
-     "value": "TCP"
-    },
-    {
-     "value": "UDP"
-    },
-    {
-     "value": "Any"
-    },
-    {
-     "value": "ICMP"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:FirewallPolicyRuleType": {
-   "description": "Rule Type.",
-   "enum": [
-    {
-     "value": "ApplicationRule"
-    },
-    {
-     "value": "NetworkRule"
-    },
-    {
-     "value": "NatRule"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:FirewallPolicySkuTier": {
-   "description": "Tier of Firewall Policy.",
-   "enum": [
-    {
-     "value": "Standard"
-    },
-    {
-     "value": "Premium"
-    },
-    {
-     "value": "Basic"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:FlowLogFormatType": {
-   "description": "The file type of flow log.",
-   "enum": [
-    {
-     "value": "JSON"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:GatewayLoadBalancerTunnelInterfaceType": {
-   "description": "Traffic type of gateway load balancer tunnel interface.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "Internal"
-    },
-    {
-     "value": "External"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:GatewayLoadBalancerTunnelProtocol": {
-   "description": "Protocol of gateway load balancer tunnel interface.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "Native"
-    },
-    {
-     "value": "VXLAN"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:Geo": {
-   "description": "The Geo for CIDR advertising. Should be an Geo code.",
-   "enum": [
-    {
-     "value": "GLOBAL"
-    },
-    {
-     "value": "AFRI"
-    },
-    {
-     "value": "APAC"
-    },
-    {
-     "value": "EURO"
-    },
-    {
-     "value": "LATAM"
-    },
-    {
-     "value": "NAM"
-    },
-    {
-     "value": "ME"
-    },
-    {
-     "value": "OCEANIA"
-    },
-    {
-     "value": "AQ"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:GroupConnectivity": {
-   "description": "Group connectivity type.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "DirectlyConnected"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:HTTPConfigurationMethod": {
-   "description": "The HTTP method to use.",
-   "enum": [
-    {
-     "value": "Get"
-    },
-    {
-     "value": "Post"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:HubRoutingPreference": {
-   "description": "The hubRoutingPreference of this VirtualHub.",
-   "enum": [
-    {
-     "value": "ExpressRoute"
-    },
-    {
-     "value": "VpnGateway"
-    },
-    {
-     "value": "ASPath"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:IPAllocationMethod": {
-   "description": "The private IP address allocation method.",
-   "enum": [
-    {
-     "value": "Static"
-    },
-    {
-     "value": "Dynamic"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:IPVersion": {
-   "description": "Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.",
-   "enum": [
-    {
-     "value": "IPv4"
-    },
-    {
-     "value": "IPv6"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:IkeEncryption": {
-   "description": "The IKE encryption algorithm (IKE phase 2).",
-   "enum": [
-    {
-     "value": "DES"
-    },
-    {
-     "value": "DES3"
-    },
-    {
-     "value": "AES128"
-    },
-    {
-     "value": "AES192"
-    },
-    {
-     "value": "AES256"
-    },
-    {
-     "value": "GCMAES256"
-    },
-    {
-     "value": "GCMAES128"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:IkeIntegrity": {
-   "description": "The IKE integrity algorithm (IKE phase 2).",
-   "enum": [
-    {
-     "value": "MD5"
-    },
-    {
-     "value": "SHA1"
-    },
-    {
-     "value": "SHA256"
-    },
-    {
-     "value": "SHA384"
-    },
-    {
-     "value": "GCMAES256"
-    },
-    {
-     "value": "GCMAES128"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:IpAllocationType": {
-   "description": "The type for the IpAllocation.",
-   "enum": [
-    {
-     "value": "Undefined"
-    },
-    {
-     "value": "Hypernet"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:IpsecEncryption": {
-   "description": "The IPSec encryption algorithm (IKE phase 1).",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "DES"
-    },
-    {
-     "value": "DES3"
-    },
-    {
-     "value": "AES128"
-    },
-    {
-     "value": "AES192"
-    },
-    {
-     "value": "AES256"
-    },
-    {
-     "value": "GCMAES128"
-    },
-    {
-     "value": "GCMAES192"
-    },
-    {
-     "value": "GCMAES256"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:IpsecIntegrity": {
-   "description": "The IPSec integrity algorithm (IKE phase 1).",
-   "enum": [
-    {
-     "value": "MD5"
-    },
-    {
-     "value": "SHA1"
-    },
-    {
-     "value": "SHA256"
-    },
-    {
-     "value": "GCMAES128"
-    },
-    {
-     "value": "GCMAES192"
-    },
-    {
-     "value": "GCMAES256"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:IsGlobal": {
-   "description": "Flag if global mesh is supported.",
-   "enum": [
-    {
-     "value": "False"
-    },
-    {
-     "value": "True"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:LoadBalancerBackendAddressAdminState": {
-   "description": "A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "Up"
-    },
-    {
-     "value": "Down"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:LoadBalancerOutboundRuleProtocol": {
-   "description": "The protocol for the outbound rule in load balancer.",
-   "enum": [
-    {
-     "value": "Tcp"
-    },
-    {
-     "value": "Udp"
-    },
-    {
-     "value": "All"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:LoadBalancerSkuName": {
-   "description": "Name of a load balancer SKU.",
-   "enum": [
-    {
-     "value": "Basic"
-    },
-    {
-     "value": "Standard"
-    },
-    {
-     "value": "Gateway"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:LoadBalancerSkuTier": {
-   "description": "Tier of a load balancer SKU.",
-   "enum": [
-    {
-     "value": "Regional"
-    },
-    {
-     "value": "Global"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:LoadDistribution": {
-   "description": "The load distribution policy for this rule.",
-   "enum": [
-    {
-     "value": "Default"
-    },
-    {
-     "value": "SourceIP"
-    },
-    {
-     "value": "SourceIPProtocol"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ManagedRuleEnabledState": {
-   "description": "The state of the managed rule. Defaults to Disabled if not specified.",
-   "enum": [
-    {
-     "value": "Disabled"
-    },
-    {
-     "value": "Enabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:NatGatewaySkuName": {
-   "description": "Name of Nat Gateway SKU.",
-   "enum": [
-    {
-     "value": "Standard"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:NetworkIntentPolicyBasedService": {
-   "description": "Network intent policy based services.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "All"
-    },
-    {
-     "value": "AllowRulesOnly"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:NetworkInterfaceAuxiliaryMode": {
-   "description": "Auxiliary mode of Network Interface resource.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "MaxConnections"
-    },
-    {
-     "value": "Floating"
-    },
-    {
-     "value": "AcceleratedConnections"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:NetworkInterfaceAuxiliarySku": {
-   "description": "Auxiliary sku of Network Interface resource.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "A1"
-    },
-    {
-     "value": "A2"
-    },
-    {
-     "value": "A4"
-    },
-    {
-     "value": "A8"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:NetworkInterfaceMigrationPhase": {
-   "description": "Migration phase of Network Interface resource.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "Prepare"
-    },
-    {
-     "value": "Commit"
-    },
-    {
-     "value": "Abort"
-    },
-    {
-     "value": "Committed"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:NetworkInterfaceNicType": {
-   "description": "Type of Network Interface resource.",
-   "enum": [
-    {
-     "value": "Standard"
-    },
-    {
-     "value": "Elastic"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:NextStep": {
-   "description": "Next step after rule is evaluated. Current supported behaviors are 'Continue'(to next rule) and 'Terminate'.",
-   "enum": [
-    {
-     "value": "Unknown"
-    },
-    {
-     "value": "Continue"
-    },
-    {
-     "value": "Terminate"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:OutputType": {
-   "description": "Connection monitor output destination type. Currently, only \"Workspace\" is supported.",
-   "enum": [
-    {
-     "value": "Workspace"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:OwaspCrsExclusionEntryMatchVariable": {
-   "description": "The variable to be excluded.",
-   "enum": [
-    {
-     "value": "RequestHeaderNames"
-    },
-    {
-     "value": "RequestCookieNames"
-    },
-    {
-     "value": "RequestArgNames"
-    },
-    {
-     "value": "RequestHeaderKeys"
-    },
-    {
-     "value": "RequestHeaderValues"
-    },
-    {
-     "value": "RequestCookieKeys"
-    },
-    {
-     "value": "RequestCookieValues"
-    },
-    {
-     "value": "RequestArgKeys"
-    },
-    {
-     "value": "RequestArgValues"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:OwaspCrsExclusionEntrySelectorMatchOperator": {
-   "description": "When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.",
-   "enum": [
-    {
-     "value": "Equals"
-    },
-    {
-     "value": "Contains"
-    },
-    {
-     "value": "StartsWith"
-    },
-    {
-     "value": "EndsWith"
-    },
-    {
-     "value": "EqualsAny"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:PacketCaptureTargetType": {
-   "description": "Target type of the resource provided.",
-   "enum": [
-    {
-     "value": "AzureVM"
-    },
-    {
-     "value": "AzureVMSS"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:PcProtocol": {
-   "description": "Protocol to be filtered on.",
-   "enum": [
-    {
-     "value": "TCP"
-    },
-    {
-     "value": "UDP"
-    },
-    {
-     "value": "Any"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:PfsGroup": {
-   "description": "The Pfs Group used in IKE Phase 2 for new child SA.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "PFS1"
-    },
-    {
-     "value": "PFS2"
-    },
-    {
-     "value": "PFS2048"
-    },
-    {
-     "value": "ECP256"
-    },
-    {
-     "value": "ECP384"
-    },
-    {
-     "value": "PFS24"
-    },
-    {
-     "value": "PFS14"
-    },
-    {
-     "value": "PFSMM"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:PreferredIPVersion": {
-   "description": "The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.",
-   "enum": [
-    {
-     "value": "IPv4"
-    },
-    {
-     "value": "IPv6"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:PreferredRoutingGateway": {
-   "description": "The preferred gateway to route on-prem traffic",
-   "enum": [
-    {
-     "value": "ExpressRoute"
-    },
-    {
-     "value": "VpnGateway"
-    },
-    {
-     "value": "None"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ProbeProtocol": {
-   "description": "The protocol of the end point. If 'Tcp' is specified, a received ACK is required for the probe to be successful. If 'Http' or 'Https' is specified, a 200 OK response from the specifies URI is required for the probe to be successful.",
-   "enum": [
-    {
-     "value": "Http"
-    },
-    {
-     "value": "Tcp"
-    },
-    {
-     "value": "Https"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ProtocolType": {
-   "description": "RNM supported protocol types.",
-   "enum": [
-    {
-     "value": "DoNotUse"
-    },
-    {
-     "value": "Icmp"
-    },
-    {
-     "value": "Tcp"
-    },
-    {
-     "value": "Udp"
-    },
-    {
-     "value": "Gre"
-    },
-    {
-     "value": "Esp"
-    },
-    {
-     "value": "Ah"
-    },
-    {
-     "value": "Vxlan"
-    },
-    {
-     "value": "All"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:PublicIPAddressMigrationPhase": {
-   "description": "Migration phase of Public IP Address.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "Prepare"
-    },
-    {
-     "value": "Commit"
-    },
-    {
-     "value": "Abort"
-    },
-    {
-     "value": "Committed"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:PublicIPAddressSkuName": {
-   "description": "Name of a public IP address SKU.",
-   "enum": [
-    {
-     "value": "Basic"
-    },
-    {
-     "value": "Standard"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:PublicIPAddressSkuTier": {
-   "description": "Tier of a public IP address SKU.",
-   "enum": [
-    {
-     "value": "Regional"
-    },
-    {
-     "value": "Global"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:PublicIPPrefixSkuName": {
-   "description": "Name of a public IP prefix SKU.",
-   "enum": [
-    {
-     "value": "Standard"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:PublicIPPrefixSkuTier": {
-   "description": "Tier of a public IP prefix SKU.",
-   "enum": [
-    {
-     "value": "Regional"
-    },
-    {
-     "value": "Global"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:PublicIpAddressDnsSettingsDomainNameLabelScope": {
-   "description": "The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN.",
-   "enum": [
-    {
-     "value": "TenantReuse"
-    },
-    {
-     "value": "SubscriptionReuse"
-    },
-    {
-     "value": "ResourceGroupReuse"
-    },
-    {
-     "value": "NoReuse"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ResourceIdentityType": {
-   "description": "The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.",
-   "enum": [
-    {
-     "value": "SystemAssigned"
-    },
-    {
-     "value": "UserAssigned"
-    },
-    {
-     "value": "SystemAssigned, UserAssigned"
-    },
-    {
-     "value": "None"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:RouteFilterRuleType": {
-   "description": "The rule type of the rule.",
-   "enum": [
-    {
-     "value": "Community"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:RouteMapActionType": {
-   "description": "Type of action to be taken. Supported types are 'Remove', 'Add', 'Replace', and 'Drop.'",
-   "enum": [
-    {
-     "value": "Unknown"
-    },
-    {
-     "value": "Remove"
-    },
-    {
-     "value": "Add"
-    },
-    {
-     "value": "Replace"
-    },
-    {
-     "value": "Drop"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:RouteMapMatchCondition": {
-   "description": "Match condition to apply RouteMap rules.",
-   "enum": [
-    {
-     "value": "Unknown"
-    },
-    {
-     "value": "Contains"
-    },
-    {
-     "value": "Equals"
-    },
-    {
-     "value": "NotContains"
-    },
-    {
-     "value": "NotEquals"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:RouteNextHopType": {
-   "description": "The type of Azure hop the packet should be sent to.",
-   "enum": [
-    {
-     "value": "VirtualNetworkGateway"
-    },
-    {
-     "value": "VnetLocal"
-    },
-    {
-     "value": "Internet"
-    },
-    {
-     "value": "VirtualAppliance"
-    },
-    {
-     "value": "None"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ScrubbingRuleEntryMatchOperator": {
-   "description": "When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.",
-   "enum": [
-    {
-     "value": "Equals"
-    },
-    {
-     "value": "EqualsAny"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ScrubbingRuleEntryMatchVariable": {
-   "description": "The variable to be scrubbed from the logs.",
-   "enum": [
-    {
-     "value": "RequestHeaderNames"
-    },
-    {
-     "value": "RequestCookieNames"
-    },
-    {
-     "value": "RequestArgNames"
-    },
-    {
-     "value": "RequestPostArgNames"
-    },
-    {
-     "value": "RequestJSONArgNames"
-    },
-    {
-     "value": "RequestIPAddress"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ScrubbingRuleEntryState": {
-   "description": "Defines the state of log scrubbing rule. Default value is Enabled.",
-   "enum": [
-    {
-     "value": "Enabled"
-    },
-    {
-     "value": "Disabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:SecurityConfigurationRuleAccess": {
-   "description": "Indicates the access allowed for this particular rule",
-   "enum": [
-    {
-     "value": "Allow"
-    },
-    {
-     "value": "Deny"
-    },
-    {
-     "value": "AlwaysAllow"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:SecurityConfigurationRuleDirection": {
-   "description": "Indicates if the traffic matched against the rule in inbound or outbound.",
-   "enum": [
-    {
-     "value": "Inbound"
-    },
-    {
-     "value": "Outbound"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:SecurityConfigurationRuleProtocol": {
-   "description": "Network protocol this rule applies to.",
-   "enum": [
-    {
-     "value": "Tcp"
-    },
-    {
-     "value": "Udp"
-    },
-    {
-     "value": "Icmp"
-    },
-    {
-     "value": "Esp"
-    },
-    {
-     "value": "Any"
-    },
-    {
-     "value": "Ah"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:SecurityProviderName": {
-   "description": "The security provider name.",
-   "enum": [
-    {
-     "value": "ZScaler"
-    },
-    {
-     "value": "IBoss"
-    },
-    {
-     "value": "Checkpoint"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:SecurityRuleAccess": {
-   "description": "The network traffic is allowed or denied.",
-   "enum": [
-    {
-     "value": "Allow"
-    },
-    {
-     "value": "Deny"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:SecurityRuleDirection": {
-   "description": "The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.",
-   "enum": [
-    {
-     "value": "Inbound"
-    },
-    {
-     "value": "Outbound"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:SecurityRuleProtocol": {
-   "description": "Network protocol this rule applies to.",
-   "enum": [
-    {
-     "value": "Tcp"
-    },
-    {
-     "value": "Udp"
-    },
-    {
-     "value": "Icmp"
-    },
-    {
-     "value": "Esp"
-    },
-    {
-     "value": "*"
-    },
-    {
-     "value": "Ah"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:ServiceProviderProvisioningState": {
-   "description": "The ServiceProviderProvisioningState state of the resource.",
-   "enum": [
-    {
-     "value": "NotProvisioned"
-    },
-    {
-     "value": "Provisioning"
-    },
-    {
-     "value": "Provisioned"
-    },
-    {
-     "value": "Deprovisioning"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:TransportProtocol": {
-   "description": "The reference to the transport protocol used by the load balancing rule.",
-   "enum": [
-    {
-     "value": "Udp"
-    },
-    {
-     "value": "Tcp"
-    },
-    {
-     "value": "All"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:UseHubGateway": {
-   "description": "Flag if need to use hub gateway.",
-   "enum": [
-    {
-     "value": "False"
-    },
-    {
-     "value": "True"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VirtualNetworkEncryptionEnforcement": {
-   "description": "If the encrypted VNet allows VM that does not support encryption",
-   "enum": [
-    {
-     "value": "DropUnencrypted"
-    },
-    {
-     "value": "AllowUnencrypted"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VirtualNetworkGatewayConnectionMode": {
-   "description": "The connection mode for this connection.",
-   "enum": [
-    {
-     "value": "Default"
-    },
-    {
-     "value": "ResponderOnly"
-    },
-    {
-     "value": "InitiatorOnly"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VirtualNetworkGatewayConnectionProtocol": {
-   "description": "Connection protocol used for this connection.",
-   "enum": [
-    {
-     "value": "IKEv2"
-    },
-    {
-     "value": "IKEv1"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VirtualNetworkGatewayConnectionType": {
-   "description": "Gateway connection type.",
-   "enum": [
-    {
-     "value": "IPsec"
-    },
-    {
-     "value": "Vnet2Vnet"
-    },
-    {
-     "value": "ExpressRoute"
-    },
-    {
-     "value": "VPNClient"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VirtualNetworkGatewaySkuName": {
-   "description": "Gateway SKU name.",
-   "enum": [
-    {
-     "value": "Basic"
-    },
-    {
-     "value": "HighPerformance"
-    },
-    {
-     "value": "Standard"
-    },
-    {
-     "value": "UltraPerformance"
-    },
-    {
-     "value": "VpnGw1"
-    },
-    {
-     "value": "VpnGw2"
-    },
-    {
-     "value": "VpnGw3"
-    },
-    {
-     "value": "VpnGw4"
-    },
-    {
-     "value": "VpnGw5"
-    },
-    {
-     "value": "VpnGw1AZ"
-    },
-    {
-     "value": "VpnGw2AZ"
-    },
-    {
-     "value": "VpnGw3AZ"
-    },
-    {
-     "value": "VpnGw4AZ"
-    },
-    {
-     "value": "VpnGw5AZ"
-    },
-    {
-     "value": "ErGw1AZ"
-    },
-    {
-     "value": "ErGw2AZ"
-    },
-    {
-     "value": "ErGw3AZ"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VirtualNetworkGatewaySkuTier": {
-   "description": "Gateway SKU tier.",
-   "enum": [
-    {
-     "value": "Basic"
-    },
-    {
-     "value": "HighPerformance"
-    },
-    {
-     "value": "Standard"
-    },
-    {
-     "value": "UltraPerformance"
-    },
-    {
-     "value": "VpnGw1"
-    },
-    {
-     "value": "VpnGw2"
-    },
-    {
-     "value": "VpnGw3"
-    },
-    {
-     "value": "VpnGw4"
-    },
-    {
-     "value": "VpnGw5"
-    },
-    {
-     "value": "VpnGw1AZ"
-    },
-    {
-     "value": "VpnGw2AZ"
-    },
-    {
-     "value": "VpnGw3AZ"
-    },
-    {
-     "value": "VpnGw4AZ"
-    },
-    {
-     "value": "VpnGw5AZ"
-    },
-    {
-     "value": "ErGw1AZ"
-    },
-    {
-     "value": "ErGw2AZ"
-    },
-    {
-     "value": "ErGw3AZ"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VirtualNetworkGatewayType": {
-   "description": "The type of this virtual network gateway.",
-   "enum": [
-    {
-     "value": "Vpn"
-    },
-    {
-     "value": "ExpressRoute"
-    },
-    {
-     "value": "LocalGateway"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VirtualNetworkPeeringLevel": {
-   "description": "The peering sync status of the virtual network peering.",
-   "enum": [
-    {
-     "value": "FullyInSync"
-    },
-    {
-     "value": "RemoteNotInSync"
-    },
-    {
-     "value": "LocalNotInSync"
-    },
-    {
-     "value": "LocalAndRemoteNotInSync"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VirtualNetworkPeeringState": {
-   "description": "The status of the virtual network peering.",
-   "enum": [
-    {
-     "value": "Initiated"
-    },
-    {
-     "value": "Connected"
-    },
-    {
-     "value": "Disconnected"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VirtualNetworkPrivateEndpointNetworkPolicies": {
-   "description": "Enable or Disable apply network policies on private end point in the subnet.",
-   "enum": [
-    {
-     "value": "Enabled"
-    },
-    {
-     "value": "Disabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VirtualNetworkPrivateLinkServiceNetworkPolicies": {
-   "description": "Enable or Disable apply network policies on private link service in the subnet.",
-   "enum": [
-    {
-     "value": "Enabled"
-    },
-    {
-     "value": "Disabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VnetLocalRouteOverrideCriteria": {
-   "description": "Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.",
-   "enum": [
-    {
-     "value": "Contains"
-    },
-    {
-     "value": "Equal"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VpnAuthenticationType": {
-   "description": "VPN authentication types enabled for the VpnServerConfiguration.",
-   "enum": [
-    {
-     "value": "Certificate"
-    },
-    {
-     "value": "Radius"
-    },
-    {
-     "value": "AAD"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VpnClientProtocol": {
-   "description": "VPN client protocol enabled for the virtual network gateway.",
-   "enum": [
-    {
-     "value": "IkeV2"
-    },
-    {
-     "value": "SSTP"
-    },
-    {
-     "value": "OpenVPN"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VpnGatewayGeneration": {
-   "description": "The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.",
-   "enum": [
-    {
-     "value": "None"
-    },
-    {
-     "value": "Generation1"
-    },
-    {
-     "value": "Generation2"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VpnGatewayTunnelingProtocol": {
-   "description": "VPN protocol enabled for the VpnServerConfiguration.",
-   "enum": [
-    {
-     "value": "IkeV2"
-    },
-    {
-     "value": "OpenVPN"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VpnLinkConnectionMode": {
-   "description": "Vpn link connection mode.",
-   "enum": [
-    {
-     "value": "Default"
-    },
-    {
-     "value": "ResponderOnly"
-    },
-    {
-     "value": "InitiatorOnly"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VpnNatRuleMode": {
-   "description": "The Source NAT direction of a VPN NAT.",
-   "enum": [
-    {
-     "value": "EgressSnat"
-    },
-    {
-     "value": "IngressSnat"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VpnNatRuleType": {
-   "description": "The type of NAT rule for VPN NAT.",
-   "enum": [
-    {
-     "value": "Static"
-    },
-    {
-     "value": "Dynamic"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VpnPolicyMemberAttributeType": {
-   "description": "The Vpn Policy member attribute type.",
-   "enum": [
-    {
-     "value": "CertificateGroupId"
-    },
-    {
-     "value": "AADGroupId"
-    },
-    {
-     "value": "RadiusAzureGroupId"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:VpnType": {
-   "description": "The type of this virtual network gateway.",
-   "enum": [
-    {
-     "value": "PolicyBased"
-    },
-    {
-     "value": "RouteBased"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:WebApplicationFirewallAction": {
-   "description": "Type of Actions.",
-   "enum": [
-    {
-     "value": "Allow"
-    },
-    {
-     "value": "Block"
-    },
-    {
-     "value": "Log"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:WebApplicationFirewallEnabledState": {
-   "description": "The state of the policy.",
-   "enum": [
-    {
-     "value": "Disabled"
-    },
-    {
-     "value": "Enabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:WebApplicationFirewallMatchVariable": {
-   "description": "Match Variable.",
-   "enum": [
-    {
-     "value": "RemoteAddr"
-    },
-    {
-     "value": "RequestMethod"
-    },
-    {
-     "value": "QueryString"
-    },
-    {
-     "value": "PostArgs"
-    },
-    {
-     "value": "RequestUri"
-    },
-    {
-     "value": "RequestHeaders"
-    },
-    {
-     "value": "RequestBody"
-    },
-    {
-     "value": "RequestCookies"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:WebApplicationFirewallMode": {
-   "description": "The mode of the policy.",
-   "enum": [
-    {
-     "value": "Prevention"
-    },
-    {
-     "value": "Detection"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:WebApplicationFirewallOperator": {
-   "description": "The operator to be matched.",
-   "enum": [
-    {
-     "value": "IPMatch"
-    },
-    {
-     "value": "Equal"
-    },
-    {
-     "value": "Contains"
-    },
-    {
-     "value": "LessThan"
-    },
-    {
-     "value": "GreaterThan"
-    },
-    {
-     "value": "LessThanOrEqual"
-    },
-    {
-     "value": "GreaterThanOrEqual"
-    },
-    {
-     "value": "BeginsWith"
-    },
-    {
-     "value": "EndsWith"
-    },
-    {
-     "value": "Regex"
-    },
-    {
-     "value": "GeoMatch"
-    },
-    {
-     "value": "Any"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:WebApplicationFirewallRuleType": {
-   "description": "The rule type.",
-   "enum": [
-    {
-     "value": "MatchRule"
-    },
-    {
-     "value": "RateLimitRule"
-    },
-    {
-     "value": "Invalid"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:WebApplicationFirewallScrubbingState": {
-   "description": "State of the log scrubbing config. Default value is Enabled.",
-   "enum": [
-    {
-     "value": "Disabled"
-    },
-    {
-     "value": "Enabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:WebApplicationFirewallState": {
-   "description": "Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.",
-   "enum": [
-    {
-     "value": "Disabled"
-    },
-    {
-     "value": "Enabled"
-    }
-   ],
-   "type": "string"
-  },
-  "azure-native:network:WebApplicationFirewallTransform": {
-   "description": "Transforms applied before matching.",
-   "enum": [
-    {
-     "value": "Uppercase"
-    },
-    {
-     "value": "Lowercase"
-    },
-    {
-     "value": "Trim"
-    },
-    {
-     "value": "UrlDecode"
-    },
-    {
-     "value": "UrlEncode"
-    },
-    {
-     "value": "RemoveNulls"
-    },
-    {
-     "value": "HtmlEntityDecode"
-    }
-   ],
-   "type": "string"
-  },
   "azure-native:storage:BlobAccessTier": {
    "description": "The access tier of a storage blob.",
    "enum": [
@@ -27654,6 +24990,18 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:Access": {
+   "description": "The access type of the rule.",
+   "enum": [
+    {
+     "value": "Allow"
+    },
+    {
+     "value": "Deny"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:Action": {
    "description": "Action to be taken on a route matching a RouteMap criterion.",
    "properties": {
@@ -27672,7 +25020,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:RouteMapActionType"
+       "$ref": "#/types/azure-native_network_v20230201:network:RouteMapActionType"
       }
      ]
     }
@@ -27696,6 +25044,24 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ActionType": {
+   "description": "Describes the override action to be applied when rule matches.",
+   "enum": [
+    {
+     "value": "AnomalyScoring"
+    },
+    {
+     "value": "Allow"
+    },
+    {
+     "value": "Block"
+    },
+    {
+     "value": "Log"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ActiveConnectivityConfigurationResponse": {
    "description": "Active connectivity configuration.",
@@ -28020,7 +25386,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AddressPrefixType"
+       "$ref": "#/types/azure-native_network_v20230201:network:AddressPrefixType"
       }
      ]
     }
@@ -28040,6 +25406,18 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:AddressPrefixType": {
+   "description": "Address prefix type.",
+   "enum": [
+    {
+     "value": "IPPrefix"
+    },
+    {
+     "value": "ServiceTag"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:AddressSpace": {
    "description": "AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.",
@@ -28066,6 +25444,30 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:AdminRuleKind": {
+   "description": "Whether the rule is custom or default.",
+   "enum": [
+    {
+     "value": "Custom"
+    },
+    {
+     "value": "Default"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:AdminState": {
+   "description": "Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet",
+   "enum": [
+    {
+     "value": "Enabled"
+    },
+    {
+     "value": "Disabled"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ApplicationGatewayAuthenticationCertificate": {
    "description": "Authentication certificates of an application gateway.",
@@ -28321,7 +25723,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayCookieBasedAffinity"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayCookieBasedAffinity"
       }
      ]
     },
@@ -28365,7 +25767,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayProtocol"
       }
      ]
     },
@@ -28512,7 +25914,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayProtocol"
       }
      ]
     },
@@ -28609,7 +26011,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayClientRevocationOptions"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayClientRevocationOptions"
       }
      ]
     }
@@ -28629,6 +26031,18 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ApplicationGatewayClientRevocationOptions": {
+   "description": "Verify client certificate revocation status.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "OCSP"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ApplicationGatewayConnectionDraining": {
    "description": "Connection draining allows open connections to a backend server to be active for a specified time after the backend server got removed from the configuration.",
@@ -28666,6 +26080,18 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ApplicationGatewayCookieBasedAffinity": {
+   "description": "Cookie based affinity.",
+   "enum": [
+    {
+     "value": "Enabled"
+    },
+    {
+     "value": "Disabled"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ApplicationGatewayCustomError": {
    "description": "Custom error of an application gateway.",
    "properties": {
@@ -28680,7 +26106,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayCustomErrorStatusCode"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayCustomErrorStatusCode"
       }
      ]
     }
@@ -28700,6 +26126,39 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ApplicationGatewayCustomErrorStatusCode": {
+   "description": "Status code of the application gateway custom error.",
+   "enum": [
+    {
+     "value": "HttpStatus400"
+    },
+    {
+     "value": "HttpStatus403"
+    },
+    {
+     "value": "HttpStatus404"
+    },
+    {
+     "value": "HttpStatus405"
+    },
+    {
+     "value": "HttpStatus408"
+    },
+    {
+     "value": "HttpStatus500"
+    },
+    {
+     "value": "HttpStatus502"
+    },
+    {
+     "value": "HttpStatus503"
+    },
+    {
+     "value": "HttpStatus504"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ApplicationGatewayFirewallDisabledRuleGroup": {
    "description": "Allows to disable rules within a rule group or an entire rule group.",
@@ -28787,6 +26246,45 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ApplicationGatewayFirewallMode": {
+   "description": "Web application firewall mode.",
+   "enum": [
+    {
+     "value": "Detection"
+    },
+    {
+     "value": "Prevention"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:ApplicationGatewayFirewallRateLimitDuration": {
+   "description": "Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule.",
+   "enum": [
+    {
+     "value": "OneMin"
+    },
+    {
+     "value": "FiveMins"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:ApplicationGatewayFirewallUserSessionVariable": {
+   "description": "User Session clause variable.",
+   "enum": [
+    {
+     "value": "ClientAddr"
+    },
+    {
+     "value": "GeoLocation"
+    },
+    {
+     "value": "None"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ApplicationGatewayFrontendIPConfiguration": {
    "description": "Frontend IP configuration of an application gateway.",
    "properties": {
@@ -28809,7 +26307,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPAllocationMethod"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPAllocationMethod"
       }
      ]
     },
@@ -29046,7 +26544,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayProtocol"
       }
      ]
     },
@@ -29233,7 +26731,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayProtocol"
       }
      ]
     },
@@ -29305,6 +26803,21 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ApplicationGatewayLoadDistributionAlgorithm": {
+   "description": "Load Distribution Targets resource of an application gateway.",
+   "enum": [
+    {
+     "value": "RoundRobin"
+    },
+    {
+     "value": "LeastConnections"
+    },
+    {
+     "value": "IpHash"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ApplicationGatewayLoadDistributionPolicy": {
    "description": "Load Distribution Policy of an application gateway.",
    "properties": {
@@ -29319,7 +26832,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayLoadDistributionAlgorithm"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayLoadDistributionAlgorithm"
       }
      ]
     },
@@ -29692,7 +27205,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPAllocationMethod"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPAllocationMethod"
       }
      ]
     },
@@ -29803,7 +27316,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayProtocol"
       }
      ]
     },
@@ -29928,6 +27441,24 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ApplicationGatewayProtocol": {
+   "description": "The protocol used for the probe.",
+   "enum": [
+    {
+     "value": "Http"
+    },
+    {
+     "value": "Https"
+    },
+    {
+     "value": "Tcp"
+    },
+    {
+     "value": "Tls"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ApplicationGatewayRedirectConfiguration": {
    "description": "Redirect configuration of an application gateway.",
    "properties": {
@@ -29962,7 +27493,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayRedirectType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayRedirectType"
       }
      ]
     },
@@ -30065,6 +27596,24 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ApplicationGatewayRedirectType": {
+   "description": "HTTP redirection type.",
+   "enum": [
+    {
+     "value": "Permanent"
+    },
+    {
+     "value": "Found"
+    },
+    {
+     "value": "SeeOther"
+    },
+    {
+     "value": "Temporary"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ApplicationGatewayRequestRoutingRule": {
    "description": "Request routing rule of an application gateway.",
    "properties": {
@@ -30117,7 +27666,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayRequestRoutingRuleType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayRequestRoutingRuleType"
       }
      ]
     },
@@ -30202,6 +27751,18 @@
     "type"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ApplicationGatewayRequestRoutingRuleType": {
+   "description": "Rule type.",
+   "enum": [
+    {
+     "value": "Basic"
+    },
+    {
+     "value": "PathBasedRouting"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ApplicationGatewayResponse": {
    "description": "Application gateway resource.",
@@ -30745,7 +28306,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayRequestRoutingRuleType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayRequestRoutingRuleType"
       }
      ]
     }
@@ -30824,7 +28385,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewaySkuName"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewaySkuName"
       }
      ]
     },
@@ -30835,12 +28396,39 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayTier"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayTier"
       }
      ]
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ApplicationGatewaySkuName": {
+   "description": "Name of an application gateway SKU.",
+   "enum": [
+    {
+     "value": "Standard_Small"
+    },
+    {
+     "value": "Standard_Medium"
+    },
+    {
+     "value": "Standard_Large"
+    },
+    {
+     "value": "WAF_Medium"
+    },
+    {
+     "value": "WAF_Large"
+    },
+    {
+     "value": "Standard_v2"
+    },
+    {
+     "value": "WAF_v2"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ApplicationGatewaySkuResponse": {
    "description": "SKU of an application gateway.",
@@ -30934,6 +28522,96 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ApplicationGatewaySslCipherSuite": {
+   "description": "Ssl cipher suites enums.",
+   "enum": [
+    {
+     "value": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+    },
+    {
+     "value": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
+    },
+    {
+     "value": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+    },
+    {
+     "value": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+    },
+    {
+     "value": "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384"
+    },
+    {
+     "value": "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    {
+     "value": "TLS_DHE_RSA_WITH_AES_256_CBC_SHA"
+    },
+    {
+     "value": "TLS_DHE_RSA_WITH_AES_128_CBC_SHA"
+    },
+    {
+     "value": "TLS_RSA_WITH_AES_256_GCM_SHA384"
+    },
+    {
+     "value": "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    {
+     "value": "TLS_RSA_WITH_AES_256_CBC_SHA256"
+    },
+    {
+     "value": "TLS_RSA_WITH_AES_128_CBC_SHA256"
+    },
+    {
+     "value": "TLS_RSA_WITH_AES_256_CBC_SHA"
+    },
+    {
+     "value": "TLS_RSA_WITH_AES_128_CBC_SHA"
+    },
+    {
+     "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"
+    },
+    {
+     "value": "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
+    },
+    {
+     "value": "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384"
+    },
+    {
+     "value": "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"
+    },
+    {
+     "value": "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA"
+    },
+    {
+     "value": "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA"
+    },
+    {
+     "value": "TLS_DHE_DSS_WITH_AES_256_CBC_SHA256"
+    },
+    {
+     "value": "TLS_DHE_DSS_WITH_AES_128_CBC_SHA256"
+    },
+    {
+     "value": "TLS_DHE_DSS_WITH_AES_256_CBC_SHA"
+    },
+    {
+     "value": "TLS_DHE_DSS_WITH_AES_128_CBC_SHA"
+    },
+    {
+     "value": "TLS_RSA_WITH_3DES_EDE_CBC_SHA"
+    },
+    {
+     "value": "TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA"
+    },
+    {
+     "value": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    {
+     "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ApplicationGatewaySslPolicy": {
    "description": "Application Gateway Ssl policy.",
    "properties": {
@@ -30945,7 +28623,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:ApplicationGatewaySslCipherSuite"
+        "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewaySslCipherSuite"
        }
       ]
      },
@@ -30959,7 +28637,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:ApplicationGatewaySslProtocol"
+        "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewaySslProtocol"
        }
       ]
      },
@@ -30972,7 +28650,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewaySslProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewaySslProtocol"
       }
      ]
     },
@@ -30983,7 +28661,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewaySslPolicyName"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewaySslPolicyName"
       }
      ]
     },
@@ -30994,12 +28672,33 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewaySslPolicyType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewaySslPolicyType"
       }
      ]
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ApplicationGatewaySslPolicyName": {
+   "description": "Name of Ssl predefined policy.",
+   "enum": [
+    {
+     "value": "AppGwSslPolicy20150501"
+    },
+    {
+     "value": "AppGwSslPolicy20170401"
+    },
+    {
+     "value": "AppGwSslPolicy20170401S"
+    },
+    {
+     "value": "AppGwSslPolicy20220101"
+    },
+    {
+     "value": "AppGwSslPolicy20220101S"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ApplicationGatewaySslPolicyResponse": {
    "description": "Application Gateway Ssl policy.",
@@ -31032,6 +28731,21 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ApplicationGatewaySslPolicyType": {
+   "description": "Type of Ssl Policy.",
+   "enum": [
+    {
+     "value": "Predefined"
+    },
+    {
+     "value": "Custom"
+    },
+    {
+     "value": "CustomV2"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ApplicationGatewaySslProfile": {
    "description": "SSL profile of an application gateway.",
@@ -31113,6 +28827,42 @@
     "type"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ApplicationGatewaySslProtocol": {
+   "description": "Minimum version of Ssl protocol to be supported on application gateway.",
+   "enum": [
+    {
+     "value": "TLSv1_0"
+    },
+    {
+     "value": "TLSv1_1"
+    },
+    {
+     "value": "TLSv1_2"
+    },
+    {
+     "value": "TLSv1_3"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:ApplicationGatewayTier": {
+   "description": "Tier of an application gateway.",
+   "enum": [
+    {
+     "value": "Standard"
+    },
+    {
+     "value": "WAF"
+    },
+    {
+     "value": "Standard_v2"
+    },
+    {
+     "value": "WAF_v2"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ApplicationGatewayTrustedClientCertificate": {
    "description": "Trusted client certificates of an application gateway.",
@@ -31419,7 +29169,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayFirewallMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayFirewallMode"
       }
      ]
     },
@@ -31763,6 +29513,30 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:AuthorizationUseStatus": {
+   "description": "The authorization use status.",
+   "enum": [
+    {
+     "value": "Available"
+    },
+    {
+     "value": "InUse"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:AutoLearnPrivateRangesMode": {
+   "description": "The operation mode for automatically learning private ranges to not be SNAT",
+   "enum": [
+    {
+     "value": "Enabled"
+    },
+    {
+     "value": "Disabled"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:AzureFirewallApplicationRule": {
    "description": "Properties of an application rule.",
    "properties": {
@@ -31901,7 +29675,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AzureFirewallApplicationRuleProtocolType"
+       "$ref": "#/types/azure-native_network_v20230201:network:AzureFirewallApplicationRuleProtocolType"
       }
      ]
     }
@@ -31921,6 +29695,21 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:AzureFirewallApplicationRuleProtocolType": {
+   "description": "Protocol type.",
+   "enum": [
+    {
+     "value": "Http"
+    },
+    {
+     "value": "Https"
+    },
+    {
+     "value": "Mssql"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:AzureFirewallApplicationRuleResponse": {
    "description": "Properties of an application rule.",
@@ -32070,7 +29859,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AzureFirewallNatRCActionType"
+       "$ref": "#/types/azure-native_network_v20230201:network:AzureFirewallNatRCActionType"
       }
      ]
     }
@@ -32086,6 +29875,18 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:AzureFirewallNatRCActionType": {
+   "description": "The type of action.",
+   "enum": [
+    {
+     "value": "Snat"
+    },
+    {
+     "value": "Dnat"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:AzureFirewallNatRule": {
    "description": "Properties of a NAT rule.",
@@ -32120,7 +29921,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:AzureFirewallNetworkRuleProtocol"
+        "$ref": "#/types/azure-native_network_v20230201:network:AzureFirewallNetworkRuleProtocol"
        }
       ]
      },
@@ -32337,7 +30138,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:AzureFirewallNetworkRuleProtocol"
+        "$ref": "#/types/azure-native_network_v20230201:network:AzureFirewallNetworkRuleProtocol"
        }
       ]
      },
@@ -32434,6 +30235,24 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:AzureFirewallNetworkRuleProtocol": {
+   "description": "The protocol of a Network Rule resource.",
+   "enum": [
+    {
+     "value": "TCP"
+    },
+    {
+     "value": "UDP"
+    },
+    {
+     "value": "Any"
+    },
+    {
+     "value": "ICMP"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:AzureFirewallNetworkRuleResponse": {
    "description": "Properties of the network rule.",
    "properties": {
@@ -32527,7 +30346,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AzureFirewallRCActionType"
+       "$ref": "#/types/azure-native_network_v20230201:network:AzureFirewallRCActionType"
       }
      ]
     }
@@ -32544,6 +30363,18 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:AzureFirewallRCActionType": {
+   "description": "The type of action.",
+   "enum": [
+    {
+     "value": "Allow"
+    },
+    {
+     "value": "Deny"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:AzureFirewallSku": {
    "description": "SKU of an Azure Firewall.",
    "properties": {
@@ -32554,7 +30385,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AzureFirewallSkuName"
+       "$ref": "#/types/azure-native_network_v20230201:network:AzureFirewallSkuName"
       }
      ]
     },
@@ -32565,12 +30396,24 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AzureFirewallSkuTier"
+       "$ref": "#/types/azure-native_network_v20230201:network:AzureFirewallSkuTier"
       }
      ]
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:AzureFirewallSkuName": {
+   "description": "Name of an Azure Firewall SKU.",
+   "enum": [
+    {
+     "value": "AZFW_VNet"
+    },
+    {
+     "value": "AZFW_Hub"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:AzureFirewallSkuResponse": {
    "description": "SKU of an Azure Firewall.",
@@ -32585,6 +30428,36 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:AzureFirewallSkuTier": {
+   "description": "Tier of an Azure Firewall.",
+   "enum": [
+    {
+     "value": "Standard"
+    },
+    {
+     "value": "Premium"
+    },
+    {
+     "value": "Basic"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:AzureFirewallThreatIntelMode": {
+   "description": "The operation mode for Threat Intelligence.",
+   "enum": [
+    {
+     "value": "Alert"
+    },
+    {
+     "value": "Deny"
+    },
+    {
+     "value": "Off"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:BackendAddressPool": {
    "description": "Pool of backend IP addresses.",
@@ -32812,7 +30685,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPAllocationMethod"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPAllocationMethod"
       }
      ]
     },
@@ -32879,6 +30752,18 @@
     "type"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:BastionHostSkuName": {
+   "description": "The name of this Bastion Host.",
+   "enum": [
+    {
+     "value": "Basic"
+    },
+    {
+     "value": "Standard"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:BastionShareableLink": {
    "description": "Bastion Shareable Link.",
@@ -33059,6 +30944,36 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:CommissionedState": {
+   "description": "The commissioned state of the Custom IP Prefix.",
+   "enum": [
+    {
+     "value": "Provisioning"
+    },
+    {
+     "value": "Provisioned"
+    },
+    {
+     "value": "Commissioning"
+    },
+    {
+     "value": "CommissionedNoInternetAdvertise"
+    },
+    {
+     "value": "Commissioned"
+    },
+    {
+     "value": "Decommissioning"
+    },
+    {
+     "value": "Deprovisioning"
+    },
+    {
+     "value": "Deprovisioned"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ConfigurationGroupResponse": {
    "description": "The network configuration group resource",
    "properties": {
@@ -33084,6 +30999,18 @@
     "resourceGuid"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ConfigurationType": {
+   "description": "Configuration Deployment Type.",
+   "enum": [
+    {
+     "value": "SecurityAdmin"
+    },
+    {
+     "value": "Connectivity"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ConnectionMonitorDestination": {
    "description": "Describes the destination of connection monitor.",
@@ -33135,7 +31062,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:CoverageLevel"
+       "$ref": "#/types/azure-native_network_v20230201:network:CoverageLevel"
       }
      ]
     },
@@ -33164,7 +31091,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:EndpointType"
+       "$ref": "#/types/azure-native_network_v20230201:network:EndpointType"
       }
      ]
     }
@@ -33192,7 +31119,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ConnectionMonitorEndpointFilterType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ConnectionMonitorEndpointFilterType"
       }
      ]
     }
@@ -33213,7 +31140,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ConnectionMonitorEndpointFilterItemType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ConnectionMonitorEndpointFilterItemType"
       }
      ]
     }
@@ -33234,6 +31161,15 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ConnectionMonitorEndpointFilterItemType": {
+   "description": "The type of item included in the filter. Currently only 'AgentAddress' is supported.",
+   "enum": [
+    {
+     "value": "AgentAddress"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ConnectionMonitorEndpointFilterResponse": {
    "description": "Describes the connection monitor endpoint filter.",
    "properties": {
@@ -33251,6 +31187,15 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ConnectionMonitorEndpointFilterType": {
+   "description": "The behavior of the endpoint filter. Currently only 'Include' is supported.",
+   "enum": [
+    {
+     "value": "Include"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ConnectionMonitorEndpointResponse": {
    "description": "Describes the connection monitor endpoint.",
@@ -33365,7 +31310,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:HTTPConfigurationMethod"
+       "$ref": "#/types/azure-native_network_v20230201:network:HTTPConfigurationMethod"
       }
      ]
     },
@@ -33466,7 +31411,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:OutputType"
+       "$ref": "#/types/azure-native_network_v20230201:network:OutputType"
       }
      ]
     },
@@ -33565,7 +31510,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:DestinationPortBehavior"
+       "$ref": "#/types/azure-native_network_v20230201:network:DestinationPortBehavior"
       }
      ]
     },
@@ -33622,7 +31567,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:PreferredIPVersion"
+       "$ref": "#/types/azure-native_network_v20230201:network:PreferredIPVersion"
       }
      ]
     },
@@ -33633,7 +31578,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ConnectionMonitorTestConfigurationProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:ConnectionMonitorTestConfigurationProtocol"
       }
      ]
     },
@@ -33657,6 +31602,21 @@
     "protocol"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ConnectionMonitorTestConfigurationProtocol": {
+   "description": "The protocol to use in test evaluation.",
+   "enum": [
+    {
+     "value": "Tcp"
+    },
+    {
+     "value": "Http"
+    },
+    {
+     "value": "Icmp"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ConnectionMonitorTestConfigurationResponse": {
    "description": "Describes a connection monitor test configuration.",
@@ -33816,7 +31776,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:GroupConnectivity"
+       "$ref": "#/types/azure-native_network_v20230201:network:GroupConnectivity"
       }
      ]
     },
@@ -33827,7 +31787,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IsGlobal"
+       "$ref": "#/types/azure-native_network_v20230201:network:IsGlobal"
       }
      ]
     },
@@ -33842,7 +31802,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:UseHubGateway"
+       "$ref": "#/types/azure-native_network_v20230201:network:UseHubGateway"
       }
      ]
     }
@@ -33878,6 +31838,18 @@
     "networkGroupId"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ConnectivityTopology": {
+   "description": "Connectivity topology type.",
+   "enum": [
+    {
+     "value": "HubAndSpoke"
+    },
+    {
+     "value": "Mesh"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ContainerNetworkInterfaceConfiguration": {
    "description": "Container network interface configuration child resource.",
@@ -34044,6 +32016,30 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:CoverageLevel": {
+   "description": "Test coverage for the endpoint.",
+   "enum": [
+    {
+     "value": "Default"
+    },
+    {
+     "value": "Low"
+    },
+    {
+     "value": "BelowAverage"
+    },
+    {
+     "value": "Average"
+    },
+    {
+     "value": "AboveAverage"
+    },
+    {
+     "value": "Full"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:Criterion": {
    "description": "A matching criteria which matches routes based on route prefix, community, and AS path.",
    "properties": {
@@ -34068,7 +32064,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:RouteMapMatchCondition"
+       "$ref": "#/types/azure-native_network_v20230201:network:RouteMapMatchCondition"
       }
      ]
     },
@@ -34176,6 +32172,21 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:CustomIpPrefixType": {
+   "description": "Type of custom IP prefix. Should be Singular, Parent, or Child.",
+   "enum": [
+    {
+     "value": "Singular"
+    },
+    {
+     "value": "Parent"
+    },
+    {
+     "value": "Child"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:DdosSettings": {
    "description": "Contains the DDoS protection settings of the public IP.",
    "properties": {
@@ -34191,12 +32202,27 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:DdosSettingsProtectionMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:DdosSettingsProtectionMode"
       }
      ]
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:DdosSettingsProtectionMode": {
+   "description": "The DDoS protection mode of the public IP",
+   "enum": [
+    {
+     "value": "VirtualNetworkInherited"
+    },
+    {
+     "value": "Enabled"
+    },
+    {
+     "value": "Disabled"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:DdosSettingsResponse": {
    "description": "Contains the DDoS protection settings of the public IP.",
@@ -34304,6 +32330,42 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:DeleteExistingPeering": {
+   "description": "Flag if need to remove current existing peerings.",
+   "enum": [
+    {
+     "value": "False"
+    },
+    {
+     "value": "True"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:DeleteOptions": {
+   "description": "Specify what happens to the public IP address when the VM using it is deleted",
+   "enum": [
+    {
+     "value": "Delete"
+    },
+    {
+     "value": "Detach"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:DestinationPortBehavior": {
+   "description": "Destination port behavior.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "ListenIfAvailable"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:DeviceProperties": {
    "description": "List of properties of the device.",
    "properties": {
@@ -34339,6 +32401,36 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:DhGroup": {
+   "description": "The DH Group used in IKE Phase 1 for initial SA.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "DHGroup1"
+    },
+    {
+     "value": "DHGroup2"
+    },
+    {
+     "value": "DHGroup14"
+    },
+    {
+     "value": "DHGroup2048"
+    },
+    {
+     "value": "ECP256"
+    },
+    {
+     "value": "ECP384"
+    },
+    {
+     "value": "DHGroup24"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:DhcpOptions": {
    "description": "DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.",
@@ -34693,6 +32785,36 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:EndpointType": {
+   "description": "The endpoint type.",
+   "enum": [
+    {
+     "value": "AzureVM"
+    },
+    {
+     "value": "AzureVNet"
+    },
+    {
+     "value": "AzureSubnet"
+    },
+    {
+     "value": "ExternalAddress"
+    },
+    {
+     "value": "MMAWorkspaceMachine"
+    },
+    {
+     "value": "MMAWorkspaceNetwork"
+    },
+    {
+     "value": "AzureArcVM"
+    },
+    {
+     "value": "AzureVMSS"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ExclusionManagedRule": {
    "description": "Defines a managed rule to use for exclusion.",
    "properties": {
@@ -34887,7 +33009,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AuthorizationUseStatus"
+       "$ref": "#/types/azure-native_network_v20230201:network:AuthorizationUseStatus"
       }
      ]
     },
@@ -35085,7 +33207,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRoutePeeringType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRoutePeeringType"
       }
      ]
     },
@@ -35121,7 +33243,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRoutePeeringState"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRoutePeeringState"
       }
      ]
     },
@@ -35350,6 +33472,18 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ExpressRouteCircuitPeeringState": {
+   "description": "The state of peering.",
+   "enum": [
+    {
+     "value": "Disabled"
+    },
+    {
+     "value": "Enabled"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ExpressRouteCircuitServiceProviderProperties": {
    "description": "Contains ServiceProviderProperties in an ExpressRouteCircuit.",
    "properties": {
@@ -35396,7 +33530,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRouteCircuitSkuFamily"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRouteCircuitSkuFamily"
       }
      ]
     },
@@ -35411,12 +33545,24 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRouteCircuitSkuTier"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRouteCircuitSkuTier"
       }
      ]
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ExpressRouteCircuitSkuFamily": {
+   "description": "The family of the SKU.",
+   "enum": [
+    {
+     "value": "UnlimitedData"
+    },
+    {
+     "value": "MeteredData"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ExpressRouteCircuitSkuResponse": {
    "description": "Contains SKU in an ExpressRouteCircuit.",
@@ -35435,6 +33581,24 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ExpressRouteCircuitSkuTier": {
+   "description": "The tier of the SKU.",
+   "enum": [
+    {
+     "value": "Standard"
+    },
+    {
+     "value": "Premium"
+    },
+    {
+     "value": "Basic"
+    },
+    {
+     "value": "Local"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ExpressRouteCircuitStats": {
    "description": "Contains stats associated with the peering.",
@@ -35654,7 +33818,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRouteLinkAdminState"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRouteLinkAdminState"
       }
      ]
     },
@@ -35674,6 +33838,36 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ExpressRouteLinkAdminState": {
+   "description": "Administrative state of the physical port.",
+   "enum": [
+    {
+     "value": "Enabled"
+    },
+    {
+     "value": "Disabled"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:ExpressRouteLinkMacSecCipher": {
+   "description": "Mac security cipher.",
+   "enum": [
+    {
+     "value": "GcmAes256"
+    },
+    {
+     "value": "GcmAes128"
+    },
+    {
+     "value": "GcmAesXpn128"
+    },
+    {
+     "value": "GcmAesXpn256"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ExpressRouteLinkMacSecConfig": {
    "description": "ExpressRouteLink Mac Security Configuration.",
    "properties": {
@@ -35688,7 +33882,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRouteLinkMacSecCipher"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRouteLinkMacSecCipher"
       }
      ]
     },
@@ -35703,7 +33897,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRouteLinkMacSecSciState"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRouteLinkMacSecSciState"
       }
      ]
     }
@@ -35731,6 +33925,18 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ExpressRouteLinkMacSecSciState": {
+   "description": "Sci mode enabled/disabled.",
+   "enum": [
+    {
+     "value": "Disabled"
+    },
+    {
+     "value": "Enabled"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ExpressRouteLinkResponse": {
    "description": "ExpressRouteLink child resource definition.",
@@ -35797,6 +34003,57 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ExpressRoutePeeringState": {
+   "description": "The peering state.",
+   "enum": [
+    {
+     "value": "Disabled"
+    },
+    {
+     "value": "Enabled"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:ExpressRoutePeeringType": {
+   "description": "The peering type.",
+   "enum": [
+    {
+     "value": "AzurePublicPeering"
+    },
+    {
+     "value": "AzurePrivatePeering"
+    },
+    {
+     "value": "MicrosoftPeering"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:ExpressRoutePortsBillingType": {
+   "description": "The billing type of the ExpressRoutePort resource.",
+   "enum": [
+    {
+     "value": "MeteredData"
+    },
+    {
+     "value": "UnlimitedData"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:ExpressRoutePortsEncapsulation": {
+   "description": "Encapsulation method on physical ports.",
+   "enum": [
+    {
+     "value": "Dot1Q"
+    },
+    {
+     "value": "QinQ"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ExtendedLocation": {
    "description": "ExtendedLocation complex type.",
    "properties": {
@@ -35811,7 +34068,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExtendedLocationTypes"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExtendedLocationTypes"
       }
      ]
     }
@@ -35831,6 +34088,15 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ExtendedLocationTypes": {
+   "description": "The type of the extended location.",
+   "enum": [
+    {
+     "value": "EdgeZone"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:FilterItems": {
    "description": "Will contain the filter name and values to operate on",
@@ -35942,7 +34208,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:FirewallPolicyFilterRuleCollectionActionType"
+       "$ref": "#/types/azure-native_network_v20230201:network:FirewallPolicyFilterRuleCollectionActionType"
       }
      ]
     }
@@ -35958,6 +34224,18 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:FirewallPolicyFilterRuleCollectionActionType": {
+   "description": "The type of action.",
+   "enum": [
+    {
+     "value": "Allow"
+    },
+    {
+     "value": "Deny"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:FirewallPolicyFilterRuleCollectionResponse": {
    "description": "Firewall Policy Filter Rule Collection.",
@@ -36042,6 +34320,18 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:FirewallPolicyIDPSQuerySortOrder": {
+   "description": "Describes if results should be in ascending/descending order",
+   "enum": [
+    {
+     "value": "Ascending"
+    },
+    {
+     "value": "Descending"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:FirewallPolicyInsights": {
    "description": "Firewall Policy Insights.",
    "properties": {
@@ -36095,7 +34385,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:FirewallPolicyIntrusionDetectionStateType"
+       "$ref": "#/types/azure-native_network_v20230201:network:FirewallPolicyIntrusionDetectionStateType"
       }
      ]
     }
@@ -36141,7 +34431,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:FirewallPolicyIntrusionDetectionProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:FirewallPolicyIntrusionDetectionProtocol"
       }
      ]
     },
@@ -36273,6 +34563,24 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:FirewallPolicyIntrusionDetectionProtocol": {
+   "description": "The rule bypass protocol.",
+   "enum": [
+    {
+     "value": "TCP"
+    },
+    {
+     "value": "UDP"
+    },
+    {
+     "value": "ICMP"
+    },
+    {
+     "value": "ANY"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:FirewallPolicyIntrusionDetectionResponse": {
    "description": "Configuration for intrusion detection mode and rules.",
    "properties": {
@@ -36302,7 +34610,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:FirewallPolicyIntrusionDetectionStateType"
+       "$ref": "#/types/azure-native_network_v20230201:network:FirewallPolicyIntrusionDetectionStateType"
       }
      ]
     }
@@ -36322,6 +34630,21 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:FirewallPolicyIntrusionDetectionStateType": {
+   "description": "Intrusion detection general state.",
+   "enum": [
+    {
+     "value": "Off"
+    },
+    {
+     "value": "Alert"
+    },
+    {
+     "value": "Deny"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:FirewallPolicyLogAnalyticsResources": {
    "description": "Log Analytics Resources for Firewall Policy Insights.",
@@ -36456,7 +34779,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:FirewallPolicyNatRuleCollectionActionType"
+       "$ref": "#/types/azure-native_network_v20230201:network:FirewallPolicyNatRuleCollectionActionType"
       }
      ]
     }
@@ -36472,6 +34795,15 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:FirewallPolicyNatRuleCollectionActionType": {
+   "description": "The type of action.",
+   "enum": [
+    {
+     "value": "DNAT"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:FirewallPolicyNatRuleCollectionResponse": {
    "description": "Firewall Policy NAT Rule Collection.",
@@ -36542,7 +34874,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:FirewallPolicyRuleApplicationProtocolType"
+       "$ref": "#/types/azure-native_network_v20230201:network:FirewallPolicyRuleApplicationProtocolType"
       }
      ]
     }
@@ -36563,6 +34895,63 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:FirewallPolicyRuleApplicationProtocolType": {
+   "description": "Protocol type.",
+   "enum": [
+    {
+     "value": "Http"
+    },
+    {
+     "value": "Https"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:FirewallPolicyRuleCollectionType": {
+   "description": "The type of the rule collection.",
+   "enum": [
+    {
+     "value": "FirewallPolicyNatRuleCollection"
+    },
+    {
+     "value": "FirewallPolicyFilterRuleCollection"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:FirewallPolicyRuleNetworkProtocol": {
+   "description": "The Network protocol of a Rule.",
+   "enum": [
+    {
+     "value": "TCP"
+    },
+    {
+     "value": "UDP"
+    },
+    {
+     "value": "Any"
+    },
+    {
+     "value": "ICMP"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:FirewallPolicyRuleType": {
+   "description": "Rule Type.",
+   "enum": [
+    {
+     "value": "ApplicationRule"
+    },
+    {
+     "value": "NetworkRule"
+    },
+    {
+     "value": "NatRule"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:FirewallPolicySNAT": {
    "description": "The private IP addresses/IP ranges to which traffic will not be SNAT.",
    "properties": {
@@ -36573,7 +34962,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AutoLearnPrivateRangesMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:AutoLearnPrivateRangesMode"
       }
      ]
     },
@@ -36634,7 +35023,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:FirewallPolicySkuTier"
+       "$ref": "#/types/azure-native_network_v20230201:network:FirewallPolicySkuTier"
       }
      ]
     }
@@ -36650,6 +35039,21 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:FirewallPolicySkuTier": {
+   "description": "Tier of Firewall Policy.",
+   "enum": [
+    {
+     "value": "Standard"
+    },
+    {
+     "value": "Premium"
+    },
+    {
+     "value": "Basic"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:FirewallPolicyThreatIntelWhitelist": {
    "description": "ThreatIntel Whitelist for Firewall Policy.",
@@ -36723,7 +35127,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:FlowLogFormatType"
+       "$ref": "#/types/azure-native_network_v20230201:network:FlowLogFormatType"
       }
      ]
     },
@@ -36749,6 +35153,15 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:FlowLogFormatType": {
+   "description": "The file type of flow log.",
+   "enum": [
+    {
+     "value": "JSON"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:FlowLogResponse": {
    "description": "A flow log resource.",
@@ -36854,7 +35267,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPVersion"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPVersion"
       }
      ]
     },
@@ -36865,7 +35278,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPAllocationMethod"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPAllocationMethod"
       }
      ]
     },
@@ -37054,7 +35467,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:GatewayLoadBalancerTunnelProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:GatewayLoadBalancerTunnelProtocol"
       }
      ]
     },
@@ -37065,7 +35478,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:GatewayLoadBalancerTunnelInterfaceType"
+       "$ref": "#/types/azure-native_network_v20230201:network:GatewayLoadBalancerTunnelInterfaceType"
       }
      ]
     }
@@ -37093,6 +35506,36 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:GatewayLoadBalancerTunnelInterfaceType": {
+   "description": "Traffic type of gateway load balancer tunnel interface.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "Internal"
+    },
+    {
+     "value": "External"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:GatewayLoadBalancerTunnelProtocol": {
+   "description": "Protocol of gateway load balancer tunnel interface.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "Native"
+    },
+    {
+     "value": "VXLAN"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:GatewayRouteResponse": {
    "description": "Gateway routing details.",
@@ -37136,6 +35579,39 @@
     "weight"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:Geo": {
+   "description": "The Geo for CIDR advertising. Should be an Geo code.",
+   "enum": [
+    {
+     "value": "GLOBAL"
+    },
+    {
+     "value": "AFRI"
+    },
+    {
+     "value": "APAC"
+    },
+    {
+     "value": "EURO"
+    },
+    {
+     "value": "LATAM"
+    },
+    {
+     "value": "NAM"
+    },
+    {
+     "value": "ME"
+    },
+    {
+     "value": "OCEANIA"
+    },
+    {
+     "value": "AQ"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:GroupByUserSession": {
    "description": "Define user session identifier group by clauses.",
@@ -37181,7 +35657,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayFirewallUserSessionVariable"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayFirewallUserSessionVariable"
       }
      ]
     }
@@ -37203,6 +35679,30 @@
     "variableName"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:GroupConnectivity": {
+   "description": "Group connectivity type.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "DirectlyConnected"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:HTTPConfigurationMethod": {
+   "description": "The HTTP method to use.",
+   "enum": [
+    {
+     "value": "Get"
+    },
+    {
+     "value": "Post"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:HTTPHeader": {
    "description": "The HTTP header.",
@@ -37398,6 +35898,33 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:HubRoutingPreference": {
+   "description": "The hubRoutingPreference of this VirtualHub.",
+   "enum": [
+    {
+     "value": "ExpressRoute"
+    },
+    {
+     "value": "VpnGateway"
+    },
+    {
+     "value": "ASPath"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:IPAllocationMethod": {
+   "description": "The private IP address allocation method.",
+   "enum": [
+    {
+     "value": "Static"
+    },
+    {
+     "value": "Dynamic"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:IPConfigurationBgpPeeringAddress": {
    "description": "Properties of IPConfigurationBgpPeeringAddress.",
    "properties": {
@@ -37550,6 +36077,69 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:IPVersion": {
+   "description": "Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.",
+   "enum": [
+    {
+     "value": "IPv4"
+    },
+    {
+     "value": "IPv6"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:IkeEncryption": {
+   "description": "The IKE encryption algorithm (IKE phase 2).",
+   "enum": [
+    {
+     "value": "DES"
+    },
+    {
+     "value": "DES3"
+    },
+    {
+     "value": "AES128"
+    },
+    {
+     "value": "AES192"
+    },
+    {
+     "value": "AES256"
+    },
+    {
+     "value": "GCMAES256"
+    },
+    {
+     "value": "GCMAES128"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:IkeIntegrity": {
+   "description": "The IKE integrity algorithm (IKE phase 2).",
+   "enum": [
+    {
+     "value": "MD5"
+    },
+    {
+     "value": "SHA1"
+    },
+    {
+     "value": "SHA256"
+    },
+    {
+     "value": "SHA384"
+    },
+    {
+     "value": "GCMAES256"
+    },
+    {
+     "value": "GCMAES128"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:InboundNatPool": {
    "description": "Inbound NAT pool of the load balancer.",
    "properties": {
@@ -37597,7 +36187,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:TransportProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:TransportProtocol"
       }
      ]
     }
@@ -37734,7 +36324,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:TransportProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:TransportProtocol"
       }
      ]
     }
@@ -37820,6 +36410,18 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:IpAllocationType": {
+   "description": "The type for the IpAllocation.",
+   "enum": [
+    {
+     "value": "Undefined"
+    },
+    {
+     "value": "Hypernet"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:IpTag": {
    "description": "Contains the IpTag associated with the object.",
    "properties": {
@@ -37848,6 +36450,63 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:IpsecEncryption": {
+   "description": "The IPSec encryption algorithm (IKE phase 1).",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "DES"
+    },
+    {
+     "value": "DES3"
+    },
+    {
+     "value": "AES128"
+    },
+    {
+     "value": "AES192"
+    },
+    {
+     "value": "AES256"
+    },
+    {
+     "value": "GCMAES128"
+    },
+    {
+     "value": "GCMAES192"
+    },
+    {
+     "value": "GCMAES256"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:IpsecIntegrity": {
+   "description": "The IPSec integrity algorithm (IKE phase 1).",
+   "enum": [
+    {
+     "value": "MD5"
+    },
+    {
+     "value": "SHA1"
+    },
+    {
+     "value": "SHA256"
+    },
+    {
+     "value": "GCMAES128"
+    },
+    {
+     "value": "GCMAES192"
+    },
+    {
+     "value": "GCMAES256"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:IpsecPolicy": {
    "description": "An IPSec Policy configuration for a virtual network gateway connection.",
    "properties": {
@@ -37858,7 +36517,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:DhGroup"
+       "$ref": "#/types/azure-native_network_v20230201:network:DhGroup"
       }
      ]
     },
@@ -37869,7 +36528,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IkeEncryption"
+       "$ref": "#/types/azure-native_network_v20230201:network:IkeEncryption"
       }
      ]
     },
@@ -37880,7 +36539,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IkeIntegrity"
+       "$ref": "#/types/azure-native_network_v20230201:network:IkeIntegrity"
       }
      ]
     },
@@ -37891,7 +36550,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IpsecEncryption"
+       "$ref": "#/types/azure-native_network_v20230201:network:IpsecEncryption"
       }
      ]
     },
@@ -37902,7 +36561,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IpsecIntegrity"
+       "$ref": "#/types/azure-native_network_v20230201:network:IpsecIntegrity"
       }
      ]
     },
@@ -37913,7 +36572,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:PfsGroup"
+       "$ref": "#/types/azure-native_network_v20230201:network:PfsGroup"
       }
      ]
     },
@@ -38041,7 +36700,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ExpressRouteCircuitPeeringState"
+       "$ref": "#/types/azure-native_network_v20230201:network:ExpressRouteCircuitPeeringState"
       }
      ]
     }
@@ -38076,6 +36735,18 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:IsGlobal": {
+   "description": "Flag if global mesh is supported.",
+   "enum": [
+    {
+     "value": "False"
+    },
+    {
+     "value": "True"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:LoadBalancerBackendAddress": {
    "description": "Load balancer backend addresses.",
    "properties": {
@@ -38086,7 +36757,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:LoadBalancerBackendAddressAdminState"
+       "$ref": "#/types/azure-native_network_v20230201:network:LoadBalancerBackendAddressAdminState"
       }
      ]
     },
@@ -38115,6 +36786,21 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:LoadBalancerBackendAddressAdminState": {
+   "description": "A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "Up"
+    },
+    {
+     "value": "Down"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:LoadBalancerBackendAddressResponse": {
    "description": "Load balancer backend addresses.",
@@ -38166,6 +36852,21 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:LoadBalancerOutboundRuleProtocol": {
+   "description": "The protocol for the outbound rule in load balancer.",
+   "enum": [
+    {
+     "value": "Tcp"
+    },
+    {
+     "value": "Udp"
+    },
+    {
+     "value": "All"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:LoadBalancerSku": {
    "description": "SKU of a load balancer.",
    "properties": {
@@ -38176,7 +36877,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:LoadBalancerSkuName"
+       "$ref": "#/types/azure-native_network_v20230201:network:LoadBalancerSkuName"
       }
      ]
     },
@@ -38187,12 +36888,27 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:LoadBalancerSkuTier"
+       "$ref": "#/types/azure-native_network_v20230201:network:LoadBalancerSkuTier"
       }
      ]
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:LoadBalancerSkuName": {
+   "description": "Name of a load balancer SKU.",
+   "enum": [
+    {
+     "value": "Basic"
+    },
+    {
+     "value": "Standard"
+    },
+    {
+     "value": "Gateway"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:LoadBalancerSkuResponse": {
    "description": "SKU of a load balancer.",
@@ -38207,6 +36923,18 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:LoadBalancerSkuTier": {
+   "description": "Tier of a load balancer SKU.",
+   "enum": [
+    {
+     "value": "Regional"
+    },
+    {
+     "value": "Global"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:LoadBalancingRule": {
    "description": "A load balancing rule for a load balancer.",
@@ -38264,7 +36992,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:LoadDistribution"
+       "$ref": "#/types/azure-native_network_v20230201:network:LoadDistribution"
       }
      ]
     },
@@ -38284,7 +37012,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:TransportProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:TransportProtocol"
       }
      ]
     }
@@ -38382,6 +37110,21 @@
     "type"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:LoadDistribution": {
+   "description": "The load distribution policy for this rule.",
+   "enum": [
+    {
+     "value": "Default"
+    },
+    {
+     "value": "SourceIP"
+    },
+    {
+     "value": "SourceIPProtocol"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:LocalNetworkGateway": {
    "description": "A common class for general resource information.",
@@ -38488,6 +37231,18 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ManagedRuleEnabledState": {
+   "description": "The state of the managed rule. Defaults to Disabled if not specified.",
+   "enum": [
+    {
+     "value": "Disabled"
+    },
+    {
+     "value": "Enabled"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ManagedRuleGroupOverride": {
    "description": "Defines a managed rule group override setting.",
    "properties": {
@@ -38540,7 +37295,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ActionType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ActionType"
       }
      ]
     },
@@ -38555,7 +37310,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ManagedRuleEnabledState"
+       "$ref": "#/types/azure-native_network_v20230201:network:ManagedRuleEnabledState"
       }
      ]
     }
@@ -38692,7 +37447,7 @@
    "description": "Identity for the resource.",
    "properties": {
     "type": {
-     "$ref": "#/types/azure-native:network:ResourceIdentityType",
+     "$ref": "#/types/azure-native_network_v20230201:network:ResourceIdentityType",
      "description": "The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine."
     },
     "userAssignedIdentities": {
@@ -38781,7 +37536,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:WebApplicationFirewallOperator"
+       "$ref": "#/types/azure-native_network_v20230201:network:WebApplicationFirewallOperator"
       }
      ]
     },
@@ -38793,7 +37548,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:WebApplicationFirewallTransform"
+        "$ref": "#/types/azure-native_network_v20230201:network:WebApplicationFirewallTransform"
        }
       ]
      },
@@ -38862,7 +37617,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:WebApplicationFirewallMatchVariable"
+       "$ref": "#/types/azure-native_network_v20230201:network:WebApplicationFirewallMatchVariable"
       }
      ]
     }
@@ -39041,12 +37796,21 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:NatGatewaySkuName"
+       "$ref": "#/types/azure-native_network_v20230201:network:NatGatewaySkuName"
       }
      ]
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:NatGatewaySkuName": {
+   "description": "Name of Nat Gateway SKU.",
+   "enum": [
+    {
+     "value": "Standard"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:NatGatewaySkuResponse": {
    "description": "SKU of nat gateway.",
@@ -39087,7 +37851,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:FirewallPolicyRuleNetworkProtocol"
+        "$ref": "#/types/azure-native_network_v20230201:network:FirewallPolicyRuleNetworkProtocol"
        }
       ]
      },
@@ -39221,6 +37985,60 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:NetworkIntentPolicyBasedService": {
+   "description": "Network intent policy based services.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "All"
+    },
+    {
+     "value": "AllowRulesOnly"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:NetworkInterfaceAuxiliaryMode": {
+   "description": "Auxiliary mode of Network Interface resource.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "MaxConnections"
+    },
+    {
+     "value": "Floating"
+    },
+    {
+     "value": "AcceleratedConnections"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:NetworkInterfaceAuxiliarySku": {
+   "description": "Auxiliary sku of Network Interface resource.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "A1"
+    },
+    {
+     "value": "A2"
+    },
+    {
+     "value": "A4"
+    },
+    {
+     "value": "A8"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:NetworkInterfaceDnsSettings": {
    "description": "DNS settings of a network interface.",
    "properties": {
@@ -39338,7 +38156,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPVersion"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPVersion"
       }
      ]
     },
@@ -39349,7 +38167,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPAllocationMethod"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPAllocationMethod"
       }
      ]
     },
@@ -39510,6 +38328,39 @@
     "provisioningState"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:NetworkInterfaceMigrationPhase": {
+   "description": "Migration phase of Network Interface resource.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "Prepare"
+    },
+    {
+     "value": "Commit"
+    },
+    {
+     "value": "Abort"
+    },
+    {
+     "value": "Committed"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:NetworkInterfaceNicType": {
+   "description": "Type of Network Interface resource.",
+   "enum": [
+    {
+     "value": "Standard"
+    },
+    {
+     "value": "Elastic"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:NetworkInterfaceResponse": {
    "description": "A network interface in a resource group.",
@@ -39858,7 +38709,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:FirewallPolicyRuleNetworkProtocol"
+        "$ref": "#/types/azure-native_network_v20230201:network:FirewallPolicyRuleNetworkProtocol"
        }
       ]
      },
@@ -40168,6 +39019,21 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:NextStep": {
+   "description": "Next step after rule is evaluated. Current supported behaviors are 'Continue'(to next rule) and 'Terminate'.",
+   "enum": [
+    {
+     "value": "Unknown"
+    },
+    {
+     "value": "Continue"
+    },
+    {
+     "value": "Terminate"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:O365BreakOutCategoryPolicies": {
    "description": "Office365 breakout categories.",
    "properties": {
@@ -40262,7 +39128,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:FirewallPolicyIDPSQuerySortOrder"
+       "$ref": "#/types/azure-native_network_v20230201:network:FirewallPolicyIDPSQuerySortOrder"
       }
      ]
     }
@@ -40312,7 +39178,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:LoadBalancerOutboundRuleProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:LoadBalancerOutboundRuleProtocol"
       }
      ]
     }
@@ -40387,6 +39253,15 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:OutputType": {
+   "description": "Connection monitor output destination type. Currently, only \"Workspace\" is supported.",
+   "enum": [
+    {
+     "value": "Workspace"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:OwaspCrsExclusionEntry": {
    "description": "Allow to exclude some variable satisfy the condition for the WAF check.",
    "properties": {
@@ -40405,7 +39280,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:OwaspCrsExclusionEntryMatchVariable"
+       "$ref": "#/types/azure-native_network_v20230201:network:OwaspCrsExclusionEntryMatchVariable"
       }
      ]
     },
@@ -40420,7 +39295,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:OwaspCrsExclusionEntrySelectorMatchOperator"
+       "$ref": "#/types/azure-native_network_v20230201:network:OwaspCrsExclusionEntrySelectorMatchOperator"
       }
      ]
     }
@@ -40431,6 +39306,39 @@
     "selectorMatchOperator"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:OwaspCrsExclusionEntryMatchVariable": {
+   "description": "The variable to be excluded.",
+   "enum": [
+    {
+     "value": "RequestHeaderNames"
+    },
+    {
+     "value": "RequestCookieNames"
+    },
+    {
+     "value": "RequestArgNames"
+    },
+    {
+     "value": "RequestHeaderKeys"
+    },
+    {
+     "value": "RequestHeaderValues"
+    },
+    {
+     "value": "RequestCookieKeys"
+    },
+    {
+     "value": "RequestCookieValues"
+    },
+    {
+     "value": "RequestArgKeys"
+    },
+    {
+     "value": "RequestArgValues"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:OwaspCrsExclusionEntryResponse": {
    "description": "Allow to exclude some variable satisfy the condition for the WAF check.",
@@ -40462,6 +39370,27 @@
     "selectorMatchOperator"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:OwaspCrsExclusionEntrySelectorMatchOperator": {
+   "description": "When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.",
+   "enum": [
+    {
+     "value": "Equals"
+    },
+    {
+     "value": "Contains"
+    },
+    {
+     "value": "StartsWith"
+    },
+    {
+     "value": "EndsWith"
+    },
+    {
+     "value": "EqualsAny"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:P2SConnectionConfiguration": {
    "description": "P2SConnectionConfiguration Resource.",
@@ -40651,7 +39580,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:PcProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:PcProtocol"
       }
      ]
     },
@@ -40769,6 +39698,18 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:PacketCaptureTargetType": {
+   "description": "Target type of the resource provided.",
+   "enum": [
+    {
+     "value": "AzureVM"
+    },
+    {
+     "value": "AzureVMSS"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:Parameter": {
    "description": "Parameters for an Action.",
    "properties": {
@@ -40846,6 +39787,21 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:PcProtocol": {
+   "description": "Protocol to be filtered on.",
+   "enum": [
+    {
+     "value": "TCP"
+    },
+    {
+     "value": "UDP"
+    },
+    {
+     "value": "Any"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:PeerExpressRouteCircuitConnectionResponse": {
    "description": "Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.",
    "properties": {
@@ -40904,6 +39860,39 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:PfsGroup": {
+   "description": "The Pfs Group used in IKE Phase 2 for new child SA.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "PFS1"
+    },
+    {
+     "value": "PFS2"
+    },
+    {
+     "value": "PFS2048"
+    },
+    {
+     "value": "ECP256"
+    },
+    {
+     "value": "ECP384"
+    },
+    {
+     "value": "PFS24"
+    },
+    {
+     "value": "PFS14"
+    },
+    {
+     "value": "PFSMM"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:PolicySettings": {
    "description": "Defines contents of a web application firewall global configuration.",
    "properties": {
@@ -40940,7 +39929,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:WebApplicationFirewallMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:WebApplicationFirewallMode"
       }
      ]
     },
@@ -40964,7 +39953,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:WebApplicationFirewallEnabledState"
+       "$ref": "#/types/azure-native_network_v20230201:network:WebApplicationFirewallEnabledState"
       }
      ]
     }
@@ -40989,7 +39978,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:WebApplicationFirewallScrubbingState"
+       "$ref": "#/types/azure-native_network_v20230201:network:WebApplicationFirewallScrubbingState"
       }
      ]
     }
@@ -41066,6 +40055,33 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:PreferredIPVersion": {
+   "description": "The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.",
+   "enum": [
+    {
+     "value": "IPv4"
+    },
+    {
+     "value": "IPv6"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:PreferredRoutingGateway": {
+   "description": "The preferred gateway to route on-prem traffic",
+   "enum": [
+    {
+     "value": "ExpressRoute"
+    },
+    {
+     "value": "VpnGateway"
+    },
+    {
+     "value": "None"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:PrivateDnsZoneConfig": {
    "description": "PrivateDnsZoneConfig resource.",
@@ -41530,7 +40546,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPVersion"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPVersion"
       }
      ]
     },
@@ -41541,7 +40557,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPAllocationMethod"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPAllocationMethod"
       }
      ]
     },
@@ -41799,7 +40815,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ProbeProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:ProbeProtocol"
       }
      ]
     },
@@ -41813,6 +40829,21 @@
     "protocol"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:ProbeProtocol": {
+   "description": "The protocol of the end point. If 'Tcp' is specified, a received ACK is required for the probe to be successful. If 'Http' or 'Https' is specified, a 200 OK response from the specifies URI is required for the probe to be successful.",
+   "enum": [
+    {
+     "value": "Http"
+    },
+    {
+     "value": "Tcp"
+    },
+    {
+     "value": "Https"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:ProbeResponse": {
    "description": "A load balancer probe.",
@@ -41964,6 +40995,39 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ProtocolType": {
+   "description": "RNM supported protocol types.",
+   "enum": [
+    {
+     "value": "DoNotUse"
+    },
+    {
+     "value": "Icmp"
+    },
+    {
+     "value": "Tcp"
+    },
+    {
+     "value": "Udp"
+    },
+    {
+     "value": "Gre"
+    },
+    {
+     "value": "Esp"
+    },
+    {
+     "value": "Ah"
+    },
+    {
+     "value": "Vxlan"
+    },
+    {
+     "value": "All"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:PublicIPAddress": {
    "description": "Public IP address resource.",
    "properties": {
@@ -41979,7 +41043,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:DeleteOptions"
+       "$ref": "#/types/azure-native_network_v20230201:network:DeleteOptions"
       }
      ]
     },
@@ -42029,7 +41093,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:PublicIPAddressMigrationPhase"
+       "$ref": "#/types/azure-native_network_v20230201:network:PublicIPAddressMigrationPhase"
       }
      ]
     },
@@ -42045,7 +41109,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPVersion"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPVersion"
       }
      ]
     },
@@ -42056,7 +41120,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPAllocationMethod"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPAllocationMethod"
       }
      ]
     },
@@ -42100,7 +41164,7 @@
      "type": "string"
     },
     "domainNameLabelScope": {
-     "$ref": "#/types/azure-native:network:PublicIpAddressDnsSettingsDomainNameLabelScope",
+     "$ref": "#/types/azure-native_network_v20230201:network:PublicIpAddressDnsSettingsDomainNameLabelScope",
      "description": "The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN."
     },
     "fqdn": {
@@ -42135,6 +41199,27 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:PublicIPAddressMigrationPhase": {
+   "description": "Migration phase of Public IP Address.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "Prepare"
+    },
+    {
+     "value": "Commit"
+    },
+    {
+     "value": "Abort"
+    },
+    {
+     "value": "Committed"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:PublicIPAddressResponse": {
    "description": "Public IP address resource.",
@@ -42279,7 +41364,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:PublicIPAddressSkuName"
+       "$ref": "#/types/azure-native_network_v20230201:network:PublicIPAddressSkuName"
       }
      ]
     },
@@ -42290,12 +41375,24 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:PublicIPAddressSkuTier"
+       "$ref": "#/types/azure-native_network_v20230201:network:PublicIPAddressSkuTier"
       }
      ]
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:PublicIPAddressSkuName": {
+   "description": "Name of a public IP address SKU.",
+   "enum": [
+    {
+     "value": "Basic"
+    },
+    {
+     "value": "Standard"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:PublicIPAddressSkuResponse": {
    "description": "SKU of a public IP address.",
@@ -42311,6 +41408,18 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:PublicIPAddressSkuTier": {
+   "description": "Tier of a public IP address SKU.",
+   "enum": [
+    {
+     "value": "Regional"
+    },
+    {
+     "value": "Global"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:PublicIPPrefixSku": {
    "description": "SKU of a public IP prefix.",
    "properties": {
@@ -42321,7 +41430,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:PublicIPPrefixSkuName"
+       "$ref": "#/types/azure-native_network_v20230201:network:PublicIPPrefixSkuName"
       }
      ]
     },
@@ -42332,12 +41441,21 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:PublicIPPrefixSkuTier"
+       "$ref": "#/types/azure-native_network_v20230201:network:PublicIPPrefixSkuTier"
       }
      ]
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:PublicIPPrefixSkuName": {
+   "description": "Name of a public IP prefix SKU.",
+   "enum": [
+    {
+     "value": "Standard"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:PublicIPPrefixSkuResponse": {
    "description": "SKU of a public IP prefix.",
@@ -42352,6 +41470,36 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:PublicIPPrefixSkuTier": {
+   "description": "Tier of a public IP prefix SKU.",
+   "enum": [
+    {
+     "value": "Regional"
+    },
+    {
+     "value": "Global"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:PublicIpAddressDnsSettingsDomainNameLabelScope": {
+   "description": "The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN.",
+   "enum": [
+    {
+     "value": "TenantReuse"
+    },
+    {
+     "value": "SubscriptionReuse"
+    },
+    {
+     "value": "ResourceGroupReuse"
+    },
+    {
+     "value": "NoReuse"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:QosDefinition": {
    "description": "Quality of Service defines the traffic configuration between endpoints. Mandatory to have one marking.",
@@ -42386,7 +41534,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ProtocolType"
+       "$ref": "#/types/azure-native_network_v20230201:network:ProtocolType"
       }
      ]
     },
@@ -42602,6 +41750,24 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ResourceIdentityType": {
+   "description": "The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.",
+   "enum": [
+    {
+     "value": "SystemAssigned"
+    },
+    {
+     "value": "UserAssigned"
+    },
+    {
+     "value": "SystemAssigned, UserAssigned"
+    },
+    {
+     "value": "None"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:ResourceNavigationLinkResponse": {
    "description": "ResourceNavigationLink resource.",
    "properties": {
@@ -42704,7 +41870,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:RouteNextHopType"
+       "$ref": "#/types/azure-native_network_v20230201:network:RouteNextHopType"
       }
      ]
     },
@@ -42728,7 +41894,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:Access"
+       "$ref": "#/types/azure-native_network_v20230201:network:Access"
       }
      ]
     },
@@ -42758,7 +41924,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:RouteFilterRuleType"
+       "$ref": "#/types/azure-native_network_v20230201:network:RouteFilterRuleType"
       }
      ]
     }
@@ -42818,6 +41984,57 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:RouteFilterRuleType": {
+   "description": "The rule type of the rule.",
+   "enum": [
+    {
+     "value": "Community"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:RouteMapActionType": {
+   "description": "Type of action to be taken. Supported types are 'Remove', 'Add', 'Replace', and 'Drop.'",
+   "enum": [
+    {
+     "value": "Unknown"
+    },
+    {
+     "value": "Remove"
+    },
+    {
+     "value": "Add"
+    },
+    {
+     "value": "Replace"
+    },
+    {
+     "value": "Drop"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:RouteMapMatchCondition": {
+   "description": "Match condition to apply RouteMap rules.",
+   "enum": [
+    {
+     "value": "Unknown"
+    },
+    {
+     "value": "Contains"
+    },
+    {
+     "value": "Equals"
+    },
+    {
+     "value": "NotContains"
+    },
+    {
+     "value": "NotEquals"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:RouteMapRule": {
    "description": "A RouteMap Rule.",
    "properties": {
@@ -42848,7 +42065,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:NextStep"
+       "$ref": "#/types/azure-native_network_v20230201:network:NextStep"
       }
      ]
     }
@@ -42884,6 +42101,27 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:RouteNextHopType": {
+   "description": "The type of Azure hop the packet should be sent to.",
+   "enum": [
+    {
+     "value": "VirtualNetworkGateway"
+    },
+    {
+     "value": "VnetLocal"
+    },
+    {
+     "value": "Internet"
+    },
+    {
+     "value": "VirtualAppliance"
+    },
+    {
+     "value": "None"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:RouteResponse": {
    "description": "Route resource.",
@@ -43220,6 +42458,120 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ScrubbingRuleEntryMatchOperator": {
+   "description": "When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.",
+   "enum": [
+    {
+     "value": "Equals"
+    },
+    {
+     "value": "EqualsAny"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:ScrubbingRuleEntryMatchVariable": {
+   "description": "The variable to be scrubbed from the logs.",
+   "enum": [
+    {
+     "value": "RequestHeaderNames"
+    },
+    {
+     "value": "RequestCookieNames"
+    },
+    {
+     "value": "RequestArgNames"
+    },
+    {
+     "value": "RequestPostArgNames"
+    },
+    {
+     "value": "RequestJSONArgNames"
+    },
+    {
+     "value": "RequestIPAddress"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:ScrubbingRuleEntryState": {
+   "description": "Defines the state of log scrubbing rule. Default value is Enabled.",
+   "enum": [
+    {
+     "value": "Enabled"
+    },
+    {
+     "value": "Disabled"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:SecurityConfigurationRuleAccess": {
+   "description": "Indicates the access allowed for this particular rule",
+   "enum": [
+    {
+     "value": "Allow"
+    },
+    {
+     "value": "Deny"
+    },
+    {
+     "value": "AlwaysAllow"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:SecurityConfigurationRuleDirection": {
+   "description": "Indicates if the traffic matched against the rule in inbound or outbound.",
+   "enum": [
+    {
+     "value": "Inbound"
+    },
+    {
+     "value": "Outbound"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:SecurityConfigurationRuleProtocol": {
+   "description": "Network protocol this rule applies to.",
+   "enum": [
+    {
+     "value": "Tcp"
+    },
+    {
+     "value": "Udp"
+    },
+    {
+     "value": "Icmp"
+    },
+    {
+     "value": "Esp"
+    },
+    {
+     "value": "Any"
+    },
+    {
+     "value": "Ah"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:SecurityProviderName": {
+   "description": "The security provider name.",
+   "enum": [
+    {
+     "value": "ZScaler"
+    },
+    {
+     "value": "IBoss"
+    },
+    {
+     "value": "Checkpoint"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:SecurityRule": {
    "description": "Network security rule.",
    "properties": {
@@ -43230,7 +42582,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:SecurityRuleAccess"
+       "$ref": "#/types/azure-native_network_v20230201:network:SecurityRuleAccess"
       }
      ]
     },
@@ -43275,7 +42627,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:SecurityRuleDirection"
+       "$ref": "#/types/azure-native_network_v20230201:network:SecurityRuleDirection"
       }
      ]
     },
@@ -43298,7 +42650,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:SecurityRuleProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:SecurityRuleProtocol"
       }
      ]
     },
@@ -43344,6 +42696,54 @@
     "protocol"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:SecurityRuleAccess": {
+   "description": "The network traffic is allowed or denied.",
+   "enum": [
+    {
+     "value": "Allow"
+    },
+    {
+     "value": "Deny"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:SecurityRuleDirection": {
+   "description": "The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.",
+   "enum": [
+    {
+     "value": "Inbound"
+    },
+    {
+     "value": "Outbound"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:SecurityRuleProtocol": {
+   "description": "Network protocol this rule applies to.",
+   "enum": [
+    {
+     "value": "Tcp"
+    },
+    {
+     "value": "Udp"
+    },
+    {
+     "value": "Icmp"
+    },
+    {
+     "value": "Esp"
+    },
+    {
+     "value": "*"
+    },
+    {
+     "value": "Ah"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:SecurityRuleResponse": {
    "description": "Network security rule.",
@@ -43749,6 +43149,24 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:ServiceProviderProvisioningState": {
+   "description": "The ServiceProviderProvisioningState state of the resource.",
+   "enum": [
+    {
+     "value": "NotProvisioned"
+    },
+    {
+     "value": "Provisioning"
+    },
+    {
+     "value": "Provisioned"
+    },
+    {
+     "value": "Deprovisioning"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:SingleQueryResultResponse": {
    "properties": {
     "description": {
@@ -43815,7 +43233,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:BastionHostSkuName"
+       "$ref": "#/types/azure-native_network_v20230201:network:BastionHostSkuName"
       }
      ]
     }
@@ -43885,7 +43303,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VnetLocalRouteOverrideCriteria"
+       "$ref": "#/types/azure-native_network_v20230201:network:VnetLocalRouteOverrideCriteria"
       }
      ]
     }
@@ -43993,7 +43411,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkPrivateEndpointNetworkPolicies"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkPrivateEndpointNetworkPolicies"
       }
      ]
     },
@@ -44005,7 +43423,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkPrivateLinkServiceNetworkPolicies"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkPrivateLinkServiceNetworkPolicies"
       }
      ]
     },
@@ -44345,6 +43763,21 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:TransportProtocol": {
+   "description": "The reference to the transport protocol used by the load balancing rule.",
+   "enum": [
+    {
+     "value": "Udp"
+    },
+    {
+     "value": "Tcp"
+    },
+    {
+     "value": "All"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:TunnelConnectionHealthResponse": {
    "description": "VirtualNetworkGatewayConnection properties.",
    "properties": {
@@ -44377,6 +43810,18 @@
     "tunnel"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:UseHubGateway": {
+   "description": "Flag if need to use hub gateway.",
+   "enum": [
+    {
+     "value": "False"
+    },
+    {
+     "value": "True"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:VM": {
    "description": "Describes a Virtual Machine.",
@@ -44777,7 +44222,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkEncryptionEnforcement"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkEncryptionEnforcement"
       }
      ]
     }
@@ -44786,6 +44231,18 @@
     "enabled"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:VirtualNetworkEncryptionEnforcement": {
+   "description": "If the encrypted VNet allows VM that does not support encryption",
+   "enum": [
+    {
+     "value": "DropUnencrypted"
+    },
+    {
+     "value": "AllowUnencrypted"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:VirtualNetworkEncryptionResponse": {
    "description": "Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.",
@@ -44818,7 +44275,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:AdminState"
+       "$ref": "#/types/azure-native_network_v20230201:network:AdminState"
       }
      ]
     },
@@ -44877,7 +44334,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkGatewayType"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkGatewayType"
       }
      ]
     },
@@ -44941,7 +44398,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnGatewayGeneration"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnGatewayGeneration"
       }
      ]
     },
@@ -44952,12 +44409,57 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnType"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnType"
       }
      ]
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:VirtualNetworkGatewayConnectionMode": {
+   "description": "The connection mode for this connection.",
+   "enum": [
+    {
+     "value": "Default"
+    },
+    {
+     "value": "ResponderOnly"
+    },
+    {
+     "value": "InitiatorOnly"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:VirtualNetworkGatewayConnectionProtocol": {
+   "description": "Connection protocol used for this connection.",
+   "enum": [
+    {
+     "value": "IKEv2"
+    },
+    {
+     "value": "IKEv1"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:VirtualNetworkGatewayConnectionType": {
+   "description": "Gateway connection type.",
+   "enum": [
+    {
+     "value": "IPsec"
+    },
+    {
+     "value": "Vnet2Vnet"
+    },
+    {
+     "value": "ExpressRoute"
+    },
+    {
+     "value": "VPNClient"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:VirtualNetworkGatewayIPConfiguration": {
    "description": "IP configuration for virtual network gateway.",
@@ -44977,7 +44479,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:IPAllocationMethod"
+       "$ref": "#/types/azure-native_network_v20230201:network:IPAllocationMethod"
       }
      ]
     },
@@ -45073,7 +44575,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnNatRuleMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnNatRuleMode"
       }
      ]
     },
@@ -45088,7 +44590,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnNatRuleType"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnNatRuleType"
       }
      ]
     }
@@ -45195,7 +44697,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnPolicyMemberAttributeType"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnPolicyMemberAttributeType"
       }
      ]
     },
@@ -45451,7 +44953,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkGatewaySkuName"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkGatewaySkuName"
       }
      ]
     },
@@ -45462,12 +44964,69 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkGatewaySkuTier"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkGatewaySkuTier"
       }
      ]
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:VirtualNetworkGatewaySkuName": {
+   "description": "Gateway SKU name.",
+   "enum": [
+    {
+     "value": "Basic"
+    },
+    {
+     "value": "HighPerformance"
+    },
+    {
+     "value": "Standard"
+    },
+    {
+     "value": "UltraPerformance"
+    },
+    {
+     "value": "VpnGw1"
+    },
+    {
+     "value": "VpnGw2"
+    },
+    {
+     "value": "VpnGw3"
+    },
+    {
+     "value": "VpnGw4"
+    },
+    {
+     "value": "VpnGw5"
+    },
+    {
+     "value": "VpnGw1AZ"
+    },
+    {
+     "value": "VpnGw2AZ"
+    },
+    {
+     "value": "VpnGw3AZ"
+    },
+    {
+     "value": "VpnGw4AZ"
+    },
+    {
+     "value": "VpnGw5AZ"
+    },
+    {
+     "value": "ErGw1AZ"
+    },
+    {
+     "value": "ErGw2AZ"
+    },
+    {
+     "value": "ErGw3AZ"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:VirtualNetworkGatewaySkuResponse": {
    "description": "VirtualNetworkGatewaySku details.",
@@ -45489,6 +45048,78 @@
     "capacity"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:VirtualNetworkGatewaySkuTier": {
+   "description": "Gateway SKU tier.",
+   "enum": [
+    {
+     "value": "Basic"
+    },
+    {
+     "value": "HighPerformance"
+    },
+    {
+     "value": "Standard"
+    },
+    {
+     "value": "UltraPerformance"
+    },
+    {
+     "value": "VpnGw1"
+    },
+    {
+     "value": "VpnGw2"
+    },
+    {
+     "value": "VpnGw3"
+    },
+    {
+     "value": "VpnGw4"
+    },
+    {
+     "value": "VpnGw5"
+    },
+    {
+     "value": "VpnGw1AZ"
+    },
+    {
+     "value": "VpnGw2AZ"
+    },
+    {
+     "value": "VpnGw3AZ"
+    },
+    {
+     "value": "VpnGw4AZ"
+    },
+    {
+     "value": "VpnGw5AZ"
+    },
+    {
+     "value": "ErGw1AZ"
+    },
+    {
+     "value": "ErGw2AZ"
+    },
+    {
+     "value": "ErGw3AZ"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:VirtualNetworkGatewayType": {
+   "description": "The type of this virtual network gateway.",
+   "enum": [
+    {
+     "value": "Vpn"
+    },
+    {
+     "value": "ExpressRoute"
+    },
+    {
+     "value": "LocalGateway"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:VirtualNetworkPeering": {
    "description": "Peerings in a virtual network resource.",
@@ -45524,7 +45155,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkPeeringState"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkPeeringState"
       }
      ]
     },
@@ -45535,7 +45166,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkPeeringLevel"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkPeeringLevel"
       }
      ]
     },
@@ -45569,6 +45200,24 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:VirtualNetworkPeeringLevel": {
+   "description": "The peering sync status of the virtual network peering.",
+   "enum": [
+    {
+     "value": "FullyInSync"
+    },
+    {
+     "value": "RemoteNotInSync"
+    },
+    {
+     "value": "LocalNotInSync"
+    },
+    {
+     "value": "LocalAndRemoteNotInSync"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:VirtualNetworkPeeringResponse": {
    "description": "Peerings in a virtual network resource.",
@@ -45658,6 +45307,45 @@
     "resourceGuid"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:VirtualNetworkPeeringState": {
+   "description": "The status of the virtual network peering.",
+   "enum": [
+    {
+     "value": "Initiated"
+    },
+    {
+     "value": "Connected"
+    },
+    {
+     "value": "Disconnected"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:VirtualNetworkPrivateEndpointNetworkPolicies": {
+   "description": "Enable or Disable apply network policies on private end point in the subnet.",
+   "enum": [
+    {
+     "value": "Enabled"
+    },
+    {
+     "value": "Disabled"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:VirtualNetworkPrivateLinkServiceNetworkPolicies": {
+   "description": "Enable or Disable apply network policies on private link service in the subnet.",
+   "enum": [
+    {
+     "value": "Enabled"
+    },
+    {
+     "value": "Disabled"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:VirtualNetworkTap": {
    "description": "Virtual Network Tap resource.",
@@ -45785,6 +45473,18 @@
    },
    "type": "object"
   },
+  "azure-native_network_v20230201:network:VnetLocalRouteOverrideCriteria": {
+   "description": "Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.",
+   "enum": [
+    {
+     "value": "Contains"
+    },
+    {
+     "value": "Equal"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:VnetRoute": {
    "description": "List of routes that control routing from VirtualHub into a virtual network connection.",
    "properties": {
@@ -45906,6 +45606,21 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:VpnAuthenticationType": {
+   "description": "VPN authentication types enabled for the VpnServerConfiguration.",
+   "enum": [
+    {
+     "value": "Certificate"
+    },
+    {
+     "value": "Radius"
+    },
+    {
+     "value": "AAD"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:VpnClientConfiguration": {
    "description": "VpnClientConfiguration for P2S client.",
    "properties": {
@@ -45953,7 +45668,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:VpnAuthenticationType"
+        "$ref": "#/types/azure-native_network_v20230201:network:VpnAuthenticationType"
        }
       ]
      },
@@ -45980,7 +45695,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:VpnClientProtocol"
+        "$ref": "#/types/azure-native_network_v20230201:network:VpnClientProtocol"
        }
       ]
      },
@@ -46187,6 +45902,21 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:VpnClientProtocol": {
+   "description": "VPN client protocol enabled for the virtual network gateway.",
+   "enum": [
+    {
+     "value": "IkeV2"
+    },
+    {
+     "value": "SSTP"
+    },
+    {
+     "value": "OpenVPN"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:VpnClientRevokedCertificate": {
    "description": "VPN client revoked certificate of virtual network gateway.",
    "properties": {
@@ -46367,7 +46097,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkGatewayConnectionProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkGatewayConnectionProtocol"
       }
      ]
     },
@@ -46497,6 +46227,21 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:VpnGatewayGeneration": {
+   "description": "The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.",
+   "enum": [
+    {
+     "value": "None"
+    },
+    {
+     "value": "Generation1"
+    },
+    {
+     "value": "Generation2"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:VpnGatewayIpConfigurationResponse": {
    "description": "IP Configuration of a VPN Gateway Resource.",
    "properties": {
@@ -46549,7 +46294,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnNatRuleMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnNatRuleMode"
       }
      ]
     },
@@ -46564,7 +46309,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnNatRuleType"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnNatRuleType"
       }
      ]
     }
@@ -46644,6 +46389,18 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:VpnGatewayTunnelingProtocol": {
+   "description": "VPN protocol enabled for the VpnServerConfiguration.",
+   "enum": [
+    {
+     "value": "IkeV2"
+    },
+    {
+     "value": "OpenVPN"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:VpnLinkBgpSettings": {
    "description": "BGP settings details for a link.",
    "properties": {
@@ -46671,6 +46428,21 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:VpnLinkConnectionMode": {
+   "description": "Vpn link connection mode.",
+   "enum": [
+    {
+     "value": "Default"
+    },
+    {
+     "value": "ResponderOnly"
+    },
+    {
+     "value": "InitiatorOnly"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:VpnLinkProviderProperties": {
    "description": "List of properties of a link provider.",
@@ -46727,6 +46499,45 @@
     }
    },
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:VpnNatRuleMode": {
+   "description": "The Source NAT direction of a VPN NAT.",
+   "enum": [
+    {
+     "value": "EgressSnat"
+    },
+    {
+     "value": "IngressSnat"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:VpnNatRuleType": {
+   "description": "The type of NAT rule for VPN NAT.",
+   "enum": [
+    {
+     "value": "Static"
+    },
+    {
+     "value": "Dynamic"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:VpnPolicyMemberAttributeType": {
+   "description": "The Vpn Policy member attribute type.",
+   "enum": [
+    {
+     "value": "CertificateGroupId"
+    },
+    {
+     "value": "AADGroupId"
+    },
+    {
+     "value": "RadiusAzureGroupId"
+    }
+   ],
+   "type": "string"
   },
   "azure-native_network_v20230201:network:VpnServerConfigRadiusClientRootCertificate": {
    "description": "Properties of the Radius client root certificate of VpnServerConfiguration.",
@@ -46880,7 +46691,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnPolicyMemberAttributeType"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnPolicyMemberAttributeType"
       }
      ]
     },
@@ -47029,7 +46840,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:VpnAuthenticationType"
+        "$ref": "#/types/azure-native_network_v20230201:network:VpnAuthenticationType"
        }
       ]
      },
@@ -47067,7 +46878,7 @@
         "type": "string"
        },
        {
-        "$ref": "#/types/azure-native:network:VpnGatewayTunnelingProtocol"
+        "$ref": "#/types/azure-native_network_v20230201:network:VpnGatewayTunnelingProtocol"
        }
       ]
      },
@@ -47292,7 +47103,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VirtualNetworkGatewayConnectionProtocol"
+       "$ref": "#/types/azure-native_network_v20230201:network:VirtualNetworkGatewayConnectionProtocol"
       }
      ]
     },
@@ -47311,7 +47122,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:VpnLinkConnectionMode"
+       "$ref": "#/types/azure-native_network_v20230201:network:VpnLinkConnectionMode"
       }
      ]
     },
@@ -47491,6 +47302,33 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:VpnType": {
+   "description": "The type of this virtual network gateway.",
+   "enum": [
+    {
+     "value": "PolicyBased"
+    },
+    {
+     "value": "RouteBased"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:WebApplicationFirewallAction": {
+   "description": "Type of Actions.",
+   "enum": [
+    {
+     "value": "Allow"
+    },
+    {
+     "value": "Block"
+    },
+    {
+     "value": "Log"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:WebApplicationFirewallCustomRule": {
    "description": "Defines contents of a web application rule.",
    "properties": {
@@ -47501,7 +47339,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:WebApplicationFirewallAction"
+       "$ref": "#/types/azure-native_network_v20230201:network:WebApplicationFirewallAction"
       }
      ]
     },
@@ -47536,7 +47374,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ApplicationGatewayFirewallRateLimitDuration"
+       "$ref": "#/types/azure-native_network_v20230201:network:ApplicationGatewayFirewallRateLimitDuration"
       }
      ]
     },
@@ -47551,7 +47389,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:WebApplicationFirewallRuleType"
+       "$ref": "#/types/azure-native_network_v20230201:network:WebApplicationFirewallRuleType"
       }
      ]
     },
@@ -47562,7 +47400,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:WebApplicationFirewallState"
+       "$ref": "#/types/azure-native_network_v20230201:network:WebApplicationFirewallState"
       }
      ]
     }
@@ -47636,6 +47474,117 @@
    ],
    "type": "object"
   },
+  "azure-native_network_v20230201:network:WebApplicationFirewallEnabledState": {
+   "description": "The state of the policy.",
+   "enum": [
+    {
+     "value": "Disabled"
+    },
+    {
+     "value": "Enabled"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:WebApplicationFirewallMatchVariable": {
+   "description": "Match Variable.",
+   "enum": [
+    {
+     "value": "RemoteAddr"
+    },
+    {
+     "value": "RequestMethod"
+    },
+    {
+     "value": "QueryString"
+    },
+    {
+     "value": "PostArgs"
+    },
+    {
+     "value": "RequestUri"
+    },
+    {
+     "value": "RequestHeaders"
+    },
+    {
+     "value": "RequestBody"
+    },
+    {
+     "value": "RequestCookies"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:WebApplicationFirewallMode": {
+   "description": "The mode of the policy.",
+   "enum": [
+    {
+     "value": "Prevention"
+    },
+    {
+     "value": "Detection"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:WebApplicationFirewallOperator": {
+   "description": "The operator to be matched.",
+   "enum": [
+    {
+     "value": "IPMatch"
+    },
+    {
+     "value": "Equal"
+    },
+    {
+     "value": "Contains"
+    },
+    {
+     "value": "LessThan"
+    },
+    {
+     "value": "GreaterThan"
+    },
+    {
+     "value": "LessThanOrEqual"
+    },
+    {
+     "value": "GreaterThanOrEqual"
+    },
+    {
+     "value": "BeginsWith"
+    },
+    {
+     "value": "EndsWith"
+    },
+    {
+     "value": "Regex"
+    },
+    {
+     "value": "GeoMatch"
+    },
+    {
+     "value": "Any"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:WebApplicationFirewallRuleType": {
+   "description": "The rule type.",
+   "enum": [
+    {
+     "value": "MatchRule"
+    },
+    {
+     "value": "RateLimitRule"
+    },
+    {
+     "value": "Invalid"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_network_v20230201:network:WebApplicationFirewallScrubbingRules": {
    "description": "Allow certain variables to be scrubbed on WAF logs",
    "properties": {
@@ -47646,7 +47595,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ScrubbingRuleEntryMatchVariable"
+       "$ref": "#/types/azure-native_network_v20230201:network:ScrubbingRuleEntryMatchVariable"
       }
      ]
     },
@@ -47661,7 +47610,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ScrubbingRuleEntryMatchOperator"
+       "$ref": "#/types/azure-native_network_v20230201:network:ScrubbingRuleEntryMatchOperator"
       }
      ]
     },
@@ -47672,7 +47621,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:network:ScrubbingRuleEntryState"
+       "$ref": "#/types/azure-native_network_v20230201:network:ScrubbingRuleEntryState"
       }
      ]
     }
@@ -47708,6 +47657,57 @@
     "selectorMatchOperator"
    ],
    "type": "object"
+  },
+  "azure-native_network_v20230201:network:WebApplicationFirewallScrubbingState": {
+   "description": "State of the log scrubbing config. Default value is Enabled.",
+   "enum": [
+    {
+     "value": "Disabled"
+    },
+    {
+     "value": "Enabled"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:WebApplicationFirewallState": {
+   "description": "Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.",
+   "enum": [
+    {
+     "value": "Disabled"
+    },
+    {
+     "value": "Enabled"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native_network_v20230201:network:WebApplicationFirewallTransform": {
+   "description": "Transforms applied before matching.",
+   "enum": [
+    {
+     "value": "Uppercase"
+    },
+    {
+     "value": "Lowercase"
+    },
+    {
+     "value": "Trim"
+    },
+    {
+     "value": "UrlDecode"
+    },
+    {
+     "value": "UrlEncode"
+    },
+    {
+     "value": "RemoveNulls"
+    },
+    {
+     "value": "HtmlEntityDecode"
+    }
+   ],
+   "type": "string"
   }
  }
 }

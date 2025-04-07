@@ -263,7 +263,7 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 	}
 	enumName = m.typeNameOverride(ToUpperCamel(enumName))
 
-	tok := fmt.Sprintf("%s:%s:%s", m.pkg.Name, m.module, enumName)
+	tok := resources.BuildToken(m.moduleName.Lowered(), string(m.sdkVersion), enumName)
 
 	enumSpec := &pschema.ComplexTypeSpec{
 		Enum: []pschema.EnumValueSpec{},

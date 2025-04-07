@@ -875,24 +875,6 @@
   }
  },
  "types": {
-  "azure-native:aadiam:PrivateEndpointServiceConnectionStatus": {
-   "description": "Indicates whether the connection has been approved, rejected or removed by the given policy owner.",
-   "enum": [
-    {
-     "value": "Approved"
-    },
-    {
-     "value": "Pending"
-    },
-    {
-     "value": "Rejected"
-    },
-    {
-     "value": "Disconnected"
-    }
-   ],
-   "type": "string"
-  },
   "azure-native:storage:BlobAccessTier": {
    "description": "The access tier of a storage blob.",
    "enum": [
@@ -945,6 +927,24 @@
    },
    "type": "object"
   },
+  "azure-native_aadiam_v20200301:aadiam:PrivateEndpointServiceConnectionStatus": {
+   "description": "Indicates whether the connection has been approved, rejected or removed by the given policy owner.",
+   "enum": [
+    {
+     "value": "Approved"
+    },
+    {
+     "value": "Pending"
+    },
+    {
+     "value": "Rejected"
+    },
+    {
+     "value": "Disconnected"
+    }
+   ],
+   "type": "string"
+  },
   "azure-native_aadiam_v20200301:aadiam:PrivateLinkServiceConnectionState": {
    "description": "An object that represents the approval state of the private link connection.",
    "properties": {
@@ -963,7 +963,7 @@
        "type": "string"
       },
       {
-       "$ref": "#/types/azure-native:aadiam:PrivateEndpointServiceConnectionStatus"
+       "$ref": "#/types/azure-native_aadiam_v20200301:aadiam:PrivateEndpointServiceConnectionStatus"
       }
      ]
     }
