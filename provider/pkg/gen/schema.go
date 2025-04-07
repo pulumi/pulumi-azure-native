@@ -44,9 +44,9 @@ import (
 )
 
 // Note - this needs to be kept in sync with the layout in the SDK package
-const goBasePath = "github.com/pulumi/pulumi-azure-native-sdk/v2"
+const goBasePath = "github.com/pulumi/pulumi-azure-native-sdk/v3"
 const goModuleRepoPath = "github.com/pulumi/pulumi-azure-native-sdk"
-const goModuleVersion = "/v2"
+const goModuleVersion = "/v3"
 
 // pulumiProviderName is the name of the provider as used in all tokens.
 const pulumiProviderName = "azure-native"
@@ -372,7 +372,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
 		"importBasePath":                 goBasePath,
 		"packageImportAliases":           golangImportAliases,
-		"importPathPattern":              "github.com/pulumi/pulumi-azure-native-sdk/{module}/v2",
+		"importPathPattern":              "github.com/pulumi/pulumi-azure-native-sdk/{module}" + goModuleVersion,
 		"rootPackageName":                "pulumiazurenativesdk",
 		"generateResourceContainerTypes": false,
 		"disableInputTypeRegistrations":  true,
@@ -1084,7 +1084,7 @@ func (g *packageGenerator) generateAliases(resourceTok string, resource *resourc
 	for _, v := range typeAliases.SortedValues() {
 		// Skip aliasing to itself.
 		if v != resourceTok {
-			aliasSpecs = append(aliasSpecs, pschema.AliasSpec{Type: &v})
+			aliasSpecs = append(aliasSpecs, pschema.AliasSpec{Type: v})
 		}
 	}
 	return aliasSpecs

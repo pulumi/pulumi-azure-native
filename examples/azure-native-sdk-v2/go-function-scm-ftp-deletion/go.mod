@@ -5,10 +5,17 @@ go 1.23.1
 toolchain go1.24.1
 
 require (
-	github.com/pulumi/pulumi-azure-native-sdk/resources/v2 v2.89.3
-	github.com/pulumi/pulumi-azure-native-sdk/storage/v2 v2.89.3
-	github.com/pulumi/pulumi-azure-native-sdk/web/v2 v2.89.3
-	github.com/pulumi/pulumi/sdk/v3 v3.157.0
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.0.0
+	github.com/pulumi/pulumi-azure-native-sdk/storage/v3 v3.0.0
+	github.com/pulumi/pulumi-azure-native-sdk/web/v3 v3.0.0
+	github.com/pulumi/pulumi/sdk/v3 v3.160.0
+)
+
+replace (
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 => ../../../sdk/pulumi-azure-native-sdk/resources
+	github.com/pulumi/pulumi-azure-native-sdk/storage/v3 => ../../../sdk/pulumi-azure-native-sdk/storage
+	github.com/pulumi/pulumi-azure-native-sdk/v3 => ../../../sdk/pulumi-azure-native-sdk
+	github.com/pulumi/pulumi-azure-native-sdk/web/v3 => ../../../sdk/pulumi-azure-native-sdk/web
 )
 
 require (
@@ -34,6 +41,7 @@ require (
 	github.com/djherbis/times v1.6.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
+	github.com/fatih/color v1.16.0 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
 	github.com/go-git/go-billy/v5 v5.6.2 // indirect
 	github.com/go-git/go-git/v5 v5.14.0 // indirect
@@ -65,7 +73,7 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.13.0 // indirect
-	github.com/pulumi/pulumi-azure-native-sdk/v2 v2.89.3 // indirect
+	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.0.0-alpha.dev // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
@@ -96,4 +104,5 @@ require (
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.5.1 // indirect
+	pgregory.net/rapid v0.6.1 // indirect
 )

@@ -3,9 +3,9 @@
 package main
 
 import (
-	managedidentity "github.com/pulumi/pulumi-azure-native-sdk/managedidentity/v2"
-	resources "github.com/pulumi/pulumi-azure-native-sdk/resources/v2"
-	storage "github.com/pulumi/pulumi-azure-native-sdk/storage/v2"
+	managedidentity "github.com/pulumi/pulumi-azure-native-sdk/managedidentity/v3"
+	resources "github.com/pulumi/pulumi-azure-native-sdk/resources/v3"
+	storage "github.com/pulumi/pulumi-azure-native-sdk/storage/v3"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 

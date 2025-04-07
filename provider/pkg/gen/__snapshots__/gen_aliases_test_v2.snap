@@ -325,11 +325,11 @@
   "go": {
    "disableInputTypeRegistrations": true,
    "generateResourceContainerTypes": false,
-   "importBasePath": "github.com/pulumi/pulumi-azure-native-sdk/v2",
-   "importPathPattern": "github.com/pulumi/pulumi-azure-native-sdk/{module}/v2",
+   "importBasePath": "github.com/pulumi/pulumi-azure-native-sdk/v3",
+   "importPathPattern": "github.com/pulumi/pulumi-azure-native-sdk/{module}/v3",
    "internalModuleName": "utilities",
    "packageImportAliases": {
-    "github.com/pulumi/pulumi-azure-native-sdk/aadiam/v2/v20200301": "aadiam"
+    "github.com/pulumi/pulumi-azure-native-sdk/aadiam/v3/v20200301": "aadiam"
    },
    "respectSchemaVersion": true,
    "rootPackageName": "pulumiazurenativesdk"

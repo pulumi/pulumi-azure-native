@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2025-01-14T12:57:48.548592-08:00",
-      "magic": "c8d1ee0f29b00486393c3f493bc4146a28196fd57861ad14dd486f5bd0f61d2d",
-      "version": "v3.144.1"
+      "time": "2025-04-02T15:05:12.394254+01:00",
+      "magic": "435b32a7cc09848104da7bb2b1a83b46b70a7e7e5eb3eeb3b0ee8f195d10a914",
+      "version": "v3.159.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:+ljYtdt4b9E=:v1:l4m8v9cUFROoh4/a:bVMr/v5opWQYQQ5v22V39Jy7DzIDkA=="
+        "salt": "v1:cC734S9CKHM=:v1:BPaQ8uCuZQE9WFyM:oiDr3XPu52sUC52d4X6NAWenFDy2og=="
       }
     },
     "resources": [
@@ -17,43 +17,21 @@
         "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:pulumi:Stack::upgrade-cosmosdb-nosql-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2025-01-14T20:55:18.902752Z",
-        "modified": "2025-01-14T20:55:18.902752Z"
+        "created": "2025-04-02T14:02:25.001114Z",
+        "modified": "2025-04-02T14:02:25.001114Z"
       },
       {
         "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:random::default",
         "custom": true,
-        "id": "94743daf-e736-40fa-88da-cfec96ee3aee",
+        "id": "899ce406-f7ca-419a-abcf-59e8b197b304",
         "type": "pulumi:providers:random",
-        "created": "2025-01-14T20:55:21.049363Z",
-        "modified": "2025-01-14T20:55:21.049363Z"
-      },
-      {
-        "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::random:index/randomPet:RandomPet::accountName",
-        "custom": true,
-        "id": "sql-rich-tahr",
-        "type": "random:index/randomPet:RandomPet",
-        "inputs": {
-          "prefix": "sql"
-        },
-        "outputs": {
-          "id": "sql-rich-tahr",
-          "length": 2,
-          "prefix": "sql",
-          "separator": "-"
-        },
-        "parent": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:pulumi:Stack::upgrade-cosmosdb-nosql-test",
-        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:random::default::94743daf-e736-40fa-88da-cfec96ee3aee",
-        "propertyDependencies": {
-          "prefix": []
-        },
-        "created": "2025-01-14T20:55:21.055143Z",
-        "modified": "2025-01-14T20:55:21.055143Z"
+        "created": "2025-04-02T14:02:25.791921Z",
+        "modified": "2025-04-02T14:02:25.791921Z"
       },
       {
         "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default",
         "custom": true,
-        "id": "1940b775-3f3c-47c5-9219-12faf32a8863",
+        "id": "bdea1c3d-e231-4d42-b2e6-f9e8f66abea8",
         "type": "pulumi:providers:azure-native",
         "inputs": {
           "location": "westus2"
@@ -61,47 +39,70 @@
         "outputs": {
           "location": "westus2"
         },
-        "created": "2025-01-14T20:55:21.055859Z",
-        "modified": "2025-01-14T20:55:21.055859Z"
+        "created": "2025-04-02T14:02:25.795311Z",
+        "modified": "2025-04-02T14:02:25.795311Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::random:index/randomPet:RandomPet::accountName",
+        "custom": true,
+        "id": "sql-legible-bee",
+        "type": "random:index/randomPet:RandomPet",
+        "inputs": {
+          "prefix": "sql"
+        },
+        "outputs": {
+          "id": "sql-legible-bee",
+          "length": 2,
+          "prefix": "sql",
+          "separator": "-"
+        },
+        "parent": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:pulumi:Stack::upgrade-cosmosdb-nosql-test",
+        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:random::default::899ce406-f7ca-419a-abcf-59e8b197b304",
+        "propertyDependencies": {
+          "prefix": []
+        },
+        "created": "2025-04-02T14:02:25.797237Z",
+        "modified": "2025-04-02T14:02:25.797237Z"
       },
       {
         "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg0be13545",
         "type": "azure-native:resources:ResourceGroup",
         "inputs": {
           "__createBeforeDelete": true,
           "location": "centralus",
-          "resourceGroupName": "rg60811471"
+          "resourceGroupName": "rg0be13545"
         },
         "outputs": {
           "__inputs": {
             "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+            "plaintext": "{\"__createBeforeDelete\":true,\"location\":\"REDACTED BY PROVIDERTEST\",\"resourceGroupName\":\"REDACTED BY PROVIDERTEST\"}"
           },
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471",
+          "azureApiVersion": "2022-09-01",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg0be13545",
           "location": "centralus",
-          "name": "rg60811471",
+          "name": "rg0be13545",
           "properties": {
             "provisioningState": "Succeeded"
           },
           "type": "Microsoft.Resources/resourceGroups"
         },
         "parent": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:pulumi:Stack::upgrade-cosmosdb-nosql-test",
-        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default::1940b775-3f3c-47c5-9219-12faf32a8863",
+        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default::bdea1c3d-e231-4d42-b2e6-f9e8f66abea8",
         "propertyDependencies": {
           "location": []
         },
-        "created": "2025-01-14T20:55:24.431107Z",
-        "modified": "2025-01-14T20:55:24.431107Z"
+        "created": "2025-04-02T14:02:29.498095Z",
+        "modified": "2025-04-02T14:02:29.498095Z"
       },
       {
         "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:DatabaseAccount::databaseAccount",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471/providers/Microsoft.DocumentDB/databaseAccounts/sql-rich-tahr",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg0be13545/providers/Microsoft.DocumentDB/databaseAccounts/sql-legible-bee",
         "type": "azure-native:documentdb:DatabaseAccount",
         "inputs": {
-          "accountName": "sql-rich-tahr",
+          "accountName": "sql-legible-bee",
           "consistencyPolicy": {
             "defaultConsistencyLevel": "Session"
           },
@@ -116,16 +117,17 @@
               "locationName": "centralus"
             }
           ],
-          "resourceGroupName": "rg60811471"
+          "resourceGroupName": "rg0be13545"
         },
         "outputs": {
           "__inputs": {
             "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+            "plaintext": "{\"accountName\":\"REDACTED BY PROVIDERTEST\",\"consistencyPolicy\":{\"defaultConsistencyLevel\":\"REDACTED BY PROVIDERTEST\"},\"databaseAccountOfferType\":\"REDACTED BY PROVIDERTEST\",\"disableKeyBasedMetadataWriteAccess\":true,\"enableAutomaticFailover\":true,\"kind\":\"REDACTED BY PROVIDERTEST\",\"location\":\"REDACTED BY PROVIDERTEST\",\"locations\":[{\"failoverPriority\":0,\"locationName\":\"REDACTED BY PROVIDERTEST\"}],\"resourceGroupName\":\"REDACTED BY PROVIDERTEST\"}"
           },
           "analyticalStorageConfiguration": {
             "schemaType": "WellDefined"
           },
+          "azureApiVersion": "2023-04-15",
           "backupPolicy": {
             "periodicModeProperties": {
               "backupIntervalInMinutes": 240,
@@ -145,7 +147,7 @@
           "defaultIdentity": "FirstPartyIdentity",
           "disableKeyBasedMetadataWriteAccess": true,
           "disableLocalAuth": false,
-          "documentEndpoint": "https://sql-rich-tahr.documents.azure.com:443/",
+          "documentEndpoint": "https://sql-legible-bee.documents.azure.com:443/",
           "enableAnalyticalStorage": false,
           "enableAutomaticFailover": true,
           "enableFreeTier": false,
@@ -154,70 +156,70 @@
           "failoverPolicies": [
             {
               "failoverPriority": 0,
-              "id": "sql-rich-tahr-centralus",
+              "id": "sql-legible-bee-centralus",
               "locationName": "Central US"
             }
           ],
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471/providers/Microsoft.DocumentDB/databaseAccounts/sql-rich-tahr",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg0be13545/providers/Microsoft.DocumentDB/databaseAccounts/sql-legible-bee",
           "identity": {
             "type": "None"
           },
-          "instanceId": "2e9a58ea-b9cf-4414-a60a-2b606cbd6e1b",
+          "instanceId": "5f418566-acdd-41cd-b0cf-13aded07719d",
           "ipRules": [],
           "isVirtualNetworkFilterEnabled": false,
           "keysMetadata": {
             "primaryMasterKey": {
-              "generationTime": "2025-01-14T20:56:53.9613427Z"
+              "generationTime": "2025-04-02T14:04:28.6324627Z"
             },
             "primaryReadonlyMasterKey": {
-              "generationTime": "2025-01-14T20:56:53.9613427Z"
+              "generationTime": "2025-04-02T14:04:28.6324627Z"
             },
             "secondaryMasterKey": {
-              "generationTime": "2025-01-14T20:56:53.9613427Z"
+              "generationTime": "2025-04-02T14:04:28.6324627Z"
             },
             "secondaryReadonlyMasterKey": {
-              "generationTime": "2025-01-14T20:56:53.9613427Z"
+              "generationTime": "2025-04-02T14:04:28.6324627Z"
             }
           },
           "kind": "GlobalDocumentDB",
           "location": "Central US",
           "locations": [
             {
-              "documentEndpoint": "https://sql-rich-tahr-centralus.documents.azure.com:443/",
+              "documentEndpoint": "https://sql-legible-bee-centralus.documents.azure.com:443/",
               "failoverPriority": 0,
-              "id": "sql-rich-tahr-centralus",
+              "id": "sql-legible-bee-centralus",
               "isZoneRedundant": false,
               "locationName": "Central US",
               "provisioningState": "Succeeded"
             }
           ],
           "minimalTlsVersion": "Tls12",
-          "name": "sql-rich-tahr",
+          "name": "sql-legible-bee",
           "networkAclBypass": "None",
           "networkAclBypassResourceIds": [],
           "provisioningState": "Succeeded",
           "publicNetworkAccess": "Enabled",
           "readLocations": [
             {
-              "documentEndpoint": "https://sql-rich-tahr-centralus.documents.azure.com:443/",
+              "documentEndpoint": "https://sql-legible-bee-centralus.documents.azure.com:443/",
               "failoverPriority": 0,
-              "id": "sql-rich-tahr-centralus",
+              "id": "sql-legible-bee-centralus",
               "isZoneRedundant": false,
               "locationName": "Central US",
               "provisioningState": "Succeeded"
             }
           ],
           "systemData": {
-            "createdAt": "2025-01-14T20:56:53.9613427Z"
+            "createdAt": "2025-04-02T14:04:28.6324627Z"
           },
           "tags": {},
           "type": "Microsoft.DocumentDB/databaseAccounts",
           "virtualNetworkRules": [],
           "writeLocations": [
             {
-              "documentEndpoint": "https://sql-rich-tahr-centralus.documents.azure.com:443/",
+              "documentEndpoint": "https://sql-legible-bee-centralus.documents.azure.com:443/",
               "failoverPriority": 0,
-              "id": "sql-rich-tahr-centralus",
+              "id": "sql-legible-bee-centralus",
               "isZoneRedundant": false,
               "locationName": "Central US",
               "provisioningState": "Succeeded"
@@ -229,7 +231,7 @@
           "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg",
           "urn:pulumi:test::upgrade-cosmosdb-nosql::random:index/randomPet:RandomPet::accountName"
         ],
-        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default::1940b775-3f3c-47c5-9219-12faf32a8863",
+        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default::bdea1c3d-e231-4d42-b2e6-f9e8f66abea8",
         "propertyDependencies": {
           "accountName": [
             "urn:pulumi:test::upgrade-cosmosdb-nosql::random:index/randomPet:RandomPet::accountName"
@@ -249,36 +251,37 @@
             "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
           ]
         },
-        "created": "2025-01-14T20:57:13.848556Z",
-        "modified": "2025-01-14T20:57:13.848556Z"
+        "created": "2025-04-02T14:04:44.736175Z",
+        "modified": "2025-04-02T14:04:44.736175Z"
       },
       {
         "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:SqlResourceSqlDatabase::sqlDatabase",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471/providers/Microsoft.DocumentDB/databaseAccounts/sql-rich-tahr/sqlDatabases/myDatabase",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg0be13545/providers/Microsoft.DocumentDB/databaseAccounts/sql-legible-bee/sqlDatabases/myDatabase",
         "type": "azure-native:documentdb:SqlResourceSqlDatabase",
         "inputs": {
-          "accountName": "sql-rich-tahr",
+          "accountName": "sql-legible-bee",
           "databaseName": "myDatabase",
           "location": "centralus",
           "resource": {
             "id": "myDatabase"
           },
-          "resourceGroupName": "rg60811471"
+          "resourceGroupName": "rg0be13545"
         },
         "outputs": {
           "__inputs": {
             "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+            "plaintext": "{\"accountName\":\"REDACTED BY PROVIDERTEST\",\"databaseName\":\"REDACTED BY PROVIDERTEST\",\"location\":\"REDACTED BY PROVIDERTEST\",\"resource\":{\"id\":\"REDACTED BY PROVIDERTEST\"},\"resourceGroupName\":\"REDACTED BY PROVIDERTEST\"}"
           },
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471/providers/Microsoft.DocumentDB/databaseAccounts/sql-rich-tahr/sqlDatabases/myDatabase",
+          "azureApiVersion": "2023-04-15",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg0be13545/providers/Microsoft.DocumentDB/databaseAccounts/sql-legible-bee/sqlDatabases/myDatabase",
           "name": "myDatabase",
           "resource": {
             "colls": "colls/",
-            "etag": "\"00008017-0000-0300-0000-6786cfb00000\"",
+            "etag": "\"0000ac0d-0000-0300-0000-67ed44030000\"",
             "id": "myDatabase",
-            "rid": "FNBEAA==",
-            "ts": 1736888240,
+            "rid": "TjZpAA==",
+            "ts": 1743602691,
             "users": "users/"
           },
           "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
@@ -288,7 +291,7 @@
           "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:DatabaseAccount::databaseAccount",
           "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
         ],
-        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default::1940b775-3f3c-47c5-9219-12faf32a8863",
+        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default::bdea1c3d-e231-4d42-b2e6-f9e8f66abea8",
         "propertyDependencies": {
           "accountName": [
             "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:DatabaseAccount::databaseAccount"
@@ -302,16 +305,16 @@
             "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
           ]
         },
-        "created": "2025-01-14T20:57:26.239786Z",
-        "modified": "2025-01-14T20:57:26.239786Z"
+        "created": "2025-04-02T14:04:58.665636Z",
+        "modified": "2025-04-02T14:04:58.665636Z"
       },
       {
         "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:SqlResourceSqlContainer::sqlContainer",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471/providers/Microsoft.DocumentDB/databaseAccounts/sql-rich-tahr/sqlDatabases/myDatabase/containers/myContainer",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg0be13545/providers/Microsoft.DocumentDB/databaseAccounts/sql-legible-bee/sqlDatabases/myDatabase/containers/myContainer",
         "type": "azure-native:documentdb:SqlResourceSqlContainer",
         "inputs": {
-          "accountName": "sql-rich-tahr",
+          "accountName": "sql-legible-bee",
           "containerName": "myContainer",
           "databaseName": "myDatabase",
           "location": "centralus",
@@ -327,14 +330,15 @@
               ]
             }
           },
-          "resourceGroupName": "rg60811471"
+          "resourceGroupName": "rg0be13545"
         },
         "outputs": {
           "__inputs": {
             "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+            "plaintext": "{\"accountName\":\"REDACTED BY PROVIDERTEST\",\"containerName\":\"REDACTED BY PROVIDERTEST\",\"databaseName\":\"REDACTED BY PROVIDERTEST\",\"location\":\"REDACTED BY PROVIDERTEST\",\"options\":{\"throughput\":400},\"resource\":{\"id\":\"REDACTED BY PROVIDERTEST\",\"partitionKey\":{\"kind\":\"REDACTED BY PROVIDERTEST\",\"paths\":[\"REDACTED BY PROVIDERTEST\"]}},\"resourceGroupName\":\"REDACTED BY PROVIDERTEST\"}"
           },
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471/providers/Microsoft.DocumentDB/databaseAccounts/sql-rich-tahr/sqlDatabases/myDatabase/containers/myContainer",
+          "azureApiVersion": "2023-04-15",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg0be13545/providers/Microsoft.DocumentDB/databaseAccounts/sql-legible-bee/sqlDatabases/myDatabase/containers/myContainer",
           "name": "myContainer",
           "resource": {
             "conflictResolutionPolicy": {
@@ -342,7 +346,7 @@
               "conflictResolutionProcedure": "",
               "mode": "LastWriterWins"
             },
-            "etag": "\"00008217-0000-0300-0000-6786cfbf0000\"",
+            "etag": "\"0000ae0d-0000-0300-0000-67ed44140000\"",
             "id": "myContainer",
             "indexingPolicy": {
               "automatic": true,
@@ -364,8 +368,8 @@
                 "/myPartitionKey"
               ]
             },
-            "rid": "FNBEAPncBJA=",
-            "ts": 1736888255,
+            "rid": "TjZpAJ1pw+A=",
+            "ts": 1743602708,
             "uniqueKeyPolicy": {
               "uniqueKeys": []
             }
@@ -378,7 +382,7 @@
           "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:SqlResourceSqlDatabase::sqlDatabase",
           "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
         ],
-        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default::1940b775-3f3c-47c5-9219-12faf32a8863",
+        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default::bdea1c3d-e231-4d42-b2e6-f9e8f66abea8",
         "propertyDependencies": {
           "accountName": [
             "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:DatabaseAccount::databaseAccount"
@@ -396,8 +400,8 @@
             "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
           ]
         },
-        "created": "2025-01-14T20:57:48.524967Z",
-        "modified": "2025-01-14T20:57:48.524967Z"
+        "created": "2025-04-02T14:05:12.383313Z",
+        "modified": "2025-04-02T14:05:12.383313Z"
       }
     ],
     "metadata": {}

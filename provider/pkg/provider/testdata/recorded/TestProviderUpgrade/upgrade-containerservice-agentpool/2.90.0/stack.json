@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2025-01-14T16:21:03.002854-08:00",
-      "magic": "c8d1ee0f29b00486393c3f493bc4146a28196fd57861ad14dd486f5bd0f61d2d",
-      "version": "v3.144.1"
+      "time": "2025-04-02T16:19:09.685625+01:00",
+      "magic": "435b32a7cc09848104da7bb2b1a83b46b70a7e7e5eb3eeb3b0ee8f195d10a914",
+      "version": "v3.159.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:klW77z/GwrM=:v1:gt+j+C0PYuybXVHe:s+PxO75pI07kEFkxSGP9iOoQLstNzQ=="
+        "salt": "v1:lJowy2IMHik=:v1:sHtYrlRgbL59GVKp:RK+6KTPUCbm5tTz3FLLNlS+RSMOU0A=="
       }
     },
     "resources": [
@@ -18,15 +18,15 @@
         "custom": false,
         "type": "pulumi:pulumi:Stack",
         "outputs": {
-          "controlPlaneFQDN": "pulumi-32acyvf6.hcp.westus2.azmk8s.io"
+          "controlPlaneFQDN": "pulumi-c5u48u53.hcp.westus2.azmk8s.io"
         },
-        "created": "2025-01-15T00:16:35.660896Z",
-        "modified": "2025-01-15T00:16:35.660896Z"
+        "created": "2025-04-02T15:14:17.713339Z",
+        "modified": "2025-04-02T15:14:17.713339Z"
       },
       {
         "urn": "urn:pulumi:test::upgrade-containerservice-agentpool::pulumi:providers:azure-native::default",
         "custom": true,
-        "id": "fdc9bc1f-6dac-4d54-a6a0-b486a8b45ae9",
+        "id": "042d7ae1-b8b8-47c8-9ef4-6fa40424842f",
         "type": "pulumi:providers:azure-native",
         "inputs": {
           "location": "westus2"
@@ -34,41 +34,42 @@
         "outputs": {
           "location": "westus2"
         },
-        "created": "2025-01-15T00:16:36.684971Z",
-        "modified": "2025-01-15T00:16:36.684971Z"
+        "created": "2025-04-02T15:14:18.774159Z",
+        "modified": "2025-04-02T15:14:18.774159Z"
       },
       {
         "urn": "urn:pulumi:test::upgrade-containerservice-agentpool::azure-native:resources:ResourceGroup::rg",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg53154e1d",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg6ce5913a",
         "type": "azure-native:resources:ResourceGroup",
         "inputs": {
           "__createBeforeDelete": true,
           "location": "westus2",
-          "resourceGroupName": "rg53154e1d"
+          "resourceGroupName": "rg6ce5913a"
         },
         "outputs": {
           "__inputs": {
             "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+            "plaintext": "{\"__createBeforeDelete\":true,\"location\":\"REDACTED BY PROVIDERTEST\",\"resourceGroupName\":\"REDACTED BY PROVIDERTEST\"}"
           },
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg53154e1d",
+          "azureApiVersion": "2022-09-01",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg6ce5913a",
           "location": "westus2",
-          "name": "rg53154e1d",
+          "name": "rg6ce5913a",
           "properties": {
             "provisioningState": "Succeeded"
           },
           "type": "Microsoft.Resources/resourceGroups"
         },
         "parent": "urn:pulumi:test::upgrade-containerservice-agentpool::pulumi:pulumi:Stack::upgrade-containerservice-agentpool-test",
-        "provider": "urn:pulumi:test::upgrade-containerservice-agentpool::pulumi:providers:azure-native::default::fdc9bc1f-6dac-4d54-a6a0-b486a8b45ae9",
-        "created": "2025-01-15T00:16:38.748579Z",
-        "modified": "2025-01-15T00:16:38.748579Z"
+        "provider": "urn:pulumi:test::upgrade-containerservice-agentpool::pulumi:providers:azure-native::default::042d7ae1-b8b8-47c8-9ef4-6fa40424842f",
+        "created": "2025-04-02T15:14:22.215341Z",
+        "modified": "2025-04-02T15:14:22.215341Z"
       },
       {
         "urn": "urn:pulumi:test::upgrade-containerservice-agentpool::azure-native:containerservice:ManagedCluster::cluster",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/rg53154e1d/providers/Microsoft.ContainerService/managedClusters/cluster85e76389",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/rg6ce5913a/providers/Microsoft.ContainerService/managedClusters/cluster76f59499",
         "type": "azure-native:containerservice:ManagedCluster",
         "inputs": {
           "__createBeforeDelete": true,
@@ -88,18 +89,18 @@
             "type": "SystemAssigned"
           },
           "location": "westus2",
-          "resourceGroupName": "rg53154e1d",
-          "resourceName": "cluster85e76389"
+          "resourceGroupName": "rg6ce5913a",
+          "resourceName": "cluster76f59499"
         },
         "outputs": {
           "__inputs": {
             "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+            "plaintext": "{\"__createBeforeDelete\":true,\"agentPoolProfiles\":[{\"count\":2,\"mode\":\"REDACTED BY PROVIDERTEST\",\"name\":\"REDACTED BY PROVIDERTEST\",\"osDiskSizeGB\":128,\"osType\":\"REDACTED BY PROVIDERTEST\",\"type\":\"REDACTED BY PROVIDERTEST\",\"vmSize\":\"REDACTED BY PROVIDERTEST\"}],\"dnsPrefix\":\"REDACTED BY PROVIDERTEST\",\"identity\":{\"type\":\"REDACTED BY PROVIDERTEST\"},\"location\":\"REDACTED BY PROVIDERTEST\",\"resourceGroupName\":\"REDACTED BY PROVIDERTEST\",\"resourceName\":\"REDACTED BY PROVIDERTEST\"}"
           },
           "agentPoolProfiles": [
             {
               "count": 2,
-              "currentOrchestratorVersion": "1.30.6",
+              "currentOrchestratorVersion": "1.30.10",
               "enableAutoScaling": false,
               "enableFIPS": false,
               "enableNodePublicIP": false,
@@ -107,7 +108,7 @@
               "maxPods": 250,
               "mode": "System",
               "name": "systempool",
-              "nodeImageVersion": "AKSUbuntu-2204gen2containerd-202412.10.0",
+              "nodeImageVersion": "AKSUbuntu-2204gen2containerd-202503.21.0",
               "orchestratorVersion": "1.30",
               "osDiskSizeGB": 128,
               "osDiskType": "Managed",
@@ -117,6 +118,7 @@
                 "code": "Running"
               },
               "provisioningState": "Succeeded",
+              "scaleDownMode": "Delete",
               "type": "VirtualMachineScaleSets",
               "upgradeSettings": {
                 "maxSurge": "10%"
@@ -125,28 +127,29 @@
             }
           ],
           "autoUpgradeProfile": {},
-          "azurePortalFQDN": "pulumi-32acyvf6.portal.hcp.westus2.azmk8s.io",
-          "currentKubernetesVersion": "1.30.6",
+          "azureApiVersion": "2023-04-01",
+          "azurePortalFQDN": "pulumi-c5u48u53.portal.hcp.westus2.azmk8s.io",
+          "currentKubernetesVersion": "1.30.10",
           "dnsPrefix": "pulumi",
           "enableRBAC": true,
-          "fqdn": "pulumi-32acyvf6.hcp.westus2.azmk8s.io",
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/rg53154e1d/providers/Microsoft.ContainerService/managedClusters/cluster85e76389",
+          "fqdn": "pulumi-c5u48u53.hcp.westus2.azmk8s.io",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/rg6ce5913a/providers/Microsoft.ContainerService/managedClusters/cluster76f59499",
           "identity": {
-            "principalId": "2683fb25-49e0-4326-b8f2-52950285ff5e",
+            "principalId": "1c505fbd-bb10-423e-9b08-76a679bc3f9d",
             "tenantId": "706143bc-e1d4-4593-aee2-c9dc60ab9be7",
             "type": "SystemAssigned"
           },
           "identityProfile": {
             "kubeletidentity": {
-              "clientId": "6b20e0ed-1c30-4a1b-a41d-f9d7922fddf2",
-              "objectId": "33cbfea5-7463-4adb-a54b-2d59757226b7",
-              "resourceId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/MC_rg53154e1d_cluster85e76389_westus2/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cluster85e76389-agentpool"
+              "clientId": "7cd64794-214d-49e0-9eb6-f11b4cab2f44",
+              "objectId": "603be70c-682a-4c7b-9e08-c391c2f58e98",
+              "resourceId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/MC_rg6ce5913a_cluster76f59499_westus2/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cluster76f59499-agentpool"
             }
           },
           "kubernetesVersion": "1.30",
           "location": "westus2",
           "maxAgentPools": 100,
-          "name": "cluster85e76389",
+          "name": "cluster76f59499",
           "networkProfile": {
             "dnsServiceIP": "10.0.0.10",
             "ipFamilies": [
@@ -155,7 +158,7 @@
             "loadBalancerProfile": {
               "effectiveOutboundIPs": [
                 {
-                  "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/MC_rg53154e1d_cluster85e76389_westus2/providers/Microsoft.Network/publicIPAddresses/cedcf6a6-5a67-4006-b938-723408007b3b"
+                  "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/MC_rg6ce5913a_cluster76f59499_westus2/providers/Microsoft.Network/publicIPAddresses/91ed6f99-9b7a-43ec-9abe-48e61e3a5044"
                 }
               ],
               "managedOutboundIPs": {
@@ -176,7 +179,7 @@
               "10.0.0.0/16"
             ]
           },
-          "nodeResourceGroup": "MC_rg53154e1d_cluster85e76389_westus2",
+          "nodeResourceGroup": "MC_rg6ce5913a_cluster76f59499_westus2",
           "oidcIssuerProfile": {
             "enabled": false
           },
@@ -211,7 +214,7 @@
         "dependencies": [
           "urn:pulumi:test::upgrade-containerservice-agentpool::azure-native:resources:ResourceGroup::rg"
         ],
-        "provider": "urn:pulumi:test::upgrade-containerservice-agentpool::pulumi:providers:azure-native::default::fdc9bc1f-6dac-4d54-a6a0-b486a8b45ae9",
+        "provider": "urn:pulumi:test::upgrade-containerservice-agentpool::pulumi:providers:azure-native::default::042d7ae1-b8b8-47c8-9ef4-6fa40424842f",
         "propertyDependencies": {
           "agentPoolProfiles": [],
           "dnsPrefix": [],
@@ -223,13 +226,13 @@
             "urn:pulumi:test::upgrade-containerservice-agentpool::azure-native:resources:ResourceGroup::rg"
           ]
         },
-        "created": "2025-01-15T00:20:27.643701Z",
-        "modified": "2025-01-15T00:20:27.643701Z"
+        "created": "2025-04-02T15:18:38.844522Z",
+        "modified": "2025-04-02T15:18:38.844522Z"
       },
       {
         "urn": "urn:pulumi:test::upgrade-containerservice-agentpool::azure-native:containerservice:AgentPool::pool",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/rg53154e1d/providers/Microsoft.ContainerService/managedClusters/cluster85e76389/agentPools/userpool",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/rg6ce5913a/providers/Microsoft.ContainerService/managedClusters/cluster76f59499/agentPools/userpool",
         "type": "azure-native:containerservice:AgentPool",
         "inputs": {
           "agentPoolName": "userpool",
@@ -240,27 +243,28 @@
           },
           "osDiskSizeGB": 128,
           "osType": "Linux",
-          "resourceGroupName": "rg53154e1d",
-          "resourceName": "cluster85e76389",
+          "resourceGroupName": "rg6ce5913a",
+          "resourceName": "cluster76f59499",
           "type": "VirtualMachineScaleSets",
           "vmSize": "standard_d2s_v3"
         },
         "outputs": {
           "__inputs": {
             "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+            "plaintext": "{\"agentPoolName\":\"REDACTED BY PROVIDERTEST\",\"count\":0,\"mode\":\"REDACTED BY PROVIDERTEST\",\"nodeLabels\":{\"foo\":\"REDACTED BY PROVIDERTEST\"},\"osDiskSizeGB\":128,\"osType\":\"REDACTED BY PROVIDERTEST\",\"resourceGroupName\":\"REDACTED BY PROVIDERTEST\",\"resourceName\":\"REDACTED BY PROVIDERTEST\",\"type\":\"REDACTED BY PROVIDERTEST\",\"vmSize\":\"REDACTED BY PROVIDERTEST\"}"
           },
+          "azureApiVersion": "2023-04-01",
           "count": 0,
-          "currentOrchestratorVersion": "1.30.6",
+          "currentOrchestratorVersion": "1.30.10",
           "enableAutoScaling": false,
           "enableFIPS": false,
           "enableNodePublicIP": false,
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/rg53154e1d/providers/Microsoft.ContainerService/managedClusters/cluster85e76389/agentPools/userpool",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/rg6ce5913a/providers/Microsoft.ContainerService/managedClusters/cluster76f59499/agentPools/userpool",
           "kubeletDiskType": "OS",
           "maxPods": 250,
           "mode": "User",
           "name": "userpool",
-          "nodeImageVersion": "AKSUbuntu-2204gen2containerd-202412.10.0",
+          "nodeImageVersion": "AKSUbuntu-2204gen2containerd-202503.21.0",
           "nodeLabels": {
             "foo": "bar"
           },
@@ -275,14 +279,15 @@
           "provisioningState": "Succeeded",
           "scaleDownMode": "Delete",
           "type": "Microsoft.ContainerService/managedClusters/agentPools",
+          "upgradeSettings": {},
           "vmSize": "standard_d2s_v3"
         },
         "parent": "urn:pulumi:test::upgrade-containerservice-agentpool::pulumi:pulumi:Stack::upgrade-containerservice-agentpool-test",
         "dependencies": [
-          "urn:pulumi:test::upgrade-containerservice-agentpool::azure-native:containerservice:ManagedCluster::cluster",
-          "urn:pulumi:test::upgrade-containerservice-agentpool::azure-native:resources:ResourceGroup::rg"
+          "urn:pulumi:test::upgrade-containerservice-agentpool::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-containerservice-agentpool::azure-native:containerservice:ManagedCluster::cluster"
         ],
-        "provider": "urn:pulumi:test::upgrade-containerservice-agentpool::pulumi:providers:azure-native::default::fdc9bc1f-6dac-4d54-a6a0-b486a8b45ae9",
+        "provider": "urn:pulumi:test::upgrade-containerservice-agentpool::pulumi:providers:azure-native::default::042d7ae1-b8b8-47c8-9ef4-6fa40424842f",
         "propertyDependencies": {
           "agentPoolName": [],
           "count": [],
@@ -299,8 +304,8 @@
           "type": [],
           "vmSize": []
         },
-        "created": "2025-01-15T00:21:02.994627Z",
-        "modified": "2025-01-15T00:21:02.994627Z"
+        "created": "2025-04-02T15:19:09.670824Z",
+        "modified": "2025-04-02T15:19:09.670824Z"
       }
     ],
     "metadata": {}
