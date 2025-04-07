@@ -184,7 +184,7 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20150801preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20181001preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20190101preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20200901preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20221201preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20250401preview:Dashboard")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20190101preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20200901preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20221201preview:Dashboard"), pulumi.Alias(type_="azure-native_portal_v20150801preview:portal:Dashboard"), pulumi.Alias(type_="azure-native_portal_v20181001preview:portal:Dashboard"), pulumi.Alias(type_="azure-native_portal_v20190101preview:portal:Dashboard"), pulumi.Alias(type_="azure-native_portal_v20200901preview:portal:Dashboard"), pulumi.Alias(type_="azure-native_portal_v20221201preview:portal:Dashboard"), pulumi.Alias(type_="azure-native_portal_v20250401preview:portal:Dashboard")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Dashboard, __self__).__init__(
             'azure-native:portal:Dashboard',

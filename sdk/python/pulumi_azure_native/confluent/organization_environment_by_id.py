@@ -259,7 +259,7 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
             __props__.__dict__["stream_governance_config"] = stream_governance_config
             __props__.__dict__["type"] = type
             __props__.__dict__["azure_api_version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20240701:OrganizationEnvironmentById")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20240701:OrganizationEnvironmentById"), pulumi.Alias(type_="azure-native_confluent_v20240701:confluent:OrganizationEnvironmentById")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrganizationEnvironmentById, __self__).__init__(
             'azure-native:confluent:OrganizationEnvironmentById',

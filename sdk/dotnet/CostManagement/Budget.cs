@@ -162,7 +162,13 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230901:Budget" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20231101:Budget" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20240801:Budget" },
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20241001preview:Budget" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20190401preview:costmanagement:Budget" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230401preview:costmanagement:Budget" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230801:costmanagement:Budget" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230901:costmanagement:Budget" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20231101:costmanagement:Budget" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20240801:costmanagement:Budget" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20241001preview:costmanagement:Budget" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

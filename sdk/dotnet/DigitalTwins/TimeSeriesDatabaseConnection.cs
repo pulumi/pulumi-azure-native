@@ -72,10 +72,11 @@ namespace Pulumi.AzureNative.DigitalTwins
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20220531:TimeSeriesDatabaseConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20210630preview:digitaltwins:TimeSeriesDatabaseConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20220531:digitaltwins:TimeSeriesDatabaseConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20221031:digitaltwins:TimeSeriesDatabaseConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_digitaltwins_v20230131:digitaltwins:TimeSeriesDatabaseConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

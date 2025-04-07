@@ -104,15 +104,19 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:DisasterRecoveryConfig" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:DisasterRecoveryConfig" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:DisasterRecoveryConfig" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:DisasterRecoveryConfig" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20230101preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20240101:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20170401:servicebus:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20180101preview:servicebus:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20210101preview:servicebus:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20210601preview:servicebus:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20211101:servicebus:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20220101preview:servicebus:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20221001preview:servicebus:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20230101preview:servicebus:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20240101:servicebus:DisasterRecoveryConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

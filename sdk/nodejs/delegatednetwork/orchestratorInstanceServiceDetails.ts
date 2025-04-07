@@ -157,7 +157,7 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails" }, { type: "azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails" }, { type: "azure-native:delegatednetwork/v20230518preview:OrchestratorInstanceServiceDetails" }, { type: "azure-native:delegatednetwork/v20230627preview:OrchestratorInstanceServiceDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails" }, { type: "azure-native:delegatednetwork/v20230518preview:OrchestratorInstanceServiceDetails" }, { type: "azure-native:delegatednetwork/v20230627preview:OrchestratorInstanceServiceDetails" }, { type: "azure-native_delegatednetwork_v20200808preview:delegatednetwork:OrchestratorInstanceServiceDetails" }, { type: "azure-native_delegatednetwork_v20210315:delegatednetwork:OrchestratorInstanceServiceDetails" }, { type: "azure-native_delegatednetwork_v20230518preview:delegatednetwork:OrchestratorInstanceServiceDetails" }, { type: "azure-native_delegatednetwork_v20230627preview:delegatednetwork:OrchestratorInstanceServiceDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OrchestratorInstanceServiceDetails.__pulumiType, name, resourceInputs, opts);
     }

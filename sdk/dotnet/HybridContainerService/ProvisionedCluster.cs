@@ -92,6 +92,8 @@ namespace Pulumi.AzureNative.HybridContainerService
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:ProvisionedCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:ProvisionedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcontainerservice_v20220501preview:hybridcontainerservice:ProvisionedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridcontainerservice_v20220901preview:hybridcontainerservice:ProvisionedCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

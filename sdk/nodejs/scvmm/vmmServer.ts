@@ -157,7 +157,7 @@ export class VmmServer extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:VmmServer" }, { type: "azure-native:scvmm/v20220521preview:VmmServer" }, { type: "azure-native:scvmm/v20230401preview:VmmServer" }, { type: "azure-native:scvmm/v20231007:VmmServer" }, { type: "azure-native:scvmm/v20240601:VmmServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20220521preview:VmmServer" }, { type: "azure-native:scvmm/v20230401preview:VmmServer" }, { type: "azure-native:scvmm/v20231007:VmmServer" }, { type: "azure-native:scvmm/v20240601:VmmServer" }, { type: "azure-native_scvmm_v20200605preview:scvmm:VmmServer" }, { type: "azure-native_scvmm_v20220521preview:scvmm:VmmServer" }, { type: "azure-native_scvmm_v20230401preview:scvmm:VmmServer" }, { type: "azure-native_scvmm_v20231007:scvmm:VmmServer" }, { type: "azure-native_scvmm_v20240601:scvmm:VmmServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VmmServer.__pulumiType, name, resourceInputs, opts);
     }

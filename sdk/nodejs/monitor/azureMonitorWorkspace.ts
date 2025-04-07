@@ -139,7 +139,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:monitor/v20210603preview:AzureMonitorWorkspace" }, { type: "azure-native:monitor/v20230403:AzureMonitorWorkspace" }, { type: "azure-native:monitor/v20231001preview:AzureMonitorWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:monitor/v20230403:AzureMonitorWorkspace" }, { type: "azure-native:monitor/v20231001preview:AzureMonitorWorkspace" }, { type: "azure-native_monitor_v20210603preview:monitor:AzureMonitorWorkspace" }, { type: "azure-native_monitor_v20230403:monitor:AzureMonitorWorkspace" }, { type: "azure-native_monitor_v20231001preview:monitor:AzureMonitorWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureMonitorWorkspace.__pulumiType, name, resourceInputs, opts);
     }

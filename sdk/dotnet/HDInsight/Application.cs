@@ -86,13 +86,17 @@ namespace Pulumi.AzureNative.HDInsight
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Application" },
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230415preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230815preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20240801preview:Application" },
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20250115preview:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20150301preview:hdinsight:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20180601preview:hdinsight:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20210601:hdinsight:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20230415preview:hdinsight:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20230815preview:hdinsight:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20240801preview:hdinsight:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native_hdinsight_v20250115preview:hdinsight:Application" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

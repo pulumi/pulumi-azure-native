@@ -104,15 +104,19 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:NamespaceNetworkRuleSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:NamespaceNetworkRuleSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:NamespaceNetworkRuleSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:NamespaceNetworkRuleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20230101preview:NamespaceNetworkRuleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20240101:NamespaceNetworkRuleSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20170401:servicebus:NamespaceNetworkRuleSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20180101preview:servicebus:NamespaceNetworkRuleSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20210101preview:servicebus:NamespaceNetworkRuleSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20210601preview:servicebus:NamespaceNetworkRuleSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20211101:servicebus:NamespaceNetworkRuleSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20220101preview:servicebus:NamespaceNetworkRuleSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20221001preview:servicebus:NamespaceNetworkRuleSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20230101preview:servicebus:NamespaceNetworkRuleSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20240101:servicebus:NamespaceNetworkRuleSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

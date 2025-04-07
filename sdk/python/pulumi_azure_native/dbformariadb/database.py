@@ -178,7 +178,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformariadb/v20180601:Database"), pulumi.Alias(type_="azure-native:dbformariadb/v20180601preview:Database")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformariadb/v20180601:Database"), pulumi.Alias(type_="azure-native:dbformariadb/v20180601preview:Database"), pulumi.Alias(type_="azure-native_dbformariadb_v20180601:dbformariadb:Database"), pulumi.Alias(type_="azure-native_dbformariadb_v20180601preview:dbformariadb:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure-native:dbformariadb:Database',

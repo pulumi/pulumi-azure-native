@@ -137,7 +137,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:Rule" }, { type: "azure-native:cdn/v20210601:Rule" }, { type: "azure-native:cdn/v20220501preview:Rule" }, { type: "azure-native:cdn/v20221101preview:Rule" }, { type: "azure-native:cdn/v20230501:Rule" }, { type: "azure-native:cdn/v20230701preview:Rule" }, { type: "azure-native:cdn/v20240201:Rule" }, { type: "azure-native:cdn/v20240501preview:Rule" }, { type: "azure-native:cdn/v20240601preview:Rule" }, { type: "azure-native:cdn/v20240901:Rule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20230501:Rule" }, { type: "azure-native:cdn/v20230701preview:Rule" }, { type: "azure-native:cdn/v20240201:Rule" }, { type: "azure-native:cdn/v20240501preview:Rule" }, { type: "azure-native:cdn/v20240601preview:Rule" }, { type: "azure-native:cdn/v20240901:Rule" }, { type: "azure-native_cdn_v20200901:cdn:Rule" }, { type: "azure-native_cdn_v20210601:cdn:Rule" }, { type: "azure-native_cdn_v20220501preview:cdn:Rule" }, { type: "azure-native_cdn_v20221101preview:cdn:Rule" }, { type: "azure-native_cdn_v20230501:cdn:Rule" }, { type: "azure-native_cdn_v20230701preview:cdn:Rule" }, { type: "azure-native_cdn_v20240201:cdn:Rule" }, { type: "azure-native_cdn_v20240501preview:cdn:Rule" }, { type: "azure-native_cdn_v20240601preview:cdn:Rule" }, { type: "azure-native_cdn_v20240901:cdn:Rule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Rule.__pulumiType, name, resourceInputs, opts);
     }

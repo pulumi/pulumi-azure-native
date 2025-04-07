@@ -113,7 +113,7 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:Site" }, { type: "azure-native:mobilenetwork/v20220401preview:Site" }, { type: "azure-native:mobilenetwork/v20221101:Site" }, { type: "azure-native:mobilenetwork/v20230601:Site" }, { type: "azure-native:mobilenetwork/v20230901:Site" }, { type: "azure-native:mobilenetwork/v20240201:Site" }, { type: "azure-native:mobilenetwork/v20240401:Site" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220401preview:Site" }, { type: "azure-native:mobilenetwork/v20221101:Site" }, { type: "azure-native:mobilenetwork/v20230601:Site" }, { type: "azure-native:mobilenetwork/v20230901:Site" }, { type: "azure-native:mobilenetwork/v20240201:Site" }, { type: "azure-native:mobilenetwork/v20240401:Site" }, { type: "azure-native_mobilenetwork_v20220301preview:mobilenetwork:Site" }, { type: "azure-native_mobilenetwork_v20220401preview:mobilenetwork:Site" }, { type: "azure-native_mobilenetwork_v20221101:mobilenetwork:Site" }, { type: "azure-native_mobilenetwork_v20230601:mobilenetwork:Site" }, { type: "azure-native_mobilenetwork_v20230901:mobilenetwork:Site" }, { type: "azure-native_mobilenetwork_v20240201:mobilenetwork:Site" }, { type: "azure-native_mobilenetwork_v20240401:mobilenetwork:Site" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Site.__pulumiType, name, resourceInputs, opts);
     }

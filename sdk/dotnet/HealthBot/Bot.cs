@@ -98,15 +98,18 @@ namespace Pulumi.AzureNative.HealthBot
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201020:Bot" },
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201020preview:Bot" },
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208:Bot" },
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208preview:Bot" },
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210610:Bot" },
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210824:Bot" },
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20220808:Bot" },
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20230501:Bot" },
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20240201:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthbot_v20201020:healthbot:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthbot_v20201020preview:healthbot:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthbot_v20201208:healthbot:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthbot_v20201208preview:healthbot:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthbot_v20210610:healthbot:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthbot_v20210824:healthbot:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthbot_v20220808:healthbot:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthbot_v20230501:healthbot:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native_healthbot_v20240201:healthbot:Bot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

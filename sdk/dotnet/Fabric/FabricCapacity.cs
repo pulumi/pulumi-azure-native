@@ -106,6 +106,8 @@ namespace Pulumi.AzureNative.Fabric
                 {
                     new global::Pulumi.Alias { Type = "azure-native:fabric/v20231101:FabricCapacity" },
                     new global::Pulumi.Alias { Type = "azure-native:fabric/v20250115preview:FabricCapacity" },
+                    new global::Pulumi.Alias { Type = "azure-native_fabric_v20231101:fabric:FabricCapacity" },
+                    new global::Pulumi.Alias { Type = "azure-native_fabric_v20250115preview:fabric:FabricCapacity" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

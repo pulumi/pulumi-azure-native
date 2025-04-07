@@ -88,6 +88,8 @@ namespace Pulumi.AzureNative.HybridNetwork
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20230901:NetworkServiceDesignVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20240415:NetworkServiceDesignVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridnetwork_v20230901:hybridnetwork:NetworkServiceDesignVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridnetwork_v20240415:hybridnetwork:NetworkServiceDesignVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

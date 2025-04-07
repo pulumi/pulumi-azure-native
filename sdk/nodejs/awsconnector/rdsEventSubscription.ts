@@ -100,7 +100,7 @@ export class RdsEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:RdsEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:RdsEventSubscription" }, { type: "azure-native_awsconnector_v20241201:awsconnector:RdsEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RdsEventSubscription.__pulumiType, name, resourceInputs, opts);
     }

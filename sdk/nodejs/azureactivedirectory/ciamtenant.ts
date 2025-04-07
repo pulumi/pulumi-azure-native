@@ -140,7 +140,7 @@ export class CIAMTenant extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azureactivedirectory/v20230517preview:CIAMTenant" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azureactivedirectory/v20230517preview:CIAMTenant" }, { type: "azure-native_azureactivedirectory_v20230517preview:azureactivedirectory:CIAMTenant" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CIAMTenant.__pulumiType, name, resourceInputs, opts);
     }

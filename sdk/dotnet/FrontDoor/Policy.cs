@@ -131,17 +131,17 @@ namespace Pulumi.AzureNative.FrontDoor
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20190301:Policy" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20191001:Policy" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200401:Policy" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20201101:Policy" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20210601:Policy" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20220501:Policy" },
-                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20240201:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210601:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240201:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:network:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20190301:frontdoor:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20191001:frontdoor:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20200401:frontdoor:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20201101:frontdoor:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20210601:frontdoor:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20220501:frontdoor:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native_frontdoor_v20240201:frontdoor:Policy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

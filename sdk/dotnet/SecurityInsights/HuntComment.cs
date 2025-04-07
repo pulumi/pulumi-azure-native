@@ -80,8 +80,6 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:HuntComment" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:HuntComment" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:HuntComment" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:HuntComment" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:HuntComment" },
@@ -91,7 +89,18 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:HuntComment" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:HuntComment" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:HuntComment" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230401preview:securityinsights:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230501preview:securityinsights:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230601preview:securityinsights:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230701preview:securityinsights:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230801preview:securityinsights:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20230901preview:securityinsights:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20231001preview:securityinsights:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20231201preview:securityinsights:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20240101preview:securityinsights:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20240401preview:securityinsights:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20241001preview:securityinsights:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native_securityinsights_v20250101preview:securityinsights:HuntComment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -388,7 +388,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datalakestore/v20161101:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datalakestore/v20161101:Account"), pulumi.Alias(type_="azure-native_datalakestore_v20161101:datalakestore:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:datalakestore:Account',

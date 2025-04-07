@@ -146,7 +146,7 @@ export class ClusterPoolCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20230601preview:Cluster" }, { type: "azure-native:hdinsight/v20230601preview:ClusterPoolCluster" }, { type: "azure-native:hdinsight/v20231101preview:Cluster" }, { type: "azure-native:hdinsight/v20231101preview:ClusterPoolCluster" }, { type: "azure-native:hdinsight/v20240501preview:Cluster" }, { type: "azure-native:hdinsight/v20240501preview:ClusterPoolCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20230601preview:Cluster" }, { type: "azure-native:hdinsight/v20231101preview:Cluster" }, { type: "azure-native:hdinsight/v20240501preview:Cluster" }, { type: "azure-native_hdinsight_v20230601preview:hdinsight:ClusterPoolCluster" }, { type: "azure-native_hdinsight_v20231101preview:hdinsight:ClusterPoolCluster" }, { type: "azure-native_hdinsight_v20240501preview:hdinsight:ClusterPoolCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ClusterPoolCluster.__pulumiType, name, resourceInputs, opts);
     }

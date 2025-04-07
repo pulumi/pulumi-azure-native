@@ -119,7 +119,7 @@ export class AzureADAdministrator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20211201preview:AzureADAdministrator" }, { type: "azure-native:dbformysql/v20220101:AzureADAdministrator" }, { type: "azure-native:dbformysql/v20230601preview:AzureADAdministrator" }, { type: "azure-native:dbformysql/v20230630:AzureADAdministrator" }, { type: "azure-native:dbformysql/v20231230:AzureADAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20220101:AzureADAdministrator" }, { type: "azure-native:dbformysql/v20230601preview:AzureADAdministrator" }, { type: "azure-native:dbformysql/v20230630:AzureADAdministrator" }, { type: "azure-native:dbformysql/v20231230:AzureADAdministrator" }, { type: "azure-native_dbformysql_v20211201preview:dbformysql:AzureADAdministrator" }, { type: "azure-native_dbformysql_v20220101:dbformysql:AzureADAdministrator" }, { type: "azure-native_dbformysql_v20230601preview:dbformysql:AzureADAdministrator" }, { type: "azure-native_dbformysql_v20230630:dbformysql:AzureADAdministrator" }, { type: "azure-native_dbformysql_v20231230:dbformysql:AzureADAdministrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureADAdministrator.__pulumiType, name, resourceInputs, opts);
     }

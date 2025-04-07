@@ -100,7 +100,7 @@ export class Ec2InstanceStatus extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2InstanceStatus" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2InstanceStatus" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2InstanceStatus" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2InstanceStatus.__pulumiType, name, resourceInputs, opts);
     }

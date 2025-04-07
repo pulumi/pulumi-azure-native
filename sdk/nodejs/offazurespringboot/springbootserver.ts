@@ -95,7 +95,7 @@ export class Springbootserver extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazurespringboot/v20230101preview:Springbootserver" }, { type: "azure-native:offazurespringboot/v20240401preview:Springbootserver" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazurespringboot/v20230101preview:Springbootserver" }, { type: "azure-native:offazurespringboot/v20240401preview:Springbootserver" }, { type: "azure-native_offazurespringboot_v20230101preview:offazurespringboot:Springbootserver" }, { type: "azure-native_offazurespringboot_v20240401preview:offazurespringboot:Springbootserver" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Springbootserver.__pulumiType, name, resourceInputs, opts);
     }

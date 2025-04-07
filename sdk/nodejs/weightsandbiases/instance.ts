@@ -107,7 +107,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:weightsandbiases/v20240918preview:Instance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native_weightsandbiases_v20240918preview:weightsandbiases:Instance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }

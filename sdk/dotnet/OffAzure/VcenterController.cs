@@ -134,11 +134,14 @@ namespace Pulumi.AzureNative.OffAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:VcenterController" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:VcenterController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:VcenterController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:VcenterController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:VcenterController" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20200101:offazure:VcenterController" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20200707:offazure:VcenterController" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20230606:offazure:VcenterController" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20231001preview:offazure:VcenterController" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20240501preview:offazure:VcenterController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

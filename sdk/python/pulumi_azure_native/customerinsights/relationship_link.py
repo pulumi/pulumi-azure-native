@@ -289,7 +289,7 @@ class RelationshipLink(pulumi.CustomResource):
             __props__.__dict__["relationship_guid_id"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:customerinsights/v20170101:RelationshipLink"), pulumi.Alias(type_="azure-native:customerinsights/v20170426:RelationshipLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:customerinsights/v20170426:RelationshipLink"), pulumi.Alias(type_="azure-native_customerinsights_v20170101:customerinsights:RelationshipLink"), pulumi.Alias(type_="azure-native_customerinsights_v20170426:customerinsights:RelationshipLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RelationshipLink, __self__).__init__(
             'azure-native:customerinsights:RelationshipLink',

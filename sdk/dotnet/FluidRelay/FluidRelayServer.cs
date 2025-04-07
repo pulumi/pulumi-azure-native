@@ -114,15 +114,17 @@ namespace Pulumi.AzureNative.FluidRelay
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:fluidrelay/v20210312preview:FluidRelayServer" },
                     new global::Pulumi.Alias { Type = "azure-native:fluidrelay/v20210615preview:FluidRelayServer" },
-                    new global::Pulumi.Alias { Type = "azure-native:fluidrelay/v20210830preview:FluidRelayServer" },
-                    new global::Pulumi.Alias { Type = "azure-native:fluidrelay/v20210910preview:FluidRelayServer" },
-                    new global::Pulumi.Alias { Type = "azure-native:fluidrelay/v20220215:FluidRelayServer" },
-                    new global::Pulumi.Alias { Type = "azure-native:fluidrelay/v20220421:FluidRelayServer" },
-                    new global::Pulumi.Alias { Type = "azure-native:fluidrelay/v20220511:FluidRelayServer" },
-                    new global::Pulumi.Alias { Type = "azure-native:fluidrelay/v20220526:FluidRelayServer" },
                     new global::Pulumi.Alias { Type = "azure-native:fluidrelay/v20220601:FluidRelayServer" },
+                    new global::Pulumi.Alias { Type = "azure-native_fluidrelay_v20210312preview:fluidrelay:FluidRelayServer" },
+                    new global::Pulumi.Alias { Type = "azure-native_fluidrelay_v20210615preview:fluidrelay:FluidRelayServer" },
+                    new global::Pulumi.Alias { Type = "azure-native_fluidrelay_v20210830preview:fluidrelay:FluidRelayServer" },
+                    new global::Pulumi.Alias { Type = "azure-native_fluidrelay_v20210910preview:fluidrelay:FluidRelayServer" },
+                    new global::Pulumi.Alias { Type = "azure-native_fluidrelay_v20220215:fluidrelay:FluidRelayServer" },
+                    new global::Pulumi.Alias { Type = "azure-native_fluidrelay_v20220421:fluidrelay:FluidRelayServer" },
+                    new global::Pulumi.Alias { Type = "azure-native_fluidrelay_v20220511:fluidrelay:FluidRelayServer" },
+                    new global::Pulumi.Alias { Type = "azure-native_fluidrelay_v20220526:fluidrelay:FluidRelayServer" },
+                    new global::Pulumi.Alias { Type = "azure-native_fluidrelay_v20220601:fluidrelay:FluidRelayServer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

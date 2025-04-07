@@ -128,9 +128,6 @@ namespace Pulumi.AzureNative.CostManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20220401preview:ScheduledActionByScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20220601preview:ScheduledActionByScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:ScheduledActionByScope" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230301:ScheduledActionByScope" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:ScheduledActionByScope" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230701preview:ScheduledActionByScope" },
@@ -138,7 +135,17 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230901:ScheduledActionByScope" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20231101:ScheduledActionByScope" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20240801:ScheduledActionByScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20241001preview:ScheduledActionByScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20220401preview:costmanagement:ScheduledActionByScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20220601preview:costmanagement:ScheduledActionByScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20221001:costmanagement:ScheduledActionByScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230301:costmanagement:ScheduledActionByScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230401preview:costmanagement:ScheduledActionByScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230701preview:costmanagement:ScheduledActionByScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230801:costmanagement:ScheduledActionByScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20230901:costmanagement:ScheduledActionByScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20231101:costmanagement:ScheduledActionByScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20240801:costmanagement:ScheduledActionByScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_costmanagement_v20241001preview:costmanagement:ScheduledActionByScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

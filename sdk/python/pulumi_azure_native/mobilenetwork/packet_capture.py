@@ -241,7 +241,7 @@ class PacketCapture(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:PacketCapture"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:PacketCapture"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240201:PacketCapture"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240401:PacketCapture")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:PacketCapture"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:PacketCapture"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240201:PacketCapture"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240401:PacketCapture"), pulumi.Alias(type_="azure-native_mobilenetwork_v20230601:mobilenetwork:PacketCapture"), pulumi.Alias(type_="azure-native_mobilenetwork_v20230901:mobilenetwork:PacketCapture"), pulumi.Alias(type_="azure-native_mobilenetwork_v20240201:mobilenetwork:PacketCapture"), pulumi.Alias(type_="azure-native_mobilenetwork_v20240401:mobilenetwork:PacketCapture")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PacketCapture, __self__).__init__(
             'azure-native:mobilenetwork:PacketCapture',

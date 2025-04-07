@@ -80,7 +80,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:MarketplaceSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:MarketplaceSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:MarketplaceSubscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:MarketplaceSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240101preview:machinelearningservices:MarketplaceSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240401:machinelearningservices:MarketplaceSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240401preview:machinelearningservices:MarketplaceSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240701preview:machinelearningservices:MarketplaceSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20241001:machinelearningservices:MarketplaceSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20241001preview:machinelearningservices:MarketplaceSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20250101preview:machinelearningservices:MarketplaceSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

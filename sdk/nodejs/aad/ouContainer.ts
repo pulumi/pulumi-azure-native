@@ -156,7 +156,7 @@ export class OuContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:aad/v20170601:OuContainer" }, { type: "azure-native:aad/v20200101:OuContainer" }, { type: "azure-native:aad/v20210301:OuContainer" }, { type: "azure-native:aad/v20210501:OuContainer" }, { type: "azure-native:aad/v20220901:OuContainer" }, { type: "azure-native:aad/v20221201:OuContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:aad/v20221201:OuContainer" }, { type: "azure-native_aad_v20170601:aad:OuContainer" }, { type: "azure-native_aad_v20200101:aad:OuContainer" }, { type: "azure-native_aad_v20210301:aad:OuContainer" }, { type: "azure-native_aad_v20210501:aad:OuContainer" }, { type: "azure-native_aad_v20220901:aad:OuContainer" }, { type: "azure-native_aad_v20221201:aad:OuContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OuContainer.__pulumiType, name, resourceInputs, opts);
     }

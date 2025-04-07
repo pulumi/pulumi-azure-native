@@ -205,7 +205,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:quantum/v20191104preview:Workspace"), pulumi.Alias(type_="azure-native:quantum/v20220110preview:Workspace"), pulumi.Alias(type_="azure-native:quantum/v20231113preview:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:quantum/v20220110preview:Workspace"), pulumi.Alias(type_="azure-native:quantum/v20231113preview:Workspace"), pulumi.Alias(type_="azure-native_quantum_v20191104preview:quantum:Workspace"), pulumi.Alias(type_="azure-native_quantum_v20220110preview:quantum:Workspace"), pulumi.Alias(type_="azure-native_quantum_v20231113preview:quantum:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:quantum:Workspace',

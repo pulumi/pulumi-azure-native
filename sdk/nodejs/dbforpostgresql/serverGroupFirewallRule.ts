@@ -113,7 +113,7 @@ export class ServerGroupFirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20201005privatepreview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20201005privatepreview:ServerGroupFirewallRule" }, { type: "azure-native:dbforpostgresql/v20221108:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20221108:ServerGroupFirewallRule" }, { type: "azure-native:dbforpostgresql/v20230302preview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20230302preview:ServerGroupFirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20201005privatepreview:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20221108:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20230302preview:FirewallRule" }, { type: "azure-native_dbforpostgresql_v20201005privatepreview:dbforpostgresql:ServerGroupFirewallRule" }, { type: "azure-native_dbforpostgresql_v20221108:dbforpostgresql:ServerGroupFirewallRule" }, { type: "azure-native_dbforpostgresql_v20230302preview:dbforpostgresql:ServerGroupFirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerGroupFirewallRule.__pulumiType, name, resourceInputs, opts);
     }

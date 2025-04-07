@@ -138,8 +138,9 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Disk" },
                     new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Disk" },
+                    new global::Pulumi.Alias { Type = "azure-native_devtestlab_v20160515:devtestlab:Disk" },
+                    new global::Pulumi.Alias { Type = "azure-native_devtestlab_v20180915:devtestlab:Disk" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

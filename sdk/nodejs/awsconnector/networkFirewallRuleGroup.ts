@@ -100,7 +100,7 @@ export class NetworkFirewallRuleGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:NetworkFirewallRuleGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:NetworkFirewallRuleGroup" }, { type: "azure-native_awsconnector_v20241201:awsconnector:NetworkFirewallRuleGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkFirewallRuleGroup.__pulumiType, name, resourceInputs, opts);
     }

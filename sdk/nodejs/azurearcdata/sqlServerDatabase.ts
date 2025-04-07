@@ -110,7 +110,7 @@ export class SqlServerDatabase extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20220615preview:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20230115preview:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20240101:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20240501preview:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20250301preview:SqlServerDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20230115preview:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20240101:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20240501preview:SqlServerDatabase" }, { type: "azure-native_azurearcdata_v20220615preview:azurearcdata:SqlServerDatabase" }, { type: "azure-native_azurearcdata_v20230115preview:azurearcdata:SqlServerDatabase" }, { type: "azure-native_azurearcdata_v20240101:azurearcdata:SqlServerDatabase" }, { type: "azure-native_azurearcdata_v20240501preview:azurearcdata:SqlServerDatabase" }, { type: "azure-native_azurearcdata_v20250301preview:azurearcdata:SqlServerDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerDatabase.__pulumiType, name, resourceInputs, opts);
     }

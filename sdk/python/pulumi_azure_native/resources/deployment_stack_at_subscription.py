@@ -356,7 +356,7 @@ class DeploymentStackAtSubscription(pulumi.CustomResource):
             __props__.__dict__["resources"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20220801preview:DeploymentStackAtSubscription"), pulumi.Alias(type_="azure-native:resources/v20240301:DeploymentStackAtSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20220801preview:DeploymentStackAtSubscription"), pulumi.Alias(type_="azure-native:resources/v20240301:DeploymentStackAtSubscription"), pulumi.Alias(type_="azure-native_resources_v20220801preview:resources:DeploymentStackAtSubscription"), pulumi.Alias(type_="azure-native_resources_v20240301:resources:DeploymentStackAtSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentStackAtSubscription, __self__).__init__(
             'azure-native:resources:DeploymentStackAtSubscription',

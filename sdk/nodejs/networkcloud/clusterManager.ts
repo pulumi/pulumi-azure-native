@@ -170,7 +170,7 @@ export class ClusterManager extends pulumi.CustomResource {
             resourceInputs["vmSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:ClusterManager" }, { type: "azure-native:networkcloud/v20231001preview:ClusterManager" }, { type: "azure-native:networkcloud/v20240601preview:ClusterManager" }, { type: "azure-native:networkcloud/v20240701:ClusterManager" }, { type: "azure-native:networkcloud/v20241001preview:ClusterManager" }, { type: "azure-native:networkcloud/v20250201:ClusterManager" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:ClusterManager" }, { type: "azure-native:networkcloud/v20231001preview:ClusterManager" }, { type: "azure-native:networkcloud/v20240601preview:ClusterManager" }, { type: "azure-native:networkcloud/v20240701:ClusterManager" }, { type: "azure-native:networkcloud/v20241001preview:ClusterManager" }, { type: "azure-native_networkcloud_v20230701:networkcloud:ClusterManager" }, { type: "azure-native_networkcloud_v20231001preview:networkcloud:ClusterManager" }, { type: "azure-native_networkcloud_v20240601preview:networkcloud:ClusterManager" }, { type: "azure-native_networkcloud_v20240701:networkcloud:ClusterManager" }, { type: "azure-native_networkcloud_v20241001preview:networkcloud:ClusterManager" }, { type: "azure-native_networkcloud_v20250201:networkcloud:ClusterManager" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ClusterManager.__pulumiType, name, resourceInputs, opts);
     }

@@ -135,9 +135,12 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ReplicationLink" },
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801:ReplicationLink" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:ReplicationLink" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:ReplicationLink" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230501preview:sql:ReplicationLink" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230801:sql:ReplicationLink" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20230801preview:sql:ReplicationLink" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20240501preview:sql:ReplicationLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

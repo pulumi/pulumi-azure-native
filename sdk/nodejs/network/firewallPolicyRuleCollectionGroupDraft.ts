@@ -105,7 +105,7 @@ export class FirewallPolicyRuleCollectionGroupDraft extends pulumi.CustomResourc
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20231101:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native:network/v20240101:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native:network/v20240301:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native:network/v20240501:FirewallPolicyRuleCollectionGroupDraft" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20231101:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native:network/v20240101:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native:network/v20240301:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native:network/v20240501:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native_network_v20231101:network:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native_network_v20240101:network:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native_network_v20240301:network:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native_network_v20240501:network:FirewallPolicyRuleCollectionGroupDraft" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallPolicyRuleCollectionGroupDraft.__pulumiType, name, resourceInputs, opts);
     }

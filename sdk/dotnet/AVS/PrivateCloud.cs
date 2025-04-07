@@ -231,14 +231,17 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200320:PrivateCloud" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:PrivateCloud" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:PrivateCloud" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:PrivateCloud" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:PrivateCloud" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:PrivateCloud" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:PrivateCloud" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:PrivateCloud" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20200320:avs:PrivateCloud" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20200717preview:avs:PrivateCloud" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210101preview:avs:PrivateCloud" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210601:avs:PrivateCloud" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20211201:avs:PrivateCloud" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20220501:avs:PrivateCloud" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230301:avs:PrivateCloud" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230901:avs:PrivateCloud" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

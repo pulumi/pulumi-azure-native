@@ -161,7 +161,7 @@ export class Watcher extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Watcher" }, { type: "azure-native:automation/v20190601:Watcher" }, { type: "azure-native:automation/v20200113preview:Watcher" }, { type: "azure-native:automation/v20230515preview:Watcher" }, { type: "azure-native:automation/v20241023:Watcher" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20200113preview:Watcher" }, { type: "azure-native:automation/v20230515preview:Watcher" }, { type: "azure-native:automation/v20241023:Watcher" }, { type: "azure-native_automation_v20151031:automation:Watcher" }, { type: "azure-native_automation_v20190601:automation:Watcher" }, { type: "azure-native_automation_v20200113preview:automation:Watcher" }, { type: "azure-native_automation_v20230515preview:automation:Watcher" }, { type: "azure-native_automation_v20241023:automation:Watcher" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Watcher.__pulumiType, name, resourceInputs, opts);
     }

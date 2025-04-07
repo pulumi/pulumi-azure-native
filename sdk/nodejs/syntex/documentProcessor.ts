@@ -101,7 +101,7 @@ export class DocumentProcessor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:syntex/v20220915preview:DocumentProcessor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:syntex/v20220915preview:DocumentProcessor" }, { type: "azure-native_syntex_v20220915preview:syntex:DocumentProcessor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DocumentProcessor.__pulumiType, name, resourceInputs, opts);
     }

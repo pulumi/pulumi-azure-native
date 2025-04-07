@@ -99,12 +99,18 @@ namespace Pulumi.AzureNative.Dashboard
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20210901preview:Grafana" },
-                    new global::Pulumi.Alias { Type = "azure-native:dashboard/v20220501preview:Grafana" },
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20220801:Grafana" },
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20221001preview:Grafana" },
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20230901:Grafana" },
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20231001preview:Grafana" },
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20241001:Grafana" },
+                    new global::Pulumi.Alias { Type = "azure-native_dashboard_v20210901preview:dashboard:Grafana" },
+                    new global::Pulumi.Alias { Type = "azure-native_dashboard_v20220501preview:dashboard:Grafana" },
+                    new global::Pulumi.Alias { Type = "azure-native_dashboard_v20220801:dashboard:Grafana" },
+                    new global::Pulumi.Alias { Type = "azure-native_dashboard_v20221001preview:dashboard:Grafana" },
+                    new global::Pulumi.Alias { Type = "azure-native_dashboard_v20230901:dashboard:Grafana" },
+                    new global::Pulumi.Alias { Type = "azure-native_dashboard_v20231001preview:dashboard:Grafana" },
+                    new global::Pulumi.Alias { Type = "azure-native_dashboard_v20241001:dashboard:Grafana" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

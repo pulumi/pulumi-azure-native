@@ -154,7 +154,7 @@ export class L3IsolationDomain extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:L3IsolationDomain" }, { type: "azure-native:managednetworkfabric/v20230615:L3IsolationDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:L3IsolationDomain" }, { type: "azure-native:managednetworkfabric/v20230615:L3IsolationDomain" }, { type: "azure-native_managednetworkfabric_v20230201preview:managednetworkfabric:L3IsolationDomain" }, { type: "azure-native_managednetworkfabric_v20230615:managednetworkfabric:L3IsolationDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(L3IsolationDomain.__pulumiType, name, resourceInputs, opts);
     }

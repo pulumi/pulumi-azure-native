@@ -185,7 +185,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["volume_type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerstorage/v20230701preview:Volume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerstorage/v20230701preview:Volume"), pulumi.Alias(type_="azure-native_containerstorage_v20230701preview:containerstorage:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azure-native:containerstorage:Volume',

@@ -154,7 +154,7 @@ export class JitRequest extends pulumi.CustomResource {
             resourceInputs["updatedBy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20180301:JitRequest" }, { type: "azure-native:solutions/v20180601:JitRequest" }, { type: "azure-native:solutions/v20180901preview:JitRequest" }, { type: "azure-native:solutions/v20190701:JitRequest" }, { type: "azure-native:solutions/v20200821preview:JitRequest" }, { type: "azure-native:solutions/v20210201preview:JitRequest" }, { type: "azure-native:solutions/v20210701:JitRequest" }, { type: "azure-native:solutions/v20231201preview:JitRequest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20210701:JitRequest" }, { type: "azure-native:solutions/v20231201preview:JitRequest" }, { type: "azure-native_solutions_v20180301:solutions:JitRequest" }, { type: "azure-native_solutions_v20180601:solutions:JitRequest" }, { type: "azure-native_solutions_v20180901preview:solutions:JitRequest" }, { type: "azure-native_solutions_v20190701:solutions:JitRequest" }, { type: "azure-native_solutions_v20200821preview:solutions:JitRequest" }, { type: "azure-native_solutions_v20210201preview:solutions:JitRequest" }, { type: "azure-native_solutions_v20210701:solutions:JitRequest" }, { type: "azure-native_solutions_v20231201preview:solutions:JitRequest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JitRequest.__pulumiType, name, resourceInputs, opts);
     }

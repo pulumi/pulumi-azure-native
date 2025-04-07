@@ -88,6 +88,8 @@ namespace Pulumi.AzureNative.Network
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101preview:IpamPool" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:IpamPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240101preview:network:IpamPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240501:network:IpamPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

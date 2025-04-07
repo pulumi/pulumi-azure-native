@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.VideoIndexer
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20240601preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_videoindexer_v20240601preview:videoindexer:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

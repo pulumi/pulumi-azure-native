@@ -114,9 +114,10 @@ namespace Pulumi.AzureNative.HybridNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:VendorSkus" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:VendorSkus" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:VendorSkus" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridnetwork_v20200101preview:hybridnetwork:VendorSkus" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridnetwork_v20210501:hybridnetwork:VendorSkus" },
+                    new global::Pulumi.Alias { Type = "azure-native_hybridnetwork_v20220101preview:hybridnetwork:VendorSkus" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

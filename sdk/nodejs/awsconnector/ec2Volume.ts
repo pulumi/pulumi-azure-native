@@ -100,7 +100,7 @@ export class Ec2Volume extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2Volume" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2Volume.__pulumiType, name, resourceInputs, opts);
     }

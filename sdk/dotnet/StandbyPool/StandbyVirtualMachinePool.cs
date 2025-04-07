@@ -107,7 +107,10 @@ namespace Pulumi.AzureNative.StandbyPool
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool" },
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20240301:StandbyVirtualMachinePool" },
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool" },
-                    new global::Pulumi.Alias { Type = "azure-native:standbypool/v20250301:StandbyVirtualMachinePool" },
+                    new global::Pulumi.Alias { Type = "azure-native_standbypool_v20231201preview:standbypool:StandbyVirtualMachinePool" },
+                    new global::Pulumi.Alias { Type = "azure-native_standbypool_v20240301:standbypool:StandbyVirtualMachinePool" },
+                    new global::Pulumi.Alias { Type = "azure-native_standbypool_v20240301preview:standbypool:StandbyVirtualMachinePool" },
+                    new global::Pulumi.Alias { Type = "azure-native_standbypool_v20250301:standbypool:StandbyVirtualMachinePool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

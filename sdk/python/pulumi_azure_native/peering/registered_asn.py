@@ -160,7 +160,7 @@ class RegisteredAsn(pulumi.CustomResource):
             __props__.__dict__["peering_service_prefix_key"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering/v20200101preview:RegisteredAsn"), pulumi.Alias(type_="azure-native:peering/v20200401:RegisteredAsn"), pulumi.Alias(type_="azure-native:peering/v20201001:RegisteredAsn"), pulumi.Alias(type_="azure-native:peering/v20210101:RegisteredAsn"), pulumi.Alias(type_="azure-native:peering/v20210601:RegisteredAsn"), pulumi.Alias(type_="azure-native:peering/v20220101:RegisteredAsn"), pulumi.Alias(type_="azure-native:peering/v20220601:RegisteredAsn"), pulumi.Alias(type_="azure-native:peering/v20221001:RegisteredAsn")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering/v20221001:RegisteredAsn"), pulumi.Alias(type_="azure-native_peering_v20200101preview:peering:RegisteredAsn"), pulumi.Alias(type_="azure-native_peering_v20200401:peering:RegisteredAsn"), pulumi.Alias(type_="azure-native_peering_v20201001:peering:RegisteredAsn"), pulumi.Alias(type_="azure-native_peering_v20210101:peering:RegisteredAsn"), pulumi.Alias(type_="azure-native_peering_v20210601:peering:RegisteredAsn"), pulumi.Alias(type_="azure-native_peering_v20220101:peering:RegisteredAsn"), pulumi.Alias(type_="azure-native_peering_v20220601:peering:RegisteredAsn"), pulumi.Alias(type_="azure-native_peering_v20221001:peering:RegisteredAsn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegisteredAsn, __self__).__init__(
             'azure-native:peering:RegisteredAsn',

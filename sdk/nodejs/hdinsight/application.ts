@@ -107,7 +107,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Application" }, { type: "azure-native:hdinsight/v20180601preview:Application" }, { type: "azure-native:hdinsight/v20210601:Application" }, { type: "azure-native:hdinsight/v20230415preview:Application" }, { type: "azure-native:hdinsight/v20230815preview:Application" }, { type: "azure-native:hdinsight/v20240801preview:Application" }, { type: "azure-native:hdinsight/v20250115preview:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20210601:Application" }, { type: "azure-native:hdinsight/v20230415preview:Application" }, { type: "azure-native:hdinsight/v20230815preview:Application" }, { type: "azure-native:hdinsight/v20240801preview:Application" }, { type: "azure-native_hdinsight_v20150301preview:hdinsight:Application" }, { type: "azure-native_hdinsight_v20180601preview:hdinsight:Application" }, { type: "azure-native_hdinsight_v20210601:hdinsight:Application" }, { type: "azure-native_hdinsight_v20230415preview:hdinsight:Application" }, { type: "azure-native_hdinsight_v20230815preview:hdinsight:Application" }, { type: "azure-native_hdinsight_v20240801preview:hdinsight:Application" }, { type: "azure-native_hdinsight_v20250115preview:hdinsight:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }

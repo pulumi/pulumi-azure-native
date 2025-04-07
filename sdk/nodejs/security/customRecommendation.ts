@@ -131,7 +131,7 @@ export class CustomRecommendation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20240801:CustomRecommendation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20240801:CustomRecommendation" }, { type: "azure-native_security_v20240801:security:CustomRecommendation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomRecommendation.__pulumiType, name, resourceInputs, opts);
     }

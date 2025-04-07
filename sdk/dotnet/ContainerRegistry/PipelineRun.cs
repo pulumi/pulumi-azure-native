@@ -92,17 +92,22 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:PipelineRun" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:PipelineRun" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:PipelineRun" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:PipelineRun" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:PipelineRun" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:PipelineRun" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:PipelineRun" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:PipelineRun" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:PipelineRun" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:PipelineRun" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:PipelineRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20191201preview:containerregistry:PipelineRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20201101preview:containerregistry:PipelineRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20210601preview:containerregistry:PipelineRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20210801preview:containerregistry:PipelineRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20211201preview:containerregistry:PipelineRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20220201preview:containerregistry:PipelineRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230101preview:containerregistry:PipelineRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230601preview:containerregistry:PipelineRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230801preview:containerregistry:PipelineRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20231101preview:containerregistry:PipelineRun" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20241101preview:containerregistry:PipelineRun" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

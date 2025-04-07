@@ -122,14 +122,15 @@ namespace Pulumi.AzureNative.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:Asset" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:Asset" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:Asset" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:Asset" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:Asset" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:Asset" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:Asset" },
                     new global::Pulumi.Alias { Type = "azure-native:media/v20230101:Asset" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20180330preview:media:Asset" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20180601preview:media:Asset" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20180701:media:Asset" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20200501:media:Asset" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20210601:media:Asset" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20211101:media:Asset" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20220801:media:Asset" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20230101:media:Asset" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -102,7 +102,7 @@ export class DataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20230601preview:DataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20230601preview:DataConnector" }, { type: "azure-native_agfoodplatform_v20230601preview:agfoodplatform:DataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataConnector.__pulumiType, name, resourceInputs, opts);
     }

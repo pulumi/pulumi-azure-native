@@ -164,7 +164,7 @@ export class NetworkTapRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:NetworkTapRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:NetworkTapRule" }, { type: "azure-native_managednetworkfabric_v20230615:managednetworkfabric:NetworkTapRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkTapRule.__pulumiType, name, resourceInputs, opts);
     }

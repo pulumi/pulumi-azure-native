@@ -188,13 +188,16 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:BigDataPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:BigDataPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:BigDataPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:BigDataPool" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:BigDataPool" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:BigDataPool" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:BigDataPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20190601preview:synapse:BigDataPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20201201:synapse:BigDataPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210301:synapse:BigDataPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210401preview:synapse:BigDataPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210501:synapse:BigDataPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210601:synapse:BigDataPool" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210601preview:synapse:BigDataPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

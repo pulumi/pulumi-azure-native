@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20240101:Pricing" },
+                    new global::Pulumi.Alias { Type = "azure-native_security_v20240101:security:Pricing" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

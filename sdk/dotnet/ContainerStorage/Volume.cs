@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.ContainerStorage
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerstorage/v20230701preview:Volume" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerstorage_v20230701preview:containerstorage:Volume" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

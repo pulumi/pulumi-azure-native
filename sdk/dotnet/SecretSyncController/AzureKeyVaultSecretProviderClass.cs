@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.SecretSyncController
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:secretsynccontroller/v20240821preview:AzureKeyVaultSecretProviderClass" },
+                    new global::Pulumi.Alias { Type = "azure-native_secretsynccontroller_v20240821preview:secretsynccontroller:AzureKeyVaultSecretProviderClass" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

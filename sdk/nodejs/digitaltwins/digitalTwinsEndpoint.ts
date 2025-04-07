@@ -96,7 +96,7 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20210630preview:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20220531:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20221031:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint" }, { type: "azure-native_digitaltwins_v20200301preview:digitaltwins:DigitalTwinsEndpoint" }, { type: "azure-native_digitaltwins_v20201031:digitaltwins:DigitalTwinsEndpoint" }, { type: "azure-native_digitaltwins_v20201201:digitaltwins:DigitalTwinsEndpoint" }, { type: "azure-native_digitaltwins_v20210630preview:digitaltwins:DigitalTwinsEndpoint" }, { type: "azure-native_digitaltwins_v20220531:digitaltwins:DigitalTwinsEndpoint" }, { type: "azure-native_digitaltwins_v20221031:digitaltwins:DigitalTwinsEndpoint" }, { type: "azure-native_digitaltwins_v20230131:digitaltwins:DigitalTwinsEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DigitalTwinsEndpoint.__pulumiType, name, resourceInputs, opts);
     }

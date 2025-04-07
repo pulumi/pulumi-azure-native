@@ -192,7 +192,14 @@ namespace Pulumi.AzureNative.Cloudngfw
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20231010preview:LocalRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240119preview:LocalRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240207preview:LocalRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20250206preview:LocalRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20220829:cloudngfw:LocalRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20220829preview:cloudngfw:LocalRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20230901:cloudngfw:LocalRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20230901preview:cloudngfw:LocalRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20231010preview:cloudngfw:LocalRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20240119preview:cloudngfw:LocalRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20240207preview:cloudngfw:LocalRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20250206preview:cloudngfw:LocalRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

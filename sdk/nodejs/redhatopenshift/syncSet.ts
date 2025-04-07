@@ -95,7 +95,7 @@ export class SyncSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:SyncSet" }, { type: "azure-native:redhatopenshift/v20230401:SyncSet" }, { type: "azure-native:redhatopenshift/v20230701preview:SyncSet" }, { type: "azure-native:redhatopenshift/v20230904:SyncSet" }, { type: "azure-native:redhatopenshift/v20231122:SyncSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:SyncSet" }, { type: "azure-native:redhatopenshift/v20230401:SyncSet" }, { type: "azure-native:redhatopenshift/v20230701preview:SyncSet" }, { type: "azure-native:redhatopenshift/v20230904:SyncSet" }, { type: "azure-native:redhatopenshift/v20231122:SyncSet" }, { type: "azure-native_redhatopenshift_v20220904:redhatopenshift:SyncSet" }, { type: "azure-native_redhatopenshift_v20230401:redhatopenshift:SyncSet" }, { type: "azure-native_redhatopenshift_v20230701preview:redhatopenshift:SyncSet" }, { type: "azure-native_redhatopenshift_v20230904:redhatopenshift:SyncSet" }, { type: "azure-native_redhatopenshift_v20231122:redhatopenshift:SyncSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncSet.__pulumiType, name, resourceInputs, opts);
     }

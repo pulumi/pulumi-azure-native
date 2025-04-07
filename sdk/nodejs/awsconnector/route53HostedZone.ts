@@ -100,7 +100,7 @@ export class Route53HostedZone extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Route53HostedZone" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Route53HostedZone" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Route53HostedZone" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Route53HostedZone.__pulumiType, name, resourceInputs, opts);
     }

@@ -125,7 +125,7 @@ export class CustomAssessmentAutomation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20210701preview:CustomAssessmentAutomation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20210701preview:CustomAssessmentAutomation" }, { type: "azure-native_security_v20210701preview:security:CustomAssessmentAutomation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomAssessmentAutomation.__pulumiType, name, resourceInputs, opts);
     }

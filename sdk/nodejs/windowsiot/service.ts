@@ -122,7 +122,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:windowsiot/v20180216preview:Service" }, { type: "azure-native:windowsiot/v20190601:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:windowsiot/v20190601:Service" }, { type: "azure-native_windowsiot_v20180216preview:windowsiot:Service" }, { type: "azure-native_windowsiot_v20190601:windowsiot:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

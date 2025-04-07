@@ -85,7 +85,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20200101preview:Connector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20200101preview:Connector" }, { type: "azure-native_security_v20200101preview:security:Connector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Connector.__pulumiType, name, resourceInputs, opts);
     }

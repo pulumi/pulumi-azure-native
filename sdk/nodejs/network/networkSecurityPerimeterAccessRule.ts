@@ -152,7 +152,7 @@ export class NetworkSecurityPerimeterAccessRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20210201preview:NspAccessRule" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20230701preview:NspAccessRule" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20230801preview:NspAccessRule" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network:NspAccessRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NspAccessRule" }, { type: "azure-native:network/v20230701preview:NspAccessRule" }, { type: "azure-native:network/v20230801preview:NspAccessRule" }, { type: "azure-native:network:NspAccessRule" }, { type: "azure-native_network_v20210201preview:network:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native_network_v20230701preview:network:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native_network_v20230801preview:network:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native_network_v20240601preview:network:NetworkSecurityPerimeterAccessRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeterAccessRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -118,7 +118,7 @@ export class JobSchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:JobSchedule" }, { type: "azure-native:automation/v20190601:JobSchedule" }, { type: "azure-native:automation/v20200113preview:JobSchedule" }, { type: "azure-native:automation/v20220808:JobSchedule" }, { type: "azure-native:automation/v20230515preview:JobSchedule" }, { type: "azure-native:automation/v20231101:JobSchedule" }, { type: "azure-native:automation/v20241023:JobSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20220808:JobSchedule" }, { type: "azure-native:automation/v20230515preview:JobSchedule" }, { type: "azure-native:automation/v20231101:JobSchedule" }, { type: "azure-native:automation/v20241023:JobSchedule" }, { type: "azure-native_automation_v20151031:automation:JobSchedule" }, { type: "azure-native_automation_v20190601:automation:JobSchedule" }, { type: "azure-native_automation_v20200113preview:automation:JobSchedule" }, { type: "azure-native_automation_v20220808:automation:JobSchedule" }, { type: "azure-native_automation_v20230515preview:automation:JobSchedule" }, { type: "azure-native_automation_v20231101:automation:JobSchedule" }, { type: "azure-native_automation_v20241023:automation:JobSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobSchedule.__pulumiType, name, resourceInputs, opts);
     }

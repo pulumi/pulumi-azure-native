@@ -327,7 +327,7 @@ class LabPlan(pulumi.CustomResource):
             __props__.__dict__["resource_operation_error"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20211001preview:LabPlan"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:LabPlan"), pulumi.Alias(type_="azure-native:labservices/v20220801:LabPlan"), pulumi.Alias(type_="azure-native:labservices/v20230607:LabPlan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20220801:LabPlan"), pulumi.Alias(type_="azure-native:labservices/v20230607:LabPlan"), pulumi.Alias(type_="azure-native_labservices_v20211001preview:labservices:LabPlan"), pulumi.Alias(type_="azure-native_labservices_v20211115preview:labservices:LabPlan"), pulumi.Alias(type_="azure-native_labservices_v20220801:labservices:LabPlan"), pulumi.Alias(type_="azure-native_labservices_v20230607:labservices:LabPlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LabPlan, __self__).__init__(
             'azure-native:labservices:LabPlan',

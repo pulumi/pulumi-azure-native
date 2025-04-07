@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.StorSimple
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storsimple/v20170601:BandwidthSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_storsimple_v20170601:storsimple:BandwidthSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -137,6 +137,9 @@ namespace Pulumi.AzureNative.Automation
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Webhook" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Webhook" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:Webhook" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20151031:automation:Webhook" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20230515preview:automation:Webhook" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20241023:automation:Webhook" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

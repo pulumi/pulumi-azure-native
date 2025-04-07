@@ -129,7 +129,7 @@ export class Alert extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20240201preview:Alert" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20240201preview:Alert" }, { type: "azure-native_workloads_v20240201preview:workloads:Alert" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Alert.__pulumiType, name, resourceInputs, opts);
     }

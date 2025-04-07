@@ -288,7 +288,7 @@ class SavedSearch(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20150320:SavedSearch"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:SavedSearch"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:SavedSearch"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:SavedSearch"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:SavedSearch")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20200801:SavedSearch"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:SavedSearch"), pulumi.Alias(type_="azure-native_operationalinsights_v20150320:operationalinsights:SavedSearch"), pulumi.Alias(type_="azure-native_operationalinsights_v20200301preview:operationalinsights:SavedSearch"), pulumi.Alias(type_="azure-native_operationalinsights_v20200801:operationalinsights:SavedSearch"), pulumi.Alias(type_="azure-native_operationalinsights_v20230901:operationalinsights:SavedSearch"), pulumi.Alias(type_="azure-native_operationalinsights_v20250201:operationalinsights:SavedSearch")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SavedSearch, __self__).__init__(
             'azure-native:operationalinsights:SavedSearch',

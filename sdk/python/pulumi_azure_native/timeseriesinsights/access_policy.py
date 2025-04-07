@@ -203,7 +203,7 @@ class AccessPolicy(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:AccessPolicy"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:AccessPolicy"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:AccessPolicy"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:AccessPolicy"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:AccessPolicy"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:AccessPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:AccessPolicy"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:AccessPolicy"), pulumi.Alias(type_="azure-native_timeseriesinsights_v20170228preview:timeseriesinsights:AccessPolicy"), pulumi.Alias(type_="azure-native_timeseriesinsights_v20171115:timeseriesinsights:AccessPolicy"), pulumi.Alias(type_="azure-native_timeseriesinsights_v20180815preview:timeseriesinsights:AccessPolicy"), pulumi.Alias(type_="azure-native_timeseriesinsights_v20200515:timeseriesinsights:AccessPolicy"), pulumi.Alias(type_="azure-native_timeseriesinsights_v20210331preview:timeseriesinsights:AccessPolicy"), pulumi.Alias(type_="azure-native_timeseriesinsights_v20210630preview:timeseriesinsights:AccessPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessPolicy, __self__).__init__(
             'azure-native:timeseriesinsights:AccessPolicy',

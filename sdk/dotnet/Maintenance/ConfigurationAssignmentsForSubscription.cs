@@ -95,6 +95,9 @@ namespace Pulumi.AzureNative.Maintenance
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230401:ConfigurationAssignmentsForSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230901preview:ConfigurationAssignmentsForSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20231001preview:ConfigurationAssignmentsForSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_maintenance_v20230401:maintenance:ConfigurationAssignmentsForSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_maintenance_v20230901preview:maintenance:ConfigurationAssignmentsForSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_maintenance_v20231001preview:maintenance:ConfigurationAssignmentsForSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

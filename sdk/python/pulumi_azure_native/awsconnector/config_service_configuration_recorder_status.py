@@ -180,7 +180,7 @@ class ConfigServiceConfigurationRecorderStatus(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:awsconnector/v20241201:ConfigServiceConfigurationRecorderStatus")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:awsconnector/v20241201:ConfigServiceConfigurationRecorderStatus"), pulumi.Alias(type_="azure-native_awsconnector_v20241201:awsconnector:ConfigServiceConfigurationRecorderStatus")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigServiceConfigurationRecorderStatus, __self__).__init__(
             'azure-native:awsconnector:ConfigServiceConfigurationRecorderStatus',

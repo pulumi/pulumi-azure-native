@@ -93,7 +93,7 @@ export class NetworkSecurityPerimeterLoggingConfiguration extends pulumi.CustomR
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterLoggingConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native_network_v20240601preview:network:NetworkSecurityPerimeterLoggingConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeterLoggingConfiguration.__pulumiType, name, resourceInputs, opts);
     }

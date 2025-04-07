@@ -176,7 +176,7 @@ export class GovernanceRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20220101preview:GovernanceRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20220101preview:GovernanceRule" }, { type: "azure-native_security_v20220101preview:security:GovernanceRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GovernanceRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -100,7 +100,7 @@ export class DatabaseMigrationServiceReplicationInstance extends pulumi.CustomRe
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:DatabaseMigrationServiceReplicationInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:DatabaseMigrationServiceReplicationInstance" }, { type: "azure-native_awsconnector_v20241201:awsconnector:DatabaseMigrationServiceReplicationInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseMigrationServiceReplicationInstance.__pulumiType, name, resourceInputs, opts);
     }

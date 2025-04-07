@@ -128,7 +128,7 @@ export class OutboundEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dnsresolver/v20200401preview:OutboundEndpoint" }, { type: "azure-native:dnsresolver/v20220701:OutboundEndpoint" }, { type: "azure-native:dnsresolver/v20230701preview:OutboundEndpoint" }, { type: "azure-native:network/v20200401preview:OutboundEndpoint" }, { type: "azure-native:network/v20220701:OutboundEndpoint" }, { type: "azure-native:network/v20230701preview:OutboundEndpoint" }, { type: "azure-native:network:OutboundEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:OutboundEndpoint" }, { type: "azure-native:network/v20220701:OutboundEndpoint" }, { type: "azure-native:network/v20230701preview:OutboundEndpoint" }, { type: "azure-native:network:OutboundEndpoint" }, { type: "azure-native_dnsresolver_v20200401preview:dnsresolver:OutboundEndpoint" }, { type: "azure-native_dnsresolver_v20220701:dnsresolver:OutboundEndpoint" }, { type: "azure-native_dnsresolver_v20230701preview:dnsresolver:OutboundEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OutboundEndpoint.__pulumiType, name, resourceInputs, opts);
     }

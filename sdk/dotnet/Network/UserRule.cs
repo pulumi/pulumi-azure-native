@@ -136,18 +136,20 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:UserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:DefaultUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:UserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:DefaultUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:UserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:SecurityUserRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20240301:UserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:SecurityUserRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:UserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network:DefaultUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network:SecurityUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20210201preview:network:UserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20210501preview:network:UserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20220201preview:network:UserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20220401preview:network:UserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240301:network:UserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_network_v20240501:network:UserRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

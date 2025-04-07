@@ -262,7 +262,7 @@ class MarkupRule(pulumi.CustomResource):
             __props__.__dict__["start_date"] = start_date
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20221005preview:MarkupRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20221005preview:MarkupRule"), pulumi.Alias(type_="azure-native_costmanagement_v20221005preview:costmanagement:MarkupRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MarkupRule, __self__).__init__(
             'azure-native:costmanagement:MarkupRule',

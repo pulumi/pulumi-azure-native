@@ -98,6 +98,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesruntime/v20231001preview:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesruntime/v20240301:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesruntime_v20231001preview:kubernetesruntime:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesruntime_v20240301:kubernetesruntime:LoadBalancer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

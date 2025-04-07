@@ -149,7 +149,7 @@ export class Query extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190901:Query" }, { type: "azure-native:operationalinsights/v20190901preview:Query" }, { type: "azure-native:operationalinsights/v20230901:Query" }, { type: "azure-native:operationalinsights/v20250201:Query" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190901:Query" }, { type: "azure-native:operationalinsights/v20190901preview:Query" }, { type: "azure-native:operationalinsights/v20230901:Query" }, { type: "azure-native_operationalinsights_v20190901:operationalinsights:Query" }, { type: "azure-native_operationalinsights_v20190901preview:operationalinsights:Query" }, { type: "azure-native_operationalinsights_v20230901:operationalinsights:Query" }, { type: "azure-native_operationalinsights_v20250201:operationalinsights:Query" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Query.__pulumiType, name, resourceInputs, opts);
     }

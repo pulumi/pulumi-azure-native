@@ -203,7 +203,7 @@ export class Prediction extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/v20170426:Prediction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/v20170426:Prediction" }, { type: "azure-native_customerinsights_v20170426:customerinsights:Prediction" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Prediction.__pulumiType, name, resourceInputs, opts);
     }

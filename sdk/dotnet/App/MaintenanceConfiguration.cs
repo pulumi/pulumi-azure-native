@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.App
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:MaintenanceConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_app_v20241002preview:app:MaintenanceConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

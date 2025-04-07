@@ -100,7 +100,7 @@ export class Macie2JobSummary extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Macie2JobSummary" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Macie2JobSummary" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Macie2JobSummary" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Macie2JobSummary.__pulumiType, name, resourceInputs, opts);
     }

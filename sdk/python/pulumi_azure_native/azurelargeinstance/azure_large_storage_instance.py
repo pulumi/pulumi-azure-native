@@ -223,7 +223,7 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurelargeinstance/v20240801preview:AzureLargeStorageInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurelargeinstance/v20240801preview:AzureLargeStorageInstance"), pulumi.Alias(type_="azure-native_azurelargeinstance_v20240801preview:azurelargeinstance:AzureLargeStorageInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureLargeStorageInstance, __self__).__init__(
             'azure-native:azurelargeinstance:AzureLargeStorageInstance',

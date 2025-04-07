@@ -183,7 +183,7 @@ class PrivateLinkHub(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20190601preview:PrivateLinkHub"), pulumi.Alias(type_="azure-native:synapse/v20201201:PrivateLinkHub"), pulumi.Alias(type_="azure-native:synapse/v20210301:PrivateLinkHub"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:PrivateLinkHub"), pulumi.Alias(type_="azure-native:synapse/v20210501:PrivateLinkHub"), pulumi.Alias(type_="azure-native:synapse/v20210601:PrivateLinkHub"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:PrivateLinkHub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210601:PrivateLinkHub"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:PrivateLinkHub"), pulumi.Alias(type_="azure-native_synapse_v20190601preview:synapse:PrivateLinkHub"), pulumi.Alias(type_="azure-native_synapse_v20201201:synapse:PrivateLinkHub"), pulumi.Alias(type_="azure-native_synapse_v20210301:synapse:PrivateLinkHub"), pulumi.Alias(type_="azure-native_synapse_v20210401preview:synapse:PrivateLinkHub"), pulumi.Alias(type_="azure-native_synapse_v20210501:synapse:PrivateLinkHub"), pulumi.Alias(type_="azure-native_synapse_v20210601:synapse:PrivateLinkHub"), pulumi.Alias(type_="azure-native_synapse_v20210601preview:synapse:PrivateLinkHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkHub, __self__).__init__(
             'azure-native:synapse:PrivateLinkHub',

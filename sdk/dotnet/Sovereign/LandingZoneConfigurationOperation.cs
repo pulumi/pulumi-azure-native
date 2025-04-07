@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Sovereign
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sovereign/v20250227preview:LandingZoneConfigurationOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_sovereign_v20250227preview:sovereign:LandingZoneConfigurationOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

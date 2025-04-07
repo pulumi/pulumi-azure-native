@@ -112,7 +112,7 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20210701preview:PrivateLinkScopedResource" }, { type: "azure-native:insights/v20210901:PrivateLinkScopedResource" }, { type: "azure-native:insights/v20230601preview:PrivateLinkScopedResource" }, { type: "azure-native:insights:PrivateLinkScopedResource" }, { type: "azure-native:monitor/v20191017preview:PrivateLinkScopedResource" }, { type: "azure-native:monitor/v20210701preview:PrivateLinkScopedResource" }, { type: "azure-native:monitor/v20210901:PrivateLinkScopedResource" }, { type: "azure-native:monitor/v20230601preview:PrivateLinkScopedResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20210701preview:PrivateLinkScopedResource" }, { type: "azure-native:insights/v20210901:PrivateLinkScopedResource" }, { type: "azure-native:insights/v20230601preview:PrivateLinkScopedResource" }, { type: "azure-native:insights:PrivateLinkScopedResource" }, { type: "azure-native_monitor_v20191017preview:monitor:PrivateLinkScopedResource" }, { type: "azure-native_monitor_v20210701preview:monitor:PrivateLinkScopedResource" }, { type: "azure-native_monitor_v20210901:monitor:PrivateLinkScopedResource" }, { type: "azure-native_monitor_v20230601preview:monitor:PrivateLinkScopedResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkScopedResource.__pulumiType, name, resourceInputs, opts);
     }

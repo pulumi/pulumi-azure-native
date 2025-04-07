@@ -86,10 +86,13 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20200501preview:GuestUsage" },
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20210401:GuestUsage" },
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20230118preview:GuestUsage" },
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20230517preview:GuestUsage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureactivedirectory_v20200501preview:azureactivedirectory:GuestUsage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureactivedirectory_v20210401:azureactivedirectory:GuestUsage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureactivedirectory_v20230118preview:azureactivedirectory:GuestUsage" },
+                    new global::Pulumi.Alias { Type = "azure-native_azureactivedirectory_v20230517preview:azureactivedirectory:GuestUsage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

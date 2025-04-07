@@ -105,7 +105,14 @@ namespace Pulumi.AzureNative.Cloudngfw
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20231010preview:FqdnListGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240119preview:FqdnListGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240207preview:FqdnListGlobalRulestack" },
-                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20250206preview:FqdnListGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20220829:cloudngfw:FqdnListGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20220829preview:cloudngfw:FqdnListGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20230901:cloudngfw:FqdnListGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20230901preview:cloudngfw:FqdnListGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20231010preview:cloudngfw:FqdnListGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20240119preview:cloudngfw:FqdnListGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20240207preview:cloudngfw:FqdnListGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native_cloudngfw_v20250206preview:cloudngfw:FqdnListGlobalRulestack" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

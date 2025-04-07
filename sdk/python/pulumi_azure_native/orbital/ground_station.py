@@ -308,7 +308,7 @@ class GroundStation(pulumi.CustomResource):
             __props__.__dict__["release_mode"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20240301:GroundStation"), pulumi.Alias(type_="azure-native:orbital/v20240301preview:GroundStation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20240301:GroundStation"), pulumi.Alias(type_="azure-native:orbital/v20240301preview:GroundStation"), pulumi.Alias(type_="azure-native_orbital_v20240301:orbital:GroundStation"), pulumi.Alias(type_="azure-native_orbital_v20240301preview:orbital:GroundStation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GroundStation, __self__).__init__(
             'azure-native:orbital:GroundStation',

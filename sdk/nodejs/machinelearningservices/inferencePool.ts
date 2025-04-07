@@ -126,7 +126,7 @@ export class InferencePool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20240101preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20240401preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20241001preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20250101preview:InferencePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20240101preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20240401preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20241001preview:InferencePool" }, { type: "azure-native_machinelearningservices_v20230801preview:machinelearningservices:InferencePool" }, { type: "azure-native_machinelearningservices_v20240101preview:machinelearningservices:InferencePool" }, { type: "azure-native_machinelearningservices_v20240401preview:machinelearningservices:InferencePool" }, { type: "azure-native_machinelearningservices_v20241001preview:machinelearningservices:InferencePool" }, { type: "azure-native_machinelearningservices_v20250101preview:machinelearningservices:InferencePool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InferencePool.__pulumiType, name, resourceInputs, opts);
     }

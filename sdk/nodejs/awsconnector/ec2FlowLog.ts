@@ -100,7 +100,7 @@ export class Ec2FlowLog extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2FlowLog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2FlowLog" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2FlowLog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2FlowLog.__pulumiType, name, resourceInputs, opts);
     }

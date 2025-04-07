@@ -188,17 +188,21 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Subscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Subscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Subscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Subscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Subscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Subscription" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Subscription" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Subscription" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:Subscription" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20230101preview:Subscription" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20240101:Subscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20140901:servicebus:Subscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20150801:servicebus:Subscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20170401:servicebus:Subscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20180101preview:servicebus:Subscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20210101preview:servicebus:Subscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20210601preview:servicebus:Subscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20211101:servicebus:Subscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20220101preview:servicebus:Subscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20221001preview:servicebus:Subscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20230101preview:servicebus:Subscription" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicebus_v20240101:servicebus:Subscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -114,15 +114,22 @@ namespace Pulumi.AzureNative.Cdn
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:AFDEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:AFDEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:AFDEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:AFDEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:AFDEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:AFDEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:AFDEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:AFDEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20200901:cdn:AFDEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20210601:cdn:AFDEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20220501preview:cdn:AFDEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20221101preview:cdn:AFDEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20230501:cdn:AFDEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20230701preview:cdn:AFDEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240201:cdn:AFDEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240501preview:cdn:AFDEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240601preview:cdn:AFDEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240901:cdn:AFDEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

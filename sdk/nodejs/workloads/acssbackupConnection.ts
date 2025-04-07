@@ -117,7 +117,7 @@ export class ACSSBackupConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20231001preview:ACSSBackupConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20231001preview:ACSSBackupConnection" }, { type: "azure-native_workloads_v20231001preview:workloads:ACSSBackupConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ACSSBackupConnection.__pulumiType, name, resourceInputs, opts);
     }

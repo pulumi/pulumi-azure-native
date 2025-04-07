@@ -125,10 +125,13 @@ namespace Pulumi.AzureNative.OffAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:MasterSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:MasterSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:MasterSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:MasterSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20200707:offazure:MasterSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20230606:offazure:MasterSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20231001preview:offazure:MasterSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native_offazure_v20240501preview:offazure:MasterSitesController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

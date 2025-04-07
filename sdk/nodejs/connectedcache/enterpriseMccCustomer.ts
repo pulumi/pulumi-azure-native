@@ -101,7 +101,7 @@ export class EnterpriseMccCustomer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:EnterpriseMccCustomer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:EnterpriseMccCustomer" }, { type: "azure-native_connectedcache_v20230501preview:connectedcache:EnterpriseMccCustomer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnterpriseMccCustomer.__pulumiType, name, resourceInputs, opts);
     }

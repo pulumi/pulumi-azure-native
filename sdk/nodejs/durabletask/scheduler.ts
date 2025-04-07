@@ -101,7 +101,7 @@ export class Scheduler extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:durabletask/v20241001preview:Scheduler" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:durabletask/v20241001preview:Scheduler" }, { type: "azure-native_durabletask_v20241001preview:durabletask:Scheduler" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Scheduler.__pulumiType, name, resourceInputs, opts);
     }

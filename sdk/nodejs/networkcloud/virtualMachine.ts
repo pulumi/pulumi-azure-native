@@ -278,7 +278,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:VirtualMachine" }, { type: "azure-native:networkcloud/v20231001preview:VirtualMachine" }, { type: "azure-native:networkcloud/v20240601preview:VirtualMachine" }, { type: "azure-native:networkcloud/v20240701:VirtualMachine" }, { type: "azure-native:networkcloud/v20241001preview:VirtualMachine" }, { type: "azure-native:networkcloud/v20250201:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:VirtualMachine" }, { type: "azure-native:networkcloud/v20231001preview:VirtualMachine" }, { type: "azure-native:networkcloud/v20240601preview:VirtualMachine" }, { type: "azure-native:networkcloud/v20240701:VirtualMachine" }, { type: "azure-native:networkcloud/v20241001preview:VirtualMachine" }, { type: "azure-native_networkcloud_v20230701:networkcloud:VirtualMachine" }, { type: "azure-native_networkcloud_v20231001preview:networkcloud:VirtualMachine" }, { type: "azure-native_networkcloud_v20240601preview:networkcloud:VirtualMachine" }, { type: "azure-native_networkcloud_v20240701:networkcloud:VirtualMachine" }, { type: "azure-native_networkcloud_v20241001preview:networkcloud:VirtualMachine" }, { type: "azure-native_networkcloud_v20250201:networkcloud:VirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

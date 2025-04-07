@@ -80,9 +80,11 @@ namespace Pulumi.AzureNative.TestBase
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:CustomerEvent" },
                     new global::Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:CustomerEvent" },
                     new global::Pulumi.Alias { Type = "azure-native:testbase/v20231101preview:CustomerEvent" },
+                    new global::Pulumi.Alias { Type = "azure-native_testbase_v20201216preview:testbase:CustomerEvent" },
+                    new global::Pulumi.Alias { Type = "azure-native_testbase_v20220401preview:testbase:CustomerEvent" },
+                    new global::Pulumi.Alias { Type = "azure-native_testbase_v20231101preview:testbase:CustomerEvent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

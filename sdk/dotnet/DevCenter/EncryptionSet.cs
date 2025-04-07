@@ -109,6 +109,11 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:EncryptionSet" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:EncryptionSet" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:EncryptionSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_devcenter_v20240501preview:devcenter:EncryptionSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_devcenter_v20240601preview:devcenter:EncryptionSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_devcenter_v20240701preview:devcenter:EncryptionSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_devcenter_v20240801preview:devcenter:EncryptionSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_devcenter_v20241001preview:devcenter:EncryptionSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

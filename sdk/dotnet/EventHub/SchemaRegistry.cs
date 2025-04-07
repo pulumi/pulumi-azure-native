@@ -104,12 +104,16 @@ namespace Pulumi.AzureNative.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:SchemaRegistry" },
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:SchemaRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:SchemaRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:SchemaRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:SchemaRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240501preview:SchemaRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20211101:eventhub:SchemaRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20220101preview:eventhub:SchemaRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20221001preview:eventhub:SchemaRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20230101preview:eventhub:SchemaRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20240101:eventhub:SchemaRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventhub_v20240501preview:eventhub:SchemaRegistry" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

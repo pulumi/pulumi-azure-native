@@ -137,7 +137,7 @@ export class VolumeGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20211120preview:VolumeGroup" }, { type: "azure-native:elasticsan/v20221201preview:VolumeGroup" }, { type: "azure-native:elasticsan/v20230101:VolumeGroup" }, { type: "azure-native:elasticsan/v20240501:VolumeGroup" }, { type: "azure-native:elasticsan/v20240601preview:VolumeGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20211120preview:VolumeGroup" }, { type: "azure-native:elasticsan/v20221201preview:VolumeGroup" }, { type: "azure-native:elasticsan/v20230101:VolumeGroup" }, { type: "azure-native:elasticsan/v20240501:VolumeGroup" }, { type: "azure-native:elasticsan/v20240601preview:VolumeGroup" }, { type: "azure-native_elasticsan_v20211120preview:elasticsan:VolumeGroup" }, { type: "azure-native_elasticsan_v20221201preview:elasticsan:VolumeGroup" }, { type: "azure-native_elasticsan_v20230101:elasticsan:VolumeGroup" }, { type: "azure-native_elasticsan_v20240501:elasticsan:VolumeGroup" }, { type: "azure-native_elasticsan_v20240601preview:elasticsan:VolumeGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VolumeGroup.__pulumiType, name, resourceInputs, opts);
     }

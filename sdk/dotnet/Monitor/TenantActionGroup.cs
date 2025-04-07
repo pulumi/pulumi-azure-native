@@ -116,8 +116,8 @@ namespace Pulumi.AzureNative.Monitor
                 {
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20230501preview:TenantActionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:insights:TenantActionGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20230301preview:TenantActionGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20230501preview:TenantActionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20230301preview:monitor:TenantActionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20230501preview:monitor:TenantActionGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

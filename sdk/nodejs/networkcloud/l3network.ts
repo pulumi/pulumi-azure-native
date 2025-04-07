@@ -208,7 +208,7 @@ export class L3Network extends pulumi.CustomResource {
             resourceInputs["vlan"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:L3Network" }, { type: "azure-native:networkcloud/v20231001preview:L3Network" }, { type: "azure-native:networkcloud/v20240601preview:L3Network" }, { type: "azure-native:networkcloud/v20240701:L3Network" }, { type: "azure-native:networkcloud/v20241001preview:L3Network" }, { type: "azure-native:networkcloud/v20250201:L3Network" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:L3Network" }, { type: "azure-native:networkcloud/v20231001preview:L3Network" }, { type: "azure-native:networkcloud/v20240601preview:L3Network" }, { type: "azure-native:networkcloud/v20240701:L3Network" }, { type: "azure-native:networkcloud/v20241001preview:L3Network" }, { type: "azure-native_networkcloud_v20230701:networkcloud:L3Network" }, { type: "azure-native_networkcloud_v20231001preview:networkcloud:L3Network" }, { type: "azure-native_networkcloud_v20240601preview:networkcloud:L3Network" }, { type: "azure-native_networkcloud_v20240701:networkcloud:L3Network" }, { type: "azure-native_networkcloud_v20241001preview:networkcloud:L3Network" }, { type: "azure-native_networkcloud_v20250201:networkcloud:L3Network" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(L3Network.__pulumiType, name, resourceInputs, opts);
     }

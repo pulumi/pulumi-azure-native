@@ -103,7 +103,7 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:Site" }, { type: "azure-native:hybridnetwork/v20240415:Site" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:Site" }, { type: "azure-native:hybridnetwork/v20240415:Site" }, { type: "azure-native_hybridnetwork_v20230901:hybridnetwork:Site" }, { type: "azure-native_hybridnetwork_v20240415:hybridnetwork:Site" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Site.__pulumiType, name, resourceInputs, opts);
     }

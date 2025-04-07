@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.AwsConnector
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:awsconnector/v20241201:EksCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_awsconnector_v20241201:awsconnector:EksCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

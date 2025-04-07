@@ -102,6 +102,10 @@ namespace Pulumi.AzureNative.ApiCenter
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240301:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240315preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240601preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native_apicenter_v20230701preview:apicenter:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native_apicenter_v20240301:apicenter:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native_apicenter_v20240315preview:apicenter:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native_apicenter_v20240601preview:apicenter:Service" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

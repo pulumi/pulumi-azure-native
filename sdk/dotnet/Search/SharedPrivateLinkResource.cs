@@ -68,14 +68,19 @@ namespace Pulumi.AzureNative.Search
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801:SharedPrivateLinkResource" },
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:SharedPrivateLinkResource" },
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20210401preview:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20220901:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20231101:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20240301preview:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20240601preview:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20250201preview:SharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20200801:search:SharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20200801preview:search:SharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20210401preview:search:SharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20220901:search:SharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20231101:search:SharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20240301preview:search:SharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20240601preview:search:SharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native_search_v20250201preview:search:SharedPrivateLinkResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

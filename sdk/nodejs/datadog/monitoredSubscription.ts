@@ -89,7 +89,7 @@ export class MonitoredSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datadog/v20230101:MonitoredSubscription" }, { type: "azure-native:datadog/v20230707:MonitoredSubscription" }, { type: "azure-native:datadog/v20231020:MonitoredSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datadog/v20230101:MonitoredSubscription" }, { type: "azure-native:datadog/v20230707:MonitoredSubscription" }, { type: "azure-native:datadog/v20231020:MonitoredSubscription" }, { type: "azure-native_datadog_v20230101:datadog:MonitoredSubscription" }, { type: "azure-native_datadog_v20230707:datadog:MonitoredSubscription" }, { type: "azure-native_datadog_v20231020:datadog:MonitoredSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MonitoredSubscription.__pulumiType, name, resourceInputs, opts);
     }

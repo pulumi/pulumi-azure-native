@@ -100,7 +100,7 @@ export class Ec2VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2VpcEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2VpcEndpoint" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2VpcEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2VpcEndpoint.__pulumiType, name, resourceInputs, opts);
     }

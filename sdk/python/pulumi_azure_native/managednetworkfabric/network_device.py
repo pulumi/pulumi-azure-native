@@ -252,7 +252,7 @@ class NetworkDevice(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230201preview:NetworkDevice"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:NetworkDevice")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230201preview:NetworkDevice"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:NetworkDevice"), pulumi.Alias(type_="azure-native_managednetworkfabric_v20230201preview:managednetworkfabric:NetworkDevice"), pulumi.Alias(type_="azure-native_managednetworkfabric_v20230615:managednetworkfabric:NetworkDevice")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkDevice, __self__).__init__(
             'azure-native:managednetworkfabric:NetworkDevice',

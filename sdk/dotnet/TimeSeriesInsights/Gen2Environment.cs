@@ -140,14 +140,16 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:Gen2Environment" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:Gen2Environment" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:Gen2Environment" },
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:Gen2Environment" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:Gen2Environment" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:Gen1Environment" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:Gen2Environment" },
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:Gen1Environment" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20170228preview:timeseriesinsights:Gen2Environment" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20171115:timeseriesinsights:Gen2Environment" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20180815preview:timeseriesinsights:Gen2Environment" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20200515:timeseriesinsights:Gen2Environment" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20210331preview:timeseriesinsights:Gen2Environment" },
+                    new global::Pulumi.Alias { Type = "azure-native_timeseriesinsights_v20210630preview:timeseriesinsights:Gen2Environment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

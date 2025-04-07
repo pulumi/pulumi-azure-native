@@ -106,7 +106,7 @@ export class ActionRequest extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20231101preview:ActionRequest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20231101preview:ActionRequest" }, { type: "azure-native_testbase_v20231101preview:testbase:ActionRequest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActionRequest.__pulumiType, name, resourceInputs, opts);
     }

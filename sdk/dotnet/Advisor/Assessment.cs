@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Advisor
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20230901preview:Assessment" },
+                    new global::Pulumi.Alias { Type = "azure-native_advisor_v20230901preview:advisor:Assessment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -85,7 +85,7 @@ export class SitesBySubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20240201preview:SitesBySubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20240201preview:SitesBySubscription" }, { type: "azure-native_edge_v20240201preview:edge:SitesBySubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SitesBySubscription.__pulumiType, name, resourceInputs, opts);
     }

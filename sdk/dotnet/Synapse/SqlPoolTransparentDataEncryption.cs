@@ -74,13 +74,15 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolTransparentDataEncryption" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolTransparentDataEncryption" },
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolTransparentDataEncryption" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolTransparentDataEncryption" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20190601preview:synapse:SqlPoolTransparentDataEncryption" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20201201:synapse:SqlPoolTransparentDataEncryption" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210301:synapse:SqlPoolTransparentDataEncryption" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210401preview:synapse:SqlPoolTransparentDataEncryption" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210501:synapse:SqlPoolTransparentDataEncryption" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210601:synapse:SqlPoolTransparentDataEncryption" },
+                    new global::Pulumi.Alias { Type = "azure-native_synapse_v20210601preview:synapse:SqlPoolTransparentDataEncryption" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

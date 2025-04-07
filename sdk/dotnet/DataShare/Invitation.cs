@@ -128,11 +128,12 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Invitation" },
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:Invitation" },
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:Invitation" },
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Invitation" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:Invitation" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20181101preview:datashare:Invitation" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20191101:datashare:Invitation" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20200901:datashare:Invitation" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20201001preview:datashare:Invitation" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20210801:datashare:Invitation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

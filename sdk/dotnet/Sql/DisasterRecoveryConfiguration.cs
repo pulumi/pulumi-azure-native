@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:DisasterRecoveryConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_sql_v20140401:sql:DisasterRecoveryConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

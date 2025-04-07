@@ -74,17 +74,17 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:deviceprovisioningservices/v20200301:IotDpsResourcePrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:deviceprovisioningservices/v20200901preview:IotDpsResourcePrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:deviceprovisioningservices/v20211015:IotDpsResourcePrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:deviceprovisioningservices/v20220205:IotDpsResourcePrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:deviceprovisioningservices/v20221212:IotDpsResourcePrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:deviceprovisioningservices/v20230301preview:IotDpsResourcePrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:deviceprovisioningservices/v20250201preview:IotDpsResourcePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20221212:IotDpsResourcePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20250201preview:IotDpsResourcePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices:IotDpsResourcePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceprovisioningservices_v20200301:deviceprovisioningservices:IotDpsResourcePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceprovisioningservices_v20200901preview:deviceprovisioningservices:IotDpsResourcePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceprovisioningservices_v20211015:deviceprovisioningservices:IotDpsResourcePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceprovisioningservices_v20220205:deviceprovisioningservices:IotDpsResourcePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceprovisioningservices_v20221212:deviceprovisioningservices:IotDpsResourcePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceprovisioningservices_v20230301preview:deviceprovisioningservices:IotDpsResourcePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_deviceprovisioningservices_v20250201preview:deviceprovisioningservices:IotDpsResourcePrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

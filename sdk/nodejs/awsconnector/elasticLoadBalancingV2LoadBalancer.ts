@@ -100,7 +100,7 @@ export class ElasticLoadBalancingV2LoadBalancer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ElasticLoadBalancingV2LoadBalancer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ElasticLoadBalancingV2LoadBalancer" }, { type: "azure-native_awsconnector_v20241201:awsconnector:ElasticLoadBalancingV2LoadBalancer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticLoadBalancingV2LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }

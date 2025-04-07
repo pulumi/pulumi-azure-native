@@ -104,12 +104,12 @@ namespace Pulumi.AzureNative.DnsResolver
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20200401preview:ForwardingRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20220701:ForwardingRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20230701preview:ForwardingRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ForwardingRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:ForwardingRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network:ForwardingRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_dnsresolver_v20200401preview:dnsresolver:ForwardingRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_dnsresolver_v20220701:dnsresolver:ForwardingRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_dnsresolver_v20230701preview:dnsresolver:ForwardingRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

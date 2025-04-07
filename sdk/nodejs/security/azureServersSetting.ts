@@ -98,7 +98,7 @@ export class AzureServersSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20230501:AzureServersSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20230501:AzureServersSetting" }, { type: "azure-native_security_v20230501:security:AzureServersSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureServersSetting.__pulumiType, name, resourceInputs, opts);
     }

@@ -99,13 +99,18 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:ServerCollector" },
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:ServerCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:ServerCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:ServerCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:ServerCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:ServerCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:ServerCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:ServerCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20191001:migrate:ServerCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230315:migrate:ServerCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230401preview:migrate:ServerCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230501preview:migrate:ServerCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230909preview:migrate:ServerCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20240101preview:migrate:ServerCollectorsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

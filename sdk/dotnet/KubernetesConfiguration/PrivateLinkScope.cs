@@ -87,7 +87,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220402preview:PrivateLinkScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20241101preview:PrivateLinkScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20220402preview:kubernetesconfiguration:PrivateLinkScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20241101preview:kubernetesconfiguration:PrivateLinkScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

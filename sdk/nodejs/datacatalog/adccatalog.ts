@@ -131,7 +131,7 @@ export class ADCCatalog extends pulumi.CustomResource {
             resourceInputs["users"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datacatalog/v20160330:ADCCatalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datacatalog/v20160330:ADCCatalog" }, { type: "azure-native_datacatalog_v20160330:datacatalog:ADCCatalog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ADCCatalog.__pulumiType, name, resourceInputs, opts);
     }

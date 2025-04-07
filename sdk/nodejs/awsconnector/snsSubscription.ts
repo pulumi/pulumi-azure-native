@@ -100,7 +100,7 @@ export class SnsSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SnsSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SnsSubscription" }, { type: "azure-native_awsconnector_v20241201:awsconnector:SnsSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SnsSubscription.__pulumiType, name, resourceInputs, opts);
     }

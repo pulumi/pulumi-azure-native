@@ -89,7 +89,7 @@ export class MonitoredSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elastic/v20240501preview:MonitoredSubscription" }, { type: "azure-native:elastic/v20240615preview:MonitoredSubscription" }, { type: "azure-native:elastic/v20241001preview:MonitoredSubscription" }, { type: "azure-native:elastic/v20250115preview:MonitoredSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elastic/v20240501preview:MonitoredSubscription" }, { type: "azure-native:elastic/v20240615preview:MonitoredSubscription" }, { type: "azure-native:elastic/v20241001preview:MonitoredSubscription" }, { type: "azure-native_elastic_v20240501preview:elastic:MonitoredSubscription" }, { type: "azure-native_elastic_v20240615preview:elastic:MonitoredSubscription" }, { type: "azure-native_elastic_v20241001preview:elastic:MonitoredSubscription" }, { type: "azure-native_elastic_v20250115preview:elastic:MonitoredSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MonitoredSubscription.__pulumiType, name, resourceInputs, opts);
     }

@@ -146,11 +146,11 @@ namespace Pulumi.AzureNative.ApplicationInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:applicationinsights/v20150501:MyWorkbook" },
-                    new global::Pulumi.Alias { Type = "azure-native:applicationinsights/v20201020:MyWorkbook" },
-                    new global::Pulumi.Alias { Type = "azure-native:applicationinsights/v20210308:MyWorkbook" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210308:MyWorkbook" },
                     new global::Pulumi.Alias { Type = "azure-native:insights:MyWorkbook" },
+                    new global::Pulumi.Alias { Type = "azure-native_applicationinsights_v20150501:applicationinsights:MyWorkbook" },
+                    new global::Pulumi.Alias { Type = "azure-native_applicationinsights_v20201020:applicationinsights:MyWorkbook" },
+                    new global::Pulumi.Alias { Type = "azure-native_applicationinsights_v20210308:applicationinsights:MyWorkbook" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

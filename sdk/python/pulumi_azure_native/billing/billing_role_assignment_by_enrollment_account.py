@@ -185,7 +185,7 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount"), pulumi.Alias(type_="azure-native:billing/v20240401:BillingRoleAssignmentByEnrollmentAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount"), pulumi.Alias(type_="azure-native:billing/v20240401:BillingRoleAssignmentByEnrollmentAccount"), pulumi.Alias(type_="azure-native_billing_v20191001preview:billing:BillingRoleAssignmentByEnrollmentAccount"), pulumi.Alias(type_="azure-native_billing_v20240401:billing:BillingRoleAssignmentByEnrollmentAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BillingRoleAssignmentByEnrollmentAccount, __self__).__init__(
             'azure-native:billing:BillingRoleAssignmentByEnrollmentAccount',

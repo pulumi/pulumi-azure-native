@@ -107,7 +107,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:purview/v20201201preview:PrivateEndpointConnection" }, { type: "azure-native:purview/v20210701:PrivateEndpointConnection" }, { type: "azure-native:purview/v20211201:PrivateEndpointConnection" }, { type: "azure-native:purview/v20230501preview:PrivateEndpointConnection" }, { type: "azure-native:purview/v20240401preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:purview/v20210701:PrivateEndpointConnection" }, { type: "azure-native:purview/v20211201:PrivateEndpointConnection" }, { type: "azure-native:purview/v20230501preview:PrivateEndpointConnection" }, { type: "azure-native:purview/v20240401preview:PrivateEndpointConnection" }, { type: "azure-native_purview_v20201201preview:purview:PrivateEndpointConnection" }, { type: "azure-native_purview_v20210701:purview:PrivateEndpointConnection" }, { type: "azure-native_purview_v20211201:purview:PrivateEndpointConnection" }, { type: "azure-native_purview_v20230501preview:purview:PrivateEndpointConnection" }, { type: "azure-native_purview_v20240401preview:purview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

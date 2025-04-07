@@ -244,6 +244,10 @@ namespace Pulumi.AzureNative.Migrate
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:WebAppAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:WebAppAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:WebAppAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230401preview:migrate:WebAppAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230501preview:migrate:WebAppAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20230909preview:migrate:WebAppAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native_migrate_v20240101preview:migrate:WebAppAssessmentV2Operation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

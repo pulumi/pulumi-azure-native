@@ -165,7 +165,7 @@ export class OperatorApiConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:programmableconnectivity/v20240115preview:OperatorApiConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:programmableconnectivity/v20240115preview:OperatorApiConnection" }, { type: "azure-native_programmableconnectivity_v20240115preview:programmableconnectivity:OperatorApiConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OperatorApiConnection.__pulumiType, name, resourceInputs, opts);
     }

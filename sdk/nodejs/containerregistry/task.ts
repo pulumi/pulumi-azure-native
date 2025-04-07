@@ -178,7 +178,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20180901:Task" }, { type: "azure-native:containerregistry/v20190401:Task" }, { type: "azure-native:containerregistry/v20190601preview:Task" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20180901:Task" }, { type: "azure-native:containerregistry/v20190401:Task" }, { type: "azure-native:containerregistry/v20190601preview:Task" }, { type: "azure-native_containerregistry_v20180901:containerregistry:Task" }, { type: "azure-native_containerregistry_v20190401:containerregistry:Task" }, { type: "azure-native_containerregistry_v20190601preview:containerregistry:Task" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Task.__pulumiType, name, resourceInputs, opts);
     }

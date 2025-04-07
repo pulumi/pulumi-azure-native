@@ -143,7 +143,7 @@ export class Standard extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20210801preview:Standard" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20210801preview:Standard" }, { type: "azure-native_security_v20210801preview:security:Standard" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Standard.__pulumiType, name, resourceInputs, opts);
     }

@@ -162,7 +162,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:programmableconnectivity/v20240115preview:Gateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:programmableconnectivity/v20240115preview:Gateway"), pulumi.Alias(type_="azure-native_programmableconnectivity_v20240115preview:programmableconnectivity:Gateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gateway, __self__).__init__(
             'azure-native:programmableconnectivity:Gateway',

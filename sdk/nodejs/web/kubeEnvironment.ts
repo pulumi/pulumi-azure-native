@@ -163,7 +163,7 @@ export class KubeEnvironment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20210101:KubeEnvironment" }, { type: "azure-native:web/v20210115:KubeEnvironment" }, { type: "azure-native:web/v20210201:KubeEnvironment" }, { type: "azure-native:web/v20210301:KubeEnvironment" }, { type: "azure-native:web/v20220301:KubeEnvironment" }, { type: "azure-native:web/v20220901:KubeEnvironment" }, { type: "azure-native:web/v20230101:KubeEnvironment" }, { type: "azure-native:web/v20231201:KubeEnvironment" }, { type: "azure-native:web/v20240401:KubeEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20220901:KubeEnvironment" }, { type: "azure-native:web/v20230101:KubeEnvironment" }, { type: "azure-native:web/v20231201:KubeEnvironment" }, { type: "azure-native:web/v20240401:KubeEnvironment" }, { type: "azure-native_web_v20210101:web:KubeEnvironment" }, { type: "azure-native_web_v20210115:web:KubeEnvironment" }, { type: "azure-native_web_v20210201:web:KubeEnvironment" }, { type: "azure-native_web_v20210301:web:KubeEnvironment" }, { type: "azure-native_web_v20220301:web:KubeEnvironment" }, { type: "azure-native_web_v20220901:web:KubeEnvironment" }, { type: "azure-native_web_v20230101:web:KubeEnvironment" }, { type: "azure-native_web_v20231201:web:KubeEnvironment" }, { type: "azure-native_web_v20240401:web:KubeEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KubeEnvironment.__pulumiType, name, resourceInputs, opts);
     }

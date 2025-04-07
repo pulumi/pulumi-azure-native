@@ -146,17 +146,18 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:SourceControlConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220101preview:SourceControlConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:SourceControlConfiguration" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20230501:SourceControlConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20191101preview:kubernetesconfiguration:SourceControlConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20200701preview:kubernetesconfiguration:SourceControlConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20201001preview:kubernetesconfiguration:SourceControlConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20210301:kubernetesconfiguration:SourceControlConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20210501preview:kubernetesconfiguration:SourceControlConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20211101preview:kubernetesconfiguration:SourceControlConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20220101preview:kubernetesconfiguration:SourceControlConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20220301:kubernetesconfiguration:SourceControlConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20220701:kubernetesconfiguration:SourceControlConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20221101:kubernetesconfiguration:SourceControlConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20230501:kubernetesconfiguration:SourceControlConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

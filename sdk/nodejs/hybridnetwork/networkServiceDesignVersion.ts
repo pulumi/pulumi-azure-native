@@ -111,7 +111,7 @@ export class NetworkServiceDesignVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:NetworkServiceDesignVersion" }, { type: "azure-native:hybridnetwork/v20240415:NetworkServiceDesignVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:NetworkServiceDesignVersion" }, { type: "azure-native:hybridnetwork/v20240415:NetworkServiceDesignVersion" }, { type: "azure-native_hybridnetwork_v20230901:hybridnetwork:NetworkServiceDesignVersion" }, { type: "azure-native_hybridnetwork_v20240415:hybridnetwork:NetworkServiceDesignVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkServiceDesignVersion.__pulumiType, name, resourceInputs, opts);
     }

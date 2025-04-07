@@ -91,7 +91,7 @@ export class ProfessionalServiceSubscriptionLevel extends pulumi.CustomResource 
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:professionalservice/v20230701preview:ProfessionalServiceSubscriptionLevel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:professionalservice/v20230701preview:ProfessionalServiceSubscriptionLevel" }, { type: "azure-native_professionalservice_v20230701preview:professionalservice:ProfessionalServiceSubscriptionLevel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProfessionalServiceSubscriptionLevel.__pulumiType, name, resourceInputs, opts);
     }

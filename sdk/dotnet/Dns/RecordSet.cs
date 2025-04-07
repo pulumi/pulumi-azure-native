@@ -182,16 +182,16 @@ namespace Pulumi.AzureNative.Dns
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20150504preview:RecordSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20160401:RecordSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20170901:RecordSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20171001:RecordSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20180301preview:RecordSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20180501:RecordSet" },
-                    new global::Pulumi.Alias { Type = "azure-native:dns/v20230701preview:RecordSet" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180501:RecordSet" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:RecordSet" },
                     new global::Pulumi.Alias { Type = "azure-native:network:RecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20150504preview:dns:RecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20160401:dns:RecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20170901:dns:RecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20171001:dns:RecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20180301preview:dns:RecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20180501:dns:RecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native_dns_v20230701preview:dns:RecordSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

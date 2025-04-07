@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotoperationsmq/v20231004preview:BrokerAuthentication" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperationsmq_v20231004preview:iotoperationsmq:BrokerAuthentication" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

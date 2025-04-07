@@ -113,7 +113,7 @@ export class AgriService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:agricultureplatform/v20240601preview:AgriService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native_agricultureplatform_v20240601preview:agricultureplatform:AgriService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AgriService.__pulumiType, name, resourceInputs, opts);
     }

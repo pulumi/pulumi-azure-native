@@ -81,11 +81,16 @@ namespace Pulumi.AzureNative.Automation
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20210622:HybridRunbookWorkerGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220222:HybridRunbookWorkerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:HybridRunbookWorkerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:HybridRunbookWorkerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:HybridRunbookWorkerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:HybridRunbookWorkerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20210622:automation:HybridRunbookWorkerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20220222:automation:HybridRunbookWorkerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20220808:automation:HybridRunbookWorkerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20230515preview:automation:HybridRunbookWorkerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20231101:automation:HybridRunbookWorkerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20241023:automation:HybridRunbookWorkerGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

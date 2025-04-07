@@ -68,17 +68,22 @@ namespace Pulumi.AzureNative.Resources
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001:TagAtScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200601:TagAtScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200801:TagAtScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:TagAtScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:TagAtScope" },
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:TagAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20220901:TagAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20230701:TagAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20240301:TagAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20240701:TagAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20241101:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_resources_v20191001:resources:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_resources_v20200601:resources:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_resources_v20200801:resources:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_resources_v20201001:resources:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_resources_v20210101:resources:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_resources_v20210401:resources:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_resources_v20220901:resources:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_resources_v20230701:resources:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_resources_v20240301:resources:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_resources_v20240701:resources:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native_resources_v20241101:resources:TagAtScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

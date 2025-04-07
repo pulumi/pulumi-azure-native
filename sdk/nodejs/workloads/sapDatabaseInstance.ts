@@ -153,7 +153,7 @@ export class SapDatabaseInstance extends pulumi.CustomResource {
             resourceInputs["vmDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:SapDatabaseInstance" }, { type: "azure-native:workloads/v20221101preview:SapDatabaseInstance" }, { type: "azure-native:workloads/v20230401:SAPDatabaseInstance" }, { type: "azure-native:workloads/v20230401:SapDatabaseInstance" }, { type: "azure-native:workloads/v20231001preview:SAPDatabaseInstance" }, { type: "azure-native:workloads/v20231001preview:SapDatabaseInstance" }, { type: "azure-native:workloads/v20240901:SapDatabaseInstance" }, { type: "azure-native:workloads:SAPDatabaseInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20230401:SAPDatabaseInstance" }, { type: "azure-native:workloads/v20231001preview:SAPDatabaseInstance" }, { type: "azure-native:workloads/v20240901:SapDatabaseInstance" }, { type: "azure-native:workloads:SAPDatabaseInstance" }, { type: "azure-native_workloads_v20211201preview:workloads:SapDatabaseInstance" }, { type: "azure-native_workloads_v20221101preview:workloads:SapDatabaseInstance" }, { type: "azure-native_workloads_v20230401:workloads:SapDatabaseInstance" }, { type: "azure-native_workloads_v20231001preview:workloads:SapDatabaseInstance" }, { type: "azure-native_workloads_v20240901:workloads:SapDatabaseInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SapDatabaseInstance.__pulumiType, name, resourceInputs, opts);
     }

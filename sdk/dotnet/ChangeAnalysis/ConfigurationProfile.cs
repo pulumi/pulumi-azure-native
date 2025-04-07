@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:changeanalysis/v20200401preview:ConfigurationProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_changeanalysis_v20200401preview:changeanalysis:ConfigurationProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -134,6 +134,8 @@ namespace Pulumi.AzureNative.Intune
                 {
                     new global::Pulumi.Alias { Type = "azure-native:intune/v20150114preview:AndroidMAMPolicyByName" },
                     new global::Pulumi.Alias { Type = "azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName" },
+                    new global::Pulumi.Alias { Type = "azure-native_intune_v20150114preview:intune:AndroidMAMPolicyByName" },
+                    new global::Pulumi.Alias { Type = "azure-native_intune_v20150114privatepreview:intune:AndroidMAMPolicyByName" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

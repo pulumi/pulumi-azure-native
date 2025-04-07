@@ -199,7 +199,7 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20180101preview:NamespaceIpFilterRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20180101preview:NamespaceIpFilterRule"), pulumi.Alias(type_="azure-native_servicebus_v20180101preview:servicebus:NamespaceIpFilterRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceIpFilterRule, __self__).__init__(
             'azure-native:servicebus:NamespaceIpFilterRule',

@@ -153,7 +153,7 @@ class Skus(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:Skus")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20210901preview:Skus"), pulumi.Alias(type_="azure-native_providerhub_v20201120:providerhub:Skus"), pulumi.Alias(type_="azure-native_providerhub_v20210501preview:providerhub:Skus"), pulumi.Alias(type_="azure-native_providerhub_v20210601preview:providerhub:Skus"), pulumi.Alias(type_="azure-native_providerhub_v20210901preview:providerhub:Skus")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Skus, __self__).__init__(
             'azure-native:providerhub:Skus',

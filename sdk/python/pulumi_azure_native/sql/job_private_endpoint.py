@@ -185,7 +185,7 @@ class JobPrivateEndpoint(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20230501preview:JobPrivateEndpoint"), pulumi.Alias(type_="azure-native:sql/v20230801:JobPrivateEndpoint"), pulumi.Alias(type_="azure-native:sql/v20230801preview:JobPrivateEndpoint"), pulumi.Alias(type_="azure-native:sql/v20240501preview:JobPrivateEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20230501preview:JobPrivateEndpoint"), pulumi.Alias(type_="azure-native:sql/v20230801preview:JobPrivateEndpoint"), pulumi.Alias(type_="azure-native:sql/v20240501preview:JobPrivateEndpoint"), pulumi.Alias(type_="azure-native_sql_v20230501preview:sql:JobPrivateEndpoint"), pulumi.Alias(type_="azure-native_sql_v20230801:sql:JobPrivateEndpoint"), pulumi.Alias(type_="azure-native_sql_v20230801preview:sql:JobPrivateEndpoint"), pulumi.Alias(type_="azure-native_sql_v20240501preview:sql:JobPrivateEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobPrivateEndpoint, __self__).__init__(
             'azure-native:sql:JobPrivateEndpoint',

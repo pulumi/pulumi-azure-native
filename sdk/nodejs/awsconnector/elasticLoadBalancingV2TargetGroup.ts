@@ -100,7 +100,7 @@ export class ElasticLoadBalancingV2TargetGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ElasticLoadBalancingV2TargetGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ElasticLoadBalancingV2TargetGroup" }, { type: "azure-native_awsconnector_v20241201:awsconnector:ElasticLoadBalancingV2TargetGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticLoadBalancingV2TargetGroup.__pulumiType, name, resourceInputs, opts);
     }

@@ -135,7 +135,7 @@ export class Experiment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20191101:Experiment" }, { type: "azure-native:network/v20191101:Experiment" }, { type: "azure-native:network:Experiment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20191101:Experiment" }, { type: "azure-native:network:Experiment" }, { type: "azure-native_frontdoor_v20191101:frontdoor:Experiment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Experiment.__pulumiType, name, resourceInputs, opts);
     }

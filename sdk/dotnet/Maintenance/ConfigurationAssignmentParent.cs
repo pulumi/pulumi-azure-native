@@ -92,13 +92,17 @@ namespace Pulumi.AzureNative.Maintenance
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent" },
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent" },
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230401:ConfigurationAssignmentParent" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230901preview:ConfigurationAssignmentParent" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20231001preview:ConfigurationAssignmentParent" },
+                    new global::Pulumi.Alias { Type = "azure-native_maintenance_v20210401preview:maintenance:ConfigurationAssignmentParent" },
+                    new global::Pulumi.Alias { Type = "azure-native_maintenance_v20210901preview:maintenance:ConfigurationAssignmentParent" },
+                    new global::Pulumi.Alias { Type = "azure-native_maintenance_v20220701preview:maintenance:ConfigurationAssignmentParent" },
+                    new global::Pulumi.Alias { Type = "azure-native_maintenance_v20221101preview:maintenance:ConfigurationAssignmentParent" },
+                    new global::Pulumi.Alias { Type = "azure-native_maintenance_v20230401:maintenance:ConfigurationAssignmentParent" },
+                    new global::Pulumi.Alias { Type = "azure-native_maintenance_v20230901preview:maintenance:ConfigurationAssignmentParent" },
+                    new global::Pulumi.Alias { Type = "azure-native_maintenance_v20231001preview:maintenance:ConfigurationAssignmentParent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

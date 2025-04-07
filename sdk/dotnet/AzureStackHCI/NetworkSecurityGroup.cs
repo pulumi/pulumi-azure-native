@@ -121,8 +121,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:NetworkSecurityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:NetworkSecurityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:NetworkSecurityGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:NetworkSecurityGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250401preview:NetworkSecurityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240201preview:azurestackhci:NetworkSecurityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240501preview:azurestackhci:NetworkSecurityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240715preview:azurestackhci:NetworkSecurityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20240801preview:azurestackhci:NetworkSecurityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20241001preview:azurestackhci:NetworkSecurityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20250201preview:azurestackhci:NetworkSecurityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20250401preview:azurestackhci:NetworkSecurityGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

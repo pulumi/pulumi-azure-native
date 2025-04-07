@@ -257,7 +257,7 @@ export class PrivateCloud extends pulumi.CustomResource {
             resourceInputs["vmotionNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200320:PrivateCloud" }, { type: "azure-native:avs/v20200717preview:PrivateCloud" }, { type: "azure-native:avs/v20210101preview:PrivateCloud" }, { type: "azure-native:avs/v20210601:PrivateCloud" }, { type: "azure-native:avs/v20211201:PrivateCloud" }, { type: "azure-native:avs/v20220501:PrivateCloud" }, { type: "azure-native:avs/v20230301:PrivateCloud" }, { type: "azure-native:avs/v20230901:PrivateCloud" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20220501:PrivateCloud" }, { type: "azure-native:avs/v20230301:PrivateCloud" }, { type: "azure-native:avs/v20230901:PrivateCloud" }, { type: "azure-native_avs_v20200320:avs:PrivateCloud" }, { type: "azure-native_avs_v20200717preview:avs:PrivateCloud" }, { type: "azure-native_avs_v20210101preview:avs:PrivateCloud" }, { type: "azure-native_avs_v20210601:avs:PrivateCloud" }, { type: "azure-native_avs_v20211201:avs:PrivateCloud" }, { type: "azure-native_avs_v20220501:avs:PrivateCloud" }, { type: "azure-native_avs_v20230301:avs:PrivateCloud" }, { type: "azure-native_avs_v20230901:avs:PrivateCloud" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateCloud.__pulumiType, name, resourceInputs, opts);
     }

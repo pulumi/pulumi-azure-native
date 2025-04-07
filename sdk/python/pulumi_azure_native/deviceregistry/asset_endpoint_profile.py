@@ -291,7 +291,7 @@ class AssetEndpointProfile(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20231101preview:AssetEndpointProfile"), pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:AssetEndpointProfile"), pulumi.Alias(type_="azure-native:deviceregistry/v20241101:AssetEndpointProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20231101preview:AssetEndpointProfile"), pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:AssetEndpointProfile"), pulumi.Alias(type_="azure-native:deviceregistry/v20241101:AssetEndpointProfile"), pulumi.Alias(type_="azure-native_deviceregistry_v20231101preview:deviceregistry:AssetEndpointProfile"), pulumi.Alias(type_="azure-native_deviceregistry_v20240901preview:deviceregistry:AssetEndpointProfile"), pulumi.Alias(type_="azure-native_deviceregistry_v20241101:deviceregistry:AssetEndpointProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssetEndpointProfile, __self__).__init__(
             'azure-native:deviceregistry:AssetEndpointProfile',

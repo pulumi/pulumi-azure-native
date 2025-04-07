@@ -88,7 +88,9 @@ namespace Pulumi.AzureNative.AzureArcData
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240101:SqlServerAvailabilityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:SqlServerAvailabilityGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:SqlServerAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20240101:azurearcdata:SqlServerAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20240501preview:azurearcdata:SqlServerAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20250301preview:azurearcdata:SqlServerAvailabilityGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

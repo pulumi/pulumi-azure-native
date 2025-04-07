@@ -89,7 +89,7 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20240201preview:Site" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edge/v20240201preview:Site" }, { type: "azure-native_edge_v20240201preview:edge:Site" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Site.__pulumiType, name, resourceInputs, opts);
     }

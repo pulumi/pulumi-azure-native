@@ -162,14 +162,15 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SapCentralServerInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SapCentralServerInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SAPCentralInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SapCentralServerInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SAPCentralInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SapCentralServerInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20240901:SapCentralServerInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads:SAPCentralInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20211201preview:workloads:SapCentralServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20221101preview:workloads:SapCentralServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20230401:workloads:SapCentralServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20231001preview:workloads:SapCentralServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20240901:workloads:SapCentralServerInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

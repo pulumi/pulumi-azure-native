@@ -100,7 +100,7 @@ export class NetworkFirewallFirewallPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:NetworkFirewallFirewallPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:NetworkFirewallFirewallPolicy" }, { type: "azure-native_awsconnector_v20241201:awsconnector:NetworkFirewallFirewallPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkFirewallFirewallPolicy.__pulumiType, name, resourceInputs, opts);
     }

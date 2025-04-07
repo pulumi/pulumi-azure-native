@@ -185,7 +185,7 @@ class AlertProcessingRuleByName(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement/v20190505preview:ActionRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement:ActionRuleByName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:alertsmanagement/v20190505preview:ActionRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement:ActionRuleByName"), pulumi.Alias(type_="azure-native_alertsmanagement_v20181102privatepreview:alertsmanagement:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native_alertsmanagement_v20190505preview:alertsmanagement:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native_alertsmanagement_v20210808:alertsmanagement:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native_alertsmanagement_v20210808preview:alertsmanagement:AlertProcessingRuleByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AlertProcessingRuleByName, __self__).__init__(
             'azure-native:alertsmanagement:AlertProcessingRuleByName',

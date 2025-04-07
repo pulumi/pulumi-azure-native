@@ -100,7 +100,7 @@ export class MacieAllowList extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:MacieAllowList" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:MacieAllowList" }, { type: "azure-native_awsconnector_v20241201:awsconnector:MacieAllowList" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MacieAllowList.__pulumiType, name, resourceInputs, opts);
     }

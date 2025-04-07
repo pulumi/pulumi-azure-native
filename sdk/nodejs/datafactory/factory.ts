@@ -149,7 +149,7 @@ export class Factory extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datafactory/v20170901preview:Factory" }, { type: "azure-native:datafactory/v20180601:Factory" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory/v20180601:Factory" }, { type: "azure-native_datafactory_v20170901preview:datafactory:Factory" }, { type: "azure-native_datafactory_v20180601:datafactory:Factory" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Factory.__pulumiType, name, resourceInputs, opts);
     }

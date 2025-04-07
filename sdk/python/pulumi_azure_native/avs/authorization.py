@@ -167,7 +167,7 @@ class Authorization(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200320:Authorization"), pulumi.Alias(type_="azure-native:avs/v20200717preview:Authorization"), pulumi.Alias(type_="azure-native:avs/v20210101preview:Authorization"), pulumi.Alias(type_="azure-native:avs/v20210601:Authorization"), pulumi.Alias(type_="azure-native:avs/v20211201:Authorization"), pulumi.Alias(type_="azure-native:avs/v20220501:Authorization"), pulumi.Alias(type_="azure-native:avs/v20230301:Authorization"), pulumi.Alias(type_="azure-native:avs/v20230901:Authorization")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20220501:Authorization"), pulumi.Alias(type_="azure-native:avs/v20230301:Authorization"), pulumi.Alias(type_="azure-native:avs/v20230901:Authorization"), pulumi.Alias(type_="azure-native_avs_v20200320:avs:Authorization"), pulumi.Alias(type_="azure-native_avs_v20200717preview:avs:Authorization"), pulumi.Alias(type_="azure-native_avs_v20210101preview:avs:Authorization"), pulumi.Alias(type_="azure-native_avs_v20210601:avs:Authorization"), pulumi.Alias(type_="azure-native_avs_v20211201:avs:Authorization"), pulumi.Alias(type_="azure-native_avs_v20220501:avs:Authorization"), pulumi.Alias(type_="azure-native_avs_v20230301:avs:Authorization"), pulumi.Alias(type_="azure-native_avs_v20230901:avs:Authorization")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Authorization, __self__).__init__(
             'azure-native:avs:Authorization',

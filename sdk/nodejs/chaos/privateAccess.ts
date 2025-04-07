@@ -115,7 +115,7 @@ export class PrivateAccess extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:chaos/v20231027preview:PrivateAccess" }, { type: "azure-native:chaos/v20240322preview:PrivateAccess" }, { type: "azure-native:chaos/v20241101preview:PrivateAccess" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:chaos/v20231027preview:PrivateAccess" }, { type: "azure-native:chaos/v20240322preview:PrivateAccess" }, { type: "azure-native:chaos/v20241101preview:PrivateAccess" }, { type: "azure-native_chaos_v20231027preview:chaos:PrivateAccess" }, { type: "azure-native_chaos_v20240322preview:chaos:PrivateAccess" }, { type: "azure-native_chaos_v20241101preview:chaos:PrivateAccess" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateAccess.__pulumiType, name, resourceInputs, opts);
     }

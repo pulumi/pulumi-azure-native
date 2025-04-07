@@ -160,7 +160,7 @@ export class AccessControlList extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:AccessControlList" }, { type: "azure-native:managednetworkfabric/v20230615:AccessControlList" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:AccessControlList" }, { type: "azure-native:managednetworkfabric/v20230615:AccessControlList" }, { type: "azure-native_managednetworkfabric_v20230201preview:managednetworkfabric:AccessControlList" }, { type: "azure-native_managednetworkfabric_v20230615:managednetworkfabric:AccessControlList" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessControlList.__pulumiType, name, resourceInputs, opts);
     }

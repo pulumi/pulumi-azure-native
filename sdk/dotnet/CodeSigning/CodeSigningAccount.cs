@@ -100,6 +100,8 @@ namespace Pulumi.AzureNative.CodeSigning
                 {
                     new global::Pulumi.Alias { Type = "azure-native:codesigning/v20240205preview:CodeSigningAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:codesigning/v20240930preview:CodeSigningAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_codesigning_v20240205preview:codesigning:CodeSigningAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native_codesigning_v20240930preview:codesigning:CodeSigningAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

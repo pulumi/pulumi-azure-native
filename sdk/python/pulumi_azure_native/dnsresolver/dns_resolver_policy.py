@@ -162,7 +162,7 @@ class DnsResolverPolicy(pulumi.CustomResource):
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dnsresolver/v20230701preview:DnsResolverPolicy"), pulumi.Alias(type_="azure-native:network/v20230701preview:DnsResolverPolicy"), pulumi.Alias(type_="azure-native:network:DnsResolverPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20230701preview:DnsResolverPolicy"), pulumi.Alias(type_="azure-native:network:DnsResolverPolicy"), pulumi.Alias(type_="azure-native_dnsresolver_v20230701preview:dnsresolver:DnsResolverPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DnsResolverPolicy, __self__).__init__(
             'azure-native:dnsresolver:DnsResolverPolicy',

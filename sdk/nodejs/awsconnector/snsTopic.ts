@@ -100,7 +100,7 @@ export class SnsTopic extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SnsTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SnsTopic" }, { type: "azure-native_awsconnector_v20241201:awsconnector:SnsTopic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SnsTopic.__pulumiType, name, resourceInputs, opts);
     }

@@ -139,7 +139,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["vmSwitchName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20230701preview:VirtualNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20230701preview:VirtualNetwork" }, { type: "azure-native_azurestackhci_v20210701preview:azurestackhci:VirtualNetwork" }, { type: "azure-native_azurestackhci_v20210901preview:azurestackhci:VirtualNetwork" }, { type: "azure-native_azurestackhci_v20221215preview:azurestackhci:VirtualNetwork" }, { type: "azure-native_azurestackhci_v20230701preview:azurestackhci:VirtualNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetwork.__pulumiType, name, resourceInputs, opts);
     }

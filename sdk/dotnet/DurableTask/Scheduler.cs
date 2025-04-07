@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.DurableTask
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:durabletask/v20241001preview:Scheduler" },
+                    new global::Pulumi.Alias { Type = "azure-native_durabletask_v20241001preview:durabletask:Scheduler" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -101,7 +101,7 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20210622:HybridRunbookWorkerGroup" }, { type: "azure-native:automation/v20220222:HybridRunbookWorkerGroup" }, { type: "azure-native:automation/v20220808:HybridRunbookWorkerGroup" }, { type: "azure-native:automation/v20230515preview:HybridRunbookWorkerGroup" }, { type: "azure-native:automation/v20231101:HybridRunbookWorkerGroup" }, { type: "azure-native:automation/v20241023:HybridRunbookWorkerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20210622:HybridRunbookWorkerGroup" }, { type: "azure-native:automation/v20220808:HybridRunbookWorkerGroup" }, { type: "azure-native:automation/v20230515preview:HybridRunbookWorkerGroup" }, { type: "azure-native:automation/v20231101:HybridRunbookWorkerGroup" }, { type: "azure-native:automation/v20241023:HybridRunbookWorkerGroup" }, { type: "azure-native_automation_v20210622:automation:HybridRunbookWorkerGroup" }, { type: "azure-native_automation_v20220222:automation:HybridRunbookWorkerGroup" }, { type: "azure-native_automation_v20220808:automation:HybridRunbookWorkerGroup" }, { type: "azure-native_automation_v20230515preview:automation:HybridRunbookWorkerGroup" }, { type: "azure-native_automation_v20231101:automation:HybridRunbookWorkerGroup" }, { type: "azure-native_automation_v20241023:automation:HybridRunbookWorkerGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridRunbookWorkerGroup.__pulumiType, name, resourceInputs, opts);
     }

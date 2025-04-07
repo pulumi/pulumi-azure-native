@@ -102,7 +102,11 @@ namespace Pulumi.AzureNative.EventGrid
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:CaCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20240601preview:CaCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20241215preview:CaCertificate" },
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20250215:CaCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20230601preview:eventgrid:CaCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20231215preview:eventgrid:CaCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20240601preview:eventgrid:CaCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20241215preview:eventgrid:CaCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_eventgrid_v20250215:eventgrid:CaCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

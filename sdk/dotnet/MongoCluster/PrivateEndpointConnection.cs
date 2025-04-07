@@ -78,10 +78,10 @@ namespace Pulumi.AzureNative.MongoCluster
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240601preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240701:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241001preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:mongocluster/v20240301preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:mongocluster/v20240601preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:mongocluster/v20240701:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:mongocluster/v20241001preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_mongocluster_v20240301preview:mongocluster:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_mongocluster_v20240601preview:mongocluster:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_mongocluster_v20240701:mongocluster:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_mongocluster_v20241001preview:mongocluster:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

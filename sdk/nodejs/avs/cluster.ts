@@ -128,7 +128,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["vsanDatastoreName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200320:Cluster" }, { type: "azure-native:avs/v20200717preview:Cluster" }, { type: "azure-native:avs/v20210101preview:Cluster" }, { type: "azure-native:avs/v20210601:Cluster" }, { type: "azure-native:avs/v20211201:Cluster" }, { type: "azure-native:avs/v20220501:Cluster" }, { type: "azure-native:avs/v20230301:Cluster" }, { type: "azure-native:avs/v20230901:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200320:Cluster" }, { type: "azure-native:avs/v20210601:Cluster" }, { type: "azure-native:avs/v20220501:Cluster" }, { type: "azure-native:avs/v20230301:Cluster" }, { type: "azure-native:avs/v20230901:Cluster" }, { type: "azure-native_avs_v20200320:avs:Cluster" }, { type: "azure-native_avs_v20200717preview:avs:Cluster" }, { type: "azure-native_avs_v20210101preview:avs:Cluster" }, { type: "azure-native_avs_v20210601:avs:Cluster" }, { type: "azure-native_avs_v20211201:avs:Cluster" }, { type: "azure-native_avs_v20220501:avs:Cluster" }, { type: "azure-native_avs_v20230301:avs:Cluster" }, { type: "azure-native_avs_v20230901:avs:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

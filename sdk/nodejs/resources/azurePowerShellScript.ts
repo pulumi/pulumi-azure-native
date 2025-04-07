@@ -207,7 +207,7 @@ export class AzurePowerShellScript extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20191001preview:AzureCliScript" }, { type: "azure-native:resources/v20191001preview:AzurePowerShellScript" }, { type: "azure-native:resources/v20201001:AzureCliScript" }, { type: "azure-native:resources/v20201001:AzurePowerShellScript" }, { type: "azure-native:resources/v20230801:AzureCliScript" }, { type: "azure-native:resources/v20230801:AzurePowerShellScript" }, { type: "azure-native:resources:AzureCliScript" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20191001preview:AzureCliScript" }, { type: "azure-native:resources/v20191001preview:AzurePowerShellScript" }, { type: "azure-native:resources/v20201001:AzureCliScript" }, { type: "azure-native:resources/v20201001:AzurePowerShellScript" }, { type: "azure-native:resources/v20230801:AzureCliScript" }, { type: "azure-native:resources/v20230801:AzurePowerShellScript" }, { type: "azure-native:resources:AzureCliScript" }, { type: "azure-native_resources_v20191001preview:resources:AzurePowerShellScript" }, { type: "azure-native_resources_v20201001:resources:AzurePowerShellScript" }, { type: "azure-native_resources_v20230801:resources:AzurePowerShellScript" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzurePowerShellScript.__pulumiType, name, resourceInputs, opts);
     }

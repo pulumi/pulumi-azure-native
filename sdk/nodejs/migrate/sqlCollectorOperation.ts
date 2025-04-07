@@ -119,7 +119,7 @@ export class SqlCollectorOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230909preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20240101preview:SqlCollectorOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230909preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20240101preview:SqlCollectorOperation" }, { type: "azure-native_migrate_v20230315:migrate:SqlCollectorOperation" }, { type: "azure-native_migrate_v20230401preview:migrate:SqlCollectorOperation" }, { type: "azure-native_migrate_v20230501preview:migrate:SqlCollectorOperation" }, { type: "azure-native_migrate_v20230909preview:migrate:SqlCollectorOperation" }, { type: "azure-native_migrate_v20240101preview:migrate:SqlCollectorOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlCollectorOperation.__pulumiType, name, resourceInputs, opts);
     }

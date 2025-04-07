@@ -214,7 +214,7 @@ class Site(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20200101:Site"), pulumi.Alias(type_="azure-native:offazure/v20200707:Site"), pulumi.Alias(type_="azure-native:offazure/v20230606:Site"), pulumi.Alias(type_="azure-native:offazure/v20230606:SitesController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:Site"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:SitesController"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:Site"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:SitesController"), pulumi.Alias(type_="azure-native:offazure:SitesController")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20200707:Site"), pulumi.Alias(type_="azure-native:offazure/v20230606:SitesController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:SitesController"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:SitesController"), pulumi.Alias(type_="azure-native:offazure:SitesController"), pulumi.Alias(type_="azure-native_offazure_v20200101:offazure:Site"), pulumi.Alias(type_="azure-native_offazure_v20200707:offazure:Site"), pulumi.Alias(type_="azure-native_offazure_v20230606:offazure:Site"), pulumi.Alias(type_="azure-native_offazure_v20231001preview:offazure:Site"), pulumi.Alias(type_="azure-native_offazure_v20240501preview:offazure:Site")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Site, __self__).__init__(
             'azure-native:offazure:Site',

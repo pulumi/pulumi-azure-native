@@ -203,7 +203,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["virtualNetworkRules"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datalakestore/v20161101:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datalakestore/v20161101:Account" }, { type: "azure-native_datalakestore_v20161101:datalakestore:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

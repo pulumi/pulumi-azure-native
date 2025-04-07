@@ -125,7 +125,7 @@ export class EncryptionSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20240501preview:EncryptionSet" }, { type: "azure-native:devcenter/v20240601preview:EncryptionSet" }, { type: "azure-native:devcenter/v20240701preview:EncryptionSet" }, { type: "azure-native:devcenter/v20240801preview:EncryptionSet" }, { type: "azure-native:devcenter/v20241001preview:EncryptionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20240501preview:EncryptionSet" }, { type: "azure-native:devcenter/v20240601preview:EncryptionSet" }, { type: "azure-native:devcenter/v20240701preview:EncryptionSet" }, { type: "azure-native:devcenter/v20240801preview:EncryptionSet" }, { type: "azure-native:devcenter/v20241001preview:EncryptionSet" }, { type: "azure-native_devcenter_v20240501preview:devcenter:EncryptionSet" }, { type: "azure-native_devcenter_v20240601preview:devcenter:EncryptionSet" }, { type: "azure-native_devcenter_v20240701preview:devcenter:EncryptionSet" }, { type: "azure-native_devcenter_v20240801preview:devcenter:EncryptionSet" }, { type: "azure-native_devcenter_v20241001preview:devcenter:EncryptionSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EncryptionSet.__pulumiType, name, resourceInputs, opts);
     }

@@ -90,7 +90,7 @@ export class SaasSubscriptionLevel extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:saas/v20180301beta:SaasSubscriptionLevel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:saas/v20180301beta:SaasSubscriptionLevel" }, { type: "azure-native_saas_v20180301beta:saas:SaasSubscriptionLevel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SaasSubscriptionLevel.__pulumiType, name, resourceInputs, opts);
     }

@@ -89,16 +89,20 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSitePrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSitePrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSitePrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSitePrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSitePrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSitePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:StaticSitePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:StaticSitePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:StaticSitePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20201201:web:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210101:web:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210115:web:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210201:web:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210301:web:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220301:web:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220901:web:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20230101:web:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20231201:web:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20240401:web:StaticSitePrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

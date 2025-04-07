@@ -83,7 +83,7 @@ export class SecurityOperator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20230101preview:SecurityOperator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20230101preview:SecurityOperator" }, { type: "azure-native_security_v20230101preview:security:SecurityOperator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityOperator.__pulumiType, name, resourceInputs, opts);
     }

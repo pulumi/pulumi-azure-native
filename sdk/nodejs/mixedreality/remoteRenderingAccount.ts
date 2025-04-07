@@ -139,7 +139,7 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210101:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20250101:RemoteRenderingAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mixedreality/v20210101:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount" }, { type: "azure-native_mixedreality_v20191202preview:mixedreality:RemoteRenderingAccount" }, { type: "azure-native_mixedreality_v20200406preview:mixedreality:RemoteRenderingAccount" }, { type: "azure-native_mixedreality_v20210101:mixedreality:RemoteRenderingAccount" }, { type: "azure-native_mixedreality_v20210301preview:mixedreality:RemoteRenderingAccount" }, { type: "azure-native_mixedreality_v20250101:mixedreality:RemoteRenderingAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RemoteRenderingAccount.__pulumiType, name, resourceInputs, opts);
     }

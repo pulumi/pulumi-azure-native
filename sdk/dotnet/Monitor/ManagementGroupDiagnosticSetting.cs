@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Monitor
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:insights:ManagementGroupDiagnosticSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20200101preview:ManagementGroupDiagnosticSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20210501preview:ManagementGroupDiagnosticSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20200101preview:monitor:ManagementGroupDiagnosticSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20210501preview:monitor:ManagementGroupDiagnosticSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

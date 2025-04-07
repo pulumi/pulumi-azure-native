@@ -101,7 +101,7 @@ export class IspCustomer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:IspCustomer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedcache/v20230501preview:IspCustomer" }, { type: "azure-native_connectedcache_v20230501preview:connectedcache:IspCustomer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IspCustomer.__pulumiType, name, resourceInputs, opts);
     }

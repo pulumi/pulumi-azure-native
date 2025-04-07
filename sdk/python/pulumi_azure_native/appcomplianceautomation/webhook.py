@@ -285,7 +285,7 @@ class Webhook(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["webhook_id"] = None
             __props__.__dict__["webhook_key_enabled"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appcomplianceautomation/v20240627:Webhook")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appcomplianceautomation/v20240627:Webhook"), pulumi.Alias(type_="azure-native_appcomplianceautomation_v20240627:appcomplianceautomation:Webhook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Webhook, __self__).__init__(
             'azure-native:appcomplianceautomation:Webhook',

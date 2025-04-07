@@ -96,7 +96,7 @@ export class CredentialOperation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datafactory/v20180601:CredentialOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory/v20180601:CredentialOperation" }, { type: "azure-native_datafactory_v20180601:datafactory:CredentialOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CredentialOperation.__pulumiType, name, resourceInputs, opts);
     }

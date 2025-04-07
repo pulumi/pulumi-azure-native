@@ -123,7 +123,7 @@ export class System extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20240401preview:System" }, { type: "azure-native:securityinsights/v20241001preview:System" }, { type: "azure-native:securityinsights/v20250101preview:System" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20240401preview:System" }, { type: "azure-native:securityinsights/v20241001preview:System" }, { type: "azure-native_securityinsights_v20240401preview:securityinsights:System" }, { type: "azure-native_securityinsights_v20241001preview:securityinsights:System" }, { type: "azure-native_securityinsights_v20250101preview:securityinsights:System" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(System.__pulumiType, name, resourceInputs, opts);
     }

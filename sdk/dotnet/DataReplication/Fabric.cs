@@ -84,7 +84,8 @@ namespace Pulumi.AzureNative.DataReplication
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datareplication/v20210216preview:Fabric" },
-                    new global::Pulumi.Alias { Type = "azure-native:datareplication/v20240901:Fabric" },
+                    new global::Pulumi.Alias { Type = "azure-native_datareplication_v20210216preview:datareplication:Fabric" },
+                    new global::Pulumi.Alias { Type = "azure-native_datareplication_v20240901:datareplication:Fabric" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:NetworkPacketBroker" },
+                    new global::Pulumi.Alias { Type = "azure-native_managednetworkfabric_v20230615:managednetworkfabric:NetworkPacketBroker" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

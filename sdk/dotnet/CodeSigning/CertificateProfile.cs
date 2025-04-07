@@ -124,6 +124,8 @@ namespace Pulumi.AzureNative.CodeSigning
                 {
                     new global::Pulumi.Alias { Type = "azure-native:codesigning/v20240205preview:CertificateProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:codesigning/v20240930preview:CertificateProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_codesigning_v20240205preview:codesigning:CertificateProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native_codesigning_v20240930preview:codesigning:CertificateProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

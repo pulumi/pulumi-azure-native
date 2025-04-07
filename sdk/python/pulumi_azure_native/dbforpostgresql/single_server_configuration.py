@@ -182,7 +182,7 @@ class SingleServerConfiguration(pulumi.CustomResource):
             __props__.__dict__["description"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201:SingleServerConfiguration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201preview:SingleServerConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201:Configuration"), pulumi.Alias(type_="azure-native_dbforpostgresql_v20171201:dbforpostgresql:SingleServerConfiguration"), pulumi.Alias(type_="azure-native_dbforpostgresql_v20171201preview:dbforpostgresql:SingleServerConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SingleServerConfiguration, __self__).__init__(
             'azure-native:dbforpostgresql:SingleServerConfiguration',

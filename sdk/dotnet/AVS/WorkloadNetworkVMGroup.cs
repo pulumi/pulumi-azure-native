@@ -98,13 +98,16 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkVMGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkVMGroup" },
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkVMGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:WorkloadNetworkVMGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:WorkloadNetworkVMGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:WorkloadNetworkVMGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20200717preview:avs:WorkloadNetworkVMGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210101preview:avs:WorkloadNetworkVMGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20210601:avs:WorkloadNetworkVMGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20211201:avs:WorkloadNetworkVMGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20220501:avs:WorkloadNetworkVMGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230301:avs:WorkloadNetworkVMGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_avs_v20230901:avs:WorkloadNetworkVMGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

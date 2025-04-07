@@ -136,7 +136,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:VirtualNetwork" }, { type: "azure-native:scvmm/v20220521preview:VirtualNetwork" }, { type: "azure-native:scvmm/v20230401preview:VirtualNetwork" }, { type: "azure-native:scvmm/v20231007:VirtualNetwork" }, { type: "azure-native:scvmm/v20240601:VirtualNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20220521preview:VirtualNetwork" }, { type: "azure-native:scvmm/v20230401preview:VirtualNetwork" }, { type: "azure-native:scvmm/v20231007:VirtualNetwork" }, { type: "azure-native:scvmm/v20240601:VirtualNetwork" }, { type: "azure-native_scvmm_v20200605preview:scvmm:VirtualNetwork" }, { type: "azure-native_scvmm_v20220521preview:scvmm:VirtualNetwork" }, { type: "azure-native_scvmm_v20230401preview:scvmm:VirtualNetwork" }, { type: "azure-native_scvmm_v20231007:scvmm:VirtualNetwork" }, { type: "azure-native_scvmm_v20240601:scvmm:VirtualNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetwork.__pulumiType, name, resourceInputs, opts);
     }

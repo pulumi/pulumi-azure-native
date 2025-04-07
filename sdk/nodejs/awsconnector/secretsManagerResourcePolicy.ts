@@ -100,7 +100,7 @@ export class SecretsManagerResourcePolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SecretsManagerResourcePolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SecretsManagerResourcePolicy" }, { type: "azure-native_awsconnector_v20241201:awsconnector:SecretsManagerResourcePolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecretsManagerResourcePolicy.__pulumiType, name, resourceInputs, opts);
     }

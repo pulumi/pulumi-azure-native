@@ -95,7 +95,7 @@ export class BillingProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:billing/v20240401:BillingProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:billing/v20240401:BillingProfile" }, { type: "azure-native_billing_v20240401:billing:BillingProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BillingProfile.__pulumiType, name, resourceInputs, opts);
     }

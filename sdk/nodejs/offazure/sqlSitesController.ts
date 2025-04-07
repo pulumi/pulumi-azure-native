@@ -115,7 +115,7 @@ export class SqlSitesController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20230606:SqlSitesController" }, { type: "azure-native:offazure/v20231001preview:SqlSitesController" }, { type: "azure-native:offazure/v20240501preview:SqlSitesController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20230606:SqlSitesController" }, { type: "azure-native:offazure/v20231001preview:SqlSitesController" }, { type: "azure-native:offazure/v20240501preview:SqlSitesController" }, { type: "azure-native_offazure_v20230606:offazure:SqlSitesController" }, { type: "azure-native_offazure_v20231001preview:offazure:SqlSitesController" }, { type: "azure-native_offazure_v20240501preview:offazure:SqlSitesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlSitesController.__pulumiType, name, resourceInputs, opts);
     }

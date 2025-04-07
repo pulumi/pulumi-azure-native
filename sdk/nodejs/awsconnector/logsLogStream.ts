@@ -100,7 +100,7 @@ export class LogsLogStream extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:LogsLogStream" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:LogsLogStream" }, { type: "azure-native_awsconnector_v20241201:awsconnector:LogsLogStream" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LogsLogStream.__pulumiType, name, resourceInputs, opts);
     }

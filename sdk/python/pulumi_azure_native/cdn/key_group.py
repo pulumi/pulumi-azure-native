@@ -167,7 +167,7 @@ class KeyGroup(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20230701preview:KeyGroup"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:KeyGroup"), pulumi.Alias(type_="azure-native:cdn/v20240601preview:KeyGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20230701preview:KeyGroup"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:KeyGroup"), pulumi.Alias(type_="azure-native:cdn/v20240601preview:KeyGroup"), pulumi.Alias(type_="azure-native_cdn_v20230701preview:cdn:KeyGroup"), pulumi.Alias(type_="azure-native_cdn_v20240501preview:cdn:KeyGroup"), pulumi.Alias(type_="azure-native_cdn_v20240601preview:cdn:KeyGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KeyGroup, __self__).__init__(
             'azure-native:cdn:KeyGroup',

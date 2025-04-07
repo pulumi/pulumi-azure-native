@@ -149,7 +149,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Volume" }, { type: "azure-native:networkcloud/v20231001preview:Volume" }, { type: "azure-native:networkcloud/v20240601preview:Volume" }, { type: "azure-native:networkcloud/v20240701:Volume" }, { type: "azure-native:networkcloud/v20241001preview:Volume" }, { type: "azure-native:networkcloud/v20250201:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Volume" }, { type: "azure-native:networkcloud/v20231001preview:Volume" }, { type: "azure-native:networkcloud/v20240601preview:Volume" }, { type: "azure-native:networkcloud/v20240701:Volume" }, { type: "azure-native:networkcloud/v20241001preview:Volume" }, { type: "azure-native_networkcloud_v20230701:networkcloud:Volume" }, { type: "azure-native_networkcloud_v20231001preview:networkcloud:Volume" }, { type: "azure-native_networkcloud_v20240601preview:networkcloud:Volume" }, { type: "azure-native_networkcloud_v20240701:networkcloud:Volume" }, { type: "azure-native_networkcloud_v20241001preview:networkcloud:Volume" }, { type: "azure-native_networkcloud_v20250201:networkcloud:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }

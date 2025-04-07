@@ -109,7 +109,7 @@ export class ArchiveVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230601preview:ArchiveVersion" }, { type: "azure-native:containerregistry/v20230801preview:ArchiveVersion" }, { type: "azure-native:containerregistry/v20231101preview:ArchiveVersion" }, { type: "azure-native:containerregistry/v20241101preview:ArchiveVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230601preview:ArchiveVersion" }, { type: "azure-native:containerregistry/v20230801preview:ArchiveVersion" }, { type: "azure-native:containerregistry/v20231101preview:ArchiveVersion" }, { type: "azure-native:containerregistry/v20241101preview:ArchiveVersion" }, { type: "azure-native_containerregistry_v20230601preview:containerregistry:ArchiveVersion" }, { type: "azure-native_containerregistry_v20230801preview:containerregistry:ArchiveVersion" }, { type: "azure-native_containerregistry_v20231101preview:containerregistry:ArchiveVersion" }, { type: "azure-native_containerregistry_v20241101preview:containerregistry:ArchiveVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArchiveVersion.__pulumiType, name, resourceInputs, opts);
     }

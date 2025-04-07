@@ -96,9 +96,9 @@ namespace Pulumi.AzureNative.DnsResolver
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20230701preview:DnsResolverPolicyVirtualNetworkLink" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:DnsResolverPolicyVirtualNetworkLink" },
                     new global::Pulumi.Alias { Type = "azure-native:network:DnsResolverPolicyVirtualNetworkLink" },
+                    new global::Pulumi.Alias { Type = "azure-native_dnsresolver_v20230701preview:dnsresolver:DnsResolverPolicyVirtualNetworkLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

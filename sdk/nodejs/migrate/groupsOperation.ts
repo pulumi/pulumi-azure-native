@@ -143,7 +143,7 @@ export class GroupsOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:Group" }, { type: "azure-native:migrate/v20191001:GroupsOperation" }, { type: "azure-native:migrate/v20230315:GroupsOperation" }, { type: "azure-native:migrate/v20230401preview:GroupsOperation" }, { type: "azure-native:migrate/v20230501preview:GroupsOperation" }, { type: "azure-native:migrate/v20230909preview:GroupsOperation" }, { type: "azure-native:migrate/v20240101preview:GroupsOperation" }, { type: "azure-native:migrate:Group" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:Group" }, { type: "azure-native:migrate/v20230315:GroupsOperation" }, { type: "azure-native:migrate/v20230401preview:GroupsOperation" }, { type: "azure-native:migrate/v20230501preview:GroupsOperation" }, { type: "azure-native:migrate/v20230909preview:GroupsOperation" }, { type: "azure-native:migrate/v20240101preview:GroupsOperation" }, { type: "azure-native:migrate:Group" }, { type: "azure-native_migrate_v20191001:migrate:GroupsOperation" }, { type: "azure-native_migrate_v20230315:migrate:GroupsOperation" }, { type: "azure-native_migrate_v20230401preview:migrate:GroupsOperation" }, { type: "azure-native_migrate_v20230501preview:migrate:GroupsOperation" }, { type: "azure-native_migrate_v20230909preview:migrate:GroupsOperation" }, { type: "azure-native_migrate_v20240101preview:migrate:GroupsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GroupsOperation.__pulumiType, name, resourceInputs, opts);
     }

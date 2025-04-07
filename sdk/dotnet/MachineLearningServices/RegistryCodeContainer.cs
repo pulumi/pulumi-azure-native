@@ -74,9 +74,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:RegistryCodeContainer" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:RegistryCodeContainer" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:RegistryCodeContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:RegistryCodeContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:RegistryCodeContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:RegistryCodeContainer" },
@@ -88,7 +85,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:RegistryCodeContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:RegistryCodeContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:RegistryCodeContainer" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20221001preview:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20221201preview:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230201preview:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230401:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230401preview:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230601preview:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20230801preview:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20231001:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240101preview:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240401:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240401preview:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20240701preview:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20241001:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20241001preview:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native_machinelearningservices_v20250101preview:machinelearningservices:RegistryCodeContainer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

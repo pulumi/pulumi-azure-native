@@ -146,16 +146,21 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ConnectedRegistry" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ConnectedRegistry" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ConnectedRegistry" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ConnectedRegistry" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ConnectedRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:ConnectedRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:ConnectedRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:ConnectedRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:ConnectedRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:ConnectedRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20201101preview:containerregistry:ConnectedRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20210601preview:containerregistry:ConnectedRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20210801preview:containerregistry:ConnectedRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20211201preview:containerregistry:ConnectedRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20220201preview:containerregistry:ConnectedRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230101preview:containerregistry:ConnectedRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230601preview:containerregistry:ConnectedRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20230801preview:containerregistry:ConnectedRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20231101preview:containerregistry:ConnectedRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerregistry_v20241101preview:containerregistry:ConnectedRegistry" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

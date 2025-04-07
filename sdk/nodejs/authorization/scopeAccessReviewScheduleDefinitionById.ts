@@ -226,7 +226,7 @@ export class ScopeAccessReviewScheduleDefinitionById extends pulumi.CustomResour
             resourceInputs["userPrincipalName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20211201preview:ScopeAccessReviewScheduleDefinitionById" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20211201preview:ScopeAccessReviewScheduleDefinitionById" }, { type: "azure-native_authorization_v20211201preview:authorization:ScopeAccessReviewScheduleDefinitionById" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScopeAccessReviewScheduleDefinitionById.__pulumiType, name, resourceInputs, opts);
     }

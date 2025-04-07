@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_videoanalyzer_v20211101preview:videoanalyzer:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

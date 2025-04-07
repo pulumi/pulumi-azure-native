@@ -122,11 +122,12 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ScheduledTrigger" },
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:ScheduledTrigger" },
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ScheduledTrigger" },
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ScheduledTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ScheduledTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20181101preview:datashare:ScheduledTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20191101:datashare:ScheduledTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20200901:datashare:ScheduledTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20201001preview:datashare:ScheduledTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native_datashare_v20210801:datashare:ScheduledTrigger" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

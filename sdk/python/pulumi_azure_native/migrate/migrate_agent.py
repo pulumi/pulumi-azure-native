@@ -201,7 +201,7 @@ class MigrateAgent(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20220501preview:MigrateAgent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20220501preview:MigrateAgent"), pulumi.Alias(type_="azure-native_migrate_v20220501preview:migrate:MigrateAgent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MigrateAgent, __self__).__init__(
             'azure-native:migrate:MigrateAgent',

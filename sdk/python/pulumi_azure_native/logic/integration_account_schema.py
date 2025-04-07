@@ -328,7 +328,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20160601:Schema"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountSchema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20160601:Schema"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native_logic_v20150801preview:logic:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native_logic_v20160601:logic:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native_logic_v20180701preview:logic:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native_logic_v20190501:logic:IntegrationAccountSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountSchema, __self__).__init__(
             'azure-native:logic:IntegrationAccountSchema',

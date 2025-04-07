@@ -140,7 +140,7 @@ export class PartnerDestination extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20230601preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20231215preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20240601preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20241215preview:PartnerDestination" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20230601preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20231215preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20240601preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20241215preview:PartnerDestination" }, { type: "azure-native_eventgrid_v20211015preview:eventgrid:PartnerDestination" }, { type: "azure-native_eventgrid_v20230601preview:eventgrid:PartnerDestination" }, { type: "azure-native_eventgrid_v20231215preview:eventgrid:PartnerDestination" }, { type: "azure-native_eventgrid_v20240601preview:eventgrid:PartnerDestination" }, { type: "azure-native_eventgrid_v20241215preview:eventgrid:PartnerDestination" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerDestination.__pulumiType, name, resourceInputs, opts);
     }

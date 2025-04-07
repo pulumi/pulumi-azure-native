@@ -100,7 +100,7 @@ export class LambdaFunctionCodeLocation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:LambdaFunctionCodeLocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:LambdaFunctionCodeLocation" }, { type: "azure-native_awsconnector_v20241201:awsconnector:LambdaFunctionCodeLocation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LambdaFunctionCodeLocation.__pulumiType, name, resourceInputs, opts);
     }

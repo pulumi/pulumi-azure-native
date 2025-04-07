@@ -176,7 +176,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Schedule" }, { type: "azure-native:automation/v20190601:Schedule" }, { type: "azure-native:automation/v20200113preview:Schedule" }, { type: "azure-native:automation/v20220808:Schedule" }, { type: "azure-native:automation/v20230515preview:Schedule" }, { type: "azure-native:automation/v20231101:Schedule" }, { type: "azure-native:automation/v20241023:Schedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20220808:Schedule" }, { type: "azure-native:automation/v20230515preview:Schedule" }, { type: "azure-native:automation/v20231101:Schedule" }, { type: "azure-native:automation/v20241023:Schedule" }, { type: "azure-native_automation_v20151031:automation:Schedule" }, { type: "azure-native_automation_v20190601:automation:Schedule" }, { type: "azure-native_automation_v20200113preview:automation:Schedule" }, { type: "azure-native_automation_v20220808:automation:Schedule" }, { type: "azure-native_automation_v20230515preview:automation:Schedule" }, { type: "azure-native_automation_v20231101:automation:Schedule" }, { type: "azure-native_automation_v20241023:automation:Schedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schedule.__pulumiType, name, resourceInputs, opts);
     }

@@ -100,7 +100,7 @@ export class Ec2VpcPeeringConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2VpcPeeringConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2VpcPeeringConnection" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2VpcPeeringConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2VpcPeeringConnection.__pulumiType, name, resourceInputs, opts);
     }

@@ -87,7 +87,8 @@ namespace Pulumi.AzureNative.AzureArcData
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:SqlServerLicense" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:SqlServerLicense" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20240501preview:azurearcdata:SqlServerLicense" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurearcdata_v20250301preview:azurearcdata:SqlServerLicense" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

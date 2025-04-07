@@ -105,7 +105,7 @@ export class SecurityContact extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20170801preview:SecurityContact" }, { type: "azure-native:security/v20200101preview:SecurityContact" }, { type: "azure-native:security/v20231201preview:SecurityContact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20170801preview:SecurityContact" }, { type: "azure-native:security/v20200101preview:SecurityContact" }, { type: "azure-native:security/v20231201preview:SecurityContact" }, { type: "azure-native_security_v20170801preview:security:SecurityContact" }, { type: "azure-native_security_v20200101preview:security:SecurityContact" }, { type: "azure-native_security_v20231201preview:security:SecurityContact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityContact.__pulumiType, name, resourceInputs, opts);
     }

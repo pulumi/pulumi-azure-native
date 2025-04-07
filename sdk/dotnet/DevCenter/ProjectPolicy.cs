@@ -87,7 +87,8 @@ namespace Pulumi.AzureNative.DevCenter
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:ProjectPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:ProjectPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_devcenter_v20241001preview:devcenter:ProjectPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_devcenter_v20250201:devcenter:ProjectPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

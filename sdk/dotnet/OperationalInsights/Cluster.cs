@@ -146,14 +146,18 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20221001:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20190801preview:operationalinsights:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20200301preview:operationalinsights:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20200801:operationalinsights:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20201001:operationalinsights:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20210601:operationalinsights:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20221001:operationalinsights:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20230901:operationalinsights:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native_operationalinsights_v20250201:operationalinsights:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

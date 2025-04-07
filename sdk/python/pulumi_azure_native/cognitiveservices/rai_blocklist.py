@@ -186,7 +186,7 @@ class RaiBlocklist(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:RaiBlocklist"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:RaiBlocklist"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240601preview:RaiBlocklist"), pulumi.Alias(type_="azure-native:cognitiveservices/v20241001:RaiBlocklist"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250401preview:RaiBlocklist")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:RaiBlocklist"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:RaiBlocklist"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240601preview:RaiBlocklist"), pulumi.Alias(type_="azure-native:cognitiveservices/v20241001:RaiBlocklist"), pulumi.Alias(type_="azure-native_cognitiveservices_v20231001preview:cognitiveservices:RaiBlocklist"), pulumi.Alias(type_="azure-native_cognitiveservices_v20240401preview:cognitiveservices:RaiBlocklist"), pulumi.Alias(type_="azure-native_cognitiveservices_v20240601preview:cognitiveservices:RaiBlocklist"), pulumi.Alias(type_="azure-native_cognitiveservices_v20241001:cognitiveservices:RaiBlocklist"), pulumi.Alias(type_="azure-native_cognitiveservices_v20250401preview:cognitiveservices:RaiBlocklist")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RaiBlocklist, __self__).__init__(
             'azure-native:cognitiveservices:RaiBlocklist',

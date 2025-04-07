@@ -100,7 +100,7 @@ export class Ec2NetworkAcl extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2NetworkAcl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2NetworkAcl" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2NetworkAcl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2NetworkAcl.__pulumiType, name, resourceInputs, opts);
     }

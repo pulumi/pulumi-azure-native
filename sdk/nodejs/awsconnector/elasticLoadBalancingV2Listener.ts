@@ -100,7 +100,7 @@ export class ElasticLoadBalancingV2Listener extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ElasticLoadBalancingV2Listener" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:ElasticLoadBalancingV2Listener" }, { type: "azure-native_awsconnector_v20241201:awsconnector:ElasticLoadBalancingV2Listener" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticLoadBalancingV2Listener.__pulumiType, name, resourceInputs, opts);
     }

@@ -118,7 +118,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20191017preview:PrivateLinkScope" }, { type: "azure-native:insights/v20210701preview:PrivateLinkScope" }, { type: "azure-native:insights/v20210901:PrivateLinkScope" }, { type: "azure-native:insights/v20230601preview:PrivateLinkScope" }, { type: "azure-native:insights:PrivateLinkScope" }, { type: "azure-native:monitor/v20191017preview:PrivateLinkScope" }, { type: "azure-native:monitor/v20210701preview:PrivateLinkScope" }, { type: "azure-native:monitor/v20210901:PrivateLinkScope" }, { type: "azure-native:monitor/v20230601preview:PrivateLinkScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20191017preview:PrivateLinkScope" }, { type: "azure-native:insights/v20210701preview:PrivateLinkScope" }, { type: "azure-native:insights/v20210901:PrivateLinkScope" }, { type: "azure-native:insights/v20230601preview:PrivateLinkScope" }, { type: "azure-native:insights:PrivateLinkScope" }, { type: "azure-native_monitor_v20191017preview:monitor:PrivateLinkScope" }, { type: "azure-native_monitor_v20210701preview:monitor:PrivateLinkScope" }, { type: "azure-native_monitor_v20210901:monitor:PrivateLinkScope" }, { type: "azure-native_monitor_v20230601preview:monitor:PrivateLinkScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkScope.__pulumiType, name, resourceInputs, opts);
     }

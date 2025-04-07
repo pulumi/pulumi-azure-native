@@ -116,7 +116,7 @@ export class PrivateResolverVirtualNetworkLink extends pulumi.CustomResource {
             resourceInputs["virtualNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dnsresolver/v20200401preview:PrivateResolverVirtualNetworkLink" }, { type: "azure-native:dnsresolver/v20220701:PrivateResolverVirtualNetworkLink" }, { type: "azure-native:dnsresolver/v20230701preview:PrivateResolverVirtualNetworkLink" }, { type: "azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink" }, { type: "azure-native:network/v20220701:PrivateResolverVirtualNetworkLink" }, { type: "azure-native:network/v20230701preview:PrivateResolverVirtualNetworkLink" }, { type: "azure-native:network:PrivateResolverVirtualNetworkLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink" }, { type: "azure-native:network/v20220701:PrivateResolverVirtualNetworkLink" }, { type: "azure-native:network/v20230701preview:PrivateResolverVirtualNetworkLink" }, { type: "azure-native:network:PrivateResolverVirtualNetworkLink" }, { type: "azure-native_dnsresolver_v20200401preview:dnsresolver:PrivateResolverVirtualNetworkLink" }, { type: "azure-native_dnsresolver_v20220701:dnsresolver:PrivateResolverVirtualNetworkLink" }, { type: "azure-native_dnsresolver_v20230701preview:dnsresolver:PrivateResolverVirtualNetworkLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateResolverVirtualNetworkLink.__pulumiType, name, resourceInputs, opts);
     }

@@ -168,7 +168,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:education/v20211201preview:Lab" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:education/v20211201preview:Lab" }, { type: "azure-native_education_v20211201preview:education:Lab" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Lab.__pulumiType, name, resourceInputs, opts);
     }

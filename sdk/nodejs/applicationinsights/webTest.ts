@@ -183,7 +183,7 @@ export class WebTest extends pulumi.CustomResource {
             resourceInputs["webTestName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:applicationinsights/v20150501:WebTest" }, { type: "azure-native:applicationinsights/v20180501preview:WebTest" }, { type: "azure-native:applicationinsights/v20201005preview:WebTest" }, { type: "azure-native:applicationinsights/v20220615:WebTest" }, { type: "azure-native:insights/v20201005preview:WebTest" }, { type: "azure-native:insights/v20220615:WebTest" }, { type: "azure-native:insights:WebTest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20201005preview:WebTest" }, { type: "azure-native:insights/v20220615:WebTest" }, { type: "azure-native:insights:WebTest" }, { type: "azure-native_applicationinsights_v20150501:applicationinsights:WebTest" }, { type: "azure-native_applicationinsights_v20180501preview:applicationinsights:WebTest" }, { type: "azure-native_applicationinsights_v20201005preview:applicationinsights:WebTest" }, { type: "azure-native_applicationinsights_v20220615:applicationinsights:WebTest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebTest.__pulumiType, name, resourceInputs, opts);
     }

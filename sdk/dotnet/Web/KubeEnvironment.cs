@@ -147,15 +147,19 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:KubeEnvironment" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:KubeEnvironment" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:KubeEnvironment" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:KubeEnvironment" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:KubeEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:KubeEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:KubeEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:KubeEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210101:web:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210115:web:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210201:web:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210301:web:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220301:web:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220901:web:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20230101:web:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20231201:web:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20240401:web:KubeEnvironment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

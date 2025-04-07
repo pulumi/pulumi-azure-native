@@ -85,10 +85,10 @@ namespace Pulumi.AzureNative.Monitor
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210901:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20230601preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:insights:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20191017preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20210701preview:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20210901:PrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20230601preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20191017preview:monitor:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20210701preview:monitor:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20210901:monitor:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20230601preview:monitor:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

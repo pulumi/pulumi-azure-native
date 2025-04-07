@@ -100,7 +100,7 @@ export class IamMfaDevice extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamMfaDevice" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:IamMfaDevice" }, { type: "azure-native_awsconnector_v20241201:awsconnector:IamMfaDevice" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IamMfaDevice.__pulumiType, name, resourceInputs, opts);
     }

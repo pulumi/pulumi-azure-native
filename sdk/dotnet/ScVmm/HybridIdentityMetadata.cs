@@ -94,6 +94,8 @@ namespace Pulumi.AzureNative.ScVmm
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:HybridIdentityMetadata" },
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20230401preview:HybridIdentityMetadata" },
+                    new global::Pulumi.Alias { Type = "azure-native_scvmm_v20220521preview:scvmm:HybridIdentityMetadata" },
+                    new global::Pulumi.Alias { Type = "azure-native_scvmm_v20230401preview:scvmm:HybridIdentityMetadata" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

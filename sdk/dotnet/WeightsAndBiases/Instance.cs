@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.WeightsAndBiases
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:weightsandbiases/v20240918preview:Instance" },
+                    new global::Pulumi.Alias { Type = "azure-native_weightsandbiases_v20240918preview:weightsandbiases:Instance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

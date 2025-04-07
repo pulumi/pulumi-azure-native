@@ -170,7 +170,7 @@ export class Rack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Rack" }, { type: "azure-native:networkcloud/v20231001preview:Rack" }, { type: "azure-native:networkcloud/v20240601preview:Rack" }, { type: "azure-native:networkcloud/v20240701:Rack" }, { type: "azure-native:networkcloud/v20241001preview:Rack" }, { type: "azure-native:networkcloud/v20250201:Rack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Rack" }, { type: "azure-native:networkcloud/v20231001preview:Rack" }, { type: "azure-native:networkcloud/v20240601preview:Rack" }, { type: "azure-native:networkcloud/v20240701:Rack" }, { type: "azure-native:networkcloud/v20241001preview:Rack" }, { type: "azure-native_networkcloud_v20230701:networkcloud:Rack" }, { type: "azure-native_networkcloud_v20231001preview:networkcloud:Rack" }, { type: "azure-native_networkcloud_v20240601preview:networkcloud:Rack" }, { type: "azure-native_networkcloud_v20240701:networkcloud:Rack" }, { type: "azure-native_networkcloud_v20241001preview:networkcloud:Rack" }, { type: "azure-native_networkcloud_v20250201:networkcloud:Rack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Rack.__pulumiType, name, resourceInputs, opts);
     }

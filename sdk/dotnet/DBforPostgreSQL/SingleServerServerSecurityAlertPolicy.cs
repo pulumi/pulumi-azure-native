@@ -103,9 +103,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:ServerSecurityAlertPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:SingleServerServerSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:SingleServerServerSecurityAlertPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20171201:dbforpostgresql:SingleServerServerSecurityAlertPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native_dbforpostgresql_v20171201preview:dbforpostgresql:SingleServerServerSecurityAlertPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

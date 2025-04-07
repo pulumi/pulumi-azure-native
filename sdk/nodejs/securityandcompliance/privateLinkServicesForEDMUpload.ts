@@ -122,7 +122,7 @@ export class PrivateLinkServicesForEDMUpload extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForEDMUpload" }, { type: "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForEDMUpload" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForEDMUpload" }, { type: "azure-native_securityandcompliance_v20210111:securityandcompliance:PrivateLinkServicesForEDMUpload" }, { type: "azure-native_securityandcompliance_v20210308:securityandcompliance:PrivateLinkServicesForEDMUpload" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForEDMUpload.__pulumiType, name, resourceInputs, opts);
     }

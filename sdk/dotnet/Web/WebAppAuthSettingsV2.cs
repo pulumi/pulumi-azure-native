@@ -98,13 +98,15 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettingsV2" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettingsV2" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettingsV2" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20200601:web:WebAppAuthSettingsV2" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20200901:web:WebAppAuthSettingsV2" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20201001:web:WebAppAuthSettingsV2" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20201201:web:WebAppAuthSettingsV2" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210101:web:WebAppAuthSettingsV2" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210115:web:WebAppAuthSettingsV2" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210201:web:WebAppAuthSettingsV2" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

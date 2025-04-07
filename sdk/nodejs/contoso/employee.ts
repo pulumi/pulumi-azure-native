@@ -103,7 +103,7 @@ export class Employee extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:contoso/v20211001preview:Employee" }, { type: "azure-native:contoso/v20211101:Employee" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:contoso/v20211001preview:Employee" }, { type: "azure-native_contoso_v20211001preview:contoso:Employee" }, { type: "azure-native_contoso_v20211101:contoso:Employee" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Employee.__pulumiType, name, resourceInputs, opts);
     }

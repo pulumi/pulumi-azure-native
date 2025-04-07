@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.Maps
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20200201preview:PrivateAtlase" },
+                    new global::Pulumi.Alias { Type = "azure-native_maps_v20200201preview:maps:PrivateAtlase" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

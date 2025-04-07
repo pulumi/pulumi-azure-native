@@ -201,7 +201,7 @@ class SerialPort(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:serialconsole/v20180501:SerialPort")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:serialconsole/v20180501:SerialPort"), pulumi.Alias(type_="azure-native_serialconsole_v20180501:serialconsole:SerialPort")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SerialPort, __self__).__init__(
             'azure-native:serialconsole:SerialPort',

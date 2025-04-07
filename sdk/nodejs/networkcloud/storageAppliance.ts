@@ -233,7 +233,7 @@ export class StorageAppliance extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:StorageAppliance" }, { type: "azure-native:networkcloud/v20231001preview:StorageAppliance" }, { type: "azure-native:networkcloud/v20240601preview:StorageAppliance" }, { type: "azure-native:networkcloud/v20240701:StorageAppliance" }, { type: "azure-native:networkcloud/v20241001preview:StorageAppliance" }, { type: "azure-native:networkcloud/v20250201:StorageAppliance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:StorageAppliance" }, { type: "azure-native:networkcloud/v20231001preview:StorageAppliance" }, { type: "azure-native:networkcloud/v20240601preview:StorageAppliance" }, { type: "azure-native:networkcloud/v20240701:StorageAppliance" }, { type: "azure-native:networkcloud/v20241001preview:StorageAppliance" }, { type: "azure-native_networkcloud_v20230701:networkcloud:StorageAppliance" }, { type: "azure-native_networkcloud_v20231001preview:networkcloud:StorageAppliance" }, { type: "azure-native_networkcloud_v20240601preview:networkcloud:StorageAppliance" }, { type: "azure-native_networkcloud_v20240701:networkcloud:StorageAppliance" }, { type: "azure-native_networkcloud_v20241001preview:networkcloud:StorageAppliance" }, { type: "azure-native_networkcloud_v20250201:networkcloud:StorageAppliance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAppliance.__pulumiType, name, resourceInputs, opts);
     }

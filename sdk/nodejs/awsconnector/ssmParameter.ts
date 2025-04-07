@@ -100,7 +100,7 @@ export class SsmParameter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SsmParameter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:SsmParameter" }, { type: "azure-native_awsconnector_v20241201:awsconnector:SsmParameter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SsmParameter.__pulumiType, name, resourceInputs, opts);
     }

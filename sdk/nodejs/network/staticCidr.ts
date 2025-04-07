@@ -99,7 +99,7 @@ export class StaticCidr extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240101preview:StaticCidr" }, { type: "azure-native:network/v20240501:StaticCidr" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240101preview:StaticCidr" }, { type: "azure-native:network/v20240501:StaticCidr" }, { type: "azure-native_network_v20240101preview:network:StaticCidr" }, { type: "azure-native_network_v20240501:network:StaticCidr" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticCidr.__pulumiType, name, resourceInputs, opts);
     }

@@ -104,7 +104,7 @@ export class DnssecConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dns/v20230701preview:DnssecConfig" }, { type: "azure-native:network/v20230701preview:DnssecConfig" }, { type: "azure-native:network:DnssecConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20230701preview:DnssecConfig" }, { type: "azure-native:network:DnssecConfig" }, { type: "azure-native_dns_v20230701preview:dns:DnssecConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DnssecConfig.__pulumiType, name, resourceInputs, opts);
     }

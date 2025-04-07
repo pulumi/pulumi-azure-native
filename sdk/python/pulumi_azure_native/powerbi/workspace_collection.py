@@ -167,7 +167,7 @@ class WorkspaceCollection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:powerbi/v20160129:WorkspaceCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:powerbi/v20160129:WorkspaceCollection"), pulumi.Alias(type_="azure-native_powerbi_v20160129:powerbi:WorkspaceCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceCollection, __self__).__init__(
             'azure-native:powerbi:WorkspaceCollection',

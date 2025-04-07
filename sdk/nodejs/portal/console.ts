@@ -70,7 +70,7 @@ export class Console extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:portal/v20181001:Console" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:portal/v20181001:Console" }, { type: "azure-native_portal_v20181001:portal:Console" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Console.__pulumiType, name, resourceInputs, opts);
     }

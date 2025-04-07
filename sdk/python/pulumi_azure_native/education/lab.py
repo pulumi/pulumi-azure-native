@@ -271,7 +271,7 @@ class Lab(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["total_budget"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:education/v20211201preview:Lab")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:education/v20211201preview:Lab"), pulumi.Alias(type_="azure-native_education_v20211201preview:education:Lab")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Lab, __self__).__init__(
             'azure-native:education:Lab',

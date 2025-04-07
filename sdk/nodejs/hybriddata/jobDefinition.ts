@@ -148,7 +148,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["userConfirmation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybriddata/v20160601:JobDefinition" }, { type: "azure-native:hybriddata/v20190601:JobDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybriddata/v20190601:JobDefinition" }, { type: "azure-native_hybriddata_v20160601:hybriddata:JobDefinition" }, { type: "azure-native_hybriddata_v20190601:hybriddata:JobDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobDefinition.__pulumiType, name, resourceInputs, opts);
     }

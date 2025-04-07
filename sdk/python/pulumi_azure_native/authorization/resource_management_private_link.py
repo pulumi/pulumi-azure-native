@@ -135,7 +135,7 @@ class ResourceManagementPrivateLink(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20200501:ResourceManagementPrivateLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20200501:ResourceManagementPrivateLink"), pulumi.Alias(type_="azure-native_authorization_v20200501:authorization:ResourceManagementPrivateLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ResourceManagementPrivateLink, __self__).__init__(
             'azure-native:authorization:ResourceManagementPrivateLink',

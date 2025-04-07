@@ -171,16 +171,20 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:Extension" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210501preview:Extension" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210901:Extension" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:Extension" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220101preview:Extension" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220301:Extension" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220402preview:Extension" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:Extension" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20221101:Extension" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20230501:Extension" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20241101:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20200701preview:kubernetesconfiguration:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20210501preview:kubernetesconfiguration:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20210901:kubernetesconfiguration:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20211101preview:kubernetesconfiguration:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20220101preview:kubernetesconfiguration:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20220301:kubernetesconfiguration:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20220402preview:kubernetesconfiguration:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20220701:kubernetesconfiguration:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20221101:kubernetesconfiguration:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20230501:kubernetesconfiguration:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native_kubernetesconfiguration_v20241101:kubernetesconfiguration:Extension" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

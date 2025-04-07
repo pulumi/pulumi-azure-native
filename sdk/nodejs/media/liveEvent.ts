@@ -183,7 +183,7 @@ export class LiveEvent extends pulumi.CustomResource {
             resourceInputs["useStaticHostname"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media/v20180330preview:LiveEvent" }, { type: "azure-native:media/v20180601preview:LiveEvent" }, { type: "azure-native:media/v20180701:LiveEvent" }, { type: "azure-native:media/v20190501preview:LiveEvent" }, { type: "azure-native:media/v20200501:LiveEvent" }, { type: "azure-native:media/v20210601:LiveEvent" }, { type: "azure-native:media/v20211101:LiveEvent" }, { type: "azure-native:media/v20220801:LiveEvent" }, { type: "azure-native:media/v20221101:LiveEvent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media/v20180601preview:LiveEvent" }, { type: "azure-native:media/v20190501preview:LiveEvent" }, { type: "azure-native:media/v20221101:LiveEvent" }, { type: "azure-native_media_v20180330preview:media:LiveEvent" }, { type: "azure-native_media_v20180601preview:media:LiveEvent" }, { type: "azure-native_media_v20180701:media:LiveEvent" }, { type: "azure-native_media_v20190501preview:media:LiveEvent" }, { type: "azure-native_media_v20200501:media:LiveEvent" }, { type: "azure-native_media_v20210601:media:LiveEvent" }, { type: "azure-native_media_v20211101:media:LiveEvent" }, { type: "azure-native_media_v20220801:media:LiveEvent" }, { type: "azure-native_media_v20221101:media:LiveEvent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LiveEvent.__pulumiType, name, resourceInputs, opts);
     }

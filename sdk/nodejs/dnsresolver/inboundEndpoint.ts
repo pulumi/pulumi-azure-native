@@ -128,7 +128,7 @@ export class InboundEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dnsresolver/v20200401preview:InboundEndpoint" }, { type: "azure-native:dnsresolver/v20220701:InboundEndpoint" }, { type: "azure-native:dnsresolver/v20230701preview:InboundEndpoint" }, { type: "azure-native:network/v20200401preview:InboundEndpoint" }, { type: "azure-native:network/v20220701:InboundEndpoint" }, { type: "azure-native:network/v20230701preview:InboundEndpoint" }, { type: "azure-native:network:InboundEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:InboundEndpoint" }, { type: "azure-native:network/v20220701:InboundEndpoint" }, { type: "azure-native:network/v20230701preview:InboundEndpoint" }, { type: "azure-native:network:InboundEndpoint" }, { type: "azure-native_dnsresolver_v20200401preview:dnsresolver:InboundEndpoint" }, { type: "azure-native_dnsresolver_v20220701:dnsresolver:InboundEndpoint" }, { type: "azure-native_dnsresolver_v20230701preview:dnsresolver:InboundEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InboundEndpoint.__pulumiType, name, resourceInputs, opts);
     }

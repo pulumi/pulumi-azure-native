@@ -253,7 +253,7 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["workspaceResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:applicationinsights/v20150501:Component" }, { type: "azure-native:applicationinsights/v20180501preview:Component" }, { type: "azure-native:applicationinsights/v20200202:Component" }, { type: "azure-native:applicationinsights/v20200202preview:Component" }, { type: "azure-native:insights/v20200202:Component" }, { type: "azure-native:insights/v20200202preview:Component" }, { type: "azure-native:insights:Component" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20200202:Component" }, { type: "azure-native:insights/v20200202preview:Component" }, { type: "azure-native:insights:Component" }, { type: "azure-native_applicationinsights_v20150501:applicationinsights:Component" }, { type: "azure-native_applicationinsights_v20180501preview:applicationinsights:Component" }, { type: "azure-native_applicationinsights_v20200202:applicationinsights:Component" }, { type: "azure-native_applicationinsights_v20200202preview:applicationinsights:Component" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Component.__pulumiType, name, resourceInputs, opts);
     }

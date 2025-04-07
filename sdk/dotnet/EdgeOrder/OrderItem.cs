@@ -116,12 +116,14 @@ namespace Pulumi.AzureNative.EdgeOrder
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderItem" },
-                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:OrderItem" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:OrderItemByName" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20220501preview:OrderItem" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20240201:OrderItem" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder:OrderItemByName" },
+                    new global::Pulumi.Alias { Type = "azure-native_edgeorder_v20201201preview:edgeorder:OrderItem" },
+                    new global::Pulumi.Alias { Type = "azure-native_edgeorder_v20211201:edgeorder:OrderItem" },
+                    new global::Pulumi.Alias { Type = "azure-native_edgeorder_v20220501preview:edgeorder:OrderItem" },
+                    new global::Pulumi.Alias { Type = "azure-native_edgeorder_v20240201:edgeorder:OrderItem" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

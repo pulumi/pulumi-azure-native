@@ -84,6 +84,16 @@ namespace Pulumi.AzureNative.Web
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppScmAllowedSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppScmAllowedSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppScmAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20201201:web:WebAppScmAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210101:web:WebAppScmAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210115:web:WebAppScmAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210201:web:WebAppScmAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20210301:web:WebAppScmAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220301:web:WebAppScmAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20220901:web:WebAppScmAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20230101:web:WebAppScmAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20231201:web:WebAppScmAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20240401:web:WebAppScmAllowedSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

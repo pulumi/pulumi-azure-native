@@ -100,7 +100,7 @@ export class Ec2Image extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2Image" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:Ec2Image" }, { type: "azure-native_awsconnector_v20241201:awsconnector:Ec2Image" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ec2Image.__pulumiType, name, resourceInputs, opts);
     }

@@ -97,7 +97,7 @@ export class WorkloadDeployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20220501preview:WorkloadDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20220501preview:WorkloadDeployment" }, { type: "azure-native_migrate_v20220501preview:migrate:WorkloadDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadDeployment.__pulumiType, name, resourceInputs, opts);
     }

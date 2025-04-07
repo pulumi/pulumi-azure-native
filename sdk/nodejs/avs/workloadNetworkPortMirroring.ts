@@ -131,7 +131,7 @@ export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring" }, { type: "azure-native:avs/v20210601:WorkloadNetworkPortMirroring" }, { type: "azure-native:avs/v20211201:WorkloadNetworkPortMirroring" }, { type: "azure-native:avs/v20220501:WorkloadNetworkPortMirroring" }, { type: "azure-native:avs/v20230301:WorkloadNetworkPortMirroring" }, { type: "azure-native:avs/v20230901:WorkloadNetworkPortMirroring" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20220501:WorkloadNetworkPortMirroring" }, { type: "azure-native:avs/v20230301:WorkloadNetworkPortMirroring" }, { type: "azure-native:avs/v20230901:WorkloadNetworkPortMirroring" }, { type: "azure-native_avs_v20200717preview:avs:WorkloadNetworkPortMirroring" }, { type: "azure-native_avs_v20210101preview:avs:WorkloadNetworkPortMirroring" }, { type: "azure-native_avs_v20210601:avs:WorkloadNetworkPortMirroring" }, { type: "azure-native_avs_v20211201:avs:WorkloadNetworkPortMirroring" }, { type: "azure-native_avs_v20220501:avs:WorkloadNetworkPortMirroring" }, { type: "azure-native_avs_v20230301:avs:WorkloadNetworkPortMirroring" }, { type: "azure-native_avs_v20230901:avs:WorkloadNetworkPortMirroring" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkPortMirroring.__pulumiType, name, resourceInputs, opts);
     }

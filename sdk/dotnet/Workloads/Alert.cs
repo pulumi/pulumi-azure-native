@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.Workloads
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20240201preview:Alert" },
+                    new global::Pulumi.Alias { Type = "azure-native_workloads_v20240201preview:workloads:Alert" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -348,7 +348,7 @@ class Link(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:customerinsights/v20170101:Link"), pulumi.Alias(type_="azure-native:customerinsights/v20170426:Link")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:customerinsights/v20170426:Link"), pulumi.Alias(type_="azure-native_customerinsights_v20170101:customerinsights:Link"), pulumi.Alias(type_="azure-native_customerinsights_v20170426:customerinsights:Link")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Link, __self__).__init__(
             'azure-native:customerinsights:Link',

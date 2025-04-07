@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Monitor
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210501preview:SubscriptionDiagnosticSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:insights:SubscriptionDiagnosticSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20170501preview:SubscriptionDiagnosticSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20210501preview:SubscriptionDiagnosticSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20170501preview:monitor:SubscriptionDiagnosticSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native_monitor_v20210501preview:monitor:SubscriptionDiagnosticSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

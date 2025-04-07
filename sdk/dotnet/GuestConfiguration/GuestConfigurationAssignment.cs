@@ -80,12 +80,14 @@ namespace Pulumi.AzureNative.GuestConfiguration
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment" },
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment" },
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment" },
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20240405:GuestConfigurationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_guestconfiguration_v20180630preview:guestconfiguration:GuestConfigurationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_guestconfiguration_v20181120:guestconfiguration:GuestConfigurationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_guestconfiguration_v20200625:guestconfiguration:GuestConfigurationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_guestconfiguration_v20210125:guestconfiguration:GuestConfigurationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_guestconfiguration_v20220125:guestconfiguration:GuestConfigurationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native_guestconfiguration_v20240405:guestconfiguration:GuestConfigurationAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

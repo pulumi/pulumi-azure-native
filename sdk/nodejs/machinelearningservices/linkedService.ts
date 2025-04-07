@@ -99,7 +99,7 @@ export class LinkedService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200901preview:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200901preview:LinkedService" }, { type: "azure-native_machinelearningservices_v20200901preview:machinelearningservices:LinkedService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedService.__pulumiType, name, resourceInputs, opts);
     }

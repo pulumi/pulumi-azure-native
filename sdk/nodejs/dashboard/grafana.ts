@@ -115,7 +115,7 @@ export class Grafana extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dashboard/v20210901preview:Grafana" }, { type: "azure-native:dashboard/v20220501preview:Grafana" }, { type: "azure-native:dashboard/v20220801:Grafana" }, { type: "azure-native:dashboard/v20221001preview:Grafana" }, { type: "azure-native:dashboard/v20230901:Grafana" }, { type: "azure-native:dashboard/v20231001preview:Grafana" }, { type: "azure-native:dashboard/v20241001:Grafana" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dashboard/v20210901preview:Grafana" }, { type: "azure-native:dashboard/v20220801:Grafana" }, { type: "azure-native:dashboard/v20221001preview:Grafana" }, { type: "azure-native:dashboard/v20230901:Grafana" }, { type: "azure-native:dashboard/v20231001preview:Grafana" }, { type: "azure-native:dashboard/v20241001:Grafana" }, { type: "azure-native_dashboard_v20210901preview:dashboard:Grafana" }, { type: "azure-native_dashboard_v20220501preview:dashboard:Grafana" }, { type: "azure-native_dashboard_v20220801:dashboard:Grafana" }, { type: "azure-native_dashboard_v20221001preview:dashboard:Grafana" }, { type: "azure-native_dashboard_v20230901:dashboard:Grafana" }, { type: "azure-native_dashboard_v20231001preview:dashboard:Grafana" }, { type: "azure-native_dashboard_v20241001:dashboard:Grafana" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Grafana.__pulumiType, name, resourceInputs, opts);
     }

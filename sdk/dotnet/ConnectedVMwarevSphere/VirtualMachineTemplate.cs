@@ -208,12 +208,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachineTemplate" },
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachineTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachineTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:VirtualMachineTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231001:VirtualMachineTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231201:VirtualMachineTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_connectedvmwarevsphere_v20201001preview:connectedvmwarevsphere:VirtualMachineTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_connectedvmwarevsphere_v20220110preview:connectedvmwarevsphere:VirtualMachineTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_connectedvmwarevsphere_v20220715preview:connectedvmwarevsphere:VirtualMachineTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_connectedvmwarevsphere_v20230301preview:connectedvmwarevsphere:VirtualMachineTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_connectedvmwarevsphere_v20231001:connectedvmwarevsphere:VirtualMachineTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native_connectedvmwarevsphere_v20231201:connectedvmwarevsphere:VirtualMachineTemplate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -125,7 +125,7 @@ export class SapDiscoverySite extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20231001preview:SapDiscoverySite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20231001preview:SapDiscoverySite" }, { type: "azure-native_workloads_v20231001preview:workloads:SapDiscoverySite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SapDiscoverySite.__pulumiType, name, resourceInputs, opts);
     }

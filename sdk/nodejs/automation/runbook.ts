@@ -189,7 +189,7 @@ export class Runbook extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Runbook" }, { type: "azure-native:automation/v20180630:Runbook" }, { type: "azure-native:automation/v20190601:Runbook" }, { type: "azure-native:automation/v20220808:Runbook" }, { type: "azure-native:automation/v20230515preview:Runbook" }, { type: "azure-native:automation/v20231101:Runbook" }, { type: "azure-native:automation/v20241023:Runbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20220808:Runbook" }, { type: "azure-native:automation/v20230515preview:Runbook" }, { type: "azure-native:automation/v20231101:Runbook" }, { type: "azure-native:automation/v20241023:Runbook" }, { type: "azure-native_automation_v20151031:automation:Runbook" }, { type: "azure-native_automation_v20180630:automation:Runbook" }, { type: "azure-native_automation_v20190601:automation:Runbook" }, { type: "azure-native_automation_v20220808:automation:Runbook" }, { type: "azure-native_automation_v20230515preview:automation:Runbook" }, { type: "azure-native_automation_v20231101:automation:Runbook" }, { type: "azure-native_automation_v20241023:automation:Runbook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Runbook.__pulumiType, name, resourceInputs, opts);
     }

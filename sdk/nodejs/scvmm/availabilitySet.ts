@@ -120,7 +120,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20220521preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20230401preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20231007:AvailabilitySet" }, { type: "azure-native:scvmm/v20240601:AvailabilitySet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20220521preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20230401preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20231007:AvailabilitySet" }, { type: "azure-native:scvmm/v20240601:AvailabilitySet" }, { type: "azure-native_scvmm_v20200605preview:scvmm:AvailabilitySet" }, { type: "azure-native_scvmm_v20220521preview:scvmm:AvailabilitySet" }, { type: "azure-native_scvmm_v20230401preview:scvmm:AvailabilitySet" }, { type: "azure-native_scvmm_v20231007:scvmm:AvailabilitySet" }, { type: "azure-native_scvmm_v20240601:scvmm:AvailabilitySet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvailabilitySet.__pulumiType, name, resourceInputs, opts);
     }

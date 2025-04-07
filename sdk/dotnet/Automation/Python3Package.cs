@@ -144,6 +144,10 @@ namespace Pulumi.AzureNative.Automation
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Python3Package" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:Python3Package" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:Python3Package" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20220808:automation:Python3Package" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20230515preview:automation:Python3Package" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20231101:automation:Python3Package" },
+                    new global::Pulumi.Alias { Type = "azure-native_automation_v20241023:automation:Python3Package" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

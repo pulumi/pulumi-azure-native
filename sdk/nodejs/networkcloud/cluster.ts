@@ -309,7 +309,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["workloadResourceIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Cluster" }, { type: "azure-native:networkcloud/v20231001preview:Cluster" }, { type: "azure-native:networkcloud/v20240601preview:Cluster" }, { type: "azure-native:networkcloud/v20240701:Cluster" }, { type: "azure-native:networkcloud/v20241001preview:Cluster" }, { type: "azure-native:networkcloud/v20250201:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Cluster" }, { type: "azure-native:networkcloud/v20231001preview:Cluster" }, { type: "azure-native:networkcloud/v20240601preview:Cluster" }, { type: "azure-native:networkcloud/v20240701:Cluster" }, { type: "azure-native:networkcloud/v20241001preview:Cluster" }, { type: "azure-native_networkcloud_v20230701:networkcloud:Cluster" }, { type: "azure-native_networkcloud_v20231001preview:networkcloud:Cluster" }, { type: "azure-native_networkcloud_v20240601preview:networkcloud:Cluster" }, { type: "azure-native_networkcloud_v20240701:networkcloud:Cluster" }, { type: "azure-native_networkcloud_v20241001preview:networkcloud:Cluster" }, { type: "azure-native_networkcloud_v20250201:networkcloud:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

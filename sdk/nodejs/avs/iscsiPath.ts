@@ -101,7 +101,7 @@ export class IscsiPath extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20230901:IscsiPath" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20230901:IscsiPath" }, { type: "azure-native_avs_v20230901:avs:IscsiPath" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IscsiPath.__pulumiType, name, resourceInputs, opts);
     }

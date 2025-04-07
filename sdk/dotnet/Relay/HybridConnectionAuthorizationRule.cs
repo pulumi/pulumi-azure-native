@@ -80,10 +80,13 @@ namespace Pulumi.AzureNative.Relay
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:HybridConnectionAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:HybridConnectionAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:HybridConnectionAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20240101:HybridConnectionAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_relay_v20160701:relay:HybridConnectionAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_relay_v20170401:relay:HybridConnectionAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_relay_v20211101:relay:HybridConnectionAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native_relay_v20240101:relay:HybridConnectionAuthorizationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -377,7 +377,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["policy_definition_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20190101preview:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azure-native:security/v20190101preview:AssessmentsMetadataSubscription"), pulumi.Alias(type_="azure-native:security/v20200101:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azure-native:security/v20210601:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azure-native:security:AssessmentsMetadataSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20190101preview:AssessmentsMetadataSubscription"), pulumi.Alias(type_="azure-native:security/v20210601:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azure-native:security:AssessmentsMetadataSubscription"), pulumi.Alias(type_="azure-native_security_v20190101preview:security:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azure-native_security_v20200101:security:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azure-native_security_v20210601:security:AssessmentMetadataInSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentMetadataInSubscription, __self__).__init__(
             'azure-native:security:AssessmentMetadataInSubscription',

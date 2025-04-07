@@ -100,7 +100,7 @@ export class EfsMountTarget extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:EfsMountTarget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:awsconnector/v20241201:EfsMountTarget" }, { type: "azure-native_awsconnector_v20241201:awsconnector:EfsMountTarget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EfsMountTarget.__pulumiType, name, resourceInputs, opts);
     }

@@ -184,7 +184,7 @@ class Input(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:streamanalytics/v20160301:Input"), pulumi.Alias(type_="azure-native:streamanalytics/v20170401preview:Input"), pulumi.Alias(type_="azure-native:streamanalytics/v20200301:Input"), pulumi.Alias(type_="azure-native:streamanalytics/v20211001preview:Input")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:streamanalytics/v20200301:Input"), pulumi.Alias(type_="azure-native:streamanalytics/v20211001preview:Input"), pulumi.Alias(type_="azure-native_streamanalytics_v20160301:streamanalytics:Input"), pulumi.Alias(type_="azure-native_streamanalytics_v20170401preview:streamanalytics:Input"), pulumi.Alias(type_="azure-native_streamanalytics_v20200301:streamanalytics:Input"), pulumi.Alias(type_="azure-native_streamanalytics_v20211001preview:streamanalytics:Input")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Input, __self__).__init__(
             'azure-native:streamanalytics:Input',

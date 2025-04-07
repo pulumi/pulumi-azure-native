@@ -118,7 +118,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthbot/v20201020:Bot" }, { type: "azure-native:healthbot/v20201020preview:Bot" }, { type: "azure-native:healthbot/v20201208:Bot" }, { type: "azure-native:healthbot/v20201208preview:Bot" }, { type: "azure-native:healthbot/v20210610:Bot" }, { type: "azure-native:healthbot/v20210824:Bot" }, { type: "azure-native:healthbot/v20220808:Bot" }, { type: "azure-native:healthbot/v20230501:Bot" }, { type: "azure-native:healthbot/v20240201:Bot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthbot/v20201208preview:Bot" }, { type: "azure-native:healthbot/v20230501:Bot" }, { type: "azure-native:healthbot/v20240201:Bot" }, { type: "azure-native_healthbot_v20201020:healthbot:Bot" }, { type: "azure-native_healthbot_v20201020preview:healthbot:Bot" }, { type: "azure-native_healthbot_v20201208:healthbot:Bot" }, { type: "azure-native_healthbot_v20201208preview:healthbot:Bot" }, { type: "azure-native_healthbot_v20210610:healthbot:Bot" }, { type: "azure-native_healthbot_v20210824:healthbot:Bot" }, { type: "azure-native_healthbot_v20220808:healthbot:Bot" }, { type: "azure-native_healthbot_v20230501:healthbot:Bot" }, { type: "azure-native_healthbot_v20240201:healthbot:Bot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Bot.__pulumiType, name, resourceInputs, opts);
     }

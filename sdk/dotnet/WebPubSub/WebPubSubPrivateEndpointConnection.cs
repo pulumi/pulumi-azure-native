@@ -92,11 +92,6 @@ namespace Pulumi.AzureNative.WebPubSub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection" },
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubPrivateEndpointConnection" },
@@ -106,6 +101,20 @@ namespace Pulumi.AzureNative.WebPubSub
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240401preview:WebPubSubPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240801preview:WebPubSubPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20241001preview:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20210401preview:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20210601preview:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20210901preview:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20211001:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20220801preview:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230201:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230301preview:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230601preview:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230801preview:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240101preview:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240301:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240401preview:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240801preview:webpubsub:WebPubSubPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20241001preview:webpubsub:WebPubSubPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

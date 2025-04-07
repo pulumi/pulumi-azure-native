@@ -367,7 +367,7 @@ class GovernanceRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20220101preview:GovernanceRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20220101preview:GovernanceRule"), pulumi.Alias(type_="azure-native_security_v20220101preview:security:GovernanceRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GovernanceRule, __self__).__init__(
             'azure-native:security:GovernanceRule',

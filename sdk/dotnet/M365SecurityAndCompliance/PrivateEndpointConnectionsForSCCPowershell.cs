@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsForSCCPowershell" },
+                    new global::Pulumi.Alias { Type = "azure-native_m365securityandcompliance_v20210325preview:m365securityandcompliance:PrivateEndpointConnectionsForSCCPowershell" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

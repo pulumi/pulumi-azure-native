@@ -184,7 +184,7 @@ export class AmlFilesystem extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20230301preview:AmlFilesystem" }, { type: "azure-native:storagecache/v20230501:AmlFilesystem" }, { type: "azure-native:storagecache/v20231101preview:AmlFilesystem" }, { type: "azure-native:storagecache/v20240301:AmlFilesystem" }, { type: "azure-native:storagecache/v20240701:AmlFilesystem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20230301preview:AmlFilesystem" }, { type: "azure-native:storagecache/v20230501:AmlFilesystem" }, { type: "azure-native:storagecache/v20231101preview:AmlFilesystem" }, { type: "azure-native:storagecache/v20240301:AmlFilesystem" }, { type: "azure-native_storagecache_v20230301preview:storagecache:AmlFilesystem" }, { type: "azure-native_storagecache_v20230501:storagecache:AmlFilesystem" }, { type: "azure-native_storagecache_v20231101preview:storagecache:AmlFilesystem" }, { type: "azure-native_storagecache_v20240301:storagecache:AmlFilesystem" }, { type: "azure-native_storagecache_v20240701:storagecache:AmlFilesystem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AmlFilesystem.__pulumiType, name, resourceInputs, opts);
     }

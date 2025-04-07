@@ -96,7 +96,7 @@ export class SingleServerFirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:FirewallRule" }, { type: "azure-native:dbformysql/v20171201:SingleServerFirewallRule" }, { type: "azure-native:dbformysql/v20171201preview:SingleServerFirewallRule" }, { type: "azure-native:dbformysql/v20180601privatepreview:SingleServerFirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:FirewallRule" }, { type: "azure-native_dbformysql_v20171201:dbformysql:SingleServerFirewallRule" }, { type: "azure-native_dbformysql_v20171201preview:dbformysql:SingleServerFirewallRule" }, { type: "azure-native_dbformysql_v20180601privatepreview:dbformysql:SingleServerFirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SingleServerFirewallRule.__pulumiType, name, resourceInputs, opts);
     }

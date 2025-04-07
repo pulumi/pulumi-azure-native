@@ -161,7 +161,7 @@ class NetworkSecurityPerimeterLoggingConfiguration(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterLoggingConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native_network_v20240601preview:network:NetworkSecurityPerimeterLoggingConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkSecurityPerimeterLoggingConfiguration, __self__).__init__(
             'azure-native:network:NetworkSecurityPerimeterLoggingConfiguration',

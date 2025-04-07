@@ -110,7 +110,13 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240602preview:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240702preview:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240902preview:LoadBalancer" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20241002preview:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20240302preview:containerservice:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20240402preview:containerservice:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20240502preview:containerservice:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20240602preview:containerservice:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20240702preview:containerservice:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20240902preview:containerservice:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native_containerservice_v20241002preview:containerservice:LoadBalancer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

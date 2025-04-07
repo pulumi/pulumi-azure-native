@@ -92,7 +92,6 @@ namespace Pulumi.AzureNative.WebPubSub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubCustomCertificate" },
@@ -102,6 +101,16 @@ namespace Pulumi.AzureNative.WebPubSub
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240401preview:WebPubSubCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240801preview:WebPubSubCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20241001preview:WebPubSubCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20220801preview:webpubsub:WebPubSubCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230201:webpubsub:WebPubSubCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230301preview:webpubsub:WebPubSubCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230601preview:webpubsub:WebPubSubCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20230801preview:webpubsub:WebPubSubCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240101preview:webpubsub:WebPubSubCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240301:webpubsub:WebPubSubCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240401preview:webpubsub:WebPubSubCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20240801preview:webpubsub:WebPubSubCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native_webpubsub_v20241001preview:webpubsub:WebPubSubCustomCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

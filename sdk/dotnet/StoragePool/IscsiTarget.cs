@@ -133,8 +133,10 @@ namespace Pulumi.AzureNative.StoragePool
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagepool/v20200315preview:IscsiTarget" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210401preview:IscsiTarget" },
                     new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210801:IscsiTarget" },
+                    new global::Pulumi.Alias { Type = "azure-native_storagepool_v20200315preview:storagepool:IscsiTarget" },
+                    new global::Pulumi.Alias { Type = "azure-native_storagepool_v20210401preview:storagepool:IscsiTarget" },
+                    new global::Pulumi.Alias { Type = "azure-native_storagepool_v20210801:storagepool:IscsiTarget" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

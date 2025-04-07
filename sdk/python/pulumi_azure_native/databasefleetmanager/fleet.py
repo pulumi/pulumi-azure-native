@@ -180,7 +180,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasefleetmanager/v20250201preview:Fleet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native_databasefleetmanager_v20250201preview:databasefleetmanager:Fleet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Fleet, __self__).__init__(
             'azure-native:databasefleetmanager:Fleet',

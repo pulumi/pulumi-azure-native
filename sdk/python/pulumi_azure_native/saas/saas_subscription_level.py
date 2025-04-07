@@ -199,7 +199,7 @@ class SaasSubscriptionLevel(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:saas/v20180301beta:SaasSubscriptionLevel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:saas/v20180301beta:SaasSubscriptionLevel"), pulumi.Alias(type_="azure-native_saas_v20180301beta:saas:SaasSubscriptionLevel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SaasSubscriptionLevel, __self__).__init__(
             'azure-native:saas:SaasSubscriptionLevel',

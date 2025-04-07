@@ -131,7 +131,7 @@ export class CloudConnection extends pulumi.CustomResource {
             resourceInputs["virtualHub"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcloud/v20230101preview:CloudConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcloud/v20230101preview:CloudConnection" }, { type: "azure-native_hybridcloud_v20230101preview:hybridcloud:CloudConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudConnection.__pulumiType, name, resourceInputs, opts);
     }

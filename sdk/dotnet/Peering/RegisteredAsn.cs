@@ -78,14 +78,15 @@ namespace Pulumi.AzureNative.Peering
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200101preview:RegisteredAsn" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200401:RegisteredAsn" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20201001:RegisteredAsn" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210101:RegisteredAsn" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:RegisteredAsn" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:RegisteredAsn" },
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:RegisteredAsn" },
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20221001:RegisteredAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20200101preview:peering:RegisteredAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20200401:peering:RegisteredAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20201001:peering:RegisteredAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20210101:peering:RegisteredAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20210601:peering:RegisteredAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20220101:peering:RegisteredAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20220601:peering:RegisteredAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native_peering_v20221001:peering:RegisteredAsn" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

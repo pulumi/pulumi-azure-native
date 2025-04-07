@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.DependencyMap
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dependencymap/v20250131preview:Map" },
+                    new global::Pulumi.Alias { Type = "azure-native_dependencymap_v20250131preview:dependencymap:Map" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

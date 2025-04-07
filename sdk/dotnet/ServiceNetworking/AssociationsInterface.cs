@@ -103,7 +103,12 @@ namespace Pulumi.AzureNative.ServiceNetworking
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20231101:AssociationsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20240501preview:AssociationsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250101:AssociationsInterface" },
-                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250301preview:AssociationsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20221001preview:servicenetworking:AssociationsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20230501preview:servicenetworking:AssociationsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20231101:servicenetworking:AssociationsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20240501preview:servicenetworking:AssociationsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20250101:servicenetworking:AssociationsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native_servicenetworking_v20250301preview:servicenetworking:AssociationsInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

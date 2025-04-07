@@ -122,11 +122,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualNetwork" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:VirtualNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:VirtualNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20210701preview:azurestackhci:VirtualNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20210901preview:azurestackhci:VirtualNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20221215preview:azurestackhci:VirtualNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native_azurestackhci_v20230701preview:azurestackhci:VirtualNetwork" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

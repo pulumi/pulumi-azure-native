@@ -84,7 +84,11 @@ namespace Pulumi.AzureNative.IoTOperations
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:BrokerListener" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:BrokerListener" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:BrokerListener" },
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20250401:BrokerListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20240701preview:iotoperations:BrokerListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20240815preview:iotoperations:BrokerListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20240915preview:iotoperations:BrokerListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20241101:iotoperations:BrokerListener" },
+                    new global::Pulumi.Alias { Type = "azure-native_iotoperations_v20250401:iotoperations:BrokerListener" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

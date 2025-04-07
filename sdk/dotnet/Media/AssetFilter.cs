@@ -86,12 +86,13 @@ namespace Pulumi.AzureNative.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:AssetFilter" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:AssetFilter" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:AssetFilter" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:AssetFilter" },
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:AssetFilter" },
                     new global::Pulumi.Alias { Type = "azure-native:media/v20230101:AssetFilter" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20180701:media:AssetFilter" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20200501:media:AssetFilter" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20210601:media:AssetFilter" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20211101:media:AssetFilter" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20220801:media:AssetFilter" },
+                    new global::Pulumi.Alias { Type = "azure-native_media_v20230101:media:AssetFilter" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

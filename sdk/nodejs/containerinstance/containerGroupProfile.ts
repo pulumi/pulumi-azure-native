@@ -188,7 +188,7 @@ export class ContainerGroupProfile extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance/v20240501preview:ContainerGroupProfile" }, { type: "azure-native:containerinstance/v20241101preview:CGProfile" }, { type: "azure-native:containerinstance/v20241101preview:ContainerGroupProfile" }, { type: "azure-native:containerinstance:CGProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance/v20240501preview:ContainerGroupProfile" }, { type: "azure-native:containerinstance/v20241101preview:CGProfile" }, { type: "azure-native:containerinstance:CGProfile" }, { type: "azure-native_containerinstance_v20240501preview:containerinstance:ContainerGroupProfile" }, { type: "azure-native_containerinstance_v20241101preview:containerinstance:ContainerGroupProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerGroupProfile.__pulumiType, name, resourceInputs, opts);
     }

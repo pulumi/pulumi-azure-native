@@ -113,7 +113,7 @@ export class DnsResolverPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dnsresolver/v20230701preview:DnsResolverPolicy" }, { type: "azure-native:network/v20230701preview:DnsResolverPolicy" }, { type: "azure-native:network:DnsResolverPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20230701preview:DnsResolverPolicy" }, { type: "azure-native:network:DnsResolverPolicy" }, { type: "azure-native_dnsresolver_v20230701preview:dnsresolver:DnsResolverPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DnsResolverPolicy.__pulumiType, name, resourceInputs, opts);
     }

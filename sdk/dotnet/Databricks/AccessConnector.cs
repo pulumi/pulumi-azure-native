@@ -93,11 +93,15 @@ namespace Pulumi.AzureNative.Databricks
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:AccessConnector" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20221001preview:AccessConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230501:AccessConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240501:AccessConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240901preview:AccessConnector" },
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20250301preview:AccessConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20220401preview:databricks:AccessConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20221001preview:databricks:AccessConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20230501:databricks:AccessConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20240501:databricks:AccessConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20240901preview:databricks:AccessConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native_databricks_v20250301preview:databricks:AccessConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

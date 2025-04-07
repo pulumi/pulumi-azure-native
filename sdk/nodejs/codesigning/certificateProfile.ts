@@ -149,7 +149,7 @@ export class CertificateProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:codesigning/v20240205preview:CertificateProfile" }, { type: "azure-native:codesigning/v20240930preview:CertificateProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:codesigning/v20240205preview:CertificateProfile" }, { type: "azure-native:codesigning/v20240930preview:CertificateProfile" }, { type: "azure-native_codesigning_v20240205preview:codesigning:CertificateProfile" }, { type: "azure-native_codesigning_v20240930preview:codesigning:CertificateProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CertificateProfile.__pulumiType, name, resourceInputs, opts);
     }

@@ -94,6 +94,8 @@ namespace Pulumi.AzureNative.AzureSphere
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azuresphere/v20220901preview:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:azuresphere/v20240401:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native_azuresphere_v20220901preview:azuresphere:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native_azuresphere_v20240401:azuresphere:Deployment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

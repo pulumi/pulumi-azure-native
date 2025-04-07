@@ -113,7 +113,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:DataSource" }, { type: "azure-native:operationalinsights/v20200301preview:DataSource" }, { type: "azure-native:operationalinsights/v20200801:DataSource" }, { type: "azure-native:operationalinsights/v20230901:DataSource" }, { type: "azure-native:operationalinsights/v20250201:DataSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:DataSource" }, { type: "azure-native:operationalinsights/v20200801:DataSource" }, { type: "azure-native:operationalinsights/v20230901:DataSource" }, { type: "azure-native_operationalinsights_v20151101preview:operationalinsights:DataSource" }, { type: "azure-native_operationalinsights_v20200301preview:operationalinsights:DataSource" }, { type: "azure-native_operationalinsights_v20200801:operationalinsights:DataSource" }, { type: "azure-native_operationalinsights_v20230901:operationalinsights:DataSource" }, { type: "azure-native_operationalinsights_v20250201:operationalinsights:DataSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataSource.__pulumiType, name, resourceInputs, opts);
     }

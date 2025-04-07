@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160601:CustomApi" },
+                    new global::Pulumi.Alias { Type = "azure-native_web_v20160601:web:CustomApi" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

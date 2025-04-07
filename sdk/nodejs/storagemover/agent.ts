@@ -176,7 +176,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["uptimeInSeconds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:Agent" }, { type: "azure-native:storagemover/v20230301:Agent" }, { type: "azure-native:storagemover/v20230701preview:Agent" }, { type: "azure-native:storagemover/v20231001:Agent" }, { type: "azure-native:storagemover/v20240701:Agent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20230301:Agent" }, { type: "azure-native:storagemover/v20230701preview:Agent" }, { type: "azure-native:storagemover/v20231001:Agent" }, { type: "azure-native:storagemover/v20240701:Agent" }, { type: "azure-native_storagemover_v20220701preview:storagemover:Agent" }, { type: "azure-native_storagemover_v20230301:storagemover:Agent" }, { type: "azure-native_storagemover_v20230701preview:storagemover:Agent" }, { type: "azure-native_storagemover_v20231001:storagemover:Agent" }, { type: "azure-native_storagemover_v20240701:storagemover:Agent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Agent.__pulumiType, name, resourceInputs, opts);
     }

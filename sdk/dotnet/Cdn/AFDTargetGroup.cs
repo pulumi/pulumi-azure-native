@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Cdn
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:AFDTargetGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native_cdn_v20240601preview:cdn:AFDTargetGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -114,7 +114,7 @@ export class Credential extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Credential" }, { type: "azure-native:automation/v20190601:Credential" }, { type: "azure-native:automation/v20200113preview:Credential" }, { type: "azure-native:automation/v20220808:Credential" }, { type: "azure-native:automation/v20230515preview:Credential" }, { type: "azure-native:automation/v20231101:Credential" }, { type: "azure-native:automation/v20241023:Credential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20220808:Credential" }, { type: "azure-native:automation/v20230515preview:Credential" }, { type: "azure-native:automation/v20231101:Credential" }, { type: "azure-native:automation/v20241023:Credential" }, { type: "azure-native_automation_v20151031:automation:Credential" }, { type: "azure-native_automation_v20190601:automation:Credential" }, { type: "azure-native_automation_v20200113preview:automation:Credential" }, { type: "azure-native_automation_v20220808:automation:Credential" }, { type: "azure-native_automation_v20230515preview:automation:Credential" }, { type: "azure-native_automation_v20231101:automation:Credential" }, { type: "azure-native_automation_v20241023:automation:Credential" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Credential.__pulumiType, name, resourceInputs, opts);
     }

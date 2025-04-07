@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph" },
+                    new global::Pulumi.Alias { Type = "azure-native_enterpriseknowledgegraph_v20181203:enterpriseknowledgegraph:EnterpriseKnowledgeGraph" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
