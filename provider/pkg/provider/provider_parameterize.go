@@ -3,7 +3,6 @@
 package provider
 
 import (
-	"bytes"
 	"context"
 	"encoding/base64"
 	"encoding/json"
@@ -149,12 +148,6 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "failed to marshal schema: %v", err)
 	}
-	s = updateRefs(s, newPackageName, args.Module, args.Version)
-
-	newMetadata, err = updateMetadataRefs(newMetadata, newPackageName, args.Module, args.Version)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "failed to update metadata $refs: %v", err)
-	}
 
 	p.schemaBytes = s
 	p.resourceMap = newMetadata
@@ -181,30 +174,6 @@ const parameterizedNameSeparator = "_"
 
 func ParameterizedProviderName(unparameterizedPackageName, targetModule string, targetApiVersion openapi.SdkVersion) string {
 	return strings.Join([]string{unparameterizedPackageName, targetModule, string(targetApiVersion)}, parameterizedNameSeparator)
-}
-
-// updateRefs updates all `$ref` pointers in the serialized schema to use the new package name, e.g., from `"$ref":
-// "#/types/azure-native:..."` to `"$ref": "#/types/azure-native_resources_20240101:..."`.
-func updateRefs(serialized []byte, newPackageName, module string, sdkVersion openapi.SdkVersion) []byte {
-	oldRefPrefix := fmt.Sprintf(`"$ref":"#/types/azure-native:%s/%s`, module, sdkVersion)
-	newRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:%s`, newPackageName, module)
-	return bytes.ReplaceAll(serialized, []byte(oldRefPrefix), []byte(newRefPrefix))
-}
-
-// updateMetadataRefs updates all `$ref` pointers in the metadata to use the new package name.
-// This implementation uses a JSON round-trip to update the `$ref`'s via a global string-replacement. Not elegant, but effective.
-func updateMetadataRefs(metadata *resources.APIMetadata, newPackageName, module string, sdkVersion openapi.SdkVersion) (*resources.APIMetadata, error) {
-	m, err := json.Marshal(metadata)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "failed to marshal metadata: %v", err)
-	}
-	updated := updateRefs(m, newPackageName, module, sdkVersion)
-	newMetadata := &resources.APIMetadata{}
-	err = json.Unmarshal(updated, newMetadata)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "failed to unmarshal metadata: %v", err)
-	}
-	return newMetadata, nil
 }
 
 func getAvailableApiVersions(schema pschema.PackageSpec, targetModule string) []string {
