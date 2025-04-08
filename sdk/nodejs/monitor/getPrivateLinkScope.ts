@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Returns a Azure Monitor PrivateLinkScope.
  *
  * Uses Azure REST API version 2023-06-01-preview.
+ *
+ * Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,6 +82,8 @@ export interface GetPrivateLinkScopeResult {
  * Returns a Azure Monitor PrivateLinkScope.
  *
  * Uses Azure REST API version 2023-06-01-preview.
+ *
+ * Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

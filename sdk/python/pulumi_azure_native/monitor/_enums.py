@@ -6,10 +6,13 @@ from enum import Enum
 
 __all__ = [
     'AccessMode',
+    'AggregationTypeEnum',
     'ComparisonOperationType',
     'ConditionOperator',
     'CriterionType',
     'DimensionOperator',
+    'DynamicThresholdOperator',
+    'DynamicThresholdSensitivity',
     'ExporterType',
     'ExtendedLocationType',
     'ExternalNetworkingMode',
@@ -33,7 +36,9 @@ __all__ = [
     'KnownWindowsEventLogDataSourceStreams',
     'ManagedServiceIdentityType',
     'MetricStatisticType',
+    'Odatatype',
     'OperationType',
+    'Operator',
     'PipelineType',
     'PredictiveAutoscalePolicyScaleMode',
     'PrivateEndpointServiceConnectionStatus',
@@ -57,6 +62,17 @@ class AccessMode(str, Enum):
     """
     OPEN = "Open"
     PRIVATE_ONLY = "PrivateOnly"
+
+
+class AggregationTypeEnum(str, Enum):
+    """
+    the criteria time aggregation types.
+    """
+    AVERAGE = "Average"
+    COUNT = "Count"
+    MINIMUM = "Minimum"
+    MAXIMUM = "Maximum"
+    TOTAL = "Total"
 
 
 class ComparisonOperationType(str, Enum):
@@ -97,6 +113,24 @@ class DimensionOperator(str, Enum):
     """
     INCLUDE = "Include"
     EXCLUDE = "Exclude"
+
+
+class DynamicThresholdOperator(str, Enum):
+    """
+    The operator used to compare the metric value against the threshold.
+    """
+    GREATER_THAN = "GreaterThan"
+    LESS_THAN = "LessThan"
+    GREATER_OR_LESS_THAN = "GreaterOrLessThan"
+
+
+class DynamicThresholdSensitivity(str, Enum):
+    """
+    The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+    """
+    LOW = "Low"
+    MEDIUM = "Medium"
+    HIGH = "High"
 
 
 class ExporterType(str, Enum):
@@ -333,11 +367,31 @@ class MetricStatisticType(str, Enum):
     COUNT = "Count"
 
 
+class Odatatype(str, Enum):
+    """
+    specifies the type of the alert criteria.
+    """
+    MICROSOFT_AZURE_MONITOR_SINGLE_RESOURCE_MULTIPLE_METRIC_CRITERIA = "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria"
+    MICROSOFT_AZURE_MONITOR_MULTIPLE_RESOURCE_MULTIPLE_METRIC_CRITERIA = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
+    MICROSOFT_AZURE_MONITOR_WEBTEST_LOCATION_AVAILABILITY_CRITERIA = "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria"
+
+
 class OperationType(str, Enum):
     """
     the operation associated with the notification and its value must be "scale"
     """
     SCALE = "Scale"
+
+
+class Operator(str, Enum):
+    """
+    the criteria operator.
+    """
+    EQUALS = "Equals"
+    GREATER_THAN = "GreaterThan"
+    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
+    LESS_THAN = "LessThan"
+    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
 
 
 class PipelineType(str, Enum):

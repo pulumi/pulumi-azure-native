@@ -10,6 +10,11 @@ export type ActionGroup = import("./actionGroup").ActionGroup;
 export const ActionGroup: typeof import("./actionGroup").ActionGroup = null as any;
 utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
 
+export { ActivityLogAlertArgs } from "./activityLogAlert";
+export type ActivityLogAlert = import("./activityLogAlert").ActivityLogAlert;
+export const ActivityLogAlert: typeof import("./activityLogAlert").ActivityLogAlert = null as any;
+utilities.lazyLoad(exports, ["ActivityLogAlert"], () => require("./activityLogAlert"));
+
 export { AutoscaleSettingArgs } from "./autoscaleSetting";
 export type AutoscaleSetting = import("./autoscaleSetting").AutoscaleSetting;
 export const AutoscaleSetting: typeof import("./autoscaleSetting").AutoscaleSetting = null as any;
@@ -45,6 +50,11 @@ export const getActionGroup: typeof import("./getActionGroup").getActionGroup = 
 export const getActionGroupOutput: typeof import("./getActionGroup").getActionGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getActionGroup","getActionGroupOutput"], () => require("./getActionGroup"));
 
+export { GetActivityLogAlertArgs, GetActivityLogAlertResult, GetActivityLogAlertOutputArgs } from "./getActivityLogAlert";
+export const getActivityLogAlert: typeof import("./getActivityLogAlert").getActivityLogAlert = null as any;
+export const getActivityLogAlertOutput: typeof import("./getActivityLogAlert").getActivityLogAlertOutput = null as any;
+utilities.lazyLoad(exports, ["getActivityLogAlert","getActivityLogAlertOutput"], () => require("./getActivityLogAlert"));
+
 export { GetAutoscaleSettingArgs, GetAutoscaleSettingResult, GetAutoscaleSettingOutputArgs } from "./getAutoscaleSetting";
 export const getAutoscaleSetting: typeof import("./getAutoscaleSetting").getAutoscaleSetting = null as any;
 export const getAutoscaleSettingOutput: typeof import("./getAutoscaleSetting").getAutoscaleSettingOutput = null as any;
@@ -79,6 +89,11 @@ export { GetManagementGroupDiagnosticSettingArgs, GetManagementGroupDiagnosticSe
 export const getManagementGroupDiagnosticSetting: typeof import("./getManagementGroupDiagnosticSetting").getManagementGroupDiagnosticSetting = null as any;
 export const getManagementGroupDiagnosticSettingOutput: typeof import("./getManagementGroupDiagnosticSetting").getManagementGroupDiagnosticSettingOutput = null as any;
 utilities.lazyLoad(exports, ["getManagementGroupDiagnosticSetting","getManagementGroupDiagnosticSettingOutput"], () => require("./getManagementGroupDiagnosticSetting"));
+
+export { GetMetricAlertArgs, GetMetricAlertResult, GetMetricAlertOutputArgs } from "./getMetricAlert";
+export const getMetricAlert: typeof import("./getMetricAlert").getMetricAlert = null as any;
+export const getMetricAlertOutput: typeof import("./getMetricAlert").getMetricAlertOutput = null as any;
+utilities.lazyLoad(exports, ["getMetricAlert","getMetricAlertOutput"], () => require("./getMetricAlert"));
 
 export { GetPipelineGroupArgs, GetPipelineGroupResult, GetPipelineGroupOutputArgs } from "./getPipelineGroup";
 export const getPipelineGroup: typeof import("./getPipelineGroup").getPipelineGroup = null as any;
@@ -125,6 +140,11 @@ export type ManagementGroupDiagnosticSetting = import("./managementGroupDiagnost
 export const ManagementGroupDiagnosticSetting: typeof import("./managementGroupDiagnosticSetting").ManagementGroupDiagnosticSetting = null as any;
 utilities.lazyLoad(exports, ["ManagementGroupDiagnosticSetting"], () => require("./managementGroupDiagnosticSetting"));
 
+export { MetricAlertArgs } from "./metricAlert";
+export type MetricAlert = import("./metricAlert").MetricAlert;
+export const MetricAlert: typeof import("./metricAlert").MetricAlert = null as any;
+utilities.lazyLoad(exports, ["MetricAlert"], () => require("./metricAlert"));
+
 export { PipelineGroupArgs } from "./pipelineGroup";
 export type PipelineGroup = import("./pipelineGroup").PipelineGroup;
 export const PipelineGroup: typeof import("./pipelineGroup").PipelineGroup = null as any;
@@ -170,6 +190,8 @@ const _module = {
         switch (type) {
             case "azure-native:monitor:ActionGroup":
                 return new ActionGroup(name, <any>undefined, { urn })
+            case "azure-native:monitor:ActivityLogAlert":
+                return new ActivityLogAlert(name, <any>undefined, { urn })
             case "azure-native:monitor:AutoscaleSetting":
                 return new AutoscaleSetting(name, <any>undefined, { urn })
             case "azure-native:monitor:AzureMonitorWorkspace":
@@ -184,6 +206,8 @@ const _module = {
                 return new DiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:monitor:ManagementGroupDiagnosticSetting":
                 return new ManagementGroupDiagnosticSetting(name, <any>undefined, { urn })
+            case "azure-native:monitor:MetricAlert":
+                return new MetricAlert(name, <any>undefined, { urn })
             case "azure-native:monitor:PipelineGroup":
                 return new PipelineGroup(name, <any>undefined, { urn })
             case "azure-native:monitor:PrivateEndpointConnection":

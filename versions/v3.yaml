@@ -8412,6 +8412,11 @@ Monitor:
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2024-10-01-preview/actionGroups_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}
         RpNamespace: Microsoft.Insights
+    ActivityLogAlert:
+        ApiVersion: "2020-10-01"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2020-10-01/activityLogAlerts_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/activityLogAlerts/{activityLogAlertName}
+        RpNamespace: Microsoft.Insights
     AutoscaleSetting:
         ApiVersion: 2021-05-01-preview
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/autoscale_API.json
@@ -8446,6 +8451,11 @@ Monitor:
         ApiVersion: 2021-05-01-preview
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/managementGroupDiagnosticSettings_API.json
         ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/diagnosticSettings/{name}
+        RpNamespace: Microsoft.Insights
+    MetricAlert:
+        ApiVersion: "2018-03-01"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2018-03-01/metricAlert_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/metricAlerts/{ruleName}
         RpNamespace: Microsoft.Insights
     PipelineGroup:
         ApiVersion: 2024-10-01-preview

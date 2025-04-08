@@ -933,6 +933,7 @@ MongoCluster:
 Monitor:
     tracking: 2024-10-01-preview
     additions:
+        ActivityLogAlert: "2020-10-01"
         AutoscaleSetting: 2021-05-01-preview
         AzureMonitorWorkspace: 2023-10-01-preview
         DataCollectionEndpoint: "2022-06-01"
@@ -940,6 +941,7 @@ Monitor:
         DataCollectionRuleAssociation: "2022-06-01"
         DiagnosticSetting: 2021-05-01-preview
         ManagementGroupDiagnosticSetting: 2021-05-01-preview
+        MetricAlert: "2018-03-01"
         PrivateEndpointConnection: 2023-06-01-preview
         PrivateLinkScope: 2023-06-01-preview
         PrivateLinkScopedResource: 2023-06-01-preview

@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .action_group import *
+from .activity_log_alert import *
 from .autoscale_setting import *
 from .azure_monitor_workspace import *
 from .data_collection_endpoint import *
@@ -14,6 +15,7 @@ from .data_collection_rule import *
 from .data_collection_rule_association import *
 from .diagnostic_setting import *
 from .get_action_group import *
+from .get_activity_log_alert import *
 from .get_autoscale_setting import *
 from .get_azure_monitor_workspace import *
 from .get_data_collection_endpoint import *
@@ -21,6 +23,7 @@ from .get_data_collection_rule import *
 from .get_data_collection_rule_association import *
 from .get_diagnostic_setting import *
 from .get_management_group_diagnostic_setting import *
+from .get_metric_alert import *
 from .get_pipeline_group import *
 from .get_private_endpoint_connection import *
 from .get_private_link_scope import *
@@ -30,6 +33,7 @@ from .get_subscription_diagnostic_setting import *
 from .get_tenant_action_group import *
 from .list_diagnostic_settings_category import *
 from .management_group_diagnostic_setting import *
+from .metric_alert import *
 from .pipeline_group import *
 from .private_endpoint_connection import *
 from .private_link_scope import *

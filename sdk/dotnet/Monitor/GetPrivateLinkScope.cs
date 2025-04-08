@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Monitor
         /// Returns a Azure Monitor PrivateLinkScope.
         /// 
         /// Uses Azure REST API version 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-native:monitor:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Monitor
         /// Returns a Azure Monitor PrivateLinkScope.
         /// 
         /// Uses Azure REST API version 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateLinkScopeResult> Invoke(GetPrivateLinkScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopeResult>("azure-native:monitor:getPrivateLinkScope", args ?? new GetPrivateLinkScopeInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Monitor
         /// Returns a Azure Monitor PrivateLinkScope.
         /// 
         /// Uses Azure REST API version 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPrivateLinkScopeResult> Invoke(GetPrivateLinkScopeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopeResult>("azure-native:monitor:getPrivateLinkScope", args ?? new GetPrivateLinkScopeInvokeArgs(), options.WithDefaults());
