@@ -52,7 +52,7 @@ export class ServerGroupCluster extends pulumi.CustomResource {
     /**
      * Authentication configuration of a cluster.
      */
-    public readonly authConfig!: pulumi.Output<outputs.dbforpostgresql.AuthConfigResponse | undefined>;
+    public readonly authConfig!: pulumi.Output<outputs.dbforpostgresql.ServerGroupClusterAuthConfigResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
@@ -80,7 +80,7 @@ export class ServerGroupCluster extends pulumi.CustomResource {
     /**
      * The data encryption properties of a cluster.
      */
-    public readonly dataEncryption!: pulumi.Output<outputs.dbforpostgresql.DataEncryptionResponse | undefined>;
+    public readonly dataEncryption!: pulumi.Output<outputs.dbforpostgresql.ServerGroupClusterDataEncryptionResponse | undefined>;
     /**
      * The database name of the cluster. Only one database per cluster is supported.
      */
@@ -112,7 +112,7 @@ export class ServerGroupCluster extends pulumi.CustomResource {
     /**
      * Maintenance window of a cluster.
      */
-    public readonly maintenanceWindow!: pulumi.Output<outputs.dbforpostgresql.MaintenanceWindowResponse | undefined>;
+    public readonly maintenanceWindow!: pulumi.Output<outputs.dbforpostgresql.ServerGroupClusterMaintenanceWindowResponse | undefined>;
     /**
      * The name of the resource
      */
@@ -209,7 +209,7 @@ export class ServerGroupCluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            resourceInputs["authConfig"] = args ? (args.authConfig ? pulumi.output(args.authConfig).apply(inputs.dbforpostgresql.authConfigArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["authConfig"] = args ? args.authConfig : undefined;
             resourceInputs["citusVersion"] = args ? args.citusVersion : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["coordinatorEnablePublicIpAccess"] = args ? args.coordinatorEnablePublicIpAccess : undefined;
@@ -307,7 +307,7 @@ export interface ServerGroupClusterArgs {
     /**
      * Authentication configuration of a cluster.
      */
-    authConfig?: pulumi.Input<inputs.dbforpostgresql.AuthConfigArgs>;
+    authConfig?: pulumi.Input<inputs.dbforpostgresql.ServerGroupClusterAuthConfigArgs>;
     /**
      * The Citus extension version on all cluster servers.
      */
@@ -335,7 +335,7 @@ export interface ServerGroupClusterArgs {
     /**
      * The data encryption properties of a cluster.
      */
-    dataEncryption?: pulumi.Input<inputs.dbforpostgresql.DataEncryptionArgs>;
+    dataEncryption?: pulumi.Input<inputs.dbforpostgresql.ServerGroupClusterDataEncryptionArgs>;
     /**
      * The database name of the cluster. Only one database per cluster is supported.
      */
@@ -363,7 +363,7 @@ export interface ServerGroupClusterArgs {
     /**
      * Maintenance window of a cluster.
      */
-    maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.MaintenanceWindowArgs>;
+    maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.ServerGroupClusterMaintenanceWindowArgs>;
     /**
      * Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
      */

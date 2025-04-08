@@ -40,6 +40,12 @@ __all__ = [
     'ReplicaArgsDict',
     'ResourceIdentityArgs',
     'ResourceIdentityArgsDict',
+    'ServerGroupClusterAuthConfigArgs',
+    'ServerGroupClusterAuthConfigArgsDict',
+    'ServerGroupClusterDataEncryptionArgs',
+    'ServerGroupClusterDataEncryptionArgsDict',
+    'ServerGroupClusterMaintenanceWindowArgs',
+    'ServerGroupClusterMaintenanceWindowArgsDict',
     'ServerPropertiesForDefaultCreateArgs',
     'ServerPropertiesForDefaultCreateArgsDict',
     'ServerPropertiesForGeoRestoreArgs',
@@ -121,10 +127,16 @@ class AdminCredentialsArgs:
 if not MYPY:
     class AuthConfigArgsDict(TypedDict):
         """
-        Authentication configuration of a cluster.
+        Authentication configuration properties of a server
         """
-        active_directory_auth: NotRequired[pulumi.Input[Union[str, 'ActiveDirectoryAuth', 'ActiveDirectoryAuthEnum']]]
-        password_auth: NotRequired[pulumi.Input[Union[str, 'PasswordAuth', 'PasswordAuthEnum']]]
+        active_directory_auth: NotRequired[pulumi.Input[Union[str, 'ActiveDirectoryAuthEnum']]]
+        """
+        If Enabled, Azure Active Directory authentication is enabled.
+        """
+        password_auth: NotRequired[pulumi.Input[Union[str, 'PasswordAuthEnum']]]
+        """
+        If Enabled, Password authentication is enabled.
+        """
         tenant_id: NotRequired[pulumi.Input[str]]
         """
         Tenant id of the server.
@@ -135,15 +147,19 @@ elif False:
 @pulumi.input_type
 class AuthConfigArgs:
     def __init__(__self__, *,
-                 active_directory_auth: Optional[pulumi.Input[Union[str, 'ActiveDirectoryAuth', 'ActiveDirectoryAuthEnum']]] = None,
-                 password_auth: Optional[pulumi.Input[Union[str, 'PasswordAuth', 'PasswordAuthEnum']]] = None,
+                 active_directory_auth: Optional[pulumi.Input[Union[str, 'ActiveDirectoryAuthEnum']]] = None,
+                 password_auth: Optional[pulumi.Input[Union[str, 'PasswordAuthEnum']]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        Authentication configuration of a cluster.
+        Authentication configuration properties of a server
+        :param pulumi.Input[Union[str, 'ActiveDirectoryAuthEnum']] active_directory_auth: If Enabled, Azure Active Directory authentication is enabled.
+        :param pulumi.Input[Union[str, 'PasswordAuthEnum']] password_auth: If Enabled, Password authentication is enabled.
         :param pulumi.Input[str] tenant_id: Tenant id of the server.
         """
         if active_directory_auth is not None:
             pulumi.set(__self__, "active_directory_auth", active_directory_auth)
+        if password_auth is None:
+            password_auth = 'Enabled'
         if password_auth is not None:
             pulumi.set(__self__, "password_auth", password_auth)
         if tenant_id is None:
@@ -153,20 +169,26 @@ class AuthConfigArgs:
 
     @property
     @pulumi.getter(name="activeDirectoryAuth")
-    def active_directory_auth(self) -> Optional[pulumi.Input[Union[str, 'ActiveDirectoryAuth', 'ActiveDirectoryAuthEnum']]]:
+    def active_directory_auth(self) -> Optional[pulumi.Input[Union[str, 'ActiveDirectoryAuthEnum']]]:
+        """
+        If Enabled, Azure Active Directory authentication is enabled.
+        """
         return pulumi.get(self, "active_directory_auth")
 
     @active_directory_auth.setter
-    def active_directory_auth(self, value: Optional[pulumi.Input[Union[str, 'ActiveDirectoryAuth', 'ActiveDirectoryAuthEnum']]]):
+    def active_directory_auth(self, value: Optional[pulumi.Input[Union[str, 'ActiveDirectoryAuthEnum']]]):
         pulumi.set(self, "active_directory_auth", value)
 
     @property
     @pulumi.getter(name="passwordAuth")
-    def password_auth(self) -> Optional[pulumi.Input[Union[str, 'PasswordAuth', 'PasswordAuthEnum']]]:
+    def password_auth(self) -> Optional[pulumi.Input[Union[str, 'PasswordAuthEnum']]]:
+        """
+        If Enabled, Password authentication is enabled.
+        """
         return pulumi.get(self, "password_auth")
 
     @password_auth.setter
-    def password_auth(self, value: Optional[pulumi.Input[Union[str, 'PasswordAuth', 'PasswordAuthEnum']]]):
+    def password_auth(self, value: Optional[pulumi.Input[Union[str, 'PasswordAuthEnum']]]):
         pulumi.set(self, "password_auth", value)
 
     @property
@@ -245,7 +267,7 @@ class BackupArgs:
 if not MYPY:
     class DataEncryptionArgsDict(TypedDict):
         """
-        The data encryption properties of a cluster.
+        Data encryption properties of a server
         """
         geo_backup_encryption_key_status: NotRequired[pulumi.Input[Union[str, 'KeyStatusEnum']]]
         """
@@ -267,15 +289,14 @@ if not MYPY:
         """
         URI for the key in keyvault for data encryption of the primary server.
         """
-        primary_key_uri: NotRequired[pulumi.Input[str]]
-        """
-        URI for the key in keyvault for data encryption of the primary server.
-        """
         primary_user_assigned_identity_id: NotRequired[pulumi.Input[str]]
         """
         Resource Id for the User assigned identity to be used for data encryption of the primary server.
         """
-        type: NotRequired[pulumi.Input[Union[str, 'DataEncryptionType', 'ArmServerKeyType']]]
+        type: NotRequired[pulumi.Input[Union[str, 'ArmServerKeyType']]]
+        """
+        Data encryption type to depict if it is System Managed vs Azure Key vault.
+        """
 elif False:
     DataEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -287,18 +308,17 @@ class DataEncryptionArgs:
                  geo_backup_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  primary_encryption_key_status: Optional[pulumi.Input[Union[str, 'KeyStatusEnum']]] = None,
                  primary_key_uri: Optional[pulumi.Input[str]] = None,
-                 primary_key_uri: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'DataEncryptionType', 'ArmServerKeyType']]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'ArmServerKeyType']]] = None):
         """
-        The data encryption properties of a cluster.
+        Data encryption properties of a server
         :param pulumi.Input[Union[str, 'KeyStatusEnum']] geo_backup_encryption_key_status: Geo-backup encryption key status for Data encryption enabled server.
         :param pulumi.Input[str] geo_backup_key_uri: URI for the key in keyvault for data encryption for geo-backup of server.
         :param pulumi.Input[str] geo_backup_user_assigned_identity_id: Resource Id for the User assigned identity to be used for data encryption for geo-backup of server.
         :param pulumi.Input[Union[str, 'KeyStatusEnum']] primary_encryption_key_status: Primary encryption key status for Data encryption enabled server.
         :param pulumi.Input[str] primary_key_uri: URI for the key in keyvault for data encryption of the primary server.
-        :param pulumi.Input[str] primary_key_uri: URI for the key in keyvault for data encryption of the primary server.
         :param pulumi.Input[str] primary_user_assigned_identity_id: Resource Id for the User assigned identity to be used for data encryption of the primary server.
+        :param pulumi.Input[Union[str, 'ArmServerKeyType']] type: Data encryption type to depict if it is System Managed vs Azure Key vault.
         """
         if geo_backup_encryption_key_status is not None:
             pulumi.set(__self__, "geo_backup_encryption_key_status", geo_backup_encryption_key_status)
@@ -308,8 +328,6 @@ class DataEncryptionArgs:
             pulumi.set(__self__, "geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
         if primary_encryption_key_status is not None:
             pulumi.set(__self__, "primary_encryption_key_status", primary_encryption_key_status)
-        if primary_key_uri is not None:
-            pulumi.set(__self__, "primary_key_uri", primary_key_uri)
         if primary_key_uri is not None:
             pulumi.set(__self__, "primary_key_uri", primary_key_uri)
         if primary_user_assigned_identity_id is not None:
@@ -378,18 +396,6 @@ class DataEncryptionArgs:
         pulumi.set(self, "primary_key_uri", value)
 
     @property
-    @pulumi.getter(name="primaryKeyUri")
-    def primary_key_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        URI for the key in keyvault for data encryption of the primary server.
-        """
-        return pulumi.get(self, "primary_key_uri")
-
-    @primary_key_uri.setter
-    def primary_key_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "primary_key_uri", value)
-
-    @property
     @pulumi.getter(name="primaryUserAssignedIdentityId")
     def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -403,11 +409,14 @@ class DataEncryptionArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'DataEncryptionType', 'ArmServerKeyType']]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ArmServerKeyType']]]:
+        """
+        Data encryption type to depict if it is System Managed vs Azure Key vault.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'DataEncryptionType', 'ArmServerKeyType']]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ArmServerKeyType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -523,23 +532,23 @@ class IdentityPropertiesArgs:
 if not MYPY:
     class MaintenanceWindowArgsDict(TypedDict):
         """
-        Schedule settings for regular cluster updates.
+        Maintenance window properties of a server.
         """
         custom_window: NotRequired[pulumi.Input[str]]
         """
-        Indicates whether custom maintenance window is enabled or not.
+        indicates whether custom window is enabled or disabled
         """
         day_of_week: NotRequired[pulumi.Input[int]]
         """
-        Preferred day of the week for maintenance window.
+        day of week for maintenance window
         """
         start_hour: NotRequired[pulumi.Input[int]]
         """
-        Start hour within preferred day of the week for maintenance window.
+        start hour for maintenance window
         """
         start_minute: NotRequired[pulumi.Input[int]]
         """
-        Start minute within the start hour for maintenance window.
+        start minute for maintenance window
         """
 elif False:
     MaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
@@ -552,18 +561,26 @@ class MaintenanceWindowArgs:
                  start_hour: Optional[pulumi.Input[int]] = None,
                  start_minute: Optional[pulumi.Input[int]] = None):
         """
-        Schedule settings for regular cluster updates.
-        :param pulumi.Input[str] custom_window: Indicates whether custom maintenance window is enabled or not.
-        :param pulumi.Input[int] day_of_week: Preferred day of the week for maintenance window.
-        :param pulumi.Input[int] start_hour: Start hour within preferred day of the week for maintenance window.
-        :param pulumi.Input[int] start_minute: Start minute within the start hour for maintenance window.
+        Maintenance window properties of a server.
+        :param pulumi.Input[str] custom_window: indicates whether custom window is enabled or disabled
+        :param pulumi.Input[int] day_of_week: day of week for maintenance window
+        :param pulumi.Input[int] start_hour: start hour for maintenance window
+        :param pulumi.Input[int] start_minute: start minute for maintenance window
         """
+        if custom_window is None:
+            custom_window = 'Disabled'
         if custom_window is not None:
             pulumi.set(__self__, "custom_window", custom_window)
+        if day_of_week is None:
+            day_of_week = 0
         if day_of_week is not None:
             pulumi.set(__self__, "day_of_week", day_of_week)
+        if start_hour is None:
+            start_hour = 0
         if start_hour is not None:
             pulumi.set(__self__, "start_hour", start_hour)
+        if start_minute is None:
+            start_minute = 0
         if start_minute is not None:
             pulumi.set(__self__, "start_minute", start_minute)
 
@@ -571,7 +588,7 @@ class MaintenanceWindowArgs:
     @pulumi.getter(name="customWindow")
     def custom_window(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates whether custom maintenance window is enabled or not.
+        indicates whether custom window is enabled or disabled
         """
         return pulumi.get(self, "custom_window")
 
@@ -583,7 +600,7 @@ class MaintenanceWindowArgs:
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> Optional[pulumi.Input[int]]:
         """
-        Preferred day of the week for maintenance window.
+        day of week for maintenance window
         """
         return pulumi.get(self, "day_of_week")
 
@@ -595,7 +612,7 @@ class MaintenanceWindowArgs:
     @pulumi.getter(name="startHour")
     def start_hour(self) -> Optional[pulumi.Input[int]]:
         """
-        Start hour within preferred day of the week for maintenance window.
+        start hour for maintenance window
         """
         return pulumi.get(self, "start_hour")
 
@@ -607,7 +624,7 @@ class MaintenanceWindowArgs:
     @pulumi.getter(name="startMinute")
     def start_minute(self) -> Optional[pulumi.Input[int]]:
         """
-        Start minute within the start hour for maintenance window.
+        start minute for maintenance window
         """
         return pulumi.get(self, "start_minute")
 
@@ -953,6 +970,213 @@ class ResourceIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'SingleServerIdentityProperties']]]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class ServerGroupClusterAuthConfigArgsDict(TypedDict):
+        """
+        Authentication configuration of a cluster.
+        """
+        active_directory_auth: NotRequired[pulumi.Input[Union[str, 'ActiveDirectoryAuth']]]
+        password_auth: NotRequired[pulumi.Input[Union[str, 'PasswordAuth']]]
+elif False:
+    ServerGroupClusterAuthConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServerGroupClusterAuthConfigArgs:
+    def __init__(__self__, *,
+                 active_directory_auth: Optional[pulumi.Input[Union[str, 'ActiveDirectoryAuth']]] = None,
+                 password_auth: Optional[pulumi.Input[Union[str, 'PasswordAuth']]] = None):
+        """
+        Authentication configuration of a cluster.
+        """
+        if active_directory_auth is not None:
+            pulumi.set(__self__, "active_directory_auth", active_directory_auth)
+        if password_auth is not None:
+            pulumi.set(__self__, "password_auth", password_auth)
+
+    @property
+    @pulumi.getter(name="activeDirectoryAuth")
+    def active_directory_auth(self) -> Optional[pulumi.Input[Union[str, 'ActiveDirectoryAuth']]]:
+        return pulumi.get(self, "active_directory_auth")
+
+    @active_directory_auth.setter
+    def active_directory_auth(self, value: Optional[pulumi.Input[Union[str, 'ActiveDirectoryAuth']]]):
+        pulumi.set(self, "active_directory_auth", value)
+
+    @property
+    @pulumi.getter(name="passwordAuth")
+    def password_auth(self) -> Optional[pulumi.Input[Union[str, 'PasswordAuth']]]:
+        return pulumi.get(self, "password_auth")
+
+    @password_auth.setter
+    def password_auth(self, value: Optional[pulumi.Input[Union[str, 'PasswordAuth']]]):
+        pulumi.set(self, "password_auth", value)
+
+
+if not MYPY:
+    class ServerGroupClusterDataEncryptionArgsDict(TypedDict):
+        """
+        The data encryption properties of a cluster.
+        """
+        primary_key_uri: NotRequired[pulumi.Input[str]]
+        """
+        URI for the key in keyvault for data encryption of the primary server.
+        """
+        primary_user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id for the User assigned identity to be used for data encryption of the primary server.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'DataEncryptionType']]]
+elif False:
+    ServerGroupClusterDataEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServerGroupClusterDataEncryptionArgs:
+    def __init__(__self__, *,
+                 primary_key_uri: Optional[pulumi.Input[str]] = None,
+                 primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'DataEncryptionType']]] = None):
+        """
+        The data encryption properties of a cluster.
+        :param pulumi.Input[str] primary_key_uri: URI for the key in keyvault for data encryption of the primary server.
+        :param pulumi.Input[str] primary_user_assigned_identity_id: Resource Id for the User assigned identity to be used for data encryption of the primary server.
+        """
+        if primary_key_uri is not None:
+            pulumi.set(__self__, "primary_key_uri", primary_key_uri)
+        if primary_user_assigned_identity_id is not None:
+            pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="primaryKeyUri")
+    def primary_key_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI for the key in keyvault for data encryption of the primary server.
+        """
+        return pulumi.get(self, "primary_key_uri")
+
+    @primary_key_uri.setter
+    def primary_key_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key_uri", value)
+
+    @property
+    @pulumi.getter(name="primaryUserAssignedIdentityId")
+    def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id for the User assigned identity to be used for data encryption of the primary server.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity_id")
+
+    @primary_user_assigned_identity_id.setter
+    def primary_user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_user_assigned_identity_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'DataEncryptionType']]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'DataEncryptionType']]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class ServerGroupClusterMaintenanceWindowArgsDict(TypedDict):
+        """
+        Schedule settings for regular cluster updates.
+        """
+        custom_window: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether custom maintenance window is enabled or not.
+        """
+        day_of_week: NotRequired[pulumi.Input[int]]
+        """
+        Preferred day of the week for maintenance window.
+        """
+        start_hour: NotRequired[pulumi.Input[int]]
+        """
+        Start hour within preferred day of the week for maintenance window.
+        """
+        start_minute: NotRequired[pulumi.Input[int]]
+        """
+        Start minute within the start hour for maintenance window.
+        """
+elif False:
+    ServerGroupClusterMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServerGroupClusterMaintenanceWindowArgs:
+    def __init__(__self__, *,
+                 custom_window: Optional[pulumi.Input[str]] = None,
+                 day_of_week: Optional[pulumi.Input[int]] = None,
+                 start_hour: Optional[pulumi.Input[int]] = None,
+                 start_minute: Optional[pulumi.Input[int]] = None):
+        """
+        Schedule settings for regular cluster updates.
+        :param pulumi.Input[str] custom_window: Indicates whether custom maintenance window is enabled or not.
+        :param pulumi.Input[int] day_of_week: Preferred day of the week for maintenance window.
+        :param pulumi.Input[int] start_hour: Start hour within preferred day of the week for maintenance window.
+        :param pulumi.Input[int] start_minute: Start minute within the start hour for maintenance window.
+        """
+        if custom_window is not None:
+            pulumi.set(__self__, "custom_window", custom_window)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if start_hour is not None:
+            pulumi.set(__self__, "start_hour", start_hour)
+        if start_minute is not None:
+            pulumi.set(__self__, "start_minute", start_minute)
+
+    @property
+    @pulumi.getter(name="customWindow")
+    def custom_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether custom maintenance window is enabled or not.
+        """
+        return pulumi.get(self, "custom_window")
+
+    @custom_window.setter
+    def custom_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_window", value)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[pulumi.Input[int]]:
+        """
+        Preferred day of the week for maintenance window.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "day_of_week", value)
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> Optional[pulumi.Input[int]]:
+        """
+        Start hour within preferred day of the week for maintenance window.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @start_hour.setter
+    def start_hour(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "start_hour", value)
+
+    @property
+    @pulumi.getter(name="startMinute")
+    def start_minute(self) -> Optional[pulumi.Input[int]]:
+        """
+        Start minute within the start hour for maintenance window.
+        """
+        return pulumi.get(self, "start_minute")
+
+    @start_minute.setter
+    def start_minute(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "start_minute", value)
 
 
 if not MYPY:

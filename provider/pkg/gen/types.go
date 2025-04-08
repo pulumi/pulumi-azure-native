@@ -469,13 +469,16 @@ var typeNameOverridesV3 = map[string]string{
 	// The MongoCluster resource has the same name in v2 and v3, but the private endpoint connection was disambiguated in v3.
 	"DocumentDB.MongoCluster.PrivateEndpointConnection": "MongoClusterPrivateEndpointConnection",
 
-	"DBforMySQL.SingleServer.ServerVersion":      "SingleServerVersion",
-	"DBforMySQL.SingleServer.SkuTier":            "SingleServerSkuTier",
-	"DBforPostgreSQL.SingleServer.CreateMode":    "SingleServerCreateMode",
-	"DBforPostgreSQL.SingleServer.IdentityType":  "SingleServerIdentityProperties",
-	"DBforPostgreSQL.SingleServer.PrincipalType": "SingleServerPrincipalType",
-	"DBforPostgreSQL.SingleServer.ServerVersion": "SingleServerVersion",
-	"DBforPostgreSQL.SingleServer.SkuTier":       "SingleServerSkuTier",
+	"DBforMySQL.SingleServer.ServerVersion":                "SingleServerVersion",
+	"DBforMySQL.SingleServer.SkuTier":                      "SingleServerSkuTier",
+	"DBforPostgreSQL.ServerGroupCluster.AuthConfig":        "ServerGroupClusterAuthConfig",
+	"DBforPostgreSQL.ServerGroupCluster.DataEncryption":    "ServerGroupClusterDataEncryption",
+	"DBforPostgreSQL.ServerGroupCluster.MaintenanceWindow": "ServerGroupClusterMaintenanceWindow",
+	"DBforPostgreSQL.SingleServer.CreateMode":              "SingleServerCreateMode",
+	"DBforPostgreSQL.SingleServer.IdentityType":            "SingleServerIdentityProperties",
+	"DBforPostgreSQL.SingleServer.PrincipalType":           "SingleServerPrincipalType",
+	"DBforPostgreSQL.SingleServer.ServerVersion":           "SingleServerVersion",
+	"DBforPostgreSQL.SingleServer.SkuTier":                 "SingleServerSkuTier",
 
 	"Migrate.AssessmentProjectsAssessmentsOperation.AzureOfferCode":          "AssessmentProjectsAssessmentsOperationAzureOfferCode",
 	"Migrate.AssessmentProjectsAssessmentsOperation.AzureVmFamily":           "AssessmentProjectsAssessmentsOperationAzureVmFamily",
@@ -500,6 +503,7 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 	if isOutput {
 		suffix = "Response"
 	}
-	referenceName := m.typeNameOverride(ToUpperCamel(MakeLegalIdentifier(ctx.ReferenceName)))
+	standardName := ToUpperCamel(MakeLegalIdentifier(ctx.ReferenceName))
+	referenceName := m.typeNameOverride(standardName)
 	return fmt.Sprintf("azure-native:%s:%s%s", m.module, referenceName, suffix)
 }

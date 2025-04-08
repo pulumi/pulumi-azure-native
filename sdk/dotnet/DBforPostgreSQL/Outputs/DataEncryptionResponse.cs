@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// The data encryption properties of a cluster.
+    /// Data encryption properties of a server
     /// </summary>
     [OutputType]
     public sealed class DataEncryptionResponse
@@ -37,13 +37,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
         /// </summary>
         public readonly string? PrimaryKeyURI;
         /// <summary>
-        /// URI for the key in keyvault for data encryption of the primary server.
-        /// </summary>
-        public readonly string? PrimaryKeyUri;
-        /// <summary>
         /// Resource Id for the User assigned identity to be used for data encryption of the primary server.
         /// </summary>
         public readonly string? PrimaryUserAssignedIdentityId;
+        /// <summary>
+        /// Data encryption type to depict if it is System Managed vs Azure Key vault.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
@@ -58,8 +57,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 
             string? primaryKeyURI,
 
-            string? primaryKeyUri,
-
             string? primaryUserAssignedIdentityId,
 
             string? type)
@@ -69,7 +66,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
             GeoBackupUserAssignedIdentityId = geoBackupUserAssignedIdentityId;
             PrimaryEncryptionKeyStatus = primaryEncryptionKeyStatus;
             PrimaryKeyURI = primaryKeyURI;
-            PrimaryKeyUri = primaryKeyUri;
             PrimaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
             Type = type;
         }
