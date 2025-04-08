@@ -59,7 +59,7 @@ func TestGetParameterizeArgs(t *testing.T) {
 		got, err := getParameterizeArgs(req)
 		require.NoError(t, err)
 		require.Equal(t, "aad", got.Module)
-		require.Equal(t, "v20221201", got.Version)
+		require.EqualValues(t, "v20221201", got.Version)
 	})
 
 	t.Run("unexpected args", func(t *testing.T) {
@@ -107,7 +107,7 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	provider, err := makeProviderInternal(nil, "azure-native", providerVersion, schemaBytes, &resources.APIMetadata{
 		Types: resources.GoMap[resources.AzureAPIType]{},
 		Resources: resources.GoMap[resources.AzureAPIResource]{
-			"azure-native:aad/v20221201:DomainService": {},
+			"azure-native_aad_v20221201:aad:DomainService": {},
 		},
 		Invokes: resources.GoMap[resources.AzureAPIInvoke]{},
 	})
@@ -161,7 +161,7 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	args, err := deserializeParameterizeArgs(schema.Parameterization.Parameter)
 	require.NoError(t, err)
 	assert.Equal(t, "aad", args.Module)
-	assert.Equal(t, "v20221201", args.Version)
+	assert.EqualValues(t, "v20221201", args.Version)
 }
 
 func TestRoundtripParameterizeArgs(t *testing.T) {
@@ -184,15 +184,15 @@ func TestFilterTokens(t *testing.T) {
 	t.Parallel()
 
 	types := map[string]struct{}{
-		"azure-native:aad:Application":                  {},
-		"azure-native:aad/v20221201:Application":        {},
-		"azure-native:aad/v20331201:Application":        {},
-		"azure-native:storage/v20221201:StorageAccount": {},
+		"azure-native:aad:Application":                          {},
+		"azure-native_aad_v20221201:aad:Application":            {},
+		"azure-native_aad_v20331201:aad:Application":            {},
+		"azure-native_storage_v20221201:storage:StorageAccount": {},
 	}
 	names, err := filterTokens(types, "aad", "v20221201")
 	require.NoError(t, err)
 	require.Len(t, names, 1)
-	require.Equal(t, "Application", names["azure-native:aad/v20221201:Application"])
+	require.Equal(t, "Application", names["azure-native_aad_v20221201:aad:Application"])
 }
 
 func TestParseApiVersion(t *testing.T) {
@@ -218,7 +218,7 @@ func TestParseApiVersion(t *testing.T) {
 		} {
 			parsed, err := parseApiVersion(v[0])
 			require.NoError(t, err)
-			assert.Equal(t, v[1], parsed)
+			assert.EqualValues(t, v[1], parsed)
 		}
 	})
 
