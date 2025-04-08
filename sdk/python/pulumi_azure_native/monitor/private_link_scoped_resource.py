@@ -137,6 +137,8 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-01-preview.
 
+        Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ScopedResourceKind']] kind: The kind of scoped Azure monitor resource.
@@ -156,6 +158,8 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
         A private link scoped resource
 
         Uses Azure REST API version 2023-06-01-preview.
+
+        Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopedResourceArgs args: The arguments to use to populate this resource's properties.

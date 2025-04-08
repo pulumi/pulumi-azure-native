@@ -3219,6 +3219,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.monitor",
   "classes": {
    "azure-native:monitor:ActionGroup": "ActionGroup",
+   "azure-native:monitor:ActivityLogAlert": "ActivityLogAlert",
    "azure-native:monitor:AutoscaleSetting": "AutoscaleSetting",
    "azure-native:monitor:AzureMonitorWorkspace": "AzureMonitorWorkspace",
    "azure-native:monitor:DataCollectionEndpoint": "DataCollectionEndpoint",
@@ -3226,6 +3227,7 @@ _utilities.register(
    "azure-native:monitor:DataCollectionRuleAssociation": "DataCollectionRuleAssociation",
    "azure-native:monitor:DiagnosticSetting": "DiagnosticSetting",
    "azure-native:monitor:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting",
+   "azure-native:monitor:MetricAlert": "MetricAlert",
    "azure-native:monitor:PipelineGroup": "PipelineGroup",
    "azure-native:monitor:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:monitor:PrivateLinkScope": "PrivateLinkScope",

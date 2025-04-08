@@ -155,6 +155,8 @@ def get_private_link_scoped_resource(name: Optional[str] = None,
 
     Uses Azure REST API version 2023-06-01-preview.
 
+    Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str name: The name of the scoped resource object.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -185,6 +187,8 @@ def get_private_link_scoped_resource_output(name: Optional[pulumi.Input[str]] = 
     Gets a scoped resource in a private link scope.
 
     Uses Azure REST API version 2023-06-01-preview.
+
+    Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str name: The name of the scoped resource object.

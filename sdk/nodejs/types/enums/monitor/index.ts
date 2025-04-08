@@ -12,6 +12,19 @@ export const AccessMode = {
  */
 export type AccessMode = (typeof AccessMode)[keyof typeof AccessMode];
 
+export const AggregationTypeEnum = {
+    Average: "Average",
+    Count: "Count",
+    Minimum: "Minimum",
+    Maximum: "Maximum",
+    Total: "Total",
+} as const;
+
+/**
+ * the criteria time aggregation types.
+ */
+export type AggregationTypeEnum = (typeof AggregationTypeEnum)[keyof typeof AggregationTypeEnum];
+
 export const ComparisonOperationType = {
     Equals: "Equals",
     NotEquals: "NotEquals",
@@ -59,6 +72,28 @@ export const DimensionOperator = {
  * Operator for dimension values
  */
 export type DimensionOperator = (typeof DimensionOperator)[keyof typeof DimensionOperator];
+
+export const DynamicThresholdOperator = {
+    GreaterThan: "GreaterThan",
+    LessThan: "LessThan",
+    GreaterOrLessThan: "GreaterOrLessThan",
+} as const;
+
+/**
+ * The operator used to compare the metric value against the threshold.
+ */
+export type DynamicThresholdOperator = (typeof DynamicThresholdOperator)[keyof typeof DynamicThresholdOperator];
+
+export const DynamicThresholdSensitivity = {
+    Low: "Low",
+    Medium: "Medium",
+    High: "High",
+} as const;
+
+/**
+ * The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+ */
+export type DynamicThresholdSensitivity = (typeof DynamicThresholdSensitivity)[keyof typeof DynamicThresholdSensitivity];
 
 export const ExporterType = {
     /**
@@ -340,6 +375,17 @@ export const MetricStatisticType = {
  */
 export type MetricStatisticType = (typeof MetricStatisticType)[keyof typeof MetricStatisticType];
 
+export const Odatatype = {
+    Microsoft_Azure_Monitor_SingleResourceMultipleMetricCriteria: "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+    Microsoft_Azure_Monitor_MultipleResourceMultipleMetricCriteria: "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+    Microsoft_Azure_Monitor_WebtestLocationAvailabilityCriteria: "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
+} as const;
+
+/**
+ * specifies the type of the alert criteria.
+ */
+export type Odatatype = (typeof Odatatype)[keyof typeof Odatatype];
+
 export const OperationType = {
     Scale: "Scale",
 } as const;
@@ -348,6 +394,19 @@ export const OperationType = {
  * the operation associated with the notification and its value must be "scale"
  */
 export type OperationType = (typeof OperationType)[keyof typeof OperationType];
+
+export const Operator = {
+    Equals: "Equals",
+    GreaterThan: "GreaterThan",
+    GreaterThanOrEqual: "GreaterThanOrEqual",
+    LessThan: "LessThan",
+    LessThanOrEqual: "LessThanOrEqual",
+} as const;
+
+/**
+ * the criteria operator.
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
 
 export const PipelineType = {
     /**
