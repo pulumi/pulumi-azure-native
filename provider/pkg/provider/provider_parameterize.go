@@ -15,6 +15,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
@@ -206,6 +207,20 @@ func updateMetadataRefs(metadata *resources.APIMetadata, newPackageName, module,
 	return newMetadata, nil
 }
 
+func getAvailableApiVersions(schema pschema.PackageSpec, targetModule string) []string {
+	versions := map[string]struct{}{}
+	for resourceName := range schema.Resources {
+		moduleName, version, _, err := resources.ParseToken(resourceName)
+		if err != nil {
+			continue
+		}
+		if moduleName == targetModule && version != "" {
+			versions[version] = struct{}{}
+		}
+	}
+	return util.SortedKeys(versions)
+}
+
 // createParameterizedSchemaForApiVersion creates a new schema for the given module and API version by picking the
 // required resources, types, and functions from the providers existing schema and metadata. This assumes that the given
 // provider has a full schema with all API versions.
@@ -258,6 +273,17 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 	logging.V(9).Infof("Creating parameterized Azure Native for %s %s: found %d types, %d resources, %d functions",
 		targetModule, targetApiVersion, len(typeNames), len(resourceNames), len(functionNames))
 
+	if len(resourceNames) == 0 {
+		availableVersions := getAvailableApiVersions(schema, targetModule)
+		if len(availableVersions) == 0 {
+			return nil, nil, status.Errorf(codes.InvalidArgument, "module %s not found. Some modules were renamed in v3 of the provider; "+
+				"please see https://www.pulumi.com/registry/packages/azure-native/from-v2-to-v3/#new-module-structure-and-naming-aligned-closer-to-azure-sdks.",
+				targetModule)
+		}
+		return nil, nil, status.Errorf(codes.InvalidArgument, "no resources found for module %s at API version %s. Available API versions: %s",
+			targetModule, targetApiVersion, strings.Join(availableVersions, ", "))
+	}
+
 	metadataTypes := map[string]resources.AzureAPIType{}
 	metadataResources := map[string]resources.AzureAPIResource{}
 	metadataInvokes := map[string]resources.AzureAPIInvoke{}
@@ -280,7 +306,6 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 	for resourceTok, resourceName := range resourceNames {
 		newTok := makeToken(resourceName)
 		schemaResource := schema.Resources[resourceTok]
-		// schemaResource.Aliases = append(schemaResource.Aliases, pschema.AliasSpec{Type: pulumi.StringRef(newTok)})
 		newSchema.Resources[newTok] = schemaResource
 
 		resource, ok, err := p.resourceMap.Resources.Get(resourceTok)
