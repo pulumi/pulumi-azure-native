@@ -3102,6 +3102,16 @@ CognitiveServices:
         SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}
         RpNamespace: Microsoft.CognitiveServices
+    AccountCapabilityHost:
+        ApiVersion: 2025-04-01-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-04-01-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/capabilityHosts/{capabilityHostName}
+        RpNamespace: Microsoft.CognitiveServices
+    AccountConnection:
+        ApiVersion: 2025-04-01-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-04-01-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/connections/{connectionName}
+        RpNamespace: Microsoft.CognitiveServices
     CommitmentPlan:
         ApiVersion: "2024-10-01"
         SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
@@ -3126,6 +3136,21 @@ CognitiveServices:
         ApiVersion: "2024-10-01"
         SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName}
+        RpNamespace: Microsoft.CognitiveServices
+    Project:
+        ApiVersion: 2025-04-01-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-04-01-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}
+        RpNamespace: Microsoft.CognitiveServices
+    ProjectCapabilityHost:
+        ApiVersion: 2025-04-01-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-04-01-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/capabilityHosts/{capabilityHostName}
+        RpNamespace: Microsoft.CognitiveServices
+    ProjectConnection:
+        ApiVersion: 2025-04-01-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-04-01-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/connections/{connectionName}
         RpNamespace: Microsoft.CognitiveServices
     RaiBlocklist:
         ApiVersion: "2024-10-01"
@@ -3173,6 +3198,11 @@ Communication:
         ApiVersion: 2023-06-01-preview
         SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/preview/2023-06-01-preview/SenderUsernames.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName}/senderUsernames/{senderUsername}
+        RpNamespace: Microsoft.Communication
+    SmtpUsername:
+        ApiVersion: 2024-09-01-preview
+        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/preview/2024-09-01-preview/SmtpUsernames.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/communicationServices/{communicationServiceName}/smtpUsernames/{smtpUsername}
         RpNamespace: Microsoft.Communication
     SuppressionList:
         ApiVersion: 2023-06-01-preview
@@ -3568,6 +3598,11 @@ Consumption:
         ResourceUri: /{scope}/providers/Microsoft.Consumption/budgets/{budgetName}
         RpNamespace: Microsoft.Consumption
 ContainerInstance:
+    CGProfile:
+        ApiVersion: 2024-11-01-preview
+        SpecFilePath: specification/containerinstance/resource-manager/Microsoft.ContainerInstance/preview/2024-11-01-preview/containerInstance.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}
+        RpNamespace: Microsoft.ContainerInstance
     ContainerGroup:
         ApiVersion: 2024-05-01-preview
         SpecFilePath: specification/containerinstance/resource-manager/Microsoft.ContainerInstance/preview/2024-05-01-preview/containerInstance.json
@@ -4775,10 +4810,25 @@ DataReplication:
         SpecFilePath: specification/recoveryservicesdatareplication/resource-manager/Microsoft.DataReplication/preview/2021-02-16-preview/recoveryservicesdatareplication.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationFabrics/{fabricName}
         RpNamespace: Microsoft.DataReplication
+    FabricAgent:
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/recoveryservicesdatareplication/resource-manager/Microsoft.DataReplication/stable/2024-09-01/recoveryservicesdatareplication.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationFabrics/{fabricName}/fabricAgents/{fabricAgentName}
+        RpNamespace: Microsoft.DataReplication
     Policy:
         ApiVersion: 2021-02-16-preview
         SpecFilePath: specification/recoveryservicesdatareplication/resource-manager/Microsoft.DataReplication/preview/2021-02-16-preview/recoveryservicesdatareplication.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/replicationPolicies/{policyName}
+        RpNamespace: Microsoft.DataReplication
+    PrivateEndpointConnection:
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/recoveryservicesdatareplication/resource-manager/Microsoft.DataReplication/stable/2024-09-01/recoveryservicesdatareplication.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName}
+        RpNamespace: Microsoft.DataReplication
+    PrivateEndpointConnectionProxy:
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/recoveryservicesdatareplication/resource-manager/Microsoft.DataReplication/stable/2024-09-01/recoveryservicesdatareplication.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/privateEndpointConnectionProxies/{privateEndpointConnectionProxyName}
         RpNamespace: Microsoft.DataReplication
     ProtectedItem:
         ApiVersion: 2021-02-16-preview
@@ -5194,6 +5244,11 @@ DevCenter:
         SpecFilePath: specification/devcenter/resource-manager/Microsoft.DevCenter/preview/2024-10-01-preview/devcenter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/projects/{projectName}/catalogs/{catalogName}/imageDefinitions/{imageDefinitionName}/builds/{buildName}/getBuildDetails
         RpNamespace: Microsoft.DevCenter
+    getProjectCatalogImageDefinitionErrorDetails:
+        ApiVersion: "2025-02-01"
+        SpecFilePath: specification/devcenter/resource-manager/Microsoft.DevCenter/stable/2025-02-01/devcenter.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/projects/{projectName}/catalogs/{catalogName}/imageDefinitions/{imageDefinitionName}/getErrorDetails
+        RpNamespace: Microsoft.DevCenter
     getProjectCatalogSyncErrorDetails:
         ApiVersion: "2024-02-01"
         SpecFilePath: specification/devcenter/resource-manager/Microsoft.DevCenter/stable/2024-02-01/devcenter.json
@@ -5219,6 +5274,11 @@ DevHub:
         ApiVersion: "2023-08-01"
         SpecFilePath: specification/developerhub/resource-manager/Microsoft.DevHub/stable/2023-08-01/workflow.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/workflows/{workflowName}
+        RpNamespace: Microsoft.DevHub
+    getADOOAuthInfo:
+        ApiVersion: 2025-03-01-preview
+        SpecFilePath: specification/developerhub/resource-manager/Microsoft.DevHub/preview/2025-03-01-preview/workflow.json
+        ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.DevHub/locations/{location}/adooauth/default/getADOOAuthInfo
         RpNamespace: Microsoft.DevHub
     getGitHubOAuth:
         ApiVersion: "2023-08-01"
@@ -11943,6 +12003,11 @@ StorageCache:
         ApiVersion: "2024-03-01"
         SpecFilePath: specification/storagecache/resource-manager/Microsoft.StorageCache/stable/2024-03-01/amlfilesystem.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}
+        RpNamespace: Microsoft.StorageCache
+    AutoExportJob:
+        ApiVersion: "2024-07-01"
+        SpecFilePath: specification/storagecache/resource-manager/Microsoft.StorageCache/stable/2024-07-01/amlfilesystem.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/autoExportJobs/{autoExportJobName}
         RpNamespace: Microsoft.StorageCache
     Cache:
         ApiVersion: "2024-03-01"
