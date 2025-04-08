@@ -39,6 +39,211 @@ namespace Pulumi.AzureNative.CognitiveServices
     }
 
     /// <summary>
+    /// Kind of this capability host.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapabilityHostKind : IEquatable<CapabilityHostKind>
+    {
+        private readonly string _value;
+
+        private CapabilityHostKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapabilityHostKind Agents { get; } = new CapabilityHostKind("Agents");
+
+        public static bool operator ==(CapabilityHostKind left, CapabilityHostKind right) => left.Equals(right);
+        public static bool operator !=(CapabilityHostKind left, CapabilityHostKind right) => !left.Equals(right);
+
+        public static explicit operator string(CapabilityHostKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapabilityHostKind other && Equals(other);
+        public bool Equals(CapabilityHostKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Authentication type of the connection target
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionAuthType : IEquatable<ConnectionAuthType>
+    {
+        private readonly string _value;
+
+        private ConnectionAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionAuthType PAT { get; } = new ConnectionAuthType("PAT");
+        public static ConnectionAuthType ManagedIdentity { get; } = new ConnectionAuthType("ManagedIdentity");
+        public static ConnectionAuthType UsernamePassword { get; } = new ConnectionAuthType("UsernamePassword");
+        public static ConnectionAuthType None { get; } = new ConnectionAuthType("None");
+        public static ConnectionAuthType SAS { get; } = new ConnectionAuthType("SAS");
+        public static ConnectionAuthType AccountKey { get; } = new ConnectionAuthType("AccountKey");
+        public static ConnectionAuthType ServicePrincipal { get; } = new ConnectionAuthType("ServicePrincipal");
+        public static ConnectionAuthType AccessKey { get; } = new ConnectionAuthType("AccessKey");
+        public static ConnectionAuthType ApiKey { get; } = new ConnectionAuthType("ApiKey");
+        public static ConnectionAuthType CustomKeys { get; } = new ConnectionAuthType("CustomKeys");
+        public static ConnectionAuthType OAuth2 { get; } = new ConnectionAuthType("OAuth2");
+        public static ConnectionAuthType AAD { get; } = new ConnectionAuthType("AAD");
+
+        public static bool operator ==(ConnectionAuthType left, ConnectionAuthType right) => left.Equals(right);
+        public static bool operator !=(ConnectionAuthType left, ConnectionAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionAuthType other && Equals(other);
+        public bool Equals(ConnectionAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Category of the connection
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionCategory : IEquatable<ConnectionCategory>
+    {
+        private readonly string _value;
+
+        private ConnectionCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionCategory PythonFeed { get; } = new ConnectionCategory("PythonFeed");
+        public static ConnectionCategory ContainerRegistry { get; } = new ConnectionCategory("ContainerRegistry");
+        public static ConnectionCategory Git { get; } = new ConnectionCategory("Git");
+        public static ConnectionCategory S3 { get; } = new ConnectionCategory("S3");
+        public static ConnectionCategory Snowflake { get; } = new ConnectionCategory("Snowflake");
+        public static ConnectionCategory AzureSqlDb { get; } = new ConnectionCategory("AzureSqlDb");
+        public static ConnectionCategory AzureSynapseAnalytics { get; } = new ConnectionCategory("AzureSynapseAnalytics");
+        public static ConnectionCategory AzureMySqlDb { get; } = new ConnectionCategory("AzureMySqlDb");
+        public static ConnectionCategory AzurePostgresDb { get; } = new ConnectionCategory("AzurePostgresDb");
+        public static ConnectionCategory ADLSGen2 { get; } = new ConnectionCategory("ADLSGen2");
+        public static ConnectionCategory Redis { get; } = new ConnectionCategory("Redis");
+        public static ConnectionCategory ApiKey { get; } = new ConnectionCategory("ApiKey");
+        public static ConnectionCategory AzureOpenAI { get; } = new ConnectionCategory("AzureOpenAI");
+        public static ConnectionCategory AIServices { get; } = new ConnectionCategory("AIServices");
+        public static ConnectionCategory CognitiveSearch { get; } = new ConnectionCategory("CognitiveSearch");
+        public static ConnectionCategory CognitiveService { get; } = new ConnectionCategory("CognitiveService");
+        public static ConnectionCategory CustomKeys { get; } = new ConnectionCategory("CustomKeys");
+        public static ConnectionCategory AzureBlob { get; } = new ConnectionCategory("AzureBlob");
+        public static ConnectionCategory AzureOneLake { get; } = new ConnectionCategory("AzureOneLake");
+        public static ConnectionCategory CosmosDb { get; } = new ConnectionCategory("CosmosDb");
+        public static ConnectionCategory CosmosDbMongoDbApi { get; } = new ConnectionCategory("CosmosDbMongoDbApi");
+        public static ConnectionCategory AzureDataExplorer { get; } = new ConnectionCategory("AzureDataExplorer");
+        public static ConnectionCategory AzureMariaDb { get; } = new ConnectionCategory("AzureMariaDb");
+        public static ConnectionCategory AzureDatabricksDeltaLake { get; } = new ConnectionCategory("AzureDatabricksDeltaLake");
+        public static ConnectionCategory AzureSqlMi { get; } = new ConnectionCategory("AzureSqlMi");
+        public static ConnectionCategory AzureTableStorage { get; } = new ConnectionCategory("AzureTableStorage");
+        public static ConnectionCategory AmazonRdsForOracle { get; } = new ConnectionCategory("AmazonRdsForOracle");
+        public static ConnectionCategory AmazonRdsForSqlServer { get; } = new ConnectionCategory("AmazonRdsForSqlServer");
+        public static ConnectionCategory AmazonRedshift { get; } = new ConnectionCategory("AmazonRedshift");
+        public static ConnectionCategory Db2 { get; } = new ConnectionCategory("Db2");
+        public static ConnectionCategory Drill { get; } = new ConnectionCategory("Drill");
+        public static ConnectionCategory GoogleBigQuery { get; } = new ConnectionCategory("GoogleBigQuery");
+        public static ConnectionCategory Greenplum { get; } = new ConnectionCategory("Greenplum");
+        public static ConnectionCategory Hbase { get; } = new ConnectionCategory("Hbase");
+        public static ConnectionCategory Hive { get; } = new ConnectionCategory("Hive");
+        public static ConnectionCategory Impala { get; } = new ConnectionCategory("Impala");
+        public static ConnectionCategory Informix { get; } = new ConnectionCategory("Informix");
+        public static ConnectionCategory MariaDb { get; } = new ConnectionCategory("MariaDb");
+        public static ConnectionCategory MicrosoftAccess { get; } = new ConnectionCategory("MicrosoftAccess");
+        public static ConnectionCategory MySql { get; } = new ConnectionCategory("MySql");
+        public static ConnectionCategory Netezza { get; } = new ConnectionCategory("Netezza");
+        public static ConnectionCategory Oracle { get; } = new ConnectionCategory("Oracle");
+        public static ConnectionCategory Phoenix { get; } = new ConnectionCategory("Phoenix");
+        public static ConnectionCategory PostgreSql { get; } = new ConnectionCategory("PostgreSql");
+        public static ConnectionCategory Presto { get; } = new ConnectionCategory("Presto");
+        public static ConnectionCategory SapOpenHub { get; } = new ConnectionCategory("SapOpenHub");
+        public static ConnectionCategory SapBw { get; } = new ConnectionCategory("SapBw");
+        public static ConnectionCategory SapHana { get; } = new ConnectionCategory("SapHana");
+        public static ConnectionCategory SapTable { get; } = new ConnectionCategory("SapTable");
+        public static ConnectionCategory Spark { get; } = new ConnectionCategory("Spark");
+        public static ConnectionCategory SqlServer { get; } = new ConnectionCategory("SqlServer");
+        public static ConnectionCategory Sybase { get; } = new ConnectionCategory("Sybase");
+        public static ConnectionCategory Teradata { get; } = new ConnectionCategory("Teradata");
+        public static ConnectionCategory Vertica { get; } = new ConnectionCategory("Vertica");
+        public static ConnectionCategory Pinecone { get; } = new ConnectionCategory("Pinecone");
+        public static ConnectionCategory Cassandra { get; } = new ConnectionCategory("Cassandra");
+        public static ConnectionCategory Couchbase { get; } = new ConnectionCategory("Couchbase");
+        public static ConnectionCategory MongoDbV2 { get; } = new ConnectionCategory("MongoDbV2");
+        public static ConnectionCategory MongoDbAtlas { get; } = new ConnectionCategory("MongoDbAtlas");
+        public static ConnectionCategory AmazonS3Compatible { get; } = new ConnectionCategory("AmazonS3Compatible");
+        public static ConnectionCategory FileServer { get; } = new ConnectionCategory("FileServer");
+        public static ConnectionCategory FtpServer { get; } = new ConnectionCategory("FtpServer");
+        public static ConnectionCategory GoogleCloudStorage { get; } = new ConnectionCategory("GoogleCloudStorage");
+        public static ConnectionCategory Hdfs { get; } = new ConnectionCategory("Hdfs");
+        public static ConnectionCategory OracleCloudStorage { get; } = new ConnectionCategory("OracleCloudStorage");
+        public static ConnectionCategory Sftp { get; } = new ConnectionCategory("Sftp");
+        public static ConnectionCategory GenericHttp { get; } = new ConnectionCategory("GenericHttp");
+        public static ConnectionCategory ODataRest { get; } = new ConnectionCategory("ODataRest");
+        public static ConnectionCategory Odbc { get; } = new ConnectionCategory("Odbc");
+        public static ConnectionCategory GenericRest { get; } = new ConnectionCategory("GenericRest");
+        public static ConnectionCategory AmazonMws { get; } = new ConnectionCategory("AmazonMws");
+        public static ConnectionCategory Concur { get; } = new ConnectionCategory("Concur");
+        public static ConnectionCategory Dynamics { get; } = new ConnectionCategory("Dynamics");
+        public static ConnectionCategory DynamicsAx { get; } = new ConnectionCategory("DynamicsAx");
+        public static ConnectionCategory DynamicsCrm { get; } = new ConnectionCategory("DynamicsCrm");
+        public static ConnectionCategory GoogleAdWords { get; } = new ConnectionCategory("GoogleAdWords");
+        public static ConnectionCategory Hubspot { get; } = new ConnectionCategory("Hubspot");
+        public static ConnectionCategory Jira { get; } = new ConnectionCategory("Jira");
+        public static ConnectionCategory Magento { get; } = new ConnectionCategory("Magento");
+        public static ConnectionCategory Marketo { get; } = new ConnectionCategory("Marketo");
+        public static ConnectionCategory Office365 { get; } = new ConnectionCategory("Office365");
+        public static ConnectionCategory Eloqua { get; } = new ConnectionCategory("Eloqua");
+        public static ConnectionCategory Responsys { get; } = new ConnectionCategory("Responsys");
+        public static ConnectionCategory OracleServiceCloud { get; } = new ConnectionCategory("OracleServiceCloud");
+        public static ConnectionCategory PayPal { get; } = new ConnectionCategory("PayPal");
+        public static ConnectionCategory QuickBooks { get; } = new ConnectionCategory("QuickBooks");
+        public static ConnectionCategory Salesforce { get; } = new ConnectionCategory("Salesforce");
+        public static ConnectionCategory SalesforceServiceCloud { get; } = new ConnectionCategory("SalesforceServiceCloud");
+        public static ConnectionCategory SalesforceMarketingCloud { get; } = new ConnectionCategory("SalesforceMarketingCloud");
+        public static ConnectionCategory SapCloudForCustomer { get; } = new ConnectionCategory("SapCloudForCustomer");
+        public static ConnectionCategory SapEcc { get; } = new ConnectionCategory("SapEcc");
+        public static ConnectionCategory ServiceNow { get; } = new ConnectionCategory("ServiceNow");
+        public static ConnectionCategory SharePointOnlineList { get; } = new ConnectionCategory("SharePointOnlineList");
+        public static ConnectionCategory Shopify { get; } = new ConnectionCategory("Shopify");
+        public static ConnectionCategory Square { get; } = new ConnectionCategory("Square");
+        public static ConnectionCategory WebTable { get; } = new ConnectionCategory("WebTable");
+        public static ConnectionCategory Xero { get; } = new ConnectionCategory("Xero");
+        public static ConnectionCategory Zoho { get; } = new ConnectionCategory("Zoho");
+        public static ConnectionCategory GenericContainerRegistry { get; } = new ConnectionCategory("GenericContainerRegistry");
+        public static ConnectionCategory Elasticsearch { get; } = new ConnectionCategory("Elasticsearch");
+        public static ConnectionCategory OpenAI { get; } = new ConnectionCategory("OpenAI");
+        public static ConnectionCategory Serp { get; } = new ConnectionCategory("Serp");
+        public static ConnectionCategory BingLLMSearch { get; } = new ConnectionCategory("BingLLMSearch");
+        public static ConnectionCategory Serverless { get; } = new ConnectionCategory("Serverless");
+        public static ConnectionCategory ManagedOnlineEndpoint { get; } = new ConnectionCategory("ManagedOnlineEndpoint");
+
+        public static bool operator ==(ConnectionCategory left, ConnectionCategory right) => left.Equals(right);
+        public static bool operator !=(ConnectionCategory left, ConnectionCategory right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionCategory other && Equals(other);
+        public bool Equals(ConnectionCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Level at which content is filtered.
     /// </summary>
     [EnumType]
@@ -221,6 +426,64 @@ namespace Pulumi.AzureNative.CognitiveServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KeySource other && Equals(other);
         public bool Equals(KeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ManagedPERequirement : IEquatable<ManagedPERequirement>
+    {
+        private readonly string _value;
+
+        private ManagedPERequirement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedPERequirement Required { get; } = new ManagedPERequirement("Required");
+        public static ManagedPERequirement NotRequired { get; } = new ManagedPERequirement("NotRequired");
+        public static ManagedPERequirement NotApplicable { get; } = new ManagedPERequirement("NotApplicable");
+
+        public static bool operator ==(ManagedPERequirement left, ManagedPERequirement right) => left.Equals(right);
+        public static bool operator !=(ManagedPERequirement left, ManagedPERequirement right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedPERequirement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedPERequirement other && Equals(other);
+        public bool Equals(ManagedPERequirement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ManagedPEStatus : IEquatable<ManagedPEStatus>
+    {
+        private readonly string _value;
+
+        private ManagedPEStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedPEStatus Inactive { get; } = new ManagedPEStatus("Inactive");
+        public static ManagedPEStatus Active { get; } = new ManagedPEStatus("Active");
+        public static ManagedPEStatus NotApplicable { get; } = new ManagedPEStatus("NotApplicable");
+
+        public static bool operator ==(ManagedPEStatus left, ManagedPEStatus right) => left.Equals(right);
+        public static bool operator !=(ManagedPEStatus left, ManagedPEStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedPEStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedPEStatus other && Equals(other);
+        public bool Equals(ManagedPEStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

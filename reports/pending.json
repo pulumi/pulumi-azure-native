@@ -154,7 +154,8 @@
   "Capacity": [],
   "Cdn": [
     "2024-07-22-preview",
-    "2024-09-01"
+    "2024-09-01",
+    "2025-04-15"
   ],
   "CertificateRegistration": [],
   "ChangeAnalysis": [],
@@ -299,7 +300,9 @@
     "2024-09-02-preview",
     "2024-10-01",
     "2024-10-02-preview",
-    "2025-01-01"
+    "2025-01-01",
+    "2025-01-02-preview",
+    "2025-03-01"
   ],
   "ContainerStorage": [],
   "Contoso": [],
@@ -370,7 +373,8 @@
     "2023-09-01",
     "2023-11-01",
     "2024-08-01",
-    "2024-10-01-preview"
+    "2024-10-01-preview",
+    "2025-03-01"
   ],
   "CustomProviders": [],
   "CustomerInsights": [],
@@ -442,7 +446,9 @@
   "DataFactory": [],
   "DataLakeAnalytics": [],
   "DataLakeStore": [],
-  "DataMigration": [],
+  "DataMigration": [
+    "2025-03-15-preview"
+  ],
   "DataProtection": [
     "2025-02-01"
   ],
@@ -514,7 +520,8 @@
     "2025-01-15-preview"
   ],
   "ElasticSan": [
-    "2024-06-01-preview"
+    "2024-06-01-preview",
+    "2024-07-01-preview"
   ],
   "EngagementFabric": [],
   "EnterpriseKnowledgeGraph": [],
@@ -730,7 +737,9 @@
     "2024-01-01-preview",
     "2024-07-01-preview"
   ],
-  "Marketplace": [],
+  "Marketplace": [
+    "2025-01-01"
+  ],
   "MarketplaceNotifications": [],
   "MarketplaceOrdering": [],
   "Media": [
@@ -835,7 +844,8 @@
     "2024-07-01",
     "2024-07-01-preview",
     "2024-09-01",
-    "2024-09-01-preview"
+    "2024-09-01-preview",
+    "2025-01-01"
   ],
   "Network": [
     "2019-04-01",
@@ -947,7 +957,9 @@
     "2024-07-30-preview",
     "2024-09-30-preview",
     "2024-10-01",
-    "2024-11-01-preview"
+    "2024-11-01-preview",
+    "2025-01-01",
+    "2025-02-01"
   ],
   "RedHatOpenShift": [
     "2024-08-12-preview"
@@ -988,12 +1000,14 @@
     "2023-08-01",
     "2024-03-01",
     "2024-07-01",
-    "2024-11-01"
+    "2024-11-01",
+    "2025-03-01"
   ],
   "SaaS": [],
   "ScVmm": [
     "2023-10-07",
-    "2024-06-01"
+    "2024-06-01",
+    "2025-03-13"
   ],
   "Scheduler": [],
   "Scom": [],
@@ -1068,7 +1082,8 @@
   "ServiceFabric": [
     "2024-06-01-preview",
     "2024-09-01-preview",
-    "2024-11-01-preview"
+    "2024-11-01-preview",
+    "2025-03-01-preview"
   ],
   "ServiceFabricMesh": [],
   "ServiceLinker": [

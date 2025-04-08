@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2021-11-20-preview.
  *
- * Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ElasticSan extends pulumi.CustomResource {
     /**
@@ -178,7 +178,7 @@ export class ElasticSan extends pulumi.CustomResource {
             resourceInputs["volumeGroupCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20211120preview:ElasticSan" }, { type: "azure-native:elasticsan/v20221201preview:ElasticSan" }, { type: "azure-native:elasticsan/v20230101:ElasticSan" }, { type: "azure-native:elasticsan/v20240501:ElasticSan" }, { type: "azure-native:elasticsan/v20240601preview:ElasticSan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20211120preview:ElasticSan" }, { type: "azure-native:elasticsan/v20221201preview:ElasticSan" }, { type: "azure-native:elasticsan/v20230101:ElasticSan" }, { type: "azure-native:elasticsan/v20240501:ElasticSan" }, { type: "azure-native:elasticsan/v20240601preview:ElasticSan" }, { type: "azure-native:elasticsan/v20240701preview:ElasticSan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticSan.__pulumiType, name, resourceInputs, opts);
     }

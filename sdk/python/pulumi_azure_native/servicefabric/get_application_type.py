@@ -143,6 +143,8 @@ def get_application_type(application_type_name: Optional[str] = None,
 
     Uses Azure REST API version 2024-11-01-preview.
 
+    Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str application_type_name: The name of the application type name resource.
     :param str cluster_name: The name of the cluster resource.
@@ -172,6 +174,8 @@ def get_application_type_output(application_type_name: Optional[pulumi.Input[str
     Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
 
     Uses Azure REST API version 2024-11-01-preview.
+
+    Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str application_type_name: The name of the application type name resource.

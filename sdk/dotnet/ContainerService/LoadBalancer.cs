@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService
     /// 
     /// Uses Azure REST API version 2024-10-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-02-preview.
     /// 
-    /// Other available API versions: 2024-03-02-preview, 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-03-02-preview, 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview, 2025-01-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource
@@ -111,6 +111,7 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240702preview:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240902preview:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20241002preview:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20250102preview:LoadBalancer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

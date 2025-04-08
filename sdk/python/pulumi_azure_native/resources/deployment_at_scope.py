@@ -121,7 +121,7 @@ class DeploymentAtScope(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +142,7 @@ class DeploymentAtScope(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DeploymentAtScopeArgs args: The arguments to use to populate this resource's properties.
@@ -185,7 +185,7 @@ class DeploymentAtScope(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20190701:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20190801:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20191001:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20200601:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20200801:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20201001:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20210101:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20210401:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20220901:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20230701:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20240301:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20240701:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20241101:DeploymentAtScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20190701:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20190801:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20191001:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20200601:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20200801:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20201001:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20210101:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20210401:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20220901:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20230701:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20240301:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20240701:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20241101:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20250301:DeploymentAtScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentAtScope, __self__).__init__(
             'azure-native:resources:DeploymentAtScope',

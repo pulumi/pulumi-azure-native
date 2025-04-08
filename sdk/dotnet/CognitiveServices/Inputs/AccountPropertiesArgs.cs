@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         }
 
         /// <summary>
-        /// The user owned AML workspace properties.
+        /// The user owned AML account properties.
         /// </summary>
         [Input("amlWorkspace")]
         public Input<Inputs.UserOwnedAmlWorkspaceArgs>? AmlWorkspace { get; set; }

@@ -239,6 +239,8 @@ def get_private_store_collection_offer(collection_id: Optional[str] = None,
 
     Uses Azure REST API version 2023-01-01.
 
+    Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param str collection_id: The collection ID
     :param str offer_id: The offer ID to update or delete
@@ -276,6 +278,8 @@ def get_private_store_collection_offer_output(collection_id: Optional[pulumi.Inp
     Gets information about a specific offer.
 
     Uses Azure REST API version 2023-01-01.
+
+    Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param str collection_id: The collection ID

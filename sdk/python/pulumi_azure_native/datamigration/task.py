@@ -120,7 +120,7 @@ class Task(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-30.
 
-        Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +141,7 @@ class Task(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-30.
 
-        Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.
@@ -188,7 +188,7 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20171115preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180315preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180331preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180419:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180715preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20210630:Task"), pulumi.Alias(type_="azure-native:datamigration/v20211030preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20220130preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20230715preview:Task")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20171115preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180315preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180331preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180419:Task"), pulumi.Alias(type_="azure-native:datamigration/v20180715preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20210630:Task"), pulumi.Alias(type_="azure-native:datamigration/v20211030preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20220130preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20230715preview:Task"), pulumi.Alias(type_="azure-native:datamigration/v20250315preview:Task")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Task, __self__).__init__(
             'azure-native:datamigration:Task',
