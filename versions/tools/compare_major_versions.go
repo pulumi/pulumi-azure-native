@@ -9,6 +9,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strings"
 
 	"gopkg.in/yaml.v3"
 )
@@ -49,7 +50,7 @@ func (cc ResourceComparisons) toChanges() Changes {
 			added = append(added, c)
 		}
 		if c.Previous != nil && c.Next != nil &&
-			(c.Previous.Module != c.Next.Module || c.Previous.ResourceName != c.Next.ResourceName) {
+			(!strings.EqualFold(c.Previous.Module, c.Next.Module) || c.Previous.ResourceName != c.Next.ResourceName) {
 			changed = append(changed, c)
 		}
 	}
@@ -64,7 +65,7 @@ func mapConfigByPath(config Config) map[string]*Resource {
 	resourceMap := make(map[string]*Resource)
 	for service, resources := range config {
 		for r, info := range resources {
-			resourceMap[info.ResourceUri] = &Resource{service, r, info.ApiVersion}
+			resourceMap[strings.ToLower(info.ResourceUri)] = &Resource{service, r, info.ApiVersion}
 		}
 	}
 	return resourceMap
