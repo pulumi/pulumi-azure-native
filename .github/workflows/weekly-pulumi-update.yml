@@ -10,7 +10,7 @@ env:
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
-  PROVIDER_VERSION: 2.0.0-alpha.0+dev
+  PROVIDER_VERSION: 3.0.0-alpha.0+dev
 
 jobs:
   weekly-pulumi-update:
